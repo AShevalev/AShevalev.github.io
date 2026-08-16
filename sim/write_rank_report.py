@@ -178,7 +178,7 @@ def vero_ranks(skus, r):
     return raw_r, raw_n, r20, n20, r30, n30, peers, pr
 
 
-def build():
+def collect_story():
     skus, scored = load()
     s = styles()
     story = []
@@ -380,7 +380,11 @@ def build():
         "SKUs: results/industry_skus.csv · scores: results/difficulty_scores.csv.",
         s["tiny"],
     ))
+    return story, skus, scored
 
+
+def build():
+    story, skus, scored = collect_story()
     scored.to_csv(RESULTS / "difficulty_scores.csv", index=False)
     rows = []
     for r in skus.sort_values(["Family", "Size", "D", "Sale"]).itertuples():

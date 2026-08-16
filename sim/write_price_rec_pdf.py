@@ -345,7 +345,7 @@ def family_stats(skus):
     return rows
 
 
-def build():
+def collect_story():
     skus, scored = load()
     s = styles()
     story = []
@@ -751,7 +751,11 @@ def build():
         "year-1 20% print, under BG and Goat. Same book 7/22/26/28/17.",
         s["tiny"],
     ))
+    return story, skus, rows_out, stats
 
+
+def build():
+    story, skus, rows_out, stats = collect_story()
     pd.DataFrame(rows_out).to_csv(RESULTS / "verodus_recommended_prices.csv", index=False)
     pd.DataFrame(stats).to_csv(RESULTS / "verodus_rec_vs_band.csv", index=False)
     pd.DataFrame([{
