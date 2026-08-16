@@ -1,0 +1,27 @@
+title: Andrey Shevalev
+description: >-
+  Personal site of Andrey Shevalev, built with Jekyll and hosted on GitHub Pages.
+author: Andrey Shevalev
+lang: en
+
+# Rendered with the default GitHub Pages theme.
+theme: minima
+
+# Plugins supported by GitHub Pages.
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# When served from https://ashevalev.github.io the site lives at the domain root,
+# so baseurl stays empty. url is used for absolute links in feeds and SEO tags.
+baseurl: ""
+url: "https://ashevalev.github.io"
+
+# Files that never belong in the built site.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .cursor
+  - README.md
+  - LICENSE
