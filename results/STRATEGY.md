@@ -2,11 +2,11 @@
 
 Same industry-calibrated book for every firm (7% Pro / 22% Semi-skilled / 26% Average / 28% Aggressive / 17% Lottery). A standard FTMO-style 2-step lands at **P1 22% / funded 13% / P(pay) 13% / year-1 4%** — inside the Track360/FPFX band (P1 25–35%, funded 5–14%, ever-paid ~7%, long-term 1–3%). Instant P(pay) here is *first-payout eligibility*; year-1 (~7% on Verodus Instant) is the figure that matches the 4–6% “sustained Instant” disclosures.
 
-**Headline:** do not race Maven/Alpha on sticker. Verodus already prints on every eval SKU. The only hole is Instant $25k+ (same hole every Instant peer has). Fix Instant with **rules + a payout cap**, not a price cut. On evals, **raise prices toward the mid-tier** and **close the Lite funded-10% hole**.
+**Headline:** one rulebook per category, same percentages at every size (see [`RULES.md`](RULES.md)). Do not race Maven/Alpha on sticker. Evals already print. Instant $25k+ is red under *today’s* Instant card — fix it with **the same** 2% max-risk + 3% first-reward cap + trail lock at +5% on **every** Instant size, then price the large SKUs. On evals, raise toward the mid-tier and set Lite funded DD to 8%.
 
 ---
 
-## 1. Instant — revise rules on $25k+, keep $5k/$10k
+## 1. Instant — same card at every size (see RULES.md)
 
 | Size | Sale now | E[cost] | Sale m | 40% price | Action |
 |---:|---:|---:|---:|---:|---|
@@ -21,11 +21,10 @@ Peers at $5k Instant: FXIFY Lite $39 (+13%), Alpha $40 (+14%), FP Zero $48 (+14%
 
 **Do this**
 
-1. **Keep 3% daily / 6% trail / 20% best-day / no refund** on $5k and $10k. That stack is the Instant industry standard and it is why $5k prints.
-2. **Add a 2% max-risk-per-trade** (Hola / Goat Instant already have this). It cuts Lottery/Aggressive payout tails without changing the marketing card.
-3. **Cap the first reward at 5% of start** (or lock trail at +5% like FP Zero). Linear E[payout] is what sinks $50k+. A cap makes $100k Instant priceable near $550–650 instead of $1,400.
-4. **Do not add a fee refund.** Instant P(pay) is 22% in this book; a first-payout refund would take ~$15 off every $72 sale.
-5. **Do not cut VERO35.** $72 vs list $110 is the shopper language. Cut list if you must, not the sale.
+1. **Same Instant card at $5k and $200k:** 3% daily from day’s high, 6% trail that **locks at initial at +5%**, 20% best-day, 5 valid 0.5% days, **2% max risk**, **first reward capped at 3% of initial**, no refund, 80% split.
+2. Those three additions (lock, 2% risk, 3% first-reward cap) are percentages, so they are size-consistent and are what make $100k Instant priceable.
+3. **Do not add a fee refund.** Instant P(pay) is 22% in this book; a refund would tax every sale.
+4. **Do not cut VERO35.** $72 vs list $110 is the shopper language.
 
 **Do not** loosen daily to 4% or drop consistency to 30% to “look easier.” Instant demand is price + speed, not room. Loosening Instant is how Alpha/FP lose money at $50k+.
 
@@ -107,7 +106,7 @@ What the book pays for, ranked:
 
 | Rule | Effect on P(pay) / E[X] | Who uses it | Verodus today |
 |---|---|---|---|
-| **3% daily + 20% consistency + 6% trail** | Instant first-payout 15–22%; year-1 ~5–7% | Verodus, IF, BG, Goat | Keep on Instant $5–10k |
+| **3% daily + 20% consistency + 6% trail** | Instant first-payout 15–22%; year-1 ~5–7% | Verodus, IF, BG, Goat | Keep on **every** Instant size |
 | **No daily + 6–8% trail** | Instant P(pay) **53%** (FN Instant, FXIFY Standard) | FundedNext Instant, FXIFY Instant | Do **not** copy. Those SKUs only work because they cap at $20k (FN) or charge more. |
 | **6% hybrid / 6% trail on 1-step** | P(pay) 7–9% vs 13% on 10% trail | Verodus 1-Step, Alpha One, E8 One | **Keep. This is the 1-Step edge.** |
 | **10% funded static after 8% eval** | Lite-class hole | Verodus Lite, Alpha Pro 10%, FP Standard | **Close (8%).** |
@@ -125,7 +124,7 @@ Shopper pays the **sale** column. List is sale / 0.65.
 
 | Plan | $5k | $10k | $25k | $50k | $100k | $200k | Rule change |
 |---|---:|---:|---:|---:|---:|---:|---|
-| **Instant** | $72 | $129 | $299 | $499 | $649 | pull or $999 + 5% first-payout cap | +2% max risk; first reward cap 5% on $25k+ |
+| **Instant** | $72 | $129 | $299 | $499 | $649 | $999 | Same card every size: +2% max risk, +5% trail lock, 3% first-reward cap |
 | **1-Step** | $49 | $79 | $149 | $249 | $449 | $799 | none (keep 6% hybrid + 50% best-day) |
 | **Lite** | $27 | $45 | $99 | $179 | $349 | $549 | funded DD 10% → 8% |
 | **Pro** | $36 | $59 | $129 | $229 | $449 | $799 | none (keep 10/5 · 5/10) |

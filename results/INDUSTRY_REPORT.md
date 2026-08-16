@@ -1,6 +1,6 @@
 # Top-20 prop firms — industry-calibrated Monte Carlo
 
-**Read [`STRATEGY.md`](STRATEGY.md) first** — Verodus actions by plan and size.
+**Read [`RULES.md`](RULES.md) for the Verodus card, [`PRICES.md`](PRICES.md) for every firm’s charge and margin, [`STRATEGY.md`](STRATEGY.md) for actions.**
 
 Book: **7% Pro / 22% Semi-skilled / 26% Average / 28% Aggressive / 17% Lottery**.
 Calibrated so a standard 10/5 · 5/10 static 2-step (FTMO) lands near the
