@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Family street prices + customer-attractive Verodus sale card.
+"""Verodus BE by account + multi-factor recommended sale card.
 
-Pricing ignores difficulty. Rec is what a shopper finds cheap: at or under
-the same-family median, and never above live if live is already cheaper.
+Instant BE = year-1 E[X] (first × P_yr1/P_pay). Eval BE = first-payout
+E[X] / (1 − P(pay)). Rec uses cost floor, closest twins, live VERO35,
+and 20/40% columns — not the family median alone.
 """
 
 from __future__ import annotations
@@ -38,14 +39,15 @@ HEAD_BG = colors.HexColor("#0f2744")
 
 SIZES = (5000, 10000, 25000, 50000, 100000, 200000)
 
-# Customer-attractive VERO35 sale. Instant cut to the family median
-# (shop-round). Evals stay at live — already at or under the family low.
+# Multi-factor VERO35 sale. Instant: ≥ year-1 40% column, at/under Goat
+# (3/6 twin), under Instant Funding / Hola, not Alpha/BG $100k holes.
+# Evals: keep live — already cheapest and well above BE.
 REC = {
     ("Instant", 5000): 63,
     ("Instant", 10000): 99,
-    ("Instant", 25000): 175,
-    ("Instant", 50000): 279,
-    ("Instant", 100000): 499,
+    ("Instant", 25000): 199,
+    ("Instant", 50000): 319,
+    ("Instant", 100000): 529,
     ("1-Step", 5000): 36,
     ("1-Step", 10000): 60,
     ("1-Step", 25000): 120,
@@ -75,15 +77,13 @@ ANCHORS = (
 
 WHY = {
     "Instant": (
-        "Shoppers compare every Instant on the page — Alpha $40, BG $54, Goat $63, "
-        "Hola $79 at $5k; Alpha $274, BG $467, Goat $559, Instant Funding $639, "
-        "Hola $839 at $100k. Live VERO35 sits above the family median at every size. "
-        "Rec cuts to that median (Goat-class, shop-round): $63 / $99 / $175 / $279 / $499. "
-        "Instant margins use year-1 (7.2% of buyers), not first-payout eligibility (22%). "
-        "Same-difficulty peers (BG, IF, Goat, Hola) charge $467–$839 at $100k — they only "
-        "print if Instant is priced on year-1. First-payout E[X] $875 made $1,094 look "
-        "required and made every peer look −30% to −95%. That was the wrong basis. "
-        "No $200k Instant."
+        "Factors, not the median: (1) year-1 BE so the size prints, (2) ≥ 40% column "
+        "when that still sits under Goat / Instant Funding, (3) Goat 3/6 as the twin "
+        "shoppers click, (4) under Instant Funding and Hola, (5) do not match Alpha "
+        "$274 or BG $467 at $100k as a target — those are the cheap holes. "
+        "Rec $63 / $99 / $199 / $319 / $529. $25k+ is Goat, not the median pulled "
+        "down by Alpha / FXIFY Lite / FP. $100k $529 is the 40% column ($473) plus "
+        "a CPA buffer, still under Goat $559 and IF $639. No $200k Instant."
     ),
     "1-Step": (
         "Live is already the cheapest 1-step on the shelf at every size except $5k "
@@ -175,7 +175,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "Instant BE uses year-1 (7%), not first-payout 22%. Evals stay first-payout. VERO35 list = sale ÷ 0.65.",
+        "BE stated per account. Instant = year-1. Evals = first-payout + refund. Rec is multi-factor, not median-only.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -330,19 +330,30 @@ def build():
     s = styles()
     story = []
 
-    story.append(P("Attractive Verodus sale card vs competitor street", s["cover"]))
+    story.append(P("Break-even by account and recommended sale", s["cover"]))
     story.append(P(
-        "Priced for the shopper, not for difficulty. Rec is at or under the same-family "
-        "median (what customers see on Instant / 1-step / 2-step pages). "
-        "16 August 2026.",
+        "Every Verodus size has a stated BE. Instant uses year-1 cost. "
+        "1-Step / Lite / Pro use first-payout + fee refund. "
+        "Recommended sale is multi-factor — not the family median. 16 August 2026.",
         s["sub"],
     ))
     story.append(P(
-        "Rule: never recommend a fee above the family median, and never raise a live "
-        "fee that is already under that median. 1-Step / Lite / Pro stay at today’s "
-        "VERO35 — they are already the cheap names on those shelves. Instant is cut "
-        "to the Instant median so we sit with Goat, not above Instant Funding / Hola. "
+        "<b>Instant BE</b> = E[X]<sub>first</sub> × (P<sub>yr1</sub> / P<sub>pay</sub>) "
+        "= $875.25 × (7.161% / 22.07%) = <b>$284 at $100k</b>, then × size/100k. "
+        "No refund. <b>Eval BE</b> = E[X] / (1 − P(pay)): 1-Step $108.10 / 0.91192 = "
+        "<b>$119</b>; Lite $136.01 / 0.89384 = <b>$152</b>; Pro $132.54 / 0.88002 = "
+        "<b>$151</b> at $100k, then × size/100k. F<sub>m</sub> = BE / (1 − m). "
         "List = sale ÷ 0.65. Instant $200k pulled.",
+        s["body"],
+    ))
+    story.append(P(
+        "<b>Rec factors:</b> (1) stay above BE and, on Instant, at or above the 40% "
+        "column when that is still cheaper than Goat / Instant Funding; (2) sit on the "
+        "closest twin shoppers click (Goat 3/6 Instant, Hola 1-Step, Ment/FN Lite, "
+        "Goat/Maven 2-step) — not the family median dragged by Alpha / FXIFY Lite; "
+        "(3) never raise a live eval that is already the cheapest name and fat; "
+        "(4) do not match Instant $100k holes (Alpha $274, BG $467) as a target; "
+        "(5) shop-round fees.",
         s["body"],
     ))
 
@@ -352,10 +363,10 @@ def build():
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
     why_short = {
-        "Instant": "Family median. Year-1 BE — prints at $5k–$100k.",
-        "1-Step": "Keep live — cheapest 1-step on the shelf.",
-        "2-Step Lite": "Keep live — cheapest 2-step on the shelf.",
-        "2-Step Pro": "Keep live — #2 after Maven, under Goat / FTMO.",
+        "Instant": "Goat twin, ≥ year-1 40%, under IF / Hola.",
+        "1-Step": "Keep live — cheapest 1-step, +59% at $100k.",
+        "2-Step Lite": "Keep live — cheapest 2-step, +33% at $100k.",
+        "2-Step Pro": "Keep live — #2 after Maven, +43% at $100k.",
     }
     for i, (plan, _fam) in enumerate(ANCHORS, start=1):
         live100 = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == 100000)]
@@ -379,13 +390,64 @@ def build():
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Green = recommended sale. Instant is a cut vs live. Evals are unchanged. "
-        "Instant $100k rec $499 is −26% vs live $676, under Instant Funding $639, "
-        "and <b>+43% on year-1 cost</b> (not −75% — that was first-payout 22%).",
+        "Green = recommended sale. Instant is a cut vs live toward Goat / the 40% "
+        "column. Evals are unchanged. Instant $100k rec $529 is +46% on year-1 BE $284 "
+        "(20% = $355, 40% = $473, 60% = $710).",
         s["body"],
     ))
 
-    story.append(P("2. Why Instant first-payout margins were wrong", s["h1"]))
+    # ----- BE for every account -----
+    story.append(P("2. Break-even for every Verodus account", s["h1"]))
+    story.append(P(
+        "This is the number the rest of the card is built on. Instant also shows "
+        "first-payout E[X] so the old $875 / $1,094 path is visible and not used.",
+        s["body"],
+    ))
+    bheads = ["Plan", "Size", "Basis", "E[X] used", "P(pay)", "Year-1",
+              "BE", "20%", "40%", "60%", "Live", "Rec"]
+    bdata = [[P(h, s["th"]) for h in bheads]]
+    bspec = {}
+    bi = 0
+    for plan, _fam in ANCHORS:
+        for sz in SIZES:
+            if (plan, sz) not in REC:
+                continue
+            live = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == sz)]
+            if live.empty:
+                continue
+            r = live.iloc[0]
+            pr = pricing_for(r)
+            rec = REC[(plan, sz)]
+            bi += 1
+            if plan == "Instant":
+                bspec[bi] = "rec"
+            else:
+                bspec[bi] = "live"
+            bdata.append([
+                P(plan, s["tdl"]),
+                P(usd(sz), s["td"]),
+                P(pr["basis"], s["td"]),
+                P(usd(pr["e_used"]), s["td"]),
+                P(f"{100 * pr['p_pay']:.1f}%", s["td"]),
+                P(f"{100 * pr['p_yr1']:.1f}%", s["td"]),
+                P(usd(pr["be"]), s["td"]),
+                P(usd(pr["px_20"]), s["td"]),
+                P(usd(pr["px_40"]), s["td"]),
+                P(usd(pr["px_60"]), s["td"]),
+                P(usd(r.Sale), s["td"]),
+                P(usd(rec), s["td"]),
+            ])
+    story.append(grid(bdata, [
+        26*mm, 18*mm, 16*mm, 20*mm, 16*mm, 16*mm, 18*mm, 18*mm, 18*mm, 18*mm, 18*mm, 18*mm,
+    ], bspec))
+    story.append(Spacer(1, 2*mm))
+    story.append(P(
+        "Green = Instant (year-1 BE). Blue = evals (first-payout BE). "
+        "1-Step $5k BE is $6; sale $36 is +76%. Instant $100k BE is $284, not $875.",
+        s["tiny"],
+    ))
+
+    story.append(P("3. Why Instant first-payout margins were wrong", s["h1"]))
     story.append(P(
         "Same-difficulty Instant (D 84–94): Blue Guardian, Instant Funding, Goat, Hola, "
         "FP Zero, FXIFY Lite, Alpha. They charge <b>$274–$839</b> at $100k. Our first-payout "
@@ -451,12 +513,12 @@ def build():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Blue = live Verodus. Green = rec. On year-1, BG $467 is +38%, Goat $559 is +55%, "
-        "IF $639 is +57%, Hola $839 is +60%, rec $499 is +43%. First-payout column is the "
+        "IF $639 is +57%, Hola $839 is +60%, rec $529 is +46%. First-payout column is the "
         "old (wrong) Instant basis.",
         s["body"],
     ))
 
-    story.append(P("3. Rec vs BE / 20% / 40% / 60% (Instant = year-1)", s["h1"]))
+    story.append(P("4. Rec vs BE / 20% / 40% / 60% (Instant = year-1)", s["h1"]))
     story.append(P(
         "Instant: <b>BE = E[X]<sub>first</sub> × (P<sub>yr1</sub> / P<sub>pay</sub>)</b>, no refund. "
         "Evals: first-payout E[X] and refund ⇒ <b>BE = E[X] / (1 − P(pay))</b>. "
@@ -530,7 +592,7 @@ def build():
         s["body"],
     ))
 
-    for n, (plan, family) in enumerate(ANCHORS, start=4):
+    for n, (plan, family) in enumerate(ANCHORS, start=5):
         peers = family_peers(skus, family)
         products = peers.drop_duplicates("Product").copy()
         # Sort by $100k street (what a shopper sorts by); missing $100k last.
@@ -568,7 +630,7 @@ def build():
         ], special))
         story.append(Spacer(1, 2*mm))
 
-    story.append(P("8. Rec vs BE / 20 / 40 / 60 (±%) and list", s["h1"]))
+    story.append(P("9. Rec vs BE / 20 / 40 / 60 (±%) and list", s["h1"]))
     story.append(P(
         "±% is (rec − column) / column. Negative = rec is cheaper than that fee. "
         "List = rec ÷ 0.65 so VERO35 still lands on the card.",
@@ -600,7 +662,7 @@ def build():
     ], special))
     story.append(Spacer(1, 2.5*mm))
 
-    story.append(P("9. Rec vs family low / median / average / high", s["h1"]))
+    story.append(P("10. Rec vs family low / median / average / high (context only)", s["h1"]))
     story.append(P(
         "% is (rec − stat) / stat. Negative = cheaper than that mark. "
         "Family = every Instant, every 1-step, or every 2-step — the page a customer opens. "
@@ -637,13 +699,22 @@ def build():
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Blue = at or under the family median (attractive). Instant rec is at the median, "
-        "not above it. Evals are at the low. Same book 7/22/26/28/17.",
+        "Median is context only — rec is not set to it. Instant $25k+ sits on Goat, "
+        "not on the median pulled down by Alpha / FXIFY Lite. Same book 7/22/26/28/17.",
         s["tiny"],
     ))
 
     pd.DataFrame(rows_out).to_csv(RESULTS / "verodus_recommended_prices.csv", index=False)
     pd.DataFrame(stats).to_csv(RESULTS / "verodus_rec_vs_band.csv", index=False)
+    pd.DataFrame([{
+        "Plan": r["Plan"], "Size": r["Size"], "Basis": r["Basis"],
+        "BE": round(r["BE"], 2), "E_used": round(r["E_payout"], 2),
+        "E_first": round(r["E_first"], 2),
+        "px_20": round(r["px_20"], 2), "px_40": round(r["px_40"], 2),
+        "px_60": round(r["px_60"], 2),
+        "Live": r["Live_sale"], "Rec": r["Rec_sale"],
+        "Rec_m": round(r["Rec_m"], 4),
+    } for r in rows_out]).to_csv(RESULTS / "verodus_be_by_account.csv", index=False)
 
     doc = SimpleDocTemplate(
         str(OUT),
@@ -659,6 +730,7 @@ def build():
     print(f"Wrote {OUT} ({OUT.stat().st_size:,} bytes)")
     print(f"Wrote {RESULTS / 'verodus_recommended_prices.csv'}")
     print(f"Wrote {RESULTS / 'verodus_rec_vs_band.csv'}")
+    print(f"Wrote {RESULTS / 'verodus_be_by_account.csv'}")
 
 
 if __name__ == "__main__":
