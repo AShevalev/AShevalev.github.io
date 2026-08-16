@@ -122,7 +122,7 @@ def html() -> str:
       <span class="eyebrow">Prop firm</span>
     </div>
     <h1>Get funded.<br>Trade with up to <em>$1M</em>.</h1>
-    <p class="sub">Trade Forex, equities &amp; crypto. Keep up to 90% profit split. No deposits.</p>
+    <p class="sub">Trade Forex, equities &amp; crypto. Keep up to 90% profit split.</p>
     <div class="chips">
       <span class="chip">1-Step from $36</span>
       <span class="chip">Instant from $59</span>
