@@ -73,7 +73,7 @@ def add(key, firm, plan, family, phases, funded_rules, skus, refund="first",
 # =============================================================================
 add("Verodus Instant", "Verodus", "Instant", "instant",
     [P(None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20)],
-    None, sku((5e3,110,72),(1e4,184,121),(25e3,370,242),(5e4,594,389),(1e5,1032,676),(2e5,2012,1318)),
+    None, sku((5e3,110,72),(1e4,184,121),(25e3,370,242),(5e4,594,389),(1e5,1032,676)),
     refund="none", split=0.80, instant=True, discount="VERO35",
     source="verodus.com Instant live: 3% daily / 6% trail never locks / 20% cons")
 

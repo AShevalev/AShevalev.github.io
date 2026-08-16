@@ -2,6 +2,7 @@
 
 Monte Carlo pricing for [Verodus](https://www.verodus.com/) against the top 20 forex/CFD prop firms.
 
+- **Full report (PDF):** [`results/Verodus_Industry_Report_2026-08-16.pdf`](results/Verodus_Industry_Report_2026-08-16.pdf)
 - **Verodus rulebook (one card per category):** [`results/RULES.md`](results/RULES.md)
 - **What to do:** [`results/STRATEGY.md`](results/STRATEGY.md)
 - **Every firm’s price and margin:** [`results/PRICES.md`](results/PRICES.md)
