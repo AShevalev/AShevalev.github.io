@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One report: difficulty score on every plan; 40%/60% rank only inside the band."""
+"""One report: difficulty score on every plan; 20%/30% rank only inside the band."""
 
 from __future__ import annotations
 
@@ -14,6 +14,7 @@ from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from difficulty import DELTA, comparable, scores_for_book
+from write_price_rec_pdf import pricing_for
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
@@ -46,6 +47,7 @@ def load():
     sc = scores_for_book(pp)
     sdf = pd.DataFrame(sc.values())
     skus = skus.merge(sdf[["Product", "D", "D_rules", "D_book"]], on="Product", how="left")
+    skus = skus.merge(blend[["Product", "P_yr1"]], on="Product", how="left")
     return skus, sdf.sort_values("D")
 
 
@@ -117,7 +119,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Bold", 8)
     canvas.drawString(
         MARGIN, H - 5.4 * mm,
-        f"VERODUS  ·  Difficulty score + 40%/60% rank  ·  band ±{DELTA:.0f}  ·  16 Aug 2026",
+        f"VERODUS  ·  Difficulty score + 20%/30% rank  ·  band ±{DELTA:.0f}  ·  16 Aug 2026",
     )
     canvas.drawRightString(W - MARGIN, H - 5.4 * mm, "Confidential — operator")
     canvas.setFillColor(NAVY)
@@ -170,9 +172,10 @@ def vero_ranks(skus, r):
     pool = band(skus, r)
     peers = pool[pool.Firm != "Verodus"]
     raw_r, raw_n = rank_in(r.Sale, pool["Sale"])
-    r40, n40 = hypo_rank(r.px_40, peers["Sale"])
-    r60, n60 = hypo_rank(r.px_60, peers["Sale"])
-    return raw_r, raw_n, r40, n40, r60, n60, peers
+    pr = pricing_for(r)
+    r20, n20 = hypo_rank(pr["px_20"], peers["Sale"])
+    r30, n30 = hypo_rank(pr["px_30"], peers["Sale"])
+    return raw_r, raw_n, r20, n20, r30, n30, peers, pr
 
 
 def build():
@@ -180,7 +183,7 @@ def build():
     s = styles()
     story = []
 
-    story.append(P("Difficulty score and 40% / 60% rank", s["cover"]))
+    story.append(P("Difficulty score and 20% / 30% rank", s["cover"]))
     story.append(P(
         f"Every plan gets a difficulty D (0–100). We only rank a peer if it is the "
         f"same family, the same size, and |D − D_Verodus| ≤ {DELTA:.0f}. "
@@ -250,17 +253,19 @@ def build():
     ], verodus_rows=vset))
     story.append(Spacer(1, 3*mm))
 
-    # ----- 2. Verodus 40/60 inside the band -----
-    story.append(P(f"2. Verodus @40% / @60% — ranked only inside |ΔD| ≤ {DELTA:.0f}", s["h1"]))
+    # ----- 2. Verodus 20/30 inside the band -----
+    story.append(P(f"2. Verodus @20% / @30% — ranked only inside |ΔD| ≤ {DELTA:.0f}", s["h1"]))
     story.append(P(
         "Street (rk) is today’s VERO35 rank among the band. "
-        "@40% (rk) and @60% (rk) are where those fees would sit if every in-band peer "
-        "kept today’s sale. Out-of-band peers are ignored.",
+        "@20% (rk) and @30% (rk) are where those fees would sit if every in-band peer "
+        "kept today’s sale. Instant BE / 20 / 30 use year-1 cost. "
+        "40% and 60% were dropped — too rich versus the Instant shelf. "
+        "Out-of-band peers are ignored.",
         s["body"],
     ))
     score = [[P(x, s["th"]) for x in [
         "Plan", "D", "Size", "BE", "Street (rk)",
-        "@40% (rk)", "@60% (rk)", "In-band n", "In-band peers",
+        "@20% (rk)", "@30% (rk)", "In-band n", "In-band peers",
     ]]]
     vset = set()
     plan_ord = {"Instant": 0, "1-Step": 1, "2-Step Lite": 2, "2-Step Pro": 3}
@@ -268,7 +273,7 @@ def build():
     v["_po"] = v.Plan.map(plan_ord)
     v = v.sort_values(["_po", "Size"])
     for i, r in enumerate(v.itertuples(), start=1):
-        raw_r, raw_n, r40, n40, r60, n60, peers = vero_ranks(skus, r)
+        raw_r, raw_n, r20, n20, r30, n30, peers, pr = vero_ranks(skus, r)
         names = ", ".join(f"{p.Firm} {p.Plan}" for p in peers.drop_duplicates("Product").itertuples())
         if len(names) > 90:
             names = names[:87] + "…"
@@ -277,10 +282,10 @@ def build():
             P(str(r.Plan), s["tdl"]),
             P(f"{float(r.D):.1f}", s["td"]),
             P(usd(r.Size), s["td"]),
-            P(usd(r.BE), s["td"]),
+            P(usd(pr["be"]), s["td"]),
             P(priced(r.Sale, raw_r, raw_n), s["td"]),
-            P(priced(r.px_40, r40, n40), s["td"]),
-            P(priced(r.px_60, r60, n60), s["td"]),
+            P(priced(pr["px_20"], r20, n20), s["td"]),
+            P(priced(pr["px_30"], r30, n30), s["td"]),
             P(str(len(peers)), s["td"]),
             P(names or "—", s["tdl"]),
         ])
@@ -306,7 +311,7 @@ def build():
         story.append(P(title, s["h1"]))
         sub = skus[skus.Family == fam].sort_values(["Size", "D", "Sale", "Firm"])
         heads = ["Firm", "Plan", "Size", "D", "ΔD", "In band", "BE", "Street",
-                 "Vero @40% (rk) / peer 40%", "Vero @60% (rk) / peer 60%"]
+                 "Vero @20% (rk) / peer 20%", "Vero @30% (rk) / peer 30%"]
         data = [[P(x, s["th"]) for x in heads]]
         vrows = set()
         anchors = {
@@ -323,14 +328,15 @@ def build():
                 dlt_s = f"{dlt:.1f} vs {best.replace('2-Step ', '')}"
             else:
                 inb, dlt_s = "—", "—"
+            pr = pricing_for(r)
             if r.Firm == "Verodus":
-                raw_r, raw_n, r40, n40, r60, n60, _ = vero_ranks(skus, r)
-                c40 = priced(r.px_40, r40, n40)
-                c60 = priced(r.px_60, r60, n60)
+                raw_r, raw_n, r20, n20, r30, n30, _, _ = vero_ranks(skus, r)
+                c20 = priced(pr["px_20"], r20, n20)
+                c30 = priced(pr["px_30"], r30, n30)
                 vrows.add(i)
                 street = priced(r.Sale, raw_r, raw_n)
             else:
-                c40, c60 = usd(r.px_40), usd(r.px_60)
+                c20, c30 = usd(pr["px_20"]), usd(pr["px_30"])
                 street = usd(r.Sale)
             data.append([
                 P(str(r.Firm), s["tdl"]),
@@ -339,10 +345,10 @@ def build():
                 P(f"{float(r.D):.1f}", s["td"]),
                 P(dlt_s, s["td"]),
                 P(inb, s["td"]),
-                P(usd(r.BE), s["td"]),
+                P(usd(pr["be"]), s["td"]),
                 P(street, s["td"]),
-                P(c40, s["td"]),
-                P(c60, s["td"]),
+                P(c20, s["td"]),
+                P(c30, s["td"]),
             ])
         story.append(grid(data, [
             30*mm, 32*mm, 16*mm, 14*mm, 28*mm, 16*mm, 16*mm, 28*mm, 40*mm, 40*mm,
@@ -378,17 +384,18 @@ def build():
     scored.to_csv(RESULTS / "difficulty_scores.csv", index=False)
     rows = []
     for r in skus.sort_values(["Family", "Size", "D", "Sale"]).itertuples():
+        pr = pricing_for(r)
         rec = {
             "Family": r.Family, "Firm": r.Firm, "Plan": r.Plan, "Product": r.Product,
-            "Size": int(r.Size), "D": float(r.D), "BE": round(float(r.BE), 2),
-            "Street": float(r.Sale), "px_40": round(float(r.px_40), 2),
-            "px_60": round(float(r.px_60), 2), "P_pay": float(r.P_pay),
+            "Size": int(r.Size), "D": float(r.D), "BE": round(pr["be"], 2),
+            "Street": float(r.Sale), "px_20": round(pr["px_20"], 2),
+            "px_30": round(pr["px_30"], 2), "P_pay": float(r.P_pay),
         }
         if r.Firm == "Verodus":
-            raw_r, raw_n, r40, n40, r60, n60, peers = vero_ranks(skus, r)
+            raw_r, raw_n, r20, n20, r30, n30, peers, _ = vero_ranks(skus, r)
             rec.update(
                 street_rank=raw_r, street_n=raw_n,
-                rank_at_40=r40, n_at_40=n40, rank_at_60=r60, n_at_60=n60,
+                rank_at_20=r20, n_at_20=n20, rank_at_30=r30, n_at_30=n30,
                 band_peers="; ".join(peers.Product.unique()),
             )
         rows.append(rec)
@@ -401,7 +408,7 @@ def build():
         rightMargin=MARGIN,
         topMargin=12 * mm,
         bottomMargin=10 * mm,
-        title="Verodus difficulty score and 40%/60% rank — 16 Aug 2026",
+        title="Verodus difficulty score and 20%/30% rank — 16 Aug 2026",
         author="Verodus operator research",
     )
     doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)
