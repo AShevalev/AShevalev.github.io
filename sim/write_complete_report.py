@@ -446,9 +446,9 @@ def build():
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant rec $59 / $69 / $129 / $229 / $429. $100k $429 is opex floor $422, "
-        "0.92× BG $467. Lite $39 / $51 / $89 / $149 / $259 / $479 (solvent floor). "
-        "1-Step live. Pro $39 / $49 then live.",
+        "Instant rec $59 / $79 / $139 / $239 / $449. $100k $449 is opex floor $422, "
+        "0.96× BG $467. Lite $45 / $59 / $99 / $151 / $269 / $499. "
+        "1-Step live. Pro $45 / $59 / $95 then live.",
         s["tiny"],
     ))
 
@@ -574,7 +574,7 @@ def build():
     adata = [[P(h, s["th"]) for h in aheads]]
     audits = [
         ("This report + Recommended Prices PDF",
-         "Rec $429 · BE $284 · +34%",
+         "Rec $449 · BE $284 · +37%",
          "20 / 40 / 60",
          "Year-1 7.16% for Instant; 8.8/10.6/12.0 for evals",
          "Yes — source of truth"),
@@ -664,7 +664,7 @@ def build():
     ], fspec))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant rec $429 at $100k is the opex floor ($422) plus a small stub. "
+        "Instant rec $449 at $100k is the opex floor ($422) plus a ~$21 stub. "
         "1-Step +59%, Lite +33%, Pro +43% are leftover live VERO35 — unused pricing power, "
         "not a 40/60 target. Keep them: the evals are already the names shoppers sort cheap.",
         s["body"],
