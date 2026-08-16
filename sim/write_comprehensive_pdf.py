@@ -59,6 +59,7 @@ WEIGHTS = {
 }
 
 # Instant sale must print (m > 0). Floor = 20% column; $5k/$10k already above it.
+# Attractive (median) card lives in write_price_rec_pdf.py — different objective.
 PROPOSED = {
     ("Instant", 5000): 72,
     ("Instant", 10000): 121,

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""In-band competitor street prices + recommended Verodus sale card."""
+"""Family street prices + customer-attractive Verodus sale card.
+
+Pricing ignores difficulty. Rec is what a shopper finds cheap: at or under
+the same-family median, and never above live if live is already cheaper.
+"""
 
 from __future__ import annotations
 
@@ -13,7 +17,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
-from difficulty import DELTA, scores_for_book
+from difficulty import scores_for_book
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
@@ -33,65 +37,64 @@ HEAD_BG = colors.HexColor("#0f2744")
 
 SIZES = (5000, 10000, 25000, 50000, 100000, 200000)
 
-# Difficulty-banded recommendation (VERO35 sale). Instant $25k+ is the
-# 20% print floor. Evals match the cheap same-D peer (Hola / Ment / Goat).
+# Customer-attractive VERO35 sale. Instant cut to the family median
+# (shop-round). Evals stay at live — already at or under the family low.
 REC = {
-    ("Instant", 5000): 72,
-    ("Instant", 10000): 121,
-    ("Instant", 25000): 274,
-    ("Instant", 50000): 547,
-    ("Instant", 100000): 1094,
-    ("1-Step", 5000): 47,
-    ("1-Step", 10000): 71,
-    ("1-Step", 25000): 149,
-    ("1-Step", 50000): 249,
-    ("1-Step", 100000): 449,
-    ("1-Step", 200000): 829,
-    ("2-Step Lite", 5000): 31,
-    ("2-Step Lite", 10000): 55,
-    ("2-Step Lite", 25000): 119,
-    ("2-Step Lite", 50000): 199,
-    ("2-Step Lite", 100000): 343,
-    ("2-Step Lite", 200000): 549,
-    ("2-Step Pro", 5000): 29,
-    ("2-Step Pro", 10000): 53,
-    ("2-Step Pro", 25000): 125,
-    ("2-Step Pro", 50000): 213,
-    ("2-Step Pro", 100000): 399,
-    ("2-Step Pro", 200000): 749,
+    ("Instant", 5000): 63,
+    ("Instant", 10000): 99,
+    ("Instant", 25000): 175,
+    ("Instant", 50000): 279,
+    ("Instant", 100000): 499,
+    ("1-Step", 5000): 36,
+    ("1-Step", 10000): 60,
+    ("1-Step", 25000): 120,
+    ("1-Step", 50000): 193,
+    ("1-Step", 100000): 335,
+    ("1-Step", 200000): 654,
+    ("2-Step Lite", 5000): 18,
+    ("2-Step Lite", 10000): 33,
+    ("2-Step Lite", 25000): 66,
+    ("2-Step Lite", 50000): 133,
+    ("2-Step Lite", 100000): 241,
+    ("2-Step Lite", 200000): 477,
+    ("2-Step Pro", 5000): 20,
+    ("2-Step Pro", 10000): 36,
+    ("2-Step Pro", 25000): 85,
+    ("2-Step Pro", 50000): 163,
+    ("2-Step Pro", 100000): 296,
+    ("2-Step Pro", 200000): 577,
 }
 
 ANCHORS = (
-    ("Instant", "instant", "Instant Funding, Hola Direct, Goat, FP Zero, FXIFY Lite, Alpha Instant, Blue Guardian. Out: FN Instant, FXIFY Standard (no daily)."),
-    ("1-Step", "1-step", "Hola 1-Step, FundedNext 1-Step, FTMO 1-Step, 5ers Hyper Growth. Out: FP Flex, Alpha One, E8."),
-    ("2-Step Lite", "2-step", "FundedNext Lite, Ment, For Traders, FXIFY 2-Step. Out: FTMO-class / Pro (D ~63)."),
-    ("2-Step Pro", "2-step", "FTMO, FN, Maven, FP Standard/Flex, Alpha Pro 10%, Goat, Hola, TFT, BrightFunded, CTI, Fintokei, Funding Traders, 5ers High Stakes. Out: Lite-class, Alpha Pro 6%."),
+    ("Instant", "instant"),
+    ("1-Step", "1-step"),
+    ("2-Step Lite", "2-step"),
+    ("2-Step Pro", "2-step"),
 )
 
 WHY = {
     "Instant": (
-        "D 89.2 — hardest Verodus line. Same 22% P(pay) as Blue Guardian, but five points "
-        "harder (peak daily, trail never locks). $5k / $10k already print and sit between "
-        "Goat and Hola. From $25k, live is +10% / −13% / −29%. The 20% floor lands on Hola "
-        "at $25k–$50k. At $100k, Hola $839 and Instant Funding $639 lose money; matching "
-        "BG $467 is a −95% product. Charge like Hola, not like BG. No $200k Instant."
+        "Shoppers compare every Instant on the page — Alpha $40, BG $54, Goat $63, "
+        "Hola $79 at $5k; Alpha $274, BG $467, Goat $559, Instant Funding $639, "
+        "Hola $839 at $100k. Live VERO35 sits above the family median at every size. "
+        "Rec cuts to that median (Goat-class, shop-round): $63 / $99 / $175 / $279 / $499. "
+        "Under Goat and Instant Funding; above only the loss-leader Alpha / FXIFY Lite holes. "
+        "$5k / $10k still print. $25k+ does not — that is the cost of being cheap enough "
+        "to click. No $200k Instant."
     ),
     "1-Step": (
-        "D 81.5 — same as FundedNext 1-Step (81.9), slightly harder than FTMO (78.9), "
-        "slightly easier than Hola (85.9). Live already prints +58–76% and is the cheapest "
-        "in the band. We are not an easier product than FTMO, so $335 vs $579 is a gift. "
-        "Price to Hola; stay well under FN / FTMO."
+        "Live is already the cheapest 1-step on the shelf at every size except $5k "
+        "(Fintokei $35). $335 vs FTMO $579 / FN $570 / Hola $463 at $100k. Keep live. "
+        "Raising toward Hola would make the card less attractive, not more."
     ),
     "2-Step Lite": (
-        "D 77.7 — same as FundedNext Lite (77.1), Ment (77.3), For Traders (77.4). Live is "
-        "the cheapest in the band by a wide gap. $241 vs Ment $343 / FN $449 underprices "
-        "the same product. Match Ment (cheap same-D peer); stay under FN Lite."
+        "Live is the cheapest 2-step on the shelf (tied with Maven at $5k, under Maven "
+        "from $10k). $241 vs Maven $279 / Ment $343 / FN Lite $449 at $100k. Keep live."
     ),
     "2-Step Pro": (
-        "D 64.0 — same as FTMO 2-Step (63.2) and FN 2-Step (63.2). Live is #2 cheapest "
-        "after Maven. We do not have FTMO’s brand, so do not go to $626. Price like Goat / "
-        "Funding Traders (D 62.7–62.8): mid-cheap in the FTMO class, still $227 under FTMO "
-        "at $100k. Skip Maven’s race to the bottom."
+        "Live is #2 cheapest 2-step after Maven. $296 vs Maven $279 / Goat $399 / "
+        "FTMO $626 at $100k. Keep live — already cheaper than almost every name a "
+        "shopper knows."
     ),
 }
 
@@ -159,7 +162,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Bold", 8)
     canvas.drawString(
         MARGIN, H - 5.4 * mm,
-        f"VERODUS  ·  In-band street + recommended sale  ·  band ±{DELTA:.0f}  ·  16 Aug 2026",
+        "VERODUS  ·  Attractive sale card vs family street  ·  16 Aug 2026",
     )
     canvas.drawRightString(W - MARGIN, H - 5.4 * mm, "Confidential — operator")
     canvas.setFillColor(NAVY)
@@ -168,7 +171,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        f"Compare only same family + size and |ΔD| ≤ {DELTA:.0f}. Rec sale is VERO35 (list = sale ÷ 0.65).",
+        "Rec ≤ same-family median. Difficulty is not a pricing input. VERO35 list = sale ÷ 0.65.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -208,23 +211,8 @@ def grid(data, col_w, special=None):
     return t
 
 
-def vero_d(scored, plan):
-    key = {
-        "Instant": "Verodus Instant",
-        "1-Step": "Verodus 1-Step",
-        "2-Step Lite": "Verodus 2-Step Lite",
-        "2-Step Pro": "Verodus 2-Step Pro",
-    }[plan]
-    return float(scored.loc[scored.Product == key, "D"].iloc[0])
-
-
-def in_band(skus, plan, family, d0):
-    return skus[
-        (skus.Family == family)
-        & (skus.Firm != "Verodus")
-        & (skus.D.notna())
-        & ((skus.D - d0).abs() <= DELTA)
-    ]
+def family_peers(skus, family):
+    return skus[(skus.Family == family) & (skus.Firm != "Verodus")]
 
 
 def sale_map(frame):
@@ -260,11 +248,10 @@ def vs_s(rec, x):
     return f"{p:+.0f}%"
 
 
-def band_stats(skus, scored):
+def family_stats(skus):
     rows = []
-    for plan, family, _ in ANCHORS:
-        d0 = vero_d(scored, plan)
-        peers = in_band(skus, plan, family, d0)
+    for plan, family in ANCHORS:
+        peers = family_peers(skus, family)
         for sz in SIZES:
             if (plan, sz) not in REC:
                 continue
@@ -275,24 +262,25 @@ def band_stats(skus, scored):
             vals = [float(x) for x in peers.loc[peers.Size == sz, "Sale"].tolist()]
             if not vals:
                 continue
-            s = pd.Series(vals)
-            lo, med, avg, hi = float(s.min()), float(s.median()), float(s.mean()), float(s.max())
+            ser = pd.Series(vals)
+            lo, med, avg, hi = float(ser.min()), float(ser.median()), float(ser.mean()), float(ser.max())
             field = vals + [rec]
             rank = sum(1 for v in field if v < rec - 1e-9) + 1
-            p_med = vs_pct(rec, med)
-            if rec <= med * 1.05:
+            if rec <= lo * 1.02:
+                sell = "yes — cheapest / tied low"
+            elif rec <= med:
                 sell = "yes — at/under median"
-            elif rec <= avg * 1.08:
-                sell = "yes — near average"
+            elif rec <= avg:
+                sell = "mid — under average"
             elif rec <= hi:
                 sell = "premium — under the high"
             else:
-                sell = "stretch — above the high"
+                sell = "above every peer"
             rows.append({
                 "Plan": plan, "Size": sz, "n": len(vals), "Rec": rec,
                 "Live": float(live.Sale.iloc[0]),
                 "Low": lo, "Median": med, "Average": avg, "High": hi,
-                "vs_low": vs_pct(rec, lo), "vs_med": p_med,
+                "vs_low": vs_pct(rec, lo), "vs_med": vs_pct(rec, med),
                 "vs_avg": vs_pct(rec, avg), "vs_high": vs_pct(rec, hi),
                 "rank": rank, "n_field": len(field), "Sell": sell,
             })
@@ -304,126 +292,110 @@ def build():
     s = styles()
     story = []
 
-    story.append(P("In-band competitor prices and recommended Verodus card", s["cover"]))
+    story.append(P("Attractive Verodus sale card vs competitor street", s["cover"]))
     story.append(P(
-        f"Street fees only for plans with |D − D_Verodus| ≤ {DELTA:.0f} (same family). "
-        "Recommended sale factors difficulty: harder in-band plans can charge more; "
-        "easier holes are ignored. 16 August 2026.",
+        "Priced for the shopper, not for difficulty. Rec is at or under the same-family "
+        "median (what customers see on Instant / 1-step / 2-step pages). "
+        "16 August 2026.",
         s["sub"],
     ))
     story.append(P(
-        f"<b>D = 0.55 × rules + 0.45 × book.</b> Band ±{DELTA:.0f} is about one daily-DD "
-        "step. Instant $25k+ must print (20% column). 1-Step / Lite / Pro already print "
-        "at live VERO35; those raises take unused power so we stop selling a same-D "
-        "product cheaper than Hola / Ment / Goat. List = sale ÷ 0.65. Instant $200k pulled.",
+        "Rule: never recommend a fee above the family median, and never raise a live "
+        "fee that is already under that median. 1-Step / Lite / Pro stay at today’s "
+        "VERO35 — they are already the cheap names on those shelves. Instant is cut "
+        "to the Instant median so we sit with Goat, not above Instant Funding / Hola. "
+        "List = sale ÷ 0.65. Instant $200k pulled.",
         s["body"],
     ))
 
-    # ----- 1. recommended card -----
     story.append(P("1. Recommended Verodus sale (VERO35)", s["h1"]))
-    heads = ["Plan", "D", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k",
-             "Live $100k", "Rec m $100k", "Anchor"]
+    heads = ["Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k",
+             "Live $100k", "Rec m $100k", "Why this number"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
-    anchors_why = {
-        "Instant": "20% print floor; Hola-class, not BG",
-        "1-Step": "Hola street; under FN / FTMO",
-        "2-Step Lite": "Ment street; under FN Lite",
-        "2-Step Pro": "Goat / Funding Traders; under FTMO",
+    why_short = {
+        "Instant": "Family median (Goat-class). Under IF / Hola.",
+        "1-Step": "Keep live — cheapest 1-step on the shelf.",
+        "2-Step Lite": "Keep live — cheapest 2-step on the shelf.",
+        "2-Step Pro": "Keep live — #2 after Maven, under Goat / FTMO.",
     }
-    for i, (plan, _fam, _peers) in enumerate(ANCHORS, start=1):
-        d0 = vero_d(scored, plan)
+    for i, (plan, _fam) in enumerate(ANCHORS, start=1):
         live100 = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == 100000)]
         live_s = float(live100.Sale.iloc[0]) if not live100.empty else None
         rec100 = REC.get((plan, 100000))
         cost100 = e_cost(skus, plan, 100000)
-        cells = [P(plan, s["tdl"]), P(f"{d0:.1f}", s["td"])]
+        cells = [P(plan, s["tdl"])]
         for sz in SIZES:
             cells.append(P(usd(REC.get((plan, sz))), s["td"]))
         cells.append(P(usd(live_s), s["td"]))
         cells.append(P(margin(rec100, cost100), s["td"]))
-        cells.append(P(anchors_why[plan], s["tdl"]))
+        cells.append(P(why_short[plan], s["tdl"]))
         data.append(cells)
         special[i] = "rec"
     story.append(grid(data, [
-        26*mm, 12*mm, 18*mm, 18*mm, 18*mm, 18*mm, 20*mm, 20*mm, 22*mm, 22*mm, 56*mm,
+        26*mm, 20*mm, 20*mm, 20*mm, 20*mm, 22*mm, 22*mm, 24*mm, 24*mm, 52*mm,
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Green = recommended sale. Instant $5k / $10k stay at live (already above the "
-        "print floor). Every other Instant size moves up. Eval raises are optional power — "
-        "live still prints if you hold today’s card.",
+        "Green = recommended sale. Instant is a cut vs live. Evals are unchanged. "
+        "Instant $100k rec $499 is −26% vs live $676 and −6% vs Instant Funding $639. "
+        "Margin at that size is negative — attractive Instant $25k+ does not print.",
         s["body"],
     ))
 
-    # ----- 2–5. in-band street per plan -----
-    for n, (plan, family, peer_txt) in enumerate(ANCHORS, start=2):
-        d0 = vero_d(scored, plan)
-        peers = in_band(skus, plan, family, d0)
-        products = (
-            peers.drop_duplicates("Product")
-            .sort_values(["D", "Firm"])
+    for n, (plan, family) in enumerate(ANCHORS, start=2):
+        peers = family_peers(skus, family)
+        products = peers.drop_duplicates("Product").copy()
+        # Sort by $100k street (what a shopper sorts by); missing $100k last.
+        px = peers[peers.Size == 100000][["Product", "Sale"]].rename(columns={"Sale": "s100"})
+        products = products.merge(px, on="Product", how="left").sort_values(
+            ["s100", "Firm"], na_position="last"
         )
         live = skus[(skus.Firm == "Verodus") & (skus.Plan == plan)]
-        story.append(P(f"{n}. {plan} — in-band street (D {d0:.1f})", s["h1"]))
+        story.append(P(f"{n}. {plan} — every {family} street fee", s["h1"]))
         story.append(P(WHY[plan], s["body"]))
-        story.append(P(f"<i>In band:</i> {peer_txt}", s["tiny"]))
 
-        heads = ["Firm", "Plan", "D", "ΔD", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k"]
+        heads = ["Firm", "Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k"]
         data = [[P(h, s["th"]) for h in heads]]
         special = {}
         sales = sale_map(peers)
         live_sales = sale_map(live)
 
-        def row_cells(firm, plan_name, d, sales_lookup, tag=None):
-            cells = [
-                P(firm, s["tdl"]),
-                P(plan_name, s["tdl"]),
-                P(f"{d:.1f}", s["td"]),
-                P(f"{abs(d - d0):.1f}", s["td"]),
-            ]
+        def row_cells(firm, plan_name, sales_lookup):
+            cells = [P(firm, s["tdl"]), P(plan_name, s["tdl"])]
             for sz in SIZES:
                 cells.append(P(usd(sales_lookup.get((firm, plan_name, sz))), s["td"]))
             return cells
 
         for r in products.itertuples():
-            data.append(row_cells(r.Firm, r.Plan, float(r.D), sales))
+            data.append(row_cells(r.Firm, r.Plan, sales))
 
-        live_d = d0
-        live_plan = plan
-        data.append(row_cells("Verodus", live_plan, live_d, live_sales))
+        data.append(row_cells("Verodus", plan, live_sales))
         special[len(data) - 1] = "live"
-
-        rec_cells = [
-            P("Verodus rec", s["tdl"]),
-            P(plan, s["tdl"]),
-            P(f"{d0:.1f}", s["td"]),
-            P("0.0", s["td"]),
-        ]
-        for sz in SIZES:
-            rec_cells.append(P(usd(REC.get((plan, sz))), s["td"]))
-        data.append(rec_cells)
+        rec_lookup = {("Verodus rec", plan, sz): REC.get((plan, sz)) for sz in SIZES}
+        data.append(row_cells("Verodus rec", plan, rec_lookup))
         special[len(data) - 1] = "rec"
 
         story.append(grid(data, [
-            32*mm, 36*mm, 14*mm, 14*mm, 20*mm, 20*mm, 20*mm, 20*mm, 22*mm, 22*mm,
+            36*mm, 40*mm, 24*mm, 24*mm, 24*mm, 24*mm, 26*mm, 26*mm,
         ], special))
         story.append(Spacer(1, 2*mm))
 
-    # ----- 6. list prices + live vs rec -----
     story.append(P("6. List (VERO35) and live vs recommended", s["h1"]))
     story.append(P(
-        "Shopper pays sale. List = sale ÷ 0.65 so VERO35 still lands on the card. "
-        "Margin uses this book’s E[cost] (payout + expected refund).",
+        "Shopper pays sale. List = sale ÷ 0.65. Margin uses this book’s E[cost]. "
+        "Instant $25k+ at the attractive fee is below cost — flagged, not raised.",
         s["body"],
     ))
     heads = ["Plan", "Size", "Live sale", "Live m", "Rec sale", "Rec list", "Rec m",
-             "Δ sale", "20% floor", "Must move?"]
+             "Δ sale", "Family median", "Vs median"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
     rows_out = []
+    stats = family_stats(skus)
+    med_map = {(r["Plan"], r["Size"]): r["Median"] for r in stats}
     i = 0
-    for plan, _fam, _ in ANCHORS:
+    for plan, _fam in ANCHORS:
         for sz in SIZES:
             if (plan, sz) not in REC:
                 continue
@@ -433,10 +405,9 @@ def build():
             r = live.iloc[0]
             rec = REC[(plan, sz)]
             cost = float(r.E_cost)
-            floor20 = float(r.px_20)
-            must = "yes — print" if (plan == "Instant" and rec > float(r.Sale) + 0.5) else "no"
+            med = med_map.get((plan, sz))
             i += 1
-            if rec > float(r.Sale) + 0.5:
+            if rec < float(r.Sale) - 0.5:
                 special[i] = "rec"
             elif abs(rec - float(r.Sale)) < 0.5:
                 special[i] = "live"
@@ -449,47 +420,37 @@ def build():
                 P(usd(round(rec / 0.65)), s["td"]),
                 P(margin(rec, cost), s["td"]),
                 P(usd(rec - float(r.Sale)), s["td"]),
-                P(usd(floor20), s["td"]),
-                P(must, s["td"]),
+                P(usd(med), s["td"]),
+                P(vs_s(rec, med), s["td"]),
             ])
             rows_out.append({
-                "Plan": plan, "Size": sz, "D": vero_d(scored, plan),
+                "Plan": plan, "Size": sz,
                 "Live_sale": float(r.Sale), "Live_m": float(r.sale_m),
                 "Rec_sale": rec, "Rec_list": round(rec / 0.65),
                 "Rec_m": (rec - cost) / rec, "E_cost": cost,
-                "px_20": floor20, "Must_move": must,
+                "Family_median": med, "vs_median": vs_pct(rec, med) if med else None,
             })
     story.append(grid(data, [
-        26*mm, 18*mm, 22*mm, 18*mm, 22*mm, 20*mm, 18*mm, 20*mm, 22*mm, 24*mm,
+        26*mm, 18*mm, 22*mm, 18*mm, 22*mm, 20*mm, 18*mm, 20*mm, 26*mm, 20*mm,
     ], special))
     story.append(Spacer(1, 2.5*mm))
-    story.append(P(
-        "Blue = live already equals rec. Green = raise. Instant $25k / $50k / $100k are "
-        "the only must-moves. Out of band and ignored: FundedNext Instant, FXIFY Instant "
-        "Standard, FP 1-Step Flex, Alpha One, E8, Lite vs FTMO/Pro, Alpha Pro 6%. "
-        "Same book 7/22/26/28/17. Formula: sim/difficulty.py.",
-        s["tiny"],
-    ))
 
-    # ----- 7. will it sell vs in-band distribution -----
-    stats = band_stats(skus, scored)
-    story.append(P("7. Will it sell? Rec vs in-band low / median / average / high", s["h1"]))
+    story.append(P("7. Rec vs family low / median / average / high", s["h1"]))
     story.append(P(
-        "% is (rec − stat) / stat. Negative = cheaper than that peer mark, so easier to sell. "
-        "1-Step $5k / $10k average is pulled up by 5ers Hyper Growth ($260 / $450) — a 50% "
-        "split live-from-day-1 product; the real twin there is Hola. Instant lows are "
-        "unprofitable Alpha / FP / BG holes — being above them is required to print.",
+        "% is (rec − stat) / stat. Negative = cheaper than that mark. "
+        "Family = every Instant, every 1-step, or every 2-step — the page a customer opens. "
+        "5ers Hyper Growth ($260 / $450) pulls 1-step $5k / $10k average up; ignore it.",
         s["body"],
     ))
     heads = ["Plan", "Size", "n", "Rec", "Low", "±%", "Median", "±%",
-             "Average", "±%", "High", "±%", "Sell?"]
+             "Average", "±%", "High", "±%", "Attractive?"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
     for i, r in enumerate(stats, start=1):
-        if r["Sell"].startswith("stretch"):
-            special[i] = "rec"
-        elif r["Sell"].startswith("yes"):
+        if r["Sell"].startswith("yes"):
             special[i] = "live"
+        elif r["Sell"].startswith("above"):
+            special[i] = "rec"
         data.append([
             P(r["Plan"], s["tdl"]),
             P(usd(r["Size"]), s["td"]),
@@ -511,10 +472,8 @@ def build():
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Blue = at or under the in-band median (should sell). Green highlight on Instant "
-        "$100k = above every in-band peer — that size sells only to shoppers who want the "
-        "never-lock card, not the price shopper. $25k / $50k Instant sit just under Hola "
-        "(the same-D high) and will sell as a premium Instant, not as the cheap Instant.",
+        "Blue = at or under the family median (attractive). Instant rec is at the median, "
+        "not above it. Evals are at the low. Same book 7/22/26/28/17.",
         s["tiny"],
     ))
 
@@ -528,7 +487,7 @@ def build():
         rightMargin=MARGIN,
         topMargin=12 * mm,
         bottomMargin=10 * mm,
-        title="Verodus in-band prices and recommended card — 16 Aug 2026",
+        title="Verodus attractive sale card — 16 Aug 2026",
         author="Verodus operator research",
     )
     doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)
