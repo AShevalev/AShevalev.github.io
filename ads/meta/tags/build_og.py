@@ -119,7 +119,7 @@ def html() -> str:
     <img class="watermark" alt="" src="{mark}">
     <div class="top">
       <img class="logo" alt="Verodus" src="{wordmark}">
-      <span class="eyebrow">Simulated evaluation</span>
+      <span class="eyebrow">Simulated prop firm</span>
     </div>
     <h1>Get funded.<br>Trade with up to <em>$1M</em>.</h1>
     <p class="sub">Keep up to 90% of simulated profits. One-time fee. No deposits. 175+ countries.</p>
