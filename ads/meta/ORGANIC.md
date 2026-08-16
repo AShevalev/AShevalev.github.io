@@ -1,239 +1,161 @@
-# Facebook + Instagram organic — 14 days
+# Facebook + Instagram organic — 4 weeks
 
-Post these on **Instagram** (Feed + Reels + Stories) and **Facebook Page**. Organic is the retargeting fuel for Campaign C. Do not sell Instant $25k+.
+Aligns with [`LAUNCH-PLAN.md`](LAUNCH-PLAN.md). Founder scripts live there. This file is the daily posting grid + captions.
 
-Cadence: **1 Reel every other day**, **1 feed post daily**, **3–5 Stories daily**. Total ~14 feed + 7 Reels + ~50 Stories.
+Cadence: **1 feed/day**, **1 Reel every other day**, **3–5 Stories/day**, founder in **Discord daily**.
 
-Brand voice: published rules, short sentences, no “pass this and retire.” End every caption with the legal one-liner when the post is about buying.
+Legal one-liner on every buy post: `Simulated evaluation. Rewards not guaranteed. 18+.`
 
-Legal one-liner: `Simulated evaluation. Rewards not guaranteed. 18+.`
+Do not sell Instant $25k+. Do not say Instant has a fee refund or static max DD. Do not promise 90% as the default split.
 
 ---
 
-## Bio (both platforms)
+## Bio
 
 ```
 Verodus — simulated trader evaluation
 Instant · 1-Step · Lite · Pro
-Code VERO35
+Try free · Code VERO35
 verodus.com
 ```
 
-Link in bio: `https://www.verodus.com/?utm_source=instagram&utm_medium=organic&utm_campaign=print_skus`
+Link: `https://www.verodus.com/?utm_source=instagram&utm_medium=organic&utm_campaign=launch4w`
 
-Highlights: Instant $5k · 1-Step · Rules · Free trial · Rewards · FAQ
+Highlights: Free trial · Instant $5k · 1-Step · Rules · Discord · FAQ
 
 ---
 
-## 14-day calendar
+## 4-week grid
 
-| Day | Feed | Reel | Stories (3 frames) |
+### Week 1 — Position + free trial
+
+| Day | Feed | Reel | Stories |
 |---|---|---|---|
-| 1 | Price card: Instant $5k $72 | Reel 1 — Instant in 20s | $72 / 3% daily / VERO35 swipe-up |
-| 2 | Carousel 01–04 | — | Rule of the day: trailing vs static |
-| 3 | 1-Step $36 + refund | Reel 2 — 1-Step vs 2-Step | $36 / fee back / trial |
-| 4 | “No hidden clauses” graphic | — | Free trial demo screenshots |
-| 5 | VERO35 reminder | Reel 3 — Why daily DD kills accounts | Poll: Instant or 1-Step? |
-| 6 | Payout rails: Rise / crypto / <24h | — | Certificate crop (real only) |
-| 7 | FAQ: is this a broker? No. | Reel 4 — What Instant is not | Terms: simulated / discretionary |
-| 8 | Instant valid-day rule +0.5% | — | 5 valid days explained |
-| 9 | Pro vs Lite (do not discount Lite) | Reel 5 — Week 1 fail map | “Most fails are daily DD” |
-| 10 | Platform 5 + TradeHub | — | App screens / dashboard |
-| 11 | Retarget caption: still deciding? | Reel 6 — $72 vs cheap Instant | VERO35 / no second code |
-| 12 | 80% split, 90% is on-demand add-on | — | Split table honest |
-| 13 | Free trial push | Reel 7 — Trial then buy | Trial CTA |
-| 14 | Recap: two SKUs worth buying | — | Instant $5k + 1-Step $5k |
+| 1 | Try-free 3-tile | Manifesto 30–45s (LAUNCH-PLAN) | Trial / rules / Discord |
+| 2 | “Clear rules. Founder-run. No hype.” | — | Why we built this stills |
+| 3 | Instant $5k $72 (no refund) | Why we built this 15–20s | $72 / 3% / 6% trail |
+| 4 | Discord welcome card | — | Server tour |
+| 5 | 1-Step $36 + fee back | Instant in 20s | Poll: trial or buy |
+| 6 | VERO35 is the only code | — | Code sticker |
+| 7 | Not a broker FAQ | What Instant is not | Simulated / 18+ |
+
+### Week 2 — Rules
+
+| Day | Feed | Reel | Stories |
+|---|---|---|---|
+| 8 | Static vs trailing **2-Step** card | Static vs trailing 40–60s | “Pro is static. Instant trails.” |
+| 9 | Rule carousel (5 accurate tiles) | — | One rule per story |
+| 10 | 4-plan comparison table | Read-the-rules screen-share | Objectives page swipe |
+| 11 | Instant valid-day +0.5% | Daily DD kills week 1 | 3% daily quiz |
+| 12 | 1-Step hybrid vs Pro static | — | Which plan? poll |
+| 13 | 80% standard / 90% on demand | 1-Step vs 2-Step | Honesty on split |
+| 14 | Recap: two founding SKUs | — | $72 / $36 / trial |
+
+### Week 3 — Trust
+
+| Day | Feed | Reel | Stories |
+|---|---|---|---|
+| 15 | AMA announcement | AMA cut 60–90s | Live reminder |
+| 16 | “Rules will not change on you” dated FAQ screenshot | — | Screenshot this |
+| 17 | Trial → buy walkthrough stills | Walkthrough 30–45s | Dashboard screens |
+| 18 | Founding traders: N started / N passed (**no payout $**) | — | Discord activity |
+| 19 | Rise / crypto / <24h **rails** | Community in motion | Rails only |
+| 20 | Founder in Discord daily | AMA Q: will you pay? | AMA clip |
+| 21 | Optional: **one real** certificate if it exists | — | Else skip |
+
+### Week 4 — Founding offer
+
+| Day | Feed | Reel | Stories |
+|---|---|---|---|
+| 22 | Founding card $72 / $36 | Founding 30s | VERO35 |
+| 23 | Offer carousel | — | Try free first |
+| 24 | Instant $5k reminder (no refund) | Community in motion | Deadline only if prices rise |
+| 25 | 1-Step refund reminder | — | $36 |
+| 26 | Comparison: cheap Instant vs $72 | Founding 30s recut | Honesty |
+| 27 | Last-call feed | — | Last-call Story (warm) |
+| 28 | Recap + Discord | Trial then buy | End card |
 
 ---
 
-## Feed captions (copy-paste)
+## Captions to paste
 
-### Day 1 — Instant $5k
+### Week 1 — try free
 
-Instant $5,000. No profit target. $72 with VERO35.
+Trade the platform free. Same rules. Same TradeHub / Platform 5. $0.
 
-3% daily · 6% trailing max · 20% best-day · 5 valid days at +0.5%.
+Then Instant $5k at $72 or 1-Step at $36 with VERO35.
 
-Simulated capital from day one. Rules are on the site before you pay.
+No second coupon. Simulated evaluation. Rewards not guaranteed. 18+.
 
-Link in bio. Simulated evaluation. Rewards not guaranteed. 18+.
+### Week 1 — manifesto caption
 
-### Day 2 — carousel
+Most firms sell a dream and bury the rules. We publish them first.
 
-Four cards. Two prices. No fine print in a PDF nobody reads.
+Instant $5k: no profit target, 3% daily, 6% trail, $72 with VERO35.
+1-Step $5k: one phase, fee back on first reward, $36.
 
-Instant $5k — $72 — no target.
+2-Step Pro is static max DD. Instant is not. We will not pretend they are the same.
+
+Try free. Ask us in Discord. Simulated. 18+.
+
+### Week 2 — static vs trailing
+
+This graphic is **2-Step Pro**, not Instant.
+
+Pro: 10% static from day one. The floor does not chase your high.
+Instant: 6% trailing, never locks — published on the Instant card.
+
+If you want static, buy Lite or Pro. Simulated. 18+.
+
+### Week 3 — AMA / will you pay
+
+Fair question. Judge the FAQ and how we operate.
+
+Evals refund the fee on the first reward. Instant does not — that is why Instant $5k is $72, not $40.
+Rewards: Rise or crypto, most under 24 hours. Certificates go in Discord when they exist.
+
+I’m in Discord every day. Simulated. Discretionary. 18+.
+
+### Week 3 — activity (fill N)
+
+[N] founding traders started this week. [N] challenges passed.
+
+Not a payout post. When certificates exist they go in #payout-proof.
+
+Founding prices: Instant $5k $72 · 1-Step $5k $36 · VERO35. Simulated. 18+.
+
+### Week 4 — founding ask
+
+Founding prices are VERO35.
+
+Instant $5k — $72 — no profit target, no fee refund.
 1-Step $5k — $36 — fee back on first reward.
 
-Code VERO35. verodus.com
-Simulated evaluation. Rewards not guaranteed. 18+.
+Try free first. 80% split; 90% on demand.
 
-### Day 3 — 1-Step
-
-One phase. 10% target. 4% daily. 6% hybrid max DD.
-
-$36 with VERO35 on $5k. 100% fee refund on the first successful payout.
-
-If you want a challenge with a refund, this is the SKU. Not Instant $100k.
-
-Simulated evaluation. 18+.
-
-### Day 4 — clarity
-
-Every objective is published before you start: targets, daily, max DD, min days, split, cycle.
-
-No moving goalposts after you pay.
-
-Simulated evaluation. 18+.
-
-### Day 5 — VERO35
-
-VERO35 is the code. 35% off every plan. There is not a second Instant-only coupon.
-
-Instant $5k stays $72. That is the point.
+If we raise stickers after [date], these are the founding numbers. If we don’t raise, VERO35 stays and there is still no second code.
 
 Simulated evaluation. Rewards not guaranteed. 18+.
 
-### Day 6 — payouts
+---
 
-Request weekly, bi-weekly, or on demand.
-Most performance rewards process in under 24 hours.
-Rise (bank, local, crypto) or straight to a wallet.
+## Reels (use LAUNCH-PLAN scripts)
 
-Rewards are discretionary and not guaranteed. Simulated evaluation. 18+.
+1. Manifesto 30–45s  
+2. Why we built this 15–20s  
+3. Instant $5k in 20s  
+4. Static vs trailing (2-Step) 40–60s  
+5. Read the rules with me 20–30s  
+6. AMA cuts  
+7. Trial → buy walkthrough  
+8. Founding 30s  
+9. Community in motion (no payout compilation)  
+10. Last call 10–15s (Stories/ads only)
 
-### Day 7 — not a broker
-
-Verodus is not a brokerage. You do not deposit trading capital. You do not fund a live book.
-
-You pay a service fee to be evaluated in a simulated environment. If you meet the published rules, you may receive a performance reward.
-
-Full FAQ: verodus.com
-18+.
-
-### Day 8 — valid days
-
-Instant valid day = a closed day at ≥ 0.5% of start-of-day. You need 5 of them. Consistency is 20% best day of positive days — it gates the payout, it does not breach the account.
-
-Read it twice. Then take the free trial.
-
-Simulated. 18+.
-
-### Day 9 — Lite vs Pro
-
-Lite is the cheap 2-step. Pro is the FTMO-shaped 2-step (10/5 · 5/10).
-
-If you are buying a 2-step from an ad, buy Pro or 1-Step — not a $200k Instant.
-
-VERO35 on both. Simulated. 18+.
-
-### Day 10 — platforms
-
-One checkout. TradeHub or Platform 5. Switch when you want. Dashboard tracks targets, drawdown, and days live.
-
-Try it on the free trial first.
-
-### Day 11 — retarget
-
-If you already compared Instant prices this week: Verodus Instant $5k is $72 with VERO35. 3% daily, 6% trail that never locks.
-
-A lower sticker on a $50k Instant is how firms buy customers at a loss. We are not running that SKU in this campaign.
-
-Simulated. 18+.
-
-### Day 12 — split honesty
-
-Default path is 80% on a bi-weekly cycle. 90% is on-demand and has a higher minimum. 70% is weekly.
-
-We will not advertise “90%” as if it were the base split.
-
-Simulated. Discretionary. 18+.
-
-### Day 13 — trial
-
-Free trial. Same rules. $0. As many as you need.
-
-Then Instant $5k at $72 or 1-Step at $36. VERO35.
-
-verodus.com
-
-### Day 14 — recap
-
-Two products worth paying for from this page:
-
-1. Instant $5k — $72 — no target
-2. 1-Step $5k — $36 — refund on first reward
-
-Everything else can wait until you have a payout.
-
-VERO35. Simulated. 18+.
+Film phone-vertical, burned-in captions, real desk. Two shoot days (week 1 + week 3).
 
 ---
 
-## Reels scripts (15–25 seconds)
+## Comment pin
 
-Film vertical, dark desk or screen recording of the site. Captions on. First 2 seconds = the price. No face required. Music: low corporate, not trap.
-
-### Reel 1 — Instant in 20s
-
-**VO / text**
-$72. Instant $5,000.
-No profit target.
-3% daily. 6% trail. 5 valid days.
-Code VERO35.
-Simulated. Not guaranteed.
-
-**B-roll:** homepage Instant tab → $72 → trading-objectives Instant → checkout code field.
-
-### Reel 2 — 1-Step vs 2-Step
-
-One phase. $36. Fee back on first reward.
-That is 1-Step $5k.
-Two phases is Lite or Pro.
-If you want fewer gates, buy 1-Step.
-
-### Reel 3 — Daily DD
-
-Industry: most fails are daily drawdown in week one.
-Instant daily is 3% from the day’s equity high.
-If you do not know SOD vs peak, do not buy Instant. Run the trial.
-
-### Reel 4 — What Instant is not
-
-Not a $100k for $200 deal.
-Not a broker account.
-Not a guaranteed payout.
-It is $5k simulated, $72, published rules.
-
-### Reel 5 — Week 1 fail map
-
-Day 1–7 is where accounts die.
-Daily first, then max DD, then revenge size.
-Trade 0.3–0.5% risk or take 1-Step instead.
-
-### Reel 6 — Cheap Instant
-
-If an Instant $5k is $40, ask who pays the first reward.
-Ours is $72. That is the honest sticker.
-VERO35. No second code.
-
-### Reel 7 — Trial then buy
-
-Free trial. Same drawdown. Same platforms.
-Then $72 Instant or $36 1-Step.
-Link in bio.
-
----
-
-## Story stickers
-
-- Poll: Instant or 1-Step?
-- Quiz: Daily DD on Instant is… 3% / 5% / 10% (answer 3%)
-- Link sticker every third story to the UTM URL
-- Countdown: none (no fake flash sale). VERO35 is always on — say that.
-
----
-
-## Comment hygiene
-
-Reply once, publicly, with the pinned FAQ blurb. Move KYC / payout tickets to support. Delete spam. Do not quote pass-rate blogs in replies.
+> Simulated evaluation firm, not a broker. Free trial on the site. Instant $5k is $72 with VERO35 (no refund). 1-Step $5k is $36, fee refunded on first reward. 2-Step max DD is static; Instant trails. 18+. Rules: verodus.com/trading-objectives.html

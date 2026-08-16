@@ -8,7 +8,7 @@ Every ad ends with the same legal line. Do not delete it.
 
 > Simulated evaluation. The fee is not trading capital. Performance rewards are discretionary and not guaranteed. 18+.
 
-URL: `https://www.verodus.com/?utm_source=meta&utm_medium=paid&utm_campaign=print_skus&utm_content=ADNAME`
+URL: `https://www.verodus.com/?utm_source=meta&utm_medium=paid&utm_campaign=launch4w&utm_content=ADNAME`
 
 Display URL: `verodus.com`
 
@@ -278,28 +278,63 @@ Never argue pass rates in comments. Link the FAQ.
 
 ---
 
-## Combinations to upload (do this, don’t mix randomly)
+## FOUNDING / TRY FREE / STATIC / LAST CALL
 
-Launch **6 ads** in A1, **4 ads** in A2, **3 ads** in B, **4 ads** in C. Meta needs a small test matrix, not 40 variants.
+Scripts and claims: [`LAUNCH-PLAN.md`](LAUNCH-PLAN.md). Static-DD ads are **2-Step only**.
 
-| Ad name | Creative | Primary | Headline | Desc |
+**F-P1 — founding (week 4)**
+
+Founding prices are VERO35. Instant $5k is $72. 1-Step $5k is $36, fee back on first reward.
+
+Try the platform free first. 80% split; 90% on demand. Instant has no fee refund — that is why it is $72, not $40.
+
+Simulated evaluation. Rewards not guaranteed. 18+.
+
+**S-P1 — static vs trailing (week 2, 2-Step)**
+
+On Verodus 2-Step Pro, max drawdown is static from day one. A $10k account: $1,000 room. It does not trail your high.
+
+Instant is different — 6% trailing, never locks. If you want static, buy Lite or Pro.
+
+Simulated evaluation. 18+.
+
+**L-P1 — last call (week 4 Stories, warm only)**
+
+Founding stickers: Instant $5k $72 · 1-Step $5k $36 · VERO35.
+
+Try free first. No second coupon.
+
+Simulated. 18+.
+
+### Extra headlines
+
+| ID | Headline |
+|---|---|
+| F-H1 | Founding: $72 and $36 |
+| F-H2 | VERO35 is the founding code |
+| S-H1 | 2-Step: static max DD |
+| L-H1 | Founding prices — last call |
+
+---
+
+## Combinations to upload by week
+
+Small matrix. Kill bottom 50% by CPA after 2,000 impressions. Do not mix Instant refund copy with Instant creatives.
+
+| Week | Ad name | Creative | Primary | Headline |
 |---|---|---|---|---|
-| A1_INSTANT5K_FEED_P1 | instant-5k-feed.png | I-P1 | I-H1 | I-D1 |
-| A1_INSTANT5K_FEED_P2 | instant-5k-feed.png | I-P2 | I-H3 | I-D2 |
-| A1_INSTANT5K_STORY_P4 | instant-5k-story.png | I-P4 | I-H2 | I-D1 |
-| A1_INSTANT5K_CAROUSEL | carousel 01–04 | C-P1 | I-H1 | I-D1 |
-| A1_CLARITY_FEED | clarity-feed.png | I-P2 | I-H3 | I-D2 |
-| A1_PAYOUTS_FEED | payouts-feed.png | I-P5 | I-H5 | I-D1 |
-| A2_ONE5K_FEED_P1 | onestep-5k-feed.png | O-P1 | O-H1 | O-D1 |
-| A2_ONE5K_FEED_P2 | onestep-5k-feed.png | O-P2 | O-H2 | O-D3 |
-| A2_ONE5K_STORY | onestep-5k-story.png | O-P4 | O-H3 | O-D1 |
-| A2_ONE5K_CLARITY | clarity-feed.png | O-P5 | O-H4 | O-D2 |
-| B_TRIAL_STORY | freetrial-story.png | T-P1 | T-H1 | T-D1 |
-| B_TRIAL_FEED | clarity-feed.png | T-P2 | T-H2 | T-D2 |
-| B_TRIAL_SHORT | freetrial-story.png | T-P3 | T-H3 | T-D1 |
-| C_VERO35 | vero35-feed.png | R-P1 | R-H1 | I-D1 |
-| C_INSTANT | instant-5k-feed.png | R-P3 | R-H2 | I-D2 |
-| C_PAYOUTS | payouts-feed.png | R-P2 | R-H3 | I-D1 |
-| C_ONESTEP | onestep-5k-feed.png | R-P1 | O-H2 | O-D3 |
-
-After 4 days, kill the bottom 50% by CPA. Do not add new copy until something has 2,000+ impressions.
+| 1 | W1_TRYFREE_FEED | tryfree-feed.png | T-P1 | T-H1 |
+| 1 | W1_TRIAL_STORY | freetrial-story.png | T-P3 | T-H3 |
+| 1 | W1_CLARITY | clarity-feed.png | T-P2 | T-H2 |
+| 2 | W2_STATIC_2STEP | static-dd-feed.png | S-P1 | S-H1 |
+| 2 | W2_INSTANT5K | instant-5k-feed.png | I-P1 | I-H1 |
+| 2 | W2_ONE5K | onestep-5k-feed.png | O-P1 | O-H1 |
+| 2 | W2_CAROUSEL | carousel 01–04 | C-P1 | I-H1 |
+| 3 | W3_INSTANT | instant-5k-feed.png | I-P2 | I-H3 |
+| 3 | W3_ONE | onestep-5k-feed.png | O-P2 | O-H2 |
+| 3 | W3_RAILS | payouts-feed.png | R-P2 | R-H3 |
+| 3 | W3_TRIAL_TOPUP | freetrial-story.png | T-P1 | T-H1 |
+| 4 | W4_FOUNDING | founding-feed.png | F-P1 | F-H1 |
+| 4 | W4_LASTCALL | lastchance-story.png | L-P1 | L-H1 |
+| 4 | W4_INSTANT | instant-5k-story.png | I-P4 | I-H2 |
+| 4 | W4_ONE | onestep-5k-story.png | O-P4 | O-H3 |

@@ -1,6 +1,8 @@
-# Verodus Meta ads — $1,000 campaign
+# Verodus Meta ads — $1,000 CAD · 4 weeks
 
-Run this in **Meta Ads Manager** (Facebook + Instagram). Do not boost posts from the Page. Boosted posts cannot optimize for Purchase.
+Master plan: [`LAUNCH-PLAN.md`](LAUNCH-PLAN.md) (Atria funnel + operator-book SKU rules).
+
+Run this in **Meta Ads Manager** (Facebook + Instagram). Do not use the Page **Boost** button. Duplicate a winning Reel into Ads Manager if you want to pay to amplify it.
 
 **Hero SKUs only**
 
@@ -20,7 +22,7 @@ Run this in **Meta Ads Manager** (Facebook + Instagram). Do not boost posts from
 
 Landing pages
 
-- Instant: `https://www.verodus.com/?utm_source=meta&utm_medium=paid&utm_campaign=print_skus&utm_content={{ad.name}}`
+- Instant: `https://www.verodus.com/?utm_source=meta&utm_medium=paid&utm_campaign=launch4w&utm_content={{ad.name}}`
 - 1-Step: same URL (homepage tabs). If a dedicated 1-Step checkout exists, swap it in.
 - Free trial: homepage **Free Trial** CTA, same UTM with `utm_content=trial`
 - Code: **VERO35** (already 35% sitewide). Put it in copy. Do not stack another code.
@@ -36,70 +38,32 @@ Landing pages
 5. Special Ad Categories: leave **off** unless Meta flags it. This is a simulated evaluation fee, not housing/credit/employment. If Meta forces **Financial products**, accept it and keep claims conservative (copy below already is).
 6. Landing page must say **simulated**, fee ≠ trading capital, rewards **discretionary / not guaranteed**. Homepage already does this — do not send ads to a hype page that strips the disclaimer.
 
-If the pixel has **fewer than 50 purchases in 7 days**, optimize Campaign A for `InitiateCheckout` for 3 days, then switch to `Purchase`.
+Week 1 has no Purchase objective. Weeks 2–4 optimize Purchase only on **warm** traffic. If Purchase events stay under ~20 by week 3, keep optimizing W2/W3 Purchase sets for `InitiateCheckout` until they do.
 
 ---
 
-## Budget — 14 days, $1,000
+## Budget — 4 weeks, $1,000 CAD
 
-Daily budget **$71.43**. Campaign budget optimization **on**.
+Paid media **$760 CAD**. Rest is edit/tools/contingency (`LAUNCH-PLAN.md`).
 
-| Campaign | Objective | $ | Days | Daily |
+| Week | CAD | Objective | Audience | Creatives |
 |---|---|---|---|---|
-| A — Print SKUs | Sales / Purchase | **$700** | 14 | $50 |
-| B — Free trial | Sales / CompleteRegistration (or Lead) | **$150** | 14 | $11 |
-| C — Retargeting | Sales / Purchase | **$150** | 14 | $11 |
+| 1 | **$150** | CompleteRegistration (trial) | Cold Advantage+ | `tryfree-feed.png`, `freetrial-story.png`, `clarity-feed.png`, manifesto video |
+| 2 | **$210** | $90 ViewContent (rules) + $120 Purchase | Rules = cold/warm; Purchase = trial + 50% video | `static-dd-feed.png`, Instant $5k, 1-Step $5k |
+| 3 | **$200** | Purchase (70%) + trial top-up (30%) | Warm first | AMA video, walkthrough, `payouts-feed.png` (rails only) |
+| 4 | **$200** | Purchase | Warm only — no cold | `founding-feed.png`, `lastchance-story.png`, Instant/1-Step $5k |
 
-Do **not** run a cold traffic campaign. $1,000 is too small to pay for clicks that never check out.
+Geos, age 22–44, EN, Advantage+ placements: same as below. Exclude purchasers 180 days on every Purchase ad set.
 
-Kill rule: pause any ad with **CPA > $40** after 1,000 impressions **and** 3+ purchases (or 8+ checkouts if still on InitiateCheckout). Instant $5k contribution is ~$28 before CPA; a $40 ad CPA wipes the unit.
+Kill rule: pause any **Purchase** ad with CPA **> $40 CAD** after 1,000 impressions and 3+ purchases. Cap trial CPA at **$8 CAD**. Instant $5k contribution is ~$28 USD before ads.
 
----
+Do not split by interest (Forex, FTMO, crypto).
 
-## Campaign A — Print SKUs ($700)
+### Always-on audiences (reuse each week)
 
-**Advantage+ Sales**, CBO, Advantage+ placements, Advantage+ audience.
-
-### Ad set A1 — Instant $5k (60% of A ≈ $420)
-
-- Conversion: Purchase
-- Attribution: 7-day click, 1-day view
-- Audience: Advantage+ (broad). Age **22–44**. Languages: English.
-- Geos (start here): United States, United Kingdom, Canada, Australia, UAE, Germany, Netherlands, Singapore, South Africa, Nigeria, Philippines, India, Brazil. Remove any country that declines checkout or triggers chargebacks.
-- Exclusions: purchasers last 180 days (pixel `Purchase`).
-- Creatives: `instant-5k-feed.png`, `instant-5k-story.png`, carousel 01–04, copy set **INSTANT**.
-
-### Ad set A2 — 1-Step $5k (40% of A ≈ $280)
-
-- Same targeting as A1.
-- Creatives: `onestep-5k-feed.png`, `onestep-5k-story.png`, carousel 02 + 04, copy set **ONESTEP**.
-
-Do not split by interest (Forex, FTMO, crypto). Meta will find traders cheaper on broad than you will with 2019 interest stacks.
-
----
-
-## Campaign B — Free trial ($150)
-
-Cold audience, same geos, optimize for **CompleteRegistration** (trial signup).
-
-Purpose: cheap pixel data + retargeting pool. Trial users who never buy are the cheapest warm traffic you can own.
-
-Creatives: `freetrial-story.png`, `clarity-feed.png`, copy set **TRIAL**.
-
-Cap: if trial CPA > $8, pause B and move remainder into C.
-
----
-
-## Campaign C — Retargeting ($150)
-
-**Manual** sales campaign (not Advantage+), so you can force the audience.
-
-Ad set C1 — 7-day website visitors who viewed Instant or checkout but did not Purchase.  
-Ad set C2 — 14-day Instagram/Facebook engagers + video 50% viewers + trial signups who did not Purchase.
-
-Exclude purchasers 180 days.
-
-Creatives: `vero35-feed.png`, `payouts-feed.png`, `instant-5k-feed.png`, copy set **RETARGET**.
+- **Cold:** Advantage+ broad. Age 22–44. US, UK, CA, AU, UAE, DE, NL, SG, ZA, NG, PH, IN, BR.
+- **Warm:** 7/14/30-day trial signups, site visitors, IG/FB engagers, video 50% viewers.
+- Attribution: 7-day click, 1-day view.
 
 ---
 
@@ -118,24 +82,23 @@ Use **1:1** for feed, **9:16** for Stories/Reels. Upload both on every ad; Meta 
 | Item | Value |
 |---|---|
 | Pixel | Verodus Purchase with `value` + `currency` |
-| UTM | `utm_source=meta&utm_medium=paid&utm_campaign=print_skus` |
+| UTM | `utm_source=meta&utm_medium=paid&utm_campaign=launch4w` |
 | Code | VERO35 |
 | Ad names | `A1_INSTANT5K_FEED_01` style — matches `utm_content` |
 | Offer | Do not add Instant-only extra % |
 
 ---
 
-## What “good” looks like on $1,000
+## What “good” looks like on $1,000 CAD
 
 | Metric | Target |
 |---|---|
-| CPM | $8–18 (EN geos) |
-| CTR (all) | ≥ 1.2% |
-| CPC | ≤ $1.20 |
-| Checkout rate | ≥ 8% of landing sessions |
-| Purchase CPA | **≤ $28** Instant $5k · **≤ $18** 1-Step $5k |
-| Purchases | 25–45 mixed Instant $5k / 1-Step $5k |
-| Instant $25k+ share | **0%** of attributed sales |
+| Cost per free trial | Drive down weekly; kill > $8 CAD |
+| Hook rate (3s) | Kill <25%; scale >45% |
+| Trial → paid | Core month-1 outcome |
+| Purchase CPA | **≤ $40 CAD** Instant $5k · **≤ $25 CAD** 1-Step $5k |
+| Accounts sold | First cohort; **0 Instant $25k+ from ads** |
+| Warm audience | Grow every week for week 4 |
 
 If Meta’s algorithm starts converting Instant $50k/$100k from the homepage picker, add a dedicated Instant $5k checkout URL or hide $50k+ Instant from the default Instant tab on the ad landing page.
 
