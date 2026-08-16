@@ -180,6 +180,8 @@ def write_report(df_profiles, df_blend, df_skus, df_fails, n_sims: int, seed: in
         p_pay = brow["P_pay"]
         refund = PRODUCTS[product]["refund_on_first_payout"]
         for size in SIZES:
+            if size not in SKUS[product]:
+                continue
             list_px, sale_px = SKUS[product][size]
             e_payout = scale_payout(brow["E_payout_100k"], size)
             e_refund = p_pay * sale_px if refund else 0.0
@@ -241,6 +243,8 @@ def main():
         p_pay = brow["P_pay"]
         refund = PRODUCTS[product]["refund_on_first_payout"]
         for size in SIZES:
+            if size not in SKUS[product]:
+                continue
             list_px, sale_px = SKUS[product][size]
             e_payout = scale_payout(brow["E_payout_100k"], size)
             e_refund = p_pay * sale_px if refund else 0.0

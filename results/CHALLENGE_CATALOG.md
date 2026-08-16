@@ -6,28 +6,28 @@ Recommended VERO35 sale. List = sale ÷ 0.65. Instant $200k pulled. Lite funded 
 
 | Plan | Size | List | Sale (VERO35) | Discount |
 |---|---:|---:|---:|---:|
-| Instant Funding | $5,000 | $91 | $59 | 35% |
-| Instant Funding | $10,000 | $122 | $79 | 35% |
+| Instant Funding | $5,000 | $75 | $49 | 35% |
+| Instant Funding | $10,000 | $106 | $69 | 35% |
 | Instant Funding | $25,000 | $214 | $139 | 35% |
 | Instant Funding | $50,000 | $368 | $239 | 35% |
-| Instant Funding | $100,000 | $691 | $449 | 35% |
+| Instant Funding | $100,000 | $675 | $439 | 35% |
 | One-Step | $5,000 | $55 | $36 | 35% |
 | One-Step | $10,000 | $92 | $60 | 35% |
 | One-Step | $25,000 | $185 | $120 | 35% |
 | One-Step | $50,000 | $297 | $193 | 35% |
 | One-Step | $100,000 | $515 | $335 | 35% |
 | One-Step | $200,000 | $1,006 | $654 | 35% |
-| Two-Step Lite | $5,000 | $69 | $45 | 35% |
-| Two-Step Lite | $10,000 | $91 | $59 | 35% |
-| Two-Step Lite | $25,000 | $152 | $99 | 35% |
-| Two-Step Lite | $50,000 | $232 | $151 | 35% |
+| Two-Step Lite | $5,000 | $65 | $42 | 35% |
+| Two-Step Lite | $10,000 | $85 | $55 | 35% |
+| Two-Step Lite | $25,000 | $145 | $94 | 35% |
+| Two-Step Lite | $50,000 | $229 | $149 | 35% |
 | Two-Step Lite | $100,000 | $414 | $269 | 35% |
 | Two-Step Lite | $200,000 | $768 | $499 | 35% |
 | Two-Step Pro | $5,000 | $69 | $45 | 35% |
 | Two-Step Pro | $10,000 | $91 | $59 | 35% |
 | Two-Step Pro | $25,000 | $146 | $95 | 35% |
-| Two-Step Pro | $50,000 | $251 | $163 | 35% |
-| Two-Step Pro | $100,000 | $455 | $296 | 35% |
+| Two-Step Pro | $50,000 | $245 | $159 | 35% |
+| Two-Step Pro | $100,000 | $445 | $289 | 35% |
 | Two-Step Pro | $200,000 | $888 | $577 | 35% |
 
 ## Rules

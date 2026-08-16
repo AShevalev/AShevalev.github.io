@@ -114,7 +114,7 @@ SESSION_P = np.array([s[1] for s in SESSIONS], dtype=float)
 # 1-Step: 10% target, no min days, 50% Best Day of Positive Days' Profit,
 #   4% daily from SOD equity (fixed $ of initial), 6% hybrid (lock at initial).
 #   Funded: same DD, 3 min days, no consistency. 100% fee refund on first reward.
-# Lite: P1 8% / P2 5%, 5 days each, 4% daily, 8% static eval; funded 4%/10% static.
+# Lite: P1 8% / P2 5%, 5 days each, 4% daily, 8% static eval and funded.
 # Pro:  P1 10% / P2 5%, 5 days each, 5% daily, 10% static eval and funded.
 
 PRODUCTS = {
@@ -190,7 +190,7 @@ PRODUCTS = {
         ],
         "funded": {
             "target": None,
-            "max_dd": 0.10,
+            "max_dd": 0.08,
             "floor_type": "static",
             "daily_dd": 0.04,
             "daily_dd_type": "sod",
@@ -243,39 +243,38 @@ PRODUCTS = {
     },
 }
 
-# Live index-eval.js (16 Aug 2026) — sale = VERO35 shopper price, list = basePrice.
+# Recommended VERO35 card (16 Aug 2026) — sale = shopper price, list = sale ÷ 0.65.
 SKUS = {
     "Verodus Instant": {
-        5_000: (110, 72),
-        10_000: (184, 121),
-        25_000: (370, 242),
-        50_000: (594, 389),
-        100_000: (1032, 676),
-        200_000: (2012, 1318),
+        5_000: (75, 49),
+        10_000: (106, 69),
+        25_000: (214, 139),
+        50_000: (368, 239),
+        100_000: (675, 439),
     },
     "Verodus 1-Step": {
         5_000: (55, 36),
         10_000: (92, 60),
         25_000: (185, 120),
         50_000: (297, 193),
-        100_000: (516, 335),
+        100_000: (515, 335),
         200_000: (1006, 654),
     },
     "Verodus 2-Step Lite": {
-        5_000: (27, 18),
-        10_000: (51, 33),
-        25_000: (101, 66),
-        50_000: (204, 133),
-        100_000: (371, 241),
-        200_000: (734, 477),
+        5_000: (65, 42),
+        10_000: (85, 55),
+        25_000: (145, 94),
+        50_000: (229, 149),
+        100_000: (414, 269),
+        200_000: (768, 499),
     },
     "Verodus 2-Step Pro": {
-        5_000: (31, 20),
-        10_000: (56, 36),
-        25_000: (131, 85),
-        50_000: (250, 163),
-        100_000: (455, 296),
-        200_000: (887, 577),
+        5_000: (69, 45),
+        10_000: (91, 59),
+        25_000: (146, 95),
+        50_000: (245, 159),
+        100_000: (445, 289),
+        200_000: (888, 577),
     },
 }
 
@@ -739,6 +738,8 @@ def run_monte_carlo(n_sims=4000, seed=42, model_post_funding_survival=True):
         p_pay = brow["P_pay"]
         refund = bool(brow["refund"])
         for size in SIZES:
+            if size not in SKUS[product]:
+                continue
             list_px, sale_px = SKUS[product][size]
             e_payout = scale_payout(brow["E_payout_100k"], size)
             if size == 5_000 and product == "Verodus Instant":
@@ -782,6 +783,7 @@ def assert_floor_examples():
     assert abs(get_floor(110_000, start, 0.06, "hybrid") - 100_000) < 1e-6
     assert abs(get_floor(110_000, start, 0.06, "trailing") - 103_400) < 1e-6
     assert abs(get_floor(start, start, 0.08, "static") - 92_000) < 1e-6
+    assert PRODUCTS["Verodus 2-Step Lite"]["funded"]["max_dd"] == 0.08
     d = daily_floor({"daily_dd": 0.03, "daily_dd_type": "intraday_peak"}, start, start, 102_000)
     assert abs(d - (102_000 - 3_000)) < 1e-6
     d = daily_floor({"daily_dd": 0.04, "daily_dd_type": "sod"}, start, 105_000, 105_000)

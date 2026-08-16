@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 
 from reportlab.lib import colors
@@ -29,6 +30,7 @@ from write_price_rec_pdf import (
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
 OUT = RESULTS / "Verodus_Challenge_Catalog_2026-08-16.pdf"
+OUT_SHOP = RESULTS / "verodus-challenge-catalog-2026-08-16.pdf"
 MD = RESULTS / "CHALLENGE_CATALOG.md"
 
 PAGE = landscape(A4)
@@ -233,7 +235,9 @@ def build():
         author="Verodus operator research",
     )
     doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)
+    shutil.copyfile(OUT, OUT_SHOP)
     print(f"Wrote {OUT} ({OUT.stat().st_size:,} bytes)")
+    print(f"Wrote {OUT_SHOP}")
     print(f"Wrote {MD}")
 
 

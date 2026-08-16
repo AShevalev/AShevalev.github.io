@@ -69,31 +69,31 @@ def add(key, firm, plan, family, phases, funded_rules, skus, refund="first",
 
 
 # =============================================================================
-# 1. VERODUS — live index-eval.js 16 Aug 2026, VERO35
+# 1. VERODUS — recommended VERO35 card 16 Aug 2026 (list = sale ÷ 0.65)
 # =============================================================================
 add("Verodus Instant", "Verodus", "Instant", "instant",
     [P(None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20)],
-    None, sku((5e3,110,72),(1e4,184,121),(25e3,370,242),(5e4,594,389),(1e5,1032,676)),
+    None, sku((5e3,75,49),(1e4,106,69),(25e3,214,139),(5e4,368,239),(1e5,675,439)),
     refund="none", split=0.80, instant=True, discount="VERO35",
-    source="verodus.com Instant live: 3% daily / 6% trail never locks / 20% cons")
+    source="recommended VERO35 card; 3% daily / 6% trail never locks / 20% cons")
 
 add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     [P(0.10, 0.06, "hybrid", 0.04, "sod", 0, 0.0, 0.50)],
     funded(0.06, "hybrid", 0.04, min_days=3, cons=None),
-    sku((5e3,55,36),(1e4,92,60),(25e3,185,120),(5e4,297,193),(1e5,516,335),(2e5,1006,654)),
+    sku((5e3,55,36),(1e4,92,60),(25e3,185,120),(5e4,297,193),(1e5,515,335),(2e5,1006,654)),
     refund="first", discount="VERO35", source="verodus.com/1-step.html")
 
 add("Verodus 2-Step Lite", "Verodus", "2-Step Lite", "2-step",
     [P(0.08, 0.08, "static", 0.04, min_days=5), P(0.05, 0.08, "static", 0.04, min_days=5)],
     funded(0.08, "static", 0.04, min_days=3),
-    sku((5e3,27,18),(1e4,51,33),(25e3,101,66),(5e4,204,133),(1e5,371,241),(2e5,734,477)),
+    sku((5e3,65,42),(1e4,85,55),(25e3,145,94),(5e4,229,149),(1e5,414,269),(2e5,768,499)),
     refund="first", discount="VERO35",
-    source="verodus Lite + funded max DD 10%→8%")
+    source="recommended VERO35 card; Lite funded max DD 8%")
 
 add("Verodus 2-Step Pro", "Verodus", "2-Step Pro", "2-step",
     [P(0.10, 0.10, "static", 0.05, min_days=5), P(0.05, 0.10, "static", 0.05, min_days=5)],
     funded(0.10, "static", 0.05, min_days=3),
-    sku((5e3,31,20),(1e4,56,36),(25e3,131,85),(5e4,250,163),(1e5,455,296),(2e5,887,577)),
+    sku((5e3,69,45),(1e4,91,59),(25e3,146,95),(5e4,245,159),(1e5,445,289),(2e5,888,577)),
     refund="first", discount="VERO35", source="verodus.com/2-step-pro.html")
 
 # =============================================================================
