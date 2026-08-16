@@ -8,9 +8,9 @@ Do **not** keep “from $18” — that was the old Lite $5k VERO35. Floor is **
 
 | Field | Text | Chars |
 |---|---|---:|
-| Title | Verodus — Instant Funding from $49 · 1-Step from $36 | 54 |
-| Description | Get Instant funding from $49. Start a 1-Step from $36 or Lite from $42. Trade $5k–$200k simulated accounts. Keep 80%. Forex, indices and crypto. No deposit. | 154 |
-| OG title | Verodus — Instant Funding from $49 · 1-Step from $36 | 54 |
+| Title | Verodus — Instant from $49. Funded on Day One. | 47 |
+| Description | Funded on day one from $49. Pass a 1-Step from $36 or Lite from $42. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit. | 136 |
+| OG title | Verodus — Instant from $49. Funded on Day One. | 47 |
 
 Default split is **80%**. 90% is a paid add-on — do not lead the meta with 90% or $1M.
 
