@@ -49,7 +49,8 @@ PRODUCTS = {}
 
 
 def add(key, firm, plan, family, phases, funded_rules, skus, refund="first",
-        split=0.80, min_reward=100.0, instant=False, source="", discount=""):
+        split=0.80, min_reward=100.0, instant=False, source="", discount="",
+        first_reward_cap=None):
     PRODUCTS[key] = {
         "firm": firm,
         "plan": plan,
@@ -63,6 +64,7 @@ def add(key, firm, plan, family, phases, funded_rules, skus, refund="first",
         "instant": instant,
         "source": source,
         "discount": discount,
+        "first_reward_cap": first_reward_cap,
     }
 
 
@@ -73,7 +75,7 @@ add("Verodus Instant", "Verodus", "Instant", "instant",
     [P(None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20)],
     None, sku((5e3,110,72),(1e4,184,121),(25e3,370,242),(5e4,594,389),(1e5,1032,676),(2e5,2012,1318)),
     refund="none", split=0.80, instant=True, discount="VERO35",
-    source="verodus.com/index-eval.js + instant.html")
+    source="verodus.com Instant live: 3% daily / 6% trail never locks / 20% cons")
 
 add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     [P(0.10, 0.06, "hybrid", 0.04, "sod", 0, 0.0, 0.50)],
@@ -83,9 +85,10 @@ add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
 
 add("Verodus 2-Step Lite", "Verodus", "2-Step Lite", "2-step",
     [P(0.08, 0.08, "static", 0.04, min_days=5), P(0.05, 0.08, "static", 0.04, min_days=5)],
-    funded(0.10, "static", 0.04, min_days=3),
+    funded(0.08, "static", 0.04, min_days=3),
     sku((5e3,27,18),(1e4,51,33),(25e3,101,66),(5e4,204,133),(1e5,371,241),(2e5,734,477)),
-    refund="first", discount="VERO35", source="verodus.com/2-step-lite.html")
+    refund="first", discount="VERO35",
+    source="verodus Lite + funded max DD 10%→8%")
 
 add("Verodus 2-Step Pro", "Verodus", "2-Step Pro", "2-step",
     [P(0.10, 0.10, "static", 0.05, min_days=5), P(0.05, 0.10, "static", 0.05, min_days=5)],

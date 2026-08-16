@@ -32,17 +32,17 @@ Funded on purchase. No evaluation. No profit target.
 | 1 | Access | Instant funded | Category definition |
 | 2 | Profit target | None | |
 | 3 | Daily drawdown | **3%** of initial, from the **day’s equity high** (intraday). Breach = fail | Industry Instant standard |
-| 4 | Max drawdown | **6% trailing** on HWM. **Locks at initial** once closed equity is **+5%** | Same % at every size. Stops the $50k+ payout tail |
+| 4 | Max drawdown | **6% trailing** on HWM. **Never locks** | Live FAQ. Unchanged |
 | 5 | Consistency | Best **closed** day ≤ **20%** of the sum of positive days | Stops lottery first payouts |
 | 6 | Minimum trading days | **5 valid days** | |
 | 7 | Valid day | Closed day PnL ≥ **0.5%** of that day’s start-of-day equity | |
-| 8 | Max risk per trade | **2%** of initial (hard breach) | Hola / Goat Instant. Same % every size |
-| 9 | First reward cap | **3% of initial** (trader share after 80% split, so ~3.75% gross) | Makes $100k Instant priceable without a special $100k rule |
-| 10 | Later rewards | Same 20% consistency. Cycle 14 days or on-demand after the first | |
-| 11 | Fee refund | **No** | Instant P(pay) is ~22%; a refund would tax every sale |
+| 8 | Max risk per trade | None | Not added |
+| 9 | First reward | **$100 minimum only.** No % cap | Not added |
+| 10 | Later rewards | Same 20% consistency | |
+| 11 | Fee refund | **No** | Instant P(pay) is high; a refund would tax every sale |
 | 12 | Split | 80% | |
 
-**Do not** change daily, trail, consistency, valid-day %, risk cap, or first-reward % by account size.
+Instant is the **live** card. Do not add a +5% trail lock, a 2% max-risk rule, or a first-reward % cap.
 
 ---
 
@@ -160,11 +160,11 @@ Wide-room 2-step. FTMO’s 10/5 · 5/10, same at every size.
 | Phases | 0 (funded day 1) | 1 | 2 | 2 |
 | Target | — | 10% | 8% then 5% | 10% then 5% |
 | Daily | 3% from day’s high | 4% SOD | 4% SOD | 5% SOD |
-| Max DD | 6% trail, locks at initial at +5% | 6% hybrid | 8% static | 10% static |
+| Max DD | 6% trail, **never locks** | 6% hybrid | 8% static | 10% static |
 | Consistency | 20% best day | 50% on eval only | None | None |
 | Min days | 5 valid (0.5%) | 0 eval / 3 funded | 5 + 5 / 3 funded | 5 + 5 / 3 funded |
-| Max risk / trade | 2% | — | — | — |
-| First reward cap | 3% of initial | — | — | — |
+| Max risk / trade | — | — | — | — |
+| First reward cap | — ($100 min only) | — | — | — |
 | Fee refund | No | Yes, first reward | Yes, first reward | Yes, first reward |
 | Split | 80% | 80% | 80% | 80% |
 
@@ -181,9 +181,9 @@ Shopper pays **sale**. List = sale / 0.65.
 | Lite | $27 | $45 | $99 | $179 | $349 | $549 |
 | Pro | $36 | $59 | $129 | $229 | $449 | $799 |
 
-Instant $25k+ only works at these prices **because** the Instant card above (2% max risk + 3% first-reward cap + trail lock at +5%) applies to **every** Instant size, including $5k. Do not keep today’s Instant rules and only raise the big SKUs — E[payout] scales with size and the $100k/$200k rows stay red.
+Instant prices above are a **raise on $25k+** only. Instant rules stay live (6% trail never locks, no 2% risk cap, no first-reward % cap), so large Instant still has a high E[payout]. Do not cut Instant sale below today’s VERO35; $50k+ stays a hole unless you raise the fee.
 
-Evals already print at today’s VERO35 prices. The sale column above is a raise toward Hola / FundingPips, still under FTMO.
+Evals already print at today’s VERO35. The eval sale column is a raise toward Hola / FundingPips, still under FTMO. The only **rule** change vs live FAQ is Lite funded max DD 10% → 8%.
 
 ---
 

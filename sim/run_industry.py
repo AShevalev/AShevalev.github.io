@@ -60,6 +60,9 @@ def run_one(config, profile, rng):
                         reason=reason or "unknown", stage="funded", days=days)
     profit = max(0.0, bal - SIM_BALANCE)
     payout = split * profit
+    cap = config.get("first_reward_cap")
+    if cap:
+        payout = min(payout, cap * SIM_BALANCE)
     paid = payout + 1e-9 >= min_reward
     return dict(p1=True, funded=True, paid=paid, payout=payout if paid else 0.0,
                 reason=None if paid else "min_reward", stage="paid", days=days)
@@ -207,6 +210,10 @@ def write_report(df_blend, df_skus, df_profiles, df_fails):
                  "Track360 / FPFX / FTMO funnel. Same path library for every firm; only rules, "
                  "split, refund, and prices differ. Instant P(pay) is first-payout eligibility; "
                  "year-1 is the sustained-Instant figure.")
+    lines.append("")
+    lines.append("Verodus vs live FAQ: Instant is **unchanged** (6% trail never locks; no 2% "
+                 "max-risk; no first-reward % cap). Lite funded max DD **10% → 8%**. "
+                 "1-Step and Pro unchanged.")
     lines.append("")
     lines.append("## Blended rates by product")
     lines.append("")

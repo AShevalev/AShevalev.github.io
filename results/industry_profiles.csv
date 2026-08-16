@@ -9,97 +9,97 @@ Verodus 1-Step,Verodus,1-Step,1-step,Semi-skilled,0.22,0.316,0.225,0.225,0.072,2
 Verodus 1-Step,Verodus,1-Step,1-step,Average,0.26,0.078,0.038,0.038,0.014,58.32935004962606,1534.9828960427913,62.05
 Verodus 1-Step,Verodus,1-Step,1-step,Aggressive,0.28,0.002,0.0,0.0,0.0,0.0,0.0,12.441
 Verodus 1-Step,Verodus,1-Step,1-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.698
-Verodus 2-Step Lite,Verodus,2-Step Lite,2-step,Pro,0.07,0.827,0.592,0.592,0.192,675.4051190274043,1140.887025384129,110.955
-Verodus 2-Step Lite,Verodus,2-Step Lite,2-step,Semi-skilled,0.22,0.547,0.286,0.286,0.098,339.6256623962739,1187.502316070888,106.006
-Verodus 2-Step Lite,Verodus,2-Step Lite,2-step,Average,0.26,0.141,0.026,0.026,0.004,52.74924420768516,2028.8170849109677,67.639
-Verodus 2-Step Lite,Verodus,2-Step Lite,2-step,Aggressive,0.28,0.0,0.0,0.0,0.0,0.0,0.0,2.125
-Verodus 2-Step Lite,Verodus,2-Step Lite,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.3
-Verodus 2-Step Pro,Verodus,2-Step Pro,2-step,Pro,0.07,0.854,0.633,0.633,0.202,650.30121173586,1027.3320880503315,129.48
-Verodus 2-Step Pro,Verodus,2-Step Pro,2-step,Semi-skilled,0.22,0.572,0.32,0.32,0.116,358.24894666073413,1119.5279583147942,128.028
-Verodus 2-Step Pro,Verodus,2-Step Pro,2-step,Average,0.26,0.117,0.02,0.02,0.008,29.345282863069436,1467.2641431534717,71.282
-Verodus 2-Step Pro,Verodus,2-Step Pro,2-step,Aggressive,0.28,0.001,0.0,0.0,0.0,0.0,0.0,1.944
-Verodus 2-Step Pro,Verodus,2-Step Pro,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.321
-FTMO 1-Step,FTMO,1-Step,1-step,Pro,0.07,0.805,0.674,0.674,0.222,1197.1622578775514,1776.2051303821238,94.122
-FTMO 1-Step,FTMO,1-Step,1-step,Semi-skilled,0.22,0.476,0.344,0.344,0.107,670.0801178434037,1947.9073193122201,97.944
-FTMO 1-Step,FTMO,1-Step,1-step,Average,0.26,0.095,0.044,0.044,0.016,123.24752209058826,2801.0800475133697,63.421
-FTMO 1-Step,FTMO,1-Step,1-step,Aggressive,0.28,0.001,0.0,0.0,0.0,0.0,0.0,1.614
-FTMO 1-Step,FTMO,1-Step,1-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.215
-FTMO 2-Step,FTMO,2-Step,2-step,Pro,0.07,0.875,0.684,0.684,0.228,440.68313337309854,644.2735868027756,127.698
-FTMO 2-Step,FTMO,2-Step,2-step,Semi-skilled,0.22,0.557,0.323,0.323,0.106,238.77273308154122,739.2344677447097,128.19
-FTMO 2-Step,FTMO,2-Step,2-step,Average,0.26,0.127,0.031,0.031,0.008,28.651487664764655,924.2415375730533,68.507
-FTMO 2-Step,FTMO,2-Step,2-step,Aggressive,0.28,0.003,0.0,0.0,0.0,0.0,0.0,1.942
-FTMO 2-Step,FTMO,2-Step,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.307
-FN Stellar 1-Step,FundedNext,Stellar 1-Step,1-step,Pro,0.07,0.738,0.624,0.624,0.197,438.06081672057127,702.0205396163,84.231
-FN Stellar 1-Step,FundedNext,Stellar 1-Step,1-step,Semi-skilled,0.22,0.485,0.372,0.372,0.119,295.56515158736175,794.5299773853811,90.407
-FN Stellar 1-Step,FundedNext,Stellar 1-Step,1-step,Average,0.26,0.099,0.062,0.062,0.021,62.483854399930756,1007.8041032246897,59.589
-FN Stellar 1-Step,FundedNext,Stellar 1-Step,1-step,Aggressive,0.28,0.004,0.001,0.001,0.001,4.7621106539372,4762.1106539372,1.861
-FN Stellar 1-Step,FundedNext,Stellar 1-Step,1-step,Lottery,0.17,0.003,0.0,0.0,0.0,0.0,0.0,1.284
-FN Stellar 2-Step,FundedNext,Stellar 2-Step,2-step,Pro,0.07,0.86,0.688,0.688,0.227,430.1377644831712,625.2002390743769,110.757
-FN Stellar 2-Step,FundedNext,Stellar 2-Step,2-step,Semi-skilled,0.22,0.594,0.326,0.326,0.102,239.0290121245571,733.2178286029359,113.978
-FN Stellar 2-Step,FundedNext,Stellar 2-Step,2-step,Average,0.26,0.181,0.034,0.034,0.012,32.123980744367834,944.8229630696422,68.609
-FN Stellar 2-Step,FundedNext,Stellar 2-Step,2-step,Aggressive,0.28,0.001,0.0,0.0,0.0,0.0,0.0,1.994
-FN Stellar 2-Step,FundedNext,Stellar 2-Step,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.318
-FN Stellar Lite,FundedNext,Stellar Lite,2-step,Pro,0.07,0.814,0.606,0.606,0.182,413.4095235563815,682.1939332613556,94.256
-FN Stellar Lite,FundedNext,Stellar Lite,2-step,Semi-skilled,0.22,0.527,0.294,0.294,0.093,212.15976791923845,721.631863670879,102.986
-FN Stellar Lite,FundedNext,Stellar Lite,2-step,Average,0.26,0.165,0.047,0.047,0.011,53.835846424789345,1145.443540952965,63.566
-FN Stellar Lite,FundedNext,Stellar Lite,2-step,Aggressive,0.28,0.001,0.0,0.0,0.0,0.0,0.0,1.824
-FN Stellar Lite,FundedNext,Stellar Lite,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.312
-FN Stellar Instant,FundedNext,Stellar Instant,instant,Pro,0.07,0.954,0.954,0.954,0.309,562.7889048529823,589.9254767850969,9.287
-FN Stellar Instant,FundedNext,Stellar Instant,instant,Semi-skilled,0.22,0.913,0.913,0.913,0.309,613.7907444134538,672.2790190727862,10.382
-FN Stellar Instant,FundedNext,Stellar Instant,instant,Average,0.26,0.759,0.759,0.759,0.221,740.7829718853297,975.9986454352171,13.694
-FN Stellar Instant,FundedNext,Stellar Instant,instant,Aggressive,0.28,0.201,0.201,0.201,0.077,667.8042529889498,3322.4092188504956,5.028
-FN Stellar Instant,FundedNext,Stellar Instant,instant,Lottery,0.17,0.048,0.048,0.048,0.021,349.045904945729,7271.789686369353,2.356
-5ers High Stakes,The5ers,High Stakes,2-step,Pro,0.07,0.854,0.628,0.628,0.203,1285.680352938456,2047.2617085007262,139.254
-5ers High Stakes,The5ers,High Stakes,2-step,Semi-skilled,0.22,0.567,0.285,0.285,0.089,586.6070233901681,2058.270257509362,138.216
-5ers High Stakes,The5ers,High Stakes,2-step,Average,0.26,0.137,0.021,0.021,0.008,46.05768939871411,2193.2233047006716,67.386
-5ers High Stakes,The5ers,High Stakes,2-step,Aggressive,0.28,0.007,0.0,0.0,0.0,0.0,0.0,2.189
-5ers High Stakes,The5ers,High Stakes,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.34
-5ers Hyper Growth,The5ers,Hyper Growth,1-step,Pro,0.07,0.762,0.63,0.63,0.171,304.253951782418,482.9427806070127,85.215
-5ers Hyper Growth,The5ers,Hyper Growth,1-step,Semi-skilled,0.22,0.472,0.386,0.386,0.117,205.30293934581718,531.87289985963,89.748
-5ers Hyper Growth,The5ers,Hyper Growth,1-step,Average,0.26,0.101,0.071,0.071,0.026,49.14354731105151,692.1626381838241,63.366
-5ers Hyper Growth,The5ers,Hyper Growth,1-step,Aggressive,0.28,0.033,0.001,0.001,0.0,1.5772140295469144,1577.2140295469144,7.901
-5ers Hyper Growth,The5ers,Hyper Growth,1-step,Lottery,0.17,0.035,0.005,0.005,0.0,11.690844595679883,2338.1689191359765,4.822
-5ers Bootcamp,The5ers,Bootcamp,3-step,Pro,0.07,0.695,0.296,0.296,0.094,145.93802068759294,493.0338536743005,122.106
-5ers Bootcamp,The5ers,Bootcamp,3-step,Semi-skilled,0.22,0.534,0.112,0.112,0.029,60.09778745384992,536.5873879808029,105.715
-5ers Bootcamp,The5ers,Bootcamp,3-step,Average,0.26,0.218,0.004,0.004,0.001,1.4691623165571,367.290579139275,62.232
-5ers Bootcamp,The5ers,Bootcamp,3-step,Aggressive,0.28,0.075,0.0,0.0,0.0,0.0,0.0,7.837
-5ers Bootcamp,The5ers,Bootcamp,3-step,Lottery,0.17,0.047,0.0,0.0,0.0,0.0,0.0,2.761
-FP Zero,FundingPips,Zero,instant,Pro,0.07,0.65,0.65,0.65,0.23,3254.3188326715763,5006.644357956271,57.621
-FP Zero,FundingPips,Zero,instant,Semi-skilled,0.22,0.412,0.412,0.412,0.13,2150.0588492990883,5218.589440046329,61.707
-FP Zero,FundingPips,Zero,instant,Average,0.26,0.066,0.066,0.066,0.022,468.1894847542695,7093.780072034385,52.248
-FP Zero,FundingPips,Zero,instant,Aggressive,0.28,0.0,0.0,0.0,0.0,0.0,0.0,2.747
-FP Zero,FundingPips,Zero,instant,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.182
-FP 1-Step Flex,FundingPips,1-Step Flex,1-step,Pro,0.07,0.882,0.768,0.768,0.238,589.1744659194038,767.1542524992237,106.533
-FP 1-Step Flex,FundingPips,1-Step Flex,1-step,Semi-skilled,0.22,0.563,0.476,0.476,0.154,384.08383853525146,806.8988204522091,130.788
-FP 1-Step Flex,FundingPips,1-Step Flex,1-step,Average,0.26,0.07,0.049,0.049,0.018,57.091922102378604,1165.141267395482,67.717
-FP 1-Step Flex,FundingPips,1-Step Flex,1-step,Aggressive,0.28,0.009,0.001,0.001,0.0,2.1068355805266012,2106.8355805266015,1.623
-FP 1-Step Flex,FundingPips,1-Step Flex,1-step,Lottery,0.17,0.011,0.0,0.0,0.0,0.0,0.0,1.296
-FP 2-Step Standard,FundingPips,2-Step Standard,2-step,Pro,0.07,0.878,0.652,0.652,0.208,715.3569276054632,1097.1732018488701,115.043
-FP 2-Step Standard,FundingPips,2-Step Standard,2-step,Semi-skilled,0.22,0.592,0.327,0.327,0.109,324.4835038910048,992.3042932446631,117.633
-FP 2-Step Standard,FundingPips,2-Step Standard,2-step,Average,0.26,0.184,0.031,0.031,0.011,48.143958145632496,1553.0309079236283,69.253
-FP 2-Step Standard,FundingPips,2-Step Standard,2-step,Aggressive,0.28,0.01,0.0,0.0,0.0,0.0,0.0,1.95
-FP 2-Step Standard,FundingPips,2-Step Standard,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.338
-FP 2-Step Flex,FundingPips,2-Step Flex,2-step,Pro,0.07,0.887,0.725,0.725,0.236,499.38434905575207,688.8059986975891,116.454
-FP 2-Step Flex,FundingPips,2-Step Flex,2-step,Semi-skilled,0.22,0.614,0.379,0.379,0.126,267.92736168403445,706.9323527283232,129.919
-FP 2-Step Flex,FundingPips,2-Step Flex,2-step,Average,0.26,0.176,0.036,0.036,0.013,37.62227789885051,1045.0632749680697,77.773
-FP 2-Step Flex,FundingPips,2-Step Flex,2-step,Aggressive,0.28,0.011,0.0,0.0,0.0,0.0,0.0,1.866
-FP 2-Step Flex,FundingPips,2-Step Flex,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.255
-FP 2-Step Pro,FundingPips,2-Step Pro,2-step,Pro,0.07,0.812,0.536,0.536,0.181,565.9701743720681,1055.9145044255001,104.939
-FP 2-Step Pro,FundingPips,2-Step Pro,2-step,Semi-skilled,0.22,0.568,0.243,0.243,0.073,264.61927126041036,1088.9681944872855,97.085
-FP 2-Step Pro,FundingPips,2-Step Pro,2-step,Average,0.26,0.219,0.03,0.03,0.009,37.6092772450599,1253.64257483533,56.082
-FP 2-Step Pro,FundingPips,2-Step Pro,2-step,Aggressive,0.28,0.068,0.0,0.0,0.0,0.0,0.0,1.89
-FP 2-Step Pro,FundingPips,2-Step Pro,2-step,Lottery,0.17,0.041,0.0,0.0,0.0,0.0,0.0,1.269
-E8 One 6%,E8 Markets,E8 One 6%,1-step,Pro,0.07,0.575,0.421,0.421,0.141,913.775966243791,2170.489230982877,87.011
-E8 One 6%,E8 Markets,E8 One 6%,1-step,Semi-skilled,0.22,0.334,0.198,0.198,0.065,456.20404364868233,2304.0608265084957,85.879
-E8 One 6%,E8 Markets,E8 One 6%,1-step,Average,0.26,0.084,0.027,0.027,0.01,86.19724808328326,3192.490669751231,56.299
-E8 One 6%,E8 Markets,E8 One 6%,1-step,Aggressive,0.28,0.0,0.0,0.0,0.0,0.0,0.0,2.691
-E8 One 6%,E8 Markets,E8 One 6%,1-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.49
-E8 Signature,E8 Markets,Signature,1-step,Pro,0.07,0.519,0.35,0.35,0.12,784.9345211284115,2242.67006036689,79.962
-E8 Signature,E8 Markets,Signature,1-step,Semi-skilled,0.22,0.326,0.174,0.174,0.049,404.6994806608747,2325.859084257901,68.887
-E8 Signature,E8 Markets,Signature,1-step,Average,0.26,0.075,0.013,0.013,0.004,32.67019788384218,2513.092144910937,16.722
-E8 Signature,E8 Markets,Signature,1-step,Aggressive,0.28,0.0,0.0,0.0,0.0,0.0,0.0,10.783
-E8 Signature,E8 Markets,Signature,1-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,2.961
-Alpha Instant,Alpha Capital,Instant,instant,Pro,0.07,0.604,0.604,0.604,0.2,2994.3671149866973,4957.561448653473,55.758
+Verodus 2-Step Lite,Verodus,2-Step Lite,2-step,Pro,0.07,0.82,0.574,0.574,0.178,661.5780815751315,1152.5750550089397,112.056
+Verodus 2-Step Lite,Verodus,2-Step Lite,2-step,Semi-skilled,0.22,0.554,0.268,0.268,0.091,350.89443601241453,1309.307597061248,112.34
+Verodus 2-Step Lite,Verodus,2-Step Lite,2-step,Average,0.26,0.157,0.027,0.027,0.005,48.08163442047113,1780.801274832264,65.832
+Verodus 2-Step Lite,Verodus,2-Step Lite,2-step,Aggressive,0.28,0.001,0.0,0.0,0.0,0.0,0.0,1.933
+Verodus 2-Step Lite,Verodus,2-Step Lite,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.323
+Verodus 2-Step Pro,Verodus,2-Step Pro,2-step,Pro,0.07,0.856,0.634,0.634,0.205,648.7792149803117,1023.3110646377157,129.218
+Verodus 2-Step Pro,Verodus,2-Step Pro,2-step,Semi-skilled,0.22,0.569,0.32,0.32,0.116,361.3546764970837,1129.2333640533864,127.72
+Verodus 2-Step Pro,Verodus,2-Step Pro,2-step,Average,0.26,0.116,0.02,0.02,0.008,29.345282863069436,1467.2641431534717,70.909
+Verodus 2-Step Pro,Verodus,2-Step Pro,2-step,Aggressive,0.28,0.001,0.0,0.0,0.0,0.0,0.0,1.963
+Verodus 2-Step Pro,Verodus,2-Step Pro,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.354
+FTMO 1-Step,FTMO,1-Step,1-step,Pro,0.07,0.801,0.67,0.67,0.219,1178.67241678767,1759.2125623696563,94.731
+FTMO 1-Step,FTMO,1-Step,1-step,Semi-skilled,0.22,0.479,0.35,0.35,0.111,685.4473168836598,1958.4209053818847,98.515
+FTMO 1-Step,FTMO,1-Step,1-step,Average,0.26,0.094,0.043,0.043,0.015,121.82378013714195,2833.1111659800454,63.453
+FTMO 1-Step,FTMO,1-Step,1-step,Aggressive,0.28,0.001,0.0,0.0,0.0,0.0,0.0,1.599
+FTMO 1-Step,FTMO,1-Step,1-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.258
+FTMO 2-Step,FTMO,2-Step,2-step,Pro,0.07,0.876,0.684,0.684,0.23,437.8171789017462,640.083594885594,127.993
+FTMO 2-Step,FTMO,2-Step,2-step,Semi-skilled,0.22,0.559,0.324,0.324,0.108,239.32351819122985,738.6528339235489,127.52
+FTMO 2-Step,FTMO,2-Step,2-step,Average,0.26,0.128,0.032,0.032,0.008,32.32984010281029,1010.3075032128215,68.435
+FTMO 2-Step,FTMO,2-Step,2-step,Aggressive,0.28,0.003,0.0,0.0,0.0,0.0,0.0,1.94
+FTMO 2-Step,FTMO,2-Step,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.273
+FN Stellar 1-Step,FundedNext,Stellar 1-Step,1-step,Pro,0.07,0.741,0.626,0.626,0.197,438.3362616537777,700.2176703734468,83.854
+FN Stellar 1-Step,FundedNext,Stellar 1-Step,1-step,Semi-skilled,0.22,0.487,0.373,0.373,0.12,297.06112391281755,796.4105198735059,90.416
+FN Stellar 1-Step,FundedNext,Stellar 1-Step,1-step,Average,0.26,0.102,0.065,0.065,0.022,67.39853202500761,1036.900492692425,59.359
+FN Stellar 1-Step,FundedNext,Stellar 1-Step,1-step,Aggressive,0.28,0.003,0.0,0.0,0.0,0.0,0.0,1.873
+FN Stellar 1-Step,FundedNext,Stellar 1-Step,1-step,Lottery,0.17,0.003,0.0,0.0,0.0,0.0,0.0,1.273
+FN Stellar 2-Step,FundedNext,Stellar 2-Step,2-step,Pro,0.07,0.859,0.684,0.684,0.226,426.7736335537225,623.9380607510564,110.463
+FN Stellar 2-Step,FundedNext,Stellar 2-Step,2-step,Semi-skilled,0.22,0.593,0.327,0.327,0.1,237.8079407296611,727.2414089592083,113.871
+FN Stellar 2-Step,FundedNext,Stellar 2-Step,2-step,Average,0.26,0.18,0.034,0.034,0.012,32.123980744367834,944.8229630696422,68.688
+FN Stellar 2-Step,FundedNext,Stellar 2-Step,2-step,Aggressive,0.28,0.002,0.0,0.0,0.0,0.0,0.0,1.988
+FN Stellar 2-Step,FundedNext,Stellar 2-Step,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.331
+FN Stellar Lite,FundedNext,Stellar Lite,2-step,Pro,0.07,0.815,0.608,0.608,0.186,413.4585269055001,680.0304718840462,94.338
+FN Stellar Lite,FundedNext,Stellar Lite,2-step,Semi-skilled,0.22,0.528,0.295,0.295,0.098,212.78715689050563,721.3123962390022,102.954
+FN Stellar Lite,FundedNext,Stellar Lite,2-step,Average,0.26,0.169,0.047,0.047,0.011,53.83921836655672,1145.5152843948238,65.072
+FN Stellar Lite,FundedNext,Stellar Lite,2-step,Aggressive,0.28,0.001,0.0,0.0,0.0,0.0,0.0,1.881
+FN Stellar Lite,FundedNext,Stellar Lite,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.352
+FN Stellar Instant,FundedNext,Stellar Instant,instant,Pro,0.07,0.95,0.95,0.95,0.306,574.9174103174856,605.1762213868269,8.732
+FN Stellar Instant,FundedNext,Stellar Instant,instant,Semi-skilled,0.22,0.915,0.915,0.915,0.306,603.7464849700283,659.8322240109599,10.776
+FN Stellar Instant,FundedNext,Stellar Instant,instant,Average,0.26,0.753,0.753,0.753,0.22,759.2485304055625,1008.2981811494853,14.778
+FN Stellar Instant,FundedNext,Stellar Instant,instant,Aggressive,0.28,0.208,0.208,0.208,0.074,690.7257797918193,3320.7970182299005,5.459
+FN Stellar Instant,FundedNext,Stellar Instant,instant,Lottery,0.17,0.057,0.057,0.057,0.019,420.18987958670874,7371.752273451031,2.285
+5ers High Stakes,The5ers,High Stakes,2-step,Pro,0.07,0.855,0.632,0.632,0.202,1291.184927933585,2043.0141264771912,139.281
+5ers High Stakes,The5ers,High Stakes,2-step,Semi-skilled,0.22,0.562,0.282,0.282,0.087,578.7907072622236,2052.4493165327076,138.773
+5ers High Stakes,The5ers,High Stakes,2-step,Average,0.26,0.139,0.021,0.021,0.007,46.23283508607419,2201.563575527343,67.287
+5ers High Stakes,The5ers,High Stakes,2-step,Aggressive,0.28,0.006,0.0,0.0,0.0,0.0,0.0,2.171
+5ers High Stakes,The5ers,High Stakes,2-step,Lottery,0.17,0.001,0.0,0.0,0.0,0.0,0.0,1.283
+5ers Hyper Growth,The5ers,Hyper Growth,1-step,Pro,0.07,0.768,0.638,0.638,0.172,310.6016790307708,486.836487509045,85.228
+5ers Hyper Growth,The5ers,Hyper Growth,1-step,Semi-skilled,0.22,0.477,0.39,0.39,0.12,208.24902774608722,533.9718660156084,90.053
+5ers Hyper Growth,The5ers,Hyper Growth,1-step,Average,0.26,0.1,0.073,0.073,0.029,52.5181121646362,719.4261940361123,62.02
+5ers Hyper Growth,The5ers,Hyper Growth,1-step,Aggressive,0.28,0.037,0.006,0.006,0.001,9.131618619205373,1521.9364365342287,8.985
+5ers Hyper Growth,The5ers,Hyper Growth,1-step,Lottery,0.17,0.024,0.003,0.003,0.0,5.0005436466762765,1666.8478822254256,3.942
+5ers Bootcamp,The5ers,Bootcamp,3-step,Pro,0.07,0.695,0.291,0.291,0.094,143.2283153889184,492.19352367325905,121.843
+5ers Bootcamp,The5ers,Bootcamp,3-step,Semi-skilled,0.22,0.536,0.114,0.114,0.029,63.322593588010974,555.4613472632542,105.732
+5ers Bootcamp,The5ers,Bootcamp,3-step,Average,0.26,0.214,0.004,0.004,0.001,1.4691623165571,367.290579139275,61.532
+5ers Bootcamp,The5ers,Bootcamp,3-step,Aggressive,0.28,0.08,0.0,0.0,0.0,0.0,0.0,8.376
+5ers Bootcamp,The5ers,Bootcamp,3-step,Lottery,0.17,0.044,0.0,0.0,0.0,0.0,0.0,2.158
+FP Zero,FundingPips,Zero,instant,Pro,0.07,0.655,0.655,0.655,0.228,3264.8456355777803,4984.4971535538625,57.389
+FP Zero,FundingPips,Zero,instant,Semi-skilled,0.22,0.412,0.412,0.412,0.129,2176.36013927462,5282.427522511212,61.244
+FP Zero,FundingPips,Zero,instant,Average,0.26,0.065,0.065,0.065,0.022,467.95548761689383,7199.315194106058,50.402
+FP Zero,FundingPips,Zero,instant,Aggressive,0.28,0.0,0.0,0.0,0.0,0.0,0.0,2.735
+FP Zero,FundingPips,Zero,instant,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.203
+FP 1-Step Flex,FundingPips,1-Step Flex,1-step,Pro,0.07,0.879,0.765,0.765,0.239,590.810943680933,772.3018871646183,107.277
+FP 1-Step Flex,FundingPips,1-Step Flex,1-step,Semi-skilled,0.22,0.564,0.475,0.475,0.155,382.38340580909363,805.0176964401971,130.703
+FP 1-Step Flex,FundingPips,1-Step Flex,1-step,Average,0.26,0.069,0.049,0.049,0.018,57.09192210237861,1165.141267395482,66.644
+FP 1-Step Flex,FundingPips,1-Step Flex,1-step,Aggressive,0.28,0.008,0.001,0.001,0.0,1.709380007619017,1709.380007619017,1.605
+FP 1-Step Flex,FundingPips,1-Step Flex,1-step,Lottery,0.17,0.014,0.0,0.0,0.0,0.0,0.0,1.265
+FP 2-Step Standard,FundingPips,2-Step Standard,2-step,Pro,0.07,0.88,0.653,0.653,0.209,713.3156286558986,1092.3669657823868,115.424
+FP 2-Step Standard,FundingPips,2-Step Standard,2-step,Semi-skilled,0.22,0.593,0.328,0.328,0.11,326.5708775921224,995.6429194881779,117.374
+FP 2-Step Standard,FundingPips,2-Step Standard,2-step,Average,0.26,0.182,0.031,0.031,0.011,48.143958145632496,1553.0309079236283,68.517
+FP 2-Step Standard,FundingPips,2-Step Standard,2-step,Aggressive,0.28,0.01,0.0,0.0,0.0,0.0,0.0,1.94
+FP 2-Step Standard,FundingPips,2-Step Standard,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.337
+FP 2-Step Flex,FundingPips,2-Step Flex,2-step,Pro,0.07,0.888,0.725,0.725,0.236,500.83722050573783,690.8099593182591,116.65
+FP 2-Step Flex,FundingPips,2-Step Flex,2-step,Semi-skilled,0.22,0.614,0.38,0.38,0.127,270.27347842192535,711.2459958471719,130.11
+FP 2-Step Flex,FundingPips,2-Step Flex,2-step,Average,0.26,0.175,0.035,0.035,0.013,35.450344849517336,1012.8669957004955,77.405
+FP 2-Step Flex,FundingPips,2-Step Flex,2-step,Aggressive,0.28,0.012,0.0,0.0,0.0,0.0,0.0,1.877
+FP 2-Step Flex,FundingPips,2-Step Flex,2-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.258
+FP 2-Step Pro,FundingPips,2-Step Pro,2-step,Pro,0.07,0.811,0.532,0.532,0.179,558.8262660529141,1050.4253121295378,105.67
+FP 2-Step Pro,FundingPips,2-Step Pro,2-step,Semi-skilled,0.22,0.569,0.244,0.244,0.073,267.3743792108248,1095.796636109938,96.602
+FP 2-Step Pro,FundingPips,2-Step Pro,2-step,Average,0.26,0.22,0.03,0.03,0.009,35.97746239563596,1199.2487465211987,56.401
+FP 2-Step Pro,FundingPips,2-Step Pro,2-step,Aggressive,0.28,0.064,0.0,0.0,0.0,0.0,0.0,1.884
+FP 2-Step Pro,FundingPips,2-Step Pro,2-step,Lottery,0.17,0.031,0.0,0.0,0.0,0.0,0.0,1.268
+E8 One 6%,E8 Markets,E8 One 6%,1-step,Pro,0.07,0.576,0.422,0.422,0.142,914.5197915323349,2167.10851074013,87.011
+E8 One 6%,E8 Markets,E8 One 6%,1-step,Semi-skilled,0.22,0.333,0.197,0.197,0.064,453.9977315354504,2304.5570128703066,85.763
+E8 One 6%,E8 Markets,E8 One 6%,1-step,Average,0.26,0.084,0.027,0.027,0.01,86.19724808328324,3192.490669751231,57.062
+E8 One 6%,E8 Markets,E8 One 6%,1-step,Aggressive,0.28,0.0,0.0,0.0,0.0,0.0,0.0,2.663
+E8 One 6%,E8 Markets,E8 One 6%,1-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,1.487
+E8 Signature,E8 Markets,Signature,1-step,Pro,0.07,0.517,0.348,0.348,0.12,775.7946553694044,2229.2949866936906,79.65
+E8 Signature,E8 Markets,Signature,1-step,Semi-skilled,0.22,0.326,0.173,0.173,0.049,403.80245557689386,2334.1182403288662,68.578
+E8 Signature,E8 Markets,Signature,1-step,Average,0.26,0.074,0.013,0.013,0.004,32.67019788384218,2513.092144910937,16.687
+E8 Signature,E8 Markets,Signature,1-step,Aggressive,0.28,0.0,0.0,0.0,0.0,0.0,0.0,10.233
+E8 Signature,E8 Markets,Signature,1-step,Lottery,0.17,0.0,0.0,0.0,0.0,0.0,0.0,2.966
+Alpha Instant,Alpha Capital,Instant,instant,Pro,0.07,0.604,0.604,0.604,0.2,2996.521274458831,4961.127937845747,55.752
 Alpha Instant,Alpha Capital,Instant,instant,Semi-skilled,0.22,0.36,0.36,0.36,0.116,1928.024807167615,5355.624464354486,61.501
 Alpha Instant,Alpha Capital,Instant,instant,Average,0.26,0.031,0.031,0.031,0.009,215.85989426742478,6963.222395723379,50.931
 Alpha Instant,Alpha Capital,Instant,instant,Aggressive,0.28,0.0,0.0,0.0,0.0,0.0,0.0,3.538
