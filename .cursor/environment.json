@@ -1,0 +1,19 @@
+{
+  "name": "AShevalev.github.io (Jekyll)",
+  "user": "root",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "install": "bundle install",
+  "terminals": [
+    {
+      "name": "jekyll serve",
+      "command": "bundle exec jekyll serve --host 0.0.0.0 --port 4000 --livereload",
+      "description": "Builds the site and serves it with live reload at http://localhost:4000. Edits to content rebuild automatically."
+    }
+  ],
+  "ports": [
+    { "name": "jekyll", "port": 4000 },
+    { "name": "livereload", "port": 35729 }
+  ]
+}
