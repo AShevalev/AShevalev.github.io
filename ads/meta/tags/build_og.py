@@ -124,9 +124,8 @@ def html() -> str:
     <h1>Get funded.<br>Trade with up to <em>$1M</em>.</h1>
     <p class="sub">Trade Forex, equities &amp; crypto. Keep up to 90% profit split.</p>
     <div class="chips">
-      <span class="chip">1-Step from $36</span>
-      <span class="chip">Instant from $59</span>
-      <span class="chip">2-Step from $39</span>
+      <span class="chip">Instant funding from $59</span>
+      <span class="chip">1-Step / 2-Step from $36</span>
     </div>
     <p class="disclaimer">The fee is not trading capital. Performance rewards are discretionary and not guaranteed.</p>
   </div>
