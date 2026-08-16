@@ -247,6 +247,58 @@ def margin(sale, cost):
     return f"{100.0 * (sale - cost) / sale:+.0f}%"
 
 
+def vs_pct(rec, x):
+    if x is None or x <= 0:
+        return None
+    return 100.0 * (rec / x - 1.0)
+
+
+def vs_s(rec, x):
+    p = vs_pct(rec, x)
+    if p is None:
+        return "—"
+    return f"{p:+.0f}%"
+
+
+def band_stats(skus, scored):
+    rows = []
+    for plan, family, _ in ANCHORS:
+        d0 = vero_d(scored, plan)
+        peers = in_band(skus, plan, family, d0)
+        for sz in SIZES:
+            if (plan, sz) not in REC:
+                continue
+            live = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == sz)]
+            if live.empty:
+                continue
+            rec = REC[(plan, sz)]
+            vals = [float(x) for x in peers.loc[peers.Size == sz, "Sale"].tolist()]
+            if not vals:
+                continue
+            s = pd.Series(vals)
+            lo, med, avg, hi = float(s.min()), float(s.median()), float(s.mean()), float(s.max())
+            field = vals + [rec]
+            rank = sum(1 for v in field if v < rec - 1e-9) + 1
+            p_med = vs_pct(rec, med)
+            if rec <= med * 1.05:
+                sell = "yes — at/under median"
+            elif rec <= avg * 1.08:
+                sell = "yes — near average"
+            elif rec <= hi:
+                sell = "premium — under the high"
+            else:
+                sell = "stretch — above the high"
+            rows.append({
+                "Plan": plan, "Size": sz, "n": len(vals), "Rec": rec,
+                "Live": float(live.Sale.iloc[0]),
+                "Low": lo, "Median": med, "Average": avg, "High": hi,
+                "vs_low": vs_pct(rec, lo), "vs_med": p_med,
+                "vs_avg": vs_pct(rec, avg), "vs_high": vs_pct(rec, hi),
+                "rank": rank, "n_field": len(field), "Sell": sell,
+            })
+    return rows
+
+
 def build():
     skus, scored = load()
     s = styles()
@@ -419,7 +471,55 @@ def build():
         s["tiny"],
     ))
 
+    # ----- 7. will it sell vs in-band distribution -----
+    stats = band_stats(skus, scored)
+    story.append(P("7. Will it sell? Rec vs in-band low / median / average / high", s["h1"]))
+    story.append(P(
+        "% is (rec − stat) / stat. Negative = cheaper than that peer mark, so easier to sell. "
+        "1-Step $5k / $10k average is pulled up by 5ers Hyper Growth ($260 / $450) — a 50% "
+        "split live-from-day-1 product; the real twin there is Hola. Instant lows are "
+        "unprofitable Alpha / FP / BG holes — being above them is required to print.",
+        s["body"],
+    ))
+    heads = ["Plan", "Size", "n", "Rec", "Low", "±%", "Median", "±%",
+             "Average", "±%", "High", "±%", "Sell?"]
+    data = [[P(h, s["th"]) for h in heads]]
+    special = {}
+    for i, r in enumerate(stats, start=1):
+        if r["Sell"].startswith("stretch"):
+            special[i] = "rec"
+        elif r["Sell"].startswith("yes"):
+            special[i] = "live"
+        data.append([
+            P(r["Plan"], s["tdl"]),
+            P(usd(r["Size"]), s["td"]),
+            P(str(r["n"]), s["td"]),
+            P(usd(r["Rec"]), s["td"]),
+            P(usd(r["Low"]), s["td"]),
+            P(vs_s(r["Rec"], r["Low"]), s["td"]),
+            P(usd(r["Median"]), s["td"]),
+            P(vs_s(r["Rec"], r["Median"]), s["td"]),
+            P(usd(r["Average"]), s["td"]),
+            P(vs_s(r["Rec"], r["Average"]), s["td"]),
+            P(usd(r["High"]), s["td"]),
+            P(vs_s(r["Rec"], r["High"]), s["td"]),
+            P(r["Sell"], s["tdl"]),
+        ])
+    story.append(grid(data, [
+        24*mm, 18*mm, 10*mm, 16*mm, 16*mm, 14*mm, 18*mm, 14*mm,
+        18*mm, 14*mm, 16*mm, 14*mm, 48*mm,
+    ], special))
+    story.append(Spacer(1, 2*mm))
+    story.append(P(
+        "Blue = at or under the in-band median (should sell). Green highlight on Instant "
+        "$100k = above every in-band peer — that size sells only to shoppers who want the "
+        "never-lock card, not the price shopper. $25k / $50k Instant sit just under Hola "
+        "(the same-D high) and will sell as a premium Instant, not as the cheap Instant.",
+        s["tiny"],
+    ))
+
     pd.DataFrame(rows_out).to_csv(RESULTS / "verodus_recommended_prices.csv", index=False)
+    pd.DataFrame(stats).to_csv(RESULTS / "verodus_rec_vs_band.csv", index=False)
 
     doc = SimpleDocTemplate(
         str(OUT),
@@ -434,6 +534,7 @@ def build():
     doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)
     print(f"Wrote {OUT} ({OUT.stat().st_size:,} bytes)")
     print(f"Wrote {RESULTS / 'verodus_recommended_prices.csv'}")
+    print(f"Wrote {RESULTS / 'verodus_rec_vs_band.csv'}")
 
 
 if __name__ == "__main__":
