@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One report: BE and 40%/60% rank vs like-for-like plans, difficulty-adjusted."""
+"""One report: difficulty score on every plan; 40%/60% rank only inside the band."""
 
 from __future__ import annotations
 
@@ -12,6 +12,8 @@ from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+
+from difficulty import DELTA, comparable, scores_for_book
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
@@ -28,86 +30,6 @@ ROW_V = colors.HexColor("#e8f1ff")
 GRID = colors.HexColor("#c5d0dc")
 HEAD_BG = colors.HexColor("#0f2744")
 
-# Rule cohorts. Family name is not enough: no-daily Instant is not a 3%/6% Instant.
-COHORT = {
-    "Verodus Instant": "instant_3_6",
-    "BG Instant": "instant_3_6",
-    "IF Instant": "instant_3_6",
-    "Goat Instant": "instant_3_6",
-    "Alpha Instant": "instant_3_6",
-    "FP Zero": "instant_3_6",
-    "FXIFY Instant Lite": "instant_3_6",
-    "Hola Direct": "instant_3_6",
-    "FN Stellar Instant": "instant_no_daily",
-    "FXIFY Instant": "instant_no_daily",
-    "Verodus 1-Step": "onestep_6",
-    "Alpha One 10%": "onestep_6",
-    "E8 One 6%": "onestep_6",
-    "E8 Signature": "onestep_6",
-    "Hola 1-Step Prime": "onestep_6",
-    "Fintokei SwiftTrader": "onestep_6",
-    "TFT Royal": "onestep_6",
-    "FN Stellar 1-Step": "onestep_6",
-    "FTMO 1-Step": "onestep_10",
-    "FP 1-Step Flex": "onestep_12",
-    "BG 1-Step": "onestep_8",
-    "5ers Hyper Growth": "onestep_other",
-    "Verodus 2-Step Lite": "twostep_8",
-    "FN Stellar Lite": "twostep_8",
-    "ForTraders 2-Step": "twostep_8",
-    "Ment 2-Step": "twostep_8",
-    "Verodus 2-Step Pro": "twostep_10",
-    "FTMO 2-Step": "twostep_10",
-    "FN Stellar 2-Step": "twostep_10",
-    "FP 2-Step Standard": "twostep_10",
-    "Alpha Pro 10%": "twostep_10",
-    "Goat 2-Step": "twostep_10",
-    "Maven 2-Step": "twostep_10",
-    "Hola 2-Step Prime": "twostep_10",
-    "TFT Standard": "twostep_10",
-    "CTI 2-Step": "twostep_10",
-    "FundingTraders 2-Step": "twostep_10",
-    "BG 2-Step": "twostep_10",
-    "BrightFunded 2-Step": "twostep_10",
-    "Fintokei ProTrader": "twostep_10",
-    "FXIFY 2-Step": "twostep_10",
-    "FP 2-Step Pro": "twostep_6",
-    "Alpha Pro 6%": "twostep_6",
-    "FP 2-Step Flex": "twostep_12",
-    "Maven 3-Step": "threestep",
-    "5ers Bootcamp": "threestep",
-    "5ers High Stakes": "twostep_10",
-}
-
-COHORT_LABEL = {
-    "instant_3_6": "Instant 3% daily / ~5–7% trail (like Verodus Instant)",
-    "instant_no_daily": "Instant with no daily — not like Verodus (P(pay) ~53%)",
-    "onestep_6": "1-step 6% max DD (like Verodus 1-Step hybrid)",
-    "onestep_8": "1-step 8% static — looser than Verodus 1-Step",
-    "onestep_10": "1-step 10% trail (FTMO) — easier than Verodus 1-Step",
-    "onestep_12": "1-step 12% (FP Flex) — not like Verodus 1-Step",
-    "onestep_other": "1-step other (50% split / live-from-day-1)",
-    "twostep_8": "2-step 8% static (like Verodus Lite)",
-    "twostep_10": "2-step 10% / 5% daily (like Verodus Pro / FTMO)",
-    "twostep_6": "2-step 6/6 tight — harder than Verodus Pro",
-    "twostep_12": "2-step 12% Flex — easier than Verodus Pro",
-    "threestep": "3-step — Verodus does not offer this",
-}
-
-VERO_PLAN = {
-    "instant_3_6": "Instant",
-    "onestep_6": "1-Step",
-    "twostep_8": "2-Step Lite",
-    "twostep_10": "2-Step Pro",
-}
-
-COHORT_ORDER = [
-    "instant_3_6", "instant_no_daily",
-    "onestep_6", "onestep_8", "onestep_10", "onestep_12", "onestep_other",
-    "twostep_8", "twostep_10", "twostep_6", "twostep_12",
-    "threestep",
-]
-
 
 def usd(x):
     if pd.isna(x):
@@ -117,10 +39,14 @@ def usd(x):
 
 def load():
     skus = pd.read_csv(RESULTS / "industry_skus.csv")
+    blend = pd.read_csv(RESULTS / "industry_blended.csv")
     drop = (skus.Firm == "Verodus") & (skus.Plan == "Instant") & (skus.Size == 200000)
     skus = skus.loc[~drop].copy()
-    skus["Cohort"] = skus.Product.map(COHORT).fillna("other")
-    return skus
+    pp = dict(zip(blend.Product, blend.P_pay))
+    sc = scores_for_book(pp)
+    sdf = pd.DataFrame(sc.values())
+    skus = skus.merge(sdf[["Product", "D", "D_rules", "D_book"]], on="Product", how="left")
+    return skus, sdf.sort_values("D")
 
 
 def rank_in(price, sales):
@@ -135,32 +61,14 @@ def hypo_rank(price, peer_sales):
     return rank_in(price, field)
 
 
-def diff_label(peer_be, ref_be):
-    if ref_be <= 0 or pd.isna(peer_be) or pd.isna(ref_be):
-        return "—"
-    ratio = float(peer_be) / float(ref_be)
-    if ratio > 1.15:
-        return "Easier"
-    if ratio < 0.85:
-        return "Harder"
-    return "Similar"
-
-
-def adj_sale(peer_sale, peer_be, ref_be):
-    if peer_be is None or pd.isna(peer_be) or float(peer_be) <= 0:
-        return float(peer_sale)
-    return float(peer_sale) * (float(ref_be) / float(peer_be))
-
-
-def ref_be_for(skus, vero_plan, size):
-    hit = skus[(skus.Firm == "Verodus") & (skus.Plan == vero_plan) & (skus.Size == size)]
-    if hit.empty:
-        return None
-    return float(hit.BE.iloc[0])
-
-
-def like_pool(skus, cohort, size):
-    return skus[(skus.Cohort == cohort) & (skus.Size == size)]
+def band(skus, r):
+    """Same family, same size, |D − D_vero| <= DELTA."""
+    return skus[
+        (skus.Family == r.Family)
+        & (skus.Size == r.Size)
+        & (skus.D.notna())
+        & ((skus.D - r.D).abs() <= DELTA)
+    ]
 
 
 def styles():
@@ -209,7 +117,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Bold", 8)
     canvas.drawString(
         MARGIN, H - 5.4 * mm,
-        "VERODUS  ·  Like-for-like BE rank at 40% / 60%  ·  difficulty-adjusted  ·  16 Aug 2026",
+        f"VERODUS  ·  Difficulty score + 40%/60% rank  ·  band ±{DELTA:.0f}  ·  16 Aug 2026",
     )
     canvas.drawRightString(W - MARGIN, H - 5.4 * mm, "Confidential — operator")
     canvas.setFillColor(NAVY)
@@ -218,7 +126,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "Rank 1 = cheapest. Ranks are inside the rule cohort, after scaling street by BE. (k/n) beside the price.",
+        f"D is 0–100 (higher = harder). Rank only if same family, same size, |ΔD| ≤ {DELTA:.0f}. Rank 1 = cheapest.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -258,62 +166,101 @@ def priced(price, rank, n):
     return f"{usd(price)} ({rank}/{n})"
 
 
-def vero_like_ranks(skus, r):
-    """Difficulty-adjusted ranks of Verodus 40%/60% inside the like cohort."""
-    pool = like_pool(skus, r.Cohort, r.Size)
+def vero_ranks(skus, r):
+    pool = band(skus, r)
     peers = pool[pool.Firm != "Verodus"]
-    adj = []
-    for p in peers.itertuples():
-        adj.append(adj_sale(p.Sale, p.BE, r.BE))
-    r40, n40 = hypo_rank(r.px_40, adj)
-    r60, n60 = hypo_rank(r.px_60, adj)
     raw_r, raw_n = rank_in(r.Sale, pool["Sale"])
+    r40, n40 = hypo_rank(r.px_40, peers["Sale"])
+    r60, n60 = hypo_rank(r.px_60, peers["Sale"])
     return raw_r, raw_n, r40, n40, r60, n60, peers
 
 
 def build():
-    skus = load()
+    skus, scored = load()
     s = styles()
     story = []
 
-    story.append(P("Like-for-like break-even rank at 40% / 60%", s["cover"]))
+    story.append(P("Difficulty score and 40% / 60% rank", s["cover"]))
     story.append(P(
-        "Family name is not enough. Ranks below are only against plans with comparable "
-        "rules, then street is scaled by break-even so an easier plan does not look cheap. "
+        f"Every plan gets a difficulty D (0–100). We only rank a peer if it is the "
+        f"same family, the same size, and |D − D_Verodus| ≤ {DELTA:.0f}. "
         "16 August 2026.",
         s["sub"],
     ))
+    v_d = {
+        "Instant": float(scored.loc[scored.Product == "Verodus Instant", "D"].iloc[0]),
+        "1-Step": float(scored.loc[scored.Product == "Verodus 1-Step", "D"].iloc[0]),
+        "Lite": float(scored.loc[scored.Product == "Verodus 2-Step Lite", "D"].iloc[0]),
+        "Pro": float(scored.loc[scored.Product == "Verodus 2-Step Pro", "D"].iloc[0]),
+    }
     story.append(P(
-        "<b>They were not all comparable.</b> The first rank report put every Instant in "
-        "one pool — including FundedNext / FXIFY Standard, which have <b>no daily</b> and "
-        "P(pay) ~53% versus Verodus Instant 22%. It also mixed Verodus Lite (8% static) "
-        "with FTMO / FP Pro (10% or 6/6). Those are different products. "
-        "This revision groups by the binding rules, then difficulty-adjusts.",
-        s["body"],
-    ))
-    story.append(P(
-        "<b>Difficulty adjustment.</b> Adj street = peer sale × (Verodus BE / peer BE) "
-        "at the same size. A peer with a higher BE (easier / richer payouts / refund) "
-        "has its sticker scaled down — they are cheaper than they look for the risk they "
-        "take. A harder peer (lower BE) has its sticker scaled up. "
-        "Easier / Similar / Harder is peer BE vs Verodus BE: &gt;1.15× easier, "
-        "&lt;0.85× harder. "
-        "Verodus @40% and @60% ranks are against those <b>adjusted</b> like-for-like "
-        "street prices. Rank 1 = cheapest. Instant $200k is not offered.",
+        f"<b>D = 0.55 × rules + 0.45 × book.</b> Rules use the catalog card: daily DD "
+        f"(none / 5% / 4% / 3% / 2%), day’s-high vs SOD, max DD, static vs hybrid vs "
+        f"trail, trail lock (−4), consistency, target ÷ max DD, min days, 2% risk caps, "
+        f"extra eval phases. Book is 100 × (1 − P(pay)) on this Monte Carlo. "
+        f"Higher D = harder to get paid. "
+        f"<b>Band ±{DELTA:.0f}</b> is about one daily-DD step after the 0.55 rule weight — "
+        f"tight enough that no-daily Instant cannot sit next to Verodus Instant "
+        f"(D {v_d['Instant']:.1f}), and Lite (D {v_d['Lite']:.1f}) cannot sit next to "
+        f"Pro (D {v_d['Pro']:.1f}).",
         s["body"],
     ))
 
-    # ----- 1. Verodus scoreboard -----
-    story.append(P("1. Verodus — 40% / 60% rank vs like-for-like only", s["h1"]))
+    # ----- 1. every plan's D -----
+    story.append(P("1. Difficulty score — every plan", s["h1"]))
     story.append(P(
-        "Parentheses are the difficulty-adjusted rank inside the rule cohort. "
-        "Street (rk) is raw rank among those same like plans (no adjustment).",
+        "One row per product (D does not change with account size). "
+        "Verodus rows highlighted. Sorted easiest → hardest.",
+        s["body"],
+    ))
+    dtab = [[P(x, s["th"]) for x in [
+        "Firm", "Plan", "Family", "D", "Rules", "Book", "P(pay)",
+        "Δ vs Instant", "Δ vs 1-Step", "Δ vs Lite", "Δ vs Pro", "In a Vero band?",
+    ]]]
+    vset = set()
+    for i, r in enumerate(scored.itertuples(), start=1):
+        gaps = {k: abs(float(r.D) - v) for k, v in v_d.items()}
+        in_band = []
+        if r.Family == "instant" and gaps["Instant"] <= DELTA:
+            in_band.append("Instant")
+        if r.Family == "1-step" and gaps["1-Step"] <= DELTA:
+            in_band.append("1-Step")
+        if r.Family == "2-step" and gaps["Lite"] <= DELTA:
+            in_band.append("Lite")
+        if r.Family == "2-step" and gaps["Pro"] <= DELTA:
+            in_band.append("Pro")
+        if r.Firm == "Verodus":
+            vset.add(i)
+        dtab.append([
+            P(str(r.Firm), s["tdl"]),
+            P(str(r.Plan), s["tdl"]),
+            P(str(r.Family), s["td"]),
+            P(f"{float(r.D):.1f}", s["td"]),
+            P(f"{float(r.D_rules):.0f}", s["td"]),
+            P(f"{float(r.D_book):.0f}", s["td"]),
+            P(f"{100 * float(r.P_pay):.1f}%", s["td"]),
+            P(f"{gaps['Instant']:.1f}", s["td"]),
+            P(f"{gaps['1-Step']:.1f}", s["td"]),
+            P(f"{gaps['Lite']:.1f}", s["td"]),
+            P(f"{gaps['Pro']:.1f}", s["td"]),
+            P(", ".join(in_band) if in_band else "no", s["td"]),
+        ])
+    story.append(grid(dtab, [
+        32*mm, 34*mm, 18*mm, 14*mm, 14*mm, 14*mm, 16*mm, 22*mm, 22*mm, 18*mm, 18*mm, 28*mm,
+    ], verodus_rows=vset))
+    story.append(Spacer(1, 3*mm))
+
+    # ----- 2. Verodus 40/60 inside the band -----
+    story.append(P(f"2. Verodus @40% / @60% — ranked only inside |ΔD| ≤ {DELTA:.0f}", s["h1"]))
+    story.append(P(
+        "Street (rk) is today’s VERO35 rank among the band. "
+        "@40% (rk) and @60% (rk) are where those fees would sit if every in-band peer "
+        "kept today’s sale. Out-of-band peers are ignored.",
         s["body"],
     ))
     score = [[P(x, s["th"]) for x in [
-        "Plan", "Like cohort", "Size", "BE", "Street (raw rk)",
-        "@40% vs like (rk)", "@60% vs like (rk)", "Like n",
-        "Like cheapest adj", "Like dearest adj",
+        "Plan", "D", "Size", "BE", "Street (rk)",
+        "@40% (rk)", "@60% (rk)", "In-band n", "In-band peers",
     ]]]
     vset = set()
     plan_ord = {"Instant": 0, "1-Step": 1, "2-Step Lite": 2, "2-Step Pro": 3}
@@ -321,128 +268,128 @@ def build():
     v["_po"] = v.Plan.map(plan_ord)
     v = v.sort_values(["_po", "Size"])
     for i, r in enumerate(v.itertuples(), start=1):
-        raw_r, raw_n, r40, n40, r60, n60, peers = vero_like_ranks(skus, r)
-        adjs = [adj_sale(p.Sale, p.BE, r.BE) for p in peers.itertuples()]
+        raw_r, raw_n, r40, n40, r60, n60, peers = vero_ranks(skus, r)
+        names = ", ".join(f"{p.Firm} {p.Plan}" for p in peers.drop_duplicates("Product").itertuples())
+        if len(names) > 90:
+            names = names[:87] + "…"
         vset.add(i)
         score.append([
             P(str(r.Plan), s["tdl"]),
-            P(COHORT_LABEL.get(r.Cohort, r.Cohort).split(" (")[0], s["tdl"]),
+            P(f"{float(r.D):.1f}", s["td"]),
             P(usd(r.Size), s["td"]),
             P(usd(r.BE), s["td"]),
             P(priced(r.Sale, raw_r, raw_n), s["td"]),
             P(priced(r.px_40, r40, n40), s["td"]),
             P(priced(r.px_60, r60, n60), s["td"]),
             P(str(len(peers)), s["td"]),
-            P(usd(min(adjs)) if adjs else "—", s["td"]),
-            P(usd(max(adjs)) if adjs else "—", s["td"]),
+            P(names or "—", s["tdl"]),
         ])
     story.append(grid(score, [
-        24*mm, 48*mm, 16*mm, 16*mm, 28*mm, 32*mm, 32*mm, 16*mm, 28*mm, 28*mm,
+        24*mm, 14*mm, 16*mm, 16*mm, 28*mm, 28*mm, 28*mm, 18*mm, 78*mm,
     ], verodus_rows=vset))
     story.append(Spacer(1, 3*mm))
 
-    # ----- cohort tables -----
-    n = 2
-    for cohort in COHORT_ORDER:
-        sub = skus[skus.Cohort == cohort]
-        if sub.empty:
-            continue
-        vero_plan = VERO_PLAN.get(cohort)
-        like = "like Verodus" if vero_plan else "not a Verodus twin — shown, not used in our rank"
-        story.append(P(f"{n}. {COHORT_LABEL[cohort]}", s["h1"]))
-        n += 1
-        story.append(P(
-            f"{like}. Adj $ puts the peer’s street into Verodus-BE dollars at that size. "
-            "Verodus @40% / @60% ranks use those Adj $ figures."
-            if vero_plan else
-            "No Verodus product sits in this cohort. Listed so the book is complete. "
-            "Do not use these stickers as a Verodus price signal.",
-            s["body"],
-        ))
-        data = [[P(x, s["th"]) for x in [
-            "Firm", "Plan", "Size", "BE", "P(pay)", "Diff vs Vero",
-            "Street", "Adj $", "Vero @40% (rk) / peer 40%",
-            "Vero @60% (rk) / peer 60%",
-        ]]]
+    # ----- 3–6 family SKU grids -----
+    fams = [
+        ("instant", "3. Instant SKUs — D and in-band vs Verodus Instant"),
+        ("1-step", "4. One-step SKUs — D and in-band vs Verodus 1-Step"),
+        ("2-step", "5. Two-step SKUs — D and in-band vs Lite / Pro"),
+        ("3-step", "6. Three-step SKUs — no Verodus twin (shown for D only)"),
+    ]
+    vero_by_fam = {
+        "instant": ["Instant"],
+        "1-step": ["1-Step"],
+        "2-step": ["2-Step Lite", "2-Step Pro"],
+        "3-step": [],
+    }
+    for fam, title in fams:
+        story.append(P(title, s["h1"]))
+        sub = skus[skus.Family == fam].sort_values(["Size", "D", "Sale", "Firm"])
+        heads = ["Firm", "Plan", "Size", "D", "ΔD", "In band", "BE", "Street",
+                 "Vero @40% (rk) / peer 40%", "Vero @60% (rk) / peer 60%"]
+        data = [[P(x, s["th"]) for x in heads]]
         vrows = set()
-        sub = sub.sort_values(["Size", "Sale", "Firm"])
+        anchors = {
+            p: float(skus[(skus.Firm == "Verodus") & (skus.Plan == p)].D.iloc[0])
+            for p in vero_by_fam[fam]
+            if not skus[(skus.Firm == "Verodus") & (skus.Plan == p)].empty
+        }
         for i, r in enumerate(sub.itertuples(), start=1):
-            ref = ref_be_for(skus, vero_plan, r.Size) if vero_plan else None
-            if ref:
-                dlab = "—" if r.Firm == "Verodus" else diff_label(r.BE, ref)
-                adj = float(r.Sale) if r.Firm == "Verodus" else adj_sale(r.Sale, r.BE, ref)
+            if anchors:
+                gaps = {p: abs(float(r.D) - d) for p, d in anchors.items()}
+                best = min(gaps, key=gaps.get)
+                dlt = gaps[best]
+                inb = "yes" if dlt <= DELTA else "no"
+                dlt_s = f"{dlt:.1f} vs {best.replace('2-Step ', '')}"
             else:
-                dlab, adj = "—", float(r.Sale)
+                inb, dlt_s = "—", "—"
             if r.Firm == "Verodus":
-                _, _, r40, n40, r60, n60, _ = vero_like_ranks(skus, r)
+                raw_r, raw_n, r40, n40, r60, n60, _ = vero_ranks(skus, r)
                 c40 = priced(r.px_40, r40, n40)
                 c60 = priced(r.px_60, r60, n60)
                 vrows.add(i)
+                street = priced(r.Sale, raw_r, raw_n)
             else:
-                c40 = usd(r.px_40)
-                c60 = usd(r.px_60)
+                c40, c60 = usd(r.px_40), usd(r.px_60)
+                street = usd(r.Sale)
             data.append([
                 P(str(r.Firm), s["tdl"]),
                 P(str(r.Plan), s["tdl"]),
                 P(usd(r.Size), s["td"]),
+                P(f"{float(r.D):.1f}", s["td"]),
+                P(dlt_s, s["td"]),
+                P(inb, s["td"]),
                 P(usd(r.BE), s["td"]),
-                P(f"{100 * float(r.P_pay):.1f}%", s["td"]),
-                P(dlab, s["td"]),
-                P(usd(r.Sale), s["td"]),
-                P(usd(adj), s["td"]),
+                P(street, s["td"]),
                 P(c40, s["td"]),
                 P(c60, s["td"]),
             ])
         story.append(grid(data, [
-            30*mm, 32*mm, 16*mm, 16*mm, 14*mm, 22*mm, 18*mm, 18*mm, 42*mm, 42*mm,
+            30*mm, 32*mm, 16*mm, 14*mm, 28*mm, 16*mm, 16*mm, 28*mm, 40*mm, 40*mm,
         ], verodus_rows=vrows))
         story.append(Spacer(1, 2.5*mm))
 
-    story.append(P(f"{n}. How to read difficulty", s["h1"]))
+    def _d(product):
+        return float(scored.loc[scored.Product == product, "D"].iloc[0])
+
+    bg_d, fn_i, fx_i = _d("BG Instant"), _d("FN Stellar Instant"), _d("FXIFY Instant")
+    ftmo2, fn_lite = _d("FTMO 2-Step"), _d("FN Stellar Lite")
+    story.append(P("7. What the band does", s["h1"]))
     story.append(P(
-        "Blue Guardian Instant is the only Instant that is both the same card "
-        "(3% / 6% / 20%) and Similar on BE ($911 vs our $875 at $100k). Their trail "
-        "locks and daily is SOD, so they are a touch easier — Adj $ at $100k is $448 "
-        "versus street $467. Ranking us against them is fair. "
-        "FundingPips Zero and Alpha Instant are the same 3%-daily class but slightly "
-        "harder on this book (lower P(pay)); Adj $ rises versus raw street, and they "
-        "are still a hole. "
-        "FundedNext Instant and FXIFY Standard stay in their own table: no daily is "
-        "not our Instant. "
-        "1-Step: rank against the 6% max-DD set (Hola, Alpha One, E8, FN, Fintokei, TFT), "
-        "not against FTMO’s 10% trail or FP Flex 12%. "
-        "Lite: only the 8% static 2-steps. Pro: the 10%/5% FTMO-class set, not FP Pro 6/6.",
+        f"FundedNext Instant (D {fn_i:.1f}) and FXIFY Standard (D {fx_i:.1f}) are 40+ "
+        f"points below Verodus Instant (D {v_d['Instant']:.1f}) — no daily, P(pay) ~53%. "
+        f"They never enter the Instant rank. "
+        f"Blue Guardian Instant is D {bg_d:.1f} (SOD daily + trail lock), "
+        f"ΔD {abs(bg_d - v_d['Instant']):.1f} vs us — inside the ±{DELTA:.0f} band, "
+        f"the closest Instant twin. Instant Funding, Hola Direct, Goat, FP Zero, "
+        f"FXIFY Lite and Alpha Instant are also in-band. "
+        f"Lite (D {v_d['Lite']:.1f}) ranks against FN Lite (D {fn_lite:.1f}) / For Traders / Ment, "
+        f"not against FTMO 2-Step (D {ftmo2:.1f}). "
+        f"Pro (D {v_d['Pro']:.1f}) ranks against the FTMO-class 10%/5% set. "
+        f"Same book: 7/22/26/28/17. Instant $200k removed.",
         s["body"],
     ))
     story.append(P(
-        "Book: results/industry_skus.csv · Cohorts: sim/write_rank_report.py · "
-        "Adj $ = street × (Verodus BE / peer BE) · Instant $200k removed · Lite funded 8% · "
-        "BG Instant = live BG25.",
+        f"D formula: sim/difficulty.py · band ±{DELTA:.0f} · "
+        "SKUs: results/industry_skus.csv · scores: results/difficulty_scores.csv.",
         s["tiny"],
     ))
 
+    scored.to_csv(RESULTS / "difficulty_scores.csv", index=False)
     rows = []
-    for r in skus.sort_values(["Cohort", "Size", "Sale"]).itertuples():
-        vero_plan = VERO_PLAN.get(r.Cohort)
-        ref = ref_be_for(skus, vero_plan, r.Size) if vero_plan else None
+    for r in skus.sort_values(["Family", "Size", "D", "Sale"]).itertuples():
         rec = {
-            "Cohort": r.Cohort,
-            "Firm": r.Firm,
-            "Plan": r.Plan,
-            "Size": int(r.Size),
-            "BE": round(float(r.BE), 2),
-            "Street": float(r.Sale),
-            "P_pay": float(r.P_pay),
-            "Diff": diff_label(r.BE, ref) if ref and r.Firm != "Verodus" else "—",
-            "Adj_street": round(adj_sale(r.Sale, r.BE, ref), 2) if ref else None,
-            "px_40": round(float(r.px_40), 2),
-            "px_60": round(float(r.px_60), 2),
+            "Family": r.Family, "Firm": r.Firm, "Plan": r.Plan, "Product": r.Product,
+            "Size": int(r.Size), "D": float(r.D), "BE": round(float(r.BE), 2),
+            "Street": float(r.Sale), "px_40": round(float(r.px_40), 2),
+            "px_60": round(float(r.px_60), 2), "P_pay": float(r.P_pay),
         }
         if r.Firm == "Verodus":
-            raw_r, raw_n, r40, n40, r60, n60, _ = vero_like_ranks(skus, r)
+            raw_r, raw_n, r40, n40, r60, n60, peers = vero_ranks(skus, r)
             rec.update(
                 street_rank=raw_r, street_n=raw_n,
                 rank_at_40=r40, n_at_40=n40, rank_at_60=r60, n_at_60=n60,
+                band_peers="; ".join(peers.Product.unique()),
             )
         rows.append(rec)
     pd.DataFrame(rows).to_csv(RESULTS / "verodus_be_ranks.csv", index=False)
@@ -454,11 +401,12 @@ def build():
         rightMargin=MARGIN,
         topMargin=12 * mm,
         bottomMargin=10 * mm,
-        title="Verodus like-for-like BE rank at 40%/60% — 16 Aug 2026",
+        title="Verodus difficulty score and 40%/60% rank — 16 Aug 2026",
         author="Verodus operator research",
     )
     doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)
     print(f"Wrote {OUT} ({OUT.stat().st_size:,} bytes)")
+    print(f"Wrote {RESULTS / 'difficulty_scores.csv'}")
     print(f"Wrote {RESULTS / 'verodus_be_ranks.csv'}")
 
 

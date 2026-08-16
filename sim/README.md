@@ -18,6 +18,7 @@ PYTHONPATH=sim python sim/run.py --n-sims 4000
 | `catalog.py` | 20 firms, 47 products, list/sale prices |
 | `run_industry.py` | Catalog runner (`--only` + `--merge` to refresh one product) |
 | `write_comprehensive_pdf.py` | Industry PDF → `results/Verodus_Industry_Report_2026-08-16.pdf` |
-| `write_rank_report.py` | BE + 40%/60% rank vs every peer → `results/Verodus_BE_Rank_Report_2026-08-16.pdf` |
+| `difficulty.py` | Numeric D (0–100) per plan; compare only if same family + size and \|ΔD\| ≤ 6 |
+| `write_rank_report.py` | D + 40%/60% rank inside the ±6 band → `results/Verodus_BE_Rank_Report_2026-08-16.pdf` |
 | `verodus_mc.py` | Verodus-only engine (FAQ rules) |
 | `run.py` | Verodus-only runner |
