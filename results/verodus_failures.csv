@@ -1,0 +1,118 @@
+Product,Profile,Reason,Count,Share_of_profile
+Verodus Instant,Disciplined / Pro,max_dd,581,0.14525
+Verodus Instant,Disciplined / Pro,post_funding_m12,330,0.0825
+Verodus Instant,Disciplined / Pro,post_funding_m1,1348,0.337
+Verodus Instant,Disciplined / Pro,post_funding_m3,499,0.12475
+Verodus Instant,Disciplined / Pro,time_abandon,199,0.04975
+Verodus Instant,Disciplined / Pro,rule_violation,21,0.00525
+Verodus Instant,Disciplined / Pro,daily_dd,1,0.00025
+Verodus Instant,Average Retail,daily_dd,3443,0.86075
+Verodus Instant,Average Retail,time_abandon,35,0.00875
+Verodus Instant,Average Retail,max_dd,511,0.12775
+Verodus Instant,Average Retail,rule_violation,11,0.00275
+Verodus Instant,Aggressive / Over-leveraged,daily_dd,3699,0.92475
+Verodus Instant,Aggressive / Over-leveraged,max_dd,295,0.07375
+Verodus Instant,Aggressive / Over-leveraged,rule_violation,6,0.0015
+Verodus Instant,Scalper / High-frequency,daily_dd,3711,0.92775
+Verodus Instant,Scalper / High-frequency,max_dd,269,0.06725
+Verodus Instant,Scalper / High-frequency,time_abandon,12,0.003
+Verodus Instant,Scalper / High-frequency,rule_violation,8,0.002
+Verodus 1-Step,Disciplined / Pro,max_dd,1263,0.31575
+Verodus 1-Step,Disciplined / Pro,post_funding_m1,858,0.2145
+Verodus 1-Step,Disciplined / Pro,post_funding_m12,205,0.05125
+Verodus 1-Step,Disciplined / Pro,funded_max_dd,86,0.0215
+Verodus 1-Step,Disciplined / Pro,time_abandon,483,0.12075
+Verodus 1-Step,Disciplined / Pro,post_funding_m3,339,0.08475
+Verodus 1-Step,Disciplined / Pro,rule_violation,34,0.0085
+Verodus 1-Step,Disciplined / Pro,funded_time_abandon,38,0.0095
+Verodus 1-Step,Disciplined / Pro,funded_rule_violation,4,0.001
+Verodus 1-Step,Average Retail,max_dd,1990,0.4975
+Verodus 1-Step,Average Retail,daily_dd,1714,0.4285
+Verodus 1-Step,Average Retail,time_abandon,152,0.038
+Verodus 1-Step,Average Retail,post_funding_m12,4,0.001
+Verodus 1-Step,Average Retail,funded_time_abandon,4,0.001
+Verodus 1-Step,Average Retail,funded_max_dd,47,0.01175
+Verodus 1-Step,Average Retail,funded_daily_dd,37,0.00925
+Verodus 1-Step,Average Retail,rule_violation,30,0.0075
+Verodus 1-Step,Average Retail,post_funding_m1,8,0.002
+Verodus 1-Step,Average Retail,funded_rule_violation,1,0.00025
+Verodus 1-Step,Average Retail,post_funding_m3,6,0.0015
+Verodus 1-Step,Aggressive / Over-leveraged,max_dd,3020,0.755
+Verodus 1-Step,Aggressive / Over-leveraged,daily_dd,954,0.2385
+Verodus 1-Step,Aggressive / Over-leveraged,time_abandon,15,0.00375
+Verodus 1-Step,Aggressive / Over-leveraged,funded_daily_dd,2,0.0005
+Verodus 1-Step,Aggressive / Over-leveraged,funded_max_dd,2,0.0005
+Verodus 1-Step,Aggressive / Over-leveraged,rule_violation,7,0.00175
+Verodus 1-Step,Scalper / High-frequency,daily_dd,1998,0.4995
+Verodus 1-Step,Scalper / High-frequency,max_dd,1822,0.4555
+Verodus 1-Step,Scalper / High-frequency,time_abandon,127,0.03175
+Verodus 1-Step,Scalper / High-frequency,rule_violation,42,0.0105
+Verodus 1-Step,Scalper / High-frequency,funded_max_dd,7,0.00175
+Verodus 1-Step,Scalper / High-frequency,funded_time_abandon,1,0.00025
+Verodus 1-Step,Scalper / High-frequency,funded_daily_dd,2,0.0005
+Verodus 2-Step Lite,Disciplined / Pro,post_funding_m12,303,0.07575
+Verodus 2-Step Lite,Disciplined / Pro,time_abandon,212,0.053
+Verodus 2-Step Lite,Disciplined / Pro,post_funding_m3,436,0.109
+Verodus 2-Step Lite,Disciplined / Pro,post_funding_m1,1124,0.281
+Verodus 2-Step Lite,Disciplined / Pro,p2_time_abandon,143,0.03575
+Verodus 2-Step Lite,Disciplined / Pro,p2_max_dd,338,0.0845
+Verodus 2-Step Lite,Disciplined / Pro,max_dd,492,0.123
+Verodus 2-Step Lite,Disciplined / Pro,funded_max_dd,37,0.00925
+Verodus 2-Step Lite,Disciplined / Pro,rule_violation,15,0.00375
+Verodus 2-Step Lite,Disciplined / Pro,funded_time_abandon,14,0.0035
+Verodus 2-Step Lite,Disciplined / Pro,funded_rule_violation,4,0.001
+Verodus 2-Step Lite,Disciplined / Pro,p2_rule_violation,18,0.0045
+Verodus 2-Step Lite,Average Retail,daily_dd,2953,0.73825
+Verodus 2-Step Lite,Average Retail,time_abandon,45,0.01125
+Verodus 2-Step Lite,Average Retail,p2_daily_dd,151,0.03775
+Verodus 2-Step Lite,Average Retail,max_dd,789,0.19725
+Verodus 2-Step Lite,Average Retail,post_funding_m1,4,0.001
+Verodus 2-Step Lite,Average Retail,funded_daily_dd,7,0.00175
+Verodus 2-Step Lite,Average Retail,rule_violation,12,0.003
+Verodus 2-Step Lite,Average Retail,p2_max_dd,31,0.00775
+Verodus 2-Step Lite,Average Retail,p2_time_abandon,3,0.00075
+Verodus 2-Step Lite,Average Retail,funded_max_dd,4,0.001
+Verodus 2-Step Lite,Aggressive / Over-leveraged,daily_dd,3616,0.904
+Verodus 2-Step Lite,Aggressive / Over-leveraged,max_dd,383,0.09575
+Verodus 2-Step Lite,Aggressive / Over-leveraged,rule_violation,1,0.00025
+Verodus 2-Step Lite,Scalper / High-frequency,daily_dd,3376,0.844
+Verodus 2-Step Lite,Scalper / High-frequency,max_dd,557,0.13925
+Verodus 2-Step Lite,Scalper / High-frequency,time_abandon,34,0.0085
+Verodus 2-Step Lite,Scalper / High-frequency,p2_daily_dd,13,0.00325
+Verodus 2-Step Lite,Scalper / High-frequency,rule_violation,17,0.00425
+Verodus 2-Step Lite,Scalper / High-frequency,p2_max_dd,2,0.0005
+Verodus 2-Step Lite,Scalper / High-frequency,p2_time_abandon,1,0.00025
+Verodus 2-Step Pro,Disciplined / Pro,max_dd,390,0.0975
+Verodus 2-Step Pro,Disciplined / Pro,rule_violation,23,0.00575
+Verodus 2-Step Pro,Disciplined / Pro,post_funding_m3,488,0.122
+Verodus 2-Step Pro,Disciplined / Pro,post_funding_m1,1228,0.307
+Verodus 2-Step Pro,Disciplined / Pro,p2_time_abandon,96,0.024
+Verodus 2-Step Pro,Disciplined / Pro,p2_max_dd,261,0.06525
+Verodus 2-Step Pro,Disciplined / Pro,post_funding_m12,332,0.083
+Verodus 2-Step Pro,Disciplined / Pro,p2_rule_violation,12,0.003
+Verodus 2-Step Pro,Disciplined / Pro,time_abandon,151,0.03775
+Verodus 2-Step Pro,Disciplined / Pro,funded_max_dd,45,0.01125
+Verodus 2-Step Pro,Disciplined / Pro,funded_rule_violation,4,0.001
+Verodus 2-Step Pro,Disciplined / Pro,funded_time_abandon,18,0.0045
+Verodus 2-Step Pro,Average Retail,daily_dd,2551,0.63775
+Verodus 2-Step Pro,Average Retail,max_dd,1195,0.29875
+Verodus 2-Step Pro,Average Retail,p2_daily_dd,97,0.02425
+Verodus 2-Step Pro,Average Retail,time_abandon,74,0.0185
+Verodus 2-Step Pro,Average Retail,p2_max_dd,52,0.013
+Verodus 2-Step Pro,Average Retail,rule_violation,14,0.0035
+Verodus 2-Step Pro,Average Retail,post_funding_m1,3,0.00075
+Verodus 2-Step Pro,Average Retail,funded_max_dd,4,0.001
+Verodus 2-Step Pro,Average Retail,funded_daily_dd,5,0.00125
+Verodus 2-Step Pro,Average Retail,p2_time_abandon,2,0.0005
+Verodus 2-Step Pro,Average Retail,funded_time_abandon,1,0.00025
+Verodus 2-Step Pro,Average Retail,post_funding_m12,1,0.00025
+Verodus 2-Step Pro,Average Retail,funded_rule_violation,1,0.00025
+Verodus 2-Step Pro,Aggressive / Over-leveraged,daily_dd,3765,0.94125
+Verodus 2-Step Pro,Aggressive / Over-leveraged,max_dd,232,0.058
+Verodus 2-Step Pro,Aggressive / Over-leveraged,rule_violation,3,0.00075
+Verodus 2-Step Pro,Scalper / High-frequency,daily_dd,3093,0.77325
+Verodus 2-Step Pro,Scalper / High-frequency,max_dd,808,0.202
+Verodus 2-Step Pro,Scalper / High-frequency,time_abandon,57,0.01425
+Verodus 2-Step Pro,Scalper / High-frequency,rule_violation,29,0.00725
+Verodus 2-Step Pro,Scalper / High-frequency,p2_daily_dd,12,0.003
+Verodus 2-Step Pro,Scalper / High-frequency,p2_max_dd,1,0.00025
