@@ -19,6 +19,8 @@ from write_price_rec_pdf import (
     SIZES,
     classic_table,
     family_peers,
+    opex_rows,
+    opex_table,
     load,
     plan_be,
     pricing_for,
@@ -443,8 +445,8 @@ def build():
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant rec $59 / $69 / $119 / $219 / $409. $100k $409 is +31% on BE $284, "
-        "0.88× BG $467, under Goat $559 / Instant Funding $639. List = rec ÷ 0.65.",
+        "Instant rec $59 / $69 / $119 / $219 / $429. $100k $429 is +34% on BE $284, "
+        "opex floor $392, 0.92× BG $467, under Goat $559 / Instant Funding $639.",
         s["tiny"],
     ))
 
@@ -465,6 +467,21 @@ def build():
     ))
     ctab, _crows = classic_table(skus, s)
     story.append(ctab)
+    story.append(Spacer(1, 2*mm))
+
+    story.append(P(
+        "7b. Opex stack — error 10%, $1, marketing 20%, CAD 10k wages",
+        s["h1"],
+    ))
+    story.append(P(
+        "S<sub>opex</sub> = (BE × 1.10 + $1) / 0.80. Wages CAD 10,000 × 0.72 = "
+        "USD 7,200 / month. Peer low is only usable if Low OK is yes. "
+        "Alpha Instant $100k $274 fails. FXIFY Lite $399 is the first Instant $100k low "
+        "that covers the stack. Rec $429 leaves a wage stub and stays under BG $467.",
+        s["body"],
+    ))
+    otab, _orows = opex_table(skus, s)
+    story.append(otab)
     story.append(Spacer(1, 2*mm))
 
     # ----- 8. Instant peers -----
@@ -551,7 +568,7 @@ def build():
     adata = [[P(h, s["th"]) for h in aheads]]
     audits = [
         ("This report + Recommended Prices PDF",
-         "Rec $409 · BE $284 · +31%",
+         "Rec $429 · BE $284 · +34%",
          "20 / 40 / 60",
          "Year-1 7.16% for Instant; 8.8/10.6/12.0 for evals",
          "Yes — source of truth"),
@@ -641,7 +658,7 @@ def build():
     ], fspec))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant rec m +31% at $100k is the intended print. "
+        "Instant rec m +34% at $100k is the intended print after the opex stack. "
         "1-Step +59%, Lite +33%, Pro +43% are leftover live VERO35 — unused pricing power, "
         "not a 40/60 target. Keep them: the evals are already the names shoppers sort cheap.",
         s["body"],
@@ -658,7 +675,25 @@ def build():
             f"{pct(r['Rec_m'], signed=True, digits=0)} |"
         )
     md.append("")
-    md.append("Use 20 / 40 / 60 as the industry reference. Instant rec is the year-1 30% print.\n")
+    md.append("Use 20 / 40 / 60 as the industry reference. Instant rec is opex-checked.\n")
+    md.append("## Opex stack — 10% error, $1, marketing 20%, CAD 10k wages\n")
+    md.append(
+        "S_opex = (BE × 1.10 + $1) / 0.80. Wages CAD 10,000 × 0.72 = USD 7,200 / month. "
+        "N wages = accounts / month at rec if that SKU carried the whole wage bill.\n"
+    )
+    md.append("| Plan | Size | BE | +10% err | Loaded | Opex $ | Peer low | Low OK | First OK | Rec | After opex | N wages |")
+    md.append("|---|---:|---:|---:|---:|---:|---|---|---|---:|---:|---:|")
+    for r in opex_rows(skus):
+        low_s = "—" if r["Low"] is None else f"{usd(r['Low'])} {r['Low_name']}"
+        ok_s = "yes" if r["Low_ok"] else "NO"
+        first_s = "—" if r["First_ok"] is None else f"{usd(r['First_ok'])} {r['First_ok_name']}"
+        n_s = "—" if r["N_rec"] is None else f"{r['N_rec']:.0f}"
+        md.append(
+            f"| {r['Plan']} | {usd(r['Size'])} | {usd(r['BE'])} | {usd(r['Error'])} | "
+            f"{usd(r['Loaded'])} | {usd(r['S_opex'])} | {low_s} | {ok_s} | {first_s} | "
+            f"{usd(r['Rec'])} | {usd(r['Rec_left'])} | {n_s} |"
+        )
+    md.append("")
 
     # markdown margins
     md.append("## Margin % by size and family\n")

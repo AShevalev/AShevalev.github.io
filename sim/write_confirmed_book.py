@@ -27,6 +27,7 @@ from write_price_rec_pdf import (
     P,
     classic_table,
     collect_story as rec_collect,
+    opex_table,
     family_peers,
     grid,
     plan_be,
@@ -268,7 +269,7 @@ def industry_tables(story, s, skus, blend, profiles, fails):
     ]))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "BG $100k $467 is +38% on their year-1 cost. Rec $409 is +31% on ours and 0.88× BG. "
+        "BG $100k $467 is +38% on their year-1 cost. Rec $429 is +34% on ours and 0.92× BG. "
         "Do not copy their lock. Do not match Alpha $274.",
         s["tiny"],
     ))
@@ -317,7 +318,7 @@ def industry_tables(story, s, skus, blend, profiles, fails):
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Instant $100k live: 100 × $676 − 100 × $284 = <b>+$39,200</b> on year-1. "
-        "Rec: 100 × $409 − 100 × $284 = <b>+$12,500</b> (~31%). "
+        "Rec: 100 × $429 − 100 × $284 = <b>+$14,500</b> (~34%). "
         "The industry PDF’s −$19,925 / +$21,875 used first-payout $875 — not used here.",
         s["body"],
     ))
@@ -425,6 +426,20 @@ def summary(story, s, skus):
     ))
     ctab, _crows = classic_table(skus, s)
     story.append(ctab)
+    story.append(Spacer(1, 2*mm))
+
+    story.append(P(
+        "Opex stack — 10% error, $1/account, marketing 20%, CAD 10k wages",
+        s["h1"],
+    ))
+    story.append(P(
+        "S<sub>opex</sub> = (BE × 1.10 + $1) / 0.80. Wages CAD 10,000 × 0.72 = "
+        "USD 7,200 / month. N wages = $7,200 / leftover at rec if that SKU carried "
+        "the whole wage bill. Do not match a peer low that fails Low OK.",
+        s["body"],
+    ))
+    otab, _orows = opex_table(skus, s)
+    story.append(otab)
     story.append(Spacer(1, 2*mm))
 
     story.append(P("Confirmed rec $ and BE $", s["h1"]))

@@ -2,8 +2,10 @@
 """Verodus BE by account + multi-factor recommended sale card.
 
 Instant BE = year-1 E[X] (first × P_yr1/P_pay). Eval BE = first-payout
-E[X] / (1 − P(pay)). Reference columns are 20 / 40 / 60. Instant rec
-targets the 30% print — greater margin that still sits under BG / Goat.
+E[X] / (1 − P(pay)). Instant rec is the year-1 30% print, then checked
+against an opex stack: 10% assumption-error on BE, $1/account, 20%
+marketing, CAD 10,000/month wages. Competitor lows are used only if
+they still cover that stack.
 """
 
 from __future__ import annotations
@@ -39,14 +41,23 @@ HEAD_BG = colors.HexColor("#0f2744")
 
 SIZES = (5000, 10000, 25000, 50000, 100000, 200000)
 
-# Multi-factor VERO35 sale. Instant: year-1 30% print (sellable greater
-# margin), shop floor on $5k/$10k, under BG / Goat / IF. Evals: keep live.
+# Opex stack (after payout BE). Error first, then cash costs, then marketing.
+ASSUMPTION_ERR = 0.10          # 10% of BE — model / year-1 miss
+ACCOUNT_COST = 1.0             # $1 per account
+MARKETING = 0.20               # 20% of sale
+WAGES_CAD = 10000.0            # monthly
+CADUSD = 0.72                  # 16 Aug 2026
+WAGES_USD = WAGES_CAD * CADUSD  # $7,200 / month
+
+# Multi-factor VERO35 sale. Instant: year-1 30% print, then lifted if the
+# opex floor (BE + 10% error + $1) / 0.80 is higher. $5k/$10k shop floor.
+# Evals: keep live — already above the opex floor.
 REC = {
     ("Instant", 5000): 59,
     ("Instant", 10000): 69,
     ("Instant", 25000): 119,
     ("Instant", 50000): 219,
-    ("Instant", 100000): 409,
+    ("Instant", 100000): 429,
     ("1-Step", 5000): 36,
     ("1-Step", 10000): 60,
     ("1-Step", 25000): 120,
@@ -76,11 +87,11 @@ ANCHORS = (
 
 WHY = {
     "Instant": (
-        "20% Instant $100k ($359) was the thin print — +21% and the industry floor "
-        "at $25k. 40% ($473) is Blue Guardian; 60% ($710) is above Goat / IF. "
-        "Rec is the year-1 30% print: $59 / $69 / $119 / $219 / $409. "
-        "$5k/$10k stay the shop floor. $25k $119 sits on Alpha $118, under BG $156. "
-        "$100k $409 is +31% on BE $284, 0.88× BG $467, under Goat $559 / IF $639. "
+        "Stack: year-1 BE, then +10% assumption error, +$1/account, then ÷ 0.80 "
+        "for 20% marketing. Instant $100k opex floor is $392; Alpha $274 fails it. "
+        "First sufficient low is FXIFY Lite $399. Rec $429 is the 30% print plus a "
+        "small wage stub, 0.92× BG $467, under Goat $559. $5k/$10k stay the shop "
+        "floor. $25k $119 sits on Alpha $118 (that low covers the stack). "
         "No $200k Instant."
     ),
     "1-Step": (
@@ -361,6 +372,120 @@ def vs_s(rec, x):
     return f"{p:+.0f}%"
 
 
+def opex_stack(be):
+    """BE → +10% error → +$1 → marketing 20% floor."""
+    err = float(be) * ASSUMPTION_ERR
+    loaded = float(be) + err + ACCOUNT_COST
+    return {
+        "error": err,
+        "account": ACCOUNT_COST,
+        "loaded": loaded,
+        "s_opex": loaded / (1.0 - MARKETING),
+    }
+
+
+def leftover_after_opex(sale, loaded):
+    if sale is None:
+        return None
+    return float(sale) * (1.0 - MARKETING) - loaded
+
+
+def n_for_wages(leftover):
+    if leftover is None or leftover <= 0.5:
+        return None
+    return WAGES_USD / leftover
+
+
+def peer_band(skus, family, size):
+    peers = family_peers(skus, family)
+    peers = peers[peers.Size == size]
+    if peers.empty:
+        return None
+    ordered = peers.sort_values("Sale")
+    lo = ordered.iloc[0]
+    return {
+        "low_firm": str(lo.Firm),
+        "low_plan": str(lo.Plan),
+        "low": float(lo.Sale),
+        "rows": ordered,
+    }
+
+
+def first_sufficient(band, s_opex):
+    if band is None:
+        return None
+    for r in band["rows"].itertuples():
+        if float(r.Sale) + 3 >= s_opex:
+            return {"firm": str(r.Firm), "plan": str(r.Plan), "sale": float(r.Sale)}
+    return None
+
+
+def opex_rows(skus):
+    """Unit stack + competitor-low test for every rec SKU."""
+    out = []
+    for plan, fam in ANCHORS:
+        for sz in SIZES:
+            if (plan, sz) not in REC:
+                continue
+            live = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == sz)]
+            if live.empty:
+                continue
+            r = live.iloc[0]
+            pr = pricing_for(r)
+            be = pr["be"]
+            st = opex_stack(be)
+            sale = REC[(plan, sz)]
+            band = peer_band(skus, fam, sz)
+            ok = first_sufficient(band, st["s_opex"])
+            low = band["low"] if band else None
+            low_left = leftover_after_opex(low, st["loaded"]) if low is not None else None
+            rec_left = leftover_after_opex(sale, st["loaded"])
+            out.append({
+                "Plan": plan, "Size": sz, "BE": be,
+                "Error": st["error"], "Loaded": st["loaded"],
+                "S_opex": st["s_opex"], "Rec": sale,
+                "List": round(sale / 0.65),
+                "Low": low,
+                "Low_name": f"{band['low_firm']}" if band else None,
+                "Low_ok": bool(low is not None and low + 3 >= st["s_opex"]),
+                "First_ok": ok["sale"] if ok else None,
+                "First_ok_name": f"{ok['firm']}" if ok else None,
+                "Low_left": low_left,
+                "Rec_left": rec_left,
+                "N_low": n_for_wages(low_left),
+                "N_rec": n_for_wages(rec_left),
+                "Mkt": sale * MARKETING,
+            })
+    return out
+
+
+def opex_table(skus, s):
+    heads = ["Plan", "Size", "BE", "+10% err", "Loaded", "Opex $",
+             "Peer low", "Low OK?", "First OK $", "Rec", "After opex", "N wages"]
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    rows = opex_rows(skus)
+    for i, r in enumerate(rows, start=1):
+        spec[i] = "rec" if r["Plan"] == "Instant" else "live"
+        low_s = "—" if r["Low"] is None else f"{usd(r['Low'])} {r['Low_name']}"
+        ok_s = "yes" if r["Low_ok"] else "NO — hole"
+        first_s = "—" if r["First_ok"] is None else f"{usd(r['First_ok'])} {r['First_ok_name']}"
+        n_s = "—" if r["N_rec"] is None else f"{r['N_rec']:.0f}"
+        data.append([
+            P(r["Plan"], s["tdl"]), P(usd(r["Size"]), s["td"]),
+            P(usd(r["BE"]), s["td"]), P(usd(r["Error"]), s["td"]),
+            P(usd(r["Loaded"]), s["td"]), P(usd(r["S_opex"]), s["td"]),
+            P(low_s, s["td"]), P(ok_s, s["td"]), P(first_s, s["td"]),
+            P(usd(r["Rec"]), s["td"]),
+            P(usd(r["Rec_left"]), s["td"]),
+            P(n_s, s["td"]),
+        ])
+    return grid(data, [
+        24*mm, 16*mm, 16*mm, 16*mm, 16*mm, 16*mm,
+        32*mm, 18*mm, 32*mm, 16*mm, 18*mm, 16*mm,
+    ], spec), rows
+
+
 def family_stats(skus):
     rows = []
     for plan, family in ANCHORS:
@@ -429,7 +554,8 @@ def collect_story():
         "under Instant Funding and Hola everywhere; (4) never raise a live eval that "
         "is already the cheapest name and fat; (5) shop-round fees. Columns on this "
         "card use <b>20 / 40 / 60</b> as the industry reference. Instant rec is the "
-        "<b>30% print</b> — $409 at $100k is 0.88× BG $467. 40% ($473) is Blue Guardian "
+        "<b>30% print, then opex-checked</b> — $429 at $100k is 0.92× BG $467 "
+        "(opex floor $392). 40% ($473) is Blue Guardian "
         "and 60% ($710) sits above Goat / Instant Funding.",
         s["body"],
     ))
@@ -464,8 +590,8 @@ def collect_story():
     story.append(P(
         "Green = recommended sale. Each size shows <b>rec $</b> and <b>BE $</b>. "
         "Instant is the year-1 30% print. Evals are unchanged. "
-        "Instant $100k rec $409 on year-1 BE $284 "
-        "(20% = $355, 30% = $406, 40% = $473, 60% = $710). "
+        "Instant $100k rec $429 on year-1 BE $284 "
+        "(opex floor $392, 30% = $406, 40% = $473, 60% = $710). "
         "Eval Sale m of +33% to +59% is live VERO35 leftover — not a 60% target.",
         s["body"],
     ))
@@ -516,10 +642,46 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = Instant (year-1). Blue = evals (first-payout). "
-        "Instant $25k+ Sale sits on the 30% column. "
+        "Instant $25k+ Sale sits on the 30% column, then $100k is lifted to $429 "
+        "so the opex stack still leaves a wage stub. "
         "$5k/$10k Instant Sale m is the shop floor, not a 60% target. "
         "Lite $100k Sale $241 is under the 40% column ($254). "
         "1-Step / Pro Sale sit between 40% and 60%.",
+        s["tiny"],
+    ))
+
+    story.append(P(
+        "1d. Opex stack — error first, then $1 + marketing 20%, then wages",
+        s["h1"],
+    ))
+    story.append(P(
+        "Build the fee in order. <b>(1) Payout BE</b> (year-1 Instant; first-payout "
+        "+ refund on evals). <b>(2) Assumption error = 10% of BE</b> — year-1 / book "
+        "miss, taken first. <b>(3) $1 per account</b>. "
+        "<b>(4) Marketing 20% of sale</b> ⇒ opex floor "
+        "S<sub>opex</sub> = (BE × 1.10 + $1) / 0.80. "
+        "<b>(5) Wages CAD 10,000/month × 0.72 = USD 7,200</b>. "
+        "N wages = $7,200 / leftover after (1)–(4) at the rec sale — Instant-only "
+        "headcount if that SKU had to carry the whole wage bill. "
+        "Peer low is the cheapest same-family street fee. "
+        "<b>Low OK</b> means that low already covers S<sub>opex</sub>. "
+        "If it does not, <b>First OK</b> is the cheapest peer that does. "
+        "Do not match a low that fails the stack (Alpha Instant $100k $274).",
+        s["body"],
+    ))
+    otab, _orows = opex_table(skus, s)
+    story.append(otab)
+    story.append(Spacer(1, 2*mm))
+    story.append(P(
+        "Instant $100k: S<sub>opex</sub> $392. Alpha $274 is a hole after 20% marketing. "
+        "FXIFY Lite $399 is the first sufficient low. Rec $429 leaves ~$30 after the "
+        "stack — about 240 Instant $100k / month if Instant carried all wages. "
+        "Evals cover wages much faster (1-Step $100k ~50 / month). "
+        "A 25/25/25/25 mix of the four $100k plans at rec covers CAD 10k at about "
+        "110 accounts / month. Lite is the tight eval (leftover ~$24 at $241). "
+        "Instant $25k Alpha $118 covers the stack — that is a real low we can meet. "
+        "Instant $50k Alpha $154 does not; FP Zero $195 is on the $196 floor. "
+        "Rec $219 covers and stays under BG $243.",
         s["tiny"],
     ))
 
@@ -641,7 +803,7 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Blue = live Verodus. Green = rec. On year-1, BG $467 is +38%, Goat $559 is +55%, "
-        "IF $639 is +57%, Hola $839 is +60%, rec $409 is +31%. First-payout column is the "
+        "IF $639 is +57%, Hola $839 is +60%, rec $429 is +33%. First-payout column is the "
         "old (wrong) Instant basis. 40–60% year-1 takes are what Goat / IF / Hola already "
         "charge — too high for a new name.",
         s["body"],
@@ -839,6 +1001,7 @@ def collect_story():
 def build():
     story, skus, rows_out, stats = collect_story()
     pd.DataFrame(classic_rows(skus)).to_csv(RESULTS / "verodus_classic_sku_table.csv", index=False)
+    pd.DataFrame(opex_rows(skus)).to_csv(RESULTS / "verodus_opex_stack.csv", index=False)
     pd.DataFrame(rows_out).to_csv(RESULTS / "verodus_recommended_prices.csv", index=False)
     pd.DataFrame(stats).to_csv(RESULTS / "verodus_rec_vs_band.csv", index=False)
     pd.DataFrame([{
@@ -864,6 +1027,7 @@ def build():
     doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)
     print(f"Wrote {OUT} ({OUT.stat().st_size:,} bytes)")
     print(f"Wrote {RESULTS / 'verodus_classic_sku_table.csv'}")
+    print(f"Wrote {RESULTS / 'verodus_opex_stack.csv'}")
     print(f"Wrote {RESULTS / 'verodus_recommended_prices.csv'}")
     print(f"Wrote {RESULTS / 'verodus_rec_vs_band.csv'}")
     print(f"Wrote {RESULTS / 'verodus_be_by_account.csv'}")
