@@ -27,6 +27,7 @@ from write_price_rec_pdf import (
     P,
     classic_table,
     collect_story as rec_collect,
+    mix_table,
     opex_table,
     family_peers,
     grid,
@@ -317,8 +318,9 @@ def industry_tables(story, s, skus, blend, profiles, fails):
     ], hspec))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant $100k live: 100 × $676 − 100 × $284 = <b>+$39,200</b> on year-1. "
-        "Rec: 100 × $429 − 100 × $284 = <b>+$14,500</b> (~34%). "
+        "Instant $100k live: 100 × $676 − 100 × $284 = <b>+$39,200</b> on year-1 payout. "
+        "Rec: 100 × $429 − 100 × $284 = <b>+$14,500</b> (~34%) before opex. "
+        "After 10% error + $1 + wage + 20% marketing, leftover is ~$5 / account. "
         "The industry PDF’s −$19,925 / +$21,875 used first-payout $875 — not used here.",
         s["body"],
     ))
@@ -429,13 +431,24 @@ def summary(story, s, skus):
     story.append(Spacer(1, 2*mm))
 
     story.append(P(
-        "Opex stack — 10% error, $1/account, marketing 20%, CAD 10k wages",
+        "Wage mix — CAD 10,000 / month on 310 accounts",
         s["h1"],
     ))
     story.append(P(
-        "S<sub>opex</sub> = (BE × 1.10 + $1) / 0.80. Wages CAD 10,000 × 0.72 = "
-        "USD 7,200 / month. N wages = $7,200 / leftover at rec if that SKU carried "
-        "the whole wage bill. Do not match a peer low that fails Low OK.",
+        "USD 7,200 / month. Instant 0.85×, 1-Step 1.00×, Lite 1.15×, Pro 1.10×, "
+        "times (0.65 + 0.35 × size/100k). Flat average $23 / account.",
+        s["body"],
+    ))
+    story.append(mix_table(skus, s))
+    story.append(Spacer(1, 2*mm))
+
+    story.append(P(
+        "Opex stack — 10% error, $1 + wage, marketing 20%",
+        s["h1"],
+    ))
+    story.append(P(
+        "S<sub>opex</sub> = (BE × 1.10 + $1 + wage) / 0.80. "
+        "Do not match a peer low that fails Low OK.",
         s["body"],
     ))
     otab, _orows = opex_table(skus, s)

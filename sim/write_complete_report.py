@@ -19,6 +19,7 @@ from write_price_rec_pdf import (
     SIZES,
     classic_table,
     family_peers,
+    mix_table,
     opex_rows,
     opex_table,
     load,
@@ -445,8 +446,9 @@ def build():
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant rec $59 / $69 / $119 / $219 / $429. $100k $429 is +34% on BE $284, "
-        "opex floor $392, 0.92× BG $467, under Goat $559 / Instant Funding $639.",
+        "Instant rec $59 / $69 / $129 / $229 / $429. $100k $429 is opex floor $422, "
+        "0.92× BG $467. Lite $39 / $51 / $89 / $149 / $259 / $479 (solvent floor). "
+        "1-Step live. Pro $39 / $49 then live.",
         s["tiny"],
     ))
 
@@ -469,15 +471,18 @@ def build():
     story.append(ctab)
     story.append(Spacer(1, 2*mm))
 
+    story.append(P("7b. Wage mix — CAD 10k / month on 310 accounts", s["h1"]))
+    story.append(mix_table(skus, s))
+    story.append(Spacer(1, 2*mm))
+
     story.append(P(
-        "7b. Opex stack — error 10%, $1, marketing 20%, CAD 10k wages",
+        "7c. Opex stack — error 10%, $1 + wage, marketing 20%",
         s["h1"],
     ))
     story.append(P(
-        "S<sub>opex</sub> = (BE × 1.10 + $1) / 0.80. Wages CAD 10,000 × 0.72 = "
-        "USD 7,200 / month. Peer low is only usable if Low OK is yes. "
-        "Alpha Instant $100k $274 fails. FXIFY Lite $399 is the first Instant $100k low "
-        "that covers the stack. Rec $429 leaves a wage stub and stays under BG $467.",
+        "S<sub>opex</sub> = (BE × 1.10 + $1 + wage) / 0.80. "
+        "Wages CAD 10,000 × 0.72 = USD 7,200 / month, weighted across 310 accounts. "
+        "Peer low is only usable if Low OK is yes. Alpha Instant and Maven $5k–$25k fail.",
         s["body"],
     ))
     otab, _orows = opex_table(skus, s)
@@ -558,7 +563,8 @@ def build():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Blue = live Verodus. 1-Step $335 is the cheapest serious 1-step (Fintokei $399, "
-        "Hola $463, FTMO $579). Lite $241 is the cheapest 2-step. Pro $296 is #2 after Maven $279.",
+        "Hola $463, FTMO $579). Lite $259 is the cheapest solvent 2-step (under Maven $279). "
+        "Pro $296 is #2 after Maven $279.",
         s["tiny"],
     ))
 
@@ -658,7 +664,7 @@ def build():
     ], fspec))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant rec m +34% at $100k is the intended print after the opex stack. "
+        "Instant rec $429 at $100k is the opex floor ($422) plus a small stub. "
         "1-Step +59%, Lite +33%, Pro +43% are leftover live VERO35 — unused pricing power, "
         "not a 40/60 target. Keep them: the evals are already the names shoppers sort cheap.",
         s["body"],
@@ -676,22 +682,22 @@ def build():
         )
     md.append("")
     md.append("Use 20 / 40 / 60 as the industry reference. Instant rec is opex-checked.\n")
-    md.append("## Opex stack — 10% error, $1, marketing 20%, CAD 10k wages\n")
+    md.append("## Opex stack — 10% error, $1 + wage, marketing 20%, CAD 10k wages\n")
     md.append(
-        "S_opex = (BE × 1.10 + $1) / 0.80. Wages CAD 10,000 × 0.72 = USD 7,200 / month. "
-        "N wages = accounts / month at rec if that SKU carried the whole wage bill.\n"
+        "S_opex = (BE × 1.10 + $1 + wage) / 0.80. "
+        "Wages CAD 10,000 × 0.72 = USD 7,200 / month on 310 weighted accounts.\n"
     )
-    md.append("| Plan | Size | BE | +10% err | Loaded | Opex $ | Peer low | Low OK | First OK | Rec | After opex | N wages |")
-    md.append("|---|---:|---:|---:|---:|---:|---|---|---|---:|---:|---:|")
+    md.append("| Plan | Size | N | Wage | BE | +10% | Loaded | Opex $ | Peer low | Low OK | First OK | Rec | After |")
+    md.append("|---|---:|---:|---:|---:|---:|---:|---:|---|---|---|---:|---:|")
     for r in opex_rows(skus):
         low_s = "—" if r["Low"] is None else f"{usd(r['Low'])} {r['Low_name']}"
         ok_s = "yes" if r["Low_ok"] else "NO"
         first_s = "—" if r["First_ok"] is None else f"{usd(r['First_ok'])} {r['First_ok_name']}"
-        n_s = "—" if r["N_rec"] is None else f"{r['N_rec']:.0f}"
         md.append(
-            f"| {r['Plan']} | {usd(r['Size'])} | {usd(r['BE'])} | {usd(r['Error'])} | "
+            f"| {r['Plan']} | {usd(r['Size'])} | {r['N']} | {usd(r['Wage'])} | "
+            f"{usd(r['BE'])} | {usd(r['Error'])} | "
             f"{usd(r['Loaded'])} | {usd(r['S_opex'])} | {low_s} | {ok_s} | {first_s} | "
-            f"{usd(r['Rec'])} | {usd(r['Rec_left'])} | {n_s} |"
+            f"{usd(r['Rec'])} | {usd(r['Rec_left'])} |"
         )
     md.append("")
 

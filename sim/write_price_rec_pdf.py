@@ -49,14 +49,50 @@ WAGES_CAD = 10000.0            # monthly
 CADUSD = 0.72                  # 16 Aug 2026
 WAGES_USD = WAGES_CAD * CADUSD  # $7,200 / month
 
-# Multi-factor VERO35 sale. Instant: year-1 30% print, then lifted if the
-# opex floor (BE + 10% error + $1) / 0.80 is higher. $5k/$10k shop floor.
-# Evals: keep live — already above the opex floor.
+# Expected monthly units (310). Instant-heavy, mid-size modal, few $200k.
+# Used only to spread CAD 10k wages — not a sales forecast.
+UNITS = {
+    ("Instant", 5000): 15,
+    ("Instant", 10000): 25,
+    ("Instant", 25000): 28,
+    ("Instant", 50000): 18,
+    ("Instant", 100000): 12,
+    ("1-Step", 5000): 8,
+    ("1-Step", 10000): 14,
+    ("1-Step", 25000): 18,
+    ("1-Step", 50000): 14,
+    ("1-Step", 100000): 10,
+    ("1-Step", 200000): 3,
+    ("2-Step Lite", 5000): 10,
+    ("2-Step Lite", 10000): 18,
+    ("2-Step Lite", 25000): 22,
+    ("2-Step Lite", 50000): 16,
+    ("2-Step Lite", 100000): 12,
+    ("2-Step Lite", 200000): 4,
+    ("2-Step Pro", 5000): 6,
+    ("2-Step Pro", 10000): 12,
+    ("2-Step Pro", 25000): 16,
+    ("2-Step Pro", 50000): 14,
+    ("2-Step Pro", 100000): 10,
+    ("2-Step Pro", 200000): 5,
+}
+
+# Support load: Instant lighter (no phases); 2-step heavier; larger size more tickets.
+PLAN_WAGE_W = {
+    "Instant": 0.85,
+    "1-Step": 1.00,
+    "2-Step Lite": 1.15,
+    "2-Step Pro": 1.10,
+}
+
+# Rec = max(prior card, shop-round of fully loaded opex floor).
+# Do not match a peer low that fails the stack. Evals stay under Maven
+# wherever Maven itself covers. Instant stays under BG.
 REC = {
     ("Instant", 5000): 59,
     ("Instant", 10000): 69,
-    ("Instant", 25000): 119,
-    ("Instant", 50000): 219,
+    ("Instant", 25000): 129,
+    ("Instant", 50000): 229,
     ("Instant", 100000): 429,
     ("1-Step", 5000): 36,
     ("1-Step", 10000): 60,
@@ -64,14 +100,14 @@ REC = {
     ("1-Step", 50000): 193,
     ("1-Step", 100000): 335,
     ("1-Step", 200000): 654,
-    ("2-Step Lite", 5000): 18,
-    ("2-Step Lite", 10000): 33,
-    ("2-Step Lite", 25000): 66,
-    ("2-Step Lite", 50000): 133,
-    ("2-Step Lite", 100000): 241,
-    ("2-Step Lite", 200000): 477,
-    ("2-Step Pro", 5000): 20,
-    ("2-Step Pro", 10000): 36,
+    ("2-Step Lite", 5000): 39,
+    ("2-Step Lite", 10000): 51,
+    ("2-Step Lite", 25000): 89,
+    ("2-Step Lite", 50000): 149,
+    ("2-Step Lite", 100000): 259,
+    ("2-Step Lite", 200000): 479,
+    ("2-Step Pro", 5000): 39,
+    ("2-Step Pro", 10000): 49,
     ("2-Step Pro", 25000): 85,
     ("2-Step Pro", 50000): 163,
     ("2-Step Pro", 100000): 296,
@@ -87,26 +123,26 @@ ANCHORS = (
 
 WHY = {
     "Instant": (
-        "Stack: year-1 BE, then +10% assumption error, +$1/account, then ÷ 0.80 "
-        "for 20% marketing. Instant $100k opex floor is $392; Alpha $274 fails it. "
-        "First sufficient low is FXIFY Lite $399. Rec $429 is the 30% print plus a "
-        "small wage stub, 0.92× BG $467, under Goat $559. $5k/$10k stay the shop "
-        "floor. $25k $119 sits on Alpha $118 (that low covers the stack). "
-        "No $200k Instant."
+        "Stack: year-1 BE, +10% error, +$1, +wage share, then ÷ 0.80 for marketing. "
+        "Instant $100k opex floor is $422; Alpha $274 fails it. FXIFY Lite $399 is "
+        "close but short. Rec $429 covers and is 0.92× BG $467. $25k/$50k lift to "
+        "$129 / $229 so the floor clears; still under BG $156 / $243. "
+        "$5k/$10k stay the shop floor. No $200k Instant."
     ),
     "1-Step": (
-        "Live is already the cheapest 1-step on the shelf at every size except $5k "
-        "(Fintokei $35). $335 vs FTMO $579 / FN $570 / Hola $463 at $100k. Keep live. "
-        "Raising toward Hola would make the card less attractive, not more."
+        "Live already covers the full stack at every size. $335 vs opex floor $200 "
+        "at $100k. Fintokei / Alpha / Hola lows all cover. Keep live — leftover "
+        "pays most of the wage bill."
     ),
     "2-Step Lite": (
-        "Live is the cheapest 2-step on the shelf (tied with Maven at $5k, under Maven "
-        "from $10k). $241 vs Maven $279 / Ment $343 / FN Lite $449 at $100k. Keep live."
+        "Live $18–$241 does not cover wages + 20% marketing on $5k–$100k. "
+        "Maven $18 / $35 / $79 also fail. Rec is the opex floor: $39 / $51 / $89 / "
+        "$149 / $259 — cheapest solvent 2-step. Maven $151 / $279 cover from $50k."
     ),
     "2-Step Pro": (
-        "Live is #2 cheapest 2-step after Maven. $296 vs Maven $279 / Goat $399 / "
-        "FTMO $626 at $100k. Keep live — already cheaper than almost every name a "
-        "shopper knows."
+        "Live $20 / $36 miss the $5k / $10k floor. Lift those to $39 / $49. "
+        "$25k+ live already covers. $296 at $100k is above the $248 floor and "
+        "under Goat $399. Maven $18 / $35 / $79 are not usable lows."
     ),
 }
 
@@ -188,7 +224,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "BE stated per account as $. Instant = year-1. Columns 20/40/60 (Instant rec = 30% print). Evals = first-payout + refund.",
+        "BE + 10% error + $1 + wage share, then ÷ 0.80 marketing. Instant = year-1. Evals = first-payout + refund.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -372,13 +408,36 @@ def vs_s(rec, x):
     return f"{p:+.0f}%"
 
 
-def opex_stack(be):
-    """BE → +10% error → +$1 → marketing 20% floor."""
+def size_wage_w(size):
+    return 0.65 + 0.35 * (float(size) / 100000.0)
+
+
+def wage_weight(plan, size):
+    return PLAN_WAGE_W[plan] * size_wage_w(size)
+
+
+def wage_denom():
+    return sum(n * wage_weight(plan, sz) for (plan, sz), n in UNITS.items())
+
+
+def wage_for(plan, size):
+    """USD wage allocated to one account of this SKU."""
+    return WAGES_USD * wage_weight(plan, size) / wage_denom()
+
+
+def monthly_units(plan, size):
+    return UNITS.get((plan, size), 0)
+
+
+def opex_stack(be, plan, size):
+    """BE → +10% error → +$1 → +wage share → marketing 20% floor."""
     err = float(be) * ASSUMPTION_ERR
-    loaded = float(be) + err + ACCOUNT_COST
+    wage = wage_for(plan, size)
+    loaded = float(be) + err + ACCOUNT_COST + wage
     return {
         "error": err,
         "account": ACCOUNT_COST,
+        "wage": wage,
         "loaded": loaded,
         "s_opex": loaded / (1.0 - MARKETING),
     }
@@ -433,16 +492,18 @@ def opex_rows(skus):
             r = live.iloc[0]
             pr = pricing_for(r)
             be = pr["be"]
-            st = opex_stack(be)
+            st = opex_stack(be, plan, sz)
             sale = REC[(plan, sz)]
             band = peer_band(skus, fam, sz)
             ok = first_sufficient(band, st["s_opex"])
             low = band["low"] if band else None
             low_left = leftover_after_opex(low, st["loaded"]) if low is not None else None
             rec_left = leftover_after_opex(sale, st["loaded"])
+            n = monthly_units(plan, sz)
             out.append({
-                "Plan": plan, "Size": sz, "BE": be,
-                "Error": st["error"], "Loaded": st["loaded"],
+                "Plan": plan, "Size": sz, "N": n,
+                "BE": be, "Error": st["error"],
+                "Wage": st["wage"], "Loaded": st["loaded"],
                 "S_opex": st["s_opex"], "Rec": sale,
                 "List": round(sale / 0.65),
                 "Low": low,
@@ -452,16 +513,15 @@ def opex_rows(skus):
                 "First_ok_name": f"{ok['firm']}" if ok else None,
                 "Low_left": low_left,
                 "Rec_left": rec_left,
-                "N_low": n_for_wages(low_left),
-                "N_rec": n_for_wages(rec_left),
+                "Book_pnl": (rec_left or 0.0) * n,
                 "Mkt": sale * MARKETING,
             })
     return out
 
 
 def opex_table(skus, s):
-    heads = ["Plan", "Size", "BE", "+10% err", "Loaded", "Opex $",
-             "Peer low", "Low OK?", "First OK $", "Rec", "After opex", "N wages"]
+    heads = ["Plan", "Size", "Wage", "BE", "+10%", "$1+w", "Opex $",
+             "Peer low", "Low OK?", "First OK $", "Rec", "After"]
     data = [[P(h, s["th"]) for h in heads]]
     spec = {}
     rows = opex_rows(skus)
@@ -470,20 +530,51 @@ def opex_table(skus, s):
         low_s = "—" if r["Low"] is None else f"{usd(r['Low'])} {r['Low_name']}"
         ok_s = "yes" if r["Low_ok"] else "NO — hole"
         first_s = "—" if r["First_ok"] is None else f"{usd(r['First_ok'])} {r['First_ok_name']}"
-        n_s = "—" if r["N_rec"] is None else f"{r['N_rec']:.0f}"
         data.append([
             P(r["Plan"], s["tdl"]), P(usd(r["Size"]), s["td"]),
+            P(usd(r["Wage"]), s["td"]),
             P(usd(r["BE"]), s["td"]), P(usd(r["Error"]), s["td"]),
             P(usd(r["Loaded"]), s["td"]), P(usd(r["S_opex"]), s["td"]),
             P(low_s, s["td"]), P(ok_s, s["td"]), P(first_s, s["td"]),
             P(usd(r["Rec"]), s["td"]),
             P(usd(r["Rec_left"]), s["td"]),
-            P(n_s, s["td"]),
         ])
     return grid(data, [
-        24*mm, 16*mm, 16*mm, 16*mm, 16*mm, 16*mm,
-        32*mm, 18*mm, 32*mm, 16*mm, 18*mm, 16*mm,
+        24*mm, 16*mm, 14*mm, 16*mm, 14*mm, 16*mm, 16*mm,
+        32*mm, 18*mm, 32*mm, 16*mm, 16*mm,
     ], spec), rows
+
+
+def mix_table(skus, s):
+    heads = ["Plan", "Size", "N / mo", "Weight", "Wage $", "Share of wages"]
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    denom = wage_denom()
+    total_n = sum(UNITS.values())
+    i = 0
+    for plan, _fam in ANCHORS:
+        for sz in SIZES:
+            if (plan, sz) not in UNITS:
+                continue
+            i += 1
+            n = UNITS[(plan, sz)]
+            wgt = wage_weight(plan, sz)
+            wage = wage_for(plan, sz)
+            share = n * wage / WAGES_USD
+            spec[i] = "rec" if plan == "Instant" else "live"
+            data.append([
+                P(plan, s["tdl"]), P(usd(sz), s["td"]),
+                P(str(n), s["td"]), P(f"{wgt:.2f}", s["td"]),
+                P(usd(wage), s["td"]), P(f"{100 * share:.1f}%", s["td"]),
+            ])
+    data.append([
+        P("Book", s["tdl"]), P("—", s["td"]),
+        P(str(total_n), s["td"]), P("1.00 avg", s["td"]),
+        P(usd(WAGES_USD / total_n), s["td"]), P("100%", s["td"]),
+    ])
+    return grid(data, [
+        32*mm, 22*mm, 22*mm, 22*mm, 22*mm, 28*mm,
+    ], spec)
 
 
 def family_stats(skus):
@@ -547,16 +638,13 @@ def collect_story():
         s["body"],
     ))
     story.append(P(
-        "<b>Rec factors:</b> (1) Instant prints at the year-1 <b>30%</b> column — "
-        "greater margin that still sells; 20% was thin (+21%, $25k under Alpha) and "
-        "40% / 60% were too rich versus BG / Goat / IF; (2) $5k/$10k Instant use a shop "
-        "floor because year-1 30% is $20 / $41; (3) sit under BG and Goat from $10k, "
-        "under Instant Funding and Hola everywhere; (4) never raise a live eval that "
-        "is already the cheapest name and fat; (5) shop-round fees. Columns on this "
-        "card use <b>20 / 40 / 60</b> as the industry reference. Instant rec is the "
-        "<b>30% print, then opex-checked</b> — $429 at $100k is 0.92× BG $467 "
-        "(opex floor $392). 40% ($473) is Blue Guardian "
-        "and 60% ($710) sits above Goat / Instant Funding.",
+        "<b>Rec factors:</b> (1) payout BE, then <b>10% assumption error</b>, then "
+        "<b>$1 + wage share</b>, then <b>÷ 0.80</b> for 20% marketing; (2) Instant "
+        "stays under BG / Goat; (3) do not match a peer low that fails that floor "
+        "(Alpha Instant, Maven $5k–$25k, BrightFunded $200k); (4) 1-Step live already "
+        "covers — keep it; (5) Lite / small Pro lift to the floor so they are the "
+        "cheapest <i>solvent</i> 2-step, not the cheapest hole. "
+        "Instant $100k $429 is 0.92× BG $467 (opex floor $422).",
         s["body"],
     ))
 
@@ -589,10 +677,9 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = recommended sale. Each size shows <b>rec $</b> and <b>BE $</b>. "
-        "Instant is the year-1 30% print. Evals are unchanged. "
-        "Instant $100k rec $429 on year-1 BE $284 "
-        "(opex floor $392, 30% = $406, 40% = $473, 60% = $710). "
-        "Eval Sale m of +33% to +59% is live VERO35 leftover — not a 60% target.",
+        "Instant $59 / $69 / $129 / $229 / $429. "
+        "Lite $39 / $51 / $89 / $149 / $259 / $479 (opex floor; under Maven from $50k). "
+        "1-Step stays live. Pro $5k/$10k lift to $39 / $49; $25k+ live.",
         s["body"],
     ))
 
@@ -642,46 +729,55 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = Instant (year-1). Blue = evals (first-payout). "
-        "Instant $25k+ Sale sits on the 30% column, then $100k is lifted to $429 "
-        "so the opex stack still leaves a wage stub. "
-        "$5k/$10k Instant Sale m is the shop floor, not a 60% target. "
-        "Lite $100k Sale $241 is under the 40% column ($254). "
-        "1-Step / Pro Sale sit between 40% and 60%.",
+        "Sale is the opex-checked fee. Instant $25k/$50k sit on the fully loaded floor. "
+        "Lite is no longer the industry low on $5k–$25k — those lows do not cover wages.",
         s["tiny"],
     ))
 
     story.append(P(
-        "1d. Opex stack — error first, then $1 + marketing 20%, then wages",
+        "1d. Wage mix — CAD 10,000 / month across 310 accounts",
+        s["h1"],
+    ))
+    story.append(P(
+        "CAD 10,000 × 0.72 = <b>USD 7,200 / month</b>. Spread across a 310-account "
+        "early book (Instant 98 · 1-Step 67 · Lite 82 · Pro 63). "
+        "Weight = plan factor × (0.65 + 0.35 × size/100k). "
+        "Instant 0.85 (no phases), 1-Step 1.00, Lite 1.15, Pro 1.10. "
+        "Flat average is $23 / account; Instant $5k gets $16, Pro $200k gets $43. "
+        "At 150 accounts/month the wage line roughly doubles; at 600 it halves.",
+        s["body"],
+    ))
+    story.append(mix_table(skus, s))
+    story.append(Spacer(1, 2*mm))
+
+    story.append(P(
+        "1e. Opex stack — error first, then $1 + wage, then marketing 20%",
         s["h1"],
     ))
     story.append(P(
         "Build the fee in order. <b>(1) Payout BE</b> (year-1 Instant; first-payout "
-        "+ refund on evals). <b>(2) Assumption error = 10% of BE</b> — year-1 / book "
-        "miss, taken first. <b>(3) $1 per account</b>. "
-        "<b>(4) Marketing 20% of sale</b> ⇒ opex floor "
-        "S<sub>opex</sub> = (BE × 1.10 + $1) / 0.80. "
-        "<b>(5) Wages CAD 10,000/month × 0.72 = USD 7,200</b>. "
-        "N wages = $7,200 / leftover after (1)–(4) at the rec sale — Instant-only "
-        "headcount if that SKU had to carry the whole wage bill. "
+        "+ refund on evals). <b>(2) Assumption error = 10% of BE</b>, taken first. "
+        "<b>(3) $1 per account + wage share</b>. "
+        "<b>(4) Marketing 20% of sale</b> ⇒ "
+        "S<sub>opex</sub> = (BE × 1.10 + $1 + wage) / 0.80. "
         "Peer low is the cheapest same-family street fee. "
         "<b>Low OK</b> means that low already covers S<sub>opex</sub>. "
         "If it does not, <b>First OK</b> is the cheapest peer that does. "
-        "Do not match a low that fails the stack (Alpha Instant $100k $274).",
+        "Do not match a low that fails the stack.",
         s["body"],
     ))
     otab, _orows = opex_table(skus, s)
     story.append(otab)
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant $100k: S<sub>opex</sub> $392. Alpha $274 is a hole after 20% marketing. "
-        "FXIFY Lite $399 is the first sufficient low. Rec $429 leaves ~$30 after the "
-        "stack — about 240 Instant $100k / month if Instant carried all wages. "
-        "Evals cover wages much faster (1-Step $100k ~50 / month). "
-        "A 25/25/25/25 mix of the four $100k plans at rec covers CAD 10k at about "
-        "110 accounts / month. Lite is the tight eval (leftover ~$24 at $241). "
-        "Instant $25k Alpha $118 covers the stack — that is a real low we can meet. "
-        "Instant $50k Alpha $154 does not; FP Zero $195 is on the $196 floor. "
-        "Rec $219 covers and stays under BG $243.",
+        "Instant $100k: S<sub>opex</sub> $422. Alpha $274 is a hole. FXIFY Lite $399 "
+        "is still short. Rec $429 covers and stays under BG $467. "
+        "Instant $25k/$50k Alpha $118 / $154 fail; rec $129 / $229 clear the floor "
+        "and stay under BG $156 / $243. "
+        "1-Step lows all cover — keep live. "
+        "Lite live and Maven $5k–$25k fail; rec is the cheapest solvent 2-step. "
+        "Maven $151 / $279 cover Lite $50k / $100k — we sit just under them. "
+        "Book P&amp;L after the stack at this mix is positive (1-Step / Pro $100k+ carry).",
         s["tiny"],
     ))
 
