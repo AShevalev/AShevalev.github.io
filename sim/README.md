@@ -21,5 +21,6 @@ PYTHONPATH=sim python sim/run.py --n-sims 4000
 | `difficulty.py` | Numeric D (0–100) per plan; compare only if same family + size and \|ΔD\| ≤ 6 |
 | `write_rank_report.py` | D + 20%/30% rank inside the ±6 band → `results/Verodus_BE_Rank_Report_2026-08-16.pdf` |
 | `write_price_rec_pdf.py` | Attractive VERO35 card vs family street → `results/Verodus_Recommended_Prices_2026-08-16.pdf` |
+| `write_complete_report.py` | One operator report (P(pay) audit + BE $ + margins) → `results/Verodus_Complete_Report_2026-08-16.pdf` |
 | `verodus_mc.py` | Verodus-only engine (FAQ rules) |
 | `run.py` | Verodus-only runner |
