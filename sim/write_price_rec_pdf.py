@@ -171,7 +171,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "Rec ≤ same-family median. Difficulty is not a pricing input. VERO35 list = sale ÷ 0.65.",
+        "Rec ≤ family median. BE / 20% / 40% / 60% = F_m = BE/(1−m). VERO35 list = sale ÷ 0.65.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -343,7 +343,80 @@ def build():
         s["body"],
     ))
 
-    for n, (plan, family) in enumerate(ANCHORS, start=2):
+    story.append(P("2. Rec vs BE / 20% / 40% / 60%", s["h1"]))
+    story.append(P(
+        "Same book as the industry report. Instant has no refund ⇒ <b>BE = E[X]</b>. "
+        "Evals refund on first payout ⇒ <b>BE = E[X] / (1 − P(pay))</b>. "
+        "Fee at margin m: <b>F<sub>m</sub> = BE / (1 − m)</b>. "
+        "20% / 40% / 60% are the print / target / fat fees. Rec is the shopper price; "
+        "it is not forced up to those columns.",
+        s["body"],
+    ))
+    heads = ["Plan", "Size", "Rec", "Rec m", "E[X]", "BE", "20%", "40%", "60%",
+             "Live", "Median"]
+    data = [[P(h, s["th"]) for h in heads]]
+    special = {}
+    stats = family_stats(skus)
+    med_map = {(r["Plan"], r["Size"]): r["Median"] for r in stats}
+    rows_out = []
+    i = 0
+    for plan, _fam in ANCHORS:
+        for sz in SIZES:
+            if (plan, sz) not in REC:
+                continue
+            live = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == sz)]
+            if live.empty:
+                continue
+            r = live.iloc[0]
+            rec = REC[(plan, sz)]
+            cost = float(r.E_cost)
+            rec_m = (rec - cost) / rec if rec else None
+            med = med_map.get((plan, sz))
+            i += 1
+            if rec < float(r.BE) - 0.5:
+                special[i] = "rec"
+            elif abs(rec - float(r.Sale)) < 0.5:
+                special[i] = "live"
+            data.append([
+                P(plan, s["tdl"]),
+                P(usd(sz), s["td"]),
+                P(usd(rec), s["td"]),
+                P(margin(rec, cost), s["td"]),
+                P(usd(r.E_payout), s["td"]),
+                P(usd(r.BE), s["td"]),
+                P(usd(r.px_20), s["td"]),
+                P(usd(r.px_40), s["td"]),
+                P(usd(r.px_60), s["td"]),
+                P(usd(r.Sale), s["td"]),
+                P(usd(med), s["td"]),
+            ])
+            rows_out.append({
+                "Plan": plan, "Size": sz,
+                "Rec_sale": rec, "Rec_list": round(rec / 0.65),
+                "Rec_m": rec_m, "E_payout": float(r.E_payout),
+                "E_cost": cost, "P_pay": float(r.P_pay),
+                "BE": float(r.BE), "px_20": float(r.px_20),
+                "px_40": float(r.px_40), "px_60": float(r.px_60),
+                "Live_sale": float(r.Sale), "Live_m": float(r.sale_m),
+                "Family_median": med,
+                "vs_median": vs_pct(rec, med) if med else None,
+                "vs_BE": vs_pct(rec, float(r.BE)),
+                "vs_20": vs_pct(rec, float(r.px_20)),
+                "vs_40": vs_pct(rec, float(r.px_40)),
+                "vs_60": vs_pct(rec, float(r.px_60)),
+            })
+    story.append(grid(data, [
+        26*mm, 18*mm, 18*mm, 16*mm, 18*mm, 18*mm, 18*mm, 18*mm, 18*mm, 18*mm, 20*mm,
+    ], special))
+    story.append(Spacer(1, 2*mm))
+    story.append(P(
+        "Green = rec is below BE (a hole). Blue = rec equals live and is above BE. "
+        "1-Step / Lite / Pro rec sits between the 40% and 60% columns — attractive and "
+        "still fat. Instant $5k / $10k sit near 20–40%. Instant $25k+ is under BE.",
+        s["body"],
+    ))
+
+    for n, (plan, family) in enumerate(ANCHORS, start=3):
         peers = family_peers(skus, family)
         products = peers.drop_duplicates("Product").copy()
         # Sort by $100k street (what a shopper sorts by); missing $100k last.
@@ -381,61 +454,39 @@ def build():
         ], special))
         story.append(Spacer(1, 2*mm))
 
-    story.append(P("6. List (VERO35) and live vs recommended", s["h1"]))
+    story.append(P("7. Rec vs BE / 20 / 40 / 60 (±%) and list", s["h1"]))
     story.append(P(
-        "Shopper pays sale. List = sale ÷ 0.65. Margin uses this book’s E[cost]. "
-        "Instant $25k+ at the attractive fee is below cost — flagged, not raised.",
+        "±% is (rec − column) / column. Negative = rec is cheaper than that fee. "
+        "List = rec ÷ 0.65 so VERO35 still lands on the card.",
         s["body"],
     ))
-    heads = ["Plan", "Size", "Live sale", "Live m", "Rec sale", "Rec list", "Rec m",
-             "Δ sale", "Family median", "Vs median"]
+    heads = ["Plan", "Size", "Rec", "List", "vs BE", "vs 20%", "vs 40%", "vs 60%",
+             "vs live", "vs median"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
-    rows_out = []
-    stats = family_stats(skus)
-    med_map = {(r["Plan"], r["Size"]): r["Median"] for r in stats}
-    i = 0
-    for plan, _fam in ANCHORS:
-        for sz in SIZES:
-            if (plan, sz) not in REC:
-                continue
-            live = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == sz)]
-            if live.empty:
-                continue
-            r = live.iloc[0]
-            rec = REC[(plan, sz)]
-            cost = float(r.E_cost)
-            med = med_map.get((plan, sz))
-            i += 1
-            if rec < float(r.Sale) - 0.5:
-                special[i] = "rec"
-            elif abs(rec - float(r.Sale)) < 0.5:
-                special[i] = "live"
-            data.append([
-                P(plan, s["tdl"]),
-                P(usd(sz), s["td"]),
-                P(usd(r.Sale), s["td"]),
-                P(f"{100 * float(r.sale_m):+.0f}%", s["td"]),
-                P(usd(rec), s["td"]),
-                P(usd(round(rec / 0.65)), s["td"]),
-                P(margin(rec, cost), s["td"]),
-                P(usd(rec - float(r.Sale)), s["td"]),
-                P(usd(med), s["td"]),
-                P(vs_s(rec, med), s["td"]),
-            ])
-            rows_out.append({
-                "Plan": plan, "Size": sz,
-                "Live_sale": float(r.Sale), "Live_m": float(r.sale_m),
-                "Rec_sale": rec, "Rec_list": round(rec / 0.65),
-                "Rec_m": (rec - cost) / rec, "E_cost": cost,
-                "Family_median": med, "vs_median": vs_pct(rec, med) if med else None,
-            })
+    for i, rec_row in enumerate(rows_out, start=1):
+        if rec_row["Rec_sale"] < rec_row["BE"] - 0.5:
+            special[i] = "rec"
+        elif abs(rec_row["Rec_sale"] - rec_row["Live_sale"]) < 0.5:
+            special[i] = "live"
+        data.append([
+            P(rec_row["Plan"], s["tdl"]),
+            P(usd(rec_row["Size"]), s["td"]),
+            P(usd(rec_row["Rec_sale"]), s["td"]),
+            P(usd(rec_row["Rec_list"]), s["td"]),
+            P(vs_s(rec_row["Rec_sale"], rec_row["BE"]), s["td"]),
+            P(vs_s(rec_row["Rec_sale"], rec_row["px_20"]), s["td"]),
+            P(vs_s(rec_row["Rec_sale"], rec_row["px_40"]), s["td"]),
+            P(vs_s(rec_row["Rec_sale"], rec_row["px_60"]), s["td"]),
+            P(vs_s(rec_row["Rec_sale"], rec_row["Live_sale"]), s["td"]),
+            P(vs_s(rec_row["Rec_sale"], rec_row["Family_median"]), s["td"]),
+        ])
     story.append(grid(data, [
-        26*mm, 18*mm, 22*mm, 18*mm, 22*mm, 20*mm, 18*mm, 20*mm, 26*mm, 20*mm,
+        26*mm, 18*mm, 18*mm, 18*mm, 20*mm, 20*mm, 20*mm, 20*mm, 20*mm, 22*mm,
     ], special))
     story.append(Spacer(1, 2.5*mm))
 
-    story.append(P("7. Rec vs family low / median / average / high", s["h1"]))
+    story.append(P("8. Rec vs family low / median / average / high", s["h1"]))
     story.append(P(
         "% is (rec − stat) / stat. Negative = cheaper than that mark. "
         "Family = every Instant, every 1-step, or every 2-step — the page a customer opens. "
