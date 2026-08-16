@@ -4,15 +4,18 @@ Same industry-calibrated book on every row. **Sale** is the shopper price after 
 **m** is sale margin: `(sale − E[payout] − expected refund) / sale`.
 Instant **P(pay)** is first-payout eligibility (year-1 is lower).
 Verodus Instant = **live FAQ** (6% trail never locks; no 2% risk cap; no first-reward % cap).
+**Proposed Instant** raises $25k/$50k/$100k to the 20% column so every Instant size prints.
+Blue Guardian Instant = live **BG25** (3% SOD daily, 6% trail locks at +6%).
 Verodus Lite funded max DD is **8%** (was 10%). 1-Step and Pro = live FAQ.
 
 ## Instant / straight-to-funded
 
 | Firm | Plan | Discount | $5k sale | m | $10k | m | $25k | m | $50k | m | $100k | m | $200k | m | P(pay) |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| **Verodus** | Instant | VERO35 | $72 | +39% | $121 | +28% | $242 | +10% | $389 | -13% | $676 | -29% | $1,318 | -33% | 22% |
+| **Verodus** | Instant | VERO35 | $72 | +39% | $121 | +28% | $242 | +10% | $389 | -13% | $676 | -29% | — | — | 22% |
+| **Verodus proposed** | Instant | VERO35 | $72 | +39% | $121 | +28% | $274 | +20% | $547 | +20% | $1,094 | +20% | — | — | 22% |
 | **Alpha Capital** | Instant | FUNDED40 | $40 | +14% | $58 | -19% | $118 | -46% | $154 | -124% | $274 | -152% | $538 | -157% | 13% |
-| **Blue Guardian** | Instant | ~20% typical | $71 | +42% | $119 | +30% | $223 | +7% | $343 | -21% | $559 | -48% | — | — | 22% |
+| **Blue Guardian** | Instant | BG25 | $54 | +16% | $75 | -22% | $156 | -46% | $243 | -88% | $467 | -95% | — | — | 22% |
 | **FXIFY** | Instant Lite | — | $39 | +13% | $79 | +14% | $149 | -14% | $249 | -36% | $399 | -70% | — | — | 16% |
 | **FXIFY** | Instant Standard | ~20% typical | $87 | +59% | $143 | +50% | $263 | +32% | $423 | +15% | $639 | -12% | — | — | 54% |
 | **FundedNext** | Stellar Instant | — | $99 | +15% | $199 | +15% | — | — | — | — | — | — | — | — | 53% |
@@ -119,7 +122,7 @@ Verodus Lite funded max DD is **8%** (was 10%). 1-Step and Pro = live FAQ.
 | The Funded Trader | Royal 1-Step | 1-step | $79 | $63 | $8 | +87% | $599 | $479 | $158 | +67% | 13% |
 | City Traders Imperium | 2-Step | 2-step | — | — | — | — | $549 | $439 | $176 | +60% | 11% |
 | Funding Traders | 2-Step | 2-step | $36 | $29 | $11 | +62% | $499 | $399 | $199 | +50% | 13% |
-| Blue Guardian | Instant | instant | $89 | $71 | $41 | +42% | $699 | $559 | $828 | -48% | 22% |
+| Blue Guardian | Instant | instant | $72 | $54 | $46 | +16% | $623 | $467 | $911 | -95% | 22% |
 | Blue Guardian | 1-Step Standard | 1-step | $59 | $47 | $16 | +65% | $499 | $399 | $246 | +38% | 15% |
 | Blue Guardian | 2-Step Standard | 2-step | $55 | $44 | $12 | +73% | $497 | $398 | $183 | +54% | 12% |
 | BrightFunded | 2-Step | 2-step | $55 | $44 | $13 | +71% | $399 | $319 | $183 | +43% | 13% |

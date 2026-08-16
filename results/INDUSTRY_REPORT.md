@@ -1,6 +1,6 @@
 # Top-20 prop firms — industry-calibrated Monte Carlo
 
-**Read [`RULES.md`](RULES.md) for the Verodus card, [`PRICES.md`](PRICES.md) for every firm’s charge and margin, [`STRATEGY.md`](STRATEGY.md) for actions.**
+**Read [`STRATEGY.md`](STRATEGY.md) first** — Verodus actions by plan and size.
 
 Book: **7% Pro / 22% Semi-skilled / 26% Average / 28% Aggressive / 17% Lottery**. Calibrated so a standard 10/5 · 5/10 static 2-step (FTMO) lands near the Track360 / FPFX / FTMO funnel. Same path library for every firm; only rules, split, refund, and prices differ. Instant P(pay) is first-payout eligibility; year-1 is the sustained-Instant figure.
 
@@ -48,7 +48,7 @@ Verodus vs live FAQ: Instant is **unchanged** (6% trail never locks; no 2% max-r
 | Maven | 3-Step | 3-step | 25.0% | 5.1% | 5.1% | $64 | 52 | first | 80% |
 | The5ers | Bootcamp | 3-step | 25.2% | 4.6% | 4.6% | $24 | 51 | none | 50% |
 | Alpha Capital | Instant | instant | 13.0% | 13.0% | 13.0% | $690 | 32 | none | 80% |
-| Blue Guardian | Instant | instant | 22.1% | 22.1% | 22.1% | $828 | 25 | none | 80% |
+| Blue Guardian | Instant | instant | 22.1% | 22.1% | 22.1% | $911 | 27 | none | 80% |
 | FXIFY | Instant Lite | instant | 15.7% | 15.7% | 15.7% | $680 | 32 | none | 80% |
 | FXIFY | Instant Standard | instant | 54.2% | 54.2% | 54.2% | $716 | 9 | none | 80% |
 | FundedNext | Stellar Instant | instant | 53.2% | 53.2% | 53.2% | $635 | 9 | first | 80% |
@@ -262,11 +262,11 @@ Verodus vs live FAQ: Instant is **unchanged** (6% trail never locks; no 2% max-r
 | Alpha Capital | Instant | $50,000 | $257 | $154 | 40.1% | 13.0% | $345 | $345 | $345 | $575 | -124% |
 | Alpha Capital | Instant | $100,000 | $457 | $274 | 40.0% | 13.0% | $690 | $690 | $690 | $1,150 | -152% |
 | Alpha Capital | Instant | $200,000 | $897 | $538 | 40.0% | 13.0% | $1,380 | $1,380 | $1,380 | $2,300 | -157% |
-| Blue Guardian | Instant | $5,000 | $89 | $71 | 20.2% | 22.1% | $41 | $41 | $41 | $69 | +42% |
-| Blue Guardian | Instant | $10,000 | $149 | $119 | 20.1% | 22.1% | $83 | $83 | $83 | $138 | +30% |
-| Blue Guardian | Instant | $25,000 | $279 | $223 | 20.1% | 22.1% | $207 | $207 | $207 | $345 | +7% |
-| Blue Guardian | Instant | $50,000 | $429 | $343 | 20.0% | 22.1% | $414 | $414 | $414 | $690 | -21% |
-| Blue Guardian | Instant | $100,000 | $699 | $559 | 20.0% | 22.1% | $828 | $828 | $828 | $1,380 | -48% |
+| Blue Guardian | Instant | $5,000 | $72 | $54 | 25.0% | 22.1% | $46 | $46 | $46 | $76 | +16% |
+| Blue Guardian | Instant | $10,000 | $100 | $75 | 25.0% | 22.1% | $91 | $91 | $91 | $152 | -22% |
+| Blue Guardian | Instant | $25,000 | $208 | $156 | 25.0% | 22.1% | $228 | $228 | $228 | $380 | -46% |
+| Blue Guardian | Instant | $50,000 | $324 | $243 | 25.0% | 22.1% | $456 | $456 | $456 | $759 | -88% |
+| Blue Guardian | Instant | $100,000 | $623 | $467 | 25.0% | 22.1% | $911 | $911 | $911 | $1,519 | -95% |
 | FXIFY | Instant Lite | $2,500 | $19 | $19 | 0.0% | 15.7% | $17 | $17 | $17 | $28 | +11% |
 | FXIFY | Instant Lite | $5,000 | $39 | $39 | 0.0% | 15.7% | $34 | $34 | $34 | $57 | +13% |
 | FXIFY | Instant Lite | $10,000 | $79 | $79 | 0.0% | 15.7% | $68 | $68 | $68 | $113 | +14% |
@@ -308,7 +308,6 @@ Verodus vs live FAQ: Instant is **unchanged** (6% trail never locks; no 2% max-r
 | Verodus | Instant | $25,000 | $370 | $242 | 34.6% | 22.1% | $219 | $219 | $219 | $365 | +10% |
 | Verodus | Instant | $50,000 | $594 | $389 | 34.5% | 22.1% | $438 | $438 | $438 | $729 | -13% |
 | Verodus | Instant | $100,000 | $1,032 | $676 | 34.5% | 22.1% | $875 | $875 | $875 | $1,459 | -29% |
-| Verodus | Instant | $200,000 | $2,012 | $1,318 | 34.5% | 22.1% | $1,751 | $1,751 | $1,751 | $2,918 | -33% |
 
 ## $5k / $10k / $100k snapshot (sale margin)
 
@@ -320,10 +319,10 @@ Verodus vs live FAQ: Instant is **unchanged** (6% trail never locks; no 2% max-r
 | FundingPips | Zero | $48 | 15.3% | $41 | +14% | instant |
 | Alpha Capital | Instant | $40 | 13.0% | $35 | +14% | instant |
 | FundedNext | Stellar Instant | $99 | 53.2% | $84 | +15% | instant |
+| Blue Guardian | Instant | $54 | 22.1% | $46 | +16% | instant |
 | Hola Prime | Direct | $79 | 23.8% | $56 | +29% | instant |
 | Goat Funded | Instant GOAT | $63 | 16.6% | $42 | +33% | instant |
 | Verodus | Instant | $72 | 22.1% | $44 | +39% | instant |
-| Blue Guardian | Instant | $71 | 22.1% | $41 | +42% | instant |
 | Maven | 2-Step | $18 | 12.7% | $9 | +49% | 2-step |
 | Verodus | 2-Step Lite | $18 | 10.6% | $9 | +52% | 2-step |
 | Instant Funding | Instant | $87 | 21.4% | $42 | +52% | instant |
@@ -361,6 +360,7 @@ Verodus vs live FAQ: Instant is **unchanged** (6% trail never locks; no 2% max-r
 
 | Firm | Plan | Sale | P(pay) | E[cost] | Sale m | vs Verodus peer |
 |---|---|---:|---:|---:|---:|---|
+| Blue Guardian | Instant | $75 | 22.1% | $91 | -22% | instant |
 | Alpha Capital | Instant | $58 | 13.0% | $69 | -19% | instant |
 | FundingPips | Zero | $70 | 15.3% | $83 | -18% | instant |
 | Hola Prime | Direct | $106 | 23.8% | $105 | +1% | instant |
@@ -368,7 +368,6 @@ Verodus vs live FAQ: Instant is **unchanged** (6% trail never locks; no 2% max-r
 | FundedNext | Stellar Instant | $199 | 53.2% | $169 | +15% | instant |
 | Goat Funded | Instant GOAT | $103 | 16.6% | $85 | +18% | instant |
 | Verodus | Instant | $121 | 22.1% | $88 | +28% | instant |
-| Blue Guardian | Instant | $119 | 22.1% | $83 | +30% | instant |
 | Instant Funding | Instant | $143 | 21.4% | $84 | +41% | instant |
 | Verodus | 2-Step Lite | $33 | 10.6% | $17 | +48% | 2-step |
 | Maven | 2-Step | $35 | 12.7% | $18 | +48% | 2-step |
@@ -410,10 +409,10 @@ Verodus vs live FAQ: Instant is **unchanged** (6% trail never locks; no 2% max-r
 | Firm | Plan | Sale | P(pay) | E[cost] | Sale m | vs Verodus peer |
 |---|---|---:|---:|---:|---:|---|
 | Alpha Capital | Instant | $274 | 13.0% | $690 | -152% | instant |
+| Blue Guardian | Instant | $467 | 22.1% | $911 | -95% | instant |
 | FundingPips | Zero | $444 | 15.3% | $829 | -87% | instant |
 | FXIFY | Instant Lite | $399 | 15.7% | $680 | -70% | instant |
 | Goat Funded | Instant GOAT | $559 | 16.6% | $846 | -51% | instant |
-| Blue Guardian | Instant | $559 | 22.1% | $828 | -48% | instant |
 | Instant Funding | Instant | $639 | 21.4% | $841 | -32% | instant |
 | Verodus | Instant | $676 | 22.1% | $875 | -29% | instant |
 | Hola Prime | Direct | $839 | 23.8% | $1,026 | -22% | instant |

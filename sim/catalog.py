@@ -408,11 +408,12 @@ add("FundingTraders 2-Step", "Funding Traders", "2-Step", "2-step",
 # 18. Blue Guardian
 # =============================================================================
 add("BG Instant", "Blue Guardian", "Instant", "instant",
-    [P(None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.0, 0.20, trail_lock=0.06)],
+    [P(None, 0.06, "trailing", 0.03, "sod", 5, 0.0, 0.20, trail_lock=0.06)],
     None,
-    sku((5e3,89,71),(1e4,149,119),(25e3,279,223),(5e4,429,343),(1e5,699,559)),
-    refund="none", split=0.80, instant=True, discount="~20% typical",
-    source="blueguardian Instant 20% cons 5k-200k")
+    sku((5e3,72,54),(1e4,100,75),(25e3,208,156),(5e4,324,243),(1e5,623,467)),
+    refund="none", split=0.80, instant=True, discount="BG25",
+    source="blueguardian.com Instant 16 Aug 2026: 3% daily of initial from SOD, "
+           "6% trail locks at +6% + 1% buffer, 20% cons, BG25 25% off")
 
 add("BG 1-Step", "Blue Guardian", "1-Step Standard", "1-step",
     [P(0.10, 0.08, "static", 0.04, min_days=0)],

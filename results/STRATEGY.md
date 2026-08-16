@@ -28,28 +28,29 @@ Lite vs the old 10% funded book: P(pay) 11.1% → 10.6%. First-payout cost barel
 | Lite | **+52%** | +48% | +38% | +38% | +33% | +32% |
 | Pro | **+55%** | +51% | +49% | +47% | +43% | +42% |
 
-Without the Instant extras, **Instant $50k+ stays a hole**. Fix that with **price** (raise or pull), not those three Instant rules.
+Without the Instant extras, **live Instant $50k+ stays a hole**. Fix that with **price**, not those three Instant rules. Proposed Instant sale = max(live, 20% column) so every remaining size prints.
 
 ---
 
-## Instant — keep live rules, raise or pull $50k+
+## Instant — keep live rules; raise $25k / $50k / $100k so the line prints
 
-Peers at $5k: Alpha $40 (+14%) · FP Zero $48 (+14%) · Goat $63 (+33%) · **Verodus $72 (+39%)** · BG $71 (+42%).
+Blue Guardian Instant is the closest twin (3%/6%/20%). They **lock** the trail at +6% and use SOD daily (not day’s equity high). Live BG25: **$54 / $75 / $156 / $243 / $467**. This book: P(pay) 22.1% both; E[X] $100k **$911 BG vs $875 Verodus** (lock + SOD raise extractable profit). BG Instant prints only at $5k (+16%); $10k+ is −22% to −95%. Do not match them.
 
-Peers at $100k: Alpha $274 (**−152%**) · FP Zero $444 (**−85%**) · Goat $559 (**−51%**) · **Verodus $676 (−29%)** · Hola $839 (−22%).
+Peers at $5k: Alpha $40 (+14%) · FP Zero $48 (+14%) · **BG $54 (+16%)** · Goat $63 (+33%) · **Verodus $72 (+39%)**.
 
-Do not match Alpha/FP on sticker. Do not add a trail lock, 2% risk cap, or first-reward cap. To stay green on Instant without those rules:
+Peers at $100k: Alpha $274 (**−152%**) · **BG $467 (−95%)** · FP Zero $444 (**−87%**) · Goat $559 (**−51%**) · live Verodus $676 (−29%) · **proposed Verodus $1,094 (+20%)**.
 
-| Size | Sale now | E[cost] | 40% price | Action |
-|---:|---:|---:|---:|---|
-| $5k | $72 | $44 | $73 | Keep |
-| $10k | $121 | $88 | $146 | Keep or +$15 |
-| $25k | $242 | $219 | $365 | Raise toward **$320–365** |
-| $50k | $389 | $438 | $729 | Raise toward **$550–730** or stop selling |
-| $100k | $676 | $875 | $1,459 | Raise toward **$1,100+** or pull |
-| $200k | $1,318 | $1,751 | $2,918 | Pull or **$2,200+** |
+Do not add a trail lock, 2% risk cap, or first-reward cap. Instant $200k stays pulled.
 
-Those $100k/$200k fees are unmarketable vs FP $444. If you will not add Instant rules and will not charge $1,100+, **stop selling Instant above $25k**.
+| Size | Live sale | E[cost] | 20% (print floor) | Proposed | Proposed m |
+|---:|---:|---:|---:|---:|---:|
+| $5k | $72 | $44 | $55 | **$72** | **+39%** |
+| $10k | $121 | $88 | $109 | **$121** | **+28%** |
+| $25k | $242 | $219 | $274 | **$274** | **+20%** |
+| $50k | $389 | $438 | $547 | **$547** | **+20%** |
+| $100k | $676 | $875 | $1,094 | **$1,094** | **+20%** |
+
+$1,094 is 2.3× BG’s $467 because BG is 0.41× their own 20% fee. Matching BG/FP/Alpha Instant $100k is how Instant stays a hole.
 
 ---
 

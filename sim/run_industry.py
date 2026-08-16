@@ -257,14 +257,29 @@ def write_report(df_blend, df_skus, df_profiles, df_fails):
     return "\n".join(lines) + "\n"
 
 
+def merge_product_frames(old, new, key="Product"):
+    """Replace rows for products present in new; keep the rest of old."""
+    if old is None or old.empty:
+        return new
+    keep = old[~old[key].isin(new[key].unique())]
+    return pd.concat([keep, new], ignore_index=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n-sims", type=int, default=1200)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--only", nargs="*", default=None)
+    ap.add_argument("--merge", action="store_true",
+                    help="Merge --only results into existing CSVs instead of overwriting.")
     args = ap.parse_args()
     RESULTS.mkdir(parents=True, exist_ok=True)
     df_p, df_f = run_all(n_sims=args.n_sims, seed=args.seed, only=args.only)
+    if args.merge and args.only:
+        old_p = pd.read_csv(RESULTS / "industry_profiles.csv")
+        old_f = pd.read_csv(RESULTS / "industry_failures.csv")
+        df_p = merge_product_frames(old_p, df_p)
+        df_f = merge_product_frames(old_f, df_f)
     df_b = blend(df_p)
     df_s = sku_table(df_b)
     df_p.to_csv(RESULTS / "industry_profiles.csv", index=False)

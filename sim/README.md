@@ -16,6 +16,7 @@ PYTHONPATH=sim python sim/run.py --n-sims 4000
 |---|---|
 | `industry_book.py` | Calibrated profiles + engine |
 | `catalog.py` | 20 firms, 47 products, list/sale prices |
-| `run_industry.py` | Catalog runner |
+| `run_industry.py` | Catalog runner (`--only` + `--merge` to refresh one product) |
+| `write_comprehensive_pdf.py` | One operator PDF → `results/Verodus_Industry_Report_2026-08-16.pdf` |
 | `verodus_mc.py` | Verodus-only engine (FAQ rules) |
 | `run.py` | Verodus-only runner |
