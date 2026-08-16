@@ -124,9 +124,9 @@ def html() -> str:
     <h1>Get funded.<br>Trade with up to <em>$1M</em>.</h1>
     <p class="sub">Keep up to 90% of simulated profits. One-time fee. No deposits. 175+ countries.</p>
     <div class="chips">
-      <span class="chip">1-Step &amp; 2-Step from $55</span>
-      <span class="chip">Instant funding</span>
-      <span class="chip">No client funds</span>
+      <span class="chip">1-Step from $36</span>
+      <span class="chip">Instant from $59</span>
+      <span class="chip">2-Step from $39</span>
     </div>
     <p class="disclaimer">Simulated evaluation. The fee is not trading capital. Performance rewards are discretionary and not guaranteed.</p>
   </div>
