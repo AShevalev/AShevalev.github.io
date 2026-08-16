@@ -395,8 +395,8 @@ def build():
         "<b>Eval</b> BE = E[X] / (1 − P(pay)): 1-Step $108.10 / 0.91192 = <b>$119</b>; "
         "Lite $136.01 / 0.89384 = <b>$152</b>; Pro $132.54 / 0.88002 = <b>$151</b>. "
         "F<sub>m</sub> = BE / (1 − m). Columns are <b>20 / 40 / 60</b> — the industry "
-        "layout. Instant rec is the 20% print. 40% and 60% are reference only "
-        "(too rich versus Goat / Instant Funding as Instant targets).",
+        "layout. Instant rec is the 30% print — greater margin that still sells. "
+        "40% and 60% are reference only (too rich versus Goat / Instant Funding).",
         s["body"],
     ))
     bheads = ["Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k", "Basis"]
@@ -420,7 +420,7 @@ def build():
     # ----- 6. Rec card -----
     story.append(P("6. Recommended VERO35 sale (rec $ over BE $)", s["h1"]))
     story.append(P(
-        "Instant sits on the year-1 20% print, with a shop floor on $5k/$10k. "
+        "Instant sits on the year-1 30% print, with a shop floor on $5k/$10k. "
         "Evals stay live — already the cheapest (or #2) name and fat versus BE.",
         s["body"],
     ))
@@ -443,8 +443,8 @@ def build():
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant rec $59 / $69 / $99 / $189 / $359. $100k $359 is under BG $467, "
-        "Goat $559, Instant Funding $639. List = rec ÷ 0.65 so VERO35 still lands.",
+        "Instant rec $59 / $69 / $119 / $219 / $409. $100k $409 is +31% on BE $284, "
+        "0.88× BG $467, under Goat $559 / Instant Funding $639. List = rec ÷ 0.65.",
         s["tiny"],
     ))
 
@@ -455,7 +455,8 @@ def build():
     ))
     story.append(P(
         "<b>Use 20 / 40 / 60</b> as the industry reference. Instant rec is the year-1 "
-        "<b>20% print</b>. 40% Instant $100k is $473 (Blue Guardian $467). "
+        "<b>30% print</b> — greater margin that still sells. "
+        "40% Instant $100k is $473 (Blue Guardian $467). "
         "60% is $710 (above Goat $559 / Instant Funding $639). Do not aim Instant at 40 or 60. "
         "10 / 20 / 30 was only a reaction when 40/60 looked too rich as Instant targets. "
         "Sale is the recommended VERO35 fee. List = sale ÷ 0.65. "
@@ -550,7 +551,7 @@ def build():
     adata = [[P(h, s["th"]) for h in aheads]]
     audits = [
         ("This report + Recommended Prices PDF",
-         "Rec $359 · BE $284 · +21%",
+         "Rec $409 · BE $284 · +31%",
          "20 / 40 / 60",
          "Year-1 7.16% for Instant; 8.8/10.6/12.0 for evals",
          "Yes — source of truth"),
@@ -588,7 +589,7 @@ def build():
         "Eval E[cost] is first-payout E[X] + expected fee refund. "
         "Live m uses the same cost on today’s VERO35 sale. "
         "$5k/$10k Instant look fat because the shop floor ($59 / $69) sits on a $14 / $28 BE — "
-        "that is a floor, not a 60% target. $25k+ Instant is the 20–28% print.",
+        "that is a floor, not a 60% target. $25k+ Instant is the 30–40% print.",
         s["body"],
     ))
     mheads = ["Family / plan", "Size", "Rec $", "BE $", "E[cost]",
@@ -640,7 +641,7 @@ def build():
     ], fspec))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant rec m +21% at $100k is the intended print. "
+        "Instant rec m +31% at $100k is the intended print. "
         "1-Step +59%, Lite +33%, Pro +43% are leftover live VERO35 — unused pricing power, "
         "not a 40/60 target. Keep them: the evals are already the names shoppers sort cheap.",
         s["body"],
@@ -657,7 +658,7 @@ def build():
             f"{pct(r['Rec_m'], signed=True, digits=0)} |"
         )
     md.append("")
-    md.append("Use 20 / 40 / 60 as the industry reference. Instant rec is the year-1 20% print.\n")
+    md.append("Use 20 / 40 / 60 as the industry reference. Instant rec is the year-1 30% print.\n")
 
     # markdown margins
     md.append("## Margin % by size and family\n")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """One confirmed PDF: summary, then rank tables, industry tables, rec tables.
 
-All Instant money numbers use year-1. Columns are 20 / 40 / 60. Instant rec is the 20% print.
+All Instant money numbers use year-1. Columns are 20 / 40 / 60. Instant rec is the 30% print.
 Recommended sale is the current card, not the old $1,094 Instant path.
 """
 
@@ -62,7 +62,7 @@ def industry_tables(story, s, skus, blend, profiles, fails):
     story.append(P("Part B — Industry report (calculation tables, reconfirmed)", s["cover"]))
     story.append(P(
         "Same Monte Carlo as the industry PDF. Instant BE / 20 / 40 / 60 / sale m "
-        "are year-1. Instant rec is the 20% print — 40/60 are reference only. "
+        "are year-1. Instant rec is the 30% print — 40/60 are reference only. "
         "The old industry PDF’s Instant $1,094 is not a recommendation.",
         s["sub"],
     ))
@@ -268,7 +268,7 @@ def industry_tables(story, s, skus, blend, profiles, fails):
     ]))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "BG $100k $467 is +38% on their year-1 cost. Rec $359 is +21% on ours and 0.77× BG. "
+        "BG $100k $467 is +38% on their year-1 cost. Rec $409 is +31% on ours and 0.88× BG. "
         "Do not copy their lock. Do not match Alpha $274.",
         s["tiny"],
     ))
@@ -317,7 +317,7 @@ def industry_tables(story, s, skus, blend, profiles, fails):
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Instant $100k live: 100 × $676 − 100 × $284 = <b>+$39,200</b> on year-1. "
-        "Rec: 100 × $359 − 100 × $284 = <b>+$7,500</b> (~21%). "
+        "Rec: 100 × $409 − 100 × $284 = <b>+$12,500</b> (~31%). "
         "The industry PDF’s −$19,925 / +$21,875 used first-payout $875 — not used here.",
         s["body"],
     ))
@@ -380,7 +380,7 @@ def summary(story, s, skus):
         "<b>Reconfirmed.</b> Instant P(pay) 22.1% is first-payout eligibility — correct, "
         "do not price on it. Instant year-1 7.16% is the cost rate. "
         "Eval P(pay) 8.8% / 10.6% / 12.0% is the eval cost rate. "
-        "Columns are 20 / 40 / 60. Instant rec sits on the year-1 20% print. "
+        "Columns are 20 / 40 / 60. Instant rec sits on the year-1 30% print. "
         "Evals stay live. Ignore the industry PDF’s Instant $1,094 and "
         "industry_skus Instant BE $875.",
         s["body"],
@@ -416,7 +416,8 @@ def summary(story, s, skus):
     ))
     story.append(P(
         "<b>Use 20 / 40 / 60</b> as the industry reference columns. Instant rec is the "
-        "year-1 <b>20% print</b>. 40% Instant $100k ($473) is Blue Guardian $467. "
+        "year-1 <b>30% print</b> — greater margin that still sells. "
+        "40% Instant $100k ($473) is Blue Guardian $467. "
         "60% ($710) sits above Goat $559 / Instant Funding $639 — do not aim Instant there. "
         "10 / 20 / 30 was only a reaction when 40/60 looked too rich as Instant targets. "
         "Sale is the recommended VERO35 fee. List = sale ÷ 0.65.",
@@ -458,7 +459,7 @@ def summary(story, s, skus):
     story.append(grid(mdata, [28*mm, 28*mm, 28*mm, 28*mm, 28*mm, 30*mm, 30*mm], mspec))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant $5k/$10k are a shop floor on a $14/$28 BE. $25k+ Instant is the 20–28% print. "
+        "Instant $5k/$10k are a shop floor on a $14/$28 BE. $25k+ Instant is the 30–40% print. "
         "Eval margins are leftover live VERO35. Part A = rank tables. Part B = industry "
         "tables on this basis. Part C = recommended-price tables.",
         s["body"],
@@ -482,7 +483,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         REC_MARGIN, 2.6 * mm,
-        "Reconfirmed. Instant = year-1. Evals = first-payout + refund. Columns 20/40/60. Instant rec = 20% print.",
+        "Reconfirmed. Instant = year-1. Evals = first-payout + refund. Columns 20/40/60. Instant rec = 30% print.",
     )
     canvas.drawRightString(W - REC_MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()

@@ -3,7 +3,7 @@
 
 Instant BE = year-1 E[X] (first × P_yr1/P_pay). Eval BE = first-payout
 E[X] / (1 − P(pay)). Reference columns are 20 / 40 / 60. Instant rec
-targets the 20% print — 40% and 60% are reference, not Instant targets.
+targets the 30% print — greater margin that still sits under BG / Goat.
 """
 
 from __future__ import annotations
@@ -39,14 +39,14 @@ HEAD_BG = colors.HexColor("#0f2744")
 
 SIZES = (5000, 10000, 25000, 50000, 100000, 200000)
 
-# Multi-factor VERO35 sale. Instant: year-1 20% print, shop floor on
-# $5k/$10k, under BG / Goat / IF. Evals: keep live.
+# Multi-factor VERO35 sale. Instant: year-1 30% print (sellable greater
+# margin), shop floor on $5k/$10k, under BG / Goat / IF. Evals: keep live.
 REC = {
     ("Instant", 5000): 59,
     ("Instant", 10000): 69,
-    ("Instant", 25000): 99,
-    ("Instant", 50000): 189,
-    ("Instant", 100000): 359,
+    ("Instant", 25000): 119,
+    ("Instant", 50000): 219,
+    ("Instant", 100000): 409,
     ("1-Step", 5000): 36,
     ("1-Step", 10000): 60,
     ("1-Step", 25000): 120,
@@ -76,12 +76,12 @@ ANCHORS = (
 
 WHY = {
     "Instant": (
-        "40% / 60% were too high on year-1 cost. Instant $100k 40% was $473 and 60% "
-        "was $710 — above Blue Guardian $467 and next to Goat $559 / Instant Funding "
-        "$639. Rec now sits on the 20% year-1 print: $59 / $69 / $99 / $189 / $359. "
-        "$5k/$10k are a shop floor (year-1 20% is $18 / $36). $25k+ is under BG "
-        "($156 / $243 / $467) and Goat ($199 / $319 / $559). $100k $359 is +21% on "
-        "year-1 BE $284 (20% = $355, 40% = $473, 60% = $710). Instant rec is the 20% print. No $200k Instant."
+        "20% Instant $100k ($359) was the thin print — +21% and the industry floor "
+        "at $25k. 40% ($473) is Blue Guardian; 60% ($710) is above Goat / IF. "
+        "Rec is the year-1 30% print: $59 / $69 / $119 / $219 / $409. "
+        "$5k/$10k stay the shop floor. $25k $119 sits on Alpha $118, under BG $156. "
+        "$100k $409 is +31% on BE $284, 0.88× BG $467, under Goat $559 / IF $639. "
+        "No $200k Instant."
     ),
     "1-Step": (
         "Live is already the cheapest 1-step on the shelf at every size except $5k "
@@ -177,7 +177,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "BE stated per account as $. Instant = year-1. Columns 20/40/60 (Instant rec = 20% print). Evals = first-payout + refund.",
+        "BE stated per account as $. Instant = year-1. Columns 20/40/60 (Instant rec = 30% print). Evals = first-payout + refund.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -422,14 +422,15 @@ def collect_story():
         s["body"],
     ))
     story.append(P(
-        "<b>Rec factors:</b> (1) Instant prints at the year-1 <b>20%</b> column — 40% "
-        "and 60% were too rich versus BG / Goat / IF; (2) $5k/$10k Instant use a shop "
-        "floor because year-1 20% is $18 / $36; (3) sit under BG and Goat from $10k, "
+        "<b>Rec factors:</b> (1) Instant prints at the year-1 <b>30%</b> column — "
+        "greater margin that still sells; 20% was thin (+21%, $25k under Alpha) and "
+        "40% / 60% were too rich versus BG / Goat / IF; (2) $5k/$10k Instant use a shop "
+        "floor because year-1 30% is $20 / $41; (3) sit under BG and Goat from $10k, "
         "under Instant Funding and Hola everywhere; (4) never raise a live eval that "
         "is already the cheapest name and fat; (5) shop-round fees. Columns on this "
         "card use <b>20 / 40 / 60</b> as the industry reference. Instant rec is the "
-        "<b>20% print</b> — 40% ($473 at $100k) is Blue Guardian and 60% ($710) sits "
-        "above Goat / Instant Funding. Do not target 40/60 on Instant.",
+        "<b>30% print</b> — $409 at $100k is 0.88× BG $467. 40% ($473) is Blue Guardian "
+        "and 60% ($710) sits above Goat / Instant Funding.",
         s["body"],
     ))
 
@@ -462,9 +463,9 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = recommended sale. Each size shows <b>rec $</b> and <b>BE $</b>. "
-        "Instant is cut to the year-1 20% print. Evals are unchanged. "
-        "Instant $100k rec $359 on year-1 BE $284 "
-        "(20% = $355, 40% = $473, 60% = $710). Instant rec is the 20% print. "
+        "Instant is the year-1 30% print. Evals are unchanged. "
+        "Instant $100k rec $409 on year-1 BE $284 "
+        "(20% = $355, 30% = $406, 40% = $473, 60% = $710). "
         "Eval Sale m of +33% to +59% is live VERO35 leftover — not a 60% target.",
         s["body"],
     ))
@@ -501,7 +502,8 @@ def collect_story():
     story.append(P("1c. Plan / Size / List / Sale / E[X] / P(pay) / BE / 20% / 40% / 60% / Sale m", s["h1"]))
     story.append(P(
         "<b>Use 20 / 40 / 60 as the reference columns</b> — that is the industry layout. "
-        "Instant <b>target is 20%</b> (print). 40% Instant $100k is $473 (Blue Guardian $467). "
+        "Instant <b>target is 30%</b> (greater margin that still sells). "
+        "40% Instant $100k is $473 (Blue Guardian $467). "
         "60% is $710 (above Goat $559 / Instant Funding $639). Do not aim Instant at 40 or 60. "
         "Sale is the recommended VERO35 fee. List = sale ÷ 0.65. "
         "Instant E[X] and BE are year-1; P(pay) is first-payout eligibility (22.1%). "
@@ -514,7 +516,7 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = Instant (year-1). Blue = evals (first-payout). "
-        "Instant $25k+ Sale sits on or just over the 20% column. "
+        "Instant $25k+ Sale sits on the 30% column. "
         "$5k/$10k Instant Sale m is the shop floor, not a 60% target. "
         "Lite $100k Sale $241 is under the 40% column ($254). "
         "1-Step / Pro Sale sit between 40% and 60%.",
@@ -569,7 +571,7 @@ def collect_story():
     story.append(P(
         "Green = Instant (year-1 BE). Blue = evals (first-payout BE). "
         "1-Step $5k BE is $6; sale $36 is leftover live, not a 60% target. "
-        "Instant $100k BE is $284, not $875. Columns are 20 / 40 / 60. Instant rec is the 20% print.",
+        "Instant $100k BE is $284, not $875. Columns are 20 / 40 / 60. Instant rec is the 30% print.",
         s["tiny"],
     ))
 
@@ -639,7 +641,7 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Blue = live Verodus. Green = rec. On year-1, BG $467 is +38%, Goat $559 is +55%, "
-        "IF $639 is +57%, Hola $839 is +60%, rec $359 is +21%. First-payout column is the "
+        "IF $639 is +57%, Hola $839 is +60%, rec $409 is +31%. First-payout column is the "
         "old (wrong) Instant basis. 40–60% year-1 takes are what Goat / IF / Hola already "
         "charge — too high for a new name.",
         s["body"],
@@ -713,7 +715,7 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = rec is below BE (a hole). Blue = rec equals live and is above BE. "
-        "Instant rec sits on the 20% year-1 print at $25k+ ($5k/$10k are the shop floor). "
+        "Instant rec sits on the 30% year-1 print at $25k+ ($5k/$10k are the shop floor). "
         "1-Step / Lite / Pro stay on live VERO35 — those Rec m figures are leftover "
         "pricing power, not a 40/60 target. Green would mean below BE.",
         s["body"],
@@ -828,7 +830,7 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Median is context only — rec is not set to it. Instant $25k+ sits on the "
-        "year-1 20% print, under BG and Goat. Same book 7/22/26/28/17.",
+        "year-1 30% print, under BG and Goat. Same book 7/22/26/28/17.",
         s["tiny"],
     ))
     return story, skus, rows_out, stats
