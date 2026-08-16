@@ -119,7 +119,7 @@ def html() -> str:
     <img class="watermark" alt="" src="{mark}">
     <div class="top">
       <img class="logo" alt="Verodus" src="{wordmark}">
-      <span class="eyebrow">Simulated prop firm</span>
+      <span class="eyebrow">Prop firm</span>
     </div>
     <h1>Get funded.<br>Trade with up to <em>$1M</em>.</h1>
     <p class="sub">Trade Forex, equities &amp; crypto. Keep up to 90% profit split. No deposits.</p>
@@ -128,7 +128,7 @@ def html() -> str:
       <span class="chip">Instant from $59</span>
       <span class="chip">2-Step from $39</span>
     </div>
-    <p class="disclaimer">Simulated evaluation. The fee is not trading capital. Performance rewards are discretionary and not guaranteed.</p>
+    <p class="disclaimer">The fee is not trading capital. Performance rewards are discretionary and not guaranteed.</p>
   </div>
 </body>
 </html>
