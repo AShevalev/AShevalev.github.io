@@ -19,7 +19,7 @@ One document. Instant priced on year-1. Evals on first-payout + refund.
 | Instant | $10,000 | $106 | $69 | $28 | 22.1% | $28 | $35 | $47 | $71 | +59% |
 | Instant | $25,000 | $183 | $119 | $71 | 22.1% | $71 | $89 | $118 | $177 | +40% |
 | Instant | $50,000 | $337 | $219 | $142 | 22.1% | $142 | $177 | $237 | $355 | +35% |
-| Instant | $100,000 | $629 | $409 | $284 | 22.1% | $284 | $355 | $473 | $710 | +31% |
+| Instant | $100,000 | $660 | $429 | $284 | 22.1% | $284 | $355 | $473 | $710 | +34% |
 | 1-Step | $5,000 | $55 | $36 | $5 | 8.8% | $6 | $7 | $10 | $15 | +76% |
 | 1-Step | $10,000 | $92 | $60 | $11 | 8.8% | $12 | $15 | $20 | $30 | +73% |
 | 1-Step | $25,000 | $185 | $120 | $27 | 8.8% | $30 | $37 | $49 | $74 | +69% |
@@ -39,7 +39,37 @@ One document. Instant priced on year-1. Evals on first-payout + refund.
 | 2-Step Pro | $100,000 | $455 | $296 | $133 | 12.0% | $151 | $188 | $251 | $377 | +43% |
 | 2-Step Pro | $200,000 | $888 | $577 | $265 | 12.0% | $301 | $377 | $502 | $753 | +42% |
 
-Use 20 / 40 / 60 as the industry reference. Instant rec is the year-1 30% print.
+Use 20 / 40 / 60 as the industry reference. Instant rec is opex-checked.
+
+## Opex stack — 10% error, $1, marketing 20%, CAD 10k wages
+
+S_opex = (BE × 1.10 + $1) / 0.80. Wages CAD 10,000 × 0.72 = USD 7,200 / month. N wages = accounts / month at rec if that SKU carried the whole wage bill.
+
+| Plan | Size | BE | +10% err | Loaded | Opex $ | Peer low | Low OK | First OK | Rec | After opex | N wages |
+|---|---:|---:|---:|---:|---:|---|---|---|---:|---:|---:|
+| Instant | $5,000 | $14 | $1 | $17 | $21 | $39 FXIFY | yes | $39 FXIFY | $59 | $31 | 235 |
+| Instant | $10,000 | $28 | $3 | $32 | $40 | $58 Alpha Capital | yes | $58 Alpha Capital | $69 | $23 | 314 |
+| Instant | $25,000 | $71 | $7 | $79 | $99 | $118 Alpha Capital | yes | $118 Alpha Capital | $119 | $16 | 447 |
+| Instant | $50,000 | $142 | $14 | $157 | $196 | $154 Alpha Capital | NO | $195 FundingPips | $219 | $18 | 400 |
+| Instant | $100,000 | $284 | $28 | $313 | $392 | $274 Alpha Capital | NO | $399 FXIFY | $429 | $30 | 242 |
+| 1-Step | $5,000 | $6 | $1 | $8 | $9 | $35 Fintokei | yes | $35 Fintokei | $36 | $21 | 338 |
+| 1-Step | $10,000 | $12 | $1 | $14 | $18 | $71 Fintokei | yes | $71 Fintokei | $60 | $34 | 212 |
+| 1-Step | $25,000 | $30 | $3 | $34 | $42 | $135 Hola Prime | yes | $135 Hola Prime | $120 | $62 | 115 |
+| 1-Step | $50,000 | $59 | $6 | $66 | $83 | $231 Fintokei | yes | $231 Fintokei | $193 | $88 | 82 |
+| 1-Step | $100,000 | $119 | $12 | $131 | $164 | $398 Alpha Capital | yes | $398 Alpha Capital | $335 | $137 | 53 |
+| 1-Step | $200,000 | $237 | $24 | $262 | $327 | $719 Blue Guardian | yes | $719 Blue Guardian | $654 | $261 | 28 |
+| 2-Step Lite | $5,000 | $8 | $1 | $9 | $12 | $18 Maven | yes | $18 Maven | $18 | $5 | 1431 |
+| 2-Step Lite | $10,000 | $15 | $2 | $18 | $22 | $35 Maven | yes | $35 Maven | $33 | $9 | 831 |
+| 2-Step Lite | $25,000 | $38 | $4 | $43 | $54 | $79 Maven | yes | $79 Maven | $66 | $10 | 723 |
+| 2-Step Lite | $50,000 | $76 | $8 | $85 | $106 | $151 Maven | yes | $151 Maven | $133 | $22 | 332 |
+| 2-Step Lite | $100,000 | $152 | $15 | $168 | $210 | $279 Maven | yes | $279 Maven | $241 | $24 | 295 |
+| 2-Step Lite | $200,000 | $304 | $30 | $336 | $420 | $238 BrightFunded | NO | $638 Alpha Capital | $477 | $46 | 157 |
+| 2-Step Pro | $5,000 | $8 | $1 | $9 | $12 | $18 Maven | yes | $18 Maven | $20 | $7 | 1072 |
+| 2-Step Pro | $10,000 | $15 | $2 | $18 | $22 | $35 Maven | yes | $35 Maven | $36 | $11 | 641 |
+| 2-Step Pro | $25,000 | $38 | $4 | $42 | $53 | $79 Maven | yes | $79 Maven | $85 | $26 | 281 |
+| 2-Step Pro | $50,000 | $75 | $8 | $84 | $105 | $151 Maven | yes | $151 Maven | $163 | $47 | 155 |
+| 2-Step Pro | $100,000 | $151 | $15 | $167 | $208 | $279 Maven | yes | $279 Maven | $296 | $70 | 103 |
+| 2-Step Pro | $200,000 | $301 | $30 | $332 | $415 | $238 BrightFunded | NO | $638 Alpha Capital | $577 | $129 | 56 |
 
 ## Margin % by size and family
 
@@ -49,7 +79,7 @@ Use 20 / 40 / 60 as the industry reference. Instant rec is the year-1 30% print.
 | Instant | $10,000 | $69 | $28 | $28 | +59% | $121 | +77% |
 | Instant | $25,000 | $119 | $71 | $71 | +40% | $242 | +71% |
 | Instant | $50,000 | $219 | $142 | $142 | +35% | $389 | +63% |
-| Instant | $100,000 | $409 | $284 | $284 | +31% | $676 | +58% |
+| Instant | $100,000 | $429 | $284 | $284 | +34% | $676 | +58% |
 | 1-Step | $5,000 | $36 | $6 | $9 | +76% | $36 | +76% |
 | 1-Step | $10,000 | $60 | $12 | $16 | +73% | $60 | +73% |
 | 1-Step | $25,000 | $120 | $30 | $38 | +69% | $120 | +69% |
@@ -73,7 +103,7 @@ Use 20 / 40 / 60 as the industry reference. Instant rec is the year-1 30% print.
 
 | Family | P(pay) | Year-1 | BE | Rec | Rec m | Live | Live m |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Instant | 22.1% | 7.2% | $284 | $409 | +31% | $676 | +58% |
+| Instant | 22.1% | 7.2% | $284 | $429 | +34% | $676 | +58% |
 | 1-Step | 8.8% | 2.9% | $119 | $335 | +59% | $335 | +59% |
 | 2-Step Lite | 10.6% | 3.4% | $152 | $241 | +33% | $241 | +33% |
 | 2-Step Pro | 12.0% | 4.2% | $151 | $296 | +43% | $296 | +43% |
