@@ -127,7 +127,7 @@ WHY = {
         "Instant $100k opex floor is $422; Alpha $274 fails it. FXIFY Lite $399 is "
         "close but short. Rec $449 covers with a ~$21 stub and is 0.96× BG $467. "
         "$10k–$50k $79 / $139 / $239 stay under BG $156 / $243. "
-        "$5k/$10k stay the shop floor. No $200k Instant."
+        "$5k stays the shop floor. No $200k Instant."
     ),
     "1-Step": (
         "Live already covers the full stack at every size. $335 vs opex floor $200 "
@@ -973,7 +973,7 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = rec is below BE (a hole). Blue = rec equals live and is above BE. "
-        "Instant rec sits on the 30% year-1 print at $25k+ ($5k/$10k are the shop floor). "
+        "Instant rec sits above the opex floor at $10k+ ($5k is the shop floor). "
         "1-Step / Lite / Pro stay on live VERO35 — those Rec m figures are leftover "
         "pricing power, not a 40/60 target. Green would mean below BE.",
         s["body"],
