@@ -270,7 +270,7 @@ def industry_tables(story, s, skus, blend, profiles, fails):
     ]))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "BG $100k $467 is +38% on their year-1 cost. Rec $449 is +37% on ours and 0.96× BG. "
+        "BG $100k $467 is +38% on their year-1 cost. Rec $439 is +35% on ours and 0.94× BG. "
         "Do not copy their lock. Do not match Alpha $274.",
         s["tiny"],
     ))
@@ -319,8 +319,8 @@ def industry_tables(story, s, skus, blend, profiles, fails):
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Instant $100k live: 100 × $676 − 100 × $284 = <b>+$39,200</b> on year-1 payout. "
-        "Rec: 100 × $449 − 100 × $284 = <b>+$16,500</b> (~37%) before opex. "
-        "After 10% error + $1 + wage + 20% marketing, leftover is ~$21 / account. "
+        "Rec: 100 × $439 − 100 × $284 = <b>+$15,500</b> (~35%) before opex. "
+        "After 10% error + $1 + wage + 20% marketing, leftover is ~$13 / account. "
         "The industry PDF’s −$19,925 / +$21,875 used first-payout $875 — not used here.",
         s["body"],
     ))

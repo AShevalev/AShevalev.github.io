@@ -446,9 +446,9 @@ def build():
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant rec $59 / $79 / $139 / $239 / $449. $100k $449 is opex floor $422, "
-        "0.96× BG $467. Lite $45 / $59 / $99 / $151 / $269 / $499. "
-        "1-Step live. Pro $45 / $59 / $95 then live.",
+        "Instant rec $49 / $69 / $139 / $239 / $439 (under first solvent peer / BG). "
+        "Lite $42 / $55 / $94 / $149 / $269 / $499. 1-Step live. "
+        "Pro $45 / $59 / $95 / $159 / $289.",
         s["tiny"],
     ))
 
@@ -574,7 +574,7 @@ def build():
     adata = [[P(h, s["th"]) for h in aheads]]
     audits = [
         ("This report + Recommended Prices PDF",
-         "Rec $449 · BE $284 · +37%",
+         "Rec $439 · BE $284 · +35%",
          "20 / 40 / 60",
          "Year-1 7.16% for Instant; 8.8/10.6/12.0 for evals",
          "Yes — source of truth"),
@@ -664,7 +664,7 @@ def build():
     ], fspec))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Instant rec $449 at $100k is the opex floor ($422) plus a ~$21 stub. "
+        "Instant rec $439 at $100k sits under FP $444 and BG $467. "
         "1-Step +59%, Lite +33%, Pro +43% are leftover live VERO35 — unused pricing power, "
         "not a 40/60 target. Keep them: the evals are already the names shoppers sort cheap.",
         s["body"],
@@ -687,18 +687,25 @@ def build():
         "S_opex = (BE × 1.10 + $1 + wage) / 0.80. "
         "Wages CAD 10,000 × 0.72 = USD 7,200 / month on 310 weighted accounts.\n"
     )
-    md.append("| Plan | Size | N | Wage | BE | +10% | Loaded | Opex $ | Peer low | Low OK | First OK | Rec | After |")
-    md.append("|---|---:|---:|---:|---:|---:|---:|---:|---|---|---|---:|---:|")
-    for r in opex_rows(skus):
+    md.append("| Plan | Size | N | Opex $ | Peer low | Low OK | First OK | Rec | After | Mo. left |")
+    md.append("|---|---:|---:|---:|---|---|---|---:|---:|---:|")
+    ox = opex_rows(skus)
+    for r in ox:
         low_s = "—" if r["Low"] is None else f"{usd(r['Low'])} {r['Low_name']}"
         ok_s = "yes" if r["Low_ok"] else "NO"
         first_s = "—" if r["First_ok"] is None else f"{usd(r['First_ok'])} {r['First_ok_name']}"
         md.append(
-            f"| {r['Plan']} | {usd(r['Size'])} | {r['N']} | {usd(r['Wage'])} | "
-            f"{usd(r['BE'])} | {usd(r['Error'])} | "
-            f"{usd(r['Loaded'])} | {usd(r['S_opex'])} | {low_s} | {ok_s} | {first_s} | "
-            f"{usd(r['Rec'])} | {usd(r['Rec_left'])} |"
+            f"| {r['Plan']} | {usd(r['Size'])} | {r['N']} | {usd(r['S_opex'])} | "
+            f"{low_s} | {ok_s} | {first_s} | "
+            f"{usd(r['Rec'])} | {usd(r['Rec_left'])} | {usd(r['Book_pnl'])} |"
         )
+    tot_n = sum(r["N"] for r in ox)
+    tot_pnl = sum(r["Book_pnl"] for r in ox)
+    tot_rev = sum(r["N"] * r["Rec"] for r in ox)
+    md.append(
+        f"| Book | — | {tot_n} | — | — | — | — | {usd(tot_rev)} | "
+        f"{100 * tot_pnl / tot_rev:.1f}% | {usd(tot_pnl)} |"
+    )
     md.append("")
 
     # markdown margins

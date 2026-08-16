@@ -89,28 +89,28 @@ PLAN_WAGE_W = {
 # Do not match a peer low that fails the stack. Evals stay under Maven
 # wherever Maven itself covers. Instant stays under BG.
 REC = {
-    ("Instant", 5000): 59,
-    ("Instant", 10000): 79,
+    ("Instant", 5000): 49,
+    ("Instant", 10000): 69,
     ("Instant", 25000): 139,
     ("Instant", 50000): 239,
-    ("Instant", 100000): 449,
+    ("Instant", 100000): 439,
     ("1-Step", 5000): 36,
     ("1-Step", 10000): 60,
     ("1-Step", 25000): 120,
     ("1-Step", 50000): 193,
     ("1-Step", 100000): 335,
     ("1-Step", 200000): 654,
-    ("2-Step Lite", 5000): 45,
-    ("2-Step Lite", 10000): 59,
-    ("2-Step Lite", 25000): 99,
-    ("2-Step Lite", 50000): 151,
+    ("2-Step Lite", 5000): 42,
+    ("2-Step Lite", 10000): 55,
+    ("2-Step Lite", 25000): 94,
+    ("2-Step Lite", 50000): 149,
     ("2-Step Lite", 100000): 269,
     ("2-Step Lite", 200000): 499,
     ("2-Step Pro", 5000): 45,
     ("2-Step Pro", 10000): 59,
     ("2-Step Pro", 25000): 95,
-    ("2-Step Pro", 50000): 163,
-    ("2-Step Pro", 100000): 296,
+    ("2-Step Pro", 50000): 159,
+    ("2-Step Pro", 100000): 289,
     ("2-Step Pro", 200000): 577,
 }
 
@@ -125,8 +125,8 @@ WHY = {
     "Instant": (
         "Stack: year-1 BE, +10% error, +$1, +wage share, then ÷ 0.80 for marketing. "
         "Instant $100k opex floor is $422; Alpha $274 fails it. FXIFY Lite $399 is "
-        "close but short. Rec $449 covers with a ~$21 stub and is 0.96× BG $467. "
-        "$10k–$50k $79 / $139 / $239 stay under BG $156 / $243. "
+        "close but short. Rec $439 sits under FP $444 and BG $467. "
+        "$10k $69 under FP $70; $25k/$50k $139 / $239 under FXIFY $149 / BG $243. "
         "$5k stays the shop floor. No $200k Instant."
     ),
     "1-Step": (
@@ -136,13 +136,13 @@ WHY = {
     ),
     "2-Step Lite": (
         "Live $18–$241 does not cover wages + 20% marketing on $5k–$100k. "
-        "Maven $18 / $35 / $79 also fail. Rec $45 / $59 / $99 / $151 / $269 — "
-        "solvent 2-step with a small stub. Maven $151 / $279 cover from $50k."
+        "Maven $18 / $35 / $79 also fail. Rec $42 / $55 / $94 / $149 / $269 — "
+        "under the first solvent peer. Maven $151 / $279 cover from $50k."
     ),
     "2-Step Pro": (
-        "Live $20 / $36 miss the $5k / $10k floor. Lift those to $45 / $59. "
-        "$25k+ live already covers. $296 at $100k is above the $248 floor and "
-        "under Goat $399. Maven $18 / $35 / $79 are not usable lows."
+        "Live $20 / $36 miss the $5k / $10k floor. Rec $45 / $59 / $95 / $159 / $289 "
+        "stays a step above Lite and just over Maven from $50k. "
+        "Maven $18 / $35 / $79 are not usable lows."
     ),
 }
 
@@ -520,8 +520,8 @@ def opex_rows(skus):
 
 
 def opex_table(skus, s):
-    heads = ["Plan", "Size", "Wage", "BE", "+10%", "$1+w", "Opex $",
-             "Peer low", "Low OK?", "First OK $", "Rec", "After"]
+    heads = ["Plan", "Size", "N", "Opex $", "Peer low", "Low OK?",
+             "First OK $", "Rec", "After", "Mo. left"]
     data = [[P(h, s["th"]) for h in heads]]
     spec = {}
     rows = opex_rows(skus)
@@ -532,16 +532,26 @@ def opex_table(skus, s):
         first_s = "—" if r["First_ok"] is None else f"{usd(r['First_ok'])} {r['First_ok_name']}"
         data.append([
             P(r["Plan"], s["tdl"]), P(usd(r["Size"]), s["td"]),
-            P(usd(r["Wage"]), s["td"]),
-            P(usd(r["BE"]), s["td"]), P(usd(r["Error"]), s["td"]),
-            P(usd(r["Loaded"]), s["td"]), P(usd(r["S_opex"]), s["td"]),
+            P(str(r["N"]), s["td"]),
+            P(usd(r["S_opex"]), s["td"]),
             P(low_s, s["td"]), P(ok_s, s["td"]), P(first_s, s["td"]),
             P(usd(r["Rec"]), s["td"]),
             P(usd(r["Rec_left"]), s["td"]),
+            P(usd(r["Book_pnl"]), s["td"]),
         ])
+    tot_n = sum(r["N"] for r in rows)
+    tot_pnl = sum(r["Book_pnl"] for r in rows)
+    tot_rev = sum(r["N"] * r["Rec"] for r in rows)
+    data.append([
+        P("Book", s["tdl"]), P("—", s["td"]), P(str(tot_n), s["td"]),
+        P("—", s["td"]), P("—", s["td"]), P("—", s["td"]), P("—", s["td"]),
+        P(usd(tot_rev), s["td"]),
+        P(f"{100 * tot_pnl / tot_rev:.1f}%", s["td"]),
+        P(usd(tot_pnl), s["td"]),
+    ])
     return grid(data, [
-        24*mm, 16*mm, 14*mm, 16*mm, 14*mm, 16*mm, 16*mm,
-        32*mm, 18*mm, 32*mm, 16*mm, 16*mm,
+        26*mm, 18*mm, 12*mm, 18*mm, 34*mm, 18*mm,
+        34*mm, 18*mm, 16*mm, 18*mm,
     ], spec), rows
 
 
@@ -644,7 +654,7 @@ def collect_story():
         "(Alpha Instant, Maven $5k–$25k, BrightFunded $200k); (4) 1-Step live already "
         "covers — keep it; (5) Lite / small Pro lift to the floor so they are the "
         "cheapest <i>solvent</i> 2-step, not the cheapest hole. "
-        "Instant $100k $449 is 0.96× BG $467 (opex floor $422, leftover ~$21).",
+        "Instant $100k $439 is under FP $444 and 0.94× BG $467.",
         s["body"],
     ))
 
@@ -677,9 +687,9 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = recommended sale. Each size shows <b>rec $</b> and <b>BE $</b>. "
-        "Instant $59 / $79 / $139 / $239 / $449. "
-        "Lite $45 / $59 / $99 / $151 / $269 / $499 (small stub; on/under Maven from $50k). "
-        "1-Step stays live. Pro $5k–$25k $45 / $59 / $95; $50k+ live.",
+        "Instant $49 / $69 / $139 / $239 / $439 (under the first solvent peer). "
+        "Lite $42 / $55 / $94 / $149 / $269 / $499. "
+        "1-Step stays live (already cheapest). Pro $45 / $59 / $95 / $159 / $289.",
         s["body"],
     ))
 
@@ -771,13 +781,12 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Instant $100k: S<sub>opex</sub> $422. Alpha $274 is a hole. FXIFY Lite $399 "
-        "is still short. Rec $449 covers and stays under BG $467. "
-        "Instant $25k/$50k Alpha $118 / $154 fail; rec $139 / $239 clear the floor "
-        "and stay under BG $156 / $243. "
-        "1-Step lows all cover — keep live. "
-        "Lite live and Maven $5k–$25k fail; rec is the cheapest solvent 2-step. "
-        "Maven $151 / $279 cover Lite $50k / $100k — rec $151 / $269. "
-        "Book leftover after the stack at this mix is about +$7,300 / month.",
+        "is still short. Rec $439 sits under FP $444 and BG $467. "
+        "Instant $10k $69 under FP $70; $25k/$50k $139 / $239 under FXIFY / BG. "
+        "1-Step lows all cover — keep live (cheapest). "
+        "Lite sits on/under the first solvent peer. "
+        "Pro stays a step above Lite and just over Maven from $50k. "
+        "Mo. left is leftover × N at the 310-account mix. Book row is the monthly total.",
         s["tiny"],
     ))
 
@@ -899,7 +908,7 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Blue = live Verodus. Green = rec. On year-1, BG $467 is +38%, Goat $559 is +55%, "
-        "IF $639 is +57%, Hola $839 is +60%, rec $449 is +37%. First-payout column is the "
+        "IF $639 is +57%, Hola $839 is +60%, rec $439 is +35%. First-payout column is the "
         "old (wrong) Instant basis. 40–60% year-1 takes are what Goat / IF / Hola already "
         "charge — too high for a new name.",
         s["body"],
