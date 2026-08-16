@@ -85,6 +85,33 @@ PLAN_WAGE_W = {
     "2-Step Pro": 1.10,
 }
 
+# 13 Aug shopper catalog (live VERO35) — comparison only.
+AUG13 = {
+    ("Instant", 5000): 72,
+    ("Instant", 10000): 121,
+    ("Instant", 25000): 242,
+    ("Instant", 50000): 389,
+    ("Instant", 100000): 676,
+    ("1-Step", 5000): 36,
+    ("1-Step", 10000): 60,
+    ("1-Step", 25000): 120,
+    ("1-Step", 50000): 193,
+    ("1-Step", 100000): 335,
+    ("1-Step", 200000): 654,
+    ("2-Step Lite", 5000): 18,
+    ("2-Step Lite", 10000): 33,
+    ("2-Step Lite", 25000): 66,
+    ("2-Step Lite", 50000): 133,
+    ("2-Step Lite", 100000): 241,
+    ("2-Step Lite", 200000): 477,
+    ("2-Step Pro", 5000): 20,
+    ("2-Step Pro", 10000): 36,
+    ("2-Step Pro", 25000): 85,
+    ("2-Step Pro", 50000): 163,
+    ("2-Step Pro", 100000): 296,
+    ("2-Step Pro", 200000): 577,
+}
+
 # Rec = max(prior card, shop-round of fully loaded opex floor).
 # Do not match a peer low that fails the stack. Evals stay under Maven
 # wherever Maven itself covers. Instant stays under BG.
@@ -224,7 +251,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "BE + 10% error + $1 + wage share, then ÷ 0.80 marketing. Instant = year-1. Evals = first-payout + refund.",
+        "List = sale ÷ 0.65. BE + 10% error + $1 + wage, then ÷ 0.80. Instant = year-1. Lite funded DD 8%.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -289,6 +316,12 @@ def plan_be(skus, plan, size):
     return pricing_for(row.iloc[0])["be"]
 
 
+def rec_list(sale):
+    if sale is None:
+        return None
+    return round(float(sale) / 0.65)
+
+
 def rec_be_cell(rec, be, style):
     if rec is None:
         return P("—", style)
@@ -296,6 +329,15 @@ def rec_be_cell(rec, be, style):
         return P(usd(rec), style)
     return P(
         f"<b>{usd(rec)}</b><br/><font size='6' color='#475569'>BE {usd(be)}</font>",
+        style,
+    )
+
+
+def rec_list_cell(rec, style):
+    if rec is None:
+        return P("—", style)
+    return P(
+        f"<b>{usd(rec_list(rec))}</b><br/><font size='6' color='#475569'>sale {usd(rec)}</font>",
         style,
     )
 
@@ -555,6 +597,81 @@ def opex_table(skus, s):
     ], spec), rows
 
 
+def shopper_rows():
+    """Catalog card: list, rec sale, VERO35 off, 13 Aug sale, delta."""
+    out = []
+    for plan, _fam in ANCHORS:
+        for sz in SIZES:
+            if (plan, sz) not in REC:
+                continue
+            sale = REC[(plan, sz)]
+            list_px = rec_list(sale)
+            old = AUG13.get((plan, sz))
+            out.append({
+                "Plan": plan, "Size": sz, "List": list_px, "Sale": sale,
+                "Off": f"{round(100.0 * (1.0 - sale / list_px))}%" if list_px else "—",
+                "Aug13": old,
+                "Delta": None if old is None else sale - old,
+            })
+    return out
+
+
+def shopper_table(s):
+    heads = ["Plan", "Size", "List", "Sale (VERO35)", "Off", "13 Aug", "Δ sale"]
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    rows = shopper_rows()
+    for i, r in enumerate(rows, start=1):
+        spec[i] = "rec" if r["Plan"] == "Instant" else "live"
+        delta = "—" if r["Delta"] is None else f"{r['Delta']:+.0f}"
+        data.append([
+            P(r["Plan"], s["tdl"]), P(usd(r["Size"]), s["td"]),
+            P(usd(r["List"]), s["td"]), P(usd(r["Sale"]), s["td"]),
+            P(r["Off"], s["td"]), P(usd(r["Aug13"]), s["td"]),
+            P(delta, s["td"]),
+        ])
+    return grid(data, [
+        32*mm, 24*mm, 24*mm, 32*mm, 18*mm, 24*mm, 22*mm,
+    ], spec), rows
+
+
+def opex_build_table(skus, s):
+    """Show the arithmetic: BE → +10% → +$1 → +wage → ÷0.80 → rec / list."""
+    heads = ["Plan", "Size", "BE", "+10%", "+$1", "Wage",
+             "Loaded", "÷0.80", "Rec", "List", "After"]
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    rows = opex_rows(skus)
+    for i, r in enumerate(rows, start=1):
+        spec[i] = "rec" if r["Plan"] == "Instant" else "live"
+        data.append([
+            P(r["Plan"], s["tdl"]), P(usd(r["Size"]), s["td"]),
+            P(usd(r["BE"]), s["td"]),
+            P(usd(r["Error"]), s["td"]),
+            P(usd(ACCOUNT_COST), s["td"]),
+            P(usd(r["Wage"]), s["td"]),
+            P(usd(r["Loaded"]), s["td"]),
+            P(usd(r["S_opex"]), s["td"]),
+            P(usd(r["Rec"]), s["td"]),
+            P(usd(r["List"]), s["td"]),
+            P(usd(r["Rec_left"]), s["td"]),
+        ])
+    tot_n = sum(r["N"] for r in rows)
+    tot_pnl = sum(r["Book_pnl"] for r in rows)
+    tot_rev = sum(r["N"] * r["Rec"] for r in rows)
+    data.append([
+        P("Book", s["tdl"]), P(f"{tot_n} accts", s["td"]),
+        P("—", s["td"]), P("—", s["td"]), P("—", s["td"]),
+        P(usd(WAGES_USD), s["td"]), P("—", s["td"]), P("—", s["td"]),
+        P(usd(tot_rev), s["td"]), P("—", s["td"]),
+        P(usd(tot_pnl), s["td"]),
+    ])
+    return grid(data, [
+        24*mm, 18*mm, 16*mm, 16*mm, 12*mm, 16*mm,
+        18*mm, 18*mm, 16*mm, 16*mm, 16*mm,
+    ], spec), rows
+
+
 def mix_table(skus, s):
     heads = ["Plan", "Size", "N / mo", "Weight", "Wage $", "Share of wages"]
     data = [[P(h, s["th"]) for h in heads]]
@@ -644,7 +761,8 @@ def collect_story():
         "No refund. <b>Eval BE</b> = E[X] / (1 − P(pay)): 1-Step $108.10 / 0.91192 = "
         "<b>$119</b>; Lite $136.01 / 0.89384 = <b>$152</b>; Pro $132.54 / 0.88002 = "
         "<b>$151</b> at $100k, then × size/100k. F<sub>m</sub> = BE / (1 − m). "
-        "List = sale ÷ 0.65. Instant $200k pulled.",
+        "List = sale ÷ 0.65. Instant $200k pulled. "
+        "Lite funded max DD is <b>8%</b> (was 10% on the 13 Aug catalog).",
         s["body"],
     ))
     story.append(P(
@@ -660,24 +778,27 @@ def collect_story():
 
     story.append(P("1. Recommended Verodus sale (VERO35)", s["h1"]))
     heads = ["Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k",
-             "BE $100k", "Live $100k", "Rec m"]
+             "BE $100k", "List $100k", "Rec m"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
     for i, (plan, _fam) in enumerate(ANCHORS, start=1):
         live100 = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == 100000)]
-        live_s = float(live100.Sale.iloc[0]) if not live100.empty else None
         rec100 = REC.get((plan, 100000))
         be100 = plan_be(skus, plan, 100000)
         live100_r = live100.iloc[0] if not live100.empty else None
-        if live100_r is not None and plan == "Instant":
-            cost100 = pricing_for(live100_r)["e_used"]
+        if live100_r is not None:
+            pr100 = pricing_for(live100_r)
+            if plan == "Instant":
+                cost100 = pr100["e_used"]
+            else:
+                cost100 = pr100["e_first"] + float(live100_r.P_pay) * rec100
         else:
-            cost100 = e_cost(skus, plan, 100000)
+            cost100 = None
         cells = [P(plan, s["tdl"])]
         for sz in SIZES:
             cells.append(rec_be_cell(REC.get((plan, sz)), plan_be(skus, plan, sz), s["td2"]))
         cells.append(P(usd(be100), s["td"]))
-        cells.append(P(usd(live_s), s["td"]))
+        cells.append(P(usd(rec_list(rec100)), s["td"]))
         cells.append(P(margin(rec100, cost100), s["td"]))
         data.append(cells)
         special[i] = "rec"
@@ -689,9 +810,41 @@ def collect_story():
         "Green = recommended sale. Each size shows <b>rec $</b> and <b>BE $</b>. "
         "Instant $49 / $69 / $139 / $239 / $439 (under the first solvent peer). "
         "Lite $42 / $55 / $94 / $149 / $269 / $499. "
-        "1-Step stays live (already cheapest). Pro $45 / $59 / $95 / $159 / $289.",
+        "1-Step stays live (already cheapest). Pro $45 / $59 / $95 / $159 / $289. "
+        "List $100k is sale ÷ 0.65 (Instant $675 · 1-Step $515 · Lite $414 · Pro $445).",
         s["body"],
     ))
+
+    story.append(P("1a. Recommended list (sale ÷ 0.65)", s["h1"]))
+    story.append(P(
+        "Checkout basePrice so VERO35 still lands on the rec sale. "
+        "Same sizes as the sale card.",
+        s["body"],
+    ))
+    list_heads = ["Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k"]
+    list_card = [[P(h, s["th"]) for h in list_heads]]
+    list_spec = {}
+    for i, (plan, _fam) in enumerate(ANCHORS, start=1):
+        cells = [P(plan, s["tdl"])]
+        for sz in SIZES:
+            cells.append(rec_list_cell(REC.get((plan, sz)), s["td2"]))
+        list_card.append(cells)
+        list_spec[i] = "rec" if plan == "Instant" else "live"
+    story.append(grid(list_card, [
+        32*mm, 32*mm, 32*mm, 32*mm, 32*mm, 34*mm, 34*mm,
+    ], list_spec))
+    story.append(Spacer(1, 2*mm))
+
+    story.append(P("1a2. Shopper catalog — list, rec sale, vs 13 Aug", s["h1"]))
+    story.append(P(
+        "This is the card in <i>Verodus_Challenge_Catalog_2026-08-16</i>. "
+        "Δ sale is rec minus the 13 Aug VERO35 fee. Lite and small Instant / Pro "
+        "move up so the opex stack clears. 1-Step is unchanged.",
+        s["body"],
+    ))
+    stab, _srows = shopper_table(s)
+    story.append(stab)
+    story.append(Spacer(1, 2*mm))
 
     story.append(P("1b. Break-even fee ($)", s["h1"]))
     story.append(P(
@@ -790,6 +943,27 @@ def collect_story():
         s["tiny"],
     ))
 
+    story.append(P(
+        "1f. Opex arithmetic — BE → +10% → +$1 → +wage → ÷ 0.80 → rec / list",
+        s["h1"],
+    ))
+    story.append(P(
+        "Loaded = BE + (BE × 0.10) + $1 + wage share. "
+        "S<sub>opex</sub> = Loaded / 0.80. Rec is the shop-round at or above that floor "
+        "that still sits under the first solvent peer. List = rec ÷ 0.65. "
+        "After = rec × 0.80 − Loaded (cash left after marketing + the stack).",
+        s["body"],
+    ))
+    btab, _brows = opex_build_table(skus, s)
+    story.append(btab)
+    story.append(Spacer(1, 2*mm))
+    story.append(P(
+        "Instant $100k: BE $284 + $28 error + $1 + $24 wage = $338 loaded → "
+        "S<sub>opex</sub> $422 → rec $439 (list $675) → leftover ~$13. "
+        "Book leftover at 310 accounts is +$6,578 / month (13.5% of rec revenue).",
+        s["tiny"],
+    ))
+
     # ----- BE for every account -----
     story.append(P("2. Break-even for every Verodus account", s["h1"]))
     story.append(P(
@@ -798,7 +972,7 @@ def collect_story():
         s["body"],
     ))
     bheads = ["Plan", "Size", "Basis", "E[X] used", "P(pay)", "Year-1",
-              "BE $", "20%", "40%", "60%", "Live", "Rec"]
+              "BE $", "20%", "40%", "60%", "13 Aug", "Rec"]
     bdata = [[P(h, s["th"]) for h in bheads]]
     bspec = {}
     bi = 0
@@ -922,7 +1096,7 @@ def collect_story():
         s["body"],
     ))
     heads = ["Plan", "Size", "Rec", "Rec m", "E[X]", "BE $", "20%", "40%", "60%",
-             "Live", "Median"]
+             "13 Aug", "Median"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
     stats = family_stats(skus)
@@ -981,10 +1155,11 @@ def collect_story():
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Green = rec is below BE (a hole). Blue = rec equals live and is above BE. "
-        "Instant rec sits above the opex floor at $10k+ ($5k is the shop floor). "
-        "1-Step / Lite / Pro stay on live VERO35 — those Rec m figures are leftover "
-        "pricing power, not a 40/60 target. Green would mean below BE.",
+        "Green = rec is below BE (a hole). Blue = rec equals the 13 Aug live fee "
+        "and is above BE. Instant rec sits above the opex floor at $10k+ "
+        "($5k is the shop floor). 1-Step stays on live VERO35. "
+        "Lite / Pro are the opex-checked rec, not the 13 Aug $18–$241 / $20–$296 card. "
+        "Rec m here is leftover after payout cost, not after the opex stack.",
         s["body"],
     ))
 
@@ -1034,7 +1209,7 @@ def collect_story():
         s["body"],
     ))
     heads = ["Plan", "Size", "Rec", "List", "BE $ (±%)", "vs 20%", "vs 40%", "vs 60%",
-             "vs live", "vs median"]
+             "vs 13 Aug", "vs median"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
     for i, rec_row in enumerate(rows_out, start=1):
@@ -1107,6 +1282,7 @@ def build():
     story, skus, rows_out, stats = collect_story()
     pd.DataFrame(classic_rows(skus)).to_csv(RESULTS / "verodus_classic_sku_table.csv", index=False)
     pd.DataFrame(opex_rows(skus)).to_csv(RESULTS / "verodus_opex_stack.csv", index=False)
+    pd.DataFrame(shopper_rows()).to_csv(RESULTS / "verodus_shopper_catalog.csv", index=False)
     pd.DataFrame(rows_out).to_csv(RESULTS / "verodus_recommended_prices.csv", index=False)
     pd.DataFrame(stats).to_csv(RESULTS / "verodus_rec_vs_band.csv", index=False)
     pd.DataFrame([{
@@ -1133,6 +1309,7 @@ def build():
     print(f"Wrote {OUT} ({OUT.stat().st_size:,} bytes)")
     print(f"Wrote {RESULTS / 'verodus_classic_sku_table.csv'}")
     print(f"Wrote {RESULTS / 'verodus_opex_stack.csv'}")
+    print(f"Wrote {RESULTS / 'verodus_shopper_catalog.csv'}")
     print(f"Wrote {RESULTS / 'verodus_recommended_prices.csv'}")
     print(f"Wrote {RESULTS / 'verodus_rec_vs_band.csv'}")
     print(f"Wrote {RESULTS / 'verodus_be_by_account.csv'}")
