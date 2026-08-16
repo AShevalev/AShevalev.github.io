@@ -17,6 +17,7 @@ from write_price_rec_pdf import (
     ANCHORS,
     REC,
     SIZES,
+    classic_table,
     family_peers,
     load,
     plan_be,
@@ -172,8 +173,8 @@ def vero_rows(skus):
                 "Plan": plan, "Size": sz, "Basis": pr["basis"],
                 "P_pay": pr["p_pay"], "P_yr1": pr["p_yr1"],
                 "E_first": pr["e_first"], "E_used": pr["e_used"],
-                "BE": pr["be"], "px_10": pr["px_10"],
-                "px_20": pr["px_20"], "px_30": pr["px_30"],
+                "BE": pr["be"],
+                "px_20": pr["px_20"], "px_40": pr["px_40"], "px_60": pr["px_60"],
                 "Live": float(r.Sale), "Rec": rec,
                 "List": round(rec / 0.65),
                 "Cost": cost,
@@ -195,7 +196,7 @@ def build():
     story.append(P("Verodus complete operator report", s["cover"]))
     story.append(P(
         "One document. P(pay) audited. Instant priced on year-1. Evals on first-payout "
-        "+ refund. Recommended sale, BE $, 10/20/30, peers, and margin % by size and "
+        "+ refund. Recommended sale, BE $, 20/40/60, peers, and margin % by size and "
         "family. 16 August 2026.",
         s["sub"],
     ))
@@ -393,8 +394,9 @@ def build():
         "= $875.25 × (7.161% / 22.07%) = <b>$284 at $100k</b>, no refund, then × size/100k. "
         "<b>Eval</b> BE = E[X] / (1 − P(pay)): 1-Step $108.10 / 0.91192 = <b>$119</b>; "
         "Lite $136.01 / 0.89384 = <b>$152</b>; Pro $132.54 / 0.88002 = <b>$151</b>. "
-        "F<sub>m</sub> = BE / (1 − m). Columns are <b>10 / 20 / 30</b> — 40% and 60% "
-        "were too rich versus Goat / Instant Funding.",
+        "F<sub>m</sub> = BE / (1 − m). Columns are <b>20 / 40 / 60</b> — the industry "
+        "layout. Instant rec is the 20% print. 40% and 60% are reference only "
+        "(too rich versus Goat / Instant Funding as Instant targets).",
         s["body"],
     ))
     bheads = ["Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k", "Basis"]
@@ -446,23 +448,22 @@ def build():
         s["tiny"],
     ))
 
-    # ----- 7. 10/20/30 -----
-    story.append(P("7. BE / 10% / 20% / 30% / rec ($)", s["h1"]))
-    heads = ["Plan", "Size", "E[X] used", "BE $", "10%", "20%", "30%", "Rec $", "List"]
-    data = [[P(h, s["th"]) for h in heads]]
-    special = {}
-    for i, r in enumerate(rows, start=1):
-        special[i] = "rec" if r["Plan"] == "Instant" else "live"
-        data.append([
-            P(r["Plan"], s["tdl"]), P(usd(r["Size"]), s["td"]),
-            P(usd(r["E_used"]), s["td"]), P(usd(r["BE"]), s["td"]),
-            P(usd(r["px_10"]), s["td"]), P(usd(r["px_20"]), s["td"]),
-            P(usd(r["px_30"]), s["td"]), P(usd(r["Rec"]), s["td"]),
-            P(usd(r["List"]), s["td"]),
-        ])
-    story.append(grid(data, [
-        28*mm, 22*mm, 24*mm, 22*mm, 22*mm, 22*mm, 22*mm, 22*mm, 22*mm,
-    ], special))
+    # ----- 7. Classic SKU table -----
+    story.append(P(
+        "7. Plan / Size / List / Sale / E[X] / P(pay) / BE / 20% / 40% / 60% / Sale m",
+        s["h1"],
+    ))
+    story.append(P(
+        "<b>Use 20 / 40 / 60</b> as the industry reference. Instant rec is the year-1 "
+        "<b>20% print</b>. 40% Instant $100k is $473 (Blue Guardian $467). "
+        "60% is $710 (above Goat $559 / Instant Funding $639). Do not aim Instant at 40 or 60. "
+        "10 / 20 / 30 was only a reaction when 40/60 looked too rich as Instant targets. "
+        "Sale is the recommended VERO35 fee. List = sale ÷ 0.65. "
+        "Instant E[X] / BE are year-1; P(pay) is first-payout 22.1%.",
+        s["body"],
+    ))
+    ctab, _crows = classic_table(skus, s)
+    story.append(ctab)
     story.append(Spacer(1, 2*mm))
 
     # ----- 8. Instant peers -----
@@ -550,7 +551,7 @@ def build():
     audits = [
         ("This report + Recommended Prices PDF",
          "Rec $359 · BE $284 · +21%",
-         "10 / 20 / 30",
+         "20 / 40 / 60",
          "Year-1 7.16% for Instant; 8.8/10.6/12.0 for evals",
          "Yes — source of truth"),
         ("Verodus_Industry_Report PDF",
@@ -591,13 +592,13 @@ def build():
         s["body"],
     ))
     mheads = ["Family / plan", "Size", "Rec $", "BE $", "E[cost]",
-              "Rec m", "Live $", "Live m", "vs 20%", "vs 30%"]
+              "Rec m", "Live $", "Live m", "vs 20%", "vs 40%"]
     mdata = [[P(h, s["th"]) for h in mheads]]
     mspec = {}
     for i, r in enumerate(rows, start=1):
         mspec[i] = "rec" if r["Plan"] == "Instant" else "live"
         vs20 = (r["Rec"] / r["px_20"] - 1.0) if r["px_20"] else None
-        vs30 = (r["Rec"] / r["px_30"] - 1.0) if r["px_30"] else None
+        vs40 = (r["Rec"] / r["px_40"] - 1.0) if r["px_40"] else None
         mdata.append([
             P(r["Plan"], s["tdl"]), P(usd(r["Size"]), s["td"]),
             P(usd(r["Rec"]), s["td"]), P(usd(r["BE"]), s["td"]),
@@ -606,7 +607,7 @@ def build():
             P(usd(r["Live"]), s["td"]),
             P(pct(r["Live_m"], signed=True, digits=0), s["td"]),
             P(pct(vs20, signed=True, digits=0), s["td"]),
-            P(pct(vs30, signed=True, digits=0), s["td"]),
+            P(pct(vs40, signed=True, digits=0), s["td"]),
         ])
     story.append(grid(mdata, [
         28*mm, 20*mm, 20*mm, 20*mm, 22*mm, 20*mm, 20*mm, 20*mm, 20*mm, 20*mm,
@@ -644,6 +645,19 @@ def build():
         "not a 40/60 target. Keep them: the evals are already the names shoppers sort cheap.",
         s["body"],
     ))
+
+    md.append("## Plan / Size / List / Sale / E[X] / P(pay) / BE / 20% / 40% / 60% / Sale m\n")
+    md.append("| Plan | Size | List | Sale | E[X] | P(pay) | BE | 20% | 40% | 60% | Sale m |")
+    md.append("|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
+    for r in rows:
+        md.append(
+            f"| {r['Plan']} | {usd(r['Size'])} | {usd(r['List'])} | {usd(r['Rec'])} | "
+            f"{usd(r['E_used'])} | {pct(r['P_pay'])} | {usd(r['BE'])} | "
+            f"{usd(r['px_20'])} | {usd(r['px_40'])} | {usd(r['px_60'])} | "
+            f"{pct(r['Rec_m'], signed=True, digits=0)} |"
+        )
+    md.append("")
+    md.append("Use 20 / 40 / 60 as the industry reference. Instant rec is the year-1 20% print.\n")
 
     # markdown margins
     md.append("## Margin % by size and family\n")

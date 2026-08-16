@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """One confirmed PDF: summary, then rank tables, industry tables, rec tables.
 
-All Instant money numbers use year-1. Columns are 10 / 20 / 30.
+All Instant money numbers use year-1. Columns are 20 / 40 / 60. Instant rec is the 20% print.
 Recommended sale is the current card, not the old $1,094 Instant path.
 """
 
@@ -25,6 +25,7 @@ from write_price_rec_pdf import (
     SIZES,
     W,
     P,
+    classic_table,
     collect_story as rec_collect,
     family_peers,
     grid,
@@ -60,9 +61,9 @@ def sale_m(sale, cost):
 def industry_tables(story, s, skus, blend, profiles, fails):
     story.append(P("Part B — Industry report (calculation tables, reconfirmed)", s["cover"]))
     story.append(P(
-        "Same Monte Carlo as the industry PDF. Instant BE / 10 / 20 / 30 / sale m "
-        "are year-1. The old industry PDF’s Instant 20/40/60 and $1,094 proposed "
-        "sale are not reprinted as recommendations.",
+        "Same Monte Carlo as the industry PDF. Instant BE / 20 / 40 / 60 / sale m "
+        "are year-1. Instant rec is the 20% print — 40/60 are reference only. "
+        "The old industry PDF’s Instant $1,094 is not a recommendation.",
         s["sub"],
     ))
 
@@ -161,7 +162,7 @@ def industry_tables(story, s, skus, blend, profiles, fails):
     story.append(grid(rdata, [32*mm, 48*mm, 42*mm, 50*mm, 40*mm]))
     story.append(Spacer(1, 2*mm))
 
-    story.append(P("B5. Every industry SKU — street / E[X] / BE $ / 10 / 20 / 30 / m", s["h1"]))
+    story.append(P("B5. Every industry SKU — street / E[X] / BE $ / 20 / 40 / 60 / m", s["h1"]))
     story.append(P(
         "Instant rows use year-1 E[X] and year-1 BE. Eval rows use first-payout E[X] "
         "and BE = E[X] / (1 − k). Sale m is (sale − E[cost]) / sale on that basis. "
@@ -177,7 +178,7 @@ def industry_tables(story, s, skus, blend, profiles, fails):
         story.append(P(title, s["h1"]))
         sub = skus[skus.Family == fam].sort_values(["Firm", "Plan", "Size"])
         heads = ["Firm", "Plan", "Size", "Sale", "P(pay)", "Year-1",
-                 "E[X] used", "BE $", "10%", "20%", "30%", "Sale m"]
+                 "E[X] used", "BE $", "20%", "40%", "60%", "Sale m"]
         data = [[P(h, s["th"]) for h in heads]]
         spec = {}
         for i, r in enumerate(sub.itertuples(), start=1):
@@ -190,8 +191,8 @@ def industry_tables(story, s, skus, blend, profiles, fails):
                 P(usd(r.Size), s["td"]), P(usd(r.Sale), s["td"]),
                 P(pct(pr["p_pay"]), s["td"]), P(pct(pr["p_yr1"]), s["td"]),
                 P(usd(pr["e_used"]), s["td"]), P(usd(pr["be"]), s["td"]),
-                P(usd(pr["px_10"]), s["td"]), P(usd(pr["px_20"]), s["td"]),
-                P(usd(pr["px_30"]), s["td"]),
+                P(usd(pr["px_20"]), s["td"]), P(usd(pr["px_40"]), s["td"]),
+                P(usd(pr["px_60"]), s["td"]),
                 P(pct(sale_m(float(r.Sale), cost), signed=True, digits=0), s["td"]),
             ])
         story.append(grid(data, [
@@ -379,7 +380,7 @@ def summary(story, s, skus):
         "<b>Reconfirmed.</b> Instant P(pay) 22.1% is first-payout eligibility — correct, "
         "do not price on it. Instant year-1 7.16% is the cost rate. "
         "Eval P(pay) 8.8% / 10.6% / 12.0% is the eval cost rate. "
-        "Columns are 10 / 20 / 30. Instant rec sits on the year-1 20% print. "
+        "Columns are 20 / 40 / 60. Instant rec sits on the year-1 20% print. "
         "Evals stay live. Ignore the industry PDF’s Instant $1,094 and "
         "industry_skus Instant BE $875.",
         s["body"],
@@ -407,6 +408,22 @@ def summary(story, s, skus):
             P(pct(sale_m(rec, cost), signed=True, digits=0), s["td"]),
         ])
     story.append(grid(v, [28*mm, 18*mm, 18*mm, 44*mm, 24*mm, 24*mm, 18*mm], vspec))
+    story.append(Spacer(1, 2*mm))
+
+    story.append(P(
+        "Confirmed SKU table — Plan / Size / List / Sale / E[X] / P(pay) / BE / 20% / 40% / 60% / Sale m",
+        s["h1"],
+    ))
+    story.append(P(
+        "<b>Use 20 / 40 / 60</b> as the industry reference columns. Instant rec is the "
+        "year-1 <b>20% print</b>. 40% Instant $100k ($473) is Blue Guardian $467. "
+        "60% ($710) sits above Goat $559 / Instant Funding $639 — do not aim Instant there. "
+        "10 / 20 / 30 was only a reaction when 40/60 looked too rich as Instant targets. "
+        "Sale is the recommended VERO35 fee. List = sale ÷ 0.65.",
+        s["body"],
+    ))
+    ctab, _crows = classic_table(skus, s)
+    story.append(ctab)
     story.append(Spacer(1, 2*mm))
 
     story.append(P("Confirmed rec $ and BE $", s["h1"]))
@@ -465,7 +482,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         REC_MARGIN, 2.6 * mm,
-        "Reconfirmed. Instant = year-1. Evals = first-payout + refund. Columns 10/20/30. Rec is the sale card.",
+        "Reconfirmed. Instant = year-1. Evals = first-payout + refund. Columns 20/40/60. Instant rec = 20% print.",
     )
     canvas.drawRightString(W - REC_MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -494,7 +511,7 @@ def build():
     story.append(PageBreak())
     story.append(P("Part C — Recommended prices (reconfirmed)", s["cover"]))
     story.append(P(
-        "VERO35 rec card, BE $ by size, 10/20/30, Instant peer year-1 margins, "
+        "VERO35 rec card, BE $ by size, 20/40/60, Instant peer year-1 margins, "
         "every family street fee, rec vs BE $. Tables reprinted from the "
         "recommended-prices report.",
         s["sub"],

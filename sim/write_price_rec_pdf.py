@@ -2,8 +2,8 @@
 """Verodus BE by account + multi-factor recommended sale card.
 
 Instant BE = year-1 E[X] (first × P_yr1/P_pay). Eval BE = first-payout
-E[X] / (1 − P(pay)). Columns are 10 / 20 / 30 (print / healthy / stretch).
-40% and 60% were too rich versus the Instant shelf.
+E[X] / (1 − P(pay)). Reference columns are 20 / 40 / 60. Instant rec
+targets the 20% print — 40% and 60% are reference, not Instant targets.
 """
 
 from __future__ import annotations
@@ -81,7 +81,7 @@ WHY = {
         "$639. Rec now sits on the 20% year-1 print: $59 / $69 / $99 / $189 / $359. "
         "$5k/$10k are a shop floor (year-1 20% is $18 / $36). $25k+ is under BG "
         "($156 / $243 / $467) and Goat ($199 / $319 / $559). $100k $359 is +21% on "
-        "year-1 BE $284 (10% = $316, 20% = $355, 30% = $406). No $200k Instant."
+        "year-1 BE $284 (20% = $355, 40% = $473, 60% = $710). Instant rec is the 20% print. No $200k Instant."
     ),
     "1-Step": (
         "Live is already the cheapest 1-step on the shelf at every size except $5k "
@@ -177,7 +177,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "BE stated per account as $. Instant = year-1. Columns 10/20/30. Evals = first-payout + refund.",
+        "BE stated per account as $. Instant = year-1. Columns 20/40/60 (Instant rec = 20% print). Evals = first-payout + refund.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -253,6 +253,59 @@ def rec_be_cell(rec, be, style):
     )
 
 
+def classic_rows(skus):
+    """Plan Size List Sale E[X] P(pay) BE 20% 40% 60% Sale m — rec as Sale."""
+    out = []
+    for plan, _fam in ANCHORS:
+        for sz in SIZES:
+            if (plan, sz) not in REC:
+                continue
+            live = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == sz)]
+            if live.empty:
+                continue
+            r = live.iloc[0]
+            pr = pricing_for(r)
+            sale = REC[(plan, sz)]
+            cost = pr["e_used"] if plan == "Instant" else (
+                pr["e_first"] + float(r.P_pay) * sale
+            )
+            sm = (sale - cost) / sale if sale else None
+            out.append({
+                "Plan": plan, "Size": sz, "Basis": pr["basis"],
+                "List": round(sale / 0.65), "Sale": sale,
+                "E_X": pr["e_used"], "P_pay": pr["p_pay"],
+                "P_yr1": pr["p_yr1"], "BE": pr["be"],
+                "px_20": pr["px_20"], "px_40": pr["px_40"],
+                "px_60": pr["px_60"], "Sale_m": sm, "Cost": cost,
+            })
+    return out
+
+
+def classic_table(skus, s):
+    """Industry-format grid: Plan Size List Sale E[X] P(pay) BE 20% 40% 60% Sale m."""
+    heads = ["Plan", "Size", "List", "Sale", "E[X]", "P(pay)",
+             "BE", "20%", "40%", "60%", "Sale m"]
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    rows = classic_rows(skus)
+    for i, r in enumerate(rows, start=1):
+        spec[i] = "rec" if r["Plan"] == "Instant" else "live"
+        data.append([
+            P(r["Plan"], s["tdl"]), P(usd(r["Size"]), s["td"]),
+            P(usd(r["List"]), s["td"]), P(usd(r["Sale"]), s["td"]),
+            P(usd(r["E_X"]), s["td"]),
+            P(f"{100 * r['P_pay']:.1f}%", s["td"]),
+            P(usd(r["BE"]), s["td"]),
+            P(usd(r["px_20"]), s["td"]),
+            P(usd(r["px_40"]), s["td"]),
+            P(usd(r["px_60"]), s["td"]),
+            P(margin(r["Sale"], r["Cost"]), s["td"]),
+        ])
+    return grid(data, [
+        26*mm, 18*mm, 16*mm, 16*mm, 18*mm, 16*mm, 16*mm, 16*mm, 16*mm, 16*mm, 16*mm,
+    ], spec), rows
+
+
 def y1_payout(e_first, p_pay, p_yr1):
     """Scale first-payout E[X] down to the year-1 paid share."""
     if p_pay is None or p_pay <= 0 or pd.isna(p_yr1):
@@ -261,7 +314,7 @@ def y1_payout(e_first, p_pay, p_yr1):
 
 
 def pricing_for(r):
-    """BE / 10 / 20 / 30. Instant uses year-1; evals keep first-payout + refund."""
+    """BE and 10/20/30/40/60 prints. Display columns are 20/40/60."""
     e_first = float(r.E_payout)
     p_pay = float(r.P_pay)
     p_yr1 = float(r.P_yr1) if pd.notna(getattr(r, "P_yr1", None)) else p_pay
@@ -281,6 +334,8 @@ def pricing_for(r):
         "px_10": margin_price(be, 0.10),
         "px_20": margin_price(be, 0.20),
         "px_30": margin_price(be, 0.30),
+        "px_40": margin_price(be, 0.40),
+        "px_60": margin_price(be, 0.60),
         "basis": basis,
         "p_pay": p_pay,
         "p_yr1": p_yr1,
@@ -372,7 +427,9 @@ def collect_story():
         "floor because year-1 20% is $18 / $36; (3) sit under BG and Goat from $10k, "
         "under Instant Funding and Hola everywhere; (4) never raise a live eval that "
         "is already the cheapest name and fat; (5) shop-round fees. Columns on this "
-        "card are <b>10 / 20 / 30</b> (print / healthy / stretch), not 20 / 40 / 60.",
+        "card use <b>20 / 40 / 60</b> as the industry reference. Instant rec is the "
+        "<b>20% print</b> — 40% ($473 at $100k) is Blue Guardian and 60% ($710) sits "
+        "above Goat / Instant Funding. Do not target 40/60 on Instant.",
         s["body"],
     ))
 
@@ -407,8 +464,8 @@ def collect_story():
         "Green = recommended sale. Each size shows <b>rec $</b> and <b>BE $</b>. "
         "Instant is cut to the year-1 20% print. Evals are unchanged. "
         "Instant $100k rec $359 on year-1 BE $284 "
-        "(10% = $316, 20% = $355, 30% = $406). Eval Rec m of +33% to +59% is live "
-        "VERO35 leftover — not a 40/60 target.",
+        "(20% = $355, 40% = $473, 60% = $710). Instant rec is the 20% print. "
+        "Eval Sale m of +33% to +59% is live VERO35 leftover — not a 60% target.",
         s["body"],
     ))
 
@@ -441,6 +498,29 @@ def collect_story():
         s["tiny"],
     ))
 
+    story.append(P("1c. Plan / Size / List / Sale / E[X] / P(pay) / BE / 20% / 40% / 60% / Sale m", s["h1"]))
+    story.append(P(
+        "<b>Use 20 / 40 / 60 as the reference columns</b> — that is the industry layout. "
+        "Instant <b>target is 20%</b> (print). 40% Instant $100k is $473 (Blue Guardian $467). "
+        "60% is $710 (above Goat $559 / Instant Funding $639). Do not aim Instant at 40 or 60. "
+        "Sale is the recommended VERO35 fee. List = sale ÷ 0.65. "
+        "Instant E[X] and BE are year-1; P(pay) is first-payout eligibility (22.1%). "
+        "Eval E[X] / P(pay) / BE are first-payout + refund. "
+        "Sale m = (sale − E[cost]) / sale.",
+        s["body"],
+    ))
+    ctab, _crows = classic_table(skus, s)
+    story.append(ctab)
+    story.append(Spacer(1, 2*mm))
+    story.append(P(
+        "Green = Instant (year-1). Blue = evals (first-payout). "
+        "Instant $25k+ Sale sits on or just over the 20% column. "
+        "$5k/$10k Instant Sale m is the shop floor, not a 60% target. "
+        "Lite $100k Sale $241 is under the 40% column ($254). "
+        "1-Step / Pro Sale sit between 40% and 60%.",
+        s["tiny"],
+    ))
+
     # ----- BE for every account -----
     story.append(P("2. Break-even for every Verodus account", s["h1"]))
     story.append(P(
@@ -449,7 +529,7 @@ def collect_story():
         s["body"],
     ))
     bheads = ["Plan", "Size", "Basis", "E[X] used", "P(pay)", "Year-1",
-              "BE $", "10%", "20%", "30%", "Live", "Rec"]
+              "BE $", "20%", "40%", "60%", "Live", "Rec"]
     bdata = [[P(h, s["th"]) for h in bheads]]
     bspec = {}
     bi = 0
@@ -476,9 +556,9 @@ def collect_story():
                 P(f"{100 * pr['p_pay']:.1f}%", s["td"]),
                 P(f"{100 * pr['p_yr1']:.1f}%", s["td"]),
                 P(usd(pr["be"]), s["td"]),
-                P(usd(pr["px_10"]), s["td"]),
                 P(usd(pr["px_20"]), s["td"]),
-                P(usd(pr["px_30"]), s["td"]),
+                P(usd(pr["px_40"]), s["td"]),
+                P(usd(pr["px_60"]), s["td"]),
                 P(usd(r.Sale), s["td"]),
                 P(usd(rec), s["td"]),
             ])
@@ -489,7 +569,7 @@ def collect_story():
     story.append(P(
         "Green = Instant (year-1 BE). Blue = evals (first-payout BE). "
         "1-Step $5k BE is $6; sale $36 is leftover live, not a 60% target. "
-        "Instant $100k BE is $284, not $875. Columns are 10 / 20 / 30.",
+        "Instant $100k BE is $284, not $875. Columns are 20 / 40 / 60. Instant rec is the 20% print.",
         s["tiny"],
     ))
 
@@ -565,14 +645,14 @@ def collect_story():
         s["body"],
     ))
 
-    story.append(P("4. Rec vs BE / 10% / 20% / 30% (Instant = year-1)", s["h1"]))
+    story.append(P("4. Rec vs BE / 20% / 40% / 60% (Instant = year-1)", s["h1"]))
     story.append(P(
         "Instant: <b>BE = E[X]<sub>first</sub> × (P<sub>yr1</sub> / P<sub>pay</sub>)</b>, no refund. "
         "Evals: first-payout E[X] and refund ⇒ <b>BE = E[X] / (1 − P(pay))</b>. "
         "F<sub>m</sub> = BE / (1 − m). Rec is the shopper price.",
         s["body"],
     ))
-    heads = ["Plan", "Size", "Rec", "Rec m", "E[X]", "BE $", "10%", "20%", "30%",
+    heads = ["Plan", "Size", "Rec", "Rec m", "E[X]", "BE $", "20%", "40%", "60%",
              "Live", "Median"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
@@ -605,9 +685,9 @@ def collect_story():
                 P(margin(rec, cost), s["td"]),
                 P(usd(pr["e_used"]), s["td"]),
                 P(usd(pr["be"]), s["td"]),
-                P(usd(pr["px_10"]), s["td"]),
                 P(usd(pr["px_20"]), s["td"]),
-                P(usd(pr["px_30"]), s["td"]),
+                P(usd(pr["px_40"]), s["td"]),
+                P(usd(pr["px_60"]), s["td"]),
                 P(usd(r.Sale), s["td"]),
                 P(usd(med), s["td"]),
             ])
@@ -617,15 +697,15 @@ def collect_story():
                 "Rec_m": rec_m, "E_payout": pr["e_used"],
                 "E_first": pr["e_first"], "E_cost": cost,
                 "P_pay": pr["p_pay"], "P_yr1": pr["p_yr1"],
-                "BE": pr["be"], "px_10": pr["px_10"],
-                "px_20": pr["px_20"], "px_30": pr["px_30"],
+                "BE": pr["be"], "px_20": pr["px_20"],
+                "px_40": pr["px_40"], "px_60": pr["px_60"],
                 "Live_sale": float(r.Sale), "Live_m": (float(r.Sale) - cost) / float(r.Sale),
                 "Family_median": med,
                 "vs_median": vs_pct(rec, med) if med else None,
                 "vs_BE": vs_pct(rec, pr["be"]),
-                "vs_10": vs_pct(rec, pr["px_10"]),
                 "vs_20": vs_pct(rec, pr["px_20"]),
-                "vs_30": vs_pct(rec, pr["px_30"]),
+                "vs_40": vs_pct(rec, pr["px_40"]),
+                "vs_60": vs_pct(rec, pr["px_60"]),
             })
     story.append(grid(data, [
         26*mm, 18*mm, 18*mm, 16*mm, 18*mm, 18*mm, 18*mm, 18*mm, 18*mm, 18*mm, 20*mm,
@@ -677,14 +757,14 @@ def collect_story():
         ], special))
         story.append(Spacer(1, 2*mm))
 
-    story.append(P("9. Rec vs BE / 10 / 20 / 30 (±%) and list", s["h1"]))
+    story.append(P("9. Rec vs BE / 20 / 40 / 60 (±%) and list", s["h1"]))
     story.append(P(
         "BE is the dollar fee, then (rec − BE) / BE. Other ±% columns are "
         "(rec − column) / column. Negative = rec is cheaper than that fee. "
         "List = rec ÷ 0.65 so VERO35 still lands on the card.",
         s["body"],
     ))
-    heads = ["Plan", "Size", "Rec", "List", "BE $ (±%)", "vs 10%", "vs 20%", "vs 30%",
+    heads = ["Plan", "Size", "Rec", "List", "BE $ (±%)", "vs 20%", "vs 40%", "vs 60%",
              "vs live", "vs median"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
@@ -699,9 +779,9 @@ def collect_story():
             P(usd(rec_row["Rec_sale"]), s["td"]),
             P(usd(rec_row["Rec_list"]), s["td"]),
             P(f"{usd(rec_row['BE'])} ({vs_s(rec_row['Rec_sale'], rec_row['BE'])})", s["td"]),
-            P(vs_s(rec_row["Rec_sale"], rec_row["px_10"]), s["td"]),
             P(vs_s(rec_row["Rec_sale"], rec_row["px_20"]), s["td"]),
-            P(vs_s(rec_row["Rec_sale"], rec_row["px_30"]), s["td"]),
+            P(vs_s(rec_row["Rec_sale"], rec_row["px_40"]), s["td"]),
+            P(vs_s(rec_row["Rec_sale"], rec_row["px_60"]), s["td"]),
             P(vs_s(rec_row["Rec_sale"], rec_row["Live_sale"]), s["td"]),
             P(vs_s(rec_row["Rec_sale"], rec_row["Family_median"]), s["td"]),
         ])
@@ -756,14 +836,15 @@ def collect_story():
 
 def build():
     story, skus, rows_out, stats = collect_story()
+    pd.DataFrame(classic_rows(skus)).to_csv(RESULTS / "verodus_classic_sku_table.csv", index=False)
     pd.DataFrame(rows_out).to_csv(RESULTS / "verodus_recommended_prices.csv", index=False)
     pd.DataFrame(stats).to_csv(RESULTS / "verodus_rec_vs_band.csv", index=False)
     pd.DataFrame([{
         "Plan": r["Plan"], "Size": r["Size"], "Basis": r["Basis"],
         "BE": round(r["BE"], 2), "E_used": round(r["E_payout"], 2),
         "E_first": round(r["E_first"], 2),
-        "px_10": round(r["px_10"], 2), "px_20": round(r["px_20"], 2),
-        "px_30": round(r["px_30"], 2),
+        "px_20": round(r["px_20"], 2), "px_40": round(r["px_40"], 2),
+        "px_60": round(r["px_60"], 2),
         "Live": r["Live_sale"], "Rec": r["Rec_sale"],
         "Rec_m": round(r["Rec_m"], 4),
     } for r in rows_out]).to_csv(RESULTS / "verodus_be_by_account.csv", index=False)
@@ -780,6 +861,7 @@ def build():
     )
     doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)
     print(f"Wrote {OUT} ({OUT.stat().st_size:,} bytes)")
+    print(f"Wrote {RESULTS / 'verodus_classic_sku_table.csv'}")
     print(f"Wrote {RESULTS / 'verodus_recommended_prices.csv'}")
     print(f"Wrote {RESULTS / 'verodus_rec_vs_band.csv'}")
     print(f"Wrote {RESULTS / 'verodus_be_by_account.csv'}")
