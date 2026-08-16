@@ -18,6 +18,7 @@ from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from difficulty import scores_for_book
+from industry_book import break_even_fee, expected_refund_frac, margin_price
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
@@ -78,9 +79,11 @@ WHY = {
         "Hola $79 at $5k; Alpha $274, BG $467, Goat $559, Instant Funding $639, "
         "Hola $839 at $100k. Live VERO35 sits above the family median at every size. "
         "Rec cuts to that median (Goat-class, shop-round): $63 / $99 / $175 / $279 / $499. "
-        "Under Goat and Instant Funding; above only the loss-leader Alpha / FXIFY Lite holes. "
-        "$5k / $10k still print. $25k+ does not — that is the cost of being cheap enough "
-        "to click. No $200k Instant."
+        "Instant margins use year-1 (7.2% of buyers), not first-payout eligibility (22%). "
+        "Same-difficulty peers (BG, IF, Goat, Hola) charge $467–$839 at $100k — they only "
+        "print if Instant is priced on year-1. First-payout E[X] $875 made $1,094 look "
+        "required and made every peer look −30% to −95%. That was the wrong basis. "
+        "No $200k Instant."
     ),
     "1-Step": (
         "Live is already the cheapest 1-step on the shelf at every size except $5k "
@@ -113,6 +116,7 @@ def load():
     pp = dict(zip(blend.Product, blend.P_pay))
     sc = pd.DataFrame(scores_for_book(pp).values())
     skus = skus.merge(sc[["Product", "D"]], on="Product", how="left")
+    skus = skus.merge(blend[["Product", "P_yr1"]], on="Product", how="left")
     return skus, sc
 
 
@@ -171,7 +175,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "Rec ≤ family median. BE / 20% / 40% / 60% = F_m = BE/(1−m). VERO35 list = sale ÷ 0.65.",
+        "Instant BE uses year-1 (7%), not first-payout 22%. Evals stay first-payout. VERO35 list = sale ÷ 0.65.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -227,6 +231,40 @@ def e_cost(skus, plan, size):
     if row.empty:
         return None
     return float(row.E_cost.iloc[0])
+
+
+def y1_payout(e_first, p_pay, p_yr1):
+    """Scale first-payout E[X] down to the year-1 paid share."""
+    if p_pay is None or p_pay <= 0 or pd.isna(p_yr1):
+        return float(e_first)
+    return float(e_first) * float(p_yr1) / float(p_pay)
+
+
+def pricing_for(r):
+    """BE / 20 / 40 / 60. Instant uses year-1; evals keep first-payout + refund."""
+    e_first = float(r.E_payout)
+    p_pay = float(r.P_pay)
+    p_yr1 = float(r.P_yr1) if pd.notna(getattr(r, "P_yr1", None)) else p_pay
+    if r.Family == "instant":
+        e = y1_payout(e_first, p_pay, p_yr1)
+        k = expected_refund_frac(str(r.Refund), p_yr1)
+        be = break_even_fee(e, k)
+        basis = "year-1"
+    else:
+        e = e_first
+        be = float(r.BE)
+        basis = "first"
+    return {
+        "e_first": e_first,
+        "e_used": e,
+        "be": be,
+        "px_20": margin_price(be, 0.20),
+        "px_40": margin_price(be, 0.40),
+        "px_60": margin_price(be, 0.60),
+        "basis": basis,
+        "p_pay": p_pay,
+        "p_yr1": p_yr1,
+    }
 
 
 def margin(sale, cost):
@@ -314,7 +352,7 @@ def build():
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
     why_short = {
-        "Instant": "Family median (Goat-class). Under IF / Hola.",
+        "Instant": "Family median. Year-1 BE — prints at $5k–$100k.",
         "1-Step": "Keep live — cheapest 1-step on the shelf.",
         "2-Step Lite": "Keep live — cheapest 2-step on the shelf.",
         "2-Step Pro": "Keep live — #2 after Maven, under Goat / FTMO.",
@@ -323,7 +361,11 @@ def build():
         live100 = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == 100000)]
         live_s = float(live100.Sale.iloc[0]) if not live100.empty else None
         rec100 = REC.get((plan, 100000))
-        cost100 = e_cost(skus, plan, 100000)
+        live100_r = live100.iloc[0] if not live100.empty else None
+        if live100_r is not None and plan == "Instant":
+            cost100 = pricing_for(live100_r)["e_used"]
+        else:
+            cost100 = e_cost(skus, plan, 100000)
         cells = [P(plan, s["tdl"])]
         for sz in SIZES:
             cells.append(P(usd(REC.get((plan, sz))), s["td"]))
@@ -338,18 +380,87 @@ def build():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = recommended sale. Instant is a cut vs live. Evals are unchanged. "
-        "Instant $100k rec $499 is −26% vs live $676 and −6% vs Instant Funding $639. "
-        "Margin at that size is negative — attractive Instant $25k+ does not print.",
+        "Instant $100k rec $499 is −26% vs live $676, under Instant Funding $639, "
+        "and <b>+43% on year-1 cost</b> (not −75% — that was first-payout 22%).",
         s["body"],
     ))
 
-    story.append(P("2. Rec vs BE / 20% / 40% / 60%", s["h1"]))
+    story.append(P("2. Why Instant first-payout margins were wrong", s["h1"]))
     story.append(P(
-        "Same book as the industry report. Instant has no refund ⇒ <b>BE = E[X]</b>. "
-        "Evals refund on first payout ⇒ <b>BE = E[X] / (1 − P(pay))</b>. "
-        "Fee at margin m: <b>F<sub>m</sub> = BE / (1 − m)</b>. "
-        "20% / 40% / 60% are the print / target / fat fees. Rec is the shopper price; "
-        "it is not forced up to those columns.",
+        "Same-difficulty Instant (D 84–94): Blue Guardian, Instant Funding, Goat, Hola, "
+        "FP Zero, FXIFY Lite, Alpha. They charge <b>$274–$839</b> at $100k. Our first-payout "
+        "book put Verodus Instant E[X] at <b>$875</b> and the 20% fee at <b>$1,094</b> — "
+        "above every peer — and painted those peers at −30% to −95%. "
+        "A market that keeps selling Instant at Goat / BG / IF prices is not all insolvent. "
+        "The industry report already said <b>year-1 (7.2% of buyers) prices Instant</b>, "
+        "not first-payout eligibility (22%). First-payout 22% is “hit 5 valid days”; "
+        "most of those accounts die in month 1 (PropScorer 41% of funded). "
+        "Sustained Instant is 4–6% (Track360) — this book’s year-1 is 7.2%. "
+        "<b>Instant E[cost] = E[X]<sub>first</sub> × (P<sub>yr1</sub> / P<sub>pay</sub>)</b>. "
+        "Evals stay on first-payout + refund (those margins already matched the shelf).",
+        s["body"],
+    ))
+
+    # Peer Instant $100k: first-payout m vs year-1 m
+    inst = skus[(skus.Family == "instant") & (skus.Size == 100000)].copy()
+    pheads = ["Firm", "Plan", "D", "Sale", "P(pay)", "Year-1",
+              "E[X] first", "m first", "E[X] yr1", "m yr1"]
+    pdata = [[P(h, s["th"]) for h in pheads]]
+    pspecial = {}
+    inst = inst.sort_values("Sale")
+    for i, r in enumerate(inst.itertuples(), start=1):
+        pr = pricing_for(r)
+        m_first = (float(r.Sale) - pr["e_first"]) / float(r.Sale) if r.Sale else None
+        m_y1 = (float(r.Sale) - pr["e_used"]) / float(r.Sale) if r.Sale else None
+        if r.Firm == "Verodus":
+            pspecial[i] = "live"
+        pdata.append([
+            P(str(r.Firm), s["tdl"]),
+            P(str(r.Plan), s["tdl"]),
+            P(f"{float(r.D):.1f}", s["td"]),
+            P(usd(r.Sale), s["td"]),
+            P(f"{100 * float(r.P_pay):.1f}%", s["td"]),
+            P(f"{100 * float(r.P_yr1):.1f}%", s["td"]),
+            P(usd(pr["e_first"]), s["td"]),
+            P(f"{100 * m_first:+.0f}%", s["td"]),
+            P(usd(pr["e_used"]), s["td"]),
+            P(f"{100 * m_y1:+.0f}%", s["td"]),
+        ])
+    # Verodus rec row
+    vr = inst[inst.Firm == "Verodus"].iloc[0]
+    pr = pricing_for(vr)
+    rec = REC[("Instant", 100000)]
+    m_y1 = (rec - pr["e_used"]) / rec
+    m_first = (rec - pr["e_first"]) / rec
+    pdata.append([
+        P("Verodus rec", s["tdl"]),
+        P("Instant", s["tdl"]),
+        P(f"{float(vr.D):.1f}", s["td"]),
+        P(usd(rec), s["td"]),
+        P(f"{100 * float(vr.P_pay):.1f}%", s["td"]),
+        P(f"{100 * float(vr.P_yr1):.1f}%", s["td"]),
+        P(usd(pr["e_first"]), s["td"]),
+        P(f"{100 * m_first:+.0f}%", s["td"]),
+        P(usd(pr["e_used"]), s["td"]),
+        P(f"{100 * m_y1:+.0f}%", s["td"]),
+    ])
+    pspecial[len(pdata) - 1] = "rec"
+    story.append(grid(pdata, [
+        32*mm, 28*mm, 14*mm, 18*mm, 16*mm, 16*mm, 22*mm, 18*mm, 20*mm, 16*mm,
+    ], pspecial))
+    story.append(Spacer(1, 2*mm))
+    story.append(P(
+        "Blue = live Verodus. Green = rec. On year-1, BG $467 is +38%, Goat $559 is +55%, "
+        "IF $639 is +57%, Hola $839 is +60%, rec $499 is +43%. First-payout column is the "
+        "old (wrong) Instant basis.",
+        s["body"],
+    ))
+
+    story.append(P("3. Rec vs BE / 20% / 40% / 60% (Instant = year-1)", s["h1"]))
+    story.append(P(
+        "Instant: <b>BE = E[X]<sub>first</sub> × (P<sub>yr1</sub> / P<sub>pay</sub>)</b>, no refund. "
+        "Evals: first-payout E[X] and refund ⇒ <b>BE = E[X] / (1 − P(pay))</b>. "
+        "F<sub>m</sub> = BE / (1 − m). Rec is the shopper price.",
         s["body"],
     ))
     heads = ["Plan", "Size", "Rec", "Rec m", "E[X]", "BE", "20%", "40%", "60%",
@@ -369,11 +480,12 @@ def build():
                 continue
             r = live.iloc[0]
             rec = REC[(plan, sz)]
-            cost = float(r.E_cost)
+            pr = pricing_for(r)
+            cost = pr["e_used"] if plan == "Instant" else float(r.E_cost)
             rec_m = (rec - cost) / rec if rec else None
             med = med_map.get((plan, sz))
             i += 1
-            if rec < float(r.BE) - 0.5:
+            if rec < pr["be"] - 0.5:
                 special[i] = "rec"
             elif abs(rec - float(r.Sale)) < 0.5:
                 special[i] = "live"
@@ -382,28 +494,29 @@ def build():
                 P(usd(sz), s["td"]),
                 P(usd(rec), s["td"]),
                 P(margin(rec, cost), s["td"]),
-                P(usd(r.E_payout), s["td"]),
-                P(usd(r.BE), s["td"]),
-                P(usd(r.px_20), s["td"]),
-                P(usd(r.px_40), s["td"]),
-                P(usd(r.px_60), s["td"]),
+                P(usd(pr["e_used"]), s["td"]),
+                P(usd(pr["be"]), s["td"]),
+                P(usd(pr["px_20"]), s["td"]),
+                P(usd(pr["px_40"]), s["td"]),
+                P(usd(pr["px_60"]), s["td"]),
                 P(usd(r.Sale), s["td"]),
                 P(usd(med), s["td"]),
             ])
             rows_out.append({
-                "Plan": plan, "Size": sz,
+                "Plan": plan, "Size": sz, "Basis": pr["basis"],
                 "Rec_sale": rec, "Rec_list": round(rec / 0.65),
-                "Rec_m": rec_m, "E_payout": float(r.E_payout),
-                "E_cost": cost, "P_pay": float(r.P_pay),
-                "BE": float(r.BE), "px_20": float(r.px_20),
-                "px_40": float(r.px_40), "px_60": float(r.px_60),
-                "Live_sale": float(r.Sale), "Live_m": float(r.sale_m),
+                "Rec_m": rec_m, "E_payout": pr["e_used"],
+                "E_first": pr["e_first"], "E_cost": cost,
+                "P_pay": pr["p_pay"], "P_yr1": pr["p_yr1"],
+                "BE": pr["be"], "px_20": pr["px_20"],
+                "px_40": pr["px_40"], "px_60": pr["px_60"],
+                "Live_sale": float(r.Sale), "Live_m": (float(r.Sale) - cost) / float(r.Sale),
                 "Family_median": med,
                 "vs_median": vs_pct(rec, med) if med else None,
-                "vs_BE": vs_pct(rec, float(r.BE)),
-                "vs_20": vs_pct(rec, float(r.px_20)),
-                "vs_40": vs_pct(rec, float(r.px_40)),
-                "vs_60": vs_pct(rec, float(r.px_60)),
+                "vs_BE": vs_pct(rec, pr["be"]),
+                "vs_20": vs_pct(rec, pr["px_20"]),
+                "vs_40": vs_pct(rec, pr["px_40"]),
+                "vs_60": vs_pct(rec, pr["px_60"]),
             })
     story.append(grid(data, [
         26*mm, 18*mm, 18*mm, 16*mm, 18*mm, 18*mm, 18*mm, 18*mm, 18*mm, 18*mm, 20*mm,
@@ -412,11 +525,12 @@ def build():
     story.append(P(
         "Green = rec is below BE (a hole). Blue = rec equals live and is above BE. "
         "1-Step / Lite / Pro rec sits between the 40% and 60% columns — attractive and "
-        "still fat. Instant $5k / $10k sit near 20–40%. Instant $25k+ is under BE.",
+        "still fat. Instant rec is now above year-1 BE at every size (near the 40% column "
+        "at $100k). Green would mean below BE — Instant should not be green on this basis.",
         s["body"],
     ))
 
-    for n, (plan, family) in enumerate(ANCHORS, start=3):
+    for n, (plan, family) in enumerate(ANCHORS, start=4):
         peers = family_peers(skus, family)
         products = peers.drop_duplicates("Product").copy()
         # Sort by $100k street (what a shopper sorts by); missing $100k last.
@@ -454,7 +568,7 @@ def build():
         ], special))
         story.append(Spacer(1, 2*mm))
 
-    story.append(P("7. Rec vs BE / 20 / 40 / 60 (±%) and list", s["h1"]))
+    story.append(P("8. Rec vs BE / 20 / 40 / 60 (±%) and list", s["h1"]))
     story.append(P(
         "±% is (rec − column) / column. Negative = rec is cheaper than that fee. "
         "List = rec ÷ 0.65 so VERO35 still lands on the card.",
@@ -486,7 +600,7 @@ def build():
     ], special))
     story.append(Spacer(1, 2.5*mm))
 
-    story.append(P("8. Rec vs family low / median / average / high", s["h1"]))
+    story.append(P("9. Rec vs family low / median / average / high", s["h1"]))
     story.append(P(
         "% is (rec − stat) / stat. Negative = cheaper than that mark. "
         "Family = every Instant, every 1-step, or every 2-step — the page a customer opens. "
