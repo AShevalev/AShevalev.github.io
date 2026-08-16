@@ -23,5 +23,6 @@ PYTHONPATH=sim python sim/run.py --n-sims 4000
 | `write_price_rec_pdf.py` | Attractive VERO35 card vs family street → `results/Verodus_Recommended_Prices_2026-08-16.pdf` |
 | `write_complete_report.py` | One operator report (P(pay) audit + BE $ + margins) → `results/Verodus_Complete_Report_2026-08-16.pdf` |
 | `write_confirmed_book.py` | Confirmed summary + all rank / industry / rec tables → `results/Verodus_Confirmed_Book_2026-08-16.pdf` |
+| `write_challenge_catalog.py` | Shopper catalog (rec sale + list, Lite funded 8%) → `results/Verodus_Challenge_Catalog_2026-08-16.pdf` |
 | `verodus_mc.py` | Verodus-only engine (FAQ rules) |
 | `run.py` | Verodus-only runner |
