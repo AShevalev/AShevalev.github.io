@@ -145,6 +145,10 @@ def styles():
             "td", parent=base["Normal"], fontName="Times-Roman",
             fontSize=6.6, leading=8.2, alignment=TA_CENTER,
         ),
+        "td2": ParagraphStyle(
+            "td2", parent=base["Normal"], fontName="Times-Roman",
+            fontSize=6.6, leading=8.4, alignment=TA_CENTER,
+        ),
         "tdl": ParagraphStyle(
             "tdl", parent=base["Normal"], fontName="Times-Roman",
             fontSize=6.6, leading=8.2, alignment=TA_LEFT,
@@ -173,7 +177,7 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "BE stated per account. Instant = year-1. Columns 10/20/30 (not 40/60). Evals = first-payout + refund.",
+        "BE stated per account as $. Instant = year-1. Columns 10/20/30. Evals = first-payout + refund.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -193,8 +197,8 @@ def grid(data, col_w, special=None):
         ("ALIGN", (0, 0), (-1, -1), "CENTER"),
         ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
         ("GRID", (0, 0), (-1, -1), 0.25, GRID),
-        ("TOPPADDING", (0, 0), (-1, -1), 1.8),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.8),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.0),
         ("LEFTPADDING", (0, 0), (-1, -1), 1.6),
         ("RIGHTPADDING", (0, 0), (-1, -1), 1.6),
     ]
@@ -229,6 +233,24 @@ def e_cost(skus, plan, size):
     if row.empty:
         return None
     return float(row.E_cost.iloc[0])
+
+
+def plan_be(skus, plan, size):
+    row = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == size)]
+    if row.empty:
+        return None
+    return pricing_for(row.iloc[0])["be"]
+
+
+def rec_be_cell(rec, be, style):
+    if rec is None:
+        return P("—", style)
+    if be is None:
+        return P(usd(rec), style)
+    return P(
+        f"<b>{usd(rec)}</b><br/><font size='6' color='#475569'>BE {usd(be)}</font>",
+        style,
+    )
 
 
 def y1_payout(e_first, p_pay, p_yr1):
@@ -356,19 +378,14 @@ def build():
 
     story.append(P("1. Recommended Verodus sale (VERO35)", s["h1"]))
     heads = ["Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k",
-             "Live $100k", "Rec m $100k", "Why this number"]
+             "BE $100k", "Live $100k", "Rec m"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
-    why_short = {
-        "Instant": "Year-1 20% print, under BG / Goat / IF.",
-        "1-Step": "Keep live — cheapest 1-step. Rec m is leftover, not a 60% target.",
-        "2-Step Lite": "Keep live — cheapest 2-step. Rec m is leftover, not a target.",
-        "2-Step Pro": "Keep live — #2 after Maven. Rec m is leftover, not a target.",
-    }
     for i, (plan, _fam) in enumerate(ANCHORS, start=1):
         live100 = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == 100000)]
         live_s = float(live100.Sale.iloc[0]) if not live100.empty else None
         rec100 = REC.get((plan, 100000))
+        be100 = plan_be(skus, plan, 100000)
         live100_r = live100.iloc[0] if not live100.empty else None
         if live100_r is not None and plan == "Instant":
             cost100 = pricing_for(live100_r)["e_used"]
@@ -376,22 +393,52 @@ def build():
             cost100 = e_cost(skus, plan, 100000)
         cells = [P(plan, s["tdl"])]
         for sz in SIZES:
-            cells.append(P(usd(REC.get((plan, sz))), s["td"]))
+            cells.append(rec_be_cell(REC.get((plan, sz)), plan_be(skus, plan, sz), s["td2"]))
+        cells.append(P(usd(be100), s["td"]))
         cells.append(P(usd(live_s), s["td"]))
         cells.append(P(margin(rec100, cost100), s["td"]))
-        cells.append(P(why_short[plan], s["tdl"]))
         data.append(cells)
         special[i] = "rec"
     story.append(grid(data, [
-        26*mm, 20*mm, 20*mm, 20*mm, 20*mm, 22*mm, 22*mm, 24*mm, 24*mm, 52*mm,
+        28*mm, 24*mm, 24*mm, 24*mm, 24*mm, 26*mm, 26*mm, 24*mm, 24*mm, 20*mm,
     ], special))
     story.append(Spacer(1, 2*mm))
     story.append(P(
-        "Green = recommended sale. Instant is cut to the year-1 20% print. Evals are "
-        "unchanged. Instant $100k rec $359 is +21% on year-1 BE $284 "
+        "Green = recommended sale. Each size shows <b>rec $</b> and <b>BE $</b>. "
+        "Instant is cut to the year-1 20% print. Evals are unchanged. "
+        "Instant $100k rec $359 on year-1 BE $284 "
         "(10% = $316, 20% = $355, 30% = $406). Eval Rec m of +33% to +59% is live "
         "VERO35 leftover — not a 40/60 target.",
         s["body"],
+    ))
+
+    story.append(P("1b. Break-even fee ($)", s["h1"]))
+    story.append(P(
+        "Same sizes as the rec card. Instant = year-1, no refund. "
+        "Evals = first-payout + fee refund.",
+        s["body"],
+    ))
+    be_heads = ["Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k", "Basis"]
+    be_card = [[P(h, s["th"]) for h in be_heads]]
+    be_spec = {}
+    for i, (plan, _fam) in enumerate(ANCHORS, start=1):
+        cells = [P(plan, s["tdl"])]
+        for sz in SIZES:
+            if (plan, sz) not in REC:
+                cells.append(P("—", s["td"]))
+            else:
+                cells.append(P(usd(plan_be(skus, plan, sz)), s["td"]))
+        cells.append(P("year-1" if plan == "Instant" else "first + refund", s["td"]))
+        be_card.append(cells)
+        be_spec[i] = "rec" if plan == "Instant" else "live"
+    story.append(grid(be_card, [
+        28*mm, 28*mm, 28*mm, 28*mm, 28*mm, 30*mm, 30*mm, 32*mm,
+    ], be_spec))
+    story.append(Spacer(1, 2*mm))
+    story.append(P(
+        "Instant $100k BE is <b>$284</b>. 1-Step $119 · Lite $152 · Pro $151. "
+        "Then × size/100k.",
+        s["tiny"],
     ))
 
     # ----- BE for every account -----
@@ -402,7 +449,7 @@ def build():
         s["body"],
     ))
     bheads = ["Plan", "Size", "Basis", "E[X] used", "P(pay)", "Year-1",
-              "BE", "10%", "20%", "30%", "Live", "Rec"]
+              "BE $", "10%", "20%", "30%", "Live", "Rec"]
     bdata = [[P(h, s["th"]) for h in bheads]]
     bspec = {}
     bi = 0
@@ -525,7 +572,7 @@ def build():
         "F<sub>m</sub> = BE / (1 − m). Rec is the shopper price.",
         s["body"],
     ))
-    heads = ["Plan", "Size", "Rec", "Rec m", "E[X]", "BE", "10%", "20%", "30%",
+    heads = ["Plan", "Size", "Rec", "Rec m", "E[X]", "BE $", "10%", "20%", "30%",
              "Live", "Median"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
@@ -632,11 +679,12 @@ def build():
 
     story.append(P("9. Rec vs BE / 10 / 20 / 30 (±%) and list", s["h1"]))
     story.append(P(
-        "±% is (rec − column) / column. Negative = rec is cheaper than that fee. "
+        "BE is the dollar fee, then (rec − BE) / BE. Other ±% columns are "
+        "(rec − column) / column. Negative = rec is cheaper than that fee. "
         "List = rec ÷ 0.65 so VERO35 still lands on the card.",
         s["body"],
     ))
-    heads = ["Plan", "Size", "Rec", "List", "vs BE", "vs 10%", "vs 20%", "vs 30%",
+    heads = ["Plan", "Size", "Rec", "List", "BE $ (±%)", "vs 10%", "vs 20%", "vs 30%",
              "vs live", "vs median"]
     data = [[P(h, s["th"]) for h in heads]]
     special = {}
@@ -650,7 +698,7 @@ def build():
             P(usd(rec_row["Size"]), s["td"]),
             P(usd(rec_row["Rec_sale"]), s["td"]),
             P(usd(rec_row["Rec_list"]), s["td"]),
-            P(vs_s(rec_row["Rec_sale"], rec_row["BE"]), s["td"]),
+            P(f"{usd(rec_row['BE'])} ({vs_s(rec_row['Rec_sale'], rec_row['BE'])})", s["td"]),
             P(vs_s(rec_row["Rec_sale"], rec_row["px_10"]), s["td"]),
             P(vs_s(rec_row["Rec_sale"], rec_row["px_20"]), s["td"]),
             P(vs_s(rec_row["Rec_sale"], rec_row["px_30"]), s["td"]),
@@ -658,7 +706,7 @@ def build():
             P(vs_s(rec_row["Rec_sale"], rec_row["Family_median"]), s["td"]),
         ])
     story.append(grid(data, [
-        26*mm, 18*mm, 18*mm, 18*mm, 20*mm, 20*mm, 20*mm, 20*mm, 20*mm, 22*mm,
+        24*mm, 16*mm, 16*mm, 16*mm, 28*mm, 18*mm, 18*mm, 18*mm, 18*mm, 20*mm,
     ], special))
     story.append(Spacer(1, 2.5*mm))
 
