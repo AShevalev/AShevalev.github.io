@@ -140,7 +140,7 @@ def build_rules():
     ))
     story.append(P(
         "Shared: unlimited time · 30-day inactivity · $100 minimum reward on every cycle · "
-        "default Bi-Weekly 80% every 14 calendar days. Weekly, On Demand, and 90% are paid add-ons.",
+        "default Bi-Weekly 80% every 14 calendar days. Weekly 70% (+$27) and On Demand 90% (20% of list) are paid add-ons.",
         s["tiny"],
     ))
     write_pdf(
@@ -196,23 +196,21 @@ def build_prices():
     menu = (
         ("News trading", "permitted", "permitted"),
         ("Weekend holding", "15%", "15%"),
-        ("Weekly 80%", "10%", "10%"),
-        ("On Demand 80%", "18%", "15%"),
-        ("90% split", "18%", "15%"),
-        ("90% On Demand (both)", "35%", "25%"),
+        ("Weekly Rewards with 70% Reward Split", "+$27", "+$27"),
+        ("On Demand Rewards with 90% Split", "20%", "20%"),
         ("Swing", "not offered", "not offered"),
     )
     pspec = {}
     for i, row in enumerate(menu, start=1):
-        pspec[i] = "rec" if row[0].startswith("90% On Demand") else (
+        pspec[i] = "rec" if "Weekly" in row[0] or "On Demand" in row[0] else (
             "live" if row[0] in ("News trading", "Swing") else None
         )
         pdata.append([P(c, s["tdl"] if j == 0 else s["td"]) for j, c in enumerate(row)])
-    story.append(grid(pdata, [70 * mm, 50 * mm, 50 * mm], pspec))
+    story.append(grid(pdata, [90 * mm, 45 * mm, 45 * mm], pspec))
     story.append(Spacer(1, 4 * mm))
 
     story.append(P("Stickers per challenge (before VERO35)", s["h1"]))
-    heads = ["Plan", "Size", "List", "Weekend", "Weekly", "OD 80%", "90%", "90% OD"]
+    heads = ["Plan", "Size", "List", "Weekend", "Weekly 70%", "On Demand 90%"]
     data = [[P(h, s["th"]) for h in heads]]
     spec = {}
     for i, r in enumerate(rows, start=1):
@@ -223,17 +221,15 @@ def build_prices():
             P(usd(r["List"]), s["td"]),
             P(usd(r["weekend"]), s["td"]),
             P(usd(r["weekly"]), s["td"]),
-            P(usd(r["od80"]), s["td"]),
-            P(usd(r["split90"]), s["td"]),
             P(usd(r["od90"]), s["td"]),
         ])
     story.append(grid(data, [
-        38 * mm, 18 * mm, 22 * mm, 26 * mm, 24 * mm, 24 * mm, 22 * mm, 24 * mm,
+        48 * mm, 22 * mm, 28 * mm, 32 * mm, 34 * mm, 38 * mm,
     ], spec))
     story.append(Spacer(1, 3 * mm))
     story.append(P(
-        "Weekly cannot mix with On Demand or 90%. On Demand + 90% bills as 90% On Demand, "
-        "not 18+18 or 15+15. Shopper pays 65% of each sticker after VERO35.",
+        "Default is Bi-Weekly 80%. Weekly is +$27 on every size. On Demand 90% is 20% of list. "
+        "Weekly and On Demand may stack. Shopper pays 65% of each sticker after VERO35.",
         s["tiny"],
     ))
     write_pdf(

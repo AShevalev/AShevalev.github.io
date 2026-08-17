@@ -2,11 +2,8 @@
   /* Rec Instant: no $200k. Valid day = closed PnL ≥ 0.5% of SOD equity.
      6% trail never locks. 3% daily from the day's equity high. No fee refund.
      Lite funded max DD stays 8% (already in live pricingData).
-     Weekly cycle is 80% (same split as Bi-Weekly), not live's 70% decoy.
-     Five legal cards: 80% On Demand / Weekly / Bi-Weekly, 90% On Demand /
-     Bi-Weekly. 90% Weekly is not offered. On Demand still has to clear
-     Instant 5 valid days / eval 3 trading days.
-     News is included on every plan (eval and funded). Not an add-on. */
+     Weekly 70% is a paid add-on at +$27. On Demand is 90% at 20% of list.
+     Default is Bi-Weekly 80%. News is included on every plan. */
   if (typeof pricingData === 'undefined') return;
 
   delete pricingData.instant['200000'];
@@ -151,7 +148,7 @@
 
   function applyRewardCycles() {
     document.querySelectorAll('[data-i18n="content.p6"]').forEach(function (p) {
-      p.textContent = 'Possible combinations. Weekly cannot be combined with On Demand or 90%.';
+      p.textContent = 'Default reward is Bi-Weekly 80%. Weekly 70% and On Demand 90% are paid add-ons.';
     });
     document.querySelectorAll('[data-i18n="content.p7"]').forEach(function (p) {
       p.textContent = 'All reward request intervals are based on calendar days, not trading days. On Demand still has to meet the plan trading-day rule before the first request.';

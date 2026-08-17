@@ -3,9 +3,10 @@
 
 Loads styles, images, nav, footer, and markup from www.verodus.com via
 <base href>. Rec Instant (no $200k, 5 valid days at +0.5% SOD, 6% trail
-never locks) is injected locally. The five legal reward combinations are
-the reward-cycle cards. 90% Weekly is not offered. On Demand still has
-to meet Instant 5 valid days / eval 3 trading days.
+never locks) is injected locally. Reward-cycle cards match live: Weekly 70%,
+Bi-Weekly 80% (featured), On Demand 90% (min $100). Default is Bi-Weekly 80%.
+Weekly 70% and On Demand 90% are paid add-ons. On Demand still has to meet
+Instant 5 valid days / eval 3 trading days. News is permitted (not an add-on).
 """
 from __future__ import annotations
 
@@ -20,17 +21,8 @@ LIVE_URL = "https://www.verodus.com/trading-objectives.html"
 
 REWARD_CYCLE_GRID = """<div class="reward-cycle-grid">
                 <div class="reward-cycle-card">
-                    <div class="rc-period" data-i18n="content.rcOnDemand">On Demand</div>
-                    <div class="rc-pct">80%</div>
-                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
-                    <div class="rc-details">
-                        <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime</span></div>
-                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
-                    </div>
-                </div>
-                <div class="reward-cycle-card">
                     <div class="rc-period" data-i18n="content.rcWeekly">Weekly</div>
-                    <div class="rc-pct">80%</div>
+                    <div class="rc-pct">70%</div>
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span17">7 days</span></div>
@@ -55,15 +47,6 @@ REWARD_CYCLE_GRID = """<div class="reward-cycle-grid">
                         <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
                     </div>
                 </div>
-                <div class="reward-cycle-card">
-                    <div class="rc-period" data-i18n="content.rcBiWeekly">Bi-Weekly</div>
-                    <div class="rc-pct">90%</div>
-                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
-                    <div class="rc-details">
-                        <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span19">14 days</span></div>
-                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
-                    </div>
-                </div>
             </div>
 """
 
@@ -71,17 +54,13 @@ RC_CENTER_CSS = """
     <style id="rec-reward-cycle-css">
       .reward-cycle-grid {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.2rem;
         max-width: 1100px;
         margin: 0 auto;
       }
-      .reward-cycle-grid > .reward-cycle-card { grid-column: span 2; }
-      .reward-cycle-grid > .reward-cycle-card:nth-child(4) { grid-column: 2 / span 2; }
-      .reward-cycle-grid > .reward-cycle-card:nth-child(5) { grid-column: 4 / span 2; }
       @media (max-width: 760px) {
         .reward-cycle-grid { grid-template-columns: 1fr; }
-        .reward-cycle-grid > .reward-cycle-card { grid-column: auto; }
       }
       #refundHighlightCard[hidden] { display: none !important; }
       .reward-highlight-grid.rh-no-refund {
@@ -162,7 +141,7 @@ def stitch(html: str, rec: str) -> str:
     )
     html = re.sub(
         r'(data-i18n="content.p6">)[^<]*',
-        r'\1Possible combinations. Weekly cannot be combined with On Demand or 90%.',
+        r'\1Default reward is Bi-Weekly 80%. Weekly 70% and On Demand 90% are paid add-ons.',
         html,
         count=1,
     )

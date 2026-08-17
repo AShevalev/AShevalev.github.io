@@ -368,17 +368,13 @@
     <style id="rec-reward-cycle-css">
       .reward-cycle-grid {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.2rem;
         max-width: 1100px;
         margin: 0 auto;
       }
-      .reward-cycle-grid > .reward-cycle-card { grid-column: span 2; }
-      .reward-cycle-grid > .reward-cycle-card:nth-child(4) { grid-column: 2 / span 2; }
-      .reward-cycle-grid > .reward-cycle-card:nth-child(5) { grid-column: 4 / span 2; }
       @media (max-width: 760px) {
         .reward-cycle-grid { grid-template-columns: 1fr; }
-        .reward-cycle-grid > .reward-cycle-card { grid-column: auto; }
       }
       #refundHighlightCard[hidden] { display: none !important; }
       .reward-highlight-grid.rh-no-refund {
@@ -635,21 +631,12 @@ Crypto 1:3</div>
     <div class="to-wrap to-section">
             <div style="text-align:center;margin-bottom:2.5rem;">
                 <h2 style="font-weight:700;margin:0 0 0.5rem;" data-i18n="content.h24">Reward Cycles</h2>
-                <p style="opacity:0.7;font-size:0.88rem;" data-i18n="content.p6">Possible combinations. Weekly cannot be combined with On Demand or 90%.</p>
+                <p style="opacity:0.7;font-size:0.88rem;" data-i18n="content.p6">Default reward is Bi-Weekly 80%. Weekly 70% and On Demand 90% are paid add-ons.</p>
             </div>
             <div class="reward-cycle-grid">
                 <div class="reward-cycle-card">
-                    <div class="rc-period" data-i18n="content.rcOnDemand">On Demand</div>
-                    <div class="rc-pct">80%</div>
-                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
-                    <div class="rc-details">
-                        <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime</span></div>
-                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
-                    </div>
-                </div>
-                <div class="reward-cycle-card">
                     <div class="rc-period" data-i18n="content.rcWeekly">Weekly</div>
-                    <div class="rc-pct">80%</div>
+                    <div class="rc-pct">70%</div>
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span17">7 days</span></div>
@@ -671,15 +658,6 @@ Crypto 1:3</div>
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime</span></div>
-                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
-                    </div>
-                </div>
-                <div class="reward-cycle-card">
-                    <div class="rc-period" data-i18n="content.rcBiWeekly">Bi-Weekly</div>
-                    <div class="rc-pct">90%</div>
-                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
-                    <div class="rc-details">
-                        <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span19">14 days</span></div>
                         <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
                     </div>
                 </div>
@@ -1298,11 +1276,8 @@ Crypto 1:3`;
   /* Rec Instant: no $200k. Valid day = closed PnL ≥ 0.5% of SOD equity.
      6% trail never locks. 3% daily from the day's equity high. No fee refund.
      Lite funded max DD stays 8% (already in live pricingData).
-     Weekly cycle is 80% (same split as Bi-Weekly), not live's 70% decoy.
-     Five legal cards: 80% On Demand / Weekly / Bi-Weekly, 90% On Demand /
-     Bi-Weekly. 90% Weekly is not offered. On Demand still has to clear
-     Instant 5 valid days / eval 3 trading days.
-     News is included on every plan (eval and funded). Not an add-on. */
+     Weekly 70% is a paid add-on at +$27. On Demand is 90% at 20% of list.
+     Default is Bi-Weekly 80%. News is included on every plan. */
   if (typeof pricingData === 'undefined') return;
 
   delete pricingData.instant['200000'];
@@ -1447,7 +1422,7 @@ Crypto 1:3`;
 
   function applyRewardCycles() {
     document.querySelectorAll('[data-i18n="content.p6"]').forEach(function (p) {
-      p.textContent = 'Possible combinations. Weekly cannot be combined with On Demand or 90%.';
+      p.textContent = 'Default reward is Bi-Weekly 80%. Weekly 70% and On Demand 90% are paid add-ons.';
     });
     document.querySelectorAll('[data-i18n="content.p7"]').forEach(function (p) {
       p.textContent = 'All reward request intervals are based on calendar days, not trading days. On Demand still has to meet the plan trading-day rule before the first request.';

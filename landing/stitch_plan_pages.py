@@ -22,13 +22,12 @@ PAGES = (
 )
 
 FREQ_ITEMS = """                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly</strong> (Standard, included): 80% to trader, every 14 calendar days</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly</strong> (Add-on): 80% to trader, every 7 calendar days. Cannot be combined with On Demand or 90%</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand</strong> (Add-on): 80% to trader, anytime after first eligibility. Cannot be combined with Weekly</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>90% Bi-Weekly</strong> (Add-on): 90% to trader, every 14 calendar days. Cannot be combined with Weekly</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>90% On Demand</strong> (Both add-ons): 90% to trader, anytime after first eligibility. Cannot be combined with Weekly. 90% Weekly is not offered</span></li>"""
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly Rewards with 70% Reward Split</strong> (Add-on): 70% to trader, every 7 calendar days. Withdraw your profit share weekly</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand Rewards with 90% Split</strong> (Add-on): 90% to trader, anytime after first eligibility</span></li>"""
 
 SPLIT_ITEMS = """                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Default:</strong> 80/20 (trader/firm) on the Bi-Weekly cycle</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>90%:</strong> paid add-on. Bi-Weekly unless On Demand is also selected. Cannot be combined with Weekly</span></li>"""
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly 70%:</strong> paid add-on. Every 7 calendar days</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand 90%:</strong> paid add-on. Anytime after first eligibility. Minimum reward $100</span></li>"""
 
 REWARDS_INSTANT = """                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Minimum Reward:</strong> $100 (processed within 48 hours)</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>First eligibility:</strong> 5 valid trading days. A valid day is a calendar day whose closed-trade PnL is at least 0.5% of that day's start-of-day equity. Unrealized PnL does not count. The 20% Best Day rule still applies.</span></li>
@@ -205,7 +204,6 @@ def patch_instant(html: str) -> str:
 
 
 FORBIDDEN = (
-    "70% to trader",
     "can scale according to performance plan",
     "Scales to 85/15",
     "Scales to 90/10",
@@ -229,9 +227,8 @@ INSTANT_FORBIDDEN = (
 def verify(slug: str, html: str) -> None:
     misses = []
     for needle in (
-        "90% Bi-Weekly",
-        "90% On Demand",
-        "Cannot be combined with Weekly",
+        "Weekly Rewards with 70% Reward Split",
+        "On Demand Rewards with 90% Split",
         "paid add-on",
         "calendar days, not trading days",
     ):

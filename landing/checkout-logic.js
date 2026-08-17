@@ -43,19 +43,10 @@
   var appliedCoupon = { code: 'VERO35', pct: 35 };
   var paymentMethod = 'card';
 
-  /* Weekly 80% XOR On Demand and XOR 90%. Default is Bi-Weekly 80%.
-     On Demand + 90% is the 90% On Demand bundle. 90% Weekly is not offered. */
-  var PAYOUT_UPGRADES = ['on-demand-payout', 'split-90'];
-
-  var BUNDLES = [
-    {
-      name: '90% On Demand',
-      ids: ['on-demand-payout', 'split-90'],
-      chargeId: 'on-demand-payout',
-      pct: function () { return selectedPlan === 'instant' ? 0.35 : 0.25; },
-      summaryLabel: 'On Demand Rewards with 90% Split'
-    }
-  ];
+  /* Default reward is Bi-Weekly 80% (not a toggle). News is included (no SKU).
+     Weekly 70% is a paid add-on at a flat +$27. On Demand is 90% at 20% of list. */
+  var PAYOUT_UPGRADES = [];
+  var BUNDLES = [];
 
   var ADDONS = [
     {
@@ -69,39 +60,22 @@
     },
     {
       id: 'weekly-payout',
-      label: 'Weekly Rewards with 80% Reward Split',
-      pct: 0.10,
-      desc: 'Withdraw your 80% profit share every 7 calendar days',
+      label: 'Weekly Rewards with 70% Reward Split',
+      flat: 27,
+      desc: 'Withdraw your profit share weekly',
       tooltip: function () {
-        var days = minDaysCopy();
-        return 'Weekly Rewards with 80% Split\n\nKeep the same 80% reward share as the default Bi-Weekly cycle, requested every 7 calendar days instead of 14. Minimum reward $100.\n\n'
-          + days + '\n\n'
-          + 'Cannot be combined with On Demand Rewards or the 90% Reward Split.';
+        return 'Weekly Rewards with 70% Reward Split\n\nReceive your 70% reward share every week. Default is Bi-Weekly 80%. Minimum reward $100.\n\n'
+          + minDaysCopy();
       }
     },
     {
       id: 'on-demand-payout',
-      label: 'On Demand Rewards with 80% Split',
-      pct: 0.15,
-      instantPct: 0.18,
-      desc: 'Withdraw your 80% profit share anytime after the plan trading-day rule',
+      label: 'On Demand Rewards with 90% Split',
+      pct: 0.20,
+      desc: 'Withdraw your profit share anytime — no waiting for fixed cycles',
       tooltip: function () {
-        return 'On Demand Rewards with 80% Split\n\nRequest your 80% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.\n\n'
-          + minDaysCopy() + '\n\n'
-          + 'Cannot be combined with Weekly Rewards.';
-      }
-    },
-    {
-      id: 'split-90',
-      label: '90% Reward Split',
-      pct: 0.15,
-      instantPct: 0.18,
-      desc: 'Keep 90% of profits on the default Bi-Weekly schedule',
-      tooltip: function () {
-        return '90% Reward Split\n\nKeep 90% of profits on the default Bi-Weekly cycle (every 14 calendar days). Minimum reward $100.\n\n'
-          + minDaysCopy() + '\n\n'
-          + 'Pair with On Demand Rewards to withdraw that 90% share anytime after the plan trading-day rule.\n\n'
-          + 'Cannot be combined with Weekly Rewards.';
+        return 'On Demand Rewards with 90% Split\n\nRequest your 90% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.\n\n'
+          + minDaysCopy();
       }
     }
   ];
@@ -162,6 +136,7 @@
   }
 
   function addonPrice(a) {
+    if (typeof a.flat === 'number') return a.flat;
     return Math.round(getBasePrice() * addonPct(a));
   }
 
@@ -225,16 +200,8 @@
   }
 
   function applyAddonToggle(id, checked) {
-    if (checked) {
-      activeAddons[id] = true;
-      if (id === 'weekly-payout') {
-        PAYOUT_UPGRADES.forEach(function (x) { delete activeAddons[x]; });
-      } else if (PAYOUT_UPGRADES.indexOf(id) !== -1) {
-        delete activeAddons['weekly-payout'];
-      }
-    } else {
-      delete activeAddons[id];
-    }
+    if (checked) activeAddons[id] = true;
+    else delete activeAddons[id];
   }
 
   function renderAddons() {

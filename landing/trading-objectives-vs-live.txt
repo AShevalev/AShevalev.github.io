@@ -46,23 +46,20 @@ LIVE — 3 cards
   Bi-Weekly 80%  every 14 days     min $100   (featured)
   On Demand 90%  Anytime           min 2% and $200
 
-REC — 5 cards (90% Weekly is not offered)
-  On Demand 80%     Anytime          min $100
-  Weekly 80%        every 7 days     min $100
-  Bi-Weekly 80%     every 14 days    min $100   (featured / default)
-  On Demand 90%     Anytime          min $100
-  Bi-Weekly 90%     every 14 days    min $100
+REC — 3 cards (same layout as live)
+  Weekly 70%     every 7 days      min $100
+  Bi-Weekly 80%  every 14 days     min $100   (featured / default)
+  On Demand 90%  Anytime           min $100
 
-LIVE On Demand min “2% and $200” is gone. Every rec combination is $100.
+LIVE On Demand min “2% and $200” is gone. Rec On Demand min is $100.
 
 
 ------------------------------------------------------------------------
 3. REWARD COPY UNDER THE CARDS
 ------------------------------------------------------------------------
 
-LIVE p6: “Choose the cycle that fits your trading style.”
-REC  p6: “Possible combinations. Weekly cannot be combined with On Demand or 90%.”
-
+LIVE p6: (none / combo wrap on live)
+REC  p6: “Default reward is Bi-Weekly 80%. Weekly 70% and On Demand 90% are paid add-ons.”
 LIVE p7: “All reward request intervals are based on calendar days, not trading days. Add-on required for 70% Reward Split. Performance scaling required for 90% Reward Split.”
 REC  p7: “All reward request intervals are based on calendar days, not trading days. On Demand still has to meet the plan trading-day rule before the first request.”
 
@@ -109,7 +106,7 @@ REC also deletes pricingData.instant['200000'] and hides that button. Same outco
 
 Weglot scripts stripped.
 <base href="https://www.verodus.com/"> so images/CSS/nav still load from live.
-Extra CSS: five-card reward grid (3 on the first row, 2 centered on the second) and Instant refund-card hide.
+Extra CSS: three-column reward grid (like live) and Instant refund-card hide.
 Rec overlay script: landing/to-rec.js (injected before </body>).
 
 
@@ -118,8 +115,9 @@ Rec overlay script: landing/to-rec.js (injected before </body>).
 ------------------------------------------------------------------------
 
 News: Allowed on eval and funded. Copy: “News trading is permitted.” Drop the ±2-minute window and News add-on.
-Reward cards: the five legal combinations, Weekly 80%, min $100, no 90% Weekly, no On Demand 2%/$200.
-p6 XOR. p7 On Demand still needs plan min days.
+Reward cards: Weekly 70% · Bi-Weekly 80% (featured) · On Demand 90%, min $100, no On Demand 2%/$200.
+p6: default is Bi-Weekly 80%; Weekly 70% and On Demand 90% are paid add-ons.
+p7: On Demand still needs plan min days.
 Payouts line: Instant 5 valid days (0.5% SOD); evals 3 trading days.
 Hide Instant fee-refund card.
 Instant Valid Days modal and “never locks” trail copy.

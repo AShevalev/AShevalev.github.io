@@ -66,16 +66,13 @@ LIVE (4 SKUs, same % on every plan):
   No separate 90% Bi-Weekly SKU. On Demand IS the 90% product.
   On Demand min reward: 2% of balance AND $200.
 
-REC (4 SKUs, Instant % can differ). News and Swing are gone:
-  Weekend Holding                      15% Instant / 15% evals
-  Weekly Rewards with 80% Split        10% Instant / 10% evals
-  On Demand Rewards with 80% Split     18% Instant / 15% evals
-  90% Reward Split                     18% Instant / 15% evals
-  90% On Demand (both toggles on)      35% Instant / 25% evals
-      billed as one bundle, not 18+18 or 15+15.
+REC (3 SKUs). News and Swing are gone:
+  Weekend Holding                              15% of list
+  Weekly Rewards with 70% Reward Split         +$27 flat (every size)
+  On Demand Rewards with 90% Split             20% of list
+  Weekly and On Demand can be selected together (same as live).
+  No separate 90% Bi-Weekly SKU. On Demand IS the 90% product.
 
-XOR: Weekly cannot mix with On Demand or with 90%.
-90% Weekly is not offered.
 Default cycle is Bi-Weekly 80% (not a toggle).
 Min reward $100 on every combination (no 2% / $200 On Demand floor).
 News trading is included in the challenge fee (no SKU).
@@ -97,8 +94,10 @@ LIVE:
 REC:
   No News tooltip (SKU removed).
   Weekend: same Friday 22:00 copy. Does NOT say “news is included”.
-  Weekly / On Demand / 90%: Instant says “Payouts after 5 valid trading days (0.5% vs start-of-day equity).”
+  Weekly 70% / On Demand 90%: Instant says “Payouts after 5 valid trading days (0.5% vs start-of-day equity).”
   Evals say “First request after 3 funded trading days.”
+  Weekly row copy: “Withdraw your profit share weekly”
+  On Demand row copy: “Withdraw your profit share anytime — no waiting for fixed cycles”
   Full per-plan copy: landing/checkout-addon-tooltips.txt
 
 Modal foot
@@ -175,6 +174,6 @@ REC checkout:
 ------------------------------------------------------------------------
 
 Do not paste the mock purchase handler.
-Paste: PRICING, ADDONS, BUNDLES, XOR, quantity 1–4, refund copy, VERO35 on list+stickers, tooltips from checkout-addon-tooltips.txt.
+Paste: PRICING, ADDONS (Weekend 15%, Weekly 70% +$27, On Demand 90% at 20%), quantity 1–4, refund copy, VERO35 on list+stickers, tooltips from checkout-addon-tooltips.txt.
 Keep live’s /api/validate-coupon and real purchase.
-News SKU stays off. Instant $200k stays off.
+News SKU stays off. Instant $200k stays off. Weekly and On Demand may stack.
