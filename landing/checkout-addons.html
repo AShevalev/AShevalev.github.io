@@ -11,8 +11,9 @@
   2. Replace var ADDONS = [...] with the ADDONS block in the script.
   3. Replace addonPrice, renderAddons, getAddonsTotal, the summary addon
      loop in updateSummary, and the addon price in gaItemsForSelection
-     with the helpers below (addonPct / addonPrice / addonPriceTag /
-     applyAddonToggle).
+     with the helpers below (BUNDLES / addonPct / addonPrice / addonPriceTag /
+     applyAddonToggle). Weekly XOR both payout upgrades; news+weekend and
+     on-demand+90% are bundles (second row Incl.).
 
   Do not restyle. Existing .co-addon* / .co-toggle / #coAddonModal rules apply.
 -->
@@ -176,7 +177,7 @@
 <body>
 <div class="checkout-page">
   <h1>Add-Ons</h1>
-  <p class="co-note">Same checkout classes and toggles. News 12% · Weekend 12% · both = Swing 20% · Weekly 6% (70% split) · On-demand 20% / Instant 32% (90% split). Weekly and On-demand cannot both be on. VERO35 is 35% off list + add-on stickers.</p>
+  <p class="co-note">Same checkout classes. News + weekend = Swing 20%. On-demand 80% and 90% split are separate — both on bills the 90% On-Demand bundle (evals 20%, Instant 32%), not the two stickers added. Weekly 70% cannot mix with either payout upgrade. VERO35 is 35% off list + stickers. Do not copy Blue Guardian Instant’s 15% for 90% while on-demand is free — Verodus Instant default is biweekly, and year-1 90% + anytime does not clear at 15%.</p>
   <div class="checkout-container">
     <div class="checkout-form-col">
       <div class="co-section">
@@ -269,10 +270,30 @@
   var COMPETITION = null;
   var DISCOUNT_CAP_PCT = 35;
 
-  var PAYOUT_XOR = {
-    'weekly-payout': 'on-demand-payout',
-    'on-demand-payout': 'weekly-payout'
-  };
+  /* Weekly 70% cannot mix with on-demand 80% or 90% split. Those two may both
+     be on — that is the 90% On-Demand bundle. */
+  var PAYOUT_UPGRADES = ['on-demand-payout', 'split-90'];
+
+  /* Bundles: when every id is on, charge bundle pct on chargeId; others Incl.
+     Instant 90%+anytime stays 32% (year-1 leftover). Do not copy BG Instant
+     15% for 90% with on-demand included — BG Instant $100k is a hole.
+     BG evals: 90% +15%, 7-day +15%, both +25%. Verodus evals undercut that. */
+  var BUNDLES = [
+    {
+      name: 'Swing',
+      ids: ['news-trading', 'weekend-holding'],
+      chargeId: 'news-trading',
+      pct: 0.20,
+      summaryLabel: 'News Trading'
+    },
+    {
+      name: '90% On Demand',
+      ids: ['on-demand-payout', 'split-90'],
+      chargeId: 'on-demand-payout',
+      pct: function () { return selectedPlan === 'instant' ? 0.32 : 0.20; },
+      summaryLabel: 'On Demand Rewards with 90% Split'
+    }
+  ];
 
   /* ═══ PASTE: replace live ADDONS ═══ */
   var ADDONS = [
@@ -282,7 +303,7 @@
       pct: 0.12,
       desc: 'Trade NFP, FOMC, CPI, earnings and geopolitical events with zero restrictions',
       tooltip: function () {
-        var swing = swingSelected()
+        var swing = bundleOnName('Swing')
           ? 'You also have Weekend Holding on — both are billed as Swing at 20% of the challenge list price, not 12% + 12%.'
           : 'Pair with Weekend Holding and both are billed as Swing at 20% of the challenge list price — not 12% + 12%.';
         return 'Unlock unrestricted news trading on evaluation and funded accounts. Trade high-impact events like NFP, FOMC, CPI, earnings releases, and geopolitical news with zero restrictions. Perfect for event-driven strategies.\n\n'
@@ -296,7 +317,7 @@
       pct: 0.12,
       desc: 'Hold positions over the weekend with zero restrictions.',
       tooltip: function () {
-        var swing = swingSelected()
+        var swing = bundleOnName('Swing')
           ? 'You also have News Trading on — both are billed as Swing at 20% of the challenge list price, not 12% + 12%.'
           : 'Pair with News Trading and both are billed as Swing at 20% of the challenge list price — not 12% + 12%.';
         return 'Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.\n\n'
@@ -308,18 +329,34 @@
       label: 'Weekly Rewards with 70% Reward Split',
       pct: 0.06,
       desc: 'Withdraw your profit share weekly',
-      tooltip: 'Weekly Rewards with 70% Split\n\nReceive your 70% reward share every week — consistent payouts on a reliable schedule. Get your first payout as early as you meet the funded phase requirements (minimum $100). Enjoy steady weekly cash flow so you can trade with confidence and keep what you earn on a predictable timeline.\n\nCannot be combined with On Demand Rewards.'
+      tooltip: 'Weekly Rewards with 70% Split\n\nReceive your 70% reward share every week — consistent payouts on a reliable schedule. Get your first payout as early as you meet the funded phase requirements (minimum $100). Enjoy steady weekly cash flow so you can trade with confidence and keep what you earn on a predictable timeline.\n\nCannot be combined with On Demand Rewards or the 90% Reward Split.'
     },
     {
       id: 'on-demand-payout',
-      label: 'On Demand Rewards with 90% Split',
-      pct: 0.20,
-      desc: 'Withdraw your profit share anytime — no waiting for fixed cycles',
+      label: 'On Demand Rewards',
+      pct: 0.12,
+      instantPct: 0.15,
+      desc: 'Withdraw your 80% profit share anytime — no waiting for fixed cycles',
       tooltip: function () {
         var pctLine = selectedPlan === 'instant'
-          ? 'On Instant this add-on is 32% of the challenge list price. On 1-Step, Lite, and Pro it is 20%.'
-          : 'This add-on is 20% of the challenge list price. On Instant it is 32%.';
-        return 'Request and receive your 90% reward share anytime — no waiting for fixed cycles. Get your first payout as early as you meet the funded phase requirements (minimum reward 2% and $200). Withdraw whenever you want, as often as you want. Fast, flexible cash flow so you can trade with confidence and keep what you earn on your schedule.\n\n'
+          ? 'On Instant this add-on is 15% of the challenge list price and keeps the 80% split. Pair with 90% Reward Split and both are billed as 90% On Demand at 32% — not 15% + 20%.'
+          : 'This add-on is 12% of the challenge list price and keeps the 80% split. Pair with 90% Reward Split and both are billed as 90% On Demand at 20% of list — not 12% + 12%. On Instant, on-demand alone is 15% and the 90% bundle is 32%.';
+        return 'Request and receive your 80% reward share anytime — no waiting for fixed cycles. Get your first payout as early as you meet the funded phase requirements (minimum $100). Withdraw whenever you want, as often as you want.\n\n'
+          + 'Cannot be combined with Weekly Rewards.\n\n'
+          + pctLine;
+      }
+    },
+    {
+      id: 'split-90',
+      label: '90% Reward Split',
+      pct: 0.12,
+      instantPct: 0.20,
+      desc: 'Keep 90% of profits on the default payout schedule',
+      tooltip: function () {
+        var pctLine = selectedPlan === 'instant'
+          ? 'On Instant this add-on is 20% of the challenge list price and stays on the default biweekly schedule. Pair with On Demand Rewards and both are billed as 90% On Demand at 32% — not 15% + 20%.'
+          : 'This add-on is 12% of the challenge list price and stays on the default biweekly schedule. Pair with On Demand Rewards and both are billed as 90% On Demand at 20% of list — not 12% + 12%. On Instant, 90% alone is 20% and the on-demand bundle is 32%.';
+        return 'Keep 90% of profits on the default payout schedule. Get your first payout as early as you meet the funded phase requirements. Pair with On Demand Rewards to withdraw that 90% share anytime (minimum reward 2% and $200).\n\n'
           + 'Cannot be combined with Weekly Rewards.\n\n'
           + pctLine;
       }
@@ -339,34 +376,70 @@
     return PRICING[selectedPlan].sizes[selectedSize].price;
   }
 
-  function swingSelected() {
-    return !!(activeAddons['news-trading'] && activeAddons['weekend-holding']);
+  function bundlePct(b) {
+    return typeof b.pct === 'function' ? b.pct() : b.pct;
+  }
+
+  function bundleOn(b) {
+    return b.ids.every(function (id) { return !!activeAddons[id]; });
+  }
+
+  function bundleOnName(name) {
+    for (var i = 0; i < BUNDLES.length; i++) {
+      if (BUNDLES[i].name === name && bundleOn(BUNDLES[i])) return true;
+    }
+    return false;
+  }
+
+  function activeBundleFor(id) {
+    for (var i = 0; i < BUNDLES.length; i++) {
+      if (BUNDLES[i].ids.indexOf(id) === -1) continue;
+      if (bundleOn(BUNDLES[i])) return BUNDLES[i];
+    }
+    return null;
+  }
+
+  function soloPct(a) {
+    if (selectedPlan === 'instant' && typeof a.instantPct === 'number') return a.instantPct;
+    return a.pct;
   }
 
   function addonPct(a) {
-    if (a.id === 'news-trading') return swingSelected() ? 0.20 : a.pct;
-    if (a.id === 'weekend-holding') return swingSelected() ? 0 : a.pct;
-    if (a.id === 'on-demand-payout' && selectedPlan === 'instant') return 0.32;
-    return a.pct;
+    var b = activeBundleFor(a.id);
+    if (b) return a.id === b.chargeId ? bundlePct(b) : 0;
+    return soloPct(a);
   }
 
   function addonPrice(a) {
     return Math.round(getBasePrice() * addonPct(a));
   }
 
+  function addonIncluded(a) {
+    var b = activeBundleFor(a.id);
+    return !!(b && a.id !== b.chargeId);
+  }
+
   function addonPriceTag(a) {
     var p = addonPrice(a);
     if (p > 0) return '+$' + p;
-    if (a.id === 'weekend-holding' && swingSelected()) return 'Incl.';
+    if (addonIncluded(a)) return 'Incl.';
     return '+$0';
   }
 
+  function addonLabel(a) {
+    var b = activeBundleFor(a.id);
+    if (b && a.id === b.chargeId && b.summaryLabel) return b.summaryLabel;
+    return a.label;
+  }
+
   function addonDesc(a) {
-    if (a.id === 'news-trading' && swingSelected()) {
-      return 'Billed as Swing with Weekend Holding — 20% of list, not 12% + 12%';
-    }
-    if (a.id === 'weekend-holding' && swingSelected()) {
-      return 'Included in Swing with News Trading';
+    var b = activeBundleFor(a.id);
+    if (b) {
+      var pct = Math.round(bundlePct(b) * 100);
+      if (a.id === b.chargeId) {
+        return 'Billed as ' + b.name + ' — ' + pct + '% of list, not the two stickers added';
+      }
+      return 'Included in ' + b.name;
     }
     return a.desc;
   }
@@ -396,8 +469,11 @@
   function applyAddonToggle(id, checked) {
     if (checked) {
       activeAddons[id] = true;
-      var other = PAYOUT_XOR[id];
-      if (other) delete activeAddons[other];
+      if (id === 'weekly-payout') {
+        PAYOUT_UPGRADES.forEach(function (x) { delete activeAddons[x]; });
+      } else if (PAYOUT_UPGRADES.indexOf(id) !== -1) {
+        delete activeAddons['weekly-payout'];
+      }
     } else {
       delete activeAddons[id];
     }
@@ -411,7 +487,7 @@
       var active = activeAddons[a.id] ? ' active' : '';
       html += '<div class="co-addon' + active + '" data-addon="' + a.id + '">'
         + '<div class="co-addon-info">'
-        + '<span class="co-addon-name">' + a.label + ' <span class="co-addon-price-tag">' + addonPriceTag(a) + '</span></span>'
+        + '<span class="co-addon-name">' + addonLabel(a) + ' <span class="co-addon-price-tag">' + addonPriceTag(a) + '</span></span>'
         + '<div class="co-addon-desc-row">'
         + '<span class="co-addon-desc-text">' + escHtml(addonDesc(a)) + '</span>'
         + '<button type="button" class="co-addon-info-btn" data-addon-id="' + a.id + '">'
@@ -459,7 +535,7 @@
     var addonsHtml = '';
     ADDONS.forEach(function (a) {
       if (!activeAddons[a.id]) return;
-      addonsHtml += '<div class="co-summary-addon-row"><span>' + a.label + '</span><span>' + addonPriceTag(a) + '</span></div>';
+      addonsHtml += '<div class="co-summary-addon-row"><span>' + addonLabel(a) + '</span><span>' + addonPriceTag(a) + '</span></div>';
     });
     $('#sumAddonsWrap').innerHTML = addonsHtml;
 
@@ -478,7 +554,7 @@
       if (price <= 0) return;
       items.push({
         item_id: 'addon_' + a.id,
-        item_name: 'Add-on: ' + a.label,
+        item_name: 'Add-on: ' + addonLabel(a),
         item_category: 'Add-on',
         item_variant: planLabel + ' ' + sizeDisplay,
         item_brand: 'Verodus',
@@ -490,7 +566,7 @@
   }
 
   function openAddonModal(addon) {
-    $('#coAddonModalTitle').textContent = addon.label;
+    $('#coAddonModalTitle').textContent = addonLabel(addon);
     var firstP = $('#coAddonModalText');
     var parent = firstP.parentNode;
     var sib = firstP.nextSibling;
@@ -594,21 +670,36 @@
   /* Sanity: Pro $100k and Instant $100k stickers. */
   window.__addonPriceCheck = function () {
     var savedPlan = selectedPlan, savedSize = selectedSize, saved = JSON.parse(JSON.stringify(activeAddons));
+    var byId = {};
+    ADDONS.forEach(function (a) { byId[a.id] = a; });
     selectedPlan = '2steppro'; selectedSize = '100000';
     activeAddons = { 'news-trading': true };
-    var news = addonPrice(ADDONS[0]);
+    var news = addonPrice(byId['news-trading']);
     activeAddons = { 'weekend-holding': true };
-    var weekend = addonPrice(ADDONS[1]);
+    var weekend = addonPrice(byId['weekend-holding']);
     activeAddons = { 'news-trading': true, 'weekend-holding': true };
     var swing = getAddonsTotal();
     activeAddons = { 'weekly-payout': true };
-    var weekly = addonPrice(ADDONS[2]);
+    var weekly = addonPrice(byId['weekly-payout']);
     activeAddons = { 'on-demand-payout': true };
-    var od = addonPrice(ADDONS[3]);
+    var od80 = addonPrice(byId['on-demand-payout']);
+    activeAddons = { 'split-90': true };
+    var split90 = addonPrice(byId['split-90']);
+    activeAddons = { 'on-demand-payout': true, 'split-90': true };
+    var od90 = getAddonsTotal();
     selectedPlan = 'instant';
-    var odInst = addonPrice(ADDONS[3]);
+    activeAddons = { 'on-demand-payout': true };
+    var od80Inst = addonPrice(byId['on-demand-payout']);
+    activeAddons = { 'split-90': true };
+    var split90Inst = addonPrice(byId['split-90']);
+    activeAddons = { 'on-demand-payout': true, 'split-90': true };
+    var od90Inst = getAddonsTotal();
     selectedPlan = savedPlan; selectedSize = savedSize; activeAddons = saved;
-    return { news: news, weekend: weekend, swing: swing, weekly: weekly, onDemand: od, onDemandInstant: odInst };
+    return {
+      news: news, weekend: weekend, swing: swing, weekly: weekly,
+      onDemand80: od80, split90: split90, onDemand90: od90,
+      onDemand80Instant: od80Inst, split90Instant: split90Inst, onDemand90Instant: od90Inst
+    };
   };
 })();
 </script>
