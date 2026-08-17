@@ -147,11 +147,16 @@ Payouts can be requested through the dashboard once the following conditions are
 
 ---
 
-## 5. Instant — plan min + cycle, not 5-then-3
+## 5. Instant Eligibility — 5 valid days, not 3
 
-Do **not** keep 5 valid days for the first reward and 3 days after that. Instant’s plan min is **5 valid +0.5% days**, plus the selected cycle (weekly 7 / bi-weekly 14 / on-demand). Same checklist for the first payout and every payout after.
+`instant.html` Eligibility is wrong today. It still uses the QPP **3 trading days** sentence. Instant’s plan min is **5 valid trading days** (each +0.5%).
 
-Rewrite `li10` as in §2. Rewrite Eligibility (`li23` / `span47`) to the same sentence. Delete “3 trading days since last payout” if it makes first and later differ.
+| Key | Live | Change to |
+|---|---|---|
+| `li23` / `span47` | At least **3 trading days** since QPP account or last payout | **5 valid trading days** (+0.5% each) **and** the selected cycle |
+| `li10` / `span21` | 5 valid days before your **first** reward | 5 valid days for **every** payout, plus the cycle |
+
+Delete the “3 trading days since last payout” Instant extra. Do not keep 5-then-3.
 
 ---
 
@@ -163,6 +168,113 @@ Leave `trading-objectives.json` alone. Elsewhere, delete or leave blank:
 - Restricted trading: `p9`, `p18`
 - 1-step `li42`; 2-step lite/pro `li38`; instant `li43`
 - `common.json` `pricing.addonFootnote` (already empty)
+
+---
+
+## 7. FAQs — one answer per plan (do not blend clocks)
+
+FAQs that name “the evaluation” or one day number for all accounts are wrong. Split Instant / 1-Step / 2-Step. Skip `trading-objectives.html`.
+
+### Plan cheat sheet (use in every payout / days FAQ)
+
+| Plan | Eval / pass min days | Payout min days (every payout) | Cycle |
+|---|---|---|---|
+| Instant | No eval. Funded from day one. | **5 valid days**, each +0.5% net | Weekly 7 calendar / bi-weekly 14 calendar / on-demand = `$100` + those 5 valid days |
+| 1-Step | **No** minimum trading days to pass | **No** minimum trading days | Same cycles + `$100` |
+| 2-Step Lite | **5** trading days per phase | **5** trading days | Same cycles + `$100` |
+| 2-Step Pro | **5** trading days per phase | **5** trading days | Same cycles + `$100` |
+
+A 2-Step “trading day” = open and close on the same calendar day. An Instant “valid day” = that day closes +0.5% net. Do not describe Instant days as open-and-close only.
+
+---
+
+### `faq-evaluation.html`
+
+**“How many trading days do I need for each program?”** — hardcoded list omits Instant.
+
+**Replace the list with:**
+
+```html
+<ul>
+    <li>Instant: 5 valid trading days (each day must close +0.5% net). No evaluation phase.</li>
+    <li>1-Step: No minimum trading days.</li>
+    <li>2-Step Lite: 5 trading days per phase (open and close on the same calendar day).</li>
+    <li>2-Step Pro: 5 trading days per phase (open and close on the same calendar day).</li>
+</ul>
+```
+
+**`content.p5` (“What if I hit my targets before the minimum trading days?”)** live: one rule for everyone, open-and-close only. That is wrong for 1-Step (no min) and Instant (valid +0.5% days).
+
+**Paste `p5`:**
+
+```text
+If that plan has a minimum, you must still meet it before you pass or get paid. 1-Step has no minimum trading days. 2-Step Lite and 2-Step Pro need 5 trading days per phase (open and close the same calendar day). Instant has no profit target to “hit first”; you need 5 valid days at +0.5% net and the selected payout cycle.
+```
+
+Keep `p6` as the 2-Step / 1-Step calendar-day definition. Instant valid-day math stays on `instant.html`.
+
+---
+
+### `faq-qualified-trader.html`
+
+News (`p1`, `p18`) is already plan-complete. Fix payout answers so they name each plan.
+
+**`content.p9` paste:**
+
+```text
+A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. The first payout and every payout after use the same rule: you must meet that plan’s minimum trading days and the selected cycle. Instant: 5 valid days at +0.5%. 2-Step Lite and 2-Step Pro: 5 trading days. 1-Step: no minimum trading days. Weekly is 7 calendar days. Bi-weekly is 14 calendar days. On-demand is $100 plus that plan’s minimum days.
+```
+
+**Delete** the hardcoded “First payout after 4 / subsequent after 3” list. Replace with:
+
+```html
+<ul>
+    <li>Same rule for every payout (first and later): $100, the plan’s minimum trading days, and the cycle</li>
+    <li>Instant: 5 valid days at +0.5% net, plus the cycle</li>
+    <li>1-Step: no minimum trading days, plus the cycle</li>
+    <li>2-Step Lite / Pro: 5 trading days, plus the cycle</li>
+    <li>Weekly: 7 calendar days · Bi-weekly: 14 calendar days · On-demand: $100 and the plan min days</li>
+</ul>
+```
+
+**`content.p12` live:** `A minimum of 3 trading days is required between payout requests.` **Replace with:**
+
+```text
+Payout spacing is the cycle you selected: 7 calendar days for weekly, 14 calendar days for bi-weekly, or the plan’s minimum trading days for on-demand. Instant on-demand still needs 5 valid days. First and later payouts use the same rule.
+```
+
+**`content.p13` + on-demand list** — drop “at any time.” Paste list:
+
+```html
+<ul>
+    <li>$100 since last reward (all plans)</li>
+    <li>That plan’s minimum trading days (Instant: 5 valid at +0.5%; 2-Step Lite / Pro: 5 days; 1-Step: none)</li>
+</ul>
+```
+
+**`content.p28` (fee refund)** live: yes for first reward, no Instant exception. **Paste:**
+
+```text
+Yes, on 1-Step, 2-Step Lite, and 2-Step Pro: 100% of the original challenge fee is refunded with your first successful performance reward. Instant has no challenge-fee refund.
+```
+
+---
+
+### `faq-plans.html`
+
+Cards already name news + no holding time. Instant already names 5 valid +0.5% days. Optional one line on Instant (`p7`) if you want payouts explicit:
+
+```text
+Every Instant payout (first and later) needs those 5 valid days and the selected cycle (weekly, bi-weekly, or on-demand).
+```
+
+Do not add a 3-day QPP clock to any card.
+
+---
+
+### `faq-news-trading.html` and `faq-general.html`
+
+Already aligned: news allowed on all four plans; holding time is No. No change required unless a leftover “addon” or “±2-minute” line comes back.
 
 ---
 
