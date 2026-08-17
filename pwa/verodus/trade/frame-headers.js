@@ -1,14 +1,11 @@
 /**
- * Add to trade.verodus.com next.config.mjs so Dashboard can iframe TradeHub / P5.
- * Do not use X-Frame-Options: DENY.
- *
- * async headers() {
- *   return [{ source: "/:path*", headers: FRAME_HEADERS }];
- * }
+ * Allow the landing-page app shell (www.verodus.com/app) and the dashboard
+ * origin to iframe TradeHub / Platform 5.
  */
 export const FRAME_HEADERS = [
   {
     key: "Content-Security-Policy",
-    value: "frame-ancestors 'self' https://dashboard.verodus.com",
+    value:
+      "frame-ancestors 'self' https://www.verodus.com https://verodus.com https://dashboard.verodus.com",
   },
 ];

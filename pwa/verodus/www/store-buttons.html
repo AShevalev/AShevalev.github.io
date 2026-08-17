@@ -1,11 +1,11 @@
-<!-- Replace the two homepage pills. Keep the existing CSS classes.
-     href is the no-JS fallback: dashboard, never play.google.com / apps.apple.com. -->
+<!-- Landing-page pills. href=/app is the no-JS fallback (same origin).
+     JS intercepts the click and runs the install prompt on verodus.com. -->
 
 <div class="_stores_kptsv_152">
   <a
     class="v-store-pill"
     data-install-app
-    href="https://dashboard.verodus.com/dashboard?install=1"
+    href="/app"
     aria-label="Install Verodus on Android"
   >
     <!-- keep the existing Android SVG -->
@@ -14,7 +14,7 @@
   <a
     class="v-store-pill"
     data-install-app
-    href="https://dashboard.verodus.com/dashboard?install=1"
+    href="/app"
     aria-label="Install Verodus on iPhone"
   >
     <!-- keep the existing Apple SVG -->

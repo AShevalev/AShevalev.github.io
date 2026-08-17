@@ -126,3 +126,13 @@ test("homepage store pills redirect to the dashboard origin", () => {
     "prompt-here"
   );
 });
+
+test("landing-page pills install www.verodus.com in place", () => {
+  assert.equal(
+    resolveInstallAction({
+      currentHref: "https://www.verodus.com/",
+      installUrl: "",
+    }),
+    "prompt-here"
+  );
+});

@@ -37,6 +37,7 @@ const HOME_ICON = `<svg class="aths-cta__icon" viewBox="0 0 24 24" aria-hidden="
  * @property {string} [manifestId] Passed to navigator.install() when installing another origin.
  * @property {boolean} [styleButtons] Add gold CTA chrome. Default true. Set false for existing store pills.
  * @property {string} [autoPromptParam] Query param that auto-opens the prompt. Default `install`
+ * @property {string} [afterInstallHref] Where to go after a successful install (landing → `/app`)
  * @property {ParentNode} [root]
  * @property {Window} [win]
  */
@@ -53,6 +54,7 @@ export function bindInstallCta(options = {}) {
   const manifestId = options.manifestId || "";
   const styleButtons = options.styleButtons !== false;
   const autoPromptParam = options.autoPromptParam || "install";
+  const afterInstallHref = options.afterInstallHref || "";
 
   /** @type {any} */
   let deferredPrompt = null;
@@ -183,6 +185,7 @@ export function bindInstallCta(options = {}) {
       const choice = await deferredPrompt.userChoice;
       deferredPrompt = null;
       syncButtons();
+      if (choice.outcome === "accepted") goAfterInstall();
       return choice.outcome;
     }
 
@@ -200,6 +203,15 @@ export function bindInstallCta(options = {}) {
     return "instructions";
   }
 
+  function goAfterInstall() {
+    if (!afterInstallHref) return;
+    try {
+      win.location.assign(afterInstallHref);
+    } catch {
+      // Ignore if navigation is blocked.
+    }
+  }
+
   win.addEventListener("beforeinstallprompt", (event) => {
     event.preventDefault();
     deferredPrompt = event;
@@ -210,6 +222,7 @@ export function bindInstallCta(options = {}) {
     deferredPrompt = null;
     closeSheet();
     syncButtons();
+    goAfterInstall();
   });
 
   if (registerSw && navSupportsSw(win)) {

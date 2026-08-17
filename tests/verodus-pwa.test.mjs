@@ -33,3 +33,11 @@ test("origin association opts trade into the dashboard app id", () => {
     file.web_apps.some((app) => app.web_app_identity === "https://dashboard.verodus.com/")
   );
 });
+
+test("landing-page PWA starts at /app on www.verodus.com", () => {
+  const manifest = readJson("../pwa/verodus/www/manifest.json");
+  assert.equal(manifest.id, "https://www.verodus.com/");
+  assert.equal(manifest.display, "standalone");
+  assert.match(manifest.start_url, /^\/app/);
+  assert.equal(isAccountScopedPath(manifest.start_url), false);
+});
