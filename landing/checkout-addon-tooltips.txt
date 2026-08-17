@@ -1,0 +1,167 @@
+checkout.html
+
+Add-Ons section (#coSectionAddons). Tooltips open from the ⓘ button on each add-on row. Modal title is the add-on name. Body is the copy below. Foot: Add-on fees are not refundable. Eligibility and rules apply per program terms.
+
+
+========================================================================
+Section: Weekend Holding
+========================================================================
+
+On "instant" use this:
+
+Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.
+
+On "1-step" use this:
+
+Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.
+
+On "2-step lite" use this:
+
+Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.
+
+On "2-step pro" use this:
+
+Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.
+
+
+========================================================================
+Section: Weekly Rewards with 80% Reward Split
+========================================================================
+
+On "instant" use this:
+
+Weekly Rewards with 80% Split
+
+Keep the same 80% reward share as the default Bi-Weekly cycle, requested every 7 calendar days instead of 14. Minimum reward $100.
+
+Payouts after 5 valid trading days (0.5% vs start-of-day equity).
+
+Cannot be combined with On Demand Rewards or the 90% Reward Split.
+
+On "1-step" use this:
+
+Weekly Rewards with 80% Split
+
+Keep the same 80% reward share as the default Bi-Weekly cycle, requested every 7 calendar days instead of 14. Minimum reward $100.
+
+First request after 3 funded trading days.
+
+Cannot be combined with On Demand Rewards or the 90% Reward Split.
+
+On "2-step lite" use this:
+
+Weekly Rewards with 80% Split
+
+Keep the same 80% reward share as the default Bi-Weekly cycle, requested every 7 calendar days instead of 14. Minimum reward $100.
+
+First request after 3 funded trading days.
+
+Cannot be combined with On Demand Rewards or the 90% Reward Split.
+
+On "2-step pro" use this:
+
+Weekly Rewards with 80% Split
+
+Keep the same 80% reward share as the default Bi-Weekly cycle, requested every 7 calendar days instead of 14. Minimum reward $100.
+
+First request after 3 funded trading days.
+
+Cannot be combined with On Demand Rewards or the 90% Reward Split.
+
+
+========================================================================
+Section: On Demand Rewards with 80% Split
+========================================================================
+
+On "instant" use this:
+
+On Demand Rewards with 80% Split
+
+Request your 80% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.
+
+Payouts after 5 valid trading days (0.5% vs start-of-day equity).
+
+Cannot be combined with Weekly Rewards.
+
+On "1-step" use this:
+
+On Demand Rewards with 80% Split
+
+Request your 80% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.
+
+First request after 3 funded trading days.
+
+Cannot be combined with Weekly Rewards.
+
+On "2-step lite" use this:
+
+On Demand Rewards with 80% Split
+
+Request your 80% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.
+
+First request after 3 funded trading days.
+
+Cannot be combined with Weekly Rewards.
+
+On "2-step pro" use this:
+
+On Demand Rewards with 80% Split
+
+Request your 80% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.
+
+First request after 3 funded trading days.
+
+Cannot be combined with Weekly Rewards.
+
+
+========================================================================
+Section: 90% Reward Split
+========================================================================
+
+On "instant" use this:
+
+90% Reward Split
+
+Keep 90% of profits on the default Bi-Weekly cycle (every 14 calendar days). Minimum reward $100.
+
+Payouts after 5 valid trading days (0.5% vs start-of-day equity).
+
+Pair with On Demand Rewards to withdraw that 90% share anytime after the plan trading-day rule.
+
+Cannot be combined with Weekly Rewards.
+
+On "1-step" use this:
+
+90% Reward Split
+
+Keep 90% of profits on the default Bi-Weekly cycle (every 14 calendar days). Minimum reward $100.
+
+First request after 3 funded trading days.
+
+Pair with On Demand Rewards to withdraw that 90% share anytime after the plan trading-day rule.
+
+Cannot be combined with Weekly Rewards.
+
+On "2-step lite" use this:
+
+90% Reward Split
+
+Keep 90% of profits on the default Bi-Weekly cycle (every 14 calendar days). Minimum reward $100.
+
+First request after 3 funded trading days.
+
+Pair with On Demand Rewards to withdraw that 90% share anytime after the plan trading-day rule.
+
+Cannot be combined with Weekly Rewards.
+
+On "2-step pro" use this:
+
+90% Reward Split
+
+Keep 90% of profits on the default Bi-Weekly cycle (every 14 calendar days). Minimum reward $100.
+
+First request after 3 funded trading days.
+
+Pair with On Demand Rewards to withdraw that 90% share anytime after the plan trading-day rule.
+
+Cannot be combined with Weekly Rewards.
