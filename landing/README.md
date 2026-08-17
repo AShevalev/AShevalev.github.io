@@ -29,7 +29,7 @@ JS: `plan-fees.js` — `[sale, list]`. Instant $200k is omitted on purpose.
 
 ## Checkout add-ons (drop-in)
 
-Complete working page: [`checkout.html`](checkout.html). Add-on tooltip copy by plan: [`checkout-addon-tooltips.txt`](checkout-addon-tooltips.txt). Chrome (nav, footer, CSS, icons, payment marks, mobile breakpoints) is loaded from [verodus.com/checkout.html](https://www.verodus.com/checkout.html). Quantity sits in the order summary like Blue Guardian (`1st Account` … `4th Account`), not as a left-column section. US-citizen term is removed. Rebuild with `python3 landing/stitch_checkout.py`.
+Complete working page: [`checkout.html`](checkout.html). Add-on tooltip copy by plan: [`checkout-addon-tooltips.txt`](checkout-addon-tooltips.txt). Diff vs live verodus.com/checkout: [`checkout-vs-live.txt`](checkout-vs-live.txt). Chrome (nav, footer, CSS, icons, payment marks, mobile breakpoints) is loaded from [verodus.com/checkout.html](https://www.verodus.com/checkout.html). Quantity sits in the order summary like Blue Guardian (`1st Account` … `4th Account`), not as a left-column section. US-citizen term is removed. Rebuild with `python3 landing/stitch_checkout.py`.
 
 Complete trading-objectives page: [`trading-objectives.html`](trading-objectives.html). Same live chrome via `<base href>`. Plan tabs, size buttons, drawdown modals, and the five Reward Cycle cards (80% On Demand / Weekly / Bi-Weekly, 90% On Demand / Bi-Weekly). 90% Weekly is not offered. On Demand still has to meet Instant 5 valid days or eval 3 trading days. Rec Instant has no $200k, 5 valid days at +0.5% SOD, and a 6% trail that never locks. Rebuild with `python3 landing/stitch_trading_objectives.py`.
 
