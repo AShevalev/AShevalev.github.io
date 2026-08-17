@@ -190,6 +190,42 @@
         .rc-detail-row span:last-child { color:var(--text-primary); font-weight:500; }
         .rc-detail-spacer { min-height:1.5em; }
 
+        .rc-combo-wrap { max-width:1000px; margin:2.2rem auto 0; }
+        .rc-combo-title { text-align:center; margin:0 0 0.4rem; font-size:1.05rem; font-weight:700; color:var(--heading-h2); }
+        .rc-combo-lead { text-align:center; margin:0 0 1.2rem; font-size:0.82rem; opacity:0.7; }
+        .rc-combo-table { display:grid; gap:0.5rem; }
+        .rc-combo-head, .rc-combo-row {
+            display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:0.5rem; align-items:stretch;
+        }
+        .rc-combo-head > div {
+            font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:700;
+            color:var(--text-on-theme-dim); text-align:center; padding:0.4rem;
+        }
+        .rc-combo-head > div:first-child { text-align:left; }
+        .rc-combo-row > div {
+            background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+            border-radius:0.85rem; padding:0.9rem 1rem; font-size:0.85rem;
+        }
+        .rc-combo-row > [role="rowheader"] { color:var(--text-on-dark); font-weight:600; }
+        .rc-combo-row > [role="rowheader"] span {
+            display:block; font-weight:400; font-size:0.72rem; color:var(--text-on-theme-dim); margin-top:0.25rem;
+        }
+        .rc-combo-yes, .rc-combo-no {
+            text-align:center; display:flex; align-items:center; justify-content:center; font-weight:700;
+        }
+        .rc-combo-yes { color:#34d399; }
+        .rc-combo-no { color:var(--text-on-theme-dim); font-weight:500; opacity:0.75; }
+        .rc-combo-row.rc-combo-default > div { border-color:var(--gold-light); }
+        @media (max-width:640px) {
+            .rc-combo-head { display:none; }
+            .rc-combo-head, .rc-combo-row { grid-template-columns:1fr; }
+            .rc-combo-yes, .rc-combo-no { display:block; text-align:left; }
+            .rc-combo-yes::before, .rc-combo-no::before {
+                content: attr(data-label); display:block; font-size:0.65rem; text-transform:uppercase;
+                letter-spacing:0.12em; color:var(--text-on-theme-dim); font-weight:600; margin-bottom:0.35rem;
+            }
+        }
+
         /* ── flow bar ── */
         .flow-bar { padding:2rem 1rem; text-align:center; }
         .flow-inner {
@@ -619,11 +655,12 @@ Crypto 1:3</div>
             <div class="reward-cycle-grid">
                 <div class="reward-cycle-card">
                     <div class="rc-period" data-i18n="content.rcWeekly">Weekly</div>
-                    <div class="rc-pct">70%</div>
+                    <div class="rc-pct">80%</div>
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span17">7 days</span></div>
                         <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
+                        <div class="rc-detail-row" data-rc-how="1"><span>How</span><span>Add-on</span></div>
                     </div>
                 </div>
                 <div class="reward-cycle-card">
@@ -633,6 +670,7 @@ Crypto 1:3</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span19">14 days</span></div>
                         <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
+                        <div class="rc-detail-row" data-rc-how="1"><span>How</span><span>Included</span></div>
                     </div>
                 </div>
                 <div class="reward-cycle-card rc-featured">
@@ -642,10 +680,38 @@ Crypto 1:3</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime</span></div>
                         <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
+                        <div class="rc-detail-row" data-rc-how="1"><span>How</span><span>Add-on</span></div>
                     </div>
                 </div>
             </div>
-            <p style="text-align:center;font-size:0.75rem;opacity:0.6;margin-top:1.8rem;" data-i18n="content.p7">All reward request intervals are based on calendar days, not trading days. Add-on required for 70% Reward Split. Performance scaling required for 90% Reward Split.</p>
+            
+            <div class="rc-combo-wrap" id="rcComboWrap">
+                <h3 class="rc-combo-title">Possible combinations</h3>
+                <p class="rc-combo-lead">Pick one. Weekly and On Demand cannot be combined.</p>
+                <div class="rc-combo-table" role="table">
+                    <div class="rc-combo-head" role="row">
+                        <div role="columnheader">Cycle</div>
+                        <div role="columnheader">80% Split</div>
+                        <div role="columnheader">90% Split</div>
+                    </div>
+                    <div class="rc-combo-row" role="row">
+                        <div role="rowheader">Weekly<span>every 7 calendar days · min $100</span></div>
+                        <div class="rc-combo-yes" data-label="80% Split" role="cell">Add-on</div>
+                        <div class="rc-combo-no" data-label="90% Split" role="cell">Not offered</div>
+                    </div>
+                    <div class="rc-combo-row rc-combo-default" role="row">
+                        <div role="rowheader">Bi-Weekly<span>every 14 calendar days · min $100</span></div>
+                        <div class="rc-combo-yes" data-label="80% Split" role="cell">Included</div>
+                        <div class="rc-combo-no" data-label="90% Split" role="cell">Not offered</div>
+                    </div>
+                    <div class="rc-combo-row" role="row">
+                        <div role="rowheader">On Demand<span>anytime · min 2% and $200</span></div>
+                        <div class="rc-combo-no" data-label="80% Split" role="cell">Not offered</div>
+                        <div class="rc-combo-yes" data-label="90% Split" role="cell">Add-on</div>
+                    </div>
+                </div>
+            </div>
+<p style="text-align:center;font-size:0.75rem;opacity:0.6;margin-top:1.8rem;" data-i18n="content.p7">All reward request intervals are based on calendar days, not trading days. Pick one combination. Weekly and On Demand cannot be combined.</p>
             <div class="reward-highlight-grid">
                 <div class="reward-highlight-card">
                     <div class="rh-icon"><i class="fa-solid fa-calendar-check"></i></div>
@@ -1257,7 +1323,8 @@ Crypto 1:3`;
 (function () {
   /* Rec Instant: no $200k. Valid day = closed PnL ≥ 0.5% of SOD equity.
      6% trail never locks. 3% daily from the day's equity high. No fee refund.
-     Lite funded max DD stays 8% (already in live pricingData). */
+     Lite funded max DD stays 8% (already in live pricingData).
+     Weekly cycle is 80% (same split as Bi-Weekly), not live's 70% decoy. */
   if (typeof pricingData === 'undefined') return;
 
   delete pricingData.instant['200000'];
@@ -1359,9 +1426,34 @@ Crypto 1:3`;
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { updateAll(); });
+    document.addEventListener('DOMContentLoaded', function () { updateAll(); applyRewardCycles(); });
   } else {
     updateAll();
+    applyRewardCycles();
+  }
+
+  function ensureHowRow(card, value) {
+    var details = card.querySelector('.rc-details');
+    if (!details || details.querySelector('[data-rc-how]')) return;
+    var row = document.createElement('div');
+    row.className = 'rc-detail-row';
+    row.setAttribute('data-rc-how', '1');
+    row.innerHTML = '<span>How</span><span>' + value + '</span>';
+    details.appendChild(row);
+  }
+
+  function applyRewardCycles() {
+    var cards = document.querySelectorAll('.reward-cycle-card');
+    if (cards[0]) {
+      var pct = cards[0].querySelector('.rc-pct');
+      if (pct) pct.textContent = '80%';
+      ensureHowRow(cards[0], 'Add-on');
+    }
+    if (cards[1]) ensureHowRow(cards[1], 'Included');
+    if (cards[2]) ensureHowRow(cards[2], 'Add-on');
+    document.querySelectorAll('[data-i18n="content.p7"]').forEach(function (p) {
+      p.textContent = 'All reward request intervals are based on calendar days, not trading days. Pick one combination. Weekly and On Demand cannot be combined.';
+    });
   }
 })();
     </script>

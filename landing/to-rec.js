@@ -1,7 +1,8 @@
 (function () {
   /* Rec Instant: no $200k. Valid day = closed PnL ≥ 0.5% of SOD equity.
      6% trail never locks. 3% daily from the day's equity high. No fee refund.
-     Lite funded max DD stays 8% (already in live pricingData). */
+     Lite funded max DD stays 8% (already in live pricingData).
+     Weekly cycle is 80% (same split as Bi-Weekly), not live's 70% decoy. */
   if (typeof pricingData === 'undefined') return;
 
   delete pricingData.instant['200000'];
@@ -103,8 +104,33 @@
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { updateAll(); });
+    document.addEventListener('DOMContentLoaded', function () { updateAll(); applyRewardCycles(); });
   } else {
     updateAll();
+    applyRewardCycles();
+  }
+
+  function ensureHowRow(card, value) {
+    var details = card.querySelector('.rc-details');
+    if (!details || details.querySelector('[data-rc-how]')) return;
+    var row = document.createElement('div');
+    row.className = 'rc-detail-row';
+    row.setAttribute('data-rc-how', '1');
+    row.innerHTML = '<span>How</span><span>' + value + '</span>';
+    details.appendChild(row);
+  }
+
+  function applyRewardCycles() {
+    var cards = document.querySelectorAll('.reward-cycle-card');
+    if (cards[0]) {
+      var pct = cards[0].querySelector('.rc-pct');
+      if (pct) pct.textContent = '80%';
+      ensureHowRow(cards[0], 'Add-on');
+    }
+    if (cards[1]) ensureHowRow(cards[1], 'Included');
+    if (cards[2]) ensureHowRow(cards[2], 'Add-on');
+    document.querySelectorAll('[data-i18n="content.p7"]').forEach(function (p) {
+      p.textContent = 'All reward request intervals are based on calendar days, not trading days. Pick one combination. Weekly and On Demand cannot be combined.';
+    });
   }
 })();

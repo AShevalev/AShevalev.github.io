@@ -12,9 +12,9 @@
   3. Replace addonPrice, renderAddons, getAddonsTotal, the summary addon
      loop in updateSummary, and the addon price in gaItemsForSelection
      with the helpers below (BUNDLES / addonPct / addonPrice / addonPriceTag /
-     applyAddonToggle). Reward cycles match trading-objectives: default
-     Bi-Weekly 80% / 14 calendar days / $100 (not a toggle). Weekly 70% @ 6%
-     XOR On Demand 90% @ 20% evals / 32% Instant. News+weekend = Swing.
+     applyAddonToggle). Reward cycles: default Bi-Weekly 80% / 14 calendar
+     days / $100 (not a toggle). Weekly 80% @ 8% XOR On Demand 90% @ 20%
+     evals / 32% Instant. News+weekend = Swing.
      Accounts 1–4 at VERO35 (no extra copy ladder). Tooltips are product/rules
      only — no fee %. Complete page: checkout.html.
 
@@ -180,7 +180,7 @@
 <body>
 <div class="checkout-page">
   <h1>Add-Ons</h1>
-  <p class="co-note">Same checkout classes. Default reward cycle is Bi-Weekly 80% every 14 calendar days, min $100 — not an add-on. Weekly 70% and On Demand 90% are XOR. News + weekend = Swing. Up to 4 accounts in one order; each at VERO35, no extra cut on copies. Instant leftover cannot fund Blue Guardian’s 30/35/40% copy ladder, and Lite is almost as thin. No 5th free.</p>
+  <p class="co-note">Same checkout classes. Default reward cycle is Bi-Weekly 80% every 14 calendar days, min $100 — not an add-on. Weekly is the same 80% split every 7 days. Weekly and On Demand 90% are XOR. News + weekend = Swing. Up to 4 accounts in one order; each at VERO35, no extra cut on copies. Instant leftover cannot fund Blue Guardian’s 30/35/40% copy ladder, and Lite is almost as thin. No 5th free.</p>
   <div class="checkout-container">
     <div class="checkout-form-col">
       <div class="co-section">
@@ -281,7 +281,7 @@
   var COMPETITION = null;
   var DISCOUNT_CAP_PCT = 35;
 
-  /* Weekly 70% XOR On Demand 90%. Default (neither on) is Bi-Weekly 80%. */
+  /* Weekly 80% XOR On Demand 90%. Default (neither on) is Bi-Weekly 80%. */
   var PAYOUT_UPGRADES = ['on-demand-payout'];
 
   /* Bundles: when every id is on, charge bundle pct on chargeId; others Incl.
@@ -328,10 +328,10 @@
     },
     {
       id: 'weekly-payout',
-      label: 'Weekly Rewards with 70% Reward Split',
-      pct: 0.06,
-      desc: 'Withdraw your 70% profit share every 7 calendar days',
-      tooltip: 'Weekly Rewards with 70% Split\n\nReceive your 70% reward share every week — consistent payouts on a reliable schedule. Request every 7 calendar days, not trading days. Minimum reward $100.\n\nGet your first payout as early as you meet the funded phase requirements: minimum $100 after 3 trading days (processed within 48 hours).\n\nDefault without this add-on is Bi-Weekly at 80% every 14 calendar days, minimum $100.\n\nCannot be combined with On Demand Rewards.'
+      label: 'Weekly Rewards with 80% Reward Split',
+      pct: 0.08,
+      desc: 'Withdraw your 80% profit share every 7 calendar days',
+      tooltip: 'Weekly Rewards with 80% Split\n\nKeep the same 80% reward share as the default Bi-Weekly cycle, requested every 7 calendar days instead of 14. Minimum reward $100.\n\nGet your first payout as early as you meet the funded phase requirements: minimum $100 after 3 trading days (processed within 48 hours).\n\nDefault without this add-on is Bi-Weekly at 80% every 14 calendar days, minimum $100.\n\nCannot be combined with On Demand Rewards.'
     },
     {
       id: 'on-demand-payout',
