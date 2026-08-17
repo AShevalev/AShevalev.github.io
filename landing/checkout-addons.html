@@ -331,15 +331,35 @@
       label: 'Weekly Rewards with 80% Reward Split',
       pct: 0.08,
       desc: 'Withdraw your 80% profit share every 7 calendar days',
-      tooltip: 'Weekly Rewards with 80% Split\n\nKeep the same 80% reward share as the default Bi-Weekly cycle, requested every 7 calendar days instead of 14. Minimum reward $100.\n\nGet your first payout as early as you meet the funded phase requirements: minimum $100 after 3 trading days (processed within 48 hours).\n\nDefault without this add-on is Bi-Weekly at 80% every 14 calendar days, minimum $100.\n\nCannot be combined with On Demand Rewards.'
+      tooltip: function () {
+        var days = selectedPlan === 'instant'
+          ? 'Instant still requires 5 valid days first (closed-trade PnL ≥ 0.5% of that day’s start-of-day equity). The 20% Best Day rule still applies.'
+          : selectedPlan === '1step'
+            ? '1-Step still requires 3 trading days in the funded phase first (a trading day is a calendar day with at least one closed trade).'
+            : 'You still need 3 trading days in the funded phase first (a trading day is a calendar day with at least one closed trade).';
+        return 'Weekly Rewards with 80% Split\n\nKeep the same 80% reward share as the default Bi-Weekly cycle, requested every 7 calendar days instead of 14. Minimum reward $100.\n\n'
+          + days + '\n\n'
+          + 'First payout is processed within 48 hours once eligible. Default without this add-on is Bi-Weekly at 80% every 14 calendar days, minimum $100.\n\n'
+          + 'Cannot be combined with On Demand Rewards.';
+      }
     },
     {
       id: 'on-demand-payout',
       label: 'On Demand Rewards with 90% Split',
       pct: 0.20,
       instantPct: 0.32,
-      desc: 'Withdraw your 90% profit share anytime — no waiting for fixed cycles',
-      tooltip: 'On Demand Rewards with 90% Split\n\nRequest and receive your 90% reward share anytime — no waiting for fixed cycles. Minimum reward 2% and $200. Performance scaling is required for the 90% split.\n\nGet your first payout as early as you meet the funded phase requirements: minimum $100 after 3 trading days (processed within 48 hours).\n\nDefault without this add-on is Bi-Weekly at 80% every 14 calendar days, minimum $100.\n\nCannot be combined with Weekly Rewards.'
+      desc: 'Withdraw your 90% profit share anytime after the plan trading-day rule',
+      tooltip: function () {
+        var days = selectedPlan === 'instant'
+          ? 'Instant still requires 5 valid days first (closed-trade PnL ≥ 0.5% of that day’s start-of-day equity). The 20% Best Day rule still applies.'
+          : selectedPlan === '1step'
+            ? '1-Step still requires 3 trading days in the funded phase first (a trading day is a calendar day with at least one closed trade).'
+            : 'You still need 3 trading days in the funded phase first (a trading day is a calendar day with at least one closed trade).';
+        return 'On Demand Rewards with 90% Split\n\nRequest your 90% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward 2% and $200.\n\n'
+          + days + '\n\n'
+          + 'First payout is processed within 48 hours once eligible. Default without this add-on is Bi-Weekly at 80% every 14 calendar days, minimum $100.\n\n'
+          + 'Cannot be combined with Weekly Rewards.';
+      }
     }
   ];
 

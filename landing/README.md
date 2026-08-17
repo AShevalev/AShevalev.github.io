@@ -39,11 +39,13 @@ Reward cycles for Instant, 1-Step, Lite, and Pro (rec — Weekly keeps the defau
 |---|---|---|---|---|
 | Weekly | **80%** | every 7 calendar days | $100 | add-on, **8%** of list |
 | **Bi-Weekly (default)** | **80%** | every **14** calendar days | $100 | not a toggle |
-| On Demand | 90% | Anytime | 2% and $200 | add-on, 20% evals / **32% Instant** |
+| On Demand | 90% | Anytime after plan min days | 2% and $200 | add-on, 20% evals / **32% Instant** |
 
-Possible combinations (pick one): **Bi-Weekly 80%** included · **Weekly 80%** add-on · **On Demand 90%** add-on. Weekly XOR On Demand. Not offered: Weekly 90%, On Demand 80%, Bi-Weekly 90%.
+Possible combinations (the three reward-cycle cards — pick one): **Bi-Weekly 80%** included · **Weekly 80%** add-on · **On Demand 90%** add-on. Weekly XOR On Demand.
 
-First payout: min $100 after 3 trading days (within 48 hrs). Intervals are calendar days.
+On Demand still has to meet the plan trading-day rule: Instant **5 valid days** (0.5% SOD), 1-Step / Lite / Pro **3 trading days**. Then you may request anytime. Min 2% and $200.
+
+First payout: Instant min $100 after 5 valid days; evals min $100 after 3 trading days (within 48 hrs). Intervals are calendar days.
 
 ### Blue Guardian (do not copy Instant 15%)
 
@@ -59,7 +61,7 @@ Verodus Instant default is **biweekly 80%**, so speed+90% is a paid add-on. Do *
 | Weekend holding | 12% | 12% | Friday flatten off |
 | **Swing** (both) | **20%** | **20%** | Not 12+12. Weekend `Incl.` |
 | Weekly 80% | 8% | 8% | Every 7 calendar days, same 80% as default. XOR On Demand |
-| On Demand 90% | 20% | **32%** | Anytime, min 2% and $200. Instant 32% is the year-1 floor |
+| On Demand 90% | 20% | **32%** | After plan min days, anytime. Instant 5 valid days; evals 3 trading days. Instant 32% is the year-1 floor |
 
 Sticker = `Math.round(list * pct)`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.
 

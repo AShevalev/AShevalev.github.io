@@ -2,7 +2,8 @@
   /* Rec Instant: no $200k. Valid day = closed PnL ≥ 0.5% of SOD equity.
      6% trail never locks. 3% daily from the day's equity high. No fee refund.
      Lite funded max DD stays 8% (already in live pricingData).
-     Weekly cycle is 80% (same split as Bi-Weekly), not live's 70% decoy. */
+     Weekly cycle is 80% (same split as Bi-Weekly), not live's 70% decoy.
+     On Demand still has to clear Instant 5 valid days / 1-Step 3 trading days. */
   if (typeof pricingData === 'undefined') return;
 
   delete pricingData.instant['200000'];
@@ -55,7 +56,7 @@
 
   var origShowModal = showModal;
   showModal = function (type) {
-    if (type === 'valid-days') {
+    if (type === 'valid-days' || type === 'first-request') {
       var overlay = document.getElementById('modal');
       var titleEl = document.getElementById('modal-title');
       var contentEl = document.getElementById('modal-content');
@@ -70,9 +71,19 @@
       if (chartWrap) chartWrap.style.display = 'none';
       if (canvas) canvas.style.display = 'none';
       if (exEl) exEl.innerHTML = '';
-      titleEl.textContent = '5 Valid Days';
-      contentEl.innerHTML = '<p>You must complete <strong>5 valid days</strong> before you can request a reward.</p>'
-        + '<p>A valid day is a calendar day whose <strong>closed-trade PnL is at least 0.5%</strong> of that day\'s start-of-day equity. Unrealized PnL does not count. There is no 2% max-risk rule and no first-reward percent cap — the minimum reward is $100.</p>';
+      if (currentTab === 'instant') {
+        titleEl.textContent = '5 Valid Days';
+        contentEl.innerHTML = '<p>On Demand does not skip Instant trading-day rules. You must complete <strong>5 valid days</strong> before the first reward request, including On Demand.</p>'
+          + '<p>A valid day is a calendar day whose <strong>closed-trade PnL is at least 0.5%</strong> of that day\'s start-of-day equity. Unrealized PnL does not count. After that, you may request anytime. Minimum reward is 2% and $200. The 20% Best Day rule still applies.</p>';
+      } else if (currentTab === '1step') {
+        titleEl.textContent = '3 Trading Days';
+        contentEl.innerHTML = '<p>On Demand does not skip 1-Step trading-day rules. You must complete <strong>3 trading days</strong> in the funded phase before the first reward request, including On Demand.</p>'
+          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is 2% and $200.</p>';
+      } else {
+        titleEl.textContent = '3 Trading Days';
+        contentEl.innerHTML = '<p>On Demand does not skip the funded trading-day rule. You must complete <strong>3 trading days</strong> before the first reward request, including On Demand.</p>'
+          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is 2% and $200.</p>';
+      }
       return;
     }
     origShowModal(type);
@@ -101,36 +112,82 @@
     if (evalWeekendDesc && currentTab === 'instant') {
       evalWeekendDesc.textContent = 'All open positions must close by 22:00 UTC Friday. Weekend holding requires the Weekend Holding Addon.';
     }
+    applyRewardCycles();
   };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { updateAll(); applyRewardCycles(); });
-  } else {
-    updateAll();
-    applyRewardCycles();
+  function ensureRow(details, key, label, value, onclick) {
+    var row = details.querySelector('[data-rc-' + key + ']');
+    if (!row) {
+      row = document.createElement('div');
+      row.className = 'rc-detail-row';
+      row.setAttribute('data-rc-' + key, '1');
+      row.innerHTML = '<span></span><span></span>';
+      var how = details.querySelector('[data-rc-how]');
+      if (how) details.insertBefore(row, how);
+      else details.appendChild(row);
+    }
+    row.querySelector('span:first-child').textContent = label;
+    row.querySelector('span:last-child').textContent = value;
+    if (onclick) {
+      row.style.cursor = 'pointer';
+      row.onclick = onclick;
+    } else {
+      row.style.cursor = '';
+      row.onclick = null;
+    }
   }
 
-  function ensureHowRow(card, value) {
-    var details = card.querySelector('.rc-details');
-    if (!details || details.querySelector('[data-rc-how]')) return;
-    var row = document.createElement('div');
-    row.className = 'rc-detail-row';
-    row.setAttribute('data-rc-how', '1');
-    row.innerHTML = '<span>How</span><span>' + value + '</span>';
-    details.appendChild(row);
+  function firstRequestLabel() {
+    return currentTab === 'instant' ? '5 valid days' : '3 trading days';
   }
 
   function applyRewardCycles() {
-    var cards = document.querySelectorAll('.reward-cycle-card');
+    var wrap = document.getElementById('rcComboWrap');
+    if (wrap) wrap.remove();
+
+    var cards = document.querySelectorAll('.reward-cycle-grid .reward-cycle-card');
     if (cards[0]) {
       var pct = cards[0].querySelector('.rc-pct');
       if (pct) pct.textContent = '80%';
-      ensureHowRow(cards[0], 'Add-on');
+      var wDetails = cards[0].querySelector('.rc-details');
+      ensureRow(wDetails, 'days', 'First request after', firstRequestLabel(), function () {
+        showModal('first-request');
+      });
+      ensureRow(wDetails, 'how', 'How', 'Add-on');
     }
-    if (cards[1]) ensureHowRow(cards[1], 'Included');
-    if (cards[2]) ensureHowRow(cards[2], 'Add-on');
-    document.querySelectorAll('[data-i18n="content.p7"]').forEach(function (p) {
-      p.textContent = 'All reward request intervals are based on calendar days, not trading days. Pick one combination. Weekly and On Demand cannot be combined.';
+    if (cards[1]) {
+      var bDetails = cards[1].querySelector('.rc-details');
+      ensureRow(bDetails, 'days', 'First request after', firstRequestLabel(), function () {
+        showModal('first-request');
+      });
+      ensureRow(bDetails, 'how', 'How', 'Included');
+    }
+    if (cards[2]) {
+      var odDetails = cards[2].querySelector('.rc-details');
+      var anytime = odDetails.querySelector('[data-i18n="content.span21"]');
+      if (anytime) anytime.textContent = 'Anytime after min days';
+      ensureRow(odDetails, 'days', 'First request after', firstRequestLabel(), function () {
+        showModal('first-request');
+      });
+      ensureRow(odDetails, 'how', 'How', 'Add-on');
+    }
+
+    document.querySelectorAll('[data-i18n="content.p6"]').forEach(function (p) {
+      p.textContent = 'Possible combinations. Pick one — Weekly and On Demand cannot be combined.';
     });
+    document.querySelectorAll('[data-i18n="content.p7"]').forEach(function (p) {
+      p.textContent = 'All reward request intervals are based on calendar days, not trading days. On Demand still has to meet the plan trading-day rule before the first request.';
+    });
+    document.querySelectorAll('[data-i18n-html="content.p8"]').forEach(function (p) {
+      p.innerHTML = currentTab === 'instant'
+        ? '<strong>First Payout:</strong> Minimum $100 after 5 valid days (within 48 hrs)'
+        : '<strong>First Payout:</strong> Minimum $100 after 3 trading days (within 48 hrs)';
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { updateAll(); });
+  } else {
+    updateAll();
   }
 })();
