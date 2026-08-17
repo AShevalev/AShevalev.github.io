@@ -64,9 +64,9 @@ Optional: the shorter news bullets (`1-step` `li30`/`span26`, lite/pro `li26`/`s
 |---|---|---|
 | Plan pages Eligibility | **3** trading days since QPP / last payout + 1 profitable trade | Keep 3 |
 | `performance-reward.html` | First reward after **3** trading days | Keep 3 |
-| `trading-objectives.html` `p8` | Minimum `$100` after **3** trading days | Keep 3 |
-| `trading-objectives.html` `p8Instant` | Minimum `$100` after **5** trading days | Keep 5 (Instant valid days) |
 | `faq-qualified-trader.html` hardcoded list under `p9` | First payout after **4** trading days / subsequent **3** | **Change 4 → 3** |
+
+Skip `trading-objectives.html` `p8` and `p8Instant`. Leave those first-payout lines as they are.
 
 **Replace the FAQ list under “Is there a minimum target…” with:**
 
@@ -144,8 +144,8 @@ HTML nodes are already gone. Delete or leave blank:
 | No 8(h) mix | Deleted | n/a | Not printed | “no min holding time” | **No** | n/a | n/a | n/a | n/a |
 | $100 weekly / bi-weekly / on-demand | n/a | n/a | Yes | n/a | n/a | Yes (`p9`) | n/a | Yes | Yes |
 | On-demand + min days | n/a | n/a | Yes | n/a | n/a | Yes | n/a | “Anytime after min trading days” | **Add days to p12** |
-| First payout 3 days (eval) | via model pages | n/a | 3 | n/a | n/a | **Change 4 → 3** | n/a | 3 | 3 |
-| Instant 5 valid days first | n/a | n/a | Yes | Yes | n/a | Add to first-payout bullet | n/a | `p8Instant` 5 | 3 generic — Instant 5 lives on instant.html |
+| First payout 3 days (eval) | via model pages | n/a | 3 | n/a | n/a | **Change 4 → 3** | n/a | skip `p8` / `p8Instant` | 3 |
+| Instant 5 valid days first | n/a | n/a | Yes | Yes | n/a | Add to first-payout bullet | n/a | skip `p8Instant` | Instant 5 lives on instant.html |
 
 ---
 
@@ -154,3 +154,4 @@ HTML nodes are already gone. Delete or leave blank:
 - Instant 5 valid +0.5% days ≠ 2-Step 5 eval days ≠ QPP 3 days between rewards. Three different clocks.
 - 1-Step Best Day 50% ≠ Instant Best Day 20%.
 - Challenge fee refund on first reward is eval plans only, not Instant (`performance-reward` already says that).
+- **Skip** `trading-objectives.html` `content.p8` and `content.p8Instant`. Do not edit those first-payout lines.
