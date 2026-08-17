@@ -21,12 +21,12 @@ PAGES = (
     ("2-step-pro", "https://www.verodus.com/2-step-pro.html"),
 )
 
-FREQ_ITEMS = """                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly</strong> (Standard, included): 80% to trader, every 14 calendar days</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly Rewards with 70% Reward Split</strong> (Add-on): 70% to trader, every 7 calendar days. Withdraw your profit share weekly</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand Rewards with 90% Split</strong> (Add-on): 90% to trader, anytime after first eligibility</span></li>"""
+FREQ_ITEMS = """                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly</strong> (Standard, included): 80% to trader, every 14 calendar days. Minimum reward $100</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly Rewards with 70% Reward Split</strong> (Add-on): 70% to trader, every 7 calendar days. Withdraw your profit share weekly. Minimum reward $100</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand Rewards with 90% Split</strong> (Add-on): 90% to trader, anytime after first eligibility. Minimum reward $100</span></li>"""
 
-SPLIT_ITEMS = """                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Default:</strong> 80/20 (trader/firm) on the Bi-Weekly cycle</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly 70%:</strong> paid add-on. Every 7 calendar days</span></li>
+SPLIT_ITEMS = """                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Default:</strong> 80/20 (trader/firm) on the Bi-Weekly cycle. Minimum reward $100</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly 70%:</strong> paid add-on. Every 7 calendar days. Minimum reward $100</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand 90%:</strong> paid add-on. Anytime after first eligibility. Minimum reward $100</span></li>"""
 
 REWARDS_INSTANT = """                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Minimum Reward:</strong> $100 (processed within 48 hours)</span></li>
@@ -152,6 +152,49 @@ def patch_shared(html: str, instant: bool) -> str:
         "Challenge fees are non-refundable once trading activity has commenced. Serious violations may result in permanent blacklist and reporting to relevant authorities.",
         "Challenge fees are refunded only with the first successful performance reward (add-on fees are not refunded). Otherwise, fees are non-refundable once trading activity has commenced. Serious violations may result in permanent blacklist and reporting to relevant authorities.",
     )
+    html = patch_news(html)
+    return html
+
+
+def patch_news(html: str) -> str:
+    """News is included on every phase and funded account. Not an add-on."""
+    html = re.sub(
+        r'(<strong>News Trading:</strong><span>)Full details on News Trading restrictions.*?</span>',
+        r'\1News trading is permitted. There is no News Trading add-on and no restricted news window.</span>',
+        html,
+        count=1,
+        flags=re.S,
+    )
+    html = html.replace(
+        "Full news trading (subject to restrictions), Expert Advisors",
+        "News trading is permitted. Expert Advisors",
+    )
+    html = html.replace(
+        "Full news trading, Expert Advisors",
+        "News trading is permitted. Expert Advisors",
+    )
+    html = re.sub(
+        r'\s*<li[^>]*>\s*<strong>News Trading Addon:</strong>.*?</li>',
+        "",
+        html,
+        count=1,
+        flags=re.S,
+    )
+    html = re.sub(
+        r'\s*<li[^>]*>\s*<strong>News Trading \(Tiered Breach Model.*?</ul>\s*</li>',
+        "",
+        html,
+        count=1,
+        flags=re.S,
+    )
+    html = html.replace(
+        "Removal of conflicting trades and profits from your history (standard for first News Trading violation)",
+        "Removal of conflicting trades and profits from your history",
+    )
+    html = html.replace(
+        "Complete termination of your Qualified Performance account (standard for second News Trading violation or System Exploitation)",
+        "Complete termination of your Qualified Performance account (standard for System Exploitation)",
+    )
     return html
 
 
@@ -212,6 +255,9 @@ FORBIDDEN = (
     "up to 90% of performance rewards",
     "up to 90% profit split",
     "48 business hours",
+    "News Trading Addon",
+    "Tiered Breach Model",
+    "2-minute restricted",
 )
 
 INSTANT_FORBIDDEN = (
@@ -231,6 +277,9 @@ def verify(slug: str, html: str) -> None:
         "On Demand Rewards with 90% Split",
         "paid add-on",
         "calendar days, not trading days",
+        "News trading is permitted",
+        "Minimum reward $100",
+        "Minimum Reward:</strong> $100",
     ):
         if needle not in html:
             misses.append(needle)
