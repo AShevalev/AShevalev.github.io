@@ -1,474 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Checkout – Verodus</title>
-<meta name="description" content="Verodus Checkout – Purchase your evaluation challenge. Select your plan and account size to get started."/>
-<meta name="robots" content="noindex,follow"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"/>
-<!--
-  Complete rec checkout (prototype). Same .co-* classes as live checkout.css.
+    <meta charset="UTF-8">
+    <base href="https://www.verodus.com/">
+    <!-- In-app iframe (?embed=1): set before CSS paints so background + text contrast stay correct. -->
+    <script>(function(){try{if(new URLSearchParams(location.search).get("embed")==="1")document.documentElement.dataset.embed="1";}catch(e){}})();</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verodus Checkout – Purchase your evaluation challenge. Select your plan and account size to get started.">    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="noindex,follow">
+    <!-- PWA and Icons -->
+    <link rel="manifest" href="/manifest.json?v=9">
+    <link rel="icon" type="image/webp" sizes="48x48" href="/images/favicon-48x48.webp">
+    <link rel="icon" type="image/webp" sizes="32x32" href="/images/favicon-32x32.webp">
+    <link rel="icon" type="image/webp" sizes="16x16" href="/images/favicon-16x16.webp">
+    <link rel="apple-touch-icon" href="/images/pwa-icon-192.webp">
+    <meta name="theme-color" content="#1b2b8e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Verodus">
 
-  Locked billing:
-    News 12% / Weekend 12% / Swing both 20%
-    Weekly 80% split 8% (XOR on-demand and 90%)
-    On-demand 80%: eval 12% / Instant 15%
-    90% split: eval 12% / Instant 15%
-    90% On Demand both: eval 20% / Instant 32%
-    Qty 1–4 at VERO35, no extra copy ladder, no 5th free
-    Coupon VERO35 = 35% off list + stickers (cap 35%)
-    First-payout refund = challenge fee only
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <title>Checkout – Verodus</title>
+    <link rel="stylesheet" href="styles.css?v=20260416m">
+    <link rel="stylesheet" href="checkout.css?v=20260730nobanner">
 
-  This page does not charge a card. Complete Purchase validates the form
-  and shows a success overlay so the math and XOR/bundle logic can be tested.
--->
-<style>
-  :root {
-    --content-padding: 1.5rem;
-    --theme: #1b2b8e;
-    --theme-cta: #d4af37;
-    --theme-cta-text: #0f172a;
-    --card-opacity: .04;
-    --card-bg-translucent: rgba(255, 255, 255, var(--card-opacity));
-    --card-bg-dark: #141a3b;
-    --success: #34d399;
-    --danger: #f87171;
-    --text-on-dark: #cbd5e1;
-    --text-on-theme-dim: #e2e8f0a6;
-    --gold-light: var(--theme-cta);
-    --heading-h2: #d4af37;
-    --text-size-normal: 1rem;
-    --border-subtle: #ffffff14;
-    --border-on-theme: #ffffff26;
-    --bg-overlay: #0000000f;
-    --shadow-card-hover: 0 20px 48px #0006;
-    --bg-gradient-start: #07003b;
-    --bg-gradient-end: #1b2b8e;
-    --page-gradient: linear-gradient(to bottom, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
-    color: var(--text-on-dark);
-    background: var(--page-gradient);
-    min-height: 100vh;
-    line-height: 1.6;
-  }
-  a { color: var(--theme-cta); }
-  button { cursor: pointer; background: 0 0; border: none; font-family: inherit; }
-  .co-topbar {
-    border-bottom: 1px solid var(--border-on-theme);
-    justify-content: space-between; align-items: center;
-    padding: .9rem 1.5rem; display: flex;
-  }
-  .co-brand { color: #fff; letter-spacing: .04em; font-size: 1.05rem; font-weight: 800; }
-  .co-topbar-note { color: var(--text-on-theme-dim); font-size: .78rem; }
-  .checkout-page { max-width: 1200px; padding: 2rem var(--content-padding) 4rem; margin: 0 auto; }
-  .checkout-page > h1 { margin: 0 0 .4rem; color: var(--heading-h2); font-size: 1.75rem; }
-  .checkout-container { grid-template-columns: 1fr 380px; align-items: start; gap: 2rem; display: grid; }
-  .co-summary-col { position: sticky; top: 1rem; }
-  .co-section { margin-bottom: 2rem; }
-  .co-section-title { color: var(--text-on-dark); margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; }
-  .co-tabs { flex-wrap: wrap; gap: .5rem; display: flex; }
-  .co-tab {
-    border: 1px solid var(--border-on-theme); color: var(--text-on-dark); cursor: pointer;
-    white-space: nowrap; background: 0 0; border-radius: 999px; justify-content: center;
-    align-items: center; gap: .4rem; padding: .6rem 1.4rem; font-size: .9rem; font-weight: 600;
-    transition: all .2s; display: inline-flex;
-  }
-  .co-tab:hover { border-color: var(--theme); }
-  .co-tab.active { background: var(--theme); border-color: var(--theme); }
-  .co-badge {
-    background: var(--theme-cta); color: var(--theme-cta-text); border-radius: 999px;
-    margin-left: .15rem; padding: .1rem .45rem; font-size: .65rem; font-weight: 800;
-  }
-  .co-size-grid { grid-template-columns: repeat(6, 1fr); gap: .5rem; display: grid; }
-  .co-size-btn {
-    border: 2px solid var(--border-on-theme); background: var(--card-bg-translucent);
-    color: var(--text-on-dark); cursor: pointer; border-radius: 12px; flex-direction: column;
-    justify-content: center; align-items: center; padding: .75rem .5rem; transition: all .2s; display: flex;
-  }
-  .co-size-btn:hover { border-color: var(--theme); }
-  .co-size-btn.active { border-color: var(--theme-cta); background: color-mix(in srgb, var(--theme-cta) 12%, transparent); }
-  .co-size-label { font-size: 1rem; font-weight: 700; }
-  .co-size-price { color: var(--text-on-theme-dim); margin-top: .15rem; font-size: .8rem; }
-  .co-size-btn.active .co-size-price { color: var(--theme-cta); }
-  .co-addon {
-    border: 1px solid var(--border-on-theme); background: var(--card-bg-translucent);
-    border-radius: 12px; justify-content: space-between; align-items: flex-start;
-    gap: .75rem; margin-bottom: .5rem; padding: 1rem 1.25rem; transition: border-color .2s; display: flex;
-  }
-  .co-addon.active { border-color: var(--theme); }
-  .co-addon-info { flex-direction: column; flex: 1; gap: .35rem; min-width: 0; display: flex; }
-  .co-addon-name { color: var(--text-on-dark); font-size: .92rem; font-weight: 600; }
-  .co-addon-name .co-addon-price-tag { color: var(--success); margin-left: .4rem; font-weight: 700; }
-  .co-addon-desc-row { flex-wrap: wrap; align-items: flex-start; gap: .35rem; display: flex; }
-  .co-addon-desc-text { color: var(--text-on-theme-dim); flex: 1; min-width: 0; font-size: .78rem; line-height: 1.35; }
-  .co-addon-info-btn {
-    color: var(--text-on-theme-dim); cursor: pointer; opacity: .75; background: 0 0; border: none;
-    flex-shrink: 0; justify-content: center; align-items: center; margin: 0; padding: 0;
-    font-size: .75rem; line-height: 1; transition: color .15s, opacity .15s; display: inline-flex;
-  }
-  .co-addon-info-btn:hover, .co-addon-info-btn:focus-visible { color: var(--gold-light); opacity: 1; outline: none; }
-  .co-addon-info-btn:focus-visible {
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--theme-cta) 45%, transparent); border-radius: 4px;
-  }
-  .co-addon-info-glyph { font-size: .85rem; line-height: 1; display: block; }
-  .co-sr-only {
-    clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; width: 1px; height: 1px;
-    margin: -1px; padding: 0; position: absolute; overflow: hidden;
-  }
-  #coAddonModal.modal-overlay {
-    z-index: 10050; background: var(--shadow-card-hover); justify-content: center; align-items: center;
-    padding: 1rem; display: none; position: fixed; inset: 0;
-  }
-  #coAddonModal.modal-overlay.open { display: flex; }
-  #coAddonModal .modal-box {
-    border: 1px solid var(--border-subtle); width: calc(100% - 2rem); max-width: 520px; max-height: 92vh;
-    box-shadow: var(--shadow-card-hover); border-radius: 1.25rem; flex-direction: column;
-    animation: .3s cubic-bezier(.34, 1.56, .64, 1) coCheckoutModalPop; display: flex; overflow: hidden;
-    background: #141a3b;
-  }
-  @keyframes coCheckoutModalPop {
-    0% { opacity: 0; transform: scale(.88); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  #coAddonModal .modal-head {
-    border-bottom: 1px solid var(--border-subtle); flex-shrink: 0; justify-content: space-between;
-    align-items: center; padding: 1.4rem 1.8rem; display: flex;
-  }
-  #coAddonModal .modal-head h3 { font-size: var(--text-size-normal); margin: 0; padding-right: 1rem; font-weight: 400; }
-  #coAddonModal .modal-close {
-    cursor: pointer; background: 0 0; border: none; flex-shrink: 0; padding: .25rem;
-    font-size: 1.8rem; line-height: 1; transition: opacity .2s; color: var(--text-on-dark);
-  }
-  #coAddonModal .modal-body {
-    -webkit-overflow-scrolling: touch; flex: 1; min-height: 0; padding: 1.4rem 1.8rem; overflow-y: auto;
-  }
-  #coAddonModal .modal-body p { font-size: var(--text-size-normal); margin: 0; font-weight: 400; line-height: 1.7; }
-  #coAddonModal .modal-body p + p { margin-top: 1rem; }
-  #coAddonModal .modal-foot {
-    background: var(--bg-overlay); border-top: 1px solid var(--border-subtle); flex-shrink: 0;
-    padding: .85rem 1.8rem; font-size: .72rem;
-  }
-  .co-toggle { flex-shrink: 0; align-self: center; width: 48px; height: 26px; margin-top: .15rem; position: relative; }
-  .co-toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
-  .co-toggle-slider {
-    cursor: pointer; background: #ffffff26; border-radius: 999px; transition: background .3s;
-    position: absolute; inset: 0;
-  }
-  .co-toggle-slider:before {
-    content: ""; background: #fff; border-radius: 50%; width: 20px; height: 20px;
-    transition: transform .3s; position: absolute; bottom: 3px; left: 3px;
-  }
-  .co-toggle input:checked + .co-toggle-slider { background: var(--theme); }
-  .co-toggle input:checked + .co-toggle-slider:before { transform: translate(22px); }
-  .co-form-grid { grid-template-columns: 1fr 1fr; gap: .75rem 1rem; display: grid; }
-  .co-field { margin-bottom: .85rem; }
-  .co-field label { color: var(--text-on-dark); margin-bottom: .35rem; font-size: .82rem; font-weight: 600; display: block; }
-  .co-optional { color: var(--text-on-theme-dim); font-weight: 500; }
-  .co-required { color: var(--theme-cta); }
-  .co-field input, .co-field select {
-    border: 1px solid var(--border-on-theme); background: var(--card-bg-translucent);
-    color: #fff; border-radius: 10px; width: 100%; padding: .7rem .85rem; font: inherit;
-  }
-  .co-field input:focus, .co-field select:focus {
-    outline: none; border-color: var(--theme-cta);
-  }
-  .co-error { color: var(--danger); display: none; margin-top: .3rem; font-size: .75rem; }
-  .co-field.invalid .co-error { display: block; }
-  .co-field.invalid input, .co-field.invalid select { border-color: var(--danger); }
-  .co-summary-card { background: var(--card-bg-dark); border: 1px solid var(--border-on-theme); border-radius: 16px; padding: 1.5rem; }
-  .co-summary-title { color: var(--text-on-dark); margin-bottom: 1.25rem; font-size: 1.15rem; font-weight: 700; }
-  .co-summary-row, .co-summary-addon-row, .co-summary-base, .co-summary-discount {
-    justify-content: space-between; display: flex;
-  }
-  .co-summary-row { padding: .25rem 0; font-size: .9rem; }
-  .co-summary-row-label { color: var(--text-on-theme-dim); }
-  .co-summary-row-value { color: var(--text-on-dark); font-weight: 600; }
-  .co-summary-addon-row { padding: .2rem 0; font-size: .8rem; }
-  .co-summary-addon-row span:first-child { color: var(--text-on-theme-dim); }
-  .co-summary-addon-row span:last-child { color: var(--success); }
-  .co-summary-base { padding: .45rem 0; font-size: .9rem; }
-  .co-summary-base span:first-child { color: var(--text-on-theme-dim); }
-  .co-summary-base span:last-child { color: var(--text-on-dark); }
-  .co-summary-discount { padding: .25rem 0; font-size: .85rem; }
-  .co-summary-discount span:first-child { color: var(--text-on-theme-dim); }
-  .co-summary-discount span:last-child { color: var(--success); }
-  .co-summary-coupon { gap: .5rem; display: flex; }
-  .co-summary-coupon input {
-    border: 1px solid var(--border-on-theme); background: var(--card-bg-translucent);
-    color: #fff; border-radius: 10px; flex: 1; padding: .65rem .8rem; font: inherit;
-  }
-  .co-summary-coupon button {
-    background: var(--theme); color: #fff; border-radius: 10px; padding: .65rem 1rem; font-weight: 700;
-  }
-  .co-coupon-feedback { min-height: 1.1rem; margin-top: .4rem; font-size: .75rem; }
-  .co-coupon-feedback.ok { color: var(--success); }
-  .co-coupon-feedback.err { color: var(--danger); }
-  .co-summary-divider { background: var(--border-on-theme); height: 1px; margin: .75rem 0; }
-  .co-summary-total { justify-content: space-between; align-items: center; padding: .75rem 0 .25rem; display: flex; }
-  .co-total-label { color: var(--text-on-dark); font-size: 1rem; font-weight: 700; }
-  .co-total-amount { color: var(--text-on-dark); font-size: 2rem; font-weight: 800; }
-  .co-refundable { margin: .6rem 0 1rem; }
-  .co-refundable-pill {
-    border: 1px solid color-mix(in srgb, var(--success) 40%, transparent);
-    background: color-mix(in srgb, var(--success) 12%, transparent);
-    color: var(--success); border-radius: 999px; align-items: center; gap: .4rem;
-    padding: .35rem .7rem; font-size: .75rem; font-weight: 600; display: inline-flex;
-  }
-  .co-order-terms { margin: 1rem 0 1.25rem; font-size: .8rem; }
-  .co-order-terms-check { align-items: flex-start; gap: .5rem; display: flex; }
-  .co-order-terms-check input { margin-top: .2rem; }
-  .co-order-terms-list { color: var(--text-on-theme-dim); margin: .5rem 0 0; padding-left: 1.2rem; }
-  .co-pm-list { flex-direction: column; gap: .5rem; margin-bottom: 1rem; display: flex; }
-  .co-pm-option {
-    border: 1px solid var(--border-on-theme); border-radius: 12px; align-items: center;
-    gap: .65rem; padding: .8rem 1rem; display: flex; cursor: pointer;
-  }
-  .co-pm-option.active { border-color: var(--theme-cta); }
-  .co-pm-label { color: var(--text-on-dark); flex: 1; font-size: .9rem; font-weight: 600; }
-  .co-pm-icons { align-items: center; gap: .25rem; display: flex; }
-  .co-purchase-btn {
-    background: var(--theme-cta); color: var(--theme-cta-text); border-radius: 12px;
-    justify-content: center; align-items: center; gap: .5rem; width: 100%;
-    padding: .95rem 1rem; font-size: 1rem; font-weight: 800; display: flex;
-  }
-  .co-purchase-btn:disabled { opacity: .45; cursor: not-allowed; }
-  .co-note { color: var(--text-on-theme-dim); font-size: .78rem; line-height: 1.45; margin: 0 0 1.25rem; }
-  .co-overlay {
-    z-index: 12000; background: #07003bcc; justify-content: center; align-items: center;
-    display: none; position: fixed; inset: 0;
-  }
-  .co-overlay.open { display: flex; }
-  .co-overlay-inner, .co-success-card {
-    background: var(--card-bg-dark); border: 1px solid var(--border-on-theme);
-    border-radius: 16px; text-align: center; max-width: 420px; padding: 2rem 1.5rem;
-  }
-  .co-spinner {
-    border: 3px solid #ffffff26; border-top-color: var(--theme-cta); border-radius: 50%;
-    width: 36px; height: 36px; margin: 0 auto 1rem; animation: 1s linear infinite coSpin;
-  }
-  @keyframes coSpin { to { transform: rotate(360deg); } }
-  .co-success-icon {
-    border: 2px solid var(--success); color: var(--success); border-radius: 50%;
-    justify-content: center; align-items: center; width: 52px; height: 52px;
-    margin: 0 auto 1rem; display: flex;
-  }
-  .co-success-title { color: #fff; margin-bottom: .5rem; font-size: 1.3rem; font-weight: 800; }
-  .co-success-msg { color: var(--text-on-theme-dim); margin-bottom: 1.25rem; font-size: .9rem; }
-  .co-success-btn {
-    background: var(--theme-cta); color: var(--theme-cta-text); border-radius: 10px;
-    padding: .7rem 1.2rem; font-weight: 800; display: inline-block;
-  }
-  .co-foot { color: var(--text-on-theme-dim); text-align: center; padding: 0 1.5rem 2rem; font-size: .75rem; }
-  @media (width <= 960px) {
-    .checkout-container { grid-template-columns: 1fr; }
-    .co-summary-col { position: static; }
-    .co-form-grid { grid-template-columns: 1fr; }
-  }
-  @media (width <= 640px) {
-    .co-size-grid { grid-template-columns: repeat(3, 1fr); }
-    #coAddonModal .modal-head, #coAddonModal .modal-body { padding: .8rem 1.2rem; }
-    #coAddonModal .modal-body p { font-size: .85rem; line-height: 1.4; }
-    #coAddonModal .modal-foot { padding: .6rem 1.25rem; font-size: .65rem; }
-  }
-</style>
-</head>
+    <style id="co-qty-css">
+      .co-qty-box { margin: .85rem 0 0; }
+      .co-qty-kicker {
+        color: var(--text-on-dark, #cbd5e1);
+        margin-bottom: .2rem;
+        font-size: .9rem;
+        font-weight: 700;
+      }
+      .co-qty-label {
+        color: var(--text-on-theme-dim, #e2e8f0a6);
+        margin-bottom: .55rem;
+        font-size: .75rem;
+      }
+      .co-qty-tabs { flex-wrap: wrap; gap: .4rem; display: flex; }
+      .co-qty-tabs .co-tab {
+        flex: 1 1 calc(50% - .4rem);
+        justify-content: center;
+        min-width: 0;
+        padding: .5rem .6rem;
+        font-size: .78rem;
+      }
+      @media (width <= 960px) {
+        .co-summary-col { position: static; }
+      }
+      @media (width <= 640px) {
+        .co-qty-tabs .co-tab { flex: 1 1 calc(50% - .4rem); font-size: .72rem; padding: .45rem .4rem; }
+      }
+      .co-coupon-feedback.ok { color: #34d399; }
+      .co-coupon-feedback.err { color: #f87171; }
+    </style>
+
+    <link rel="canonical" href="https://www.verodus.com/checkout.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.verodus.com/checkout.html">
+    <meta property="og:title" content="Checkout – Verodus">
+    <meta property="og:description" content="Verodus Checkout – Purchase your evaluation challenge. Select your plan and account size to get started.">
+    <meta property="og:image" content="https://www.verodus.com/images/og-default.webp">
+    <meta property="og:site_name" content="Verodus">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Checkout – Verodus">
+    <meta name="twitter:description" content="Verodus Checkout – Purchase your evaluation challenge. Select your plan and account size to get started.">
+    <meta name="twitter:image" content="https://www.verodus.com/images/og-default.webp">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+        <script src="/i18n/config.js"></script>
+    <script src="/i18n/i18n.js"></script>
+
+<link href="https://www.verodus.com/checkout.html" hreflang="en" rel="alternate"><link href="https://www.verodus.com/es/checkout.html" hreflang="es" rel="alternate"><link href="https://www.verodus.com/zh/checkout.html" hreflang="zh" rel="alternate"><link href="https://www.verodus.com/ar/checkout.html" hreflang="ar" rel="alternate"><link href="https://www.verodus.com/fr/checkout.html" hreflang="fr" rel="alternate"><link href="https://www.verodus.com/pt/checkout.html" hreflang="pt" rel="alternate"></head>
 <body>
-<header class="co-topbar">
-  <div class="co-brand">VERODUS</div>
-  <div class="co-topbar-note">Prototype checkout — VERO35 rec fees and add-ons. No charge.</div>
-</header>
+    <div id="header-container"><noscript><nav aria-label="Main navigation"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="trading-objectives.html">Trading Objectives</a> | <a href="trading-instruments.html">Instruments</a> | <a href="trading-platforms.html">Platforms</a> | <a href="performance-reward.html">Rewards</a> | <a href="economic-calendar.html">Calendar</a> | <a href="affiliate.html">Affiliate</a> | <a href="faq.html">FAQ</a> | <a href="blog.html">Blog</a> | <a href="contact.html">Contact</a></nav></noscript></div>
+    <script src="header.js" defer=""></script>
 
-<main class="checkout-page">
-  <h1>Checkout</h1>
-  <p class="co-note">List prices below. VERO35 takes 35% off the challenge and add-on stickers. Up to 4 accounts in one order; each at VERO35. Add-on fees are not refunded with the first-payout challenge-fee refund.</p>
+    <main class="checkout-page">
+        <h1>Checkout</h1>
 
-  <div class="checkout-container">
-    <div class="checkout-form-col">
-      <div class="co-section" id="coSectionPlan">
-        <div class="co-section-title">Challenge Type</div>
-        <div class="co-tabs" id="coTabs"></div>
-      </div>
+        <div class="checkout-container">
+            <!-- ════ LEFT COLUMN: Form ════ -->
+            <div class="checkout-form-col">
 
-      <div class="co-section" id="coSectionSize">
-        <div class="co-section-title">Account Size</div>
-        <div class="co-size-grid" id="coSizes"></div>
-      </div>
+                <!-- Competition entry: shown instead of the plan/size/add-on
+                     pickers when opened with ?competition=<slug>. Fixed price,
+                     fixed account size, nothing to configure. -->
+                <div class="co-section co-hidden" id="coSectionCompetition">
+                    <div class="co-section-title">Competition Entry</div>
+                    <div class="co-comp-card">
+                        <div class="co-comp-name" id="coCompName"></div>
+                        <div class="co-comp-meta" id="coCompMeta"></div>
+                        <p class="co-comp-note" id="coCompNote"></p>
+                    </div>
+                </div>
 
-      <div class="co-section" id="coSectionQty">
-        <div class="co-section-title">Accounts</div>
-        <div class="co-tabs" id="coQty"></div>
-        <p class="co-note" id="coQtyNote" style="margin:.75rem 0 0;"></p>
-      </div>
+                <!-- Challenge Type -->
+                <div class="co-section" id="coSectionPlan">
+                    <div class="co-section-title">Challenge Type</div>
+                    <div class="co-tabs" id="coTabs">
+                        <button type="button" class="co-tab" data-plan="instant">Instant</button>
+                        <button type="button" class="co-tab active" data-plan="1step">1-Step</button>
+                        <button type="button" class="co-tab" data-plan="2steplite">2-Step Lite</button>
+                        <button type="button" class="co-tab" data-plan="2steppro">2-Step Pro <span class="co-badge co-badge-popular">Popular</span></button>
+                    </div>
+                </div>
 
-      <div class="co-section" id="coSectionAddons">
-        <div class="co-section-title">Add-Ons</div>
-        <div id="coAddons"></div>
-      </div>
+                <!-- Account Size -->
+                <div class="co-section" id="coSectionSize">
+                    <div class="co-section-title">Account Size</div>
+                    <div class="co-size-grid" id="coSizes"></div>
+                </div>
 
-      <div class="co-section">
-        <div class="co-section-title">1. Customer Information</div>
-        <div class="co-form-grid">
-          <div class="co-field" id="field-fname">
-            <label for="co-fname">First Name</label>
-            <input type="text" id="co-fname" autocomplete="given-name"/>
-            <div class="co-error">First name is required</div>
-          </div>
-          <div class="co-field" id="field-lname">
-            <label for="co-lname">Last Name</label>
-            <input type="text" id="co-lname" autocomplete="family-name"/>
-            <div class="co-error">Last name is required</div>
-          </div>
-        </div>
-        <div class="co-field" id="field-phone">
-          <label for="co-phone">Phone Number</label>
-          <input type="tel" id="co-phone" autocomplete="tel"/>
-          <div class="co-error">Phone number is required</div>
-        </div>
-        <div class="co-field" id="field-email">
-          <label for="co-email">Email Address</label>
-          <input type="email" id="co-email" autocomplete="email"/>
-          <div class="co-error">Valid email is required</div>
-        </div>
-      </div>
+                <!-- Platform: all accounts run on the in-house engine; traders open
+                     either the Platform5 or TradeHub terminal after purchase. -->
 
-      <div class="co-section">
-        <div class="co-section-title">2. Billing Details</div>
-        <div class="co-field" id="field-country">
-          <label for="co-country">Country <span class="co-required" aria-hidden="true">*</span></label>
-          <select id="co-country" autocomplete="country" required="">
-            <option value="">Select country</option>
-          </select>
-          <div class="co-error">Country is required</div>
+                <!-- Add-Ons -->
+                <div class="co-section" id="coSectionAddons">
+                    <div class="co-section-title">Add-Ons</div>
+                    <div id="coAddons"></div>
+                </div>
+
+                <!-- 1. Customer Information -->
+                <div class="co-section">
+                    <div class="co-section-title">1. Customer Information</div>
+                    <div class="co-form-grid">
+                        <div class="co-field" id="field-fname">
+                            <label for="co-fname">First Name</label>
+                            <input type="text" id="co-fname" autocomplete="given-name">
+                            <div class="co-error">First name is required</div>
+                        </div>
+                        <div class="co-field" id="field-lname">
+                            <label for="co-lname">Last Name</label>
+                            <input type="text" id="co-lname" autocomplete="family-name">
+                            <div class="co-error">Last name is required</div>
+                        </div>
+                    </div>
+                    <div class="co-field" id="field-phone">
+                        <label for="co-phone">Phone Number</label>
+                        <input type="tel" id="co-phone" autocomplete="tel">
+                        <div class="co-error">Phone number is required</div>
+                    </div>
+                    <div class="co-field" id="field-email">
+                        <label for="co-email">Email Address</label>
+                        <input type="email" id="co-email" autocomplete="email">
+                        <div class="co-error">Valid email is required</div>
+                    </div>
+                </div>
+
+                <!-- 2. Billing Details -->
+                <div class="co-section">
+                    <div class="co-section-title">2. Billing Details</div>
+                    <div class="co-field" id="field-country">
+                        <label for="co-country">Country <span class="co-required" aria-hidden="true">*</span></label>
+                        <select id="co-country" autocomplete="country" required="">
+                            <option value="">Select country</option>
+                        </select>
+                        <div class="co-error">Country is required</div>
+                    </div>
+                    <div class="co-field" id="field-address">
+                        <label for="co-address">Street address</label>
+                        <input type="text" id="co-address" autocomplete="address-line1">
+                        <div class="co-error">Street address is required</div>
+                    </div>
+                    <div class="co-field" id="field-address2">
+                        <label for="co-address-2">Apartment, suite, unit, etc. <span class="co-optional">(optional)</span></label>
+                        <input type="text" id="co-address-2" autocomplete="address-line2">
+                    </div>
+                    <div class="co-form-grid">
+                        <div class="co-field" id="field-city">
+                            <label for="co-city">City</label>
+                            <input type="text" id="co-city" autocomplete="address-level2">
+                            <div class="co-error">City is required</div>
+                        </div>
+                        <div class="co-field" id="field-state">
+                            <label for="co-state">State</label>
+                            <input type="text" id="co-state" autocomplete="address-level1">
+                            <div class="co-error">State is required</div>
+                        </div>
+                    </div>
+                    <div class="co-field" id="field-postcode">
+                        <label for="co-postcode">ZIP code</label>
+                        <input type="text" id="co-postcode" autocomplete="postal-code">
+                        <div class="co-error">ZIP code is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ════ RIGHT COLUMN: Order Summary ════ -->
+            <div class="co-summary-col">
+                <div class="co-summary-card">
+                    <div class="co-summary-title">Order Summary</div>
+
+                    <div class="co-summary-row">
+                        <span class="co-summary-row-label" id="sumChallengeLabel">Challenge</span>
+                        <span class="co-summary-row-value" id="sumChallenge">1-Step</span>
+                    </div>
+                    <div class="co-summary-row">
+                        <span class="co-summary-row-label">Account Size</span>
+                        <span class="co-summary-row-value" id="sumSize">$5K</span>
+                    </div>
+
+                    <div class="co-qty-box" id="coQtyBox">
+                        <div class="co-qty-kicker">Quantity</div>
+                        <div class="co-qty-label">Number of accounts to purchase</div>
+                        <div class="co-tabs co-qty-tabs" id="coQty"></div>
+                    </div>
+
+
+                    <div class="co-summary-divider"></div>
+
+                    <div id="coCouponSection">
+                        <div class="co-summary-coupon">
+                            <input type="text" id="coCoupon" placeholder="Coupon code" autocomplete="off">
+                            <button type="button" id="coApplyCoupon">Apply</button>
+                        </div>
+                        <div class="co-coupon-feedback" id="coCouponFeedback" aria-live="polite"></div>
+
+                        <div class="co-summary-divider"></div>
+                    </div>
+
+                    <div id="sumAddonsWrap"></div>
+
+                    <div class="co-summary-base">
+                        <span id="sumBaseLabel">Base price</span>
+                        <span id="sumBase">$65</span>
+                    </div>
+
+                    <div id="sumDiscountWrap"></div>
+
+                    <div class="co-summary-divider"></div>
+
+                    <div class="co-summary-total">
+                        <span class="co-total-label">Total</span>
+                        <span class="co-total-amount" id="sumTotal">$65</span>
+                    </div>
+
+                    <div class="co-refundable" id="coRefundable">
+                        <span class="co-refundable-pill">
+                            <svg class="co-refundable-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <polyline points="8 12 11 15 16 9"></polyline>
+                            </svg>
+                            <span class="co-refundable-label">Refundable on first payout</span>
+                        </span>
+                    </div>
+
+                    <div class="co-order-terms">
+                        <div class="co-order-terms-check">
+                            <input type="checkbox" id="co-order-terms" autocomplete="off" aria-describedby="co-order-terms-list">
+                            <label for="co-order-terms"><strong>I agree with all the following terms:</strong></label>
+                        </div>
+                        <ul class="co-order-terms-list" id="co-order-terms-list">
+                            <li>I have read and agreed to the <a class="co-order-terms-link-gold" href="trading-objectives.html" target="_blank" rel="noopener noreferrer">Trading Objectives</a>.</li>
+                            <li>All information provided is correct and matches government-issued ID.</li>
+                            <li>I have read and agree with the <a class="co-order-terms-link-gold" href="terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a class="co-order-terms-link-gold" href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</li>
+</ul>
+                    </div>
+
+                    <div class="co-summary-title co-pm-title">Select payment method</div>
+
+                    <div class="co-pm-list" id="coPaymentMethods">
+                        <label class="co-pm-option active" data-method="card">
+                            <input type="radio" name="paymentMethod" value="card" checked="">
+                            <span class="co-pm-label">Credit / Debit Card</span>
+                            <span class="co-pm-icons">
+                                <svg class="co-pm-visa" width="38" height="24" viewBox="0 0 750 471" aria-hidden="true"><path d="M278.2 334.2l33.4-194h53.3l-33.3 194zm227.7-189.1c-10.6-4-27.2-8.3-47.9-8.3-52.8 0-90 26.5-90.3 64.4-.3 28 26.5 43.6 46.8 53 20.8 9.6 27.8 15.7 27.7 24.3-.1 13.1-16.6 19.1-32 19.1-21.4 0-32.7-3-50.3-10.2l-6.9-3.1-7.5 43.8c12.5 5.4 35.6 10.1 59.5 10.4 56.2 0 92.7-26.2 93.1-66.8.2-22.3-14.1-39.2-44.9-53.2-18.7-9.1-30.2-15.1-30.1-24.3 0-8.1 9.7-16.8 30.7-16.8 17.5-.3 30.2 3.5 40.1 7.5l4.8 2.3 7.2-42.1zM640.6 140.2h-41.3c-12.8 0-22.4 3.5-28 16.2L484 334.2h56.2l11.2-29.2h68.7l6.5 29.2h49.6l-43.2-194h7.6zm-65.7 125l21.2-54.3c-.3.5 4.4-11.3 7-18.6l3.6 16.8 12.3 56.1h-44.1zm-389-125l-52.4 132.4-5.6-27c-9.7-31.1-39.9-64.8-73.7-81.7l47.9 170.3h56.7L242.6 140.2h-56.7z" fill="#1a1f71"></path><path d="M146.9 140.2H59.6l-.7 3.9c67.2 16.2 111.7 55.4 130.1 102.5L170.7 157c-3.2-12.3-12.6-16.2-23.8-16.8z" fill="#f7a600"></path></svg>
+                                <svg class="co-pm-mc" width="30" height="24" viewBox="0 0 152.407 108" aria-hidden="true"><g><rect fill="#ff5f00" x="60.412" y="10.71" width="31.5" height="66.58"></rect></g><path d="M63.1 44a42.3 42.3 0 0 1 16.2-33.3 42.24 42.24 0 1 0 0 66.6A42.3 42.3 0 0 1 63.1 44z" fill="#eb001b"></path><path d="M145.5 44a42.24 42.24 0 0 1-68.3 33.3 42.28 42.28 0 0 0 0-66.6A42.24 42.24 0 0 1 145.5 44z" fill="#f79e1b"></path></svg>
+                            </span>
+                        </label>
+                        <label class="co-pm-option" data-method="crypto">
+                            <input type="radio" name="paymentMethod" value="crypto">
+                            <span class="co-pm-label">Crypto</span>
+                            <span class="co-pm-icons">
+                                <svg class="co-pm-coin" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" title="USDC"><circle cx="16" cy="16" r="16" fill="#2775ca"></circle><path d="M20.5 18.5c0-2.4-1.4-3.2-4.3-3.6-2-.3-2.4-.8-2.4-1.8s.7-1.6 2.1-1.6c1.3 0 2 .4 2.3 1.5 0 .2.2.3.4.3h1.1c.2 0 .4-.2.4-.4v-.1c-.3-1.5-1.5-2.7-3.1-2.8V8.4c0-.2-.2-.4-.4-.4h-1.1c-.2 0-.4.2-.4.4V10c-2 .3-3.3 1.6-3.3 3.3 0 2.3 1.4 3.1 4.3 3.5 1.9.3 2.5.8 2.5 1.9s-1 1.9-2.3 1.9c-1.8 0-2.5-.8-2.7-1.8 0-.2-.2-.3-.4-.3h-1.2c-.2 0-.4.2-.4.4v.1c.3 1.7 1.4 2.9 3.6 3.2v1.6c0 .2.2.4.4.4h1.1c.2 0 .4-.2.4-.4V22c2-.3 3.4-1.7 3.4-3.5z" fill="#fff"></path><path d="M12.6 25.5c-5.2-1.9-7.9-7.7-6-12.9 1-2.7 3.1-4.8 5.8-5.8.3-.1.4-.3.4-.6V5.3c0-.2-.1-.4-.3-.4h-.1c-6.3 2-9.7 8.7-7.7 15 1.2 3.7 4.1 6.6 7.8 7.8.2.1.4 0 .5-.2.1-.1.1-.2.1-.3v-.9c0-.2-.2-.4-.5-.6zm6.8-20.6c-.2-.1-.4 0-.5.2-.1.1-.1.2-.1.3v.9c0 .3.2.5.4.6 5.2 1.9 7.9 7.7 6 12.9-1 2.7-3.1 4.8-5.8 5.8-.3.1-.4.3-.4.6v.9c0 .2.1.4.3.4h.1c6.3-2 9.7-8.7 7.7-15-1.2-3.7-4.1-6.6-7.8-7.8z" fill="#fff"></path></svg>
+                                <svg class="co-pm-coin" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" title="USDT"><circle cx="16" cy="16" r="16" fill="#26a17b"></circle><path d="M17.9 17.4v-.1c-.1 0-.6.1-1.7.1-.9 0-1.5 0-1.7-.1v.1c-2.7-.1-4.7-.6-4.7-1.2s2-1.1 4.7-1.2v2c.2 0 .8.1 1.7.1 1.1 0 1.7-.1 1.7-.1v-2c2.7.1 4.7.6 4.7 1.2s-2 1.1-4.7 1.2zm0-2.6v-1.8h4.1v-2.7H10v2.7h4.1v1.8c-3.3.2-5.8.8-5.8 1.6s2.5 1.5 5.8 1.6v5.7h3.8V18c3.3-.2 5.8-.8 5.8-1.6s-2.5-1.5-5.8-1.6z" fill="#fff"></path></svg>
+                                <svg class="co-pm-coin" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" title="Bitcoin"><circle cx="12" cy="12" r="12" fill="#f7931a"></circle><path d="M16.66 10.39c.23-1.52-.93-2.34-2.51-2.88l.51-2.06-1.25-.31-.5 2c-.33-.08-.67-.16-1-.23l.5-2.01-1.25-.31-.51 2.05c-.27-.06-.54-.12-.79-.19l-1.73-.43-.33 1.34s.93.21.91.22c.51.13.6.47.58.74l-.58 2.35c.03.01.08.02.13.04l-.13-.03-.82 3.28c-.06.15-.22.38-.57.3.01.02-.91-.23-.91-.23L6.5 14.6l1.63.41c.3.08.6.15.9.23l-.52 2.08 1.25.31.51-2.06c.34.09.67.18 1 .26l-.51 2.04 1.25.31.52-2.07c2.13.4 3.73.24 4.41-1.69.54-1.55-.03-2.44-1.15-3.03.82-.19 1.43-.73 1.6-1.84zm-2.86 4.01c-.39 1.55-3 .71-3.85.5l.69-2.75c.85.21 3.57.63 3.16 2.25zm.39-4.03c-.35 1.41-2.53.69-3.23.52l.62-2.5c.7.18 2.98.5 2.61 1.98z" fill="#fff"></path></svg>
+                                <svg class="co-pm-coin" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" title="Ethereum"><circle cx="16" cy="16" r="16" fill="#627eea"></circle><path d="M16.5 4v8.9l7.5 3.4z" fill="#fff" fill-opacity=".6"></path><path d="M16.5 4 9 16.3l7.5-3.4z" fill="#fff"></path><path d="M16.5 21.97v6.03L24 17.62z" fill="#fff" fill-opacity=".6"></path><path d="M16.5 28v-6.04L9 17.62z" fill="#fff"></path><path d="m16.5 20.57 7.5-4.27-7.5-3.4z" fill="#fff" fill-opacity=".2"></path><path d="m9 16.3 7.5 4.27v-7.67z" fill="#fff" fill-opacity=".6"></path></svg>
+                                <svg class="co-pm-coin" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" title="Solana"><defs><linearGradient id="solGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9945ff"></stop><stop offset="100%" stop-color="#14f195"></stop></linearGradient></defs><circle cx="16" cy="16" r="16" fill="#000"></circle><path d="M9.9 20.4c.2-.2.4-.3.7-.3h12.1c.5 0 .7.6.4 1l-2.4 2.4c-.2.2-.4.3-.7.3H7.9c-.5 0-.7-.6-.4-1zM9.9 8.3c.2-.2.5-.3.7-.3h12.1c.5 0 .7.6.4 1l-2.4 2.4c-.2.2-.4.3-.7.3H7.9c-.5 0-.7-.6-.4-1zm12.8 6.1c-.2-.2-.4-.3-.7-.3H9.9c-.5 0-.7.6-.4 1l2.4 2.4c.2.2.4.3.7.3h12.1c.5 0 .7-.6.4-1z" fill="url(#solGrad)"></path></svg>
+                                <svg class="co-pm-coin" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" title="Litecoin"><circle cx="16" cy="16" r="16" fill="#345d9d"></circle><path d="m13.9 17.7-1.1 3.7v.2c0 .1.1.3.3.3h9c.2 0 .4-.1.4-.3l.4-1.4v-.2c0-.1-.1-.3-.3-.3h-6.5l1-3.4 1.6-.5.4-1.5-1.6.5 1.8-6.2c0-.1.1-.2.1-.3 0-.1-.1-.3-.3-.3H15c-.2 0-.4.1-.4.3L12.5 15l-1.6.5-.4 1.6z" fill="#fff"></path></svg>
+                                <svg class="co-pm-coin" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" title="TRON"><circle cx="16" cy="16" r="16" fill="#ff060a"></circle><path d="M22.7 11.5c-.6-.6-1.5-1.5-2.2-2.1l-.1-.1c-.1-.1-.2-.1-.3-.2-1.7-.3-9.5-1.8-9.7-1.7-.1 0-.1 0-.2.1l-.1.1c-.1.1-.1.2-.1.4l1.8 4.9.1.1c.2.1 7.4-.4 7.4-.4.4 0 .6.4.4.6-.7.7-3.3 3.4-3.6 3.7-.1.1-.1.1-.1.2L13.6 22c-.1.4.3.7.6.5l3.6-1.9c.1-.1 4.5-7.4 4.6-7.6.3-.5.3-1 .3-1.5zm-2.5.3-3 .2 1.6-1.5zm-3.6-.7-3.4.3-.7-2zm-.3 1 1.7-.1L12.6 19zm.4 4.8L13.5 21l1.6-5.4 2.4-.6z" fill="#fff"></path></svg>
+                            </span>
+                        </label>
+                    </div>
+
+                    <button type="button" class="co-purchase-btn" id="coPurchaseBtn" disabled="">
+                        Complete Purchase
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="co-field" id="field-address">
-          <label for="co-address">Street address</label>
-          <input type="text" id="co-address" autocomplete="address-line1"/>
-          <div class="co-error">Street address is required</div>
+    </main>
+
+    <!-- Processing overlay -->
+    <div class="co-overlay" id="coProcessing">
+        <div class="co-overlay-inner">
+            <div class="co-spinner"></div>
+            <div class="co-overlay-text">Processing your order&hellip;</div>
         </div>
-        <div class="co-field" id="field-address2">
-          <label for="co-address-2">Apartment, suite, unit, etc. <span class="co-optional">(optional)</span></label>
-          <input type="text" id="co-address-2" autocomplete="address-line2"/>
-        </div>
-        <div class="co-form-grid">
-          <div class="co-field" id="field-city">
-            <label for="co-city">City</label>
-            <input type="text" id="co-city" autocomplete="address-level2"/>
-            <div class="co-error">City is required</div>
-          </div>
-          <div class="co-field" id="field-state">
-            <label for="co-state">State / Region</label>
-            <input type="text" id="co-state" autocomplete="address-level1"/>
-            <div class="co-error">State is required</div>
-          </div>
-        </div>
-        <div class="co-field" id="field-postcode">
-          <label for="co-postcode">ZIP / Postal code</label>
-          <input type="text" id="co-postcode" autocomplete="postal-code"/>
-          <div class="co-error">ZIP code is required</div>
-        </div>
-      </div>
     </div>
 
-    <div class="co-summary-col">
-      <div class="co-summary-card">
-        <div class="co-summary-title">Order Summary</div>
-        <div class="co-summary-row">
-          <span class="co-summary-row-label">Challenge</span>
-          <span class="co-summary-row-value" id="sumChallenge">2-Step Pro</span>
+    <!-- Card payment modal (Stripe Payment Element or Unblock widget) -->
+    <div class="co-overlay" id="coCashier">
+        <div class="co-cashier-inner">
+            <div class="co-cashier-header">
+                <span class="co-cashier-title">Complete Payment</span>
+                <button type="button" class="co-cashier-close" id="coCashierClose">&times;</button>
+            </div>
+            <div class="co-cashier-body">
+                <!-- Stripe Payment Element mount (shown when orchestra picks stripe) -->
+                <div id="coStripeMount" hidden="">
+                    <div id="coStripePaymentElement"></div>
+                    <div class="co-stripe-error" id="coStripeError" hidden=""></div>
+                    <button type="button" class="co-stripe-pay-btn" id="coStripePayBtn">Pay now</button>
+                </div>
+                <!-- Unblock widget (id mandated by the widget; shown when orchestra picks unblock) -->
+                <div id="coUnblockMount" hidden="">
+                    <div id="ub-form-container-payment"></div>
+                    <!-- Mandatory UNBLOCK disclaimer — wording required by the provider, do not edit -->
+                    <div class="co-ub-disclaimer">
+                        <p><strong>Important Information Regarding Your Payment</strong><br>
+                        You are about to make a secure credit or debit card payment to purchase a digital asset&mdash;specifically, a Stablecoin (USDC or USDT)&mdash;through UNBLOCK. These funds will then be used to pay for products or services offered by Verodus.</p>
+                        <button type="button" class="co-ub-disclaimer-more" id="coUbDisclaimerMore">Read more</button>
+                        <div class="co-ub-disclaimer-full" id="coUbDisclaimerFull" hidden="">
+                            <p>UNBLOCK is a Virtual Asset Service Provider that enables the ramp to purchase Stablecoin (USDC) with credit or debit cards and is an independent company. You will securely pay with credit card to buy the Stablecoin (USDC), that will be used to pay for products and services of Verodus.</p>
+                            <p>By using UNBLOCK to buy Stablecoin (USDC), with credit or debit card, to pay Verodus, you are not making a credit or debit card transaction with Verodus, and as a result, certain credit card protections on claims towards Verodus, such as chargeback or refunds will not be available. Your claims and protections would be based on the purchase of Stablecoin (USDC or USDT) in UNBLOCK.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="co-summary-row">
-          <span class="co-summary-row-label">Account Size</span>
-          <span class="co-summary-row-value" id="sumSize">$100K</span>
-        </div>
-        <div class="co-summary-divider"></div>
-        <div id="coCouponSection">
-          <div class="co-summary-coupon">
-            <input type="text" id="coCoupon" placeholder="Coupon code" autocomplete="off" value="VERO35"/>
-            <button type="button" id="coApplyCoupon">Apply</button>
-          </div>
-          <div class="co-coupon-feedback ok" id="coCouponFeedback">VERO35 applied — 35% off challenge and add-ons.</div>
-          <div class="co-summary-divider"></div>
-        </div>
-        <div class="co-summary-base"><span id="sumBaseLabel">Base price</span><span id="sumBase">$445</span></div>
-        <div id="sumAddonsWrap"></div>
-        <div id="sumQtyWrap"></div>
-        <div id="sumDiscountWrap"></div>
-        <div class="co-summary-divider"></div>
-        <div class="co-summary-total">
-          <span class="co-total-label">Total</span>
-          <span class="co-total-amount" id="sumTotal">$0</span>
-        </div>
-        <div class="co-refundable" id="coRefundable">
-          <span class="co-refundable-pill">Refundable on first payout — challenge fee only</span>
-        </div>
-        <div class="co-order-terms">
-          <div class="co-order-terms-check">
-            <input type="checkbox" id="co-order-terms" autocomplete="off"/>
-            <label for="co-order-terms"><strong>I agree with all the following terms:</strong></label>
-          </div>
-          <ul class="co-order-terms-list">
-            <li>I have read and agreed to the Trading Objectives.</li>
-            <li>All information provided is correct and matches government-issued ID.</li>
-            <li>I have read and agree with the Terms of Service and Privacy Policy.</li>
-          </ul>
-        </div>
-        <div class="co-summary-title co-pm-title">Select payment method</div>
-        <div class="co-pm-list" id="coPaymentMethods">
-          <label class="co-pm-option active" data-method="card">
-            <input type="radio" name="paymentMethod" value="card" checked=""/>
-            <span class="co-pm-label">Credit / Debit Card</span>
-          </label>
-          <label class="co-pm-option" data-method="crypto">
-            <input type="radio" name="paymentMethod" value="crypto"/>
-            <span class="co-pm-label">Crypto</span>
-          </label>
-        </div>
-        <button type="button" class="co-purchase-btn" id="coPurchaseBtn" disabled="">Complete Purchase</button>
-        <p class="co-note" style="margin: .75rem 0 0;">Prototype: validates the form and add-on math. Does not take payment.</p>
-      </div>
     </div>
-  </div>
-</main>
 
-<div id="coAddonModal" class="modal-overlay" aria-hidden="true">
-  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="coAddonModalTitle">
-    <div class="modal-head">
-      <h3 id="coAddonModalTitle"></h3>
-      <button type="button" class="modal-close" id="coAddonModalClose" aria-label="Close">&times;</button>
+    <!-- Success overlay -->
+    <div class="co-overlay" id="coSuccess">
+        <div class="co-success-card">
+            <div class="co-success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div class="co-success-title">Order Confirmed!</div>
+            <div class="co-success-msg">Your evaluation challenge has been set up. Check your email, then open Accounts on your dashboard to choose your trading platform.</div>
+            <a href="https://dashboard.verodus.com/login" target="_top" class="co-success-btn">Go to Dashboard</a>
+        </div>
     </div>
-    <div class="modal-body">
-      <p id="coAddonModalText"></p>
+
+    <!-- Generic notice overlay (used for crypto cancellation / pending result) -->
+    <div class="co-overlay" id="coNotice">
+        <div class="co-success-card">
+            <div class="co-success-icon" id="coNoticeIcon">
+                <!-- icon swapped by showNotice() -->
+            </div>
+            <div class="co-success-title" id="coNoticeTitle"></div>
+            <div class="co-success-msg" id="coNoticeMsg"></div>
+            <button type="button" class="co-success-btn" id="coNoticeBtn">OK</button>
+        </div>
     </div>
-    <div class="modal-foot">Add-on fees are not refunded with the first-payout challenge-fee refund. Eligibility and rules apply per program terms.</div>
-  </div>
-</div>
 
-<div class="co-overlay" id="coProcessing">
-  <div class="co-overlay-inner">
-    <div class="co-spinner"></div>
-    <div>Processing your order…</div>
-  </div>
-</div>
+    <!-- Platform 5 — residency notice (shown when user selects Platform 5) -->
+    <div id="coPlatform5InfoModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-box modal-with-chart" role="dialog" aria-modal="true" aria-labelledby="coPlatform5InfoTitle">
+            <div class="modal-head">
+                <h3 id="coPlatform5InfoTitle" class="text-normal">Platform 5</h3>
+                <button type="button" class="modal-close" id="coPlatform5InfoModalClose" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body text-normal">
+                <p id="coPlatform5InfoLead">Platform 5 is not available to residents of:</p>
+                <ul class="co-platform5-residency-list">
+                    <li>United States</li>
+                    <li>Puerto Rico</li>
+                    <li>Guam</li>
+                    <li>U.S. Virgin Islands</li>
+                    <li>American Samoa</li>
+                    <li>Northern Mariana Islands</li>
+                </ul>
+            </div>
+            <div class="modal-foot text-normal">
+                <button type="button" class="co-success-btn co-modal-dismiss" id="coPlatform5InfoModalOk">OK</button>
+            </div>
+        </div>
+    </div>
 
-<div class="co-overlay" id="coSuccess">
-  <div class="co-success-card">
-    <div class="co-success-icon">✓</div>
-    <div class="co-success-title">Order Confirmed</div>
-    <div class="co-success-msg" id="coSuccessMsg">Prototype only — no charge was made.</div>
-    <button type="button" class="co-success-btn" id="coSuccessBtn">Close</button>
-  </div>
-</div>
+    <!-- Add-on info modal — same structure/classes as trading-objectives.html #modal (styles: styles.css .modal-with-chart) -->
+    <div id="coAddonModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-box modal-with-chart" role="dialog" aria-modal="true" aria-labelledby="coAddonModalTitle">
+            <div class="modal-head">
+                <h3 id="coAddonModalTitle" class="text-normal"></h3>
+                <button type="button" class="modal-close" id="coAddonModalClose" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body text-normal">
+                <p id="coAddonModalText"></p>
+            </div>
+            <div class="modal-foot text-normal">Add-on eligibility and rules apply per program terms.</div>
+        </div>
+    </div>
 
-<p class="co-foot">Verodus rec checkout · VERO35 · add-on logic in this page · analysis PDF in results/</p>
+    <div id="footer-container"><noscript><footer><hr><nav aria-label="Footer navigation"><a href="about.html">About</a> | <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a> | <a href="refund-policy.html">Refunds</a> | <a href="risk-disclosure.html">Risk Disclosure</a> | <a href="contact.html">Contact</a> | <a href="blog.html">Blog</a> | <a href="faq.html">FAQ</a></nav></footer></noscript></div>
+    <script src="footer.js" defer=""></script>
+    <script src="shared.js" defer=""></script>
 
-<script>
+    <script>
+    /* Rec add-on billing. Chrome/CSS/nav/footer from verodus.com. */
+    var COUNTRIES = [
+            ['AF','Afghanistan'],['AL','Albania'],['DZ','Algeria'],['AD','Andorra'],['AO','Angola'],
+            ['AG','Antigua and Barbuda'],['AR','Argentina'],['AM','Armenia'],['AU','Australia'],['AT','Austria'],
+            ['AZ','Azerbaijan'],['BS','Bahamas'],['BH','Bahrain'],['BD','Bangladesh'],['BB','Barbados'],
+            ['BY','Belarus'],['BE','Belgium'],['BZ','Belize'],['BJ','Benin'],['BT','Bhutan'],
+            ['BO','Bolivia'],['BA','Bosnia and Herzegovina'],['BW','Botswana'],['BR','Brazil'],['BN','Brunei'],
+            ['BG','Bulgaria'],['BF','Burkina Faso'],['BI','Burundi'],['KH','Cambodia'],['CM','Cameroon'],
+            ['CA','Canada'],['CV','Cape Verde'],['CF','Central African Republic'],['TD','Chad'],['CL','Chile'],
+            ['CN','China'],['CO','Colombia'],['KM','Comoros'],['CG','Congo'],['CR','Costa Rica'],
+            ['HR','Croatia'],['CY','Cyprus'],['CZ','Czech Republic'],['DK','Denmark'],['DJ','Djibouti'],
+            ['DM','Dominica'],['DO','Dominican Republic'],['EC','Ecuador'],['EG','Egypt'],['SV','El Salvador'],
+            ['GQ','Equatorial Guinea'],['ER','Eritrea'],['EE','Estonia'],['SZ','Eswatini'],['ET','Ethiopia'],
+            ['FJ','Fiji'],['FI','Finland'],['FR','France'],['GA','Gabon'],['GM','Gambia'],
+            ['GE','Georgia'],['DE','Germany'],['GH','Ghana'],['GR','Greece'],['GD','Grenada'],
+            ['GT','Guatemala'],['GN','Guinea'],['GW','Guinea-Bissau'],['GY','Guyana'],['HT','Haiti'],
+            ['HN','Honduras'],['HU','Hungary'],['IS','Iceland'],['IN','India'],['ID','Indonesia'],
+            ['IQ','Iraq'],['IE','Ireland'],['IL','Israel'],['IT','Italy'],['JM','Jamaica'],
+            ['JP','Japan'],['JO','Jordan'],['KZ','Kazakhstan'],['KE','Kenya'],['KI','Kiribati'],
+            ['KW','Kuwait'],['KG','Kyrgyzstan'],['LA','Laos'],['LV','Latvia'],['LB','Lebanon'],
+            ['LS','Lesotho'],['LR','Liberia'],['LI','Liechtenstein'],['LT','Lithuania'],['LU','Luxembourg'],
+            ['MG','Madagascar'],['MW','Malawi'],['MY','Malaysia'],['MV','Maldives'],['ML','Mali'],
+            ['MT','Malta'],['MH','Marshall Islands'],['MR','Mauritania'],['MU','Mauritius'],['MX','Mexico'],
+            ['FM','Micronesia'],['MD','Moldova'],['MC','Monaco'],['MN','Mongolia'],['ME','Montenegro'],
+            ['MA','Morocco'],['MZ','Mozambique'],['MM','Myanmar'],['NA','Namibia'],['NR','Nauru'],
+            ['NP','Nepal'],['NL','Netherlands'],['NZ','New Zealand'],['NI','Nicaragua'],['NE','Niger'],
+            ['NG','Nigeria'],['MK','North Macedonia'],['NO','Norway'],['OM','Oman'],['PK','Pakistan'],
+            ['PW','Palau'],['PA','Panama'],['PG','Papua New Guinea'],['PY','Paraguay'],['PE','Peru'],
+            ['PH','Philippines'],['PL','Poland'],['PT','Portugal'],['QA','Qatar'],['RO','Romania'],
+            ['RW','Rwanda'],['KN','Saint Kitts and Nevis'],['LC','Saint Lucia'],['VC','Saint Vincent and the Grenadines'],
+            ['WS','Samoa'],['SM','San Marino'],['ST','Sao Tome and Principe'],['SA','Saudi Arabia'],['SN','Senegal'],
+            ['RS','Serbia'],['SC','Seychelles'],['SL','Sierra Leone'],['SG','Singapore'],['SK','Slovakia'],
+            ['SI','Slovenia'],['SB','Solomon Islands'],['SO','Somalia'],['ZA','South Africa'],['KR','South Korea'],
+            ['ES','Spain'],['LK','Sri Lanka'],['SD','Sudan'],['SR','Suriname'],['SE','Sweden'],
+            ['CH','Switzerland'],['TW','Taiwan'],['TJ','Tajikistan'],['TZ','Tanzania'],['TH','Thailand'],
+            ['TL','Timor-Leste'],['TG','Togo'],['TO','Tonga'],['TT','Trinidad and Tobago'],['TN','Tunisia'],
+            ['TR','Turkey'],['TM','Turkmenistan'],['TV','Tuvalu'],['UG','Uganda'],['UA','Ukraine'],
+            ['AE','United Arab Emirates'],['GB','United Kingdom'],['AS','American Samoa'],['GU','Guam'],
+            ['MP','Northern Mariana Islands'],['PR','Puerto Rico'],['US','United States'],['VI','U.S. Virgin Islands'],['UY','Uruguay'],
+            ['UZ','Uzbekistan'],['VU','Vanuatu'],['VN','Vietnam'],['YE','Yemen'],['ZM','Zambia'],['ZW','Zimbabwe']
+        ];
+
 (function () {
   var $ = function (sel) { return document.querySelector(sel); };
 
@@ -503,25 +478,16 @@
     }
   };
 
-  var COUNTRIES = [
-    'United States','United Kingdom','Canada','Australia','Germany','France','Spain','Italy',
-    'Netherlands','Belgium','Portugal','Ireland','Sweden','Norway','Denmark','Finland','Poland',
-    'Czechia','Austria','Switzerland','Romania','Hungary','Greece','United Arab Emirates','Saudi Arabia',
-    'Qatar','Kuwait','Bahrain','Oman','India','Pakistan','Bangladesh','Indonesia','Malaysia',
-    'Singapore','Philippines','Thailand','Vietnam','Japan','South Korea','Brazil','Mexico',
-    'Argentina','Chile','Colombia','Peru','South Africa','Nigeria','Kenya','Egypt','Morocco',
-    'Turkey','Ukraine','New Zealand','Hong Kong','Taiwan'
-  ];
-
-  var selectedPlan = '2steppro';
-  var selectedSize = '100000';
+  var selectedPlan = '1step';
+  var selectedSize = '5000';
   var selectedQty = 1;
   var QTY_MAX = 4;
+  var QTY_LABELS = ['1st Account', '2nd Account', '3rd Account', '4th Account'];
   var activeAddons = {};
   var addonModalOpen = false;
   var COMPETITION = null;
   var DISCOUNT_CAP_PCT = 35;
-  var appliedCoupon = { code: 'VERO35', pct: 35 };
+  var appliedCoupon = null;
   var paymentMethod = 'card';
 
   var PAYOUT_UPGRADES = ['on-demand-payout', 'split-90'];
@@ -602,6 +568,8 @@
       }
     }
   ];
+
+  var HIDDEN_COUNTRY_CODES = { US: 1, PR: 1, GU: 1, VI: 1, AS: 1, MP: 1 };
 
   function escHtml(s) {
     return String(s)
@@ -728,6 +696,7 @@
 
   function renderAddons() {
     var wrap = $('#coAddons');
+    if (!wrap) return;
     var html = '';
     ADDONS.forEach(function (a) {
       var checked = activeAddons[a.id] ? ' checked' : '';
@@ -779,55 +748,42 @@
     var plan = PRICING[selectedPlan];
     var sizeNum = parseInt(selectedSize, 10);
     var sizeLabel = '$' + (sizeNum >= 1000 ? Math.round(sizeNum / 1000) + 'K' : selectedSize);
-    $('#sumChallenge').textContent = plan.label;
-    $('#sumSize').textContent = timesTag(sizeLabel);
-    $('#sumBase').textContent = timesTag('$' + getBasePrice());
+    var challengeEl = $('#sumChallenge');
+    var sizeEl = $('#sumSize');
+    var baseEl = $('#sumBase');
+    if (challengeEl) challengeEl.textContent = plan.label;
+    if (sizeEl) sizeEl.textContent = timesTag(sizeLabel);
+    if (baseEl) baseEl.textContent = timesTag('$' + getBasePrice());
 
-    var addonsHtml = '';
-    ADDONS.forEach(function (a) {
-      if (!activeAddons[a.id]) return;
-      addonsHtml += '<div class="co-summary-addon-row"><span>' + addonLabel(a) + '</span><span>' + timesTag(addonPriceTag(a)) + '</span></div>';
-    });
-    $('#sumAddonsWrap').innerHTML = addonsHtml;
-
-    var qtyWrap = $('#sumQtyWrap');
-    qtyWrap.innerHTML = selectedQty > 1
-      ? '<div class="co-summary-addon-row"><span>Accounts</span><span>' + selectedQty + '</span></div>'
-      : '';
-
-    var disc = getCouponDiscount() * selectedQty;
-    var dWrap = $('#sumDiscountWrap');
-    if (appliedCoupon && disc > 0) {
-      dWrap.innerHTML = '<div class="co-summary-discount"><span>Discount (' + appliedCoupon.code + ')</span><span>-$' + disc.toFixed(2) + '</span></div>';
-    } else {
-      dWrap.innerHTML = '';
-    }
-    var total = getTotal();
-    $('#sumTotal').textContent = '$' + money(total);
-  }
-
-  function gaAddonItems(planLabel, sizeDisplay) {
-    var items = [];
-    ADDONS.forEach(function (a) {
-      if (!activeAddons[a.id]) return;
-      var price = addonPrice(a);
-      if (price <= 0) return;
-      items.push({
-        item_id: 'addon_' + a.id,
-        item_name: 'Add-on: ' + addonLabel(a),
-        item_category: 'Add-on',
-        item_variant: planLabel + ' ' + sizeDisplay,
-        item_brand: 'Verodus',
-        price: price,
-        quantity: selectedQty
+    var addonsWrap = $('#sumAddonsWrap');
+    if (addonsWrap) {
+      var addonsHtml = '';
+      ADDONS.forEach(function (a) {
+        if (!activeAddons[a.id]) return;
+        addonsHtml += '<div class="co-summary-addon-row"><span>' + addonLabel(a) + '</span><span>' + timesTag(addonPriceTag(a)) + '</span></div>';
       });
-    });
-    return items;
+      addonsWrap.innerHTML = addonsHtml;
+    }
+
+    var dWrap = $('#sumDiscountWrap');
+    var disc = getCouponDiscount() * selectedQty;
+    if (dWrap) {
+      if (appliedCoupon && disc > 0) {
+        dWrap.innerHTML = '<div class="co-summary-discount visible"><span>Discount (' + appliedCoupon.code + ')</span><span>-$' + disc.toFixed(2) + '</span></div>';
+      } else {
+        dWrap.innerHTML = '';
+      }
+    }
+
+    var totalEl = $('#sumTotal');
+    if (totalEl) totalEl.textContent = '$' + money(getTotal());
   }
 
   function openAddonModal(addon) {
-    $('#coAddonModalTitle').textContent = addonLabel(addon);
+    var title = $('#coAddonModalTitle');
     var firstP = $('#coAddonModalText');
+    if (!title || !firstP) return;
+    title.textContent = addonLabel(addon);
     var parent = firstP.parentNode;
     var sib = firstP.nextSibling;
     while (sib) {
@@ -880,25 +836,9 @@
     });
   }
 
-  function renderPlans() {
-    var order = ['instant', '1step', '2steplite', '2steppro'];
-    var html = '';
-    order.forEach(function (id) {
-      var extra = id === '2steppro' ? ' <span class="co-badge">Popular</span>' : '';
-      html += '<button type="button" class="co-tab' + (id === selectedPlan ? ' active' : '') + '" data-plan="' + id + '">'
-        + PRICING[id].label + extra + '</button>';
-    });
-    $('#coTabs').innerHTML = html;
-    $('#coTabs').querySelectorAll('.co-tab').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        selectedPlan = btn.getAttribute('data-plan');
-        if (!PRICING[selectedPlan].sizes[selectedSize]) selectedSize = '100000';
-        renderPlans();
-        renderSizes();
-        renderQty();
-        renderAddons();
-        updateSummary();
-      });
+  function syncPlanTabs() {
+    document.querySelectorAll('#coTabs .co-tab').forEach(function (btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-plan') === selectedPlan);
     });
   }
 
@@ -913,8 +853,9 @@
         + '<span class="co-size-price">$' + sizes[sz].price + '</span>'
         + '</button>';
     });
-    $('#coSizes').innerHTML = html;
-    $('#coSizes').querySelectorAll('.co-size-btn').forEach(function (btn) {
+    var wrap = $('#coSizes');
+    wrap.innerHTML = html;
+    wrap.querySelectorAll('.co-size-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         selectedSize = btn.getAttribute('data-size');
         renderSizes();
@@ -925,50 +866,56 @@
   }
 
   function renderQty() {
+    var wrap = $('#coQty');
+    if (!wrap) return;
     var html = '';
     for (var n = 1; n <= QTY_MAX; n++) {
       html += '<button type="button" class="co-tab' + (n === selectedQty ? ' active' : '') + '" data-qty="' + n + '">'
-        + n + '</button>';
+        + QTY_LABELS[n - 1] + '</button>';
     }
-    $('#coQty').innerHTML = html;
-    $('#coQty').querySelectorAll('.co-tab').forEach(function (btn) {
+    wrap.innerHTML = html;
+    wrap.querySelectorAll('.co-tab').forEach(function (btn) {
       btn.addEventListener('click', function () {
         selectedQty = parseInt(btn.getAttribute('data-qty'), 10);
         renderQty();
+        renderAddons();
         updateSummary();
       });
     });
-    $('#coQtyNote').textContent = 'Up to 4 accounts in one order. Same add-ons on every copy. Each at the VERO35 sale — no extra cut on the 2nd–4th.';
   }
 
   function fillCountries() {
     var sel = $('#co-country');
+    if (!sel || typeof COUNTRIES === 'undefined') return;
+    var html = '<option value="">Select country</option>';
     COUNTRIES.forEach(function (c) {
-      var o = document.createElement('option');
-      o.value = c;
-      o.textContent = c;
-      sel.appendChild(o);
+      var code = c[0];
+      var name = c[1];
+      if (HIDDEN_COUNTRY_CODES[code]) return;
+      html += '<option value="' + code + '">' + name + '</option>';
     });
+    sel.innerHTML = html;
   }
 
   function applyCoupon() {
-    var raw = ($('#coCoupon').value || '').trim().toUpperCase();
+    var raw = (($('#coCoupon') && $('#coCoupon').value) || '').trim().toUpperCase();
     var fb = $('#coCouponFeedback');
+    if (!fb) return;
     if (!raw) {
       appliedCoupon = null;
-      fb.className = 'co-coupon-feedback err';
-      fb.textContent = 'Enter a coupon code.';
+      fb.className = 'co-coupon-feedback';
+      fb.textContent = '';
       updateSummary();
       return;
     }
     if (raw === 'VERO35') {
       appliedCoupon = { code: 'VERO35', pct: 35 };
       fb.className = 'co-coupon-feedback ok';
-      fb.textContent = 'VERO35 applied — 35% off challenge and add-ons.';
+      fb.textContent = 'Coupon applied.';
     } else {
       appliedCoupon = null;
       fb.className = 'co-coupon-feedback err';
-      fb.textContent = 'Unknown code. Use VERO35.';
+      fb.textContent = 'This coupon is not valid.';
     }
     updateSummary();
   }
@@ -984,12 +931,14 @@
     else el.classList.remove('invalid');
   }
 
-  function validateForm() {
+  function validateForm(show) {
     var ok = true;
     function req(fieldId, inputId, extra) {
-      var v = (document.getElementById(inputId).value || '').trim();
+      var input = document.getElementById(inputId);
+      if (!input) return;
+      var v = (input.value || '').trim();
       var bad = !v || (extra && !extra(v));
-      setInvalid(fieldId, bad);
+      if (show) setInvalid(fieldId, bad);
       if (bad) ok = false;
     }
     req('field-fname', 'co-fname');
@@ -1001,10 +950,12 @@
     req('field-city', 'co-city');
     req('field-state', 'co-state');
     req('field-postcode', 'co-postcode');
-    var terms = $('#co-order-terms').checked;
-    if (!terms) ok = false;
-    $('#coPurchaseBtn').disabled = !terms;
-    return ok;
+    var terms = $('#co-order-terms');
+    var termsOk = !!(terms && terms.checked);
+    if (!termsOk) ok = false;
+    var btn = $('#coPurchaseBtn');
+    if (btn) btn.disabled = !termsOk;
+    return ok && termsOk;
   }
 
   function bindForm() {
@@ -1012,13 +963,17 @@
       .forEach(function (id) {
         var el = document.getElementById(id);
         if (!el) return;
-        el.addEventListener('input', function () { validateForm(); });
-        el.addEventListener('change', function () { validateForm(); });
+        el.addEventListener('input', function () { validateForm(false); });
+        el.addEventListener('change', function () { validateForm(false); });
       });
-    $('#coApplyCoupon').addEventListener('click', applyCoupon);
-    $('#coCoupon').addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') { e.preventDefault(); applyCoupon(); }
-    });
+    var applyBtn = $('#coApplyCoupon');
+    if (applyBtn) applyBtn.addEventListener('click', applyCoupon);
+    var coupon = $('#coCoupon');
+    if (coupon) {
+      coupon.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); applyCoupon(); }
+      });
+    }
     document.querySelectorAll('#coPaymentMethods .co-pm-option').forEach(function (lab) {
       lab.addEventListener('click', function () {
         paymentMethod = lab.getAttribute('data-method');
@@ -1027,76 +982,63 @@
         });
       });
     });
-    $('#coPurchaseBtn').addEventListener('click', function () {
-      if (!validateForm()) return;
-      var proc = $('#coProcessing');
-      proc.classList.add('open');
-      setTimeout(function () {
-        proc.classList.remove('open');
-        var plan = PRICING[selectedPlan];
-        var addons = ADDONS.filter(function (a) { return activeAddons[a.id]; })
-          .map(function (a) { return addonLabel(a); }).join(', ');
-        $('#coSuccessMsg').textContent = plan.label + ' ' + $('#sumSize').textContent
-          + (addons ? ' · ' + addons : '')
-          + ' · ' + selectedQty + ' account' + (selectedQty > 1 ? 's' : '')
-          + ' · ' + paymentMethod
-          + ' · $' + money(getTotal())
-          + '. Prototype only — no charge was made.';
-        $('#coSuccess').classList.add('open');
-      }, 700);
-    });
-    $('#coSuccessBtn').addEventListener('click', function () {
-      $('#coSuccess').classList.remove('open');
+    var purchase = $('#coPurchaseBtn');
+    if (purchase) {
+      purchase.addEventListener('click', function () {
+        if (!validateForm(true)) return;
+        var proc = $('#coProcessing');
+        if (proc) proc.classList.add('open');
+        setTimeout(function () {
+          if (proc) proc.classList.remove('open');
+          var success = $('#coSuccess');
+          if (success) success.classList.add('open');
+        }, 700);
+      });
+    }
+  }
+
+  function bindPlanTabs() {
+    document.querySelectorAll('#coTabs .co-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        selectedPlan = btn.getAttribute('data-plan');
+        if (!PRICING[selectedPlan].sizes[selectedSize]) selectedSize = '100000';
+        if (!PRICING[selectedPlan].sizes[selectedSize]) {
+          selectedSize = Object.keys(PRICING[selectedPlan].sizes)[0];
+        }
+        syncPlanTabs();
+        renderSizes();
+        renderQty();
+        renderAddons();
+        updateSummary();
+      });
     });
   }
 
-  window.__addonPriceCheck = function () {
-    var savedPlan = selectedPlan, savedSize = selectedSize, saved = JSON.parse(JSON.stringify(activeAddons));
-    var byId = {};
-    ADDONS.forEach(function (a) { byId[a.id] = a; });
-    selectedPlan = '2steppro'; selectedSize = '100000';
-    activeAddons = { 'news-trading': true };
-    var news = addonPrice(byId['news-trading']);
-    activeAddons = { 'weekend-holding': true };
-    var weekend = addonPrice(byId['weekend-holding']);
-    activeAddons = { 'news-trading': true, 'weekend-holding': true };
-    var swing = getAddonsTotal();
-    activeAddons = { 'weekly-payout': true };
-    var weekly = addonPrice(byId['weekly-payout']);
-    activeAddons = { 'on-demand-payout': true };
-    var od80 = addonPrice(byId['on-demand-payout']);
-    activeAddons = { 'split-90': true };
-    var split90 = addonPrice(byId['split-90']);
-    activeAddons = { 'on-demand-payout': true, 'split-90': true };
-    var od90 = getAddonsTotal();
-    selectedPlan = 'instant';
-    activeAddons = { 'weekly-payout': true };
-    var weeklyInst = addonPrice(byId['weekly-payout']);
-    activeAddons = { 'on-demand-payout': true };
-    var od80Inst = addonPrice(byId['on-demand-payout']);
-    activeAddons = { 'split-90': true };
-    var split90Inst = addonPrice(byId['split-90']);
-    activeAddons = { 'on-demand-payout': true, 'split-90': true };
-    var od90Inst = getAddonsTotal();
-    selectedPlan = savedPlan; selectedSize = savedSize; activeAddons = saved;
-    return {
-      news: news, weekend: weekend, swing: swing, weekly: weekly,
-      onDemand80: od80, split90: split90, onDemand90: od90,
-      weeklyInstant: weeklyInst,
-      onDemand80Instant: od80Inst, split90Instant: split90Inst, onDemand90Instant: od90Inst
-    };
-  };
+  function applyDeepLink() {
+    try {
+      var qp = new URLSearchParams(window.location.search);
+      var qPlan = (qp.get('plan') || '').trim().toLowerCase();
+      var qSize = (qp.get('size') || '').trim();
+      if (qPlan && PRICING[qPlan]) {
+        selectedPlan = qPlan;
+        if (qSize && PRICING[qPlan].sizes[qSize]) selectedSize = qSize;
+        else selectedSize = Object.keys(PRICING[qPlan].sizes)[0];
+      }
+    } catch (e) {}
+  }
 
+  applyDeepLink();
   bindAddonModal();
   fillCountries();
   bindForm();
-  renderPlans();
+  bindPlanTabs();
+  syncPlanTabs();
   renderSizes();
   renderQty();
   renderAddons();
   updateSummary();
-  validateForm();
+  validateForm(false);
 })();
-</script>
+    </script>
 </body>
 </html>

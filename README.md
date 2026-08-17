@@ -11,4 +11,5 @@ Monte Carlo pricing for [Verodus](https://www.verodus.com/) against the top 20 f
 - **How to run:** [`sim/README.md`](sim/README.md)
 - **Checkout add-ons vs 19 peers:** [`results/COMPETITOR_ADDONS.md`](results/COMPETITOR_ADDONS.md)
 - **Add-on competitor analysis (PDF):** [`results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf`](results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf)
+- **Add-on BE / leftover / combinations (PDF):** [`results/Verodus_Addon_BE_Margins_2026-08-17.pdf`](results/Verodus_Addon_BE_Margins_2026-08-17.pdf)
 - **Complete rec checkout (HTML):** [`landing/checkout.html`](landing/checkout.html)
