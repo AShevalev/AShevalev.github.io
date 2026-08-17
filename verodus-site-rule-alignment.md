@@ -1,6 +1,6 @@
 # Verodus site rule alignment
 
-**Superseded for edits.** Use `verodus-rule-alignment.md`. Instant has **no min trading days**. Instant Best Day is **20%** and only days with **more than 0.5% profit of account balance** count. 1-Step / 2-Step QPP payouts need **3 trading days**.
+**Superseded for edits.** Use `verodus-rule-alignment.md`. Instant has **no min trading days**. Instant Best Day is **20%** and only days with **more than 0.5% profit of account balance** count. 2-Step QPP payouts need **3 trading days**. 1-Step QPP has **no** 3-day min (50% Best Day only).
 
 **Date:** 17 Aug 2026  
 **Purpose:** Make remaining live copy match one rule set. Policy is already live (news allowed, 8(h) gone, on-demand `$100`). This file is the leftover **alignment** pass.
