@@ -29,6 +29,8 @@ JS: `plan-fees.js` — `[sale, list]`. Instant $200k is omitted on purpose.
 
 Complete working page: [`checkout.html`](checkout.html). Chrome (nav, footer, CSS, icons, payment marks, mobile breakpoints) is loaded from [verodus.com/checkout.html](https://www.verodus.com/checkout.html). Quantity sits in the order summary like Blue Guardian (`1st Account` … `4th Account`), not as a left-column section. US-citizen term is removed. Rebuild with `python3 landing/stitch_checkout.py`.
 
+Complete trading-objectives page: [`trading-objectives.html`](trading-objectives.html). Same live chrome via `<base href>`. Plan tabs, size buttons, drawdown modals, and Reward Cycles (Weekly 70% / Bi-Weekly 80% / On Demand 90%) work. Rec Instant has no $200k, 5 valid days at +0.5% SOD, and a 6% trail that never locks. Rebuild with `python3 landing/stitch_trading_objectives.py`.
+
 Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md) and PDF [`../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf`](../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf). 90% street is 10–20% of fee (Alpha 10, BG 15, FXIFY 20). Rec evals sit in that band; Instant 32% for On Demand 90% is the year-1 floor, not a street match.
 
 Reward cycles match [trading-objectives](https://www.verodus.com/trading-objectives.html) for Instant, 1-Step, Lite, and Pro:
