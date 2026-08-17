@@ -177,7 +177,7 @@
 <body>
 <div class="checkout-page">
   <h1>Add-Ons</h1>
-  <p class="co-note">Same checkout classes. News + weekend = Swing 20%. On-demand 80% and 90% split are separate — both on bills the 90% On-Demand bundle (evals 20%, Instant 32%), not the two stickers added. Weekly 70% cannot mix with either payout upgrade. VERO35 is 35% off list + stickers. Do not copy Blue Guardian Instant’s 15% for 90% while on-demand is free — Verodus Instant default is biweekly, and year-1 90% + anytime does not clear at 15%.</p>
+  <p class="co-note">Same checkout classes. News + weekend = Swing. On-demand 80% and 90% split are separate — both on bills 90% On Demand. Weekly 70% cannot mix with either payout upgrade. Up to 4 accounts in one order; each at VERO35, no extra cut on copies. Instant leftover cannot fund Blue Guardian’s 30/35/40% copy ladder, and Lite is almost as thin. No 5th free.</p>
   <div class="checkout-container">
     <div class="checkout-form-col">
       <div class="co-section">
@@ -187,6 +187,11 @@
       <div class="co-section">
         <div class="co-section-title">Account Size</div>
         <div class="co-size-grid" id="coSizes"></div>
+      </div>
+      <div class="co-section" id="coSectionQty">
+        <div class="co-section-title">Accounts</div>
+        <div class="co-tabs" id="coQty"></div>
+        <p class="co-note" id="coQtyNote" style="margin: .75rem 0 0;"></p>
       </div>
 
       <!-- PASTE: replace the live #coSectionAddons block with this (markup is unchanged) -->
@@ -202,6 +207,7 @@
         <div class="co-summary-base"><span id="sumChallenge">2-Step Pro</span><span id="sumSize">$100K</span></div>
         <div class="co-summary-base"><span>Challenge</span><span id="sumBase">$445</span></div>
         <div id="sumAddonsWrap"></div>
+        <div id="sumQtyWrap"></div>
         <div class="co-summary-divider"></div>
         <div class="co-summary-discount"><span>Discount (VERO35)</span><span id="sumDiscount">-$0.00</span></div>
         <div class="co-summary-total">
@@ -265,6 +271,8 @@
 
   var selectedPlan = '2steppro';
   var selectedSize = '100000';
+  var selectedQty = 1;
+  var QTY_MAX = 4;
   var activeAddons = {};
   var addonModalOpen = false;
   var COMPETITION = null;
@@ -304,8 +312,8 @@
       desc: 'Trade NFP, FOMC, CPI, earnings and geopolitical events with zero restrictions',
       tooltip: function () {
         var swing = bundleOnName('Swing')
-          ? 'You also have Weekend Holding on — both are billed as Swing at 20% of the challenge list price, not 12% + 12%.'
-          : 'Pair with Weekend Holding and both are billed as Swing at 20% of the challenge list price — not 12% + 12%.';
+          ? 'You also have Weekend Holding on — both are billed as Swing, not as two add-ons.'
+          : 'Pair with Weekend Holding to hold through news and weekends as Swing — billed as one add-on, not two.';
         return 'Unlock unrestricted news trading on evaluation and funded accounts. Trade high-impact events like NFP, FOMC, CPI, earnings releases, and geopolitical news with zero restrictions. Perfect for event-driven strategies.\n\n'
           + 'Default funded accounts pause around high-impact news. This add-on turns that window off.\n\n'
           + swing;
@@ -318,8 +326,8 @@
       desc: 'Hold positions over the weekend with zero restrictions.',
       tooltip: function () {
         var swing = bundleOnName('Swing')
-          ? 'You also have News Trading on — both are billed as Swing at 20% of the challenge list price, not 12% + 12%.'
-          : 'Pair with News Trading and both are billed as Swing at 20% of the challenge list price — not 12% + 12%.';
+          ? 'You also have News Trading on — both are billed as Swing, not as two add-ons.'
+          : 'Pair with News Trading to hold through news and weekends as Swing — billed as one add-on, not two.';
         return 'Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.\n\n'
           + swing;
       }
@@ -338,12 +346,9 @@
       instantPct: 0.15,
       desc: 'Withdraw your 80% profit share anytime — no waiting for fixed cycles',
       tooltip: function () {
-        var pctLine = selectedPlan === 'instant'
-          ? 'On Instant this add-on is 15% of the challenge list price and keeps the 80% split. Pair with 90% Reward Split and both are billed as 90% On Demand at 32% — not 15% + 20%.'
-          : 'This add-on is 12% of the challenge list price and keeps the 80% split. Pair with 90% Reward Split and both are billed as 90% On Demand at 20% of list — not 12% + 12%. On Instant, on-demand alone is 15% and the 90% bundle is 32%.';
         return 'Request and receive your 80% reward share anytime — no waiting for fixed cycles. Get your first payout as early as you meet the funded phase requirements (minimum $100). Withdraw whenever you want, as often as you want.\n\n'
           + 'Cannot be combined with Weekly Rewards.\n\n'
-          + pctLine;
+          + 'Pair with 90% Reward Split to withdraw a 90% share on demand.';
       }
     },
     {
@@ -353,12 +358,8 @@
       instantPct: 0.20,
       desc: 'Keep 90% of profits on the default payout schedule',
       tooltip: function () {
-        var pctLine = selectedPlan === 'instant'
-          ? 'On Instant this add-on is 20% of the challenge list price and stays on the default biweekly schedule. Pair with On Demand Rewards and both are billed as 90% On Demand at 32% — not 15% + 20%.'
-          : 'This add-on is 12% of the challenge list price and stays on the default biweekly schedule. Pair with On Demand Rewards and both are billed as 90% On Demand at 20% of list — not 12% + 12%. On Instant, 90% alone is 20% and the on-demand bundle is 32%.';
         return 'Keep 90% of profits on the default payout schedule. Get your first payout as early as you meet the funded phase requirements. Pair with On Demand Rewards to withdraw that 90% share anytime (minimum reward 2% and $200).\n\n'
-          + 'Cannot be combined with Weekly Rewards.\n\n'
-          + pctLine;
+          + 'Cannot be combined with Weekly Rewards.';
       }
     }
   ];
@@ -435,9 +436,8 @@
   function addonDesc(a) {
     var b = activeBundleFor(a.id);
     if (b) {
-      var pct = Math.round(bundlePct(b) * 100);
       if (a.id === b.chargeId) {
-        return 'Billed as ' + b.name + ' — ' + pct + '% of list, not the two stickers added';
+        return 'Billed as ' + b.name + ' — not as two separate add-ons';
       }
       return 'Included in ' + b.name;
     }
@@ -462,8 +462,16 @@
     return Math.round(subtotal * DISCOUNT_CAP_PCT / 100);
   }
 
-  function getTotal() {
+  function unitPay() {
     return Math.max(0, getBasePrice() + getAddonsTotal() - getCouponDiscount());
+  }
+
+  function getTotal() {
+    return unitPay() * selectedQty;
+  }
+
+  function timesTag(label) {
+    return selectedQty > 1 ? (label + ' × ' + selectedQty) : label;
   }
 
   function applyAddonToggle(id, checked) {
@@ -529,17 +537,24 @@
     var sizeNum = parseInt(selectedSize, 10);
     var sizeLabel = '$' + (sizeNum >= 1000 ? Math.round(sizeNum / 1000) + 'K' : selectedSize);
     $('#sumChallenge').textContent = plan.label;
-    $('#sumSize').textContent = sizeLabel;
-    $('#sumBase').textContent = '$' + getBasePrice();
+    $('#sumSize').textContent = timesTag(sizeLabel);
+    $('#sumBase').textContent = timesTag('$' + getBasePrice());
 
     var addonsHtml = '';
     ADDONS.forEach(function (a) {
       if (!activeAddons[a.id]) return;
-      addonsHtml += '<div class="co-summary-addon-row"><span>' + addonLabel(a) + '</span><span>' + addonPriceTag(a) + '</span></div>';
+      addonsHtml += '<div class="co-summary-addon-row"><span>' + addonLabel(a) + '</span><span>' + timesTag(addonPriceTag(a)) + '</span></div>';
     });
     $('#sumAddonsWrap').innerHTML = addonsHtml;
 
-    var disc = getCouponDiscount();
+    var qtyWrap = $('#sumQtyWrap');
+    if (qtyWrap) {
+      qtyWrap.innerHTML = selectedQty > 1
+        ? '<div class="co-summary-addon-row"><span>Accounts</span><span>' + selectedQty + '</span></div>'
+        : '';
+    }
+
+    var disc = getCouponDiscount() * selectedQty;
     $('#sumDiscount').textContent = '-$' + disc.toFixed(2);
     var total = getTotal();
     $('#sumTotal').textContent = '$' + (total % 1 === 0 ? total : total.toFixed(2));
@@ -633,6 +648,7 @@
         if (!PRICING[selectedPlan].sizes[selectedSize]) selectedSize = '100000';
         renderPlans();
         renderSizes();
+        renderQty();
         renderAddons();
         updateSummary();
       });
@@ -661,9 +677,30 @@
     });
   }
 
+  function renderQty() {
+    var html = '';
+    for (var n = 1; n <= QTY_MAX; n++) {
+      html += '<button type="button" class="co-tab' + (n === selectedQty ? ' active' : '') + '" data-qty="' + n + '">'
+        + n + '</button>';
+    }
+    $('#coQty').innerHTML = html;
+    $('#coQty').querySelectorAll('.co-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        selectedQty = parseInt(btn.getAttribute('data-qty'), 10);
+        renderQty();
+        updateSummary();
+      });
+    });
+    var note = $('#coQtyNote');
+    if (note) {
+      note.textContent = 'Up to 4 accounts in one order. Same add-ons on every copy. Each at the VERO35 sale — no extra cut on the 2nd–4th.';
+    }
+  }
+
   bindAddonModal();
   renderPlans();
   renderSizes();
+  renderQty();
   renderAddons();
   updateSummary();
 

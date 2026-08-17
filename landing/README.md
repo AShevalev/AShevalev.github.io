@@ -51,10 +51,25 @@ Weekly **XOR** on-demand and 90% — never with either. On-demand and 90% **may 
 
 Pro $100k ($445): news $53 / weekend $53 / Swing $89 / weekly $27 / on-demand 80% $53 / 90% $53 / 90% On Demand $89. Instant $100k ($675): on-demand 80% $101 / 90% $135 / 90% On Demand $216 / Swing $135.
 
+### Multi-account (up to 4)
+
+Blue Guardian checkout: 1st at the site code (BG25 = 25% off), 2nd **30%**, 3rd **35%**, 4th **40%**, and a 5th-free promo on some futures SKUs. Cap for Verodus: **4**. No 5th free — four Instant $100k on the same strategy is 4× year-1 E[X].
+
+Do **not** copy the 30/35/40 ladder. VERO35 is already **35% off every copy**, which beats BG’s 25% on the 1st and BG’s ~32.5% average on a 4-pack. Extra cuts on the 2nd–4th do not print:
+
+| SKU | Rec leftover after 20% ads | Max extra off the VERO35 sale |
+|---|---:|---:|
+| Instant $100k | ~$13 | ~4% |
+| Lite $100k | ~$14 | ~6% |
+| Pro $100k | ~$33 | ~14% |
+| 1-Step $100k | ~$108 | ~40% |
+
+Instant and Lite cannot fund a visible extra %. A 10% extra on Instant $100k copy 2 is about **−$22** after ads. Offer **qty 1–4 at VERO35, same add-ons on every copy, no extra ladder**.
+
 Paste into `checkout.html`:
 
 1. Keep `#coSectionAddons` / `#coAddons` markup — it is unchanged.
-2. Replace `var ADDONS = [...]` with the `ADDONS` + `BUNDLES` blocks.
+2. Replace `var ADDONS = [...]` with the `ADDONS` + `BUNDLES` blocks. Add `QTY_MAX = 4` and the Accounts tabs (`#coQty`).
 3. Replace `addonPrice`, `renderAddons`, and `getAddonsTotal` with `addonPct` / `addonPrice` / `addonPriceTag` / `applyAddonToggle` / the new `renderAddons`.
-4. Summary addon rows and GA item `price` must call `addonPrice(a)`. Skip `$0` GA lines (`Incl.` bundle members).
-5. Optional: modal foot copy that add-on fees are not part of the first-payout challenge-fee refund.
+4. Cart total = `unitPay() × qty`. Summary addon rows and GA item `price` must call `addonPrice(a)`. Skip `$0` GA lines (`Incl.` bundle members).
+5. Optional: modal foot copy that add-on fees are not part of the first-payout challenge-fee refund. Tooltips stay product/rules — no “X% of list” copy.
