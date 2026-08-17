@@ -148,6 +148,47 @@ ANCHORS = (
     ("2-Step Pro", "2-step"),
 )
 
+# Live checkout add-ons (verodus.com/checkout.html). Sticker = round(list × pct).
+# VERO35 applies to challenge + add-ons (35% of subtotal). Shopper pays 65%.
+ADDONS = (
+    ("news", "News trading", 0.15),
+    ("weekend", "Weekend holding", 0.18),
+    ("weekly", "Weekly 70% split", 0.06),
+    ("ondemand", "On-demand 90% split", 0.20),
+)
+
+# Early-book attach. Weekly and on-demand should be exclusive; modeled independent
+# (checkout currently allows both). Lite is price-sensitive; Instant buys news/90%.
+ATTACH = {
+    "Instant": {"news": 0.32, "weekend": 0.10, "weekly": 0.08, "ondemand": 0.18},
+    "1-Step": {"news": 0.22, "weekend": 0.16, "weekly": 0.10, "ondemand": 0.12},
+    "2-Step Lite": {"news": 0.16, "weekend": 0.12, "weekly": 0.07, "ondemand": 0.08},
+    "2-Step Pro": {"news": 0.28, "weekend": 0.20, "weekly": 0.12, "ondemand": 0.16},
+}
+
+# Extra E[X] vs default 80% biweekly, as a fraction of the SKU's priced E[X].
+# Instant = year-1; evals = first-payout. Weekend gap tail is not in this number.
+EXTRA_E = {
+    "Instant": {"news": 0.05, "weekend": 0.08, "weekly": 0.08, "ondemand": 0.41},
+    "1-Step": {"news": 0.02, "weekend": 0.04, "weekly": 0.05, "ondemand": 0.125},
+    "2-Step Lite": {"news": 0.02, "weekend": 0.04, "weekly": 0.05, "ondemand": 0.125},
+    "2-Step Pro": {"news": 0.02, "weekend": 0.04, "weekly": 0.05, "ondemand": 0.125},
+}
+
+# Suggested checkout %. Instant on-demand must cover year-1 90% + anytime.
+ADDON_REC_PCT = {
+    "news": 0.15,
+    "weekend": 0.18,
+    "weekly": 0.06,
+    "ondemand": 0.20,
+}
+ADDON_REC_PCT_INSTANT = {
+    "news": 0.15,
+    "weekend": 0.18,
+    "weekly": 0.06,
+    "ondemand": 0.32,
+}
+
 WHY = {
     "Instant": (
         "Stack: year-1 BE, +10% error, +$1, +wage share, then ÷ 0.80 for marketing. "
@@ -672,6 +713,224 @@ def opex_build_table(skus, s):
     ], spec), rows
 
 
+def addon_sticker(list_px, pct):
+    return int(round(float(list_px) * float(pct)))
+
+
+def addon_net(list_px, pct):
+    """What Verodus collects on the addon after VERO35 (before ads)."""
+    return addon_sticker(list_px, pct) * 0.65
+
+
+def rec_addon_pct(plan, key):
+    if plan == "Instant":
+        return ADDON_REC_PCT_INSTANT[key]
+    return ADDON_REC_PCT[key]
+
+
+def addon_unit_rows(skus):
+    """Per SKU × addon: sticker, attach, extra E[X], leftover after 20% ads."""
+    ox = {(r["Plan"], r["Size"]): r for r in opex_rows(skus)}
+    out = []
+    for plan, _fam in ANCHORS:
+        for sz in SIZES:
+            if (plan, sz) not in REC:
+                continue
+            live = skus[(skus.Firm == "Verodus") & (skus.Plan == plan) & (skus.Size == sz)]
+            if live.empty:
+                continue
+            pr = pricing_for(live.iloc[0])
+            sale = REC[(plan, sz)]
+            list_px = rec_list(sale)
+            e = pr["e_used"]
+            n = monthly_units(plan, sz)
+            oxr = ox.get((plan, sz), {})
+            for key, label, live_pct in ADDONS:
+                attach = ATTACH[plan][key]
+                extra = e * EXTRA_E[plan][key]
+                sticker = addon_sticker(list_px, live_pct)
+                net = addon_net(list_px, live_pct)
+                left = net * (1.0 - MARKETING) - extra
+                sug_pct = rec_addon_pct(plan, key)
+                sug_sticker = addon_sticker(list_px, sug_pct)
+                sug_net = addon_net(list_px, sug_pct)
+                sug_left = sug_net * (1.0 - MARKETING) - extra
+                out.append({
+                    "Plan": plan, "Size": sz, "N": n, "Addon": label, "Key": key,
+                    "Live_pct": live_pct, "Sug_pct": sug_pct,
+                    "List": list_px, "Sale": sale,
+                    "Sticker": sticker, "Net": net,
+                    "Attach": attach, "Extra": extra,
+                    "Left": left, "E_left": attach * left,
+                    "E_rev": attach * net,
+                    "Book_left": attach * left * n,
+                    "Book_rev": attach * net * n,
+                    "Sug_sticker": sug_sticker, "Sug_left": sug_left,
+                    "Sug_e_left": attach * sug_left,
+                    "Sug_book_left": attach * sug_left * n,
+                    "Challenge_left": oxr.get("Rec_left"),
+                    "E_used": e,
+                })
+    return out
+
+
+def addon_sku_blend(unit_rows):
+    """One row per SKU: expected addon $ and leftover on the 310 mix."""
+    from collections import defaultdict
+    acc = defaultdict(lambda: {
+        "E_rev": 0.0, "E_left": 0.0, "Sug_left": 0.0, "N": 0,
+        "Challenge_left": 0.0, "Sale": 0.0, "List": 0.0, "Plan": None, "Size": None,
+    })
+    for r in unit_rows:
+        k = (r["Plan"], r["Size"])
+        acc[k]["Plan"] = r["Plan"]
+        acc[k]["Size"] = r["Size"]
+        acc[k]["N"] = r["N"]
+        acc[k]["Sale"] = r["Sale"]
+        acc[k]["List"] = r["List"]
+        acc[k]["Challenge_left"] = r["Challenge_left"]
+        acc[k]["E_rev"] += r["E_rev"]
+        acc[k]["E_left"] += r["E_left"]
+        acc[k]["Sug_left"] += r["Sug_e_left"]
+    rows = []
+    for plan, _fam in ANCHORS:
+        for sz in SIZES:
+            if (plan, sz) not in acc:
+                continue
+            r = acc[(plan, sz)]
+            chal = r["Challenge_left"] or 0.0
+            rows.append({
+                "Plan": plan, "Size": sz, "N": r["N"],
+                "Sale": r["Sale"], "List": r["List"],
+                "Addon_rev": r["E_rev"],
+                "Addon_left": r["E_left"],
+                "Sug_addon_left": r["Sug_left"],
+                "Challenge_left": chal,
+                "Blended": chal + r["E_left"],
+                "Sug_blended": chal + r["Sug_left"],
+                "Book_chal": chal * r["N"],
+                "Book_add": r["E_left"] * r["N"],
+                "Book_blend": (chal + r["E_left"]) * r["N"],
+                "Book_sug": (chal + r["Sug_left"]) * r["N"],
+            })
+    return rows
+
+
+def addon_menu_table(s):
+    """$100k stickers on the rec list — what checkout shows before VERO35."""
+    heads = ["Add-on", "% of list", "Instant $100k", "1-Step $100k",
+             "Lite $100k", "Pro $100k", "Shopper pays"]
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    lists = {plan: rec_list(REC[(plan, 100000)]) for plan, _ in ANCHORS}
+    for i, (key, label, pct) in enumerate(ADDONS, start=1):
+        spec[i] = "rec" if key == "ondemand" else "live"
+        data.append([
+            P(label, s["tdl"]),
+            P(f"{round(100 * pct)}%", s["td"]),
+            P(usd(addon_sticker(lists["Instant"], pct)), s["td"]),
+            P(usd(addon_sticker(lists["1-Step"], pct)), s["td"]),
+            P(usd(addon_sticker(lists["2-Step Lite"], pct)), s["td"]),
+            P(usd(addon_sticker(lists["2-Step Pro"], pct)), s["td"]),
+            P("65% of sticker (VERO35)", s["td"]),
+        ])
+    return grid(data, [
+        42*mm, 22*mm, 28*mm, 28*mm, 28*mm, 26*mm, 42*mm,
+    ], spec)
+
+
+def addon_buyer_table(skus, s):
+    """Live %: leftover per buyer after extra E[X] and 20% ads. $100k only."""
+    heads = ["Plan", "Add-on", "Attach", "Sticker", "Net $",
+             "Extra E[X]", "After ads", "OK?"]
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    rows = [r for r in addon_unit_rows(skus) if r["Size"] == 100000]
+    for i, r in enumerate(rows, start=1):
+        if r["Left"] >= 0.5:
+            ok_s = "yes"
+        elif r["Key"] == "weekly":
+            ok_s = "thin — keep decoy"
+        else:
+            ok_s = "NO — raise %"
+        spec[i] = "rec" if ok_s.startswith("NO") else "live"
+        data.append([
+            P(r["Plan"], s["tdl"]), P(r["Addon"], s["tdl"]),
+            P(f"{100 * r['Attach']:.0f}%", s["td"]),
+            P(usd(r["Sticker"]), s["td"]),
+            P(usd(r["Net"]), s["td"]),
+            P(usd(r["Extra"]), s["td"]),
+            P(usd(r["Left"]), s["td"]),
+            P(ok_s, s["td"]),
+        ])
+    return grid(data, [
+        26*mm, 40*mm, 16*mm, 20*mm, 18*mm, 22*mm, 20*mm, 28*mm,
+    ], spec)
+
+
+def addon_blend_table(skus, s):
+    heads = ["Plan", "Size", "N", "Challenge after", "E[addon $]",
+             "E[addon after]", "Blended after", "Mo. blended"]
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    rows = addon_sku_blend(addon_unit_rows(skus))
+    for i, r in enumerate(rows, start=1):
+        spec[i] = "rec" if r["Plan"] == "Instant" else "live"
+        data.append([
+            P(r["Plan"], s["tdl"]), P(usd(r["Size"]), s["td"]),
+            P(str(r["N"]), s["td"]),
+            P(usd(r["Challenge_left"]), s["td"]),
+            P(usd(r["Addon_rev"]), s["td"]),
+            P(usd(r["Addon_left"]), s["td"]),
+            P(usd(r["Blended"]), s["td"]),
+            P(usd(r["Book_blend"]), s["td"]),
+        ])
+    tot_n = sum(r["N"] for r in rows)
+    tot_chal = sum(r["Book_chal"] for r in rows)
+    tot_add = sum(r["Book_add"] for r in rows)
+    tot_blend = sum(r["Book_blend"] for r in rows)
+    tot_sug = sum(r["Book_sug"] for r in rows)
+    data.append([
+        P("Book", s["tdl"]), P("—", s["td"]), P(str(tot_n), s["td"]),
+        P(usd(tot_chal), s["td"]), P("—", s["td"]),
+        P(usd(tot_add), s["td"]), P(usd(tot_blend), s["td"]),
+        P(usd(tot_blend), s["td"]),
+    ])
+    return grid(data, [
+        26*mm, 18*mm, 12*mm, 28*mm, 24*mm, 28*mm, 28*mm, 26*mm,
+    ], spec), rows, tot_chal, tot_add, tot_blend, tot_sug
+
+
+def addon_suggest_table(skus, s):
+    heads = ["Add-on", "Live %", "Rec % Instant", "Rec % evals",
+             "Instant $100k live", "Instant $100k rec", "Why"]
+    why = {
+        "news": "Keep. High attach, low extra E[X]. Eval already allows news.",
+        "weekend": "Keep. Gap tail is the risk — do not cheapen.",
+        "weekly": "Keep cheap. Instant is about flat; 70% split is a decoy vs 90%.",
+        "ondemand": "Raise Instant to 32%. 90% + anytime is underwater at 20%.",
+    }
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    inst_list = rec_list(REC[("Instant", 100000)])
+    for i, (key, label, live_pct) in enumerate(ADDONS, start=1):
+        spec[i] = "rec" if key == "ondemand" else "live"
+        rec_i = ADDON_REC_PCT_INSTANT[key]
+        rec_e = ADDON_REC_PCT[key]
+        data.append([
+            P(label, s["tdl"]),
+            P(f"{round(100 * live_pct)}%", s["td"]),
+            P(f"{round(100 * rec_i)}%", s["td"]),
+            P(f"{round(100 * rec_e)}%", s["td"]),
+            P(usd(addon_sticker(inst_list, live_pct)), s["td"]),
+            P(usd(addon_sticker(inst_list, rec_i)), s["td"]),
+            P(why[key], s["tdl"]),
+        ])
+    return grid(data, [
+        36*mm, 16*mm, 26*mm, 22*mm, 26*mm, 26*mm, 64*mm,
+    ], spec)
+
+
 def mix_table(skus, s):
     heads = ["Plan", "Size", "N / mo", "Weight", "Wage $", "Share of wages"]
     data = [[P(h, s["th"]) for h in heads]]
@@ -963,6 +1222,87 @@ def collect_story():
         "Book leftover at 310 accounts is +$6,578 / month (13.5% of rec revenue).",
         s["tiny"],
     ))
+
+    story.append(P("1g. Checkout add-ons — do they change rec?", s["h1"]))
+    story.append(P(
+        "Live checkout already uses this list card. Add-on sticker = "
+        "<b>round(list × %)</b> (Pro $100k news = round($445 × 15%) = <b>$67</b>). "
+        "VERO35 takes 35% off challenge + add-ons, so the shopper pays 65% of the sticker. "
+        "Challenge rec does <b>not</b> move — shoppers compare the naked fee to FP / BG / Maven. "
+        "Add-on cash is extra AOV. Do not cut rec because some buyers add news.",
+        s["body"],
+    ))
+    story.append(P(
+        "People do buy them. Early-book attach (not a CRM forecast): "
+        "Instant news 32% / weekend 10% / weekly 8% / on-demand 18% "
+        "(~54% take at least one). Lite is cheaper-sensitive (~37%). "
+        "Pro is the popular tab (~57%). Weekly 70% is a worse split than the default 80% "
+        "biweekly — some buyers will not notice; that is fine. "
+        "Checkout currently lets weekly and on-demand stack — make those two exclusive.",
+        s["body"],
+    ))
+    story.append(addon_menu_table(s))
+    story.append(Spacer(1, 2*mm))
+    story.append(P(
+        "Sticker is pre-coupon. Shopper net = 65% of sticker. "
+        "News / weekend / weekly are insurance the firm should sell. "
+        "On-demand 90% is the expensive one.",
+        s["tiny"],
+    ))
+
+    story.append(P(
+        "1h. $100k add-on leftover per buyer (live %)",
+        s["h1"],
+    ))
+    story.append(P(
+        "Net $ = sticker × 0.65. Extra E[X] is the add-on payout cost versus default "
+        "80% biweekly (Instant = year-1; evals = first-payout). "
+        "After ads = Net × 0.80 − extra E[X]. "
+        "On-demand Instant: 90% split × anytime withdrawal ≈ +41% year-1 E[X] "
+        "($116 on $284). Net fee $88 does not cover it. Evals stay fine at 20% "
+        "(first-payout only scales 80% → 90%). Weekend gap tail is not in Extra E[X] — "
+        "keep that %.",
+        s["body"],
+    ))
+    story.append(addon_buyer_table(skus, s))
+    story.append(Spacer(1, 2*mm))
+
+    story.append(P(
+        "1i. Blended leftover if the early book actually buys add-ons",
+        s["h1"],
+    ))
+    story.append(P(
+        "E[addon $] is attach × shopper net, per account. "
+        "E[addon after] is that cash minus extra E[X] and 20% ads on the addon. "
+        "Blended after = challenge leftover + E[addon after]. "
+        "Challenge rec stays. This is upside, except Instant on-demand at 20%.",
+        s["body"],
+    ))
+    atab, arows, tot_chal, tot_add, tot_blend, tot_sug = addon_blend_table(skus, s)
+    story.append(atab)
+    story.append(Spacer(1, 2*mm))
+    story.append(P(
+        f"Challenge-only book leftover <b>{usd(tot_chal)}</b> / month. "
+        f"Add-ons at live % add <b>{usd(tot_add)}</b> "
+        f"(blended <b>{usd(tot_blend)}</b>). "
+        f"After raising Instant on-demand to 32%: <b>{usd(tot_sug)}</b>. "
+        "Rec challenge fees unchanged.",
+        s["tiny"],
+    ))
+
+    story.append(P("1j. Suggested add-on % (not the challenge fee)", s["h1"]))
+    story.append(P(
+        "Keep news 15%, weekend 18%, weekly 6% (Instant weekly is about flat — "
+        "leave it cheap so people pick 70% over 90%). "
+        "Raise Instant on-demand from 20% → <b>32% of list</b> ($135 → $216 sticker, "
+        "$88 → $140 shopper) so year-1 90% + anytime clears. "
+        "Evals keep 20%. Better product split: Instant on-demand stays 80% "
+        "(speed only, ~12% of list) and 90% is eval-only. "
+        "Do not refund add-ons on first payout — refund the challenge fee only.",
+        s["body"],
+    ))
+    story.append(addon_suggest_table(skus, s))
+    story.append(Spacer(1, 2*mm))
 
     # ----- BE for every account -----
     story.append(P("2. Break-even for every Verodus account", s["h1"]))
@@ -1283,6 +1623,10 @@ def build():
     pd.DataFrame(classic_rows(skus)).to_csv(RESULTS / "verodus_classic_sku_table.csv", index=False)
     pd.DataFrame(opex_rows(skus)).to_csv(RESULTS / "verodus_opex_stack.csv", index=False)
     pd.DataFrame(shopper_rows()).to_csv(RESULTS / "verodus_shopper_catalog.csv", index=False)
+    pd.DataFrame(addon_unit_rows(skus)).to_csv(RESULTS / "verodus_addons.csv", index=False)
+    pd.DataFrame(addon_sku_blend(addon_unit_rows(skus))).to_csv(
+        RESULTS / "verodus_addons_blend.csv", index=False
+    )
     pd.DataFrame(rows_out).to_csv(RESULTS / "verodus_recommended_prices.csv", index=False)
     pd.DataFrame(stats).to_csv(RESULTS / "verodus_rec_vs_band.csv", index=False)
     pd.DataFrame([{
@@ -1310,6 +1654,8 @@ def build():
     print(f"Wrote {RESULTS / 'verodus_classic_sku_table.csv'}")
     print(f"Wrote {RESULTS / 'verodus_opex_stack.csv'}")
     print(f"Wrote {RESULTS / 'verodus_shopper_catalog.csv'}")
+    print(f"Wrote {RESULTS / 'verodus_addons.csv'}")
+    print(f"Wrote {RESULTS / 'verodus_addons_blend.csv'}")
     print(f"Wrote {RESULTS / 'verodus_recommended_prices.csv'}")
     print(f"Wrote {RESULTS / 'verodus_rec_vs_band.csv'}")
     print(f"Wrote {RESULTS / 'verodus_be_by_account.csv'}")
