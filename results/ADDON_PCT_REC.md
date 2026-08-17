@@ -20,6 +20,6 @@ List $675. Year-1 BE $272. Challenge leftover $26.
 - Weekly speed extra $22 → BE 6%. Rec 8% leftover $6. Live 6% leftover $-0.
 - On Demand 90% extra $112 → BE 32%. Rec 32% leftover $1. Checkout 20% leftover $-41 (combined $-15). BG 15% leftover $-59.
 
-Pro $100k On Demand extra $20 → BE 8% of list. Rec 15% leftover $17.
+Pro $100k On Demand extra $20 → BE 7% of list. Rec 15% leftover $22.
 
 Do not copy BG Instant 15% or FundedNext +5% for 90% + anytime. If Instant and evals must share one On Demand %, 25% is thin on Instant $100k combined.

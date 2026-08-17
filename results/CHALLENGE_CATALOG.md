@@ -19,16 +19,16 @@ Recommended VERO35 sale. List = sale ÷ 0.65. Instant $200k pulled. News include
 | One-Step | $200,000 | $1,075 | $699 | 35% |
 | Two-Step Lite | $5,000 | $60 | $39 | 35% |
 | Two-Step Lite | $10,000 | $85 | $55 | 35% |
-| Two-Step Lite | $25,000 | $152 | $99 | 35% |
-| Two-Step Lite | $50,000 | $229 | $149 | 35% |
-| Two-Step Lite | $100,000 | $423 | $275 | 35% |
-| Two-Step Lite | $200,000 | $845 | $549 | 35% |
+| Two-Step Lite | $25,000 | $177 | $115 | 35% |
+| Two-Step Lite | $50,000 | $260 | $169 | 35% |
+| Two-Step Lite | $100,000 | $475 | $309 | 35% |
+| Two-Step Lite | $200,000 | $922 | $599 | 35% |
 | Two-Step Pro | $5,000 | $69 | $45 | 35% |
 | Two-Step Pro | $10,000 | $91 | $59 | 35% |
-| Two-Step Pro | $25,000 | $168 | $109 | 35% |
-| Two-Step Pro | $50,000 | $260 | $169 | 35% |
-| Two-Step Pro | $100,000 | $475 | $309 | 35% |
-| Two-Step Pro | $200,000 | $952 | $619 | 35% |
+| Two-Step Pro | $25,000 | $192 | $125 | 35% |
+| Two-Step Pro | $50,000 | $306 | $199 | 35% |
+| Two-Step Pro | $100,000 | $537 | $349 | 35% |
+| Two-Step Pro | $200,000 | $1,075 | $699 | 35% |
 
 ## Rules
 

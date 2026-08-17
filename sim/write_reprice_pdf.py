@@ -52,10 +52,10 @@ REC = {
     ("Instant", 50000): 239, ("Instant", 100000): 439,
     ("1-Step", 5000): 45, ("1-Step", 10000): 69, ("1-Step", 25000): 129,
     ("1-Step", 50000): 219, ("1-Step", 100000): 379, ("1-Step", 200000): 699,
-    ("2-Step Lite", 5000): 39, ("2-Step Lite", 10000): 55, ("2-Step Lite", 25000): 99,
-    ("2-Step Lite", 50000): 149, ("2-Step Lite", 100000): 275, ("2-Step Lite", 200000): 549,
-    ("2-Step Pro", 5000): 45, ("2-Step Pro", 10000): 59, ("2-Step Pro", 25000): 109,
-    ("2-Step Pro", 50000): 169, ("2-Step Pro", 100000): 309, ("2-Step Pro", 200000): 619,
+    ("2-Step Lite", 5000): 39, ("2-Step Lite", 10000): 55, ("2-Step Lite", 25000): 115,
+    ("2-Step Lite", 50000): 169, ("2-Step Lite", 100000): 309, ("2-Step Lite", 200000): 599,
+    ("2-Step Pro", 5000): 45, ("2-Step Pro", 10000): 59, ("2-Step Pro", 25000): 125,
+    ("2-Step Pro", 50000): 199, ("2-Step Pro", 100000): 349, ("2-Step Pro", 200000): 699,
 }
 
 BEAT = {
@@ -72,16 +72,16 @@ BEAT = {
     ("1-Step", 200000): "BG $719",
     ("2-Step Lite", 5000): "Hola $38 / TFT $39 (Maven $18 fails)",
     ("2-Step Lite", 10000): "Hola / Ment $55 (median $60)",
-    ("2-Step Lite", 25000): "Ment $119 (Alpha 6% $94)",
-    ("2-Step Lite", 50000): "Maven $151",
-    ("2-Step Lite", 100000): "Maven $279",
+    ("2-Step Lite", 25000): "Ment $119",
+    ("2-Step Lite", 50000): "Alpha 6% $174",
+    ("2-Step Lite", 100000): "Alpha 6% $318",
     ("2-Step Lite", 200000): "Alpha 6% $638",
     ("2-Step Pro", 5000): "BG $44 / FXIFY $47",
     ("2-Step Pro", 10000): "FN $59 / Alpha 10% $62",
-    ("2-Step Pro", 25000): "Ment $119",
-    ("2-Step Pro", 50000): "Alpha 6% $174",
-    ("2-Step Pro", 100000): "Alpha 6% $318",
-    ("2-Step Pro", 200000): "Alpha 6% $638",
+    ("2-Step Pro", 25000): "Hola / FP Flex $127",
+    ("2-Step Pro", 50000): "Alpha 10% $214 / FP Flex $215",
+    ("2-Step Pro", 100000): "Alpha 10% $358",
+    ("2-Step Pro", 200000): "Alpha 10% $718 / BG $719",
 }
 
 OLD_PCT = {
@@ -251,7 +251,7 @@ def build():
         f"({new_pnl - old_pnl:+,.0f}). Sale ${old_rev:,.0f} → ${new_rev:,.0f}. "
         f"Leftover / sale {100 * old_pnl / old_rev:.1f}% → {100 * new_pnl / new_rev:.1f}%. "
         "Lite/Pro $5k–$10k follow the 2-step street door. Instant and 1-Step doors stay. "
-        "Leftover stays on $25k and up.",
+        "Lite/Pro $25k+ step leftover up under Ment / Alpha 6% (Lite) and Hola / Alpha 10% (Pro).",
         s["sub"],
     ))
 
@@ -261,7 +261,7 @@ def build():
         "the account. The $100 min is 2.5% of a $5k and 0.12% of a $100k. Do not load CAD 10k "
         "wages onto the door — recover them on $50k–$200k. Instant stays under Blue Guardian "
         "and FundingPips Zero. 1-Step $5k stays $45 (Hola/BG $47). Lite $5k sits with Hola $38 / "
-        "TFT $39; do not copy Maven $18. Pro stays a step above Lite and under Alpha Pro 6% "
+        "TFT $39; do not copy Maven $18. Pro stays a step above Lite and under Alpha 10% / BG "
         "from $50k. List = round(sale / 0.65). VERO35 still 35% off list.",
         s["body"],
     ))
@@ -283,7 +283,8 @@ def build():
         24*mm, 16*mm, 16*mm, 16*mm, 16*mm, 16*mm, 16*mm, 18*mm, 18*mm, 52*mm,
     ], spec))
     story.append(P(
-        "Yellow = Lite/Pro $5k–$10k cut to the 2-step street door. Green = unchanged. "
+        "Yellow = price moved. Lite/Pro $5k–$10k stay at the street door. $25k+ step up "
+        "under Ment / Alpha 6% (Lite) and Hola / Alpha 10% / BG (Pro). "
         "Lite $5k leftover on allocated wages is about $0 — payout BE is $8, so the fee still "
         "covers the check. Wages come from $50k–$200k.",
         s["tiny"],

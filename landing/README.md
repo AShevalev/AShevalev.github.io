@@ -16,14 +16,14 @@ Default split is **80%**. 90% is a paid add-on — do not lead the meta with 90%
 
 ## Rec sale / list (VERO35)
 
-News-included reprice 17 Aug 2026. Instant and 1-Step doors stay. Lite/Pro $5k–$10k follow the 2-step street door (Hola / TFT / Ment). Leftover stays on $25k and up.
+News-included reprice 17 Aug 2026. Instant and 1-Step doors stay. Lite/Pro $5k–$10k follow the 2-step street door (Hola / TFT / Ment). Leftover on Lite/Pro **$25k and up** sits under Ment / Alpha 6% (Lite) and Hola / Alpha 10% (Pro) — not Maven $151 / $279.
 
 | Plan | $5k | $10k | $25k | $50k | $100k | $200k |
 |---|---|---|---|---|---|---|
 | Instant | $49 / $75 | $69 / $106 | $149 / $229 | $239 / $368 | $439 / $675 | — |
 | 1-Step | $45 / $69 | $69 / $106 | $129 / $198 | $219 / $337 | $379 / $583 | $699 / $1,075 |
-| Lite | $39 / $60 | $55 / $85 | $99 / $152 | $149 / $229 | $275 / $423 | $549 / $845 |
-| Pro | $45 / $69 | $59 / $91 | $109 / $168 | $169 / $260 | $309 / $475 | $619 / $952 |
+| Lite | $39 / $60 | $55 / $85 | $115 / $177 | $169 / $260 | $309 / $475 | $599 / $922 |
+| Pro | $45 / $69 | $59 / $91 | $125 / $192 | $199 / $306 | $349 / $537 | $699 / $1,075 |
 
 JS: `plan-fees.js` — `[sale, list]`. Instant $200k is omitted on purpose.
 
@@ -69,7 +69,7 @@ Verodus Instant default is **biweekly 80%**, so Weekly 70% and On Demand 90% are
 
 Sticker = `Math.round(list * pct)`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.
 
-Pro $100k ($475): weekend $71 / weekly $29 / On Demand 90% $95. Instant $100k ($675): weekend $101 / weekly $41 / On Demand 90% $135. News is included (no sticker). Swing is dropped.
+Pro $100k ($537): weekend $81 / weekly $32 / On Demand 90% $107. Instant $100k ($675): weekend $101 / weekly $41 / On Demand 90% $135. News is included (no sticker). Swing is dropped.
 
 ### Multi-account (up to 4)
 
@@ -80,11 +80,11 @@ Do **not** copy the 30/35/40 ladder. VERO35 is already **35% off every copy**, w
 | SKU | Rec leftover after 20% ads | Max extra off the VERO35 sale |
 |---|---:|---:|
 | Instant $100k | ~$26 | ~8% |
-| Lite $100k | ~$15 | ~7% |
-| Pro $100k | ~$36 | ~15% |
+| Lite $100k | ~$42 | ~14% |
+| Pro $100k | ~$68 | ~20% |
 | 1-Step $100k | ~$123 | ~40% |
 
-Instant and Lite cannot fund a visible extra %. A 10% extra on Instant $100k copy 2 is about **−$9** after ads. Offer **qty 1–4 at VERO35, same add-ons on every copy, no extra ladder**.
+Instant cannot fund a visible extra %. Lite $100k leftover is now about **$42**, so a 10% extra would still print, but skip the ladder — VERO35 is already 35% on every copy. Offer **qty 1–4 at VERO35, same add-ons on every copy, no extra ladder**.
 
 Paste into `checkout.html`:
 

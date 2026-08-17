@@ -129,16 +129,16 @@ REC = {
     ("1-Step", 200000): 699,
     ("2-Step Lite", 5000): 39,
     ("2-Step Lite", 10000): 55,
-    ("2-Step Lite", 25000): 99,
-    ("2-Step Lite", 50000): 149,
-    ("2-Step Lite", 100000): 275,
-    ("2-Step Lite", 200000): 549,
+    ("2-Step Lite", 25000): 115,
+    ("2-Step Lite", 50000): 169,
+    ("2-Step Lite", 100000): 309,
+    ("2-Step Lite", 200000): 599,
     ("2-Step Pro", 5000): 45,
     ("2-Step Pro", 10000): 59,
-    ("2-Step Pro", 25000): 109,
-    ("2-Step Pro", 50000): 169,
-    ("2-Step Pro", 100000): 309,
-    ("2-Step Pro", 200000): 619,
+    ("2-Step Pro", 25000): 125,
+    ("2-Step Pro", 50000): 199,
+    ("2-Step Pro", 100000): 349,
+    ("2-Step Pro", 200000): 699,
 }
 
 ANCHORS = (
@@ -204,14 +204,14 @@ WHY = {
         "$100k is $19 under Alpha / Fintokei / BG $398–399."
     ),
     "2-Step Lite": (
-        "Maven $18 / $35 / $79 fail payout BE plus ads — do not copy. Door is the 2-step "
-        "street: $5k $39 (Hola $38 / TFT $39), $10k $55 (Hola/Ment $55). Leftover stays on "
-        "$25k+ ($99 / $149 / $275 / $549). $50k / $100k stay $2–$4 under Maven $151 / $279."
+        "Maven $18 / $35 / $79 fail payout BE plus ads — do not copy. Door stays $39 / $55. "
+        "Leftover on $25k+ ($115 / $169 / $309 / $599): under Ment $119, Alpha 6% $174 / $318 / $638. "
+        "Stop pinning $50k / $100k to Maven $151 / $279."
     ),
     "2-Step Pro": (
-        "Door a step above Lite: $45 / $59 (BG $44 / FXIFY $47 / FN $59). Rec $45 / $59 / "
-        "$109 / $169 / $309 / $619. Under Alpha Pro 6% from $50k ($174 / $318 / $638). "
-        "Maven $18 / $35 / $79 are not usable lows."
+        "Door a step above Lite: $45 / $59. Rec $45 / $59 / $125 / $199 / $349 / $699. "
+        "Pro 10% max DD is easier than Alpha 6% — sit under Hola / FP Flex $127, Alpha 10% "
+        "$214 / $358 / $718, and BG $719. Maven lows are not usable."
     ),
 }
 
@@ -1090,8 +1090,8 @@ def collect_story():
     story.append(P(
         "Green = recommended sale. Each size shows <b>rec $</b> and <b>BE $</b>. "
         "Instant $49 / $69 / $149 / $239 / $439 (under the first solvent peer). "
-        "Lite $39 / $55 / $99 / $149 / $275 / $549. "
-        "1-Step $45 / $69 / $129 / $219 / $379 / $699. Pro $45 / $59 / $109 / $169 / $309 / $619. "
+        "Lite $39 / $55 / $115 / $169 / $309 / $599. "
+        "1-Step $45 / $69 / $129 / $219 / $379 / $699. Pro $45 / $59 / $125 / $199 / $349 / $699. "
         "List $100k is sale ÷ 0.65 (Instant $675 · 1-Step $583 · Lite $423 · Pro $475).",
         s["body"],
     ))

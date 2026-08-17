@@ -87,16 +87,16 @@ add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
 add("Verodus 2-Step Lite", "Verodus", "2-Step Lite", "2-step",
     [P(0.08, 0.08, "static", 0.04, min_days=5), P(0.05, 0.08, "static", 0.04, min_days=5)],
     funded(0.08, "static", 0.04, min_days=3),
-    sku((5e3,60,39),(1e4,85,55),(25e3,152,99),(5e4,229,149),(1e5,423,275),(2e5,845,549)),
+    sku((5e3,60,39),(1e4,85,55),(25e3,177,115),(5e4,260,169),(1e5,475,309),(2e5,922,599)),
     refund="first", discount="VERO35",
-    source="street door $5k/$10k; leftover on $25k+")
+    source="street door $5k/$10k; leftover on $25k+ under Ment / Alpha 6%")
 
 add("Verodus 2-Step Pro", "Verodus", "2-Step Pro", "2-step",
     [P(0.10, 0.10, "static", 0.05, min_days=5), P(0.05, 0.10, "static", 0.05, min_days=5)],
     funded(0.10, "static", 0.05, min_days=3),
-    sku((5e3,69,45),(1e4,91,59),(25e3,168,109),(5e4,260,169),(1e5,475,309),(2e5,952,619)),
+    sku((5e3,69,45),(1e4,91,59),(25e3,192,125),(5e4,306,199),(1e5,537,349),(2e5,1075,699)),
     refund="first", discount="VERO35",
-    source="street door $5k/$10k; leftover on $25k+")
+    source="street door $5k/$10k; leftover on $25k+ under Hola / Alpha 10%")
 
 # =============================================================================
 # 2. FTMO — trading-objectives Aug 2026, EUR×1.16, no sitewide sale
