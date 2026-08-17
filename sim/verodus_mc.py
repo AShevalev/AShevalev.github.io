@@ -109,9 +109,10 @@ SESSION_P = np.array([s[1] for s in SESSIONS], dtype=float)
 # 3. VERODUS PRODUCTS — FAQ / live rules
 # =============================================================================
 # Instant: funded day 1. 6% trailing HWM (never locks). Daily 3% of start from
-#   day's equity high. No min trading days. 20% Best Day of Positive Days'
-#   Profit; a day counts only if it closes more than 0.5% of EOD balance.
-#   $100 min. Split 80%. No refund.
+#   day's equity high. One payout rule: 20% Best Day of Positive Days' Profit;
+#   a day counts only if it closes more than 0.5% of EOD balance. The 20% cap
+#   cannot clear with fewer than five counted days (implied, not a 5-day
+#   checkbox). $100 min. Split 80%. No refund.
 # 1-Step: 10% target, no min days, 50% Best Day of Positive Days' Profit,
 #   4% daily from SOD equity (fixed $ of initial), 6% hybrid (lock at initial).
 #   Funded: same DD, no min days, 50% Best Day. 100% fee refund on first reward.

@@ -349,7 +349,7 @@ def build_catalog():
         ("Weekly Rewards with 70% Reward Split", "8%", "8%",
          "Every 7 calendar days. Default is Bi-Weekly 80%. Min $100."),
         ("On Demand Rewards with 90% Split", "32%", "15%",
-         "Anytime after Instant 5 valid days or eval 3 funded days. Min $100."),
+         "Anytime after that plan’s payout rule. Instant: $100 + 20% Best Day. 1-Step: $100 + 50% Best Day. 2-Step: $100 + 3 trading days."),
         ("Bi-Weekly 80%", "included", "included", "Default. Every 14 calendar days. Min $100."),
         ("Swing", "not offered", "not offered", "News is already in the fee."),
     )

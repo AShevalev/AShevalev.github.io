@@ -160,9 +160,10 @@ def build_rules():
     story.append(P("What each plan is", s["h1"]))
     story.append(P(
         "<b>Instant Funding.</b> No evaluation. Funded on day one. Daily 3% from the day’s "
-        "equity high. Max 6% trails the peak and never locks. No min trading days. "
-        "Every payout: $100 and Best Day ≤20% (only days that close more than 0.5% profit "
-        "of account balance count). No fee refund. Default split 80% bi-weekly.",
+        "equity high. Max 6% trails the peak and never locks. One payout rule: $100 and "
+        "Best Day ≤20% (only days that close more than 0.5% profit of account balance count). "
+        "The 20% cap cannot clear with fewer than five counted days — implied, not a second "
+        "checkbox. Do not list “5 valid days.” No fee refund. Default split 80% bi-weekly.",
         s["body"],
     ))
     story.append(P(

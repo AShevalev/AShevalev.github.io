@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Paired Monte Carlo: prior Instant/1-Step day rules vs rule-alignment.
 
-News stays included. Instant drops the 5 valid-day gate and counts Best Day
-only on days that close more than 0.5% of EOD balance. 1-Step QPP drops the
-3-day min and applies 50% Best Day. 2-Step Lite/Pro are unchanged (5 eval
-days, 3 QPP days). Same per-product seed so the delta is the rule change,
-not a new random stream.
+News stays included. Instant is one rule (20% Best Day; a day counts only
+if it closes more than 0.5% of EOD balance). The 20% cap still forces at
+least five counted days — the 5 is implied, not a second checkbox. 1-Step
+QPP drops the 3-day min and applies 50% Best Day. 2-Step Lite/Pro are
+unchanged (5 eval days, 3 QPP days). Same per-product seed so the delta
+is the rule change, not a new random stream.
 
 Writes results/verodus_rule_alignment_compare.csv and RULE_ALIGNMENT_MARGINS.md,
 and refreshes verodus_news_included_prices.csv BE_on from the new book so the
@@ -222,9 +223,10 @@ def write_md(cmp_df: pd.DataFrame, n_sims: int) -> Path:
         f"News included. {n_sims} paths per profile, same 7/22/26/28/17 mix, "
         "paired per-product seeds. Sale card is unchanged (current rec).",
         "",
-        "Prior Instant: 5 valid days at ≥0.5% of start-of-day equity, 20% Best Day "
-        "on every green day. Aligned Instant: no min trading days; 20% Best Day "
-        "only on days that close **more than 0.5% of EOD account balance**.",
+        "Prior Instant: two checkboxes — 5 days at ≥0.5% of SOD **and** 20% Best "
+        "Day on every green day. Aligned Instant: one rule — 20% Best Day on days "
+        "that close **more than 0.5% of EOD account balance**. The 20% cap still "
+        "forces at least five counted days. The 5 is implied, not listed.",
         "",
         "Prior 1-Step QPP: 3 min days, no Best Day. Aligned 1-Step QPP: no min "
         "days, 50% Best Day (no 0.5% floor). 2-Step Lite/Pro unchanged (5 eval / 3 QPP).",

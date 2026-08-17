@@ -4,7 +4,7 @@
 
 News included. 1200 paths per profile, same 7/22/26/28/17 mix, paired per-product seeds. Sale card is unchanged (current rec).
 
-Prior Instant: 5 valid days at ≥0.5% of start-of-day equity, 20% Best Day on every green day. Aligned Instant: no min trading days; 20% Best Day only on days that close **more than 0.5% of EOD account balance**.
+Prior Instant: two checkboxes — 5 days at ≥0.5% of start-of-day equity **and** 20% Best Day on every green day. Aligned Instant: one rule — 20% Best Day, and a day counts only if it closes **more than 0.5% of EOD account balance**. The 20% cap still forces at least five counted days (`1 ÷ n` of PDP). The 5 is implied, not a second checkbox.
 
 Prior 1-Step QPP: 3 min days, no Best Day. Aligned 1-Step QPP: no min days, 50% Best Day (no 0.5% floor). 2-Step Lite/Pro unchanged (5 eval / 3 QPP).
 
@@ -42,7 +42,7 @@ Leftover = sale × 0.80 − (BE × 1.10 + $1 + wage share). Sale m is the ads-li
 
 ## Why Instant and 1-Step leftover fell
 
-- Instant: dropping the 5 valid-day gate was easier, but Best Day now ignores tiny green days (only closes **more than** 0.5% of EOD balance count). P(pay) fell 21.3% → 19.3%. Paths that still get paid stay longer and pay more (first-payout E[X] $100k $825 → $881), so year-1 BE rose $278 → $305.
+- Instant: the payout floor that matters is the same. Four equal counted days = 25% Best Day; five equal counted days = 20%. You still cannot get paid with fewer than five days that closed more than 0.5% of account balance. Leftover fell on the **small differences**, not from dropping a 5-day min: tiny greens (+0.1%, +0.4%) no longer sit in Positive Days’ Profit (old Best Day used every green day, which made 20% easier); exactly 0.5% no longer counts (old copy was often **at least** 0.5% of SOD). P(pay) fell 21.3% → 19.3%. Paths that still get paid stay longer and pay more (first-payout E[X] $100k $825 → $881), so year-1 BE rose $278 → $305.
 - 1-Step: 50% Best Day on Qualified Performance is tighter than “3 any trading days.” P(pay) fell 9.1% → 8.2%. Paid paths keep trading to flatten Best Day, so first-payout E[X] $100k $118 → $151 and BE $130 → $164.
 - Sale card was not raised. Instant $100k at $439 is the only challenge SKU that fails the opex stack (leftover −$10). Instant $50k is thin (+$2).
 

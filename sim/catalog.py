@@ -81,7 +81,7 @@ add("Verodus Instant", "Verodus", "Instant", "instant",
       cons_floor=0.005, cons_basis="eod")],
     None, sku((5e3,75,49),(1e4,106,69),(25e3,229,149),(5e4,368,239),(1e5,675,439)),
     refund="none", split=0.80, instant=True, discount="VERO35",
-    source="rule alignment: no min days; 20% Best Day on days >0.5% of EOD balance")
+    source="rule alignment: 20% Best Day on days >0.5% of EOD; 5 counted days implied")
 
 add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     [P(0.10, 0.06, "hybrid", 0.04, "sod", 0, 0.0, 0.50)],

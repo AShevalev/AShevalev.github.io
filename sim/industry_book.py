@@ -148,7 +148,8 @@ def _counts_for_best_day(day_pnl, sod, eod, start, rules):
     """Which closed days enter Best Day / Positive Days' Profit.
 
     Instant: only days that close *more than* 0.5% profit of account
-    balance (EOD). 1-Step: every green day (no 0.5% floor).
+    balance (EOD). At 20% Best Day that still requires at least five
+    counted days (1/n of PDP). 1-Step: every green day (no 0.5% floor).
     """
     floor = rules.get("consistency_floor")
     if floor is None:
