@@ -24,3 +24,28 @@ Default split is **80%**. 90% is a paid add-on — do not lead the meta with 90%
 | Pro | $45 / $69 | $59 / $91 | $95 / $146 | $159 / $245 | $289 / $445 | $577 / $888 |
 
 JS: `plan-fees.js` — `[sale, list]`. Instant $200k is omitted on purpose.
+
+## Checkout add-ons (drop-in)
+
+Open [`checkout-addons.html`](checkout-addons.html) for the Add-Ons section, ⓘ tooltips, and billing logic. Classes match live `checkout.css` (`.co-addon`, `.co-toggle`, `#coAddonModal`).
+
+Paste into `checkout.html`:
+
+1. Keep `#coSectionAddons` / `#coAddons` markup — it is unchanged.
+2. Replace `var ADDONS = [...]` with the `ADDONS` block in that file (12% / 12% / 6% / 20%).
+3. Replace `addonPrice`, `renderAddons`, and `getAddonsTotal` with `addonPct` / `addonPrice` / `addonPriceTag` / `applyAddonToggle` / the new `renderAddons`.
+4. Summary addon rows and GA item `price` must call `addonPrice(a)` — not `Math.round(base * a.pct)`. Skip `$0` GA lines (Weekend when Swing is on).
+5. Optional: modal foot copy that add-on fees are not part of the first-payout challenge-fee refund.
+
+Locked billing:
+
+| Add-on | % of list | Notes |
+|---|---:|---|
+| News trading | 12% | Funded news window off |
+| Weekend holding | 12% | Friday flatten off |
+| Both (Swing) | **20%** | Charge 20%, not 12+12. Weekend tag shows `Incl.` |
+| Weekly rewards | 6% | Every 7 days, 70% split |
+| On-demand | 20% | Anytime, 90%, min 2% and $200 |
+| On-demand Instant | **32%** | Same 90% + anytime |
+
+Weekly **XOR** on-demand — never both. Sticker = `Math.round(list * pct)`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.

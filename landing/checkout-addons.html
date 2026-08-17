@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Verodus checkout add-ons — drop-in</title>
+<!--
+  Paste into live checkout.html (classes already match checkout.css):
+
+  1. Keep #coSectionAddons and #coAddonModal markup as-is (copied below).
+  2. Replace var ADDONS = [...] with the ADDONS block in the script.
+  3. Replace addonPrice, renderAddons, getAddonsTotal, the summary addon
+     loop in updateSummary, and the addon price in gaItemsForSelection
+     with the helpers below (addonPct / addonPrice / addonPriceTag /
+     applyAddonToggle).
+
+  Do not restyle. Existing .co-addon* / .co-toggle / #coAddonModal rules apply.
+-->
+<style>
+  :root {
+    --content-padding: 1.5rem;
+    --theme: #1b2b8e;
+    --theme-cta: #d4af37;
+    --theme-cta-text: #0f172a;
+    --card-opacity: .04;
+    --card-bg-translucent: rgba(255, 255, 255, var(--card-opacity));
+    --card-bg-dark: #141a3b;
+    --success: #34d399;
+    --text-on-dark: #cbd5e1;
+    --text-on-theme-dim: #e2e8f0a6;
+    --gold-light: var(--theme-cta);
+    --heading-h2: #d4af37;
+    --text-size-normal: 1rem;
+    --border-subtle: #ffffff14;
+    --border-on-theme: #ffffff26;
+    --bg-overlay: #0000000f;
+    --shadow-card-hover: 0 20px 48px #0006;
+    --bg-gradient-start: #07003b;
+    --bg-gradient-end: #1b2b8e;
+    --page-gradient: linear-gradient(to bottom, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+    color: var(--text-on-dark);
+    background: var(--page-gradient);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  button { cursor: pointer; background: 0 0; border: none; font-family: inherit; }
+  .checkout-page { max-width: 1200px; padding: 2rem var(--content-padding) 4rem; margin: 0 auto; }
+  .checkout-page > h1 { margin: 0 0 1.5rem; color: var(--heading-h2); font-size: 1.75rem; }
+  .checkout-container { grid-template-columns: 1fr 380px; align-items: start; gap: 2rem; display: grid; }
+  .co-section { margin-bottom: 2rem; }
+  .co-section-title { color: var(--text-on-dark); margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; }
+  .co-tabs { flex-wrap: wrap; gap: .5rem; display: flex; }
+  .co-tab {
+    border: 1px solid var(--border-on-theme); color: var(--text-on-dark); cursor: pointer;
+    white-space: nowrap; background: 0 0; border-radius: 999px; justify-content: center;
+    align-items: center; gap: .4rem; padding: .6rem 1.4rem; font-size: .9rem; font-weight: 600;
+    transition: all .2s; display: inline-flex;
+  }
+  .co-tab:hover { border-color: var(--theme); }
+  .co-tab.active { background: var(--theme); border-color: var(--theme); }
+  .co-size-grid { grid-template-columns: repeat(6, 1fr); gap: .5rem; display: grid; }
+  .co-size-btn {
+    border: 2px solid var(--border-on-theme); background: var(--card-bg-translucent);
+    color: var(--text-on-dark); cursor: pointer; border-radius: 12px; flex-direction: column;
+    justify-content: center; align-items: center; padding: .75rem .5rem; transition: all .2s; display: flex;
+  }
+  .co-size-btn:hover { border-color: var(--theme); }
+  .co-size-btn.active { border-color: var(--theme-cta); background: color-mix(in srgb, var(--theme-cta) 12%, transparent); }
+  .co-size-label { font-size: 1rem; font-weight: 700; }
+  .co-size-price { color: var(--text-on-theme-dim); margin-top: .15rem; font-size: .8rem; }
+  .co-size-btn.active .co-size-price { color: var(--theme-cta); }
+
+  /* Live checkout.css — addon rows, toggle, modal, summary addon lines */
+  .co-addon {
+    border: 1px solid var(--border-on-theme); background: var(--card-bg-translucent);
+    border-radius: 12px; justify-content: space-between; align-items: flex-start;
+    gap: .75rem; margin-bottom: .5rem; padding: 1rem 1.25rem; transition: border-color .2s; display: flex;
+  }
+  .co-addon.active { border-color: var(--theme); }
+  .co-addon-info { flex-direction: column; flex: 1; gap: .35rem; min-width: 0; display: flex; }
+  .co-addon-name { color: var(--text-on-dark); font-size: .92rem; font-weight: 600; }
+  .co-addon-name .co-addon-price-tag { color: var(--success); margin-left: .4rem; font-weight: 700; }
+  .co-addon-desc-row { flex-wrap: wrap; align-items: flex-start; gap: .35rem; display: flex; }
+  .co-addon-desc-text { color: var(--text-on-theme-dim); flex: 1; min-width: 0; font-size: .78rem; line-height: 1.35; }
+  .co-addon-info-btn {
+    color: var(--text-on-theme-dim); cursor: pointer; opacity: .75; background: 0 0; border: none;
+    flex-shrink: 0; justify-content: center; align-items: center; margin: 0; padding: 0;
+    font-size: .75rem; line-height: 1; transition: color .15s, opacity .15s; display: inline-flex;
+  }
+  .co-addon-info-btn:hover, .co-addon-info-btn:focus-visible { color: var(--gold-light); opacity: 1; outline: none; }
+  .co-addon-info-btn:focus-visible {
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--theme-cta) 45%, transparent); border-radius: 4px;
+  }
+  .co-addon-info-glyph { font-size: .85rem; line-height: 1; display: block; }
+  .co-sr-only {
+    clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; width: 1px; height: 1px;
+    margin: -1px; padding: 0; position: absolute; overflow: hidden;
+  }
+  #coAddonModal.modal-overlay {
+    z-index: 10050; background: var(--shadow-card-hover); justify-content: center; align-items: center;
+    padding: 1rem; display: none; position: fixed; inset: 0;
+  }
+  #coAddonModal.modal-overlay.open { display: flex; }
+  #coAddonModal .modal-box {
+    border: 1px solid var(--border-subtle); width: calc(100% - 2rem); max-width: 520px; max-height: 92vh;
+    box-shadow: var(--shadow-card-hover); border-radius: 1.25rem; flex-direction: column;
+    animation: .3s cubic-bezier(.34, 1.56, .64, 1) coCheckoutModalPop; display: flex; overflow: hidden;
+    background: #141a3b;
+  }
+  @keyframes coCheckoutModalPop {
+    0% { opacity: 0; transform: scale(.88); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  #coAddonModal .modal-head {
+    border-bottom: 1px solid var(--border-subtle); flex-shrink: 0; justify-content: space-between;
+    align-items: center; padding: 1.4rem 1.8rem; display: flex;
+  }
+  #coAddonModal .modal-head h3 { font-size: var(--text-size-normal); margin: 0; padding-right: 1rem; font-weight: 400; }
+  #coAddonModal .modal-close {
+    cursor: pointer; background: 0 0; border: none; flex-shrink: 0; padding: .25rem;
+    font-size: 1.8rem; line-height: 1; transition: opacity .2s; color: var(--text-on-dark);
+  }
+  #coAddonModal .modal-body {
+    -webkit-overflow-scrolling: touch; flex: 1; min-height: 0; padding: 1.4rem 1.8rem; overflow-y: auto;
+  }
+  #coAddonModal .modal-body p { font-size: var(--text-size-normal); margin: 0; font-weight: 400; line-height: 1.7; }
+  #coAddonModal .modal-body p + p { margin-top: 1rem; }
+  #coAddonModal .modal-foot {
+    background: var(--bg-overlay); border-top: 1px solid var(--border-subtle); flex-shrink: 0;
+    padding: .85rem 1.8rem; font-size: .72rem;
+  }
+  .co-toggle { flex-shrink: 0; align-self: center; width: 48px; height: 26px; margin-top: .15rem; position: relative; }
+  .co-toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+  .co-toggle-slider {
+    cursor: pointer; background: #ffffff26; border-radius: 999px; transition: background .3s;
+    position: absolute; inset: 0;
+  }
+  .co-toggle-slider:before {
+    content: ""; background: #fff; border-radius: 50%; width: 20px; height: 20px;
+    transition: transform .3s; position: absolute; bottom: 3px; left: 3px;
+  }
+  .co-toggle input:checked + .co-toggle-slider { background: var(--theme); }
+  .co-toggle input:checked + .co-toggle-slider:before { transform: translate(22px); }
+  .co-summary-card { background: var(--card-bg-dark); border: 1px solid var(--border-on-theme); border-radius: 16px; padding: 1.5rem; }
+  .co-summary-title { color: var(--text-on-dark); margin-bottom: 1.25rem; font-size: 1.15rem; font-weight: 700; }
+  .co-summary-addon-row { justify-content: space-between; padding: .2rem 0; font-size: .8rem; display: flex; }
+  .co-summary-addon-row span:first-child { color: var(--text-on-theme-dim); }
+  .co-summary-addon-row span:last-child { color: var(--success); }
+  .co-summary-base { justify-content: space-between; padding: .45rem 0; font-size: .9rem; display: flex; }
+  .co-summary-base span:first-child { color: var(--text-on-theme-dim); }
+  .co-summary-base span:last-child { color: var(--text-on-dark); }
+  .co-summary-discount { justify-content: space-between; padding: .25rem 0; font-size: .85rem; display: flex; }
+  .co-summary-discount span:first-child { color: var(--text-on-theme-dim); }
+  .co-summary-discount span:last-child { color: var(--success); }
+  .co-summary-divider { background: var(--border-on-theme); height: 1px; margin: .75rem 0; }
+  .co-summary-total { justify-content: space-between; align-items: center; padding: .75rem 0 .25rem; display: flex; }
+  .co-total-label { color: var(--text-on-dark); font-size: 1rem; font-weight: 700; }
+  .co-total-amount { color: var(--text-on-dark); font-size: 2rem; font-weight: 800; }
+  .co-note { color: var(--text-on-theme-dim); font-size: .78rem; line-height: 1.45; margin: 0 0 1.25rem; }
+  @media (width <= 960px) {
+    .checkout-container { grid-template-columns: 1fr; }
+  }
+  @media (width <= 640px) {
+    .co-size-grid { grid-template-columns: repeat(3, 1fr); }
+    #coAddonModal .modal-head, #coAddonModal .modal-body { padding: .8rem 1.2rem; }
+    #coAddonModal .modal-body p { font-size: .85rem; line-height: 1.4; }
+    #coAddonModal .modal-foot { padding: .6rem 1.25rem; font-size: .65rem; }
+  }
+</style>
+</head>
+<body>
+<div class="checkout-page">
+  <h1>Add-Ons</h1>
+  <p class="co-note">Same checkout classes and toggles. News 12% · Weekend 12% · both = Swing 20% · Weekly 6% (70% split) · On-demand 20% / Instant 32% (90% split). Weekly and On-demand cannot both be on. VERO35 is 35% off list + add-on stickers.</p>
+  <div class="checkout-container">
+    <div class="checkout-form-col">
+      <div class="co-section">
+        <div class="co-section-title">Challenge</div>
+        <div class="co-tabs" id="coPlans"></div>
+      </div>
+      <div class="co-section">
+        <div class="co-section-title">Account Size</div>
+        <div class="co-size-grid" id="coSizes"></div>
+      </div>
+
+      <!-- PASTE: replace the live #coSectionAddons block with this (markup is unchanged) -->
+      <div class="co-section" id="coSectionAddons">
+        <div class="co-section-title">Add-Ons</div>
+        <div id="coAddons"></div>
+      </div>
+    </div>
+
+    <div class="co-summary-col">
+      <div class="co-summary-card">
+        <div class="co-summary-title">Order Summary</div>
+        <div class="co-summary-base"><span id="sumChallenge">2-Step Pro</span><span id="sumSize">$100K</span></div>
+        <div class="co-summary-base"><span>Challenge</span><span id="sumBase">$445</span></div>
+        <div id="sumAddonsWrap"></div>
+        <div class="co-summary-divider"></div>
+        <div class="co-summary-discount"><span>Discount (VERO35)</span><span id="sumDiscount">-$0.00</span></div>
+        <div class="co-summary-total">
+          <span class="co-total-label">Total</span>
+          <span class="co-total-amount" id="sumTotal">$0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PASTE: live #coAddonModal — foot line is the only copy change -->
+<div id="coAddonModal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-box modal-with-chart" role="dialog" aria-modal="true" aria-labelledby="coAddonModalTitle">
+    <div class="modal-head">
+      <h3 id="coAddonModalTitle" class="text-normal"></h3>
+      <button type="button" class="modal-close" id="coAddonModalClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body text-normal">
+      <p id="coAddonModalText"></p>
+    </div>
+    <div class="modal-foot text-normal">Add-on fees are not refunded with the first-payout challenge-fee refund. Eligibility and rules apply per program terms.</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var $ = function (sel) { return document.querySelector(sel); };
+
+  /* List prices already on live checkout (PRICING[plan].sizes[size].price). */
+  var PRICING = {
+    '1step': {
+      label: '1-Step',
+      sizes: {
+        '5000': { price: 55 }, '10000': { price: 92 }, '25000': { price: 185 },
+        '50000': { price: 297 }, '100000': { price: 515 }, '200000': { price: 1006 }
+      }
+    },
+    '2steplite': {
+      label: '2-Step Lite',
+      sizes: {
+        '5000': { price: 65 }, '10000': { price: 85 }, '25000': { price: 145 },
+        '50000': { price: 229 }, '100000': { price: 414 }, '200000': { price: 768 }
+      }
+    },
+    '2steppro': {
+      label: '2-Step Pro',
+      sizes: {
+        '5000': { price: 69 }, '10000': { price: 91 }, '25000': { price: 146 },
+        '50000': { price: 245 }, '100000': { price: 445 }, '200000': { price: 888 }
+      }
+    },
+    instant: {
+      label: 'Instant',
+      sizes: {
+        '5000': { price: 75 }, '10000': { price: 106 }, '25000': { price: 214 },
+        '50000': { price: 368 }, '100000': { price: 675 }
+      }
+    }
+  };
+
+  var selectedPlan = '2steppro';
+  var selectedSize = '100000';
+  var activeAddons = {};
+  var addonModalOpen = false;
+  var COMPETITION = null;
+  var DISCOUNT_CAP_PCT = 35;
+
+  var PAYOUT_XOR = {
+    'weekly-payout': 'on-demand-payout',
+    'on-demand-payout': 'weekly-payout'
+  };
+
+  /* ═══ PASTE: replace live ADDONS ═══ */
+  var ADDONS = [
+    {
+      id: 'news-trading',
+      label: 'News Trading',
+      pct: 0.12,
+      desc: 'Trade NFP, FOMC, CPI, earnings and geopolitical events with zero restrictions',
+      tooltip: function () {
+        var swing = swingSelected()
+          ? 'You also have Weekend Holding on — both are billed as Swing at 20% of the challenge list price, not 12% + 12%.'
+          : 'Pair with Weekend Holding and both are billed as Swing at 20% of the challenge list price — not 12% + 12%.';
+        return 'Unlock unrestricted news trading on evaluation and funded accounts. Trade high-impact events like NFP, FOMC, CPI, earnings releases, and geopolitical news with zero restrictions. Perfect for event-driven strategies.\n\n'
+          + 'Default funded accounts pause around high-impact news. This add-on turns that window off.\n\n'
+          + swing;
+      }
+    },
+    {
+      id: 'weekend-holding',
+      label: 'Weekend Holding',
+      pct: 0.12,
+      desc: 'Hold positions over the weekend with zero restrictions.',
+      tooltip: function () {
+        var swing = swingSelected()
+          ? 'You also have News Trading on — both are billed as Swing at 20% of the challenge list price, not 12% + 12%.'
+          : 'Pair with News Trading and both are billed as Swing at 20% of the challenge list price — not 12% + 12%.';
+        return 'Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.\n\n'
+          + swing;
+      }
+    },
+    {
+      id: 'weekly-payout',
+      label: 'Weekly Rewards with 70% Reward Split',
+      pct: 0.06,
+      desc: 'Withdraw your profit share weekly',
+      tooltip: 'Weekly Rewards with 70% Split\n\nReceive your 70% reward share every week — consistent payouts on a reliable schedule. Get your first payout as early as you meet the funded phase requirements (minimum $100). Enjoy steady weekly cash flow so you can trade with confidence and keep what you earn on a predictable timeline.\n\nCannot be combined with On Demand Rewards.'
+    },
+    {
+      id: 'on-demand-payout',
+      label: 'On Demand Rewards with 90% Split',
+      pct: 0.20,
+      desc: 'Withdraw your profit share anytime — no waiting for fixed cycles',
+      tooltip: function () {
+        var pctLine = selectedPlan === 'instant'
+          ? 'On Instant this add-on is 32% of the challenge list price. On 1-Step, Lite, and Pro it is 20%.'
+          : 'This add-on is 20% of the challenge list price. On Instant it is 32%.';
+        return 'Request and receive your 90% reward share anytime — no waiting for fixed cycles. Get your first payout as early as you meet the funded phase requirements (minimum reward 2% and $200). Withdraw whenever you want, as often as you want. Fast, flexible cash flow so you can trade with confidence and keep what you earn on your schedule.\n\n'
+          + 'Cannot be combined with Weekly Rewards.\n\n'
+          + pctLine;
+      }
+    }
+  ];
+
+  function escHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function getBasePrice() {
+    if (COMPETITION) return COMPETITION.amountUsd;
+    return PRICING[selectedPlan].sizes[selectedSize].price;
+  }
+
+  function swingSelected() {
+    return !!(activeAddons['news-trading'] && activeAddons['weekend-holding']);
+  }
+
+  function addonPct(a) {
+    if (a.id === 'news-trading') return swingSelected() ? 0.20 : a.pct;
+    if (a.id === 'weekend-holding') return swingSelected() ? 0 : a.pct;
+    if (a.id === 'on-demand-payout' && selectedPlan === 'instant') return 0.32;
+    return a.pct;
+  }
+
+  function addonPrice(a) {
+    return Math.round(getBasePrice() * addonPct(a));
+  }
+
+  function addonPriceTag(a) {
+    var p = addonPrice(a);
+    if (p > 0) return '+$' + p;
+    if (a.id === 'weekend-holding' && swingSelected()) return 'Incl.';
+    return '+$0';
+  }
+
+  function addonDesc(a) {
+    if (a.id === 'news-trading' && swingSelected()) {
+      return 'Billed as Swing with Weekend Holding — 20% of list, not 12% + 12%';
+    }
+    if (a.id === 'weekend-holding' && swingSelected()) {
+      return 'Included in Swing with News Trading';
+    }
+    return a.desc;
+  }
+
+  function addonTooltip(a) {
+    return typeof a.tooltip === 'function' ? a.tooltip() : a.tooltip;
+  }
+
+  function getAddonsTotal() {
+    if (COMPETITION) return 0;
+    var t = 0;
+    ADDONS.forEach(function (a) {
+      if (activeAddons[a.id]) t += addonPrice(a);
+    });
+    return t;
+  }
+
+  function getCouponDiscount() {
+    var subtotal = getBasePrice() + getAddonsTotal();
+    return Math.round(subtotal * DISCOUNT_CAP_PCT / 100);
+  }
+
+  function getTotal() {
+    return Math.max(0, getBasePrice() + getAddonsTotal() - getCouponDiscount());
+  }
+
+  function applyAddonToggle(id, checked) {
+    if (checked) {
+      activeAddons[id] = true;
+      var other = PAYOUT_XOR[id];
+      if (other) delete activeAddons[other];
+    } else {
+      delete activeAddons[id];
+    }
+  }
+
+  function renderAddons() {
+    var wrap = $('#coAddons');
+    var html = '';
+    ADDONS.forEach(function (a) {
+      var checked = activeAddons[a.id] ? ' checked' : '';
+      var active = activeAddons[a.id] ? ' active' : '';
+      html += '<div class="co-addon' + active + '" data-addon="' + a.id + '">'
+        + '<div class="co-addon-info">'
+        + '<span class="co-addon-name">' + a.label + ' <span class="co-addon-price-tag">' + addonPriceTag(a) + '</span></span>'
+        + '<div class="co-addon-desc-row">'
+        + '<span class="co-addon-desc-text">' + escHtml(addonDesc(a)) + '</span>'
+        + '<button type="button" class="co-addon-info-btn" data-addon-id="' + a.id + '">'
+        + '<span class="co-addon-info-glyph" aria-hidden="true">&#9432;</span>'
+        + '<span class="co-sr-only">Full details: ' + escHtml(a.label) + '</span>'
+        + '</button>'
+        + '</div>'
+        + '</div>'
+        + '<label class="co-toggle">'
+        + '<input type="checkbox" data-addon-id="' + a.id + '"' + checked + '>'
+        + '<span class="co-toggle-slider"></span>'
+        + '</label>'
+        + '</div>';
+    });
+    wrap.innerHTML = html;
+    wrap.querySelectorAll('.co-addon-info-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var aid = btn.getAttribute('data-addon-id');
+        var addon = null;
+        for (var i = 0; i < ADDONS.length; i++) {
+          if (ADDONS[i].id === aid) { addon = ADDONS[i]; break; }
+        }
+        if (addon) openAddonModal(addon);
+      });
+    });
+    wrap.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        applyAddonToggle(cb.dataset.addonId, cb.checked);
+        renderAddons();
+        updateSummary();
+      });
+    });
+  }
+
+  function updateSummary() {
+    var plan = PRICING[selectedPlan];
+    var sizeNum = parseInt(selectedSize, 10);
+    var sizeLabel = '$' + (sizeNum >= 1000 ? Math.round(sizeNum / 1000) + 'K' : selectedSize);
+    $('#sumChallenge').textContent = plan.label;
+    $('#sumSize').textContent = sizeLabel;
+    $('#sumBase').textContent = '$' + getBasePrice();
+
+    var addonsHtml = '';
+    ADDONS.forEach(function (a) {
+      if (!activeAddons[a.id]) return;
+      addonsHtml += '<div class="co-summary-addon-row"><span>' + a.label + '</span><span>' + addonPriceTag(a) + '</span></div>';
+    });
+    $('#sumAddonsWrap').innerHTML = addonsHtml;
+
+    var disc = getCouponDiscount();
+    $('#sumDiscount').textContent = '-$' + disc.toFixed(2);
+    var total = getTotal();
+    $('#sumTotal').textContent = '$' + (total % 1 === 0 ? total : total.toFixed(2));
+  }
+
+  /* Same helper live checkout should use in gaItemsForSelection instead of Math.round(basePrice * a.pct). */
+  function gaAddonItems(planLabel, sizeDisplay, basePrice) {
+    var items = [];
+    ADDONS.forEach(function (a) {
+      if (!activeAddons[a.id]) return;
+      var price = addonPrice(a);
+      if (price <= 0) return;
+      items.push({
+        item_id: 'addon_' + a.id,
+        item_name: 'Add-on: ' + a.label,
+        item_category: 'Add-on',
+        item_variant: planLabel + ' ' + sizeDisplay,
+        item_brand: 'Verodus',
+        price: price,
+        quantity: 1
+      });
+    });
+    return items;
+  }
+
+  function openAddonModal(addon) {
+    $('#coAddonModalTitle').textContent = addon.label;
+    var firstP = $('#coAddonModalText');
+    var parent = firstP.parentNode;
+    var sib = firstP.nextSibling;
+    while (sib) {
+      var next = sib.nextSibling;
+      if (sib.nodeType === 1 && sib.dataset && sib.dataset.coAddonExtra === '1') {
+        parent.removeChild(sib);
+      }
+      sib = next;
+    }
+    var chunks = String(addonTooltip(addon) || '').split(/\n{2,}/);
+    firstP.textContent = (chunks[0] || '').trim();
+    var anchor = firstP;
+    for (var i = 1; i < chunks.length; i++) {
+      var p = document.createElement('p');
+      p.dataset.coAddonExtra = '1';
+      p.textContent = chunks[i].trim();
+      anchor.insertAdjacentElement('afterend', p);
+      anchor = p;
+    }
+    var el = $('#coAddonModal');
+    el.classList.add('open');
+    el.setAttribute('aria-hidden', 'false');
+    addonModalOpen = true;
+    var c = $('#coAddonModalClose');
+    if (c) c.focus();
+  }
+
+  function closeAddonModal() {
+    var el = $('#coAddonModal');
+    if (!el || !el.classList.contains('open')) return;
+    el.classList.remove('open');
+    el.setAttribute('aria-hidden', 'true');
+    addonModalOpen = false;
+  }
+
+  function bindAddonModal() {
+    var overlay = $('#coAddonModal');
+    var closeBtn = $('#coAddonModalClose');
+    if (closeBtn) closeBtn.addEventListener('click', closeAddonModal);
+    if (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeAddonModal();
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && addonModalOpen) {
+        e.preventDefault();
+        closeAddonModal();
+      }
+    });
+  }
+
+  function renderPlans() {
+    var html = '';
+    Object.keys(PRICING).forEach(function (id) {
+      html += '<button type="button" class="co-tab' + (id === selectedPlan ? ' active' : '') + '" data-plan="' + id + '">'
+        + PRICING[id].label + '</button>';
+    });
+    $('#coPlans').innerHTML = html;
+    $('#coPlans').querySelectorAll('.co-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        selectedPlan = btn.getAttribute('data-plan');
+        if (!PRICING[selectedPlan].sizes[selectedSize]) selectedSize = '100000';
+        renderPlans();
+        renderSizes();
+        renderAddons();
+        updateSummary();
+      });
+    });
+  }
+
+  function renderSizes() {
+    var sizes = PRICING[selectedPlan].sizes;
+    var html = '';
+    Object.keys(sizes).forEach(function (sz) {
+      var n = parseInt(sz, 10);
+      var label = n >= 1000 ? Math.round(n / 1000) + 'K' : sz;
+      html += '<button type="button" class="co-size-btn' + (sz === selectedSize ? ' active' : '') + '" data-size="' + sz + '">'
+        + '<span class="co-size-label">$' + label + '</span>'
+        + '<span class="co-size-price">$' + sizes[sz].price + '</span>'
+        + '</button>';
+    });
+    $('#coSizes').innerHTML = html;
+    $('#coSizes').querySelectorAll('.co-size-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        selectedSize = btn.getAttribute('data-size');
+        renderSizes();
+        renderAddons();
+        updateSummary();
+      });
+    });
+  }
+
+  bindAddonModal();
+  renderPlans();
+  renderSizes();
+  renderAddons();
+  updateSummary();
+
+  /* Sanity: Pro $100k and Instant $100k stickers. */
+  window.__addonPriceCheck = function () {
+    var savedPlan = selectedPlan, savedSize = selectedSize, saved = JSON.parse(JSON.stringify(activeAddons));
+    selectedPlan = '2steppro'; selectedSize = '100000';
+    activeAddons = { 'news-trading': true };
+    var news = addonPrice(ADDONS[0]);
+    activeAddons = { 'weekend-holding': true };
+    var weekend = addonPrice(ADDONS[1]);
+    activeAddons = { 'news-trading': true, 'weekend-holding': true };
+    var swing = getAddonsTotal();
+    activeAddons = { 'weekly-payout': true };
+    var weekly = addonPrice(ADDONS[2]);
+    activeAddons = { 'on-demand-payout': true };
+    var od = addonPrice(ADDONS[3]);
+    selectedPlan = 'instant';
+    var odInst = addonPrice(ADDONS[3]);
+    selectedPlan = savedPlan; selectedSize = savedSize; activeAddons = saved;
+    return { news: news, weekend: weekend, swing: swing, weekly: weekly, onDemand: od, onDemandInstant: odInst };
+  };
+})();
+</script>
+</body>
+</html>
