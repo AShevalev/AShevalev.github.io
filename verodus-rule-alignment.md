@@ -1,6 +1,6 @@
 # Verodus site rule alignment
 
-Apply these rules on **every Verodus page that names them**, including `trading-objectives.html` (Instant 20% Best Day modal must say a day counts only if it closes **more than 0.5%**). Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` **including** `trading-objectives.json` for Instant Best Day / day-count keys.
+Apply these rules on **every Verodus page that names them**, including `trading-objectives.html` (Instant 20% Best Day modal must say a day counts only if it closes **more than 0.5% profit of account balance**). Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` **including** `trading-objectives.json` for Instant Best Day / day-count keys.
 
 Canonical source: `1-step.html`, `2-step-lite.html`, `2-step-pro.html`, `instant.html`, `trading-objectives.html` Instant Best Day modal, TOS §9, `restricted-trading.html`.
 
@@ -25,7 +25,7 @@ Do **not** put Instant 0.5% language on the 1-Step 50% Best Day modal or on 2-St
 - **$100** minimum for **weekly, bi-weekly, and on-demand**.
 - **First and subsequent payouts are the same.** No “first after X days, later after Y.” Every request must meet **that plan’s payout rule** **and** the **selected cycle**.
 - Plan payout rules (same for every payout on that plan):
-  - **Instant:** **No minimum trading days.** Never write “5 min trading days,” “5 valid trading days,” or any Instant day-count. Instant’s day rule is only **20% Best Day**: a day counts only if it closes **more than 0.5%** net profit (vs that day’s start-of-day equity). Best Day must be ≤20% of Positive Days’ Profit. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. Instant has **no** 3-day QPP min. Same first payout and every payout after.
+  - **Instant:** **No minimum trading days.** Never write “5 min trading days,” “5 valid trading days,” or any Instant day-count. Instant’s day rule is only **20% Best Day**: a day counts only if it closes **more than 0.5% profit of account balance**. Best Day must be ≤20% of Positive Days’ Profit. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. Instant has **no** 3-day QPP min. Same first payout and every payout after.
   - **1-Step Qualified Performance:** **3 minimum trading days** for every payout, plus **50% Best Day** (no 0.5% floor). Exceeding 50% is not a breach — keep trading until Best Day is ≤50%. Evaluation still has **no** minimum trading days to pass.
   - **2-Step Lite / Pro Qualified Performance:** **3 minimum trading days** for every payout. Evaluation still needs **5 trading days per phase** (open and close the same calendar day). No Instant 20% / 0.5% language.
 - A 1-Step / 2-Step “trading day” = open and close on the same calendar day. The 3-day QPP rule is a **count of trading days** in that payout window, not “wait 3 days since last payout.”
@@ -33,17 +33,17 @@ Do **not** put Instant 0.5% language on the 1-Step 50% Best Day modal or on 2-St
   - **Weekly:** 7 calendar days since the account start or last reward
   - **Bi-weekly:** 14 calendar days since the account start or last reward
   - **On-demand** is **plan-specific**. Write only that plan’s rule. Never put 1-Step or 2-Step rules on Instant, and never put Instant Best Day / 0.5% language on 1-Step or 2-Step.
-  - **Instant on-demand:** `$100` and Best Day ≤20% (only days that closed **more than 0.5%** count). No min trading days.
+  - **Instant on-demand:** `$100` and Best Day ≤20% (only days with **more than 0.5% profit of account balance** count). No min trading days.
   - **1-Step on-demand:** `$100` and **3 trading days** (50% Best Day still applies).
   - **2-Step Lite / Pro on-demand:** `$100` and **3 trading days**.
 - Do not add a first-vs-later split (e.g. “first after 4 days, later after 3”). Instant has no min trading days; first and later Instant payouts use `$100` + 20% Best Day + cycle. The 3-day QPP min is 1-Step / 2-Step only.
 
-### Instant Best Day + 0.5% (how the two rules work together)
-Use **more than 0.5%**, not “at least 0.5%.”
-- A day that closes +0.1% does **not** count toward Positive Days’ Profit.
-- A day that closes more than 0.5% **does** count.
+### Instant Best Day + 0.5% of account balance
+Use **more than 0.5% profit of account balance**, not “at least 0.5%,” and not start-of-day equity.
+- A day that closes +0.1% of account balance does **not** count toward Positive Days’ Profit.
+- A day that closes more than 0.5% profit of account balance **does** count.
 - Best Day = the single largest of those counted days. It must be ≤20% of the sum of counted days.
-- Even counted days (each more than 0.5%): you typically need **at least 5** such days (4 equal counted days = 25% Best Day). Uneven days need more. A day that closes exactly 0.5% does **not** count.
+- A day that closes exactly 0.5% of account balance does **not** count.
 - Instant-only. Do not put this combo on 1-Step (50%, no 0.5% floor) or 2-Step.
 
 ### Do not change
@@ -51,7 +51,7 @@ Use **more than 0.5%**, not “at least 0.5%.”
 - Weekend Holding Addon
 - Instant 3% daily from day’s equity high, 6% trail that never locks
 - 1-Step Best Day stays **50%** with **no** 0.5% floor
-- Instant Best Day stays **20%**; the new piece is only which days count (more than 0.5%)
+- Instant Best Day stays **20%**; the new piece is only which days count (more than 0.5% profit of account balance)
 - 2-Step evaluation still **5 trading days per phase**. Do not rewrite the 2-Step “5 Minimum Active Performance Days” eval modal into Instant 0.5% language.
 
 ---
@@ -94,7 +94,7 @@ A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand r
 **On-demand paste — use only the line for that page’s plan:**
 
 ```text
-Instant: On-demand: $100. No minimum trading days. Best Day ≤20% (only days that closed more than 0.5% count).
+Instant: On-demand: $100. No minimum trading days. Best Day ≤20% (only days that closed more than 0.5% profit of account balance count).
 1-Step: On-demand: $100 and 3 trading days.
 2-Step Lite / Pro: On-demand: $100 and 3 trading days.
 ```
@@ -108,7 +108,7 @@ Do **not** paste the Instant line onto 1-Step or 2-Step. Do **not** mention 1-St
     <li>Same rule for every payout (first and later): $100, that plan’s payout rule, and the cycle</li>
     <li>Weekly: 7 calendar days since account start or last reward</li>
     <li>Bi-weekly: 14 calendar days since account start or last reward</li>
-    <li>On-demand on Instant: $100. No minimum trading days. Best Day ≤20% (only days more than 0.5% count)</li>
+    <li>On-demand on Instant: $100. No minimum trading days. Best Day ≤20% (only days more than 0.5% profit of account balance count)</li>
     <li>On-demand on 1-Step: $100 and 3 trading days</li>
     <li>On-demand on 2-Step Lite / Pro: $100 and 3 trading days</li>
 </ul>
@@ -131,7 +131,7 @@ Payout spacing follows the cycle you selected: 7 calendar days for weekly, 14 ca
 **Instant paste (`li23` / `span47`) — Instant only. No 1-Step or 2-Step words:**
 
 ```text
-Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit (only days with more than 0.5% net profit count), and you have met the selected cycle. Instant has no minimum trading days. Weekly: 7 calendar days. Bi-weekly: 14 calendar days. On-demand: $100. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
+Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit (only days with more than 0.5% profit of account balance count), and you have met the selected cycle. Instant has no minimum trading days. Weekly: 7 calendar days. Bi-weekly: 14 calendar days. On-demand: $100. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
 ```
 
 **1-Step Eligibility paste — 1-Step only:**
@@ -152,7 +152,7 @@ Instant `li10` / `span21` — Instant has **no minimum trading days.** Delete th
 Minimum Trading Days: No minimum trading days.
 ```
 
-Best Day stays in the Best Day block / modal (20%, only days more than 0.5% count).
+Best Day stays in the Best Day block / modal (20%, only days more than 0.5% profit of account balance count).
 
 `performance-reward.html` “First reward after 3 trading days” / “Min. 3 trading days” — keep **3 trading days** for **1-Step and 2-Step QPP only**. Drop the first/later split. Add `$100` + cycle. Do not put this 3-day min on Instant.
 
@@ -170,7 +170,7 @@ Best Day stays in the Best Day block / modal (20%, only days more than 0.5% coun
 Minimum $100, that plan’s payout rule, and the selected cycle (same rule for the first payout and every payout after).
 ```
 
-On `trading-objectives.html`, Instant has **no min trading days**. Instant payout / on-demand lines use `$100` + 20% Best Day (days more than 0.5% count). 1-Step / 2-Step lines use **3 trading days** (every payout, not first-only). Instant Best Day modal still gets the 0.5% day-count sentence.
+On `trading-objectives.html`, Instant has **no min trading days**. Instant payout / on-demand lines use `$100` + 20% Best Day (days more than 0.5% profit of account balance count). 1-Step / 2-Step lines use **3 trading days** (every payout, not first-only). Instant Best Day modal still gets the 0.5% day-count sentence.
 
 ---
 
@@ -190,11 +190,11 @@ Payouts can be requested through the dashboard once the following conditions are
 
 On Instant pages, say **only** Instant rules. Do not mention 1-Step or 2-Step day counts. Do not put Instant 20% / 0.5% language on 1-Step or 2-Step. Never write “5 min trading days,” “5 valid trading days,” or any Instant day-count.
 
-`instant.html` Eligibility is wrong today. It still uses the 1-Step / 2-Step QPP **3 trading days** sentence. Instant has **no minimum trading days**. Instant’s day rule is **20% Best Day**, and a day counts only if it closes **more than 0.5%**. Same first payout and every payout after.
+`instant.html` Eligibility is wrong today. It still uses the 1-Step / 2-Step QPP **3 trading days** sentence. Instant has **no minimum trading days**. Instant’s day rule is **20% Best Day**, and a day counts only if it closes **more than 0.5% profit of account balance**. Same first payout and every payout after.
 
 | Key | Live | Change to |
 |---|---|---|
-| `li23` / `span47` | At least **3 trading days** since QPP account or last payout | `$100` + **Best Day ≤20%** (only days **more than 0.5%** count) + the selected cycle. No min trading days. |
+| `li23` / `span47` | At least **3 trading days** since QPP account or last payout | `$100` + **Best Day ≤20%** (only days with **more than 0.5% profit of account balance** count) + the selected cycle. No min trading days. |
 | `li10` / `span21` | 5 valid days before your **first** reward | **No minimum trading days.** Delete the 5-day line. |
 
 Delete the Instant “3 trading days since last payout” extra. Delete Instant 5-valid-day / 5-min-day lines. Do **not** add the 1-Step / 2-Step 3-day QPP min to Instant.
@@ -234,12 +234,12 @@ FAQs that name “the evaluation” or one day number for all accounts are wrong
 
 | Plan | Eval / pass min days | QPP / payout rule (every payout) | Cycle |
 |---|---|---|---|
-| Instant | No eval. Funded from day one. | **No min trading days.** **20% Best Day**; only days **more than 0.5%** count toward PDP. **No** 3-day QPP min. | Weekly 7 calendar / bi-weekly 14 calendar / on-demand = `$100` + Best Day |
+| Instant | No eval. Funded from day one. | **No min trading days.** **20% Best Day**; only days with **more than 0.5% profit of account balance** count toward PDP. **No** 3-day QPP min. | Weekly 7 calendar / bi-weekly 14 calendar / on-demand = `$100` + Best Day |
 | 1-Step | **No** minimum trading days to pass | **3 trading days** + **50% Best Day** (no 0.5% floor) | Same cycles + `$100` |
 | 2-Step Lite | **5** trading days per phase | **3 trading days** | Same cycles + `$100` |
 | 2-Step Pro | **5** trading days per phase | **3 trading days** | Same cycles + `$100` |
 
-A 1-Step / 2-Step “trading day” = open and close on the same calendar day. Instant has **no min trading days**. Instant Best Day counted day = closes **more than 0.5%** net. Do not put Instant’s 0.5% floor on 1-Step. Do not put the 3-day QPP min on Instant. Do not put 2-Step’s **5 eval days** on 2-Step QPP payouts.
+A 1-Step / 2-Step “trading day” = open and close on the same calendar day. Instant has **no min trading days**. Instant Best Day counted day = closes **more than 0.5% profit of account balance**. Do not put Instant’s 0.5% floor on 1-Step. Do not put the 3-day QPP min on Instant. Do not put 2-Step’s **5 eval days** on 2-Step QPP payouts.
 
 ---
 
@@ -251,7 +251,7 @@ A 1-Step / 2-Step “trading day” = open and close on the same calendar day. I
 
 ```html
 <ul>
-    <li>Instant: No evaluation phase. No minimum trading days. Best Day ≤20%; only days that close more than 0.5% net profit count.</li>
+    <li>Instant: No evaluation phase. No minimum trading days. Best Day ≤20%; only days that close more than 0.5% profit of account balance count.</li>
     <li>1-Step: No minimum trading days to pass evaluation. Qualified Performance payouts need 3 trading days.</li>
     <li>2-Step Lite: 5 trading days per evaluation phase (open and close on the same calendar day). Qualified Performance payouts need 3 trading days.</li>
     <li>2-Step Pro: 5 trading days per evaluation phase (open and close on the same calendar day). Qualified Performance payouts need 3 trading days.</li>
@@ -263,7 +263,7 @@ A 1-Step / 2-Step “trading day” = open and close on the same calendar day. I
 **Paste `p5`:**
 
 ```text
-If that plan has a minimum, you must still meet it before you pass or get paid. 1-Step has no minimum trading days to pass evaluation; Qualified Performance payouts need 3 trading days. 2-Step Lite and 2-Step Pro need 5 trading days per evaluation phase (open and close the same calendar day); Qualified Performance payouts need 3 trading days. Instant has no minimum trading days and no profit target to “hit first”; you need $100, Best Day ≤20% of Positive Days’ Profit (only days with more than 0.5% net profit count), and the selected payout cycle.
+If that plan has a minimum, you must still meet it before you pass or get paid. 1-Step has no minimum trading days to pass evaluation; Qualified Performance payouts need 3 trading days. 2-Step Lite and 2-Step Pro need 5 trading days per evaluation phase (open and close the same calendar day); Qualified Performance payouts need 3 trading days. Instant has no minimum trading days and no profit target to “hit first”; you need $100, Best Day ≤20% of Positive Days’ Profit (only days with more than 0.5% profit of account balance count), and the selected payout cycle.
 ```
 
 Keep `p6` as the 2-Step / 1-Step calendar-day definition. Instant Best Day / 0.5% math stays on `instant.html`.
@@ -277,7 +277,7 @@ News (`p1`, `p18`) is already plan-complete. Fix payout answers so they name eac
 **`content.p9` paste (hub FAQ — separate sentences, not one Instant/1-Step/2-Step mash):**
 
 ```text
-A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. The first payout and every payout after use the same rule: that plan’s payout rule and the selected cycle. On Instant, on-demand is $100 with no minimum trading days (Best Day ≤20%; only days more than 0.5% count). On 1-Step and on 2-Step Lite / Pro Qualified Performance, on-demand is $100 and 3 trading days. Weekly is 7 calendar days. Bi-weekly is 14 calendar days.
+A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. The first payout and every payout after use the same rule: that plan’s payout rule and the selected cycle. On Instant, on-demand is $100 with no minimum trading days (Best Day ≤20%; only days more than 0.5% profit of account balance count). On 1-Step and on 2-Step Lite / Pro Qualified Performance, on-demand is $100 and 3 trading days. Weekly is 7 calendar days. Bi-weekly is 14 calendar days.
 ```
 
 **Delete** the hardcoded “First payout after 4 / subsequent after 3” list. Replace with:
@@ -285,7 +285,7 @@ A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand r
 ```html
 <ul>
     <li>Same rule for every payout (first and later): $100, that plan’s payout rule, and the cycle</li>
-    <li>Instant: no minimum trading days, Best Day ≤20% (only days more than 0.5% count), plus the cycle</li>
+    <li>Instant: no minimum trading days, Best Day ≤20% (only days more than 0.5% profit of account balance count), plus the cycle</li>
     <li>1-Step Qualified Performance: 3 trading days, 50% Best Day, plus the cycle</li>
     <li>2-Step Lite / Pro Qualified Performance: 3 trading days, plus the cycle</li>
     <li>Weekly: 7 calendar days · Bi-weekly: 14 calendar days · On-demand: $100 and that plan’s rule</li>
@@ -303,7 +303,7 @@ Payout spacing is the cycle you selected: 7 calendar days for weekly, 14 calenda
 ```html
 <ul>
     <li>$100 since last reward</li>
-    <li>On Instant: no minimum trading days; Best Day ≤20% (only days more than 0.5% count)</li>
+    <li>On Instant: no minimum trading days; Best Day ≤20% (only days more than 0.5% profit of account balance count)</li>
     <li>On 1-Step Qualified Performance: 3 trading days</li>
     <li>On 2-Step Lite / Pro Qualified Performance: 3 trading days</li>
 </ul>
@@ -319,10 +319,10 @@ Yes, on 1-Step, 2-Step Lite, and 2-Step Pro: 100% of the original challenge fee 
 
 ### `faq-plans.html`
 
-Cards already name news + no holding time. Instant cards that still say 5 valid days must switch to **no min trading days** + 20% Best Day (day counts only if more than 0.5%). Optional Instant (`p7`):
+Cards already name news + no holding time. Instant cards that still say 5 valid days must switch to **no min trading days** + 20% Best Day (day counts only if more than 0.5% profit of account balance). Optional Instant (`p7`):
 
 ```text
-Instant has no minimum trading days. Every Instant payout (first and later) needs $100, Best Day ≤20% of Positive Days’ Profit (only days with more than 0.5% net profit count), and the selected cycle (weekly, bi-weekly, or on-demand).
+Instant has no minimum trading days. Every Instant payout (first and later) needs $100, Best Day ≤20% of Positive Days’ Profit (only days with more than 0.5% profit of account balance count), and the selected cycle (weekly, bi-weekly, or on-demand).
 ```
 
 Do not add the 1-Step / 2-Step 3-day QPP min to Instant cards. Optional 1-Step / 2-Step line:
@@ -345,19 +345,19 @@ Live scan 17 Aug 2026. Same Instant sentence everywhere a 20% Best Day modal or 
 
 ### Instant 20% Best Day modal — add the 0.5% day-count (required)
 
-Use **more than 0.5%**. Add this only when the tab / page is Instant. Leave the 1-Step 50% Best Day modal unchanged (no 0.5% floor).
+Use **more than 0.5% profit of account balance**. Add this only when the tab / page is Instant. Leave the 1-Step 50% Best Day modal unchanged (no 0.5% floor).
 
 **`trading-objectives.html` `showModal('best-day')` — Instant branch.** Live first paragraph does not say which days count. After that paragraph, when `currentTab === 'instant'`, append:
 
 ```text
-Only days that close more than 0.5% net profit (vs that day’s start-of-day equity) count toward Positive Days’ Profit and count as a day. A day that closes 0.5% or less does not count.
+Only days that close more than 0.5% profit of account balance count toward Positive Days’ Profit and count as a day. A day that closes 0.5% or less does not count.
 ```
 
 JS paste for the Instant extra sentence (keep the existing first paragraph; add the second only if `isInstant`):
 
 ```javascript
 if (isInstant) {
-    contentEl.innerHTML += `<p>Only days that close <strong style="color:${gold}">more than 0.5%</strong> net profit (vs that day’s start-of-day equity) count toward Positive Days’ Profit and count as a day. A day that closes 0.5% or less does not count.</p>`;
+    contentEl.innerHTML += `<p>Only days that close <strong style="color:${gold}">more than 0.5% profit of account balance</strong> count toward Positive Days’ Profit and count as a day. A day that closes 0.5% or less does not count.</p>`;
 }
 ```
 
@@ -366,15 +366,15 @@ Do **not** add that sentence when `bestPctLimit === 50` (1-Step).
 **`instant.html` Best Day modal** (hardcoded under `#bestDayModal`). Live first paragraph is the 20% rule only. Insert the same 0.5% sentence after it:
 
 ```text
-The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit at the time you request a payout. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit. Only days that close more than 0.5% net profit (vs that day’s start-of-day equity) count toward Positive Days’ Profit and count as a day. A day that closes 0.5% or less does not count.
+The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit at the time you request a payout. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit. Only days that close more than 0.5% profit of account balance count toward Positive Days’ Profit and count as a day. A day that closes 0.5% or less does not count.
 ```
 
 Also on `instant.html` body copy (not only the modal):
 - `content.li10` / `span21`: **No minimum trading days.** Delete 5-valid-day / first-reward copy.
-- `content.p8` / `li12`–`li14`: only days **more than 0.5%** count toward Positive Days’ Profit.
+- `content.p8` / `li12`–`li14`: only days with **more than 0.5% profit of account balance** count toward Positive Days’ Profit.
 - `content.li15`: 0.5% is which days count for Best Day, not a min-days requirement.
 - Hero / `li4` / `li9`: drop “5 valid trading days.” Instant has no min trading days. Best Day stays 20%.
-- Eligibility `li23`: `$100` + Best Day ≤20% (days more than 0.5%) + cycle. **No** min trading days. **No** 3-day QPP min.
+- Eligibility `li23`: `$100` + Best Day ≤20% (days with more than 0.5% profit of account balance) + cycle. **No** min trading days. **No** 3-day QPP min.
 
 ### `trading-objectives.html` — other Instant / QPP lines (same pass)
 
@@ -382,9 +382,9 @@ Also on `instant.html` body copy (not only the modal):
 |---|---|
 | Instant card “Minimum Trading Days” = **5 Days** (`instantCardHTML` / `pricing.fiveDays`) | **Remove.** Instant has no min trading days. Show Best Day 20% only, or “None.” |
 | Instant data `minDays:'5'` | Drop or unused. |
-| `content.p8Instant`: First Payout after **5 trading days** | Every Instant payout: `$100` + Best Day ≤20% (only days more than 0.5% count). No min trading days. Drop “first only.” |
+| `content.p8Instant`: First Payout after **5 trading days** | Every Instant payout: `$100` + Best Day ≤20% (only days more than 0.5% profit of account balance count). No min trading days. Drop “first only.” |
 | `content.p8`: First Payout after **3 trading days** (1-Step / 2-Step) | Every 1-Step / 2-Step QPP payout: `$100` + **3 trading days**. Drop “first only.” This 3-day line is **not** for Instant (`p8Instant` stays Instant-only). |
-| Instant on-demand / “Anytime after min trading days” | Instant: `$100`. No min trading days. Best Day ≤20% on days that closed more than 0.5%. 1-Step / 2-Step: `$100` + 3 trading days. |
+| Instant on-demand / “Anytime after min trading days” | Instant: `$100`. No min trading days. Best Day ≤20% on days with more than 0.5% profit of account balance. 1-Step / 2-Step: `$100` + 3 trading days. |
 | 1-Step Best Day modal (same `best-day` type, `bestPctLimit === 50`) | **No** 0.5% sentence. |
 | 2-Step `trading-days` modal: 5 active days in **evaluation** | Keep as **eval** 5 days. Do not turn it into Instant 0.5%. QPP payouts on 2-Step are **3** days — say that on Eligibility / rewards, not in the eval modal. |
 
@@ -398,12 +398,12 @@ Locale: `/locales/*/pages/trading-objectives.json` and `common.json` keys used b
 | `1-step.html` | QPP Eligibility: **3 trading days** (count, not “since last payout”) + `$100` + 50% Best Day + cycle. Eval: no min days. **No** Instant 0.5%. |
 | `2-step-lite.html` / `2-step-pro.html` | Eval: **5** trading days per phase. QPP Eligibility: **3 trading days** + `$100` + cycle. **No** Instant 20% / 0.5%. |
 | `trading-objectives.html` | Instant Best Day modal + Instant card / `p8Instant` as above. 1-Step / 2-Step `p8` = 3 QPP days every payout. |
-| `faq-plans.html` `p7` | Instant: no min trading days. 20% Best Day; a day counts only if more than 0.5%. |
+| `faq-plans.html` `p7` | Instant: no min trading days. 20% Best Day; a day counts only if more than 0.5% profit of account balance. |
 | `faq-plans.html` 1-Step / 2-Step cards | Optional: QPP payouts need 3 trading days. Do not put Instant 0.5% on those cards. |
 | `faq-qualified-trader.html` | Delete 4-then-3. Instant = no min days + Best Day + 0.5% count. 1-Step / 2-Step QPP = 3 trading days. Same first and later. |
 | `faq-evaluation.html` | Add Instant: no eval; no min trading days; Best Day + 0.5% count. 1-Step: no min to pass; QPP 3 days. 2-Step: 5 per eval phase; QPP 3 days. |
 | `performance-reward.html` | Instant = **no min trading days** + Best Day. “3 trading days” = **1-Step / 2-Step QPP only**. Drop first-only. |
-| `terms.html` §8(b)/(c) | Keep “requirements vary by model.” Optional one line: Instant has no min trading days; Instant Best Day counted days need more than 0.5% net; 1-Step / 2-Step QPP payouts need 3 trading days; 2-Step eval needs 5. |
+| `terms.html` §8(b)/(c) | Keep “requirements vary by model.” Optional one line: Instant has no min trading days; Instant Best Day counted days need more than 0.5% profit of account balance; 1-Step / 2-Step QPP payouts need 3 trading days; 2-Step eval needs 5. |
 | `restricted-trading.html` | No day-count change unless a leftover 5-valid-day / 3-day Instant line appears. |
 | `faq-news-trading.html` / `faq-general.html` | No day-count change unless a leftover Instant 5-valid-day line appears. |
 
@@ -430,5 +430,5 @@ Locale: `/locales/*/pages/trading-objectives.json` and `common.json` keys used b
 
 - Instant **no min trading days** + **20% Best Day** (more-than-0.5% count) ≠ 1-Step / 2-Step QPP **3 trading days** ≠ 2-Step eval **5 trading days** ≠ 1-Step eval **no min days**. Never write “5 min trading days” or “5 valid trading days” on Instant. First and later payouts on that plan use **that** rule **plus** the cycle.
 - Weekly 7 calendar days and bi-weekly 14 calendar days are the cycle clock. The 3-day QPP min is a trading-day **count** on 1-Step and 2-Step funded payouts. Do not write it as “3 days between payouts,” and do not put it on Instant. Do not keep “first after 4 / later after 3.”
-- 1-Step Best Day 50% (no 0.5% floor) ≠ Instant Best Day 20% (only days more than 0.5% count).
+- 1-Step Best Day 50% (no 0.5% floor) ≠ Instant Best Day 20% (only days more than 0.5% profit of account balance count).
 - Challenge fee refund on first reward is eval plans only, not Instant. Add-ons are never part of that refund. That refund is not a different day rule.
