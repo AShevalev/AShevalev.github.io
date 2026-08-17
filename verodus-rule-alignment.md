@@ -31,7 +31,10 @@ Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` except 
 - Cycle (same for the first payout and every payout after):
   - **Weekly:** 7 calendar days since the account start or last reward
   - **Bi-weekly:** 14 calendar days since the account start or last reward
-  - **On-demand:** `$100` since last reward **and** the plan min trading days. Does not skip days. Do not write “at any time” without the day clause.
+  - **On-demand** is **plan-specific**. Write only that plan’s days. Never put 1-Step or 2-Step rules on Instant, and never put Instant valid-day rules on 1-Step or 2-Step.
+  - **Instant on-demand:** `$100` and **5 valid trading days** (each +0.5% net).
+  - **1-Step on-demand:** `$100` (no minimum trading days).
+  - **2-Step Lite / Pro on-demand:** `$100` and **5 trading days**.
 - Do not add a third clock (e.g. “3 trading days between payouts” or “first payout after 4 days”). Plan min + cycle is the whole rule.
 
 ### Do not change
@@ -78,14 +81,26 @@ That split is wrong. **Delete both bullets.** First and later payouts use the sa
 A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. The first payout and every payout after use the same rule: you must meet the minimum trading days for that plan and the selected cycle (weekly, bi-weekly, or on-demand).
 ```
 
-**Replace the hardcoded list with:**
+**On-demand paste — use only the line for that page’s plan:**
+
+```text
+Instant: On-demand: $100 and 5 valid trading days (each +0.5% net).
+1-Step: On-demand: $100. No minimum trading days.
+2-Step Lite / Pro: On-demand: $100 and 5 trading days.
+```
+
+Do **not** paste the Instant line onto 1-Step or 2-Step. Do **not** mention 1-Step or 2-Step on `instant.html`.
+
+**Hub FAQ only** (Qualified Trader / Evaluation — pages that name every plan). Separate bullets, never one blended Instant sentence:
 
 ```html
 <ul>
-    <li>Same rule for every payout (first and later): $100, the plan’s minimum trading days, and the cycle</li>
+    <li>Same rule for every payout (first and later): $100, that plan’s minimum trading days, and the cycle</li>
     <li>Weekly: 7 calendar days since account start or last reward</li>
     <li>Bi-weekly: 14 calendar days since account start or last reward</li>
-    <li>On-demand: $100 and the plan’s minimum trading days (Instant: 5 valid days at +0.5%; 2-Step Lite / Pro: 5 days; 1-Step: no minimum trading days)</li>
+    <li>On-demand on Instant: $100 and 5 valid trading days (each +0.5% net)</li>
+    <li>On-demand on 1-Step: $100 (no minimum trading days)</li>
+    <li>On-demand on 2-Step Lite / Pro: $100 and 5 trading days</li>
 </ul>
 ```
 
@@ -103,10 +118,22 @@ Payout spacing follows the cycle you selected: 7 calendar days for weekly, 14 ca
 
 > Eligibility: You become eligible for a reward only after both of the following are met: At least 3 trading days have passed since you received your Qualified Performance Account or since your last payout, and …
 
-**Instant paste (`li23` / `span47`):**
+**Instant paste (`li23` / `span47`) — Instant only. No 1-Step or 2-Step words:**
 
 ```text
-Eligibility: You become eligible for a reward when you have met 5 valid trading days (each +0.5% net profit) and the selected cycle (weekly 7 calendar days, bi-weekly 14 calendar days, or on-demand). The first payout and every payout after use this same rule. Do not use a 3-trading-day clock on Instant.
+Eligibility: You become eligible for a reward when you have met 5 valid trading days (each +0.5% net profit) and the selected cycle. Weekly: 7 calendar days. Bi-weekly: 14 calendar days. On-demand: $100 and those 5 valid trading days. The first payout and every payout after use this same rule.
+```
+
+**1-Step Eligibility paste — 1-Step only:**
+
+```text
+Eligibility: You become eligible for a reward when net profit is at least $100 and you have met the selected cycle. 1-Step has no minimum trading days. Weekly: 7 calendar days. Bi-weekly: 14 calendar days. On-demand: $100. The first payout and every payout after use this same rule.
+```
+
+**2-Step Lite / Pro Eligibility paste — 2-Step only:**
+
+```text
+Eligibility: You become eligible for a reward when net profit is at least $100, you have met 5 trading days, and you have met the selected cycle. Weekly: 7 calendar days. Bi-weekly: 14 calendar days. On-demand: $100 and 5 trading days. The first payout and every payout after use this same rule.
 ```
 
 Instant `li10` — drop “first.” Same 5 valid days for every Instant payout.
@@ -148,6 +175,8 @@ Payouts can be requested through the dashboard once the following conditions are
 ---
 
 ## 5. Instant Eligibility — 5 valid days, not 3
+
+On Instant pages, say **only** Instant rules. Do not mention 1-Step or 2-Step day counts.
 
 `instant.html` Eligibility is wrong today. It still uses the QPP **3 trading days** sentence. Instant’s plan min is **5 valid trading days** (each +0.5%).
 
@@ -219,10 +248,10 @@ Keep `p6` as the 2-Step / 1-Step calendar-day definition. Instant valid-day math
 
 News (`p1`, `p18`) is already plan-complete. Fix payout answers so they name each plan.
 
-**`content.p9` paste:**
+**`content.p9` paste (hub FAQ — separate sentences, not one Instant/1-Step/2-Step mash):**
 
 ```text
-A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. The first payout and every payout after use the same rule: you must meet that plan’s minimum trading days and the selected cycle. Instant: 5 valid days at +0.5%. 2-Step Lite and 2-Step Pro: 5 trading days. 1-Step: no minimum trading days. Weekly is 7 calendar days. Bi-weekly is 14 calendar days. On-demand is $100 plus that plan’s minimum days.
+A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. The first payout and every payout after use the same rule: that plan’s minimum trading days and the selected cycle. On Instant, on-demand is $100 and 5 valid days at +0.5%. On 1-Step, on-demand is $100 with no minimum trading days. On 2-Step Lite and 2-Step Pro, on-demand is $100 and 5 trading days. Weekly is 7 calendar days. Bi-weekly is 14 calendar days.
 ```
 
 **Delete** the hardcoded “First payout after 4 / subsequent after 3” list. Replace with:
@@ -247,8 +276,10 @@ Payout spacing is the cycle you selected: 7 calendar days for weekly, 14 calenda
 
 ```html
 <ul>
-    <li>$100 since last reward (all plans)</li>
-    <li>That plan’s minimum trading days (Instant: 5 valid at +0.5%; 2-Step Lite / Pro: 5 days; 1-Step: none)</li>
+    <li>$100 since last reward</li>
+    <li>On Instant: 5 valid trading days at +0.5% net</li>
+    <li>On 1-Step: no minimum trading days</li>
+    <li>On 2-Step Lite / Pro: 5 trading days</li>
 </ul>
 ```
 
