@@ -1,295 +1,152 @@
-# Verodus.com leftover copy — domain pass
+# Verodus.com leftover copy — rescan 17 Aug 2026 10:16 UTC
 
-**Policy (same as TOS / FAQ Plans):**
+Live English pass of `www.verodus.com` after the latest site updates. Only **still-wrong** copy is listed. Matching `/locales/{lang}/pages/…` keys must move with the HTML.
 
-1. News trading is allowed in every phase. Do not mention a News Trading Addon. Do not keep “±2-minute window no longer applies” recopy — that still sounds like a window exists.
-2. Delete the 8(h) 50% / 2-minute profit-mix payout test. Keep HFT, tick scalping, latency/arb, rollover abuse.
-3. On-demand = **$100** **and** that evaluation’s **minimum trading days**. Drop **$200** and **2%**. Do not write “at any time.”
-4. Keep news bracketing (straddling) and gap trading banned.
+**Policy**
 
-Scan date: 17 Aug 2026. English pages on `www.verodus.com`. Update matching keys in `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`.
-
-Pages already aligned (no edit): homepage, checkout (News Trading Addon already removed from add-on SKUs), economic calendar, risk disclosure, lot-exposure (those `$200,000` lines are size, not payout), abuse-misuse, key-trading-terms.
+1. News trading is allowed in every phase. Do not name a News Trading Addon. Do not keep “±2-minute window does not apply” recopy.
+2. Delete TOS 8(h) (50% of profits from trades held > 2 minutes). Keep HFT / tick-scalp / latency-arb / rollover.
+3. On-demand = **$100** **and** that evaluation’s **minimum trading days**. Do not write “at any time.”
+4. Keep news bracketing and gap trading banned.
 
 ---
 
-## 1. `restricted-trading.html` (incorporated into TOS §9)
+## Already done — do not re-edit
+
+| Item | Live state |
+|---|---|
+| TOS news (9(b)(ii)) | Allowed all phases. `h42` = News Trading. `p60` has no window. `li15`/`li16` empty. Bracketing `li17` / gap `li18` kept. `p59` no longer calls news an exploit. |
+| On-demand **money** | `$200` and `2%` are gone. Plan pages, objectives, rewards, and Qualified Trader FAQ all use **$100**. |
+| `trading-objectives.html` | `#onDemandMinEval` / `#onDemandMinInstant` **removed**. On Demand min is `content.span26` = `$100`. Locale `span22` is also `$100` (unused on that card). Weekly/bi-weekly show `$100`. First payout copy already has days (`p8` 3 days / `p8Instant` 5 days). |
+| `performance-reward.html` `p12` | `Minimum $100 since last reward (all plans).` |
+| Homepage, checkout SKUs | No news addon product. `$200,000` = account size only. |
+| Economic calendar, lot-exposure, abuse-misuse, key-trading-terms, responsible-trading | No leftover restriction / 8(h) / $200-2% payout copy. |
+| `common.json` news descs | `evalNewsDesc` / `qpfNewsDesc` already say news is permitted. |
+| `faq-news-trading.html` meta | Already “allowed on all evaluation and funded accounts.” |
+
+`keltner-bands.html` “±2 ATR” is indicator math. Ignore.
+
+---
+
+## Still leftover
+
+### 1. `restricted-trading.html` — still the main miss
 
 Locale: `/locales/en/pages/restricted-trading.json`
 
-News is already “allowed,” but the addon bullet and the “window does not apply” recopy are still live. Strip both. Keep HFT / tick-scalp. Keep bracketing / gap.
+| Key | Live | Action |
+|---|---|---|
+| `content.p9` | • **News Trading Addon:** …not required | **Delete** the bullet. Do not name the addon. |
+| `content.p17` | Allowed… **The ±2-minute window and tiered news-trading breach do not apply.** | Rewrite with no window language. |
+| `content.p18` | ◦ The previous funded-only ±2-minute window and first/second news-trading violation model no longer apply. | **Delete.** Recopy. |
+| `p5`–`p8` | HFT / tick-scalp / arb | **Keep** |
+| `p19`–`p20` | Bracketing / gap | **Keep** |
 
-### Delete `content.p9` (addon bullet)
-
-**Current:**
-
-> • **News Trading Addon:** News trading is included on all plans. The News Trading Addon is not required for news permission.
-
-**Action:** Delete the whole paragraph from HTML and empty/delete the locale key. News is default. Do not name a retired product.
-
-### Rewrite `content.p17`
-
-**Current:**
-
-> • **News Trading:** Allowed on evaluation and funded / Qualified Performance. You may open and close around high-impact news. The ±2-minute window and tiered news-trading breach do not apply.
-
-**Replace with:**
+**Replace `p17` with:**
 
 ```text
 • News Trading: Allowed in every phase (evaluation, Instant, and Qualified Performance / funded). You may open, close, or hold through high-impact news. There is no news time window and no news-trading breach.
 ```
 
-### Delete `content.p18`
-
-**Current:**
-
-> ◦ The previous funded-only ±2-minute window and first/second news-trading violation model no longer apply.
-
-**Action:** Delete. Recopy. Traders will read “window” and think it still exists.
-
-### Keep `content.p19` and `content.p20`
-
-- `p19`: News bracketing and gap trading remain prohibited.
-- `p20`: Bracketing (straddling) banned. Gap trading = opened within 60 minutes of a market close and held through reopen.
-
-Optional split (same as TOS): bracketing one bullet, gap trading one bullet.
-
-### Keep Section (1) HFT / tick-scalp / arb
-
-Do not touch `content.p5`–`p8` (arbitrage, HFT, glitch, tick scalping & rollover abuse).
-
-### Meta description
-
-**Current (page head):** “understand prohibited strategies at Verodus, including arbitrage abuse, collusion, news bracketing, and enforcement actions.”
-
-That is fine. Do not add “news restriction.”
-
-### Drop-in for the news block (after Tick Scalping, before Collusion)
-
-```html
-<p data-i18n-html="content.p17" class="indent-1" style="margin-bottom: 0.8rem;">• <strong>News Trading:</strong> Allowed in every phase (evaluation, Instant, and Qualified Performance / funded). You may open, close, or hold through high-impact news. There is no news time window and no news-trading breach.</p>
-<p data-i18n-html="content.p19" class="indent-2" style="margin-bottom: 0.8rem;">◦ News bracketing and gap trading remain prohibited (see below).</p>
-```
-
-Delete the old `p9` and `p18` nodes. Bump “Effective as of” (`content.p1`) to the publish date.
-
 ---
 
-## 2. `faq-news-trading.html`
+### 2. Plan pages — addon bullet, window recopy, “at any time”
 
-News is allowed, but Instant is missing from the summary, and the retired addon is still named.
+`$200` / `2%` is already gone. On-demand is `$100` but still **“Available at any time”** with no trading-day clause.
 
-| Where | Current | Change |
-|---|---|---|
-| Intro | “No News Trading Addon required.” | Delete that sentence. Keep: allowed on Instant, 1-Step, 2-Step Lite, 2-Step Pro — evaluation and funded. |
-| Plan card heading | `1-Step · 2-Step Lite · 2-Step Pro` | Add Instant |
-| Plan card bullet | “No News Trading Addon required” | Delete. Optional: “News trading is included.” |
-| Summary table | Rows for 1-Step / 2-Step only | Add Instant row: Allowed / None |
-| Summary table column | “No-Trade Window” | Rename to **Window** or drop the column (value is None) |
-| OG/meta | “understand which accounts are **restricted** during high-impact news events.” | “News trading is allowed on all Verodus plans. Bracketing and gap trading remain prohibited.” |
+| Page | Delete addon | Window recopy | On-demand “at any time” |
+|---|---|---|---|
+| `1-step.html` | `li42` | `li48` | `li25` / `span22` |
+| `2-step-lite.html` | `li38` | `li44` | `li21` / `li22` / `span18` |
+| `2-step-pro.html` | `li38` | `li44` | `li21` / `li22` / `span18` |
+| `instant.html` | `li43` | `li49` | `li27` / `span53` |
 
-Keep: bracketing/gap banned, slippage disclaimer, high-impact table as **awareness only** (not a no-trade list).
+**Addon line (delete):** `News Trading Addon: News trading is included on all plans. The News Trading Addon is not required for news permission.`
 
----
-
-## 3. `faq-qualified-trader.html`
-
-Locale: `/locales/en/pages/faq-qualified-trader.json` plus hardcoded HTML and JSON-LD.
-
-### News answers — stop naming the addon
-
-**`content.p1` current:** “…No ±2-minute window. No News Trading Addon required.”
-
-**Replace with:**
+**Window recopy (replace `li48` / `li44` / `li49`):**
 
 ```text
-News trading is allowed on Instant, 1-Step, 2-Step Lite, and 2-Step Pro — evaluation and funded. You may open and close around high-impact news.
+News Trading: Allowed in every phase. You may open, close, or hold through high-impact news.
 ```
 
-**`content.p18` current:** “Yes. News trading is allowed on funded accounts. No News Trading Addon required.”
-
-**Replace with:**
-
-```text
-Yes. News trading is allowed on funded accounts.
-```
-
-Hardcoded list under “Can I trade during major news releases?” — keep “No ±2-minute restricted window” only if you want a one-time clarification; prefer deleting it so the window is not reintroduced. Keep bracketing/gap banned.
-
-### On-demand — unify to $100 + min days (eval and Instant)
-
-Live copy still splits eval vs Instant:
-
-> A fixed $100 profit threshold is required for bi-weekly rewards. On-demand (eval plans) requires $200 and 2%. Instant on-demand requires $100 only.
-
-Hardcoded list:
-
-> Eval plans: minimum $200 profit and greater than 2% since last reward  
-> Instant: minimum $100 profit since last reward
-
-**`content.p9` replace with:**
-
-```text
-A fixed $100 profit threshold is required for bi-weekly and on-demand rewards. On-demand still requires the minimum number of trading days for that evaluation.
-```
-
-**Hardcoded list replace with:**
-
-```html
-<ul>
-    <li>Minimum $100 profit</li>
-    <li>Minimum number of trading days for that evaluation (does not skip the published trading-day requirement)</li>
-</ul>
-```
-
-Update JSON-LD `acceptedAnswer` for both the minimum-target question and “How do on-demand payouts work?” Keep `content.p12` (3 trading days between payout requests).
-
----
-
-## 4. Plan rule pages (linked from FAQ Plans)
-
-`1-step.html`, `2-step-lite.html`, `2-step-pro.html`, `instant.html`
-
-### Delete leftover addon bullets
-
-| Page | Key | Delete this line |
-|---|---|---|
-| 1-step | `content.li42` | News Trading Addon: … not required |
-| 2-step-lite | `content.li38` | same |
-| 2-step-pro | `content.li38` | same |
-| instant | `content.li43` | same |
-
-### Instant — drop “subject to restrictions” on news
-
-`content.span71` / `li37` current: “Full news trading **(subject to restrictions)**…”
-
-**Replace “Full news trading (subject to restrictions)”** with **“Full news trading”**. The rest of the sentence (no HFT, no mass-distributed EAs, etc.) stays.
-
-### On-demand money + days
-
-**1-Step / 2-Step Lite / 2-Step Pro** still have:
-
-> Available at any time if both conditions… Net profit > $200, and Net profit > 2% of your account balance.
-
-| Page | Keys |
-|---|---|
-| 1-step | `li25`, `li26`, `span22` |
-| 2-step-lite | `li21`, `li22`, `span18` |
-| 2-step-pro | `li21`, `li22`, `span18` |
-
-**Instant** money is already `$100`, but the line still says **“Available at any time”** with no days (`li27` / `span53`). Fix that too.
-
-**Replace all four with:**
+**On-demand (replace “at any time if net profit > $100…”):**
 
 ```text
 On-Demand (Selected Add-on): Available when net profit > $100 since your last reward and you have met the minimum number of trading days for that evaluation. On-demand does not skip the trading-day requirement.
 ```
 
-Keep Eligibility bullets (3 trading days since QPP / last payout + one profitable trade). Instant also keeps 5 valid +0.5% days before first reward.
+Keep Eligibility (3 trading days since QPP / last payout). Instant also keeps 5 valid +0.5% days before first reward.
 
-Do not add 8(h). Do not change `$200K` size buttons.
-
----
-
-## 5. `trading-objectives.html`
-
-On-Demand card still has two mins:
-
-- `#onDemandMinEval` `content.span22` = `2% and $200`
-- `#onDemandMinInstant` `content.span26` = `$100`
-
-**Set both to `$100`.** Days still apply; “Anytime” (`span21`) is the cycle label vs weekly/bi-weekly — do not let it mean skip days.
-
-Optional: change `span21` from `Anytime` to `Anytime after min trading days`.
+**Instant only** — `li37` / `span71` still say “Full news trading **(subject to restrictions)**”. Drop “(subject to restrictions)”. Keep the Section 6 HFT / EA bans.
 
 ---
 
-## 6. `performance-reward.html`
+### 3. `faq-news-trading.html`
 
-**`content.p12` current:** `Eval plans: >$200 and >2% since last reward. Instant: >$100.`
+News is allowed. Leftovers:
 
-**Replace with:**
+- Intro and plan-card bullet still say **“No News Trading Addon required.”** Delete those sentences.
+- Intro / bullets still say **“No ±2-minute window.”** Prefer deleting so the window is not reintroduced. Optional keep one “there is no news time window.”
+- Summary table still lists only **1-Step · 2-Step Lite · 2-Step Pro**. **Add Instant.**
+- Column still named **No-Trade Window** (value None). Rename to Window or drop the column.
 
-```text
-Available if >$100 profit and the minimum trading days for that evaluation are met
-```
+Keep bracketing/gap banned and the awareness calendar.
 
 ---
 
-## 7. `faq-general.html` — 8(h) still live
+### 4. `faq-qualified-trader.html`
 
-| Key | Current | Change |
+Money is already `$100` on all plans. Days are only on the *other* FAQ (first payout 4 days / subsequent 3 days), not on the on-demand list.
+
+| Where | Live | Change |
 |---|---|---|
-| `content.q21` | Is There a Minimum Holding Time? | Keep the question |
-| `content.p64` | Yes. 50% of profits from trades longer than two minutes… | **No.** There is no minimum holding time and no 50% duration mix. |
-| `content.p65` | …breach… suspension or termination | HFT, tick scalping, latency/arbitrage, and rollover abuse remain prohibited under Restricted Trading Practices. |
-
-Also rewrite the JSON-LD answer for that question.
-
----
-
-## 8. `terms.html` — 8(h) still live
-
-News subsection is already allowed. **Still delete Section 8(h)** (`content.h38`, `p51`, `p52`, `p53`). Full HTML block is in `verodus-tos-news-trading-changes.md`. Section 8 ends at (g). Keep 9(b) HFT / tick-scalp. Keep bracketing (`li17`) and gap (`li18`).
+| `content.p1` | …No ±2-minute window. No News Trading Addon required. | Drop both leftover clauses. |
+| `content.p18` | …No News Trading Addon required. | Drop addon sentence. |
+| Hardcoded news list | “No ±2-minute restricted window” | Delete that bullet. Keep bracketing/gap. |
+| `content.p9` | `$100` for weekly, bi-weekly, and on-demand on all four plans | **Keep money.** Add: on-demand still requires that evaluation’s min trading days. |
+| On-demand `<ul>` | only `Minimum $100 profit since last reward (all plans)` | Add a second bullet: min trading days for that evaluation. |
+| `content.p13` | “requested **at any time** … once the following conditions are met” | Fine if the list includes days. Do not leave “at any time” as the only gate. |
 
 ---
 
-## 9. `faq-plans.html`
+### 5. `faq-general.html` — 8(h) still **Yes**
 
-Append to each card (`content.p1`, `p3`, `p5`, `p7`):
+| Key | Live | Change |
+|---|---|---|
+| `q21` | Is There a Minimum Holding Time? | Keep question |
+| `p64` | **Yes.** 50% of profits from trades > two minutes | **No.** No min hold. No 50% mix. |
+| `p65` | breach / suspension | Point at HFT / tick-scalp / latency-arb / rollover in Restricted Trading Practices |
 
-```text
- News trading is included in every phase. There is no minimum holding time.
-```
-
-Do not change “no $200,000 Instant account.”
-
----
-
-## 10. `common.json` landmine
-
-`pricing.addonFootnote` is still:
-
-> `* Unless News Trading Addon purchased.`
-
-News descs are already allowed (`pricing.evalNewsDesc`, `pricing.qpfNewsDesc`). **Delete or stop rendering `pricing.addonFootnote`.** Keep `pricing.addonWeekendFootnote` (weekend holding addon is still real).
+Rewrite JSON-LD for that question too.
 
 ---
 
-## 11. `responsible-trading.html`
+### 6. `terms.html` — 8(h) still live
 
-`content.li1` already: “News bracketing and gap trading remain prohibited.” **Keep.** Optional one clause: “News trading is allowed.”
+News subsection is done. **Still delete** `(h). Minimum Holding Time / Trade Duration Rule`:
 
-No 8(h), no $200/2%, no addon. No required edit.
+- `content.h38`, `content.p51`, `content.p52`, `content.p53`
+
+Section 8 then ends at (g). Do not renumber. Do not replace with a softer mix test.
 
 ---
 
-## 12. What not to change
+### 7. Small leftovers (optional)
 
-- `$200,000` account sizes (homepage, plan buttons, lot-exposure tables)
+| Page | Live | Action |
+|---|---|---|
+| `faq-plans.html` `p1`/`p3`/`p5`/`p7` | No news / holding-time line | Optional: append “News trading is included in every phase. There is no minimum holding time.” Do not change “no $200,000 Instant account.” |
+| `trading-objectives.html` `span21` | Request **Anytime** | Optional: “Anytime after min trading days.” Money is already $100. |
+| `common.json` `pricing.addonFootnote` | `* Unless News Trading Addon purchased.` | **Delete** or stop rendering. Not currently on the objectives page, but it is a landmine. Keep `pricing.addonWeekendFootnote`. |
+
+---
+
+## Do not touch
+
+- `$200,000` account sizes
 - Weekend Holding Addon
 - HFT, tick scalping, latency/arb, rollover abuse
-- News bracketing / gap trading bans
-- Instant 5 valid days, 3% daily from day’s equity high, 6% trail, 20% consistency
-- 1-Step / Instant Best Day rules
-- Checkout SKUs: weekend-holding, weekly-payout, on-demand-payout (no news addon left to remove)
-
----
-
-## Locale files for this pass
-
-```text
-/locales/{lang}/pages/restricted-trading.json     p9 delete, p17 rewrite, p18 delete
-/locales/{lang}/pages/faq-news-trading.json       (mostly hardcoded HTML + meta)
-/locales/{lang}/pages/faq-qualified-trader.json   p1, p9, p18 + HTML list + JSON-LD
-/locales/{lang}/pages/1-step.json                 li42 delete; li25/li26/span22
-/locales/{lang}/pages/2-step-lite.json            li38 delete; li21/li22/span18
-/locales/{lang}/pages/2-step-pro.json             li38 delete; li21/li22/span18
-/locales/{lang}/pages/instant.json                li43 delete; span71; li27/span53
-/locales/{lang}/pages/trading-objectives.json     span22 (and span26) → $100
-/locales/{lang}/pages/performance-reward.json     p12
-/locales/{lang}/pages/faq-general.json            q21/p64/p65
-/locales/{lang}/pages/terms.json                  h38/p51/p52/p53 delete
-/locales/{lang}/pages/faq-plans.json              p1/p3/p5/p7
-/locales/{lang}/common.json                       pricing.addonFootnote
-```
+- News bracketing / gap trading
+- Instant 5 valid days, 3% daily from day’s equity high, 6% trail, 20% Best Day
+- 1-Step Best Day
+- Weekly/bi-weekly $100 (already correct)

@@ -1,5 +1,7 @@
 # Verodus Terms of Service — News Allowed; Drop 8(h) Duration Mix
 
+> **Rescan 17 Aug 2026 10:16 UTC:** TOS **news** copy is already live (allowed all phases). On-demand **$200 / 2%** is already gone (now $100). `#onDemandMinEval` / `2% and $200` are gone from trading-objectives. **Still open:** TOS 8(h), Restricted Trading addon/window recopy, plan-page addon bullets + “at any time”, FAQ general holding-time, FAQ news addon naming. Current leftover list: `verodus-domain-leftover-copy-changes.md`.
+
 **Policy:**
 
 1. News trading is allowed in every phase (evaluation, Instant, and Qualified Performance / funded). Remove the ±2-minute high-impact window, the tiered breach model, and the News Trading Addon exemption.
