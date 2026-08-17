@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Add Verodus to your Home Screen</title>
+    <meta
+      name="description"
+      content="Install the Verodus web app on your phone. One tap in Chrome, Edge, and Samsung. Guided steps in Safari, Firefox, and every iOS browser."
+    />
+    <meta name="theme-color" content="#07003B" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Verodus" />
+    <link rel="canonical" href="https://ashevalev.github.io/" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/pwa/icons/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/pwa/icons/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/pwa/add-to-home-screen.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: #07003b;
+        color: #f5f5f5;
+        font-family: Inter, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      body {
+        min-height: 100dvh;
+        padding: calc(2.2rem + env(safe-area-inset-top, 0px)) 1.25rem
+          calc(1.5rem + env(safe-area-inset-bottom, 0px));
+        background:
+          radial-gradient(120% 80% at 82% 6%, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0) 55%),
+          radial-gradient(90% 70% at 10% 96%, rgba(27, 43, 142, 0.75) 0%, rgba(7, 0, 59, 0) 60%),
+          linear-gradient(163deg, #07003b 0%, #0d0752 46%, #1b2b8e 100%);
+      }
+      .page {
+        max-width: 28rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .mark {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        object-fit: cover;
+        background: #07003b;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      }
+      h1 {
+        margin: 0 0 0.5rem;
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+      }
+      .lede {
+        margin: 0;
+        color: #cbd5e1;
+        font-size: 1.05rem;
+        line-height: 1.5;
+      }
+      .aths-cta {
+        width: 100%;
+        font-size: 1.05rem;
+      }
+      .installed {
+        display: none;
+        margin: 0;
+        padding: 0.9rem 1rem;
+        border-radius: 14px;
+        background: rgba(212, 175, 55, 0.12);
+        color: #f0dc9a;
+        font-weight: 600;
+      }
+      html.is-standalone .installed {
+        display: block;
+      }
+      html.is-standalone [data-install-app] {
+        display: none !important;
+      }
+      .note {
+        margin: 0;
+        color: #94a3b8;
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+      .browsers {
+        display: grid;
+        gap: 0.55rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: #cbd5e1;
+        font-size: 0.92rem;
+      }
+      .browsers li {
+        display: flex;
+        gap: 0.6rem;
+        align-items: start;
+      }
+      .browsers strong {
+        color: #f0dc9a;
+        font-weight: 600;
+        min-width: 7.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <img class="mark" src="/pwa/icons/apple-touch-icon.png" width="72" height="72" alt="Verodus" />
+      <header>
+        <h1>Install the app on your home screen</h1>
+        <p class="lede">
+          Open Verodus like any other app. No App Store. Works from this button in every mobile
+          browser.
+        </p>
+      </header>
+
+      <p class="installed">You are in the installed app.</p>
+
+      <button type="button" class="aths-cta" data-install-app>
+        Add to Home Screen
+      </button>
+
+      <ul class="browsers">
+        <li><strong>Chrome / Edge</strong> Native install prompt on tap.</li>
+        <li><strong>Samsung</strong> Same native prompt on Android.</li>
+        <li><strong>Safari / iOS</strong> Guided Share → Add to Home Screen.</li>
+        <li><strong>Firefox</strong> Guided menu → Install on Android.</li>
+      </ul>
+      <p class="note">
+        Drop the same button onto any page: add <code>data-install-app</code>, the manifest, and
+        <code>pwa/add-to-home-screen.js</code>. See <code>pwa/README.md</code>.
+      </p>
+    </main>
+    <script type="module">
+      import { bindInstallCta, readBrowserEnv } from "/pwa/add-to-home-screen.js";
+
+      const env = readBrowserEnv(window);
+      if (env.standalone || env.displayModeStandalone || env.displayModeFullscreen) {
+        document.documentElement.classList.add("is-standalone");
+      }
+
+      bindInstallCta({
+        selector: "[data-install-app]",
+        appName: "Verodus",
+        serviceWorkerUrl: "/sw.js",
+      });
+    </script>
+  </body>
+</html>
