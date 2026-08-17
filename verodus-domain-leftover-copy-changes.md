@@ -103,7 +103,13 @@ Money is already `$100` on all plans. Days are only on the *other* FAQ (first pa
 | `content.p1` | …No ±2-minute window. No News Trading Addon required. | Drop both leftover clauses. |
 | `content.p18` | …No News Trading Addon required. | Drop addon sentence. |
 | Hardcoded news list | “No ±2-minute restricted window” | Delete that bullet. Keep bracketing/gap. |
-| `content.p9` | `$100` for weekly, bi-weekly, and on-demand on all four plans | **Keep money.** Add: on-demand still requires that evaluation’s min trading days. |
+| `content.p9` | `$100` for weekly, bi-weekly, and on-demand on all four plans | **Keep weekly, bi-weekly, and on-demand at $100.** Add: on-demand still requires that evaluation’s min trading days. |
+
+**Ready-to-paste `content.p9`:**
+
+```text
+A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. On-demand still requires the minimum number of trading days for that evaluation.
+```
 | On-demand `<ul>` | only `Minimum $100 profit since last reward (all plans)` | Add a second bullet: min trading days for that evaluation. |
 | `content.p13` | “requested **at any time** … once the following conditions are met” | Fine if the list includes days. Do not leave “at any time” as the only gate. |
 

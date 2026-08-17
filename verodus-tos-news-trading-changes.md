@@ -287,7 +287,7 @@ Per-plan day floor (do not invent a new number; use the one already on that page
 | `instant.html` | `content.li27`, `content.li28`, `content.span53` | same two-gate list | same, Instant still needs 5 valid days |
 | `trading-objectives.html` | `content.span22` | `2% and $200` | `$100` (keep `span21` “Anytime” as the cycle label vs weekly/bi-weekly — days still apply) |
 | `performance-reward.html` | `content.p12` | `Available if >$200 and >2% profit since last reward` | `Available if >$100 profit and the minimum trading days for that evaluation are met` |
-| `faq-qualified-trader.html` | `content.p9` | bi-weekly $100; on-demand $200 | `$100` for bi-weekly **and** on-demand; on-demand still requires that evaluation’s min trading days |
+| `faq-qualified-trader.html` | `content.p9` | `$100` for weekly, bi-weekly, and on-demand | Keep all three cycles at `$100`. Add: on-demand still requires that evaluation’s min trading days |
 | `faq-qualified-trader.html` | hardcoded `<ul>` under “How do on-demand payouts work?” | `Minimum $200 profit` / `Greater than 2% gain since starting balance` | `$100` **and** min trading days (see FAQ list below) |
 | `faq-qualified-trader.html` | JSON-LD for the minimum-target and on-demand questions | `$200` / “at any time” without days | same two conditions |
 | Plan pages Eligibility bullets | `1-step` `li21`/`span19`; lite/pro `li17`/`span15`; instant `li23`/`span47` | 3 trading days + one profitable trade | **Keep.** Do not delete. On-demand does not override this. |
@@ -307,7 +307,7 @@ On-Demand (Selected Add-on): Available when net profit > $100 since your last re
 **Ready-to-paste FAQ `content.p9`:**
 
 ```text
-A fixed $100 profit threshold is required for bi-weekly and on-demand rewards. On-demand still requires the minimum number of trading days for that evaluation.
+A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. On-demand still requires the minimum number of trading days for that evaluation.
 ```
 
 **Ready-to-paste FAQ on-demand list:**
