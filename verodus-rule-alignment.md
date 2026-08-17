@@ -409,7 +409,7 @@ Locale: `/locales/*/pages/trading-objectives.json` and `common.json` keys used b
 | `faq-qualified-trader.html` | Delete 4-then-3. Instant = no min days + Best Day + 0.5% count. 1-Step QPP = no min days + 50% Best Day. 2-Step QPP = 3 trading days. Same first and later. |
 | `faq-evaluation.html` | Add Instant: no eval; no min trading days; Best Day + 0.5% count. 1-Step: no min in eval or QPP. 2-Step: 5 per eval phase; QPP 3 days. |
 | `performance-reward.html` | Instant and 1-Step = **no min trading days**. “3 trading days” = **2-Step QPP only**. Drop first-only. |
-| `terms.html` §8(b)/(c) | Keep “requirements vary by model.” Optional one line: Instant and 1-Step have no min trading days; Instant Best Day counted days need more than 0.5% profit of account balance; 2-Step QPP payouts need 3 trading days; 2-Step eval needs 5. |
+| `terms.html` §8(b)/(c) | Keep “requirements vary by model.” Do not add a plan-by-plan day-count line. |
 | `restricted-trading.html` | No day-count change unless a leftover 5-valid-day / 3-day Instant line appears. |
 | `faq-news-trading.html` / `faq-general.html` | No day-count change unless a leftover Instant 5-valid-day line appears. |
 
