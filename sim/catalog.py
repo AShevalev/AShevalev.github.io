@@ -79,10 +79,10 @@ def add(key, firm, plan, family, phases, funded_rules, skus, refund="first",
 # =============================================================================
 add("Verodus Instant", "Verodus", "Instant", "instant",
     [P(None, 0.06, "trailing", 0.03, "intraday_peak", 0, 0.0, 0.20,
-      cons_floor=0.005, cons_basis="eod")],
+      cons_floor=0.005, cons_basis="sod", cons_op="ge")],
     None, sku((5e3,75,49),(1e4,106,69),(25e3,229,149),(5e4,368,239),(1e5,675,439)),
     refund="none", split=0.80, instant=True, discount="VERO35",
-    source="rule alignment: 20% Best Day on days >0.5% of EOD; 5 counted days implied")
+    source="Instant Best Day: green day of at least 0.5% of SOD; 20% cap implies 5 counted days")
 
 add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     [P(0.10, 0.06, "hybrid", 0.04, "sod", 0, 0.0, 0.50)],

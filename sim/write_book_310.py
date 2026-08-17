@@ -562,7 +562,7 @@ def build_story(rows, book, families, scales, rec_add, chk_add):
         f"Lite {sum(r['N'] for r in rows if r['Plan']=='2-Step Lite')} · "
         f"Pro {sum(r['N'] for r in rows if r['Plan']=='2-Step Pro')} · "
         f"{N_BOOK} accounts. CAD 10,000 wages (~$7,200) are fixed. "
-        f"Day rules: Instant 20% Best Day on closes >0.5% of EOD "
+        f"Day rules: Instant 20% Best Day on a green day of at least 0.5% of SOD "
         f"(five counted days implied, not listed); "
         f"1-Step QPP no min days + 50% Best Day; 2-Step 5 eval / 3 QPP. "
         f"Challenge leftover {money(book['Left'])}/mo "

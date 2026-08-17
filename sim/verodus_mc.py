@@ -110,9 +110,9 @@ SESSION_P = np.array([s[1] for s in SESSIONS], dtype=float)
 # =============================================================================
 # Instant: funded day 1. 6% trailing HWM (never locks). Daily 3% of start from
 #   day's equity high. One payout rule: 20% Best Day of Positive Days' Profit;
-#   a day counts only if it closes more than 0.5% of EOD balance. The 20% cap
-#   cannot clear with fewer than five counted days (implied, not a 5-day
-#   checkbox). $100 min. Split 80%. No refund.
+#   a counted day is a green day of at least 0.5% of start-of-day equity.
+#   The 20% cap cannot clear with fewer than five counted days (implied, not
+#   a 5-day checkbox). $100 min. Split 80%. No refund.
 # 1-Step: 10% target, no min days, 50% Best Day of Positive Days' Profit,
 #   4% daily from SOD equity (fixed $ of initial), 6% hybrid (lock at initial).
 #   Funded: same DD, no min days, 50% Best Day. 100% fee refund on first reward.
@@ -132,7 +132,8 @@ PRODUCTS = {
                 "valid_day_threshold": 0.0,
                 "consistency": 0.20,
                 "consistency_floor": 0.005,
-                "consistency_basis": "eod",
+                "consistency_basis": "sod",
+                "consistency_op": "ge",
             }
         ],
         "funded": None,
@@ -344,7 +345,11 @@ def _counts_for_best_day(day_pnl, sod, eod, start, rules) -> bool:
         denom = start
     else:
         denom = eod
-    return denom > 0 and day_pnl > denom * floor
+    if denom <= 0:
+        return False
+    if rules.get("consistency_op", "gt") == "ge":
+        return day_pnl >= denom * floor
+    return day_pnl > denom * floor
 
 
 def run_phase(start_balance, rules, sens, profile_name, rng, is_funded=False,

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Paired Monte Carlo: prior Instant/1-Step day rules vs rule-alignment.
 
-News stays included. Instant is one rule (20% Best Day; a day counts only
-if it closes more than 0.5% of EOD balance). The 20% cap still forces at
-least five counted days — the 5 is implied, not a second checkbox. 1-Step
+News stays included. Instant is one rule (20% Best Day; a counted day is
+a green day of at least 0.5% of start-of-day equity). The 20% cap still
+forces at least five counted days — the 5 is implied, not a second checkbox. 1-Step
 QPP drops the 3-day min and applies 50% Best Day. 2-Step Lite/Pro are
 unchanged (5 eval days, 3 QPP days). Same per-product seed so the delta
 is the rule change, not a new random stream.

@@ -31,7 +31,7 @@ VARIANTS = {
     ),
     "aligned": P(
         None, 0.06, "trailing", 0.03, "intraday_peak", 0, 0.0, 0.20,
-        cons_floor=0.005, cons_basis="eod", cons_op="gt",
+        cons_floor=0.005, cons_basis="sod", cons_op="ge",
     ),
 }
 
