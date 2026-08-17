@@ -4,6 +4,7 @@
 
 1. News trading is allowed in every phase (evaluation, Instant, and Qualified Performance / funded). Remove the ±2-minute high-impact window, the tiered breach model, and the News Trading Addon exemption.
 2. **Delete Section 8(h)** — the “50% of profits must come from trades held longer than 2 minutes” payout test. Do not keep it as a payout rule. Keep the HFT / tick-scalp / latency-arb / rollover-abuse bans already in Restricted Trading Practices (Terms 9(b) / plan-page Section 6).
+3. **On-demand minimum is $100 only.** Drop the extra “2% of account balance” gate and the $200 floor. Weekly / bi-weekly already use $100; on-demand matches that.
 
 **Primary file:** `https://www.verodus.com/terms.html`  
 **English copy source:** `/locales/en/pages/terms.json`  
@@ -242,6 +243,78 @@ On each page, change:
 
 ---
 
+## 4b. FAQ Plans + plan pages — same policy, and on-demand min = $100
+
+`faq-plans.html` is the Help Center “Verodus Plans” hub. It only has four short cards. The payout math, news line, and on-demand minimum live on the four rule pages it links to, plus Qualified Trader FAQ and the objectives/rewards pages.
+
+Do **not** change “no $200,000 Instant account” on the Instant card — that is account size, not the payout floor.
+
+### Hub cards — `faq-plans.html` + `/locales/en/pages/faq-plans.json`
+
+Add one sentence to every card so the hub matches TOS. Do not mention a 2-minute hold.
+
+**Ready-to-paste extra sentence (append to `content.p1`, `p3`, `p5`, `p7`):**
+
+```text
+ News trading is included in every phase. There is no minimum holding time.
+```
+
+Instant card (`content.p7`) after that sentence, still keep: `Sizes $5,000–$100,000 — no $200,000 Instant account.`
+
+### On-demand minimum: drop 2% and $200, use $100 only
+
+Old rule (two gates): net profit **> $200 and > 2%** of account balance.  
+New rule (one gate): net profit **> $100** since last reward.
+
+| File | Keys / HTML | Current | Replace with |
+|---|---|---|---|
+| `1-step.html` | `content.li25`, `content.li26`, `content.span22` | `Net profit > $200, and` / `Net profit > 2% of your account balance.` | Single condition: `Net profit > $100 since your last reward.` |
+| `2-step-lite.html` | `content.li21`, `content.li22`, `content.span18` | same | same |
+| `2-step-pro.html` | `content.li21`, `content.li22`, `content.span18` | same | same |
+| `instant.html` | `content.li27`, `content.li28`, `content.span53` | same two-gate list | same $100-only |
+| `trading-objectives.html` | `content.span22` | `2% and $200` | `$100` |
+| `performance-reward.html` | `content.p12` | `Available if >$200 and >2% profit since last reward` | `Available if >$100 profit since last reward` |
+| `faq-qualified-trader.html` | `content.p9` | `A fixed $100 profit threshold is required for bi-weekly rewards. On-demand rewards require a fixed $200 profit threshold.` | `A fixed $100 profit threshold is required for bi-weekly and on-demand rewards.` |
+| `faq-qualified-trader.html` | hardcoded `<ul>` under “How do on-demand payouts work?” (not in locale JSON) | `Minimum $200 profit` / `Greater than 2% gain since starting balance` | one bullet: `Minimum $100 profit` |
+| `faq-qualified-trader.html` | JSON-LD `acceptedAnswer` for the minimum-target question | `$200 profit threshold` | `$100` for on-demand too |
+
+**Ready-to-paste on-demand bullet (plan pages):**
+
+```text
+On-Demand (Selected Add-on): Available at any time if net profit > $100 since your last reward.
+```
+
+**Ready-to-paste Instant HTML (`content.span53` / `li27`):**
+
+```html
+<strong>On-Demand (Selected Add-on):</strong> Available at any time if net profit &gt; $100 since your last reward.
+```
+
+**Ready-to-paste FAQ on-demand list:**
+
+```html
+<ul>
+    <li>Minimum $100 profit</li>
+</ul>
+```
+
+Leave **Minimum Reward: $100** on weekly/bi-weekly as-is. Leave **$200K** account-size buttons as-is.
+
+### Plan-page leftovers (same news / 8(h) pass)
+
+News copy on the four plan pages is already mostly “allowed.” Finish these:
+
+| Location | Current leftover | Action |
+|---|---|---|
+| Instant `content.span71` / `li37` | “Full news trading **(subject to restrictions)**” | Drop “(subject to restrictions)”. News is allowed. HFT / tick-scalp bans stay in Section 6. |
+| All four plan pages `News Trading Addon` bullet | “News trading is included… Addon is not required” | **Delete** the addon bullet. News is default, not an add-on. |
+| All four plan pages Section 6 | HFT, tick scalping, latency/arb, rollover abuse | **Keep** |
+| All four plan pages | 8(h) 50% / 2-minute profit mix | **Not printed.** Do not add it. |
+
+Also update the same keys in `/locales/{lang}/pages/` for `faq-plans`, `1-step`, `2-step-lite`, `2-step-pro`, `instant`, `trading-objectives`, `performance-reward`, and `faq-qualified-trader`.
+
+---
+
 ## 5. What you are not changing
 
 These stay as-is unless you separately decide otherwise:
@@ -284,5 +357,13 @@ Keys:
 - `content.li18` — gap trading (replaces addon text)
 
 FAQ keys (`/locales/{lang}/pages/faq-general.json`): `content.q21`, `content.p64`, `content.p65` — answer becomes **No**, point at the Section 6 HFT / tick-scalp bans.
+
+On-demand $100 keys:
+
+- Plan pages: `1-step` `li25`/`li26`/`span22`; `2-step-lite` and `2-step-pro` `li21`/`li22`/`span18`; `instant` `li27`/`li28`/`span53`
+- `trading-objectives` `content.span22` → `$100`
+- `performance-reward` `content.p12` → `Available if >$100 profit since last reward`
+- `faq-qualified-trader` `content.p9` plus the hardcoded `$200` / `2%` list in the HTML
+- `faq-plans` `content.p1`, `p3`, `p5`, `p7` — append news-included / no minimum holding time
 
 After deploy, bump cache if needed (`last-modified` on `terms.html`) and re-check a non-English language so Weglot / `/locales` is not still serving the old restriction.
