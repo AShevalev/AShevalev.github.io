@@ -63,7 +63,7 @@ bindInstallCta({ registerServiceWorker: false, appName: "Verodus" });
 
 Copy the `pwa/` folder, `manifest.webmanifest`, and `sw.js` onto the production origin (for example `verodus.com`). Point `start_url`, `id`, and icon paths at that origin.
 
-To hide the Chrome bar when people install from **verodus.com**, install that origin and open `/app` (Dashboard/TradeHub/P5 stay in an iframe). See [pwa/verodus/README.md](verodus/README.md).
+To hide the Chrome bar when people install from **verodus.com**, follow [pwa/verodus/SHIP.md](verodus/SHIP.md). One PWA on www, `/app` iframes the CRM.
 
 ## Tests
 

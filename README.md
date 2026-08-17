@@ -8,6 +8,6 @@ Open the site on a phone and tap **Add to Home Screen**:
 - **Safari and every iOS browser** — Share → Add to Home Screen
 - **Firefox on Android** — menu → Install
 
-The Verodus CRM bar (X + URL) appears when a landing-page install then jumps host. Install **www.verodus.com** and keep Dashboard inside `/app`. Details: [pwa/verodus/README.md](pwa/verodus/README.md).
+Ship the landing-page app (no Chrome bar): [pwa/verodus/SHIP.md](pwa/verodus/SHIP.md).
 
 How to drop the same button onto another page: [pwa/README.md](pwa/README.md).

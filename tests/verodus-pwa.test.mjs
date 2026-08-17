@@ -41,3 +41,9 @@ test("landing-page PWA starts at /app on www.verodus.com", () => {
   assert.match(manifest.start_url, /^\/app/);
   assert.equal(isAccountScopedPath(manifest.start_url), false);
 });
+
+test("practical install script stays on /app", () => {
+  const src = readFileSync(new URL("../pwa/verodus/www/install.js", import.meta.url), "utf8");
+  assert.match(src, /var APP = "\/app"/);
+  assert.match(src, /beforeinstallprompt/);
+});
