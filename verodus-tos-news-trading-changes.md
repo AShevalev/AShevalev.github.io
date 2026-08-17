@@ -1,6 +1,9 @@
-# Verodus Terms of Service — News Trading Allowed Across All Phases
+# Verodus Terms of Service — News Allowed; Drop 8(h) Duration Mix
 
-**Policy:** News trading is allowed in every phase (evaluation, Instant, and Qualified Performance / funded). Remove the ±2-minute high-impact window, the tiered breach model, and the News Trading Addon exemption.
+**Policy:**
+
+1. News trading is allowed in every phase (evaluation, Instant, and Qualified Performance / funded). Remove the ±2-minute high-impact window, the tiered breach model, and the News Trading Addon exemption.
+2. **Delete Section 8(h)** — the “50% of profits must come from trades held longer than 2 minutes” payout test. Do not keep it as a payout rule. Keep the HFT / tick-scalp / latency-arb / rollover-abuse bans already in Restricted Trading Practices (Terms 9(b) / plan-page Section 6).
 
 **Primary file:** `https://www.verodus.com/terms.html`  
 **English copy source:** `/locales/en/pages/terms.json`  
@@ -8,9 +11,65 @@
 
 News bracketing (straddling) and gap trading are **not** the same rule as news trading. This guide keeps those two as separate bans. Drop them only if you also want those practices allowed.
 
+Plan pages do not print 8(h). Do not add it there. Rec leftover already assumes it is off.
+
 ---
 
-## 1. Terms of Service (`terms.html`) — change these three places
+## 0. Terms of Service (`terms.html`) — delete Section 8(h) entirely
+
+**Where:** Section (8). Verodus Evaluation Program and Qualified Performance Phase, last subsection, immediately before Section (9). Simulation Trading Rules.
+
+**i18n keys to remove (or empty):** `content.h38`, `content.p51`, `content.p52`, `content.p53`
+
+Do not replace 8(h) with a softer mix test, a different minute threshold, or a “guideline.” Delete the whole subsection. Instant is the scalper door; a 2-minute profit-mix check will deny payouts on accounts that are otherwise inside daily DD, trail, consistency, and valid days. Traders will also read “hold 2 minutes” next to “news is allowed” and think the old ±2-minute news window is back. Section 6 / 9(b) already names the real target: HFT, tick scalping, latency/arb, rollover abuse.
+
+**Delete this entire block from `terms.html`:**
+
+```html
+<h3 data-i18n="content.h38" style="font-size: 1rem; font-weight: 700; margin: 1.25rem 0 0.5rem;">(h). Minimum Holding Time / Trade Duration Rule</h3>
+<p data-i18n="content.p51" style="margin-bottom: 1rem;">To discourage execution patterns that exploit the simulated environment, Verodus requires that at least 50% of gross generated profits (for Qualified Performance Accounts) or total targeted profits (for Evaluation Accounts) must come from trades that exceed two (2) minutes in duration.</p>
+<p data-i18n="content.p52" style="margin-bottom: 1rem;">Occasional rapid exits due to genuine errors or market volatility are acceptable. However, if the total profit from trades lasting less than two minutes exceeds 50% of gross generated profits (Qualified Performance Accounts) or 50% of total targeted profits (Evaluation Accounts), this constitutes a breach.</p>
+<p data-i18n="content.p53" style="margin-bottom: 1.5rem;">Breaches of this rule may result in trade review, profit adjustment, account suspension, or termination as set out in Section 9(d).</p>
+```
+
+**Locale strings to blank or delete:**
+
+| Key | Current | Action |
+|---|---|---|
+| `content.h38` | `(h). Minimum Holding Time / Trade Duration Rule` | **Delete** |
+| `content.p51` | 50% of profits must come from trades longer than two minutes | **Delete** |
+| `content.p52` | If short-duration profits exceed 50%, that is a breach | **Delete** |
+| `content.p53` | Breaches may result in review, profit adjustment, suspension, or termination | **Delete** |
+
+Section 8 then ends at **(g). Account Limits and Allocation Rules**. Do not renumber (g). Do not add a new (h).
+
+**Keep (do not touch) the HFT / tick-scalp bans** in Terms 9(b)(i) and on each plan page Section 6:
+
+- High-Frequency Trading (HFT)
+- Tick Scalping & Rollover Abuse
+- Comprehensive Arbitrage / latency / delayed feeds
+
+Those stay. Instant risk is already priced with 3% daily from the day’s equity high, a 6% trail that never locks, 20% consistency, 5 valid days at +0.5% of that day’s start-of-day equity, and a $100 minimum.
+
+**FAQ that still reprints 8(h)** — `faq-general.html` + `/locales/en/pages/faq-general.json`:
+
+| Key | Current | Change to |
+|---|---|---|
+| `content.q21` | Is There a Minimum Holding Time? | Keep the question |
+| `content.p64` | Yes. … 50% of profits … exceed two minutes … | **No.** There is no minimum holding time and no requirement that a share of profits come from trades held longer than two minutes. |
+| `content.p65` | Occasional rapid exits… breach… suspension or termination | High-frequency trading, tick scalping, latency/arbitrage, and rollover abuse remain prohibited under Restricted Trading Practices. |
+
+**Ready-to-paste FAQ answer:**
+
+```text
+No. There is no minimum holding time and no requirement that a percentage of profits come from trades held longer than two minutes. High-frequency trading, tick scalping, latency/arbitrage, and rollover abuse remain prohibited under Restricted Trading Practices.
+```
+
+Plan pages (`1-step.html`, `2-step-lite.html`, `2-step-pro.html`, `instant.html`, `trading-objectives.html`) do **not** print 8(h). Leave them alone for this rule. Do not add a duration-mix line when you edit those pages for news.
+
+---
+
+## 1. Terms of Service (`terms.html`) — news: change these three places
 
 All three sit in **Section (9). Simulation Trading Rules → (b). Prohibited Trading Strategies and Toxic Behavior**.
 
@@ -179,6 +238,7 @@ On each page, change:
 | `faq-qualified-trader.html` | Answers “Can I Trade News?” and “Can I trade during major news releases?” currently say you cannot, unless the addon is purchased. Rewrite both to: **Yes, in all phases.** |
 | `faq-news-trading.html` | Full news policy page. Currently describes a 4-minute no-trade window for 1-Step / 2-Step Lite / 2-Step Pro. Rewrite to allowed in all phases; remove window tables, soft-breach TP/SL language, and addon asterisks. Keep the economic-calendar / affected-instruments tables only if you still want educational context, not as a restriction. |
 | Checkout / dashboard News Trading Addon | Remove or retire the paid addon once TOS no longer requires it. |
+| `faq-general.html` (`content.q21`, `p64`, `p65`) | “Is There a Minimum Holding Time?” currently reprints 8(h). Change the answer to **No** and point at the HFT / tick-scalp bans. |
 
 ---
 
@@ -188,8 +248,10 @@ These stay as-is unless you separately decide otherwise:
 
 - Gap trading (positions opened within 60 minutes of a market close and held through reopen)
 - News bracketing / straddling, if you keep Change 3 as written
-- HFT, arbitrage, glitch exploitation, tick scalping, lot-exposure limits, weekend holding addon
-- Section 8(h) minimum holding time (50% of profits from trades longer than 2 minutes) — that is a duration rule, not a news rule
+- **HFT, tick scalping, latency/arbitrage, rollover abuse** in Terms 9(b) / plan-page Section 6 — keep these; they replace 8(h)
+- Lot-exposure limits, weekend holding addon
+- Instant’s existing risk stack: 3% daily from the day’s equity high, 6% trail that never locks, 20% consistency, 5 valid days at +0.5% of that day’s start-of-day equity, $100 minimum
+- 1-Step / Instant **Best Day** consistency rules (those are not 8(h))
 
 ---
 
@@ -212,6 +274,7 @@ Update the same keys in every language:
 
 Keys:
 
+- `content.h38`, `content.p51`, `content.p52`, `content.p53` — **delete** (Section 8(h) duration mix)
 - `content.p59` — remove “intentionally trading news events”
 - `content.h42` — heading
 - `content.p60` — permission paragraph
@@ -219,5 +282,7 @@ Keys:
 - `content.li16` — delete or empty
 - `content.li17` — bracketing only
 - `content.li18` — gap trading (replaces addon text)
+
+FAQ keys (`/locales/{lang}/pages/faq-general.json`): `content.q21`, `content.p64`, `content.p65` — answer becomes **No**, point at the Section 6 HFT / tick-scalp bans.
 
 After deploy, bump cache if needed (`last-modified` on `terms.html`) and re-check a non-English language so Weglot / `/locales` is not still serving the old restriction.
