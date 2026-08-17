@@ -83,6 +83,11 @@ RC_CENTER_CSS = """
         .reward-cycle-grid { grid-template-columns: 1fr; }
         .reward-cycle-grid > .reward-cycle-card { grid-column: auto; }
       }
+      #refundHighlightCard[hidden] { display: none !important; }
+      .reward-highlight-grid.rh-no-refund {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
     </style>
 """
 

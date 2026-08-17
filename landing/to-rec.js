@@ -129,6 +129,10 @@
         ? '<strong>First Payout:</strong> Minimum $100 after 5 valid days (within 48 hrs)'
         : '<strong>First Payout:</strong> Minimum $100 after 3 trading days (within 48 hrs)';
     });
+    var refund = document.getElementById('refundHighlightCard');
+    var rhGrid = document.querySelector('.reward-highlight-grid');
+    if (refund) refund.hidden = currentTab === 'instant';
+    if (rhGrid) rhGrid.classList.toggle('rh-no-refund', currentTab === 'instant');
   }
 
   if (document.readyState === 'loading') {

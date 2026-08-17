@@ -380,6 +380,11 @@
         .reward-cycle-grid { grid-template-columns: 1fr; }
         .reward-cycle-grid > .reward-cycle-card { grid-column: auto; }
       }
+      #refundHighlightCard[hidden] { display: none !important; }
+      .reward-highlight-grid.rh-no-refund {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
     </style>
 </head>
 <body>
@@ -1421,6 +1426,10 @@ Crypto 1:3`;
         ? '<strong>First Payout:</strong> Minimum $100 after 5 valid days (within 48 hrs)'
         : '<strong>First Payout:</strong> Minimum $100 after 3 trading days (within 48 hrs)';
     });
+    var refund = document.getElementById('refundHighlightCard');
+    var rhGrid = document.querySelector('.reward-highlight-grid');
+    if (refund) refund.hidden = currentTab === 'instant';
+    if (rhGrid) rhGrid.classList.toggle('rh-no-refund', currentTab === 'instant');
   }
 
   if (document.readyState === 'loading') {
