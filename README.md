@@ -15,4 +15,5 @@ Monte Carlo pricing for [Verodus](https://www.verodus.com/) against the top 20 f
 - **News included (not an add-on) rec + leftover (PDF):** [`results/Verodus_News_Included_2026-08-17.pdf`](results/Verodus_News_Included_2026-08-17.pdf)
 - **Reprice after news-included (more leftover, still under peers) (PDF):** [`results/Verodus_Reprice_News_Included_2026-08-17.pdf`](results/Verodus_Reprice_News_Included_2026-08-17.pdf)
 - **Challenge catalog (sale + list):** [`results/CHALLENGE_CATALOG.md`](results/CHALLENGE_CATALOG.md) · [`results/Verodus_Challenge_Catalog_2026-08-17.pdf`](results/Verodus_Challenge_Catalog_2026-08-17.pdf)
+- **Add-on catalog (% + stickers per SKU):** [`results/ADDON_CATALOG.md`](results/ADDON_CATALOG.md) · [`results/Verodus_Addon_Catalog_2026-08-17.pdf`](results/Verodus_Addon_Catalog_2026-08-17.pdf)
 - **Complete rec checkout (HTML):** [`landing/checkout.html`](landing/checkout.html)
