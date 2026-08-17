@@ -13,15 +13,17 @@ ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
 
 # Verodus locked rec (of list). VERO35 then takes 35% off list + stickers.
+# Attractiveness pass: weekly is 80% (not a 70% decoy) at 8%; Instant 90%
+# solo matches Blue Guardian Instant 90% at 15%. 90%+anytime Instant stays 32%.
 VERO = {
     "news": 0.12,
     "weekend": 0.12,
     "swing": 0.20,
-    "weekly": 0.06,
+    "weekly": 0.08,
     "od80_eval": 0.12,
     "od80_instant": 0.15,
     "split90_eval": 0.12,
-    "split90_instant": 0.20,
+    "split90_instant": 0.15,
     "od90_eval": 0.20,
     "od90_instant": 0.32,
     "qty": "1–4 at VERO35, no extra ladder",
@@ -316,7 +318,7 @@ FIRMS = [
         "od_pct": None,
         "weekly_pct": 0.25,
         "swing_pct": 0.0,
-        "note": "90% +20% matches FXIFY. Weekly is expensive vs Verodus 6%.",
+        "note": "90% +20% matches FXIFY. Weekly is expensive vs Verodus 8%.",
     },
     {
         "firm": "Ment Funding",
@@ -420,9 +422,9 @@ def write_md():
     a("| News | 12% of list | Usually included on eval, restricted funded, or inside Swing | **Keep** — below live 15% |")
     a("| Weekend | 12% of list | Often included; else Swing SKU ~10–15% | **Keep** — below live 18% |")
     a("| Swing (both) | **20%** | FTMO Swing ~10–15% SKU; Instant Funding one toggle; BG does not sell this pair | **Keep** — 4pp save vs 24% |")
-    a("| Weekly 70% | **6%** | 5–25% for faster cadence **without** cutting split (FP weekly is 60%) | **Keep decoy** — cheapest speed SKU, worse split |")
+    a("| Weekly 80% | **8%** | 5–25% for faster cadence **without** cutting split (FP weekly is 60%) | **Change** — was 70% @ 6% (gotcha vs default 80%). 8% still prints |")
     a("| On-demand 80% | 12% eval / **15% Instant** | BG Instant includes it; BG eval 7-day 15%; FN +5% is a hole | **Keep** — match BG 7-day, not FN +5% |")
-    a("| 90% split | 12% eval / **20% Instant** | Alpha 10%, BG 15%, FXIFY/BrightFunded 20% | **Keep** — eval undercuts BG; Instant matches FXIFY |")
+    a("| 90% split | 12% eval / **15% Instant** | Alpha 10%, BG 15%, FXIFY/BrightFunded 20% | **Change Instant** — 20% → 15% to match BG Instant 90% solo. Eval stays 12% |")
     a("| 90% On Demand | **20% eval / 32% Instant** | BG evals 25%; BG Instant 15% (OD included); FN +5% | **Keep** — eval cheaper than BG 25%; Instant 32% is the year-1 floor, not a street match |")
     a("| Qty 1–4 | VERO35 on every copy, no extra ladder | BG 30/35/40 on copies; 5th-free futures | **Keep** — Instant/Lite leftover cannot fund extra %; VERO35 already 35% vs BG 25% |")
     a("")
@@ -433,11 +435,14 @@ def write_md():
     inst_list, pro_list = 675, 445
     inst_be, pro_be = 283.99, 150.61
     rows = [
+        ("Instant weekly 80% @ 8%", inst_list, 0.08, 0.08 * inst_be),
         ("Instant 80% OD 15%", inst_list, 0.15, 0.12 * inst_be),
-        ("Instant 90% 20%", inst_list, 0.20, 0.125 * inst_be),
+        ("Instant 90% solo 15%", inst_list, 0.15, 0.125 * inst_be),
+        ("Instant 90% solo 20% (old)", inst_list, 0.20, 0.125 * inst_be),
         ("Instant 90% OD 32%", inst_list, 0.32, 0.41 * inst_be),
         ("Instant 90% OD at BG 15%", inst_list, 0.15, 0.41 * inst_be),
         ("Instant 90% OD at FN 5%", inst_list, 0.05, 0.41 * inst_be),
+        ("Pro weekly 80% @ 8%", pro_list, 0.08, 0.05 * pro_be),
         ("Pro 80% OD 12%", pro_list, 0.12, 0.05 * pro_be),
         ("Pro 90% 12%", pro_list, 0.12, 0.125 * pro_be),
         ("Pro 90% OD 20%", pro_list, 0.20, 0.125 * pro_be),
@@ -449,15 +454,27 @@ def write_md():
     a("|---|---:|---:|---:|")
     for name, lst, pct, extra in rows:
         left, sticker = leftover(lst, pct, extra)
-        flag = "yes" if left >= -1 else "NO"
+        if left >= -1:
+            flag = "yes"
+        elif left >= -5:
+            flag = "thin"
+        else:
+            flag = "NO"
         a(f"| {name} | ${sticker} | ${extra:.0f} | ${left:.0f} {flag} |")
     a("")
-    a("Matching BG Instant 15% or FN +5% for 90%+anytime on Instant $100k is a hole (**−$64** / **−$99**). The 32% rec is the one that clears. Evals at 20% still print vs BG’s 25%.")
+    a("Matching BG Instant 15% or FN +5% for **90%+anytime** on Instant $100k is a hole (**−$64** / **−$99**). Instant **90% solo** at 15% still prints (~+$17) because extra E[X] is the split only. The 32% bundle is the year-1 floor. Evals at 20% still print vs BG’s 25%.")
     a("")
-    a("## Bundling rec (unchanged)")
+    a("## Attractiveness changes (locked)")
+    a("")
+    a("1. **Weekly 70% @ 6% → Weekly 80% @ 8%.** Shoppers compare to the default 80% biweekly. FundingPips/Hola make faster cycles a worse split; that reads as a trap. 8% of list undercuts BG 7-day 15% and BrightFunded weekly 25%. Instant leftover ~+$5; Pro leftover ~+$11.")
+    a("2. **Instant 90% solo 20% → 15%.** Matches Blue Guardian’s Instant 90% add-on. Solo leftover ~+$17. Do **not** drop the 90%+anytime bundle below 32%.")
+    a("")
+    a("Do not cheapen Swing 20%, eval 90% On Demand 20%, Instant 90% On Demand 32%, or add a 4-pack extra-% ladder. Do not match FundedNext +5%.")
+    a("")
+    a("## Bundling rec")
     a("")
     a("1. **Swing** news+weekend → 20% (street: Instant Funding one toggle; FTMO Swing SKU).")
-    a("2. **90% On Demand** speed+90% → 20% eval / 32% Instant (street: BG evals 25%; Instant cannot copy 15%).")
+    a("2. **90% On Demand** speed+90% → 20% eval / 32% Instant (street: BG evals 25%; Instant cannot copy 15% for both).")
     a("3. **Weekly XOR** both payout upgrades.")
     a("4. **Qty 1–4** at VERO35, same add-ons, no 30/35/40 ladder, no 5th free.")
     a("")

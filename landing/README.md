@@ -27,9 +27,11 @@ JS: `plan-fees.js` — `[sale, list]`. Instant $200k is omitted on purpose.
 
 ## Checkout add-ons (drop-in)
 
-Open [`checkout-addons.html`](checkout-addons.html) for the Add-Ons section, ⓘ tooltips, bundles, and billing logic. Classes match live `checkout.css` (`.co-addon`, `.co-toggle`, `#coAddonModal`).
+Complete working page: [`checkout.html`](checkout.html) (plans, sizes, qty 1–4, add-ons, customer/billing, VERO35, payment UI, XOR/bundle math). Drop-in for live `checkout.css`: [`checkout-addons.html`](checkout-addons.html).
 
-Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md). 90% street is 10–20% of fee (Alpha 10, BG 15, FXIFY 20). Rec evals sit in that band; Instant 32% for 90%+anytime is the year-1 floor, not a street match.
+Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md) and PDF [`../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf`](../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf). 90% street is 10–20% of fee (Alpha 10, BG 15, FXIFY 20). Rec evals sit in that band; Instant 32% for 90%+anytime is the year-1 floor, not a street match.
+
+Attractiveness pass (locked): Weekly is **80% split at 8%** (was 70% @ 6%). Instant 90% **solo is 15%** (was 20%) to match Blue Guardian Instant 90%. Do **not** drop Instant 90%+anytime below 32%.
 
 ### Blue Guardian (do not copy Instant 15%)
 
@@ -44,14 +46,14 @@ Verodus Instant default is **biweekly 80%**, so speed is a paid add-on. Do **not
 | News trading | 12% | 12% | Funded news window off |
 | Weekend holding | 12% | 12% | Friday flatten off |
 | **Swing** (both) | **20%** | **20%** | Not 12+12. Weekend `Incl.` |
-| Weekly rewards | 6% | 6% | Every 7 days, 70% split |
+| Weekly rewards | 8% | 8% | Every 7 days, **80%** split (same as default). XOR on-demand and 90% |
 | On-demand (80%) | 12% | **15%** | Anytime, keep 80%. BG Instant includes this; we charge because default is biweekly |
-| 90% split | 12% | **20%** | Keep biweekly unless on-demand is also on |
-| **90% On Demand** (both) | **20%** | **32%** | Not 12+12 / 15+20. 90% row `Incl.` |
+| 90% split | 12% | **15%** | Keep biweekly unless on-demand is also on. Instant 15% matches BG Instant 90% solo |
+| **90% On Demand** (both) | **20%** | **32%** | Not 12+12 / 15+15. 90% row `Incl.` |
 
 Weekly **XOR** on-demand and 90% — never with either. On-demand and 90% **may both be on** (that is the bundle). Sticker = `Math.round(list * pct)`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.
 
-Pro $100k ($445): news $53 / weekend $53 / Swing $89 / weekly $27 / on-demand 80% $53 / 90% $53 / 90% On Demand $89. Instant $100k ($675): on-demand 80% $101 / 90% $135 / 90% On Demand $216 / Swing $135.
+Pro $100k ($445): news $53 / weekend $53 / Swing $89 / weekly $36 / on-demand 80% $53 / 90% $53 / 90% On Demand $89. Instant $100k ($675): weekly $54 / on-demand 80% $101 / 90% $101 / 90% On Demand $216 / Swing $135.
 
 ### Multi-account (up to 4)
 

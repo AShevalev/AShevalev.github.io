@@ -67,9 +67,9 @@ incl. = in the base product (0% extra). — = not sold as a % line.
 | News | 12% of list | Usually included on eval, restricted funded, or inside Swing | **Keep** — below live 15% |
 | Weekend | 12% of list | Often included; else Swing SKU ~10–15% | **Keep** — below live 18% |
 | Swing (both) | **20%** | FTMO Swing ~10–15% SKU; Instant Funding one toggle; BG does not sell this pair | **Keep** — 4pp save vs 24% |
-| Weekly 70% | **6%** | 5–25% for faster cadence **without** cutting split (FP weekly is 60%) | **Keep decoy** — cheapest speed SKU, worse split |
+| Weekly 80% | **8%** | 5–25% for faster cadence **without** cutting split (FP weekly is 60%) | **Change** — was 70% @ 6% (gotcha vs default 80%). 8% still prints |
 | On-demand 80% | 12% eval / **15% Instant** | BG Instant includes it; BG eval 7-day 15%; FN +5% is a hole | **Keep** — match BG 7-day, not FN +5% |
-| 90% split | 12% eval / **20% Instant** | Alpha 10%, BG 15%, FXIFY/BrightFunded 20% | **Keep** — eval undercuts BG; Instant matches FXIFY |
+| 90% split | 12% eval / **15% Instant** | Alpha 10%, BG 15%, FXIFY/BrightFunded 20% | **Change Instant** — 20% → 15% to match BG Instant 90% solo. Eval stays 12% |
 | 90% On Demand | **20% eval / 32% Instant** | BG evals 25%; BG Instant 15% (OD included); FN +5% | **Keep** — eval cheaper than BG 25%; Instant 32% is the year-1 floor, not a street match |
 | Qty 1–4 | VERO35 on every copy, no extra ladder | BG 30/35/40 on copies; 5th-free futures | **Keep** — Instant/Lite leftover cannot fund extra %; VERO35 already 35% vs BG 25% |
 
@@ -79,11 +79,14 @@ After ads = sticker × 0.52 − extra E[X]. Instant extra: speed ~0.12 × BE $28
 
 | SKU | Sticker | Extra E[X] | After ads |
 |---|---:|---:|---:|
+| Instant weekly 80% @ 8% | $54 | $23 | $5 yes |
 | Instant 80% OD 15% | $101 | $34 | $18 yes |
-| Instant 90% 20% | $135 | $35 | $35 yes |
-| Instant 90% OD 32% | $216 | $116 | $-4 NO |
+| Instant 90% solo 15% | $101 | $35 | $17 yes |
+| Instant 90% solo 20% (old) | $135 | $35 | $35 yes |
+| Instant 90% OD 32% | $216 | $116 | $-4 thin |
 | Instant 90% OD at BG 15% | $101 | $116 | $-64 NO |
 | Instant 90% OD at FN 5% | $34 | $116 | $-99 NO |
+| Pro weekly 80% @ 8% | $36 | $8 | $11 yes |
 | Pro 80% OD 12% | $53 | $8 | $20 yes |
 | Pro 90% 12% | $53 | $19 | $9 yes |
 | Pro 90% OD 20% | $89 | $19 | $27 yes |
@@ -91,12 +94,19 @@ After ads = sticker × 0.52 − extra E[X]. Instant extra: speed ~0.12 × BE $28
 | Pro Swing 20% | $89 | $9 | $37 yes |
 | Instant Swing 20% | $135 | $37 | $33 yes |
 
-Matching BG Instant 15% or FN +5% for 90%+anytime on Instant $100k is a hole (**−$64** / **−$99**). The 32% rec is the one that clears. Evals at 20% still print vs BG’s 25%.
+Matching BG Instant 15% or FN +5% for **90%+anytime** on Instant $100k is a hole (**−$64** / **−$99**). Instant **90% solo** at 15% still prints (~+$17) because extra E[X] is the split only. The 32% bundle is the year-1 floor. Evals at 20% still print vs BG’s 25%.
 
-## Bundling rec (unchanged)
+## Attractiveness changes (locked)
+
+1. **Weekly 70% @ 6% → Weekly 80% @ 8%.** Shoppers compare to the default 80% biweekly. FundingPips/Hola make faster cycles a worse split; that reads as a trap. 8% of list undercuts BG 7-day 15% and BrightFunded weekly 25%. Instant leftover ~+$5; Pro leftover ~+$11.
+2. **Instant 90% solo 20% → 15%.** Matches Blue Guardian’s Instant 90% add-on. Solo leftover ~+$17. Do **not** drop the 90%+anytime bundle below 32%.
+
+Do not cheapen Swing 20%, eval 90% On Demand 20%, Instant 90% On Demand 32%, or add a 4-pack extra-% ladder. Do not match FundedNext +5%.
+
+## Bundling rec
 
 1. **Swing** news+weekend → 20% (street: Instant Funding one toggle; FTMO Swing SKU).
-2. **90% On Demand** speed+90% → 20% eval / 32% Instant (street: BG evals 25%; Instant cannot copy 15%).
+2. **90% On Demand** speed+90% → 20% eval / 32% Instant (street: BG evals 25%; Instant cannot copy 15% for both).
 3. **Weekly XOR** both payout upgrades.
 4. **Qty 1–4** at VERO35, same add-ons, no 30/35/40 ladder, no 5th free.
 

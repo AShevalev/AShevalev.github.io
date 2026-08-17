@@ -3,21 +3,27 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Verodus checkout add-ons — drop-in</title>
+<title>Checkout – Verodus</title>
+<meta name="description" content="Verodus Checkout – Purchase your evaluation challenge. Select your plan and account size to get started."/>
+<meta name="robots" content="noindex,follow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"/>
 <!--
-  Paste into live checkout.html (classes already match checkout.css):
+  Complete rec checkout (prototype). Same .co-* classes as live checkout.css.
 
-  1. Keep #coSectionAddons and #coAddonModal markup as-is (copied below).
-  2. Replace var ADDONS = [...] with the ADDONS block in the script.
-  3. Replace addonPrice, renderAddons, getAddonsTotal, the summary addon
-     loop in updateSummary, and the addon price in gaItemsForSelection
-     with the helpers below (BUNDLES / addonPct / addonPrice / addonPriceTag /
-     applyAddonToggle). Weekly 80% XOR both payout upgrades; news+weekend and
-     on-demand+90% are bundles (second row Incl.). Instant 90% solo 15%;
-     Instant 90%+anytime 32%. Accounts 1–4 at VERO35 (no extra copy ladder).
-     Tooltips are product/rules only — no fee %. Complete page: checkout.html.
+  Locked billing:
+    News 12% / Weekend 12% / Swing both 20%
+    Weekly 80% split 8% (XOR on-demand and 90%)
+    On-demand 80%: eval 12% / Instant 15%
+    90% split: eval 12% / Instant 15%
+    90% On Demand both: eval 20% / Instant 32%
+    Qty 1–4 at VERO35, no extra copy ladder, no 5th free
+    Coupon VERO35 = 35% off list + stickers (cap 35%)
+    First-payout refund = challenge fee only
 
-  Do not restyle. Existing .co-addon* / .co-toggle / #coAddonModal rules apply.
+  This page does not charge a card. Complete Purchase validates the form
+  and shows a success overlay so the math and XOR/bundle logic can be tested.
 -->
 <style>
   :root {
@@ -29,6 +35,7 @@
     --card-bg-translucent: rgba(255, 255, 255, var(--card-opacity));
     --card-bg-dark: #141a3b;
     --success: #34d399;
+    --danger: #f87171;
     --text-on-dark: #cbd5e1;
     --text-on-theme-dim: #e2e8f0a6;
     --gold-light: var(--theme-cta);
@@ -51,10 +58,19 @@
     min-height: 100vh;
     line-height: 1.6;
   }
+  a { color: var(--theme-cta); }
   button { cursor: pointer; background: 0 0; border: none; font-family: inherit; }
+  .co-topbar {
+    border-bottom: 1px solid var(--border-on-theme);
+    justify-content: space-between; align-items: center;
+    padding: .9rem 1.5rem; display: flex;
+  }
+  .co-brand { color: #fff; letter-spacing: .04em; font-size: 1.05rem; font-weight: 800; }
+  .co-topbar-note { color: var(--text-on-theme-dim); font-size: .78rem; }
   .checkout-page { max-width: 1200px; padding: 2rem var(--content-padding) 4rem; margin: 0 auto; }
-  .checkout-page > h1 { margin: 0 0 1.5rem; color: var(--heading-h2); font-size: 1.75rem; }
+  .checkout-page > h1 { margin: 0 0 .4rem; color: var(--heading-h2); font-size: 1.75rem; }
   .checkout-container { grid-template-columns: 1fr 380px; align-items: start; gap: 2rem; display: grid; }
+  .co-summary-col { position: sticky; top: 1rem; }
   .co-section { margin-bottom: 2rem; }
   .co-section-title { color: var(--text-on-dark); margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; }
   .co-tabs { flex-wrap: wrap; gap: .5rem; display: flex; }
@@ -66,6 +82,10 @@
   }
   .co-tab:hover { border-color: var(--theme); }
   .co-tab.active { background: var(--theme); border-color: var(--theme); }
+  .co-badge {
+    background: var(--theme-cta); color: var(--theme-cta-text); border-radius: 999px;
+    margin-left: .15rem; padding: .1rem .45rem; font-size: .65rem; font-weight: 800;
+  }
   .co-size-grid { grid-template-columns: repeat(6, 1fr); gap: .5rem; display: grid; }
   .co-size-btn {
     border: 2px solid var(--border-on-theme); background: var(--card-bg-translucent);
@@ -77,8 +97,6 @@
   .co-size-label { font-size: 1rem; font-weight: 700; }
   .co-size-price { color: var(--text-on-theme-dim); margin-top: .15rem; font-size: .8rem; }
   .co-size-btn.active .co-size-price { color: var(--theme-cta); }
-
-  /* Live checkout.css — addon rows, toggle, modal, summary addon lines */
   .co-addon {
     border: 1px solid var(--border-on-theme); background: var(--card-bg-translucent);
     border-radius: 12px; justify-content: space-between; align-items: flex-start;
@@ -149,24 +167,109 @@
   }
   .co-toggle input:checked + .co-toggle-slider { background: var(--theme); }
   .co-toggle input:checked + .co-toggle-slider:before { transform: translate(22px); }
+  .co-form-grid { grid-template-columns: 1fr 1fr; gap: .75rem 1rem; display: grid; }
+  .co-field { margin-bottom: .85rem; }
+  .co-field label { color: var(--text-on-dark); margin-bottom: .35rem; font-size: .82rem; font-weight: 600; display: block; }
+  .co-optional { color: var(--text-on-theme-dim); font-weight: 500; }
+  .co-required { color: var(--theme-cta); }
+  .co-field input, .co-field select {
+    border: 1px solid var(--border-on-theme); background: var(--card-bg-translucent);
+    color: #fff; border-radius: 10px; width: 100%; padding: .7rem .85rem; font: inherit;
+  }
+  .co-field input:focus, .co-field select:focus {
+    outline: none; border-color: var(--theme-cta);
+  }
+  .co-error { color: var(--danger); display: none; margin-top: .3rem; font-size: .75rem; }
+  .co-field.invalid .co-error { display: block; }
+  .co-field.invalid input, .co-field.invalid select { border-color: var(--danger); }
   .co-summary-card { background: var(--card-bg-dark); border: 1px solid var(--border-on-theme); border-radius: 16px; padding: 1.5rem; }
   .co-summary-title { color: var(--text-on-dark); margin-bottom: 1.25rem; font-size: 1.15rem; font-weight: 700; }
-  .co-summary-addon-row { justify-content: space-between; padding: .2rem 0; font-size: .8rem; display: flex; }
+  .co-summary-row, .co-summary-addon-row, .co-summary-base, .co-summary-discount {
+    justify-content: space-between; display: flex;
+  }
+  .co-summary-row { padding: .25rem 0; font-size: .9rem; }
+  .co-summary-row-label { color: var(--text-on-theme-dim); }
+  .co-summary-row-value { color: var(--text-on-dark); font-weight: 600; }
+  .co-summary-addon-row { padding: .2rem 0; font-size: .8rem; }
   .co-summary-addon-row span:first-child { color: var(--text-on-theme-dim); }
   .co-summary-addon-row span:last-child { color: var(--success); }
-  .co-summary-base { justify-content: space-between; padding: .45rem 0; font-size: .9rem; display: flex; }
+  .co-summary-base { padding: .45rem 0; font-size: .9rem; }
   .co-summary-base span:first-child { color: var(--text-on-theme-dim); }
   .co-summary-base span:last-child { color: var(--text-on-dark); }
-  .co-summary-discount { justify-content: space-between; padding: .25rem 0; font-size: .85rem; display: flex; }
+  .co-summary-discount { padding: .25rem 0; font-size: .85rem; }
   .co-summary-discount span:first-child { color: var(--text-on-theme-dim); }
   .co-summary-discount span:last-child { color: var(--success); }
+  .co-summary-coupon { gap: .5rem; display: flex; }
+  .co-summary-coupon input {
+    border: 1px solid var(--border-on-theme); background: var(--card-bg-translucent);
+    color: #fff; border-radius: 10px; flex: 1; padding: .65rem .8rem; font: inherit;
+  }
+  .co-summary-coupon button {
+    background: var(--theme); color: #fff; border-radius: 10px; padding: .65rem 1rem; font-weight: 700;
+  }
+  .co-coupon-feedback { min-height: 1.1rem; margin-top: .4rem; font-size: .75rem; }
+  .co-coupon-feedback.ok { color: var(--success); }
+  .co-coupon-feedback.err { color: var(--danger); }
   .co-summary-divider { background: var(--border-on-theme); height: 1px; margin: .75rem 0; }
   .co-summary-total { justify-content: space-between; align-items: center; padding: .75rem 0 .25rem; display: flex; }
   .co-total-label { color: var(--text-on-dark); font-size: 1rem; font-weight: 700; }
   .co-total-amount { color: var(--text-on-dark); font-size: 2rem; font-weight: 800; }
+  .co-refundable { margin: .6rem 0 1rem; }
+  .co-refundable-pill {
+    border: 1px solid color-mix(in srgb, var(--success) 40%, transparent);
+    background: color-mix(in srgb, var(--success) 12%, transparent);
+    color: var(--success); border-radius: 999px; align-items: center; gap: .4rem;
+    padding: .35rem .7rem; font-size: .75rem; font-weight: 600; display: inline-flex;
+  }
+  .co-order-terms { margin: 1rem 0 1.25rem; font-size: .8rem; }
+  .co-order-terms-check { align-items: flex-start; gap: .5rem; display: flex; }
+  .co-order-terms-check input { margin-top: .2rem; }
+  .co-order-terms-list { color: var(--text-on-theme-dim); margin: .5rem 0 0; padding-left: 1.2rem; }
+  .co-pm-list { flex-direction: column; gap: .5rem; margin-bottom: 1rem; display: flex; }
+  .co-pm-option {
+    border: 1px solid var(--border-on-theme); border-radius: 12px; align-items: center;
+    gap: .65rem; padding: .8rem 1rem; display: flex; cursor: pointer;
+  }
+  .co-pm-option.active { border-color: var(--theme-cta); }
+  .co-pm-label { color: var(--text-on-dark); flex: 1; font-size: .9rem; font-weight: 600; }
+  .co-pm-icons { align-items: center; gap: .25rem; display: flex; }
+  .co-purchase-btn {
+    background: var(--theme-cta); color: var(--theme-cta-text); border-radius: 12px;
+    justify-content: center; align-items: center; gap: .5rem; width: 100%;
+    padding: .95rem 1rem; font-size: 1rem; font-weight: 800; display: flex;
+  }
+  .co-purchase-btn:disabled { opacity: .45; cursor: not-allowed; }
   .co-note { color: var(--text-on-theme-dim); font-size: .78rem; line-height: 1.45; margin: 0 0 1.25rem; }
+  .co-overlay {
+    z-index: 12000; background: #07003bcc; justify-content: center; align-items: center;
+    display: none; position: fixed; inset: 0;
+  }
+  .co-overlay.open { display: flex; }
+  .co-overlay-inner, .co-success-card {
+    background: var(--card-bg-dark); border: 1px solid var(--border-on-theme);
+    border-radius: 16px; text-align: center; max-width: 420px; padding: 2rem 1.5rem;
+  }
+  .co-spinner {
+    border: 3px solid #ffffff26; border-top-color: var(--theme-cta); border-radius: 50%;
+    width: 36px; height: 36px; margin: 0 auto 1rem; animation: 1s linear infinite coSpin;
+  }
+  @keyframes coSpin { to { transform: rotate(360deg); } }
+  .co-success-icon {
+    border: 2px solid var(--success); color: var(--success); border-radius: 50%;
+    justify-content: center; align-items: center; width: 52px; height: 52px;
+    margin: 0 auto 1rem; display: flex;
+  }
+  .co-success-title { color: #fff; margin-bottom: .5rem; font-size: 1.3rem; font-weight: 800; }
+  .co-success-msg { color: var(--text-on-theme-dim); margin-bottom: 1.25rem; font-size: .9rem; }
+  .co-success-btn {
+    background: var(--theme-cta); color: var(--theme-cta-text); border-radius: 10px;
+    padding: .7rem 1.2rem; font-weight: 800; display: inline-block;
+  }
+  .co-foot { color: var(--text-on-theme-dim); text-align: center; padding: 0 1.5rem 2rem; font-size: .75rem; }
   @media (width <= 960px) {
     .checkout-container { grid-template-columns: 1fr; }
+    .co-summary-col { position: static; }
+    .co-form-grid { grid-template-columns: 1fr; }
   }
   @media (width <= 640px) {
     .co-size-grid { grid-template-columns: repeat(3, 1fr); }
@@ -177,70 +280,206 @@
 </style>
 </head>
 <body>
-<div class="checkout-page">
-  <h1>Add-Ons</h1>
-  <p class="co-note">Same checkout classes. News + weekend = Swing. On-demand 80% and 90% split are separate — both on bills 90% On Demand. Weekly 80% cannot mix with either payout upgrade. Up to 4 accounts in one order; each at VERO35, no extra cut on copies. Instant leftover cannot fund Blue Guardian’s 30/35/40% copy ladder, and Lite is almost as thin. No 5th free.</p>
+<header class="co-topbar">
+  <div class="co-brand">VERODUS</div>
+  <div class="co-topbar-note">Prototype checkout — VERO35 rec fees and add-ons. No charge.</div>
+</header>
+
+<main class="checkout-page">
+  <h1>Checkout</h1>
+  <p class="co-note">List prices below. VERO35 takes 35% off the challenge and add-on stickers. Up to 4 accounts in one order; each at VERO35. Add-on fees are not refunded with the first-payout challenge-fee refund.</p>
+
   <div class="checkout-container">
     <div class="checkout-form-col">
-      <div class="co-section">
-        <div class="co-section-title">Challenge</div>
-        <div class="co-tabs" id="coPlans"></div>
+      <div class="co-section" id="coSectionPlan">
+        <div class="co-section-title">Challenge Type</div>
+        <div class="co-tabs" id="coTabs"></div>
       </div>
-      <div class="co-section">
+
+      <div class="co-section" id="coSectionSize">
         <div class="co-section-title">Account Size</div>
         <div class="co-size-grid" id="coSizes"></div>
       </div>
+
       <div class="co-section" id="coSectionQty">
         <div class="co-section-title">Accounts</div>
         <div class="co-tabs" id="coQty"></div>
-        <p class="co-note" id="coQtyNote" style="margin: .75rem 0 0;"></p>
+        <p class="co-note" id="coQtyNote" style="margin:.75rem 0 0;"></p>
       </div>
 
-      <!-- PASTE: replace the live #coSectionAddons block with this (markup is unchanged) -->
       <div class="co-section" id="coSectionAddons">
         <div class="co-section-title">Add-Ons</div>
         <div id="coAddons"></div>
+      </div>
+
+      <div class="co-section">
+        <div class="co-section-title">1. Customer Information</div>
+        <div class="co-form-grid">
+          <div class="co-field" id="field-fname">
+            <label for="co-fname">First Name</label>
+            <input type="text" id="co-fname" autocomplete="given-name"/>
+            <div class="co-error">First name is required</div>
+          </div>
+          <div class="co-field" id="field-lname">
+            <label for="co-lname">Last Name</label>
+            <input type="text" id="co-lname" autocomplete="family-name"/>
+            <div class="co-error">Last name is required</div>
+          </div>
+        </div>
+        <div class="co-field" id="field-phone">
+          <label for="co-phone">Phone Number</label>
+          <input type="tel" id="co-phone" autocomplete="tel"/>
+          <div class="co-error">Phone number is required</div>
+        </div>
+        <div class="co-field" id="field-email">
+          <label for="co-email">Email Address</label>
+          <input type="email" id="co-email" autocomplete="email"/>
+          <div class="co-error">Valid email is required</div>
+        </div>
+      </div>
+
+      <div class="co-section">
+        <div class="co-section-title">2. Billing Details</div>
+        <div class="co-field" id="field-country">
+          <label for="co-country">Country <span class="co-required" aria-hidden="true">*</span></label>
+          <select id="co-country" autocomplete="country" required="">
+            <option value="">Select country</option>
+          </select>
+          <div class="co-error">Country is required</div>
+        </div>
+        <div class="co-field" id="field-address">
+          <label for="co-address">Street address</label>
+          <input type="text" id="co-address" autocomplete="address-line1"/>
+          <div class="co-error">Street address is required</div>
+        </div>
+        <div class="co-field" id="field-address2">
+          <label for="co-address-2">Apartment, suite, unit, etc. <span class="co-optional">(optional)</span></label>
+          <input type="text" id="co-address-2" autocomplete="address-line2"/>
+        </div>
+        <div class="co-form-grid">
+          <div class="co-field" id="field-city">
+            <label for="co-city">City</label>
+            <input type="text" id="co-city" autocomplete="address-level2"/>
+            <div class="co-error">City is required</div>
+          </div>
+          <div class="co-field" id="field-state">
+            <label for="co-state">State / Region</label>
+            <input type="text" id="co-state" autocomplete="address-level1"/>
+            <div class="co-error">State is required</div>
+          </div>
+        </div>
+        <div class="co-field" id="field-postcode">
+          <label for="co-postcode">ZIP / Postal code</label>
+          <input type="text" id="co-postcode" autocomplete="postal-code"/>
+          <div class="co-error">ZIP code is required</div>
+        </div>
       </div>
     </div>
 
     <div class="co-summary-col">
       <div class="co-summary-card">
         <div class="co-summary-title">Order Summary</div>
-        <div class="co-summary-base"><span id="sumChallenge">2-Step Pro</span><span id="sumSize">$100K</span></div>
-        <div class="co-summary-base"><span>Challenge</span><span id="sumBase">$445</span></div>
+        <div class="co-summary-row">
+          <span class="co-summary-row-label">Challenge</span>
+          <span class="co-summary-row-value" id="sumChallenge">2-Step Pro</span>
+        </div>
+        <div class="co-summary-row">
+          <span class="co-summary-row-label">Account Size</span>
+          <span class="co-summary-row-value" id="sumSize">$100K</span>
+        </div>
+        <div class="co-summary-divider"></div>
+        <div id="coCouponSection">
+          <div class="co-summary-coupon">
+            <input type="text" id="coCoupon" placeholder="Coupon code" autocomplete="off" value="VERO35"/>
+            <button type="button" id="coApplyCoupon">Apply</button>
+          </div>
+          <div class="co-coupon-feedback ok" id="coCouponFeedback">VERO35 applied — 35% off challenge and add-ons.</div>
+          <div class="co-summary-divider"></div>
+        </div>
+        <div class="co-summary-base"><span id="sumBaseLabel">Base price</span><span id="sumBase">$445</span></div>
         <div id="sumAddonsWrap"></div>
         <div id="sumQtyWrap"></div>
+        <div id="sumDiscountWrap"></div>
         <div class="co-summary-divider"></div>
-        <div class="co-summary-discount"><span>Discount (VERO35)</span><span id="sumDiscount">-$0.00</span></div>
         <div class="co-summary-total">
           <span class="co-total-label">Total</span>
           <span class="co-total-amount" id="sumTotal">$0</span>
         </div>
+        <div class="co-refundable" id="coRefundable">
+          <span class="co-refundable-pill">Refundable on first payout — challenge fee only</span>
+        </div>
+        <div class="co-order-terms">
+          <div class="co-order-terms-check">
+            <input type="checkbox" id="co-order-terms" autocomplete="off"/>
+            <label for="co-order-terms"><strong>I agree with all the following terms:</strong></label>
+          </div>
+          <ul class="co-order-terms-list">
+            <li>I have read and agreed to the Trading Objectives.</li>
+            <li>All information provided is correct and matches government-issued ID.</li>
+            <li>I have read and agree with the Terms of Service and Privacy Policy.</li>
+          </ul>
+        </div>
+        <div class="co-summary-title co-pm-title">Select payment method</div>
+        <div class="co-pm-list" id="coPaymentMethods">
+          <label class="co-pm-option active" data-method="card">
+            <input type="radio" name="paymentMethod" value="card" checked=""/>
+            <span class="co-pm-label">Credit / Debit Card</span>
+          </label>
+          <label class="co-pm-option" data-method="crypto">
+            <input type="radio" name="paymentMethod" value="crypto"/>
+            <span class="co-pm-label">Crypto</span>
+          </label>
+        </div>
+        <button type="button" class="co-purchase-btn" id="coPurchaseBtn" disabled="">Complete Purchase</button>
+        <p class="co-note" style="margin: .75rem 0 0;">Prototype: validates the form and add-on math. Does not take payment.</p>
       </div>
     </div>
   </div>
-</div>
+</main>
 
-<!-- PASTE: live #coAddonModal — foot line is the only copy change -->
 <div id="coAddonModal" class="modal-overlay" aria-hidden="true">
-  <div class="modal-box modal-with-chart" role="dialog" aria-modal="true" aria-labelledby="coAddonModalTitle">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="coAddonModalTitle">
     <div class="modal-head">
-      <h3 id="coAddonModalTitle" class="text-normal"></h3>
+      <h3 id="coAddonModalTitle"></h3>
       <button type="button" class="modal-close" id="coAddonModalClose" aria-label="Close">&times;</button>
     </div>
-    <div class="modal-body text-normal">
+    <div class="modal-body">
       <p id="coAddonModalText"></p>
     </div>
-    <div class="modal-foot text-normal">Add-on fees are not refunded with the first-payout challenge-fee refund. Eligibility and rules apply per program terms.</div>
+    <div class="modal-foot">Add-on fees are not refunded with the first-payout challenge-fee refund. Eligibility and rules apply per program terms.</div>
   </div>
 </div>
+
+<div class="co-overlay" id="coProcessing">
+  <div class="co-overlay-inner">
+    <div class="co-spinner"></div>
+    <div>Processing your order…</div>
+  </div>
+</div>
+
+<div class="co-overlay" id="coSuccess">
+  <div class="co-success-card">
+    <div class="co-success-icon">✓</div>
+    <div class="co-success-title">Order Confirmed</div>
+    <div class="co-success-msg" id="coSuccessMsg">Prototype only — no charge was made.</div>
+    <button type="button" class="co-success-btn" id="coSuccessBtn">Close</button>
+  </div>
+</div>
+
+<p class="co-foot">Verodus rec checkout · VERO35 · add-on logic in this page · analysis PDF in results/</p>
 
 <script>
 (function () {
   var $ = function (sel) { return document.querySelector(sel); };
 
-  /* List prices already on live checkout (PRICING[plan].sizes[size].price). */
   var PRICING = {
+    instant: {
+      label: 'Instant',
+      sizes: {
+        '5000': { price: 75 }, '10000': { price: 106 }, '25000': { price: 214 },
+        '50000': { price: 368 }, '100000': { price: 675 }
+      }
+    },
     '1step': {
       label: '1-Step',
       sizes: {
@@ -261,15 +500,18 @@
         '5000': { price: 69 }, '10000': { price: 91 }, '25000': { price: 146 },
         '50000': { price: 245 }, '100000': { price: 445 }, '200000': { price: 888 }
       }
-    },
-    instant: {
-      label: 'Instant',
-      sizes: {
-        '5000': { price: 75 }, '10000': { price: 106 }, '25000': { price: 214 },
-        '50000': { price: 368 }, '100000': { price: 675 }
-      }
     }
   };
+
+  var COUNTRIES = [
+    'United States','United Kingdom','Canada','Australia','Germany','France','Spain','Italy',
+    'Netherlands','Belgium','Portugal','Ireland','Sweden','Norway','Denmark','Finland','Poland',
+    'Czechia','Austria','Switzerland','Romania','Hungary','Greece','United Arab Emirates','Saudi Arabia',
+    'Qatar','Kuwait','Bahrain','Oman','India','Pakistan','Bangladesh','Indonesia','Malaysia',
+    'Singapore','Philippines','Thailand','Vietnam','Japan','South Korea','Brazil','Mexico',
+    'Argentina','Chile','Colombia','Peru','South Africa','Nigeria','Kenya','Egypt','Morocco',
+    'Turkey','Ukraine','New Zealand','Hong Kong','Taiwan'
+  ];
 
   var selectedPlan = '2steppro';
   var selectedSize = '100000';
@@ -279,16 +521,11 @@
   var addonModalOpen = false;
   var COMPETITION = null;
   var DISCOUNT_CAP_PCT = 35;
+  var appliedCoupon = { code: 'VERO35', pct: 35 };
+  var paymentMethod = 'card';
 
-  /* Weekly 80% cannot mix with on-demand 80% or 90% split. Those two may both
-     be on — that is the 90% On-Demand bundle. */
   var PAYOUT_UPGRADES = ['on-demand-payout', 'split-90'];
 
-  /* Bundles: when every id is on, charge bundle pct on chargeId; others Incl.
-     Instant 90%+anytime stays 32% (year-1 leftover). Instant 90% solo is 15%
-     (match BG Instant 90% addon). Do not copy BG Instant 15% for 90% with
-     on-demand included — that Instant $100k SKU is a hole.
-     BG evals: 90% +15%, 7-day +15%, both +25%. Verodus evals undercut that. */
   var BUNDLES = [
     {
       name: 'Swing',
@@ -306,7 +543,6 @@
     }
   ];
 
-  /* ═══ PASTE: replace live ADDONS ═══ */
   var ADDONS = [
     {
       id: 'news-trading',
@@ -439,9 +675,7 @@
   function addonDesc(a) {
     var b = activeBundleFor(a.id);
     if (b) {
-      if (a.id === b.chargeId) {
-        return 'Billed as ' + b.name + ' — not as two separate add-ons';
-      }
+      if (a.id === b.chargeId) return 'Billed as ' + b.name + ' — not as two separate add-ons';
       return 'Included in ' + b.name;
     }
     return a.desc;
@@ -461,8 +695,10 @@
   }
 
   function getCouponDiscount() {
+    if (!appliedCoupon) return 0;
     var subtotal = getBasePrice() + getAddonsTotal();
-    return Math.round(subtotal * DISCOUNT_CAP_PCT / 100);
+    var pct = Math.min(appliedCoupon.pct, DISCOUNT_CAP_PCT);
+    return Math.round(subtotal * pct / 100);
   }
 
   function unitPay() {
@@ -535,6 +771,10 @@
     });
   }
 
+  function money(n) {
+    return n % 1 === 0 ? String(n) : n.toFixed(2);
+  }
+
   function updateSummary() {
     var plan = PRICING[selectedPlan];
     var sizeNum = parseInt(selectedSize, 10);
@@ -551,20 +791,22 @@
     $('#sumAddonsWrap').innerHTML = addonsHtml;
 
     var qtyWrap = $('#sumQtyWrap');
-    if (qtyWrap) {
-      qtyWrap.innerHTML = selectedQty > 1
-        ? '<div class="co-summary-addon-row"><span>Accounts</span><span>' + selectedQty + '</span></div>'
-        : '';
-    }
+    qtyWrap.innerHTML = selectedQty > 1
+      ? '<div class="co-summary-addon-row"><span>Accounts</span><span>' + selectedQty + '</span></div>'
+      : '';
 
     var disc = getCouponDiscount() * selectedQty;
-    $('#sumDiscount').textContent = '-$' + disc.toFixed(2);
+    var dWrap = $('#sumDiscountWrap');
+    if (appliedCoupon && disc > 0) {
+      dWrap.innerHTML = '<div class="co-summary-discount"><span>Discount (' + appliedCoupon.code + ')</span><span>-$' + disc.toFixed(2) + '</span></div>';
+    } else {
+      dWrap.innerHTML = '';
+    }
     var total = getTotal();
-    $('#sumTotal').textContent = '$' + (total % 1 === 0 ? total : total.toFixed(2));
+    $('#sumTotal').textContent = '$' + money(total);
   }
 
-  /* Same helper live checkout should use in gaItemsForSelection instead of Math.round(basePrice * a.pct). */
-  function gaAddonItems(planLabel, sizeDisplay, basePrice) {
+  function gaAddonItems(planLabel, sizeDisplay) {
     var items = [];
     ADDONS.forEach(function (a) {
       if (!activeAddons[a.id]) return;
@@ -577,7 +819,7 @@
         item_variant: planLabel + ' ' + sizeDisplay,
         item_brand: 'Verodus',
         price: price,
-        quantity: 1
+        quantity: selectedQty
       });
     });
     return items;
@@ -639,13 +881,15 @@
   }
 
   function renderPlans() {
+    var order = ['instant', '1step', '2steplite', '2steppro'];
     var html = '';
-    Object.keys(PRICING).forEach(function (id) {
+    order.forEach(function (id) {
+      var extra = id === '2steppro' ? ' <span class="co-badge">Popular</span>' : '';
       html += '<button type="button" class="co-tab' + (id === selectedPlan ? ' active' : '') + '" data-plan="' + id + '">'
-        + PRICING[id].label + '</button>';
+        + PRICING[id].label + extra + '</button>';
     });
-    $('#coPlans').innerHTML = html;
-    $('#coPlans').querySelectorAll('.co-tab').forEach(function (btn) {
+    $('#coTabs').innerHTML = html;
+    $('#coTabs').querySelectorAll('.co-tab').forEach(function (btn) {
       btn.addEventListener('click', function () {
         selectedPlan = btn.getAttribute('data-plan');
         if (!PRICING[selectedPlan].sizes[selectedSize]) selectedSize = '100000';
@@ -694,20 +938,118 @@
         updateSummary();
       });
     });
-    var note = $('#coQtyNote');
-    if (note) {
-      note.textContent = 'Up to 4 accounts in one order. Same add-ons on every copy. Each at the VERO35 sale — no extra cut on the 2nd–4th.';
-    }
+    $('#coQtyNote').textContent = 'Up to 4 accounts in one order. Same add-ons on every copy. Each at the VERO35 sale — no extra cut on the 2nd–4th.';
   }
 
-  bindAddonModal();
-  renderPlans();
-  renderSizes();
-  renderQty();
-  renderAddons();
-  updateSummary();
+  function fillCountries() {
+    var sel = $('#co-country');
+    COUNTRIES.forEach(function (c) {
+      var o = document.createElement('option');
+      o.value = c;
+      o.textContent = c;
+      sel.appendChild(o);
+    });
+  }
 
-  /* Sanity: Pro $100k and Instant $100k stickers. */
+  function applyCoupon() {
+    var raw = ($('#coCoupon').value || '').trim().toUpperCase();
+    var fb = $('#coCouponFeedback');
+    if (!raw) {
+      appliedCoupon = null;
+      fb.className = 'co-coupon-feedback err';
+      fb.textContent = 'Enter a coupon code.';
+      updateSummary();
+      return;
+    }
+    if (raw === 'VERO35') {
+      appliedCoupon = { code: 'VERO35', pct: 35 };
+      fb.className = 'co-coupon-feedback ok';
+      fb.textContent = 'VERO35 applied — 35% off challenge and add-ons.';
+    } else {
+      appliedCoupon = null;
+      fb.className = 'co-coupon-feedback err';
+      fb.textContent = 'Unknown code. Use VERO35.';
+    }
+    updateSummary();
+  }
+
+  function validEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  function setInvalid(id, on) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (on) el.classList.add('invalid');
+    else el.classList.remove('invalid');
+  }
+
+  function validateForm() {
+    var ok = true;
+    function req(fieldId, inputId, extra) {
+      var v = (document.getElementById(inputId).value || '').trim();
+      var bad = !v || (extra && !extra(v));
+      setInvalid(fieldId, bad);
+      if (bad) ok = false;
+    }
+    req('field-fname', 'co-fname');
+    req('field-lname', 'co-lname');
+    req('field-phone', 'co-phone');
+    req('field-email', 'co-email', validEmail);
+    req('field-country', 'co-country');
+    req('field-address', 'co-address');
+    req('field-city', 'co-city');
+    req('field-state', 'co-state');
+    req('field-postcode', 'co-postcode');
+    var terms = $('#co-order-terms').checked;
+    if (!terms) ok = false;
+    $('#coPurchaseBtn').disabled = !terms;
+    return ok;
+  }
+
+  function bindForm() {
+    ['co-fname','co-lname','co-phone','co-email','co-country','co-address','co-city','co-state','co-postcode','co-order-terms']
+      .forEach(function (id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('input', function () { validateForm(); });
+        el.addEventListener('change', function () { validateForm(); });
+      });
+    $('#coApplyCoupon').addEventListener('click', applyCoupon);
+    $('#coCoupon').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); applyCoupon(); }
+    });
+    document.querySelectorAll('#coPaymentMethods .co-pm-option').forEach(function (lab) {
+      lab.addEventListener('click', function () {
+        paymentMethod = lab.getAttribute('data-method');
+        document.querySelectorAll('#coPaymentMethods .co-pm-option').forEach(function (x) {
+          x.classList.toggle('active', x === lab);
+        });
+      });
+    });
+    $('#coPurchaseBtn').addEventListener('click', function () {
+      if (!validateForm()) return;
+      var proc = $('#coProcessing');
+      proc.classList.add('open');
+      setTimeout(function () {
+        proc.classList.remove('open');
+        var plan = PRICING[selectedPlan];
+        var addons = ADDONS.filter(function (a) { return activeAddons[a.id]; })
+          .map(function (a) { return addonLabel(a); }).join(', ');
+        $('#coSuccessMsg').textContent = plan.label + ' ' + $('#sumSize').textContent
+          + (addons ? ' · ' + addons : '')
+          + ' · ' + selectedQty + ' account' + (selectedQty > 1 ? 's' : '')
+          + ' · ' + paymentMethod
+          + ' · $' + money(getTotal())
+          + '. Prototype only — no charge was made.';
+        $('#coSuccess').classList.add('open');
+      }, 700);
+    });
+    $('#coSuccessBtn').addEventListener('click', function () {
+      $('#coSuccess').classList.remove('open');
+    });
+  }
+
   window.__addonPriceCheck = function () {
     var savedPlan = selectedPlan, savedSize = selectedSize, saved = JSON.parse(JSON.stringify(activeAddons));
     var byId = {};
@@ -728,6 +1070,8 @@
     activeAddons = { 'on-demand-payout': true, 'split-90': true };
     var od90 = getAddonsTotal();
     selectedPlan = 'instant';
+    activeAddons = { 'weekly-payout': true };
+    var weeklyInst = addonPrice(byId['weekly-payout']);
     activeAddons = { 'on-demand-payout': true };
     var od80Inst = addonPrice(byId['on-demand-payout']);
     activeAddons = { 'split-90': true };
@@ -738,9 +1082,20 @@
     return {
       news: news, weekend: weekend, swing: swing, weekly: weekly,
       onDemand80: od80, split90: split90, onDemand90: od90,
+      weeklyInstant: weeklyInst,
       onDemand80Instant: od80Inst, split90Instant: split90Inst, onDemand90Instant: od90Inst
     };
   };
+
+  bindAddonModal();
+  fillCountries();
+  bindForm();
+  renderPlans();
+  renderSizes();
+  renderQty();
+  renderAddons();
+  updateSummary();
+  validateForm();
 })();
 </script>
 </body>

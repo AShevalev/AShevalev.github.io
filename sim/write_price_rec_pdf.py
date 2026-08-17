@@ -153,7 +153,7 @@ ANCHORS = (
 ADDONS = (
     ("news", "News trading", 0.15),
     ("weekend", "Weekend holding", 0.18),
-    ("weekly", "Weekly 70% split", 0.06),
+    ("weekly", "Weekly 80% split", 0.06),
     ("ondemand", "On-demand 90% split", 0.20),
 )
 
@@ -180,13 +180,13 @@ EXTRA_E = {
 ADDON_REC_PCT = {
     "news": 0.12,
     "weekend": 0.12,
-    "weekly": 0.06,
+    "weekly": 0.08,
     "ondemand": 0.20,
 }
 ADDON_REC_PCT_INSTANT = {
     "news": 0.12,
     "weekend": 0.12,
-    "weekly": 0.06,
+    "weekly": 0.08,
     "ondemand": 0.32,
 }
 
@@ -908,7 +908,7 @@ def addon_suggest_table(skus, s):
     why = {
         "news": "Cut live 15% → 12%. Street often includes eval news.",
         "weekend": "Cut live 18% → 12%. Swing both at 20%, not 24%.",
-        "weekly": "Keep cheap. 70% split is a decoy vs 90%. Street weekly is 5–25%.",
+        "weekly": "80% split at 8% (was 70% @ 6% decoy). Street weekly 5–25%.",
         "ondemand": "Evals 20% undercuts BG both-25%. Instant 32% covers year-1.",
     }
     data = [[P(h, s["th"]) for h in heads]]
@@ -1259,9 +1259,8 @@ def collect_story():
         "People do buy them. Early-book attach (not a CRM forecast): "
         "Instant news 32% / weekend 10% / weekly 8% / on-demand 18% "
         "(~54% take at least one). Lite is cheaper-sensitive (~37%). "
-        "Pro is the popular tab (~57%). Weekly 70% is a worse split than the default 80% "
-        "biweekly — some buyers will not notice; that is fine. "
-        "Checkout currently lets weekly and on-demand stack — make those two exclusive.",
+        "Pro is the popular tab (~57%). Weekly is 80% (same as default) at 8% of list — "
+        "not a 70% decoy. Checkout currently lets weekly and on-demand stack — make those two exclusive.",
         s["body"],
     ))
     story.append(addon_menu_table(s))
@@ -1315,10 +1314,10 @@ def collect_story():
 
     story.append(P("1j. Suggested add-on % (not the challenge fee)", s["h1"]))
     story.append(P(
-        "News 12%, weekend 12%, Swing both 20% (not 24%). Weekly 6% stays a decoy. "
+        "News 12%, weekend 12%, Swing both 20% (not 24%). Weekly 80% at 8% (was 70% @ 6%). "
         "Evals: on-demand 80% 12%, 90% 12%, both 20% (BG evals charge 25% for 90%+7-day). "
-        "Instant: on-demand 80% 15%, 90% 20%, both 32% so year-1 extra E[X] clears. "
-        "Do not copy BG Instant 15% for 90% while speed is free, or FundedNext +5% with 95%. "
+        "Instant: on-demand 80% 15%, 90% solo 15% (match BG Instant 90%), both 32% so year-1 extra E[X] clears. "
+        "Do not copy BG Instant 15% for 90%+anytime, or FundedNext +5% with 95%. "
         "Qty 1–4 at VERO35, no extra copy ladder. Do not refund add-ons on first payout.",
         s["body"],
     ))
