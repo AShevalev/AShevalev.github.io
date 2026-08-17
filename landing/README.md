@@ -35,13 +35,13 @@ Complete trading-objectives page: [`trading-objectives.html`](trading-objectives
 
 Plan-rule pages (live chrome, rec §4 payout copy): [`instant.html`](instant.html), [`1-step.html`](1-step.html), [`2-step-lite.html`](2-step-lite.html), [`2-step-pro.html`](2-step-pro.html). Rebuild with `python3 landing/stitch_plan_pages.py`. Instant also patches valid-day SOD equity, 6% trail never locks, and not-refundable-at-all. Evals keep the first-payout challenge-fee refund and add that add-ons are not refunded. **News is included** on every phase and funded account (not an add-on): the live News Trading Addon SKU, ±2-minute window, and tiered news-breach copy are stripped. Friday 22:00 flatten stays unless Weekend is paid. Minimum reward is **$100** on Bi-Weekly 80%, Weekly 70%, and On Demand 90%.
 
-Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md) and PDF [`../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf`](../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf). Checkout now follows live’s reward SKUs: Weekly 70% at a flat **+$27**, On Demand 90% at **20% of list**. News is included (no SKU).
+Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md) and PDF [`../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf`](../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf). Checkout now follows live’s reward SKUs: Weekly 70% at **6% of list**, On Demand 90% at **20% of list**. News is included (no SKU).
 
 Reward cycles for Instant, 1-Step, Lite, and Pro:
 
 | Cycle | Split | Request | Min | Checkout |
 |---|---|---|---|---|
-| Weekly Rewards with 70% Reward Split | **70%** | every 7 calendar days | $100 | add-on, **+$27** flat |
+| Weekly Rewards with 70% Reward Split | **70%** | every 7 calendar days | $100 | add-on, **6%** of list |
 | **Bi-Weekly (default)** | **80%** | every **14** calendar days | $100 | not a toggle |
 | On Demand Rewards with 90% Split | **90%** | Anytime after plan min days | $100 | add-on, **20%** of list |
 
@@ -55,7 +55,7 @@ First payout: Instant min $100 after 5 valid days; evals min $100 after 3 tradin
 
 BG Instant Standard **includes** on-demand at **80%**. The 90% add-on is **+15%** of the challenge fee. Evals: 90% **+15%**, 7-day **+15%**, **both +25%** (save 5pp). Checkout.blueguardian.com Instant $100k list $623 → 7-day $93.45 / 90% $93.45 / both $155.75.
 
-Verodus Instant default is **biweekly 80%**, so Weekly 70% and On Demand 90% are paid add-ons. Rec matches live On Demand at **20% of list**. Weekly is a flat **+$27** on every SKU (not live’s 6% of list).
+Verodus Instant default is **biweekly 80%**, so Weekly 70% and On Demand 90% are paid add-ons. Rec matches live: Weekly 70% at **6% of list**, On Demand 90% at **20% of list**.
 
 ### Locked billing
 
@@ -64,12 +64,12 @@ Verodus Instant default is **biweekly 80%**, so Weekly 70% and On Demand 90% are
 | News trading | **included** | **included** | Not an add-on. Allowed on evals and funded. |
 | Weekend holding | 15% | 15% | Friday flatten off. Street live was 18% |
 | Swing | **drop** | **drop** | News is already in the fee; do not charge 20% |
-| Weekly Rewards with 70% Reward Split | **+$27** | **+$27** | Withdraw your profit share weekly. Same flat on every size. |
+| Weekly Rewards with 70% Reward Split | **6%** | **6%** | Withdraw your profit share weekly. Same % on every size. |
 | On Demand Rewards with 90% Split | **20%** | **20%** | Withdraw anytime after the plan trading-day rule. Min $100. |
 
-Weekend / On Demand sticker = `Math.round(list * pct)`. Weekly is `flat: 27`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.
+Sticker = `Math.round(list * pct)`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.
 
-Pro $100k ($475): weekend $71 / weekly $27 / On Demand 90% $95. Instant $100k ($675): weekend $101 / weekly $27 / On Demand 90% $135. News is included (no sticker). Swing is dropped.
+Pro $100k ($475): weekend $71 / weekly $29 / On Demand 90% $95. Instant $100k ($675): weekend $101 / weekly $41 / On Demand 90% $135. News is included (no sticker). Swing is dropped.
 
 ### Multi-account (up to 4)
 
@@ -89,7 +89,7 @@ Instant and Lite cannot fund a visible extra %. A 10% extra on Instant $100k cop
 Paste into `checkout.html`:
 
 1. Keep `#coSectionAddons` / `#coAddons` markup — it is unchanged.
-2. Replace `var ADDONS = [...]` with the `ADDONS` block (Weekend 15%, Weekly 70% +$27, On Demand 90% at 20%). Add `QTY_MAX = 4` and the Accounts tabs (`#coQty`).
-3. Replace `addonPrice`, `renderAddons`, and `getAddonsTotal` with `addonPct` / `addonPrice` (honors `a.flat`) / `addonPriceTag` / `applyAddonToggle` / the new `renderAddons`. Weekly and On Demand may both be on.
+2. Replace `var ADDONS = [...]` with the `ADDONS` block (Weekend 15%, Weekly 70% at 6%, On Demand 90% at 20%). Add `QTY_MAX = 4` and the Accounts tabs (`#coQty`).
+3. Replace `addonPrice`, `renderAddons`, and `getAddonsTotal` with `addonPct` / `addonPrice` / `addonPriceTag` / `applyAddonToggle` / the new `renderAddons`. Weekly and On Demand may both be on.
 4. Cart total = `unitPay() × qty`. Summary addon rows and GA item `price` must call `addonPrice(a)`. Skip `$0` GA lines (`Incl.` bundle members).
 5. Optional: modal foot copy that add-on fees are not part of the first-payout challenge-fee refund. Tooltips stay product/rules — no “X% of list” copy.

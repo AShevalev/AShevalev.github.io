@@ -140,7 +140,7 @@ def build_rules():
     ))
     story.append(P(
         "Shared: unlimited time · 30-day inactivity · $100 minimum reward on every cycle · "
-        "default Bi-Weekly 80% every 14 calendar days. Weekly 70% (+$27) and On Demand 90% (20% of list) are paid add-ons.",
+        "default Bi-Weekly 80% every 14 calendar days. Weekly 70% (6% of list) and On Demand 90% (20% of list) are paid add-ons.",
         s["tiny"],
     ))
     write_pdf(
@@ -196,7 +196,7 @@ def build_prices():
     menu = (
         ("News trading", "permitted", "permitted"),
         ("Weekend holding", "15%", "15%"),
-        ("Weekly Rewards with 70% Reward Split", "+$27", "+$27"),
+        ("Weekly Rewards with 70% Reward Split", "6%", "6%"),
         ("On Demand Rewards with 90% Split", "20%", "20%"),
         ("Swing", "not offered", "not offered"),
     )
@@ -228,7 +228,7 @@ def build_prices():
     ], spec))
     story.append(Spacer(1, 3 * mm))
     story.append(P(
-        "Default is Bi-Weekly 80%. Weekly is +$27 on every size. On Demand 90% is 20% of list. "
+        "Default is Bi-Weekly 80%. Weekly 70% is 6% of list. On Demand 90% is 20% of list. "
         "Weekly and On Demand may stack. Shopper pays 65% of each sticker after VERO35.",
         s["tiny"],
     ))

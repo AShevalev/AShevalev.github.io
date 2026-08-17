@@ -44,7 +44,7 @@
   var paymentMethod = 'card';
 
   /* Default reward is Bi-Weekly 80% (not a toggle). News is included (no SKU).
-     Weekly 70% is a paid add-on at a flat +$27. On Demand is 90% at 20% of list. */
+     Weekly 70% is 6% of list. On Demand is 90% at 20% of list. */
   var PAYOUT_UPGRADES = [];
   var BUNDLES = [];
 
@@ -61,7 +61,7 @@
     {
       id: 'weekly-payout',
       label: 'Weekly Rewards with 70% Reward Split',
-      flat: 27,
+      pct: 0.06,
       desc: 'Withdraw your profit share weekly',
       tooltip: function () {
         return 'Weekly Rewards with 70% Reward Split\n\nReceive your 70% reward share every week. Default is Bi-Weekly 80%. Minimum reward $100.\n\n'

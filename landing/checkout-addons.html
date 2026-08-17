@@ -13,7 +13,7 @@
      loop in updateSummary, and the addon price in gaItemsForSelection
      with the helpers below (BUNDLES / addonPct / addonPrice / addonPriceTag /
      applyAddonToggle). Reward cycles: default Bi-Weekly 80% / 14 calendar
-     days / $100 (not a toggle). Weekly 70% is a paid add-on at a flat +$27.
+     days / $100 (not a toggle). Weekly 70% is 6% of list.
      On Demand 90% @ 20% of list. News is included (no SKU).
      Weekend is the paid holding add-on. Accounts 1–4 at VERO35 (no extra copy
      ladder). Tooltips are product/rules only — no fee %. Complete page: checkout.html.
@@ -180,7 +180,7 @@
 <body>
 <div class="checkout-page">
   <h1>Add-Ons</h1>
-  <p class="co-note">Same checkout classes. Default reward cycle is Bi-Weekly 80% every 14 calendar days, min $100 — not an add-on. Weekly Rewards with 70% Reward Split is +$27. On Demand Rewards with 90% Split is 20% of list. News is included on every account; Weekend Holding is the paid add-on. Up to 4 accounts in one order; each at VERO35, no extra cut on copies. Instant leftover cannot fund Blue Guardian’s 30/35/40% copy ladder, and Lite is almost as thin. No 5th free.</p>
+  <p class="co-note">Same checkout classes. Default reward cycle is Bi-Weekly 80% every 14 calendar days, min $100 — not an add-on. Weekly Rewards with 70% Reward Split is 6% of list. On Demand Rewards with 90% Split is 20% of list. News is included on every account; Weekend Holding is the paid add-on. Up to 4 accounts in one order; each at VERO35, no extra cut on copies. Instant leftover cannot fund Blue Guardian’s 30/35/40% copy ladder, and Lite is almost as thin. No 5th free.</p>
   <div class="checkout-container">
     <div class="checkout-form-col">
       <div class="co-section">
@@ -282,7 +282,7 @@
   var DISCOUNT_CAP_PCT = 35;
 
   /* Default reward is Bi-Weekly 80% (not a toggle). News is included (no SKU).
-     Weekly 70% is a paid add-on at a flat +$27. On Demand is 90% at 20% of list. */
+     Weekly 70% is 6% of list. On Demand is 90% at 20% of list. */
   var PAYOUT_UPGRADES = [];
   var BUNDLES = [];
 
@@ -300,7 +300,7 @@
     {
       id: 'weekly-payout',
       label: 'Weekly Rewards with 70% Reward Split',
-      flat: 27,
+      pct: 0.06,
       desc: 'Withdraw your profit share weekly',
       tooltip: function () {
         return 'Weekly Rewards with 70% Reward Split\n\nReceive your 70% reward share every week. Default is Bi-Weekly 80%. Minimum reward $100.\n\n'
@@ -658,7 +658,7 @@
   renderAddons();
   updateSummary();
 
-  /* Sanity: weekly is a flat +$27. On Demand 90% is 20% of list. */
+  /* Sanity: weekly is 6% of list. On Demand 90% is 20% of list. */
   window.__addonPriceCheck = function () {
     var savedPlan = selectedPlan, savedSize = selectedSize, saved = JSON.parse(JSON.stringify(activeAddons));
     var byId = {};

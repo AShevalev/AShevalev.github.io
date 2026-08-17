@@ -27,7 +27,7 @@ Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may
 
 
 ========================================================================
-Section: Weekly Rewards with 70% Reward Split  (+$27)
+Section: Weekly Rewards with 70% Reward Split  (6% of list)
 ========================================================================
 
 Row copy: Withdraw your profit share weekly
