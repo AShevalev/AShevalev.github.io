@@ -29,15 +29,23 @@ JS: `plan-fees.js` — `[sale, list]`. Instant $200k is omitted on purpose.
 
 Complete working page: [`checkout.html`](checkout.html). Chrome (nav, footer, CSS, icons, payment marks, mobile breakpoints) is loaded from [verodus.com/checkout.html](https://www.verodus.com/checkout.html). Quantity sits in the order summary like Blue Guardian (`1st Account` … `4th Account`), not as a left-column section. US-citizen term is removed. Rebuild with `python3 landing/stitch_checkout.py`.
 
-Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md) and PDF [`../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf`](../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf). 90% street is 10–20% of fee (Alpha 10, BG 15, FXIFY 20). Rec evals sit in that band; Instant 32% for 90%+anytime is the year-1 floor, not a street match.
+Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md) and PDF [`../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf`](../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf). 90% street is 10–20% of fee (Alpha 10, BG 15, FXIFY 20). Rec evals sit in that band; Instant 32% for On Demand 90% is the year-1 floor, not a street match.
 
-Attractiveness pass (locked): Weekly is **80% split at 8%** (was 70% @ 6%). Instant 90% **solo is 15%** (was 20%) to match Blue Guardian Instant 90%. Do **not** drop Instant 90%+anytime below 32%.
+Reward cycles match [trading-objectives](https://www.verodus.com/trading-objectives.html) for Instant, 1-Step, Lite, and Pro:
+
+| Cycle | Split | Request | Min | Checkout |
+|---|---|---|---|---|
+| Weekly | 70% | every 7 calendar days | $100 | add-on, 6% of list |
+| **Bi-Weekly (default)** | **80%** | every **14** calendar days | $100 | not a toggle |
+| On Demand | 90% | Anytime | 2% and $200 | add-on, 20% evals / **32% Instant** |
+
+First payout: min $100 after 3 trading days (within 48 hrs). Intervals are calendar days. Weekly **XOR** On Demand.
 
 ### Blue Guardian (do not copy Instant 15%)
 
 BG Instant Standard **includes** on-demand at **80%**. The 90% add-on is **+15%** of the challenge fee. Evals: 90% **+15%**, 7-day **+15%**, **both +25%** (save 5pp). Checkout.blueguardian.com Instant $100k list $623 → 7-day $93.45 / 90% $93.45 / both $155.75.
 
-Verodus Instant default is **biweekly 80%**, so speed is a paid add-on. Do **not** sell Instant 90% + anytime at BG’s 15% — year-1 extra E[X] is ~41% of BE ($116 on Instant $100k). After VERO35 and 20% ads, 15% of $675 leaves ~$53 vs $116 cost.
+Verodus Instant default is **biweekly 80%**, so speed+90% is a paid add-on. Do **not** sell Instant On Demand 90% at live’s 20% or BG’s 15% — year-1 extra E[X] is ~41% of BE ($116 on Instant $100k). After VERO35 and 20% ads, 15% of $675 leaves ~$53 vs $116 cost.
 
 ### Locked billing
 
@@ -46,14 +54,12 @@ Verodus Instant default is **biweekly 80%**, so speed is a paid add-on. Do **not
 | News trading | 12% | 12% | Funded news window off |
 | Weekend holding | 12% | 12% | Friday flatten off |
 | **Swing** (both) | **20%** | **20%** | Not 12+12. Weekend `Incl.` |
-| Weekly rewards | 8% | 8% | Every 7 days, **80%** split (same as default). XOR on-demand and 90% |
-| On-demand (80%) | 12% | **15%** | Anytime, keep 80%. BG Instant includes this; we charge because default is biweekly |
-| 90% split | 12% | **15%** | Keep biweekly unless on-demand is also on. Instant 15% matches BG Instant 90% solo |
-| **90% On Demand** (both) | **20%** | **32%** | Not 12+12 / 15+15. 90% row `Incl.` |
+| Weekly 70% | 6% | 6% | Every 7 calendar days, min $100. XOR On Demand |
+| On Demand 90% | 20% | **32%** | Anytime, min 2% and $200. Instant 32% is the year-1 floor |
 
-Weekly **XOR** on-demand and 90% — never with either. On-demand and 90% **may both be on** (that is the bundle). Sticker = `Math.round(list * pct)`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.
+Sticker = `Math.round(list * pct)`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.
 
-Pro $100k ($445): news $53 / weekend $53 / Swing $89 / weekly $36 / on-demand 80% $53 / 90% $53 / 90% On Demand $89. Instant $100k ($675): weekly $54 / on-demand 80% $101 / 90% $101 / 90% On Demand $216 / Swing $135.
+Pro $100k ($445): news $53 / weekend $53 / Swing $89 / weekly $27 / On Demand 90% $89. Instant $100k ($675): weekly $41 / On Demand 90% $216 / Swing $135.
 
 ### Multi-account (up to 4)
 

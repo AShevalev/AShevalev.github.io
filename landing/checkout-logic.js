@@ -43,7 +43,8 @@
   var appliedCoupon = { code: 'VERO35', pct: 35 };
   var paymentMethod = 'card';
 
-  var PAYOUT_UPGRADES = ['on-demand-payout', 'split-90'];
+  /* Weekly 70% XOR On Demand 90%. Default (neither on) is Bi-Weekly 80%. */
+  var PAYOUT_UPGRADES = ['on-demand-payout'];
 
   var BUNDLES = [
     {
@@ -52,13 +53,6 @@
       chargeId: 'news-trading',
       pct: 0.20,
       summaryLabel: 'News Trading'
-    },
-    {
-      name: '90% On Demand',
-      ids: ['on-demand-payout', 'split-90'],
-      chargeId: 'on-demand-payout',
-      pct: function () { return selectedPlan === 'instant' ? 0.32 : 0.20; },
-      summaryLabel: 'On Demand Rewards with 90% Split'
     }
   ];
 
@@ -92,33 +86,18 @@
     },
     {
       id: 'weekly-payout',
-      label: 'Weekly Rewards',
-      pct: 0.08,
-      desc: 'Withdraw your 80% profit share every week',
-      tooltip: 'Weekly Rewards\n\nReceive your 80% reward share every week — consistent payouts on a reliable schedule. Get your first payout as early as you meet the funded phase requirements (minimum $100). Enjoy steady weekly cash flow so you can trade with confidence and keep what you earn on a predictable timeline.\n\nCannot be combined with On Demand Rewards or the 90% Reward Split.'
+      label: 'Weekly Rewards with 70% Reward Split',
+      pct: 0.06,
+      desc: 'Withdraw your 70% profit share every 7 calendar days',
+      tooltip: 'Weekly Rewards with 70% Split\n\nReceive your 70% reward share every week — consistent payouts on a reliable schedule. Request every 7 calendar days, not trading days. Minimum reward $100.\n\nGet your first payout as early as you meet the funded phase requirements: minimum $100 after 3 trading days (processed within 48 hours).\n\nDefault without this add-on is Bi-Weekly at 80% every 14 calendar days, minimum $100.\n\nCannot be combined with On Demand Rewards.'
     },
     {
       id: 'on-demand-payout',
-      label: 'On Demand Rewards',
-      pct: 0.12,
-      instantPct: 0.15,
-      desc: 'Withdraw your 80% profit share anytime — no waiting for fixed cycles',
-      tooltip: function () {
-        return 'Request and receive your 80% reward share anytime — no waiting for fixed cycles. Get your first payout as early as you meet the funded phase requirements (minimum $100). Withdraw whenever you want, as often as you want.\n\n'
-          + 'Cannot be combined with Weekly Rewards.\n\n'
-          + 'Pair with 90% Reward Split to withdraw a 90% share on demand.';
-      }
-    },
-    {
-      id: 'split-90',
-      label: '90% Reward Split',
-      pct: 0.12,
-      instantPct: 0.15,
-      desc: 'Keep 90% of profits on the default payout schedule',
-      tooltip: function () {
-        return 'Keep 90% of profits on the default payout schedule. Get your first payout as early as you meet the funded phase requirements. Pair with On Demand Rewards to withdraw that 90% share anytime (minimum reward 2% and $200).\n\n'
-          + 'Cannot be combined with Weekly Rewards.';
-      }
+      label: 'On Demand Rewards with 90% Split',
+      pct: 0.20,
+      instantPct: 0.32,
+      desc: 'Withdraw your 90% profit share anytime — no waiting for fixed cycles',
+      tooltip: 'On Demand Rewards with 90% Split\n\nRequest and receive your 90% reward share anytime — no waiting for fixed cycles. Minimum reward 2% and $200. Performance scaling is required for the 90% split.\n\nGet your first payout as early as you meet the funded phase requirements: minimum $100 after 3 trading days (processed within 48 hours).\n\nDefault without this add-on is Bi-Weekly at 80% every 14 calendar days, minimum $100.\n\nCannot be combined with Weekly Rewards.'
     }
   ];
 
