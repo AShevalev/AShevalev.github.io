@@ -17,6 +17,7 @@ Monte Carlo pricing for [Verodus](https://www.verodus.com/) against the top 20 f
 - **Plans and rules (simple PDF):** [`results/Verodus_Plans_and_Rules_2026-08-17.pdf`](results/Verodus_Plans_and_Rules_2026-08-17.pdf)
 - **Pricing catalogue (simple PDF):** [`results/Verodus_Pricing_Catalogue_2026-08-17.pdf`](results/Verodus_Pricing_Catalogue_2026-08-17.pdf)
 - **Add-on percentages (simple PDF):** [`results/Verodus_Addon_Percentages_2026-08-17.pdf`](results/Verodus_Addon_Percentages_2026-08-17.pdf)
+- **BE / 20% / 40% / 60% / Sale m (new prices + add-on %):** [`results/Verodus_BE_20_40_60_Margins_2026-08-17.pdf`](results/Verodus_BE_20_40_60_Margins_2026-08-17.pdf)
 - **Challenge catalog (sale + list):** [`results/CHALLENGE_CATALOG.md`](results/CHALLENGE_CATALOG.md) · [`results/Verodus_Challenge_Catalog_2026-08-17.pdf`](results/Verodus_Challenge_Catalog_2026-08-17.pdf)
 - **Margins on the new prices + add-ons (PDF):** [`results/Verodus_Margins_Pricing_Addons_2026-08-17.pdf`](results/Verodus_Margins_Pricing_Addons_2026-08-17.pdf)
 - **Catalog: prices, rules, add-on % (PDF):** [`results/Verodus_Catalog_Rules_Addon_Pct_2026-08-17.pdf`](results/Verodus_Catalog_Rules_Addon_Pct_2026-08-17.pdf)

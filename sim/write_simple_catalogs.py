@@ -295,6 +295,8 @@ def build():
     build_rules()
     build_prices()
     build_addons()
+    from write_be_margin_card import build as build_be
+    build_be()
 
 
 if __name__ == "__main__":

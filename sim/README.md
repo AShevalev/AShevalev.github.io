@@ -29,7 +29,8 @@ PYTHONPATH=sim python sim/run.py --n-sims 4000
 | `write_complete_report.py` | One operator report (P(pay) audit + BE $ + margins) → `results/Verodus_Complete_Report_2026-08-16.pdf` |
 | `write_confirmed_book.py` | Confirmed summary + all rank / industry / rec tables → `results/Verodus_Confirmed_Book_2026-08-16.pdf` |
 | `write_challenge_catalog.py` | Shopper catalog (rec sale + list, Lite funded 8%) → `results/Verodus_Challenge_Catalog_2026-08-17.pdf` |
-| `write_simple_catalogs.py` | Three simple PDFs: plans+rules, pricing catalogue (sale/list), add-on percentages |
+| `write_simple_catalogs.py` | Simple PDFs: plans+rules, pricing catalogue, add-on %, BE/20/40/60/Sale m |
+| `write_be_margin_card.py` | Challenge + add-on BE, 20%, 40%, 60%, Sale m on the 17 Aug card |
 | `write_addon_catalog.py` | Add-on % + stickers per SKU → `results/Verodus_Addon_Catalog_2026-08-17.pdf` |
 | `write_addon_pct_pdf.py` | Profitable-but-competitive add-on % + BE leftover → `results/Verodus_Addon_Pct_BE_2026-08-17.pdf` |
 | `write_new_pack.py` | Margins PDF + catalog (prices, rules, add-on %) on the 17 Aug card |
