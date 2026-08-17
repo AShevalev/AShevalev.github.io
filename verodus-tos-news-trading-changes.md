@@ -4,7 +4,7 @@
 
 1. News trading is allowed in every phase (evaluation, Instant, and Qualified Performance / funded). Remove the ±2-minute high-impact window, the tiered breach model, and the News Trading Addon exemption.
 2. **Delete Section 8(h)** — the “50% of profits must come from trades held longer than 2 minutes” payout test. Do not keep it as a payout rule. Keep the HFT / tick-scalp / latency-arb / rollover-abuse bans already in Restricted Trading Practices (Terms 9(b) / plan-page Section 6).
-3. **On-demand minimum is $100 only.** Drop the extra “2% of account balance” gate and the $200 floor. Weekly / bi-weekly already use $100; on-demand matches that.
+3. **On-demand minimum is $100**, and it **still must meet the minimum trading days for that evaluation**. Drop the extra “2% of account balance” gate and the $200 floor. Do not write “at any time” in a way that skips days.
 
 **Primary file:** `https://www.verodus.com/terms.html`  
 **English copy source:** `/locales/en/pages/terms.json`  
@@ -261,33 +261,51 @@ Add one sentence to every card so the hub matches TOS. Do not mention a 2-minute
 
 Instant card (`content.p7`) after that sentence, still keep: `Sizes $5,000–$100,000 — no $200,000 Instant account.`
 
-### On-demand minimum: drop 2% and $200, use $100 only
+### On-demand minimum: $100, plus that evaluation’s minimum trading days
 
-Old rule (two gates): net profit **> $200 and > 2%** of account balance.  
-New rule (one gate): net profit **> $100** since last reward.
+Old rule (two money gates, reads as skipping days): net profit **> $200 and > 2%**, “available at any time.”  
+New rule: net profit **> $100** since last reward, **and** the trader has met the **minimum number of trading days for that evaluation**. On-demand does not skip days.
+
+Do not write “available at any time” without the day requirement. The existing Eligibility bullet (3 trading days since QPP / last payout, plus one closed profitable trade) stays. On-demand adds $100 on top of that plan’s day rule — it does not replace it.
+
+Per-plan day floor (do not invent a new number; use the one already on that page):
+
+| Evaluation | Minimum trading days on-demand must still meet |
+|---|---|
+| Instant | 5 valid trading days (each +0.5% of that day’s start-of-day equity) before first reward; then the published days-between-rewards rule |
+| 1-Step | Evaluation has no min days; QPP still needs the published 3 trading days since account / last payout |
+| 2-Step Lite | 5 trading days in evaluation; QPP still needs the published 3 trading days since account / last payout |
+| 2-Step Pro | 5 trading days in evaluation; QPP still needs the published 3 trading days since account / last payout |
 
 | File | Keys / HTML | Current | Replace with |
 |---|---|---|---|
-| `1-step.html` | `content.li25`, `content.li26`, `content.span22` | `Net profit > $200, and` / `Net profit > 2% of your account balance.` | Single condition: `Net profit > $100 since your last reward.` |
+| `1-step.html` | `content.li25`, `content.li26`, `content.span22` | `Available at any time if both conditions… Net profit > $200, and` / `Net profit > 2%…` | `$100` **and** that evaluation’s min trading days (see paste below) |
 | `2-step-lite.html` | `content.li21`, `content.li22`, `content.span18` | same | same |
 | `2-step-pro.html` | `content.li21`, `content.li22`, `content.span18` | same | same |
-| `instant.html` | `content.li27`, `content.li28`, `content.span53` | same two-gate list | same $100-only |
-| `trading-objectives.html` | `content.span22` | `2% and $200` | `$100` |
-| `performance-reward.html` | `content.p12` | `Available if >$200 and >2% profit since last reward` | `Available if >$100 profit since last reward` |
-| `faq-qualified-trader.html` | `content.p9` | `A fixed $100 profit threshold is required for bi-weekly rewards. On-demand rewards require a fixed $200 profit threshold.` | `A fixed $100 profit threshold is required for bi-weekly and on-demand rewards.` |
-| `faq-qualified-trader.html` | hardcoded `<ul>` under “How do on-demand payouts work?” (not in locale JSON) | `Minimum $200 profit` / `Greater than 2% gain since starting balance` | one bullet: `Minimum $100 profit` |
-| `faq-qualified-trader.html` | JSON-LD `acceptedAnswer` for the minimum-target question | `$200 profit threshold` | `$100` for on-demand too |
+| `instant.html` | `content.li27`, `content.li28`, `content.span53` | same two-gate list | same, Instant still needs 5 valid days |
+| `trading-objectives.html` | `content.span22` | `2% and $200` | `$100` (keep `span21` “Anytime” as the cycle label vs weekly/bi-weekly — days still apply) |
+| `performance-reward.html` | `content.p12` | `Available if >$200 and >2% profit since last reward` | `Available if >$100 profit and the minimum trading days for that evaluation are met` |
+| `faq-qualified-trader.html` | `content.p9` | bi-weekly $100; on-demand $200 | `$100` for bi-weekly **and** on-demand; on-demand still requires that evaluation’s min trading days |
+| `faq-qualified-trader.html` | hardcoded `<ul>` under “How do on-demand payouts work?” | `Minimum $200 profit` / `Greater than 2% gain since starting balance` | `$100` **and** min trading days (see FAQ list below) |
+| `faq-qualified-trader.html` | JSON-LD for the minimum-target and on-demand questions | `$200` / “at any time” without days | same two conditions |
+| Plan pages Eligibility bullets | `1-step` `li21`/`span19`; lite/pro `li17`/`span15`; instant `li23`/`span47` | 3 trading days + one profitable trade | **Keep.** Do not delete. On-demand does not override this. |
 
 **Ready-to-paste on-demand bullet (plan pages):**
 
 ```text
-On-Demand (Selected Add-on): Available at any time if net profit > $100 since your last reward.
+On-Demand (Selected Add-on): Available when net profit > $100 since your last reward and you have met the minimum number of trading days for that evaluation. On-demand does not skip the trading-day requirement.
 ```
 
 **Ready-to-paste Instant HTML (`content.span53` / `li27`):**
 
 ```html
-<strong>On-Demand (Selected Add-on):</strong> Available at any time if net profit &gt; $100 since your last reward.
+<strong>On-Demand (Selected Add-on):</strong> Available when net profit &gt; $100 since your last reward and you have met the minimum number of trading days for that evaluation (Instant: 5 valid trading days at +0.5% before the first reward). On-demand does not skip the trading-day requirement.
+```
+
+**Ready-to-paste FAQ `content.p9`:**
+
+```text
+A fixed $100 profit threshold is required for bi-weekly and on-demand rewards. On-demand still requires the minimum number of trading days for that evaluation.
 ```
 
 **Ready-to-paste FAQ on-demand list:**
@@ -295,10 +313,17 @@ On-Demand (Selected Add-on): Available at any time if net profit > $100 since yo
 ```html
 <ul>
     <li>Minimum $100 profit</li>
+    <li>Minimum number of trading days for that evaluation (does not skip the published trading-day requirement)</li>
 </ul>
 ```
 
-Leave **Minimum Reward: $100** on weekly/bi-weekly as-is. Leave **$200K** account-size buttons as-is.
+**Ready-to-paste `performance-reward.html` `content.p12`:**
+
+```text
+Available if >$100 profit and the minimum trading days for that evaluation are met
+```
+
+Leave **Minimum Reward: $100** on weekly/bi-weekly as-is. Leave **$200K** account-size buttons as-is. Leave Eligibility (3 trading days between rewards) as-is.
 
 ### Plan-page leftovers (same news / 8(h) pass)
 
@@ -362,8 +387,8 @@ On-demand $100 keys:
 
 - Plan pages: `1-step` `li25`/`li26`/`span22`; `2-step-lite` and `2-step-pro` `li21`/`li22`/`span18`; `instant` `li27`/`li28`/`span53`
 - `trading-objectives` `content.span22` → `$100`
-- `performance-reward` `content.p12` → `Available if >$100 profit since last reward`
-- `faq-qualified-trader` `content.p9` plus the hardcoded `$200` / `2%` list in the HTML
+- `performance-reward` `content.p12` → `Available if >$100 profit and the minimum trading days for that evaluation are met`
+- `faq-qualified-trader` `content.p9` plus the hardcoded `$200` / `2%` list in the HTML — $100 **and** min trading days
 - `faq-plans` `content.p1`, `p3`, `p5`, `p7` — append news-included / no minimum holding time
 
 After deploy, bump cache if needed (`last-modified` on `terms.html`) and re-check a non-English language so Weglot / `/locales` is not still serving the old restriction.
