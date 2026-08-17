@@ -8,7 +8,7 @@ There are three hosts. Only **Dashboard** is the installed app.
 |---|---|
 | `https://dashboard.verodus.com` | The app. Install here. All CRM routes stay here. |
 | `https://www.verodus.com` | Marketing site only. Pills open a modal. Do **not** make this a PWA. |
-| `https://trade.verodus.com` | TradeHub + Platform 5. Never open at the top level from the installed app. Iframe from Dashboard. |
+| `https://trade.verodus.com` | TradeHub + Platform 5. On Chrome / Edge, iframe from Dashboard (never a top-level jump from the installed app). On Safari for Mac, open at the top level — there is no URL bar. |
 
 Chrome’s X / URL / “Verodus CRM” strip appears when the **top-level** URL changes host (`www` ↔ `dashboard` ↔ `trade`). CSS cannot hide it. Same-origin Dashboard routes are fine.
 
@@ -18,7 +18,7 @@ Chrome’s X / URL / “Verodus CRM” strip appears when the **top-level** URL 
 
 - Do not link landing pills to Play Store or App Store.
 - Do not install a PWA from `www.verodus.com` (no landing `manifest`, no landing `sw.js`). That makes Dashboard look like a website.
-- Do not use `href="https://trade.verodus.com/..."`, `target="_blank"`, or `window.open` for Platform 5 / TradeHub.
+- Do not use `href="https://trade.verodus.com/..."`, `target="_blank"`, or `window.open` for Platform 5 / TradeHub **on Chrome / Edge**. Use `/p5/{id}` and `/tradehub/{id}` so Dashboard can iframe them. Safari on a Mac is handled in `PlatformFrame` (top-level trade is OK).
 - Do not set a PWA `start_url` that contains an account cuid.
 - Do not iframe the CRM around Google login. OAuth stays on `dashboard.verodus.com`.
 
@@ -213,7 +213,7 @@ If trade is Cloudflare / nginx / a Node server, set the same header there.
 
 1. Uninstall old Verodus / “Verodus CRM” home-screen icons.
 2. **www.verodus.com** — tap **for android** / **for iOS** → modal with Dashboard → Trading Resources → Platforms. **Open dashboard**.
-3. Sidebar: **Trading Resources → Platforms**. Install Android, Mobile, or Desktop (Chrome toolbar Install also works while the tab is on dashboard).
+3. Sidebar: **Trading Resources → Platforms**. Install **Android**, **Mobile**, **Desktop**, or **Safari** (Chrome toolbar Install also works while the tab is on dashboard).
 4. Open the installed app: Dashboard, Accounts, Journal — **no** X / URL strip.
 5. Platform5, then TradeHub — **no** strip. Address stays `https://dashboard.verodus.com/p5/...` or `/tradehub/...`.
 6. iPhone: Safari on **dashboard.verodus.com/trading-resources/platforms** → Share → Add to Home Screen. Not on the marketing site.

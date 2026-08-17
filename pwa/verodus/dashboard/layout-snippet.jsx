@@ -1,7 +1,9 @@
 /**
- * Copy into dashboard app/layout.jsx (or the root layout that wraps Dashboard).
- * Apple tags + manifest belong in <head>; InAppLaunches rewrites TradeHub / P5 clicks.
+ * Merge into dashboard app/layout.jsx (or app/layout.tsx).
+ * Apple tags + manifest belong in <head>; InAppLaunches rewrites leftover
+ * TradeHub / P5 clicks. /js/install.js registers the service worker.
  */
+import Script from "next/script";
 import InAppLaunches from "@/components/InAppLaunches";
 
 export const metadata = {
@@ -26,13 +28,13 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="/css/install.css" />
+      </head>
       <body>
         <InAppLaunches />
         {children}
-        {/* In the real layout also load:
-            <link rel="stylesheet" href="/css/install.css" />
-            <script src="/js/install.js" />
-            for Trading Resources → Platforms. */}
+        <Script src="/js/install.js" strategy="afterInteractive" />
       </body>
     </html>
   );
