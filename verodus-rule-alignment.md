@@ -23,11 +23,16 @@ Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` except 
 
 ### Rewards
 - **$100** minimum for **weekly, bi-weekly, and on-demand**.
-- On-demand still must meet **that evaluation’s minimum trading days**. It does not skip days. Do not write “at any time” without the day clause.
-- **QPP days between rewards (all plans):** 3 trading days since the Qualified Performance account or last payout, **and** one closed profitable trade.
-- **Instant extra (first reward only):** 5 valid trading days, each +0.5% net vs that day’s start-of-day equity, **then** the 3-day eligibility above.
-- **1-Step evaluation:** no minimum trading days to pass.
-- **2-Step Lite / Pro evaluation:** 5 trading days per phase.
+- **First and subsequent payouts are the same.** No “first after X days, later after Y.” Every request must meet **that plan’s minimum trading days** **and** the **selected cycle**.
+- Plan mins (same for every payout on that plan):
+  - **Instant:** 5 valid trading days, each +0.5% net vs that day’s start-of-day equity
+  - **1-Step:** no minimum trading days
+  - **2-Step Lite / Pro:** 5 trading days
+- Cycle (same for the first payout and every payout after):
+  - **Weekly:** 7 calendar days since the account start or last reward
+  - **Bi-weekly:** 14 calendar days since the account start or last reward
+  - **On-demand:** `$100` since last reward **and** the plan min trading days. Does not skip days. Do not write “at any time” without the day clause.
+- Do not add a third clock (e.g. “3 trading days between payouts” or “first payout after 4 days”). Plan min + cycle is the whole rule.
 
 ### Do not change
 - `trading-objectives.html` (and `/locales/*/pages/trading-objectives.json`) — **no edits**
@@ -58,25 +63,55 @@ Optional: shorter news bullets (`1-step` `li30`/`span26`, lite/pro `li26`/`span2
 
 ---
 
-## 2. Align first-payout **trading days** (4 vs 3)
+## 2. Same rule for first and later payouts: plan min days + cycle
 
-| Page | Live | Action |
-|---|---|---|
-| Plan pages Eligibility | **3** trading days since QPP / last payout + 1 profitable trade | Keep 3 |
-| `performance-reward.html` | First reward after **3** trading days | Keep 3 |
-| `faq-qualified-trader.html` list under `p9` | First payout after **4** trading days / subsequent **3** | **Change 4 → 3** |
-| `trading-objectives.html` | — | **Do not edit** |
+Live FAQ under `p9` still splits them:
 
-**Replace the FAQ list under “Is there a minimum target…” with:**
+> First payout: available after 4 trading days  
+> Subsequent payouts: available after 3 trading days
+
+That split is wrong. **Delete both bullets.** First and later payouts use the same checklist: **`$100` + that plan’s min trading days + the selected cycle** (weekly 7 calendar days, bi-weekly 14 calendar days, on-demand = `$100` and the plan min days).
+
+**`content.p9` paste:**
+
+```text
+A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. The first payout and every payout after use the same rule: you must meet the minimum trading days for that plan and the selected cycle (weekly, bi-weekly, or on-demand).
+```
+
+**Replace the hardcoded list with:**
 
 ```html
 <ul>
-    <li>First payout: available after 3 trading days (Instant: also complete 5 valid trading days at +0.5% before the first reward)</li>
-    <li>Subsequent payouts: available after 3 trading days</li>
+    <li>Same rule for every payout (first and later): $100, the plan’s minimum trading days, and the cycle</li>
+    <li>Weekly: 7 calendar days since account start or last reward</li>
+    <li>Bi-weekly: 14 calendar days since account start or last reward</li>
+    <li>On-demand: $100 and the plan’s minimum trading days (Instant: 5 valid days at +0.5%; 2-Step Lite / Pro: 5 days; 1-Step: no minimum trading days)</li>
 </ul>
 ```
 
-Update JSON-LD for that question. Keep `content.p12` (“A minimum of 3 trading days is required between payout requests.”).
+**`content.p12` live:** `A minimum of 3 trading days is required between payout requests.`
+
+**Replace with:**
+
+```text
+Payout spacing follows the cycle you selected: 7 calendar days for weekly, 14 calendar days for bi-weekly, or the plan’s minimum trading days for on-demand. The first payout and later payouts use the same rule.
+```
+
+**Plan pages — Eligibility** still says “at least 3 trading days since QPP / last payout.” That is a first-vs-later clock. **Rewrite:**
+
+```text
+Eligibility: You become eligible for a reward when net profit is at least $100, you have met the minimum number of trading days for that plan, and you have met the selected cycle (weekly 7 calendar days, bi-weekly 14 calendar days, or on-demand). The same rule applies to the first payout and every payout after.
+```
+
+Instant `li10` (“5 valid days before your first performance reward”) — drop “first.” Same 5 valid days for every Instant payout.
+
+```text
+Minimum Trading Days Requirement: You must complete a minimum of 5 valid trading days (each +0.5% net profit) to be eligible for a performance reward. This applies to every payout, not only the first. You must also meet the selected cycle (weekly, bi-weekly, or on-demand).
+```
+
+`performance-reward.html` “First reward after 3 trading days” / “Min. 3 trading days” — replace with plan min + cycle. No first/later split.
+
+`trading-objectives.html` — **do not edit.**
 
 ---
 
@@ -87,7 +122,7 @@ Update JSON-LD for that question. Keep `content.p12` (“A minimum of 3 trading 
 **Paste:**
 
 ```text
-Minimum $100 since last reward and the minimum trading days for that evaluation (all plans).
+Minimum $100, the plan’s minimum trading days, and the selected cycle (same rule for the first payout and every payout after).
 ```
 
 Do not change on-demand copy on `trading-objectives.html`.
@@ -106,18 +141,11 @@ Payouts can be requested through the dashboard once the following conditions are
 
 ---
 
-## 5. Instant Eligibility vs 5 valid days
+## 5. Instant — plan min + cycle, not 5-then-3
 
-Both stay:
+Do **not** keep 5 valid days for the first reward and 3 days after that. Instant’s plan min is **5 valid +0.5% days on every payout**, plus the selected cycle (weekly 7 / bi-weekly 14 / on-demand).
 
-- `li10`: 5 valid +0.5% days before **first** reward
-- `li23` / `span47`: 3 trading days since account / last payout + 1 profitable trade
-
-Optional Eligibility clause if support mixes them:
-
-```text
-Eligibility: For the first reward, complete 5 valid trading days (each +0.5%) and then the 3 trading-day rule below. After that, you become eligible for a reward only after both: at least 3 trading days since your last payout, and one closed profitable trade in that period.
-```
+Rewrite `li10` as in §2. Rewrite Eligibility (`li23` / `span47`) to the same sentence. Delete “3 trading days since last payout” if it makes first and later differ.
 
 ---
 
@@ -142,9 +170,8 @@ Leave `trading-objectives.json` alone. Elsewhere, delete or leave blank:
 | Bracketing / gap banned | Yes | Yes | Yes | n/a | n/a | Yes | Yes | n/a |
 | No 8(h) mix | Deleted | n/a | Not printed | “no min holding time” | **No** | n/a | n/a | n/a |
 | $100 weekly / bi-weekly / on-demand | n/a | n/a | Yes | n/a | n/a | Yes (`p9`) | n/a | Yes |
-| On-demand + min days | n/a | n/a | Yes | n/a | n/a | Yes | n/a | **Add days to p12** |
-| First payout 3 days (eval) | via model pages | n/a | 3 | n/a | n/a | **Change 4 → 3** | n/a | 3 |
-| Instant 5 valid days first | n/a | n/a | Yes | Yes | n/a | Add to first-payout bullet | n/a | Instant 5 lives on instant.html |
+| On-demand + plan min + cycle | n/a | n/a | Rewrite Eligibility | n/a | n/a | Yes (`p9`) + cycle list | n/a | **Rewrite p12** |
+| Same rule first and later | n/a | n/a | Drop “3 days since last payout”; Instant drop “first only” | n/a | n/a | Delete 4-then-3 list; rewrite `p9`/`p12` | n/a | Drop “first reward after 3 days” |
 
 `trading-objectives.html` is **out of this pass**. Do not use this matrix to change it.
 
@@ -152,6 +179,7 @@ Leave `trading-objectives.json` alone. Elsewhere, delete or leave blank:
 
 ## Do not merge these clocks
 
-- Instant 5 valid +0.5% days ≠ 2-Step 5 eval days ≠ QPP 3 days between rewards.
+- Instant 5 valid +0.5% days ≠ 2-Step 5 trading days ≠ 1-Step no min days. Each plan keeps its own min; first and later payouts on that plan use **that** min **plus** the cycle.
+- Weekly 7 calendar days and bi-weekly 14 calendar days are the cycle clock. Do not add a separate “3 days between payouts” or “first after 4 / later after 3” clock on top.
 - 1-Step Best Day 50% ≠ Instant Best Day 20%.
-- Challenge fee refund on first reward is eval plans only, not Instant.
+- Challenge fee refund on first reward is eval plans only, not Instant. That refund is not a different day rule.
