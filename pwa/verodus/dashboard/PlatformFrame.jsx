@@ -1,25 +1,29 @@
 "use client";
 
 import { useEffect } from "react";
+import { shouldEmbedTrade } from "../lock-origin.js";
 
 /**
  * Copy into the dashboard Next.js app as components/PlatformFrame.jsx
  *
- * Top-level Dashboard install: iframe TradeHub / P5 (one extra document).
- * Already inside the landing /app iframe: navigate this frame to trade.verodus.com
- * so we do not stack iframes.
+ * Chrome / Edge: iframe TradeHub / P5 so the top-level URL stays on Dashboard.
+ * Safari on a Mac: no URL bar on Verodus pages — go to trade.verodus.com
+ * at the top level (no iframe).
+ * Already inside another iframe: navigate that frame to trade (do not nest).
  */
 export default function PlatformFrame({ accountId, kind = "tradehub" }) {
   const src = `https://trade.verodus.com/${kind}/${accountId}`;
   const title = kind === "p5" ? "Platform 5" : "TradeHub";
   const nested =
     typeof window !== "undefined" && window.self !== window.top;
+  const embed =
+    typeof window !== "undefined" ? shouldEmbedTrade(window) : true;
 
   useEffect(() => {
-    if (nested) window.location.replace(src);
-  }, [nested, src]);
+    if (nested || !embed) window.location.replace(src);
+  }, [nested, embed, src]);
 
-  if (nested) return null;
+  if (nested || !embed) return null;
 
   return (
     <iframe

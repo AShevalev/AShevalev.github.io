@@ -1,14 +1,15 @@
 /**
  * Drop this on dashboard.verodus.com.
  *
- * Top-level installed windows: rewrite TradeHub / P5 to same-origin paths.
+ * Chrome / Edge installed windows: rewrite TradeHub / P5 to same-origin paths.
+ * Safari on a Mac: leave trade.verodus.com links alone (no URL bar, no iframe).
  * Already inside www.verodus.com/app (or another shell): do nothing so the
  * existing iframe can navigate to trade.verodus.com without a nested frame.
  */
-import { isEmbedded } from "../lock-origin.js";
+import { isEmbedded, isSafariMac } from "../lock-origin.js";
 import { toInAppUrl } from "./same-origin.js";
 
-if (!isEmbedded()) {
+if (!isEmbedded() && !isSafariMac()) {
   document.addEventListener(
     "click",
     (event) => {

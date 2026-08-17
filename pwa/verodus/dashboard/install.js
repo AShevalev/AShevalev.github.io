@@ -2,10 +2,11 @@
  * Dashboard-only install. Host as /js/install.js on dashboard.verodus.com.
  *
  * Trading Resources → Platforms cards:
- *   [data-install-app][data-install-platform="android"|"mobile"|"desktop"]
+ *   [data-install-app][data-install-platform="android"|"mobile"|"desktop"|"safari"]
  *
  * Android / Desktop on Chromium: native beforeinstallprompt when available.
  * Mobile (iPhone): Share → Add to Home Screen.
+ * Safari (Mac): File → Add to Dock.
  */
 (function () {
   var deferred = null;
@@ -39,6 +40,15 @@
         "Open it from your dock, taskbar, or Start menu.",
       ],
     },
+    safari: {
+      title: "Add to the Dock in Safari",
+      lead: "Safari on a Mac. macOS 14 Sonoma or newer (Safari 17+).",
+      steps: [
+        "Open this page in Safari (not Chrome).",
+        "File → Add to Dock. Or the share button in the toolbar → Add to Dock.",
+        "Open Verodus from the Dock like any other Mac app.",
+      ],
+    },
   };
 
   if ("serviceWorker" in navigator) {
@@ -63,6 +73,16 @@
       /iPhone|iPad|iPod/i.test(ua) ||
       (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
     );
+  }
+
+  function safariMac() {
+    var ua = navigator.userAgent || "";
+    if (ios()) return false;
+    if (/android/i.test(ua)) return false;
+    var safari =
+      /Safari/i.test(ua) &&
+      !/Chrome|CriOS|Chromium|Edg|OPR|FxiOS|Firefox/i.test(ua);
+    return Boolean(safari && /Macintosh/i.test(ua));
   }
 
   function android() {
@@ -129,10 +149,10 @@
 
   function canNative(kind) {
     if (!deferred) return false;
-    if (kind === "mobile") return false;
+    if (kind === "mobile" || kind === "safari") return false;
     if (kind === "android") return android() && !ios();
-    if (kind === "desktop") return !android() && !ios();
-    return true;
+    if (kind === "desktop") return !android() && !ios() && !safariMac();
+    return !safariMac();
   }
 
   function promptNative() {
@@ -167,6 +187,10 @@
     }
     if (ios()) {
       showCopy("mobile");
+      return;
+    }
+    if (safariMac()) {
+      showCopy("safari");
       return;
     }
     if (deferred) {

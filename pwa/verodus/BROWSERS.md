@@ -24,6 +24,8 @@ The expensive part is the terminal bundle, not the frame. A reverse proxy onto o
 
 Firefox desktop still cannot hide its own URL bar.
 
+Safari on a Mac does not show a URL bar on Verodus pages. Do not iframe TradeHub / Platform 5 there — open `trade.verodus.com` at the top level. Install with File → Add to Dock (macOS 14+).
+
 ## Chrome toolbar
 
 Same PWA as the pills. Install while the tab is on that Verodus host. Toolbar on Dashboard installs Dashboard; `lock-origin` then iframes Trade instead of leaving.

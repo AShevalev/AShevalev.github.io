@@ -45,6 +45,7 @@ test("landing-page PWA starts at /app on www.verodus.com", () => {
 test("landing pills open a modal that points at Dashboard Platforms", () => {
   const src = readFileSync(new URL("../pwa/verodus/www/install.js", import.meta.url), "utf8");
   assert.match(src, /Dashboard → Trading Resources → Platforms/);
+  assert.match(src, /Android, Mobile, Desktop, or Safari/);
   assert.match(src, /https:\/\/dashboard\.verodus\.com\/trading-resources\/platforms/);
   assert.doesNotMatch(src, /serviceWorker/);
   assert.doesNotMatch(src, /beforeinstallprompt/);
@@ -73,7 +74,7 @@ test("dashboard sidebar adds Platforms under Trading Resources", () => {
   assert.match(src, /href: "\/trading-resources\/platforms"/);
 });
 
-test("Platforms page offers Android, Mobile, and Desktop", () => {
+test("Platforms page offers Android, Mobile, Desktop, and Safari", () => {
   const src = readFileSync(
     new URL("../pwa/verodus/dashboard/PlatformsPage.jsx", import.meta.url),
     "utf8"
@@ -81,7 +82,9 @@ test("Platforms page offers Android, Mobile, and Desktop", () => {
   assert.match(src, /id: "android"/);
   assert.match(src, /id: "mobile"/);
   assert.match(src, /id: "desktop"/);
+  assert.match(src, /id: "safari"/);
   assert.match(src, /data-install-platform=\{card\.id\}/);
+  assert.match(src, /Add to Dock/);
 });
 
 test("dashboard install script handles per-platform CTAs", () => {
@@ -92,6 +95,20 @@ test("dashboard install script handles per-platform CTAs", () => {
   assert.match(src, /data-install-platform/);
   assert.match(src, /beforeinstallprompt/);
   assert.match(src, /Add to Home Screen/);
+  assert.match(src, /Add to Dock/);
+});
+
+test("Safari on a Mac opens trade at the top level instead of an iframe", () => {
+  const frame = readFileSync(
+    new URL("../pwa/verodus/dashboard/PlatformFrame.jsx", import.meta.url),
+    "utf8"
+  );
+  const intercept = readFileSync(
+    new URL("../pwa/verodus/dashboard/intercept-launches.js", import.meta.url),
+    "utf8"
+  );
+  assert.match(frame, /shouldEmbedTrade/);
+  assert.match(intercept, /isSafariMac/);
 });
 
 test("dashboard-as-app start_url is the CRM not the landing page", () => {

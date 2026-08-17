@@ -108,7 +108,7 @@ Required `<head>` (Next metadata API is fine):
 
 ## 3. Dashboard — Trading Resources → Platforms
 
-**Goal:** Sidebar item **Platforms** under **Trading Resources**, next to Economic Calendar and News. Page has three cards: **Android**, **Mobile**, **Desktop**.
+**Goal:** Sidebar item **Platforms** under **Trading Resources**, next to Economic Calendar and News. Page has four cards: **Android**, **Mobile**, **Desktop**, **Safari**.
 
 ### Sidebar
 
@@ -136,11 +136,12 @@ Suggested icon: `MonitorSmartphone` from lucide-react (or equivalent).
 
 If the app uses `@/` → `src/`, keep that alias. Rename to `.tsx` if the repo is TypeScript.
 
-The three buttons use `data-install-app` + `data-install-platform="android|mobile|desktop"`. `/js/install.js` handles the prompt:
+The four buttons use `data-install-app` + `data-install-platform="android|mobile|desktop|safari"`. `/js/install.js` handles the prompt:
 
 - **Android** — Chrome / Edge / Samsung `beforeinstallprompt`, else menu → Install app
 - **Mobile** — iPhone / iPad Share → Add to Home Screen
 - **Desktop** — Chrome / Edge address-bar install (Firefox desktop cannot install PWAs)
+- **Safari** — Mac only. File → **Add to Dock** (Safari 17+ / macOS 14 Sonoma or newer). Creates a Dock web app.
 
 Do not send these cards to Play or App Store.
 
@@ -148,7 +149,9 @@ Do not send these cards to Play or App Store.
 
 ## 4. Dashboard — TradeHub / Platform 5 (no Chrome bar)
 
-**Goal:** Account-card buttons stay on `dashboard.verodus.com`. Dashboard routes iframe `trade.verodus.com`.
+**Goal:** On Chrome / Edge, account-card buttons stay on `dashboard.verodus.com` and Dashboard routes **iframe** `trade.verodus.com`.
+
+**Safari on a Mac is different:** there is no URL bar on Verodus pages. `PlatformFrame` and `intercept-launches` skip the iframe and open `trade.verodus.com` at the top level. Do not force an iframe in Safari.
 
 ### Account cards — change the hrefs
 
@@ -164,13 +167,15 @@ If the click is in JS: `dashboard/components/useLaunchPlatform.js` (`router.push
 
 | Zip file | Put here |
 |---|---|
-| `dashboard/components/PlatformFrame.jsx` | `components/PlatformFrame.jsx` |
+| `dashboard/components/PlatformFrame.jsx` | `components/PlatformFrame.jsx` (if `lock-origin.js` is beside it, the import is `./lock-origin.js`) |
 | `dashboard/app/p5/[accountId]/page.jsx` | `app/p5/[accountId]/page.jsx` |
 | `dashboard/app/tradehub/[accountId]/page.jsx` | `app/tradehub/[accountId]/page.jsx` |
 
 Next.js 15+: `params` may be a Promise — `const { accountId } = await params`.
 
 If the window is already inside an iframe, `PlatformFrame` navigates that frame to trade (no nested iframes).
+
+On Safari for Mac, `PlatformFrame` uses `location.replace` to `https://trade.verodus.com/...` instead of an iframe.
 
 ### Stopgap (until every leftover trade link is gone)
 
@@ -214,6 +219,8 @@ If trade is Cloudflare / nginx / a Node server, set the same header there.
 6. iPhone: Safari on **dashboard.verodus.com/trading-resources/platforms** → Share → Add to Home Screen. Not on the marketing site.
 
 Firefox desktop cannot hide its own URL bar and cannot install PWAs. Use Chrome or Edge on desktop.
+
+Safari on a Mac: File → Add to Dock (macOS 14+). TradeHub / Platform 5 stay top-level — do not iframe.
 
 ---
 

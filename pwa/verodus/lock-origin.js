@@ -4,6 +4,9 @@
  * Chrome's X / URL bar appears on a top-level jump between
  * www / dashboard / trade. Iframe that jump instead.
  *
+ * Safari on a Mac does not show that bar on Verodus pages. Skip the lock and
+ * open TradeHub / Platform 5 at the top level.
+ *
  * If this document is already inside an iframe (landing /app shell), do nothing
  * so we never nest frames. The parent origin is already locked.
  */
@@ -14,6 +17,33 @@ export const VERODUS_HOSTS = new Set([
   "dashboard.verodus.com",
   "trade.verodus.com",
 ]);
+
+/**
+ * Safari on macOS (not iPhone / iPad). Chrome on Mac includes "Safari" in the
+ * UA, so Chrome/Edge/Firefox must be excluded.
+ *
+ * @param {Window & typeof globalThis} [win]
+ */
+export function isSafariMac(win = globalThis) {
+  const nav = win.navigator || {};
+  const ua = String(nav.userAgent || "");
+  const platform = String(nav.platform || "");
+  const maxTouchPoints = Number(nav.maxTouchPoints || 0);
+  const ios =
+    /iPhone|iPad|iPod/i.test(ua) ||
+    (platform === "MacIntel" && maxTouchPoints > 1);
+  if (ios) return false;
+  if (/Android/i.test(ua)) return false;
+  const safari =
+    /Safari/i.test(ua) &&
+    !/Chrome|CriOS|Chromium|Edg|OPR|FxiOS|Firefox/i.test(ua);
+  return Boolean(safari && /Macintosh/i.test(ua));
+}
+
+/** Chrome/Edge need an iframe for trade. Safari on a Mac does not. */
+export function shouldEmbedTrade(win = globalThis) {
+  return !isSafariMac(win);
+}
 
 export function isEmbedded(win = globalThis) {
   try {
@@ -55,7 +85,7 @@ export function isOtherVerodusUrl(href, currentOrigin) {
  * A normal browser tab on the landing page must still navigate as a website.
  */
 export function shouldLockOrigin(win = globalThis) {
-  return isStandaloneApp(win) && !isEmbedded(win);
+  return isStandaloneApp(win) && !isEmbedded(win) && !isSafariMac(win);
 }
 
 const FRAME_ID = "verodus-lock-frame";

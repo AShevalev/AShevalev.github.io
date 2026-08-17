@@ -42,6 +42,12 @@ export function detectPlatform(env = {}) {
     /safari/.test(ua) &&
     !/crios|fxios|edgios|opt\//.test(ua) &&
     !chromeIos;
+  const safariMac =
+    !ios &&
+    !android &&
+    /macintosh|mac os x/.test(ua) &&
+    /safari/.test(ua) &&
+    !/chrome|crios|chromium|edg|opr\/|firefox|fxios/.test(ua);
 
   const installed = Boolean(
     env.standalone ||
@@ -61,6 +67,7 @@ export function detectPlatform(env = {}) {
     chrome,
     chromeIos,
     safari,
+    safariMac,
     installed,
   };
 }
@@ -74,10 +81,11 @@ export function detectPlatform(env = {}) {
  * - firefox-android: menu → Install
  * - android: Chrome/Samsung/Edge menu fallback when the prompt is not ready
  * - firefox-desktop: cannot install PWAs
+ * - safari-mac: File → Add to Dock (macOS 14+)
  * - generic: last-resort menu instructions
  *
  * @param {Env} [env]
- * @returns {"hidden"|"native"|"ios"|"firefox-android"|"android"|"firefox-desktop"|"generic"}
+ * @returns {"hidden"|"native"|"ios"|"firefox-android"|"android"|"firefox-desktop"|"safari-mac"|"generic"}
  */
 export function getInstallGuide(env = {}) {
   const p = detectPlatform(env);
@@ -87,6 +95,7 @@ export function getInstallGuide(env = {}) {
   if (p.firefox && p.android) return "firefox-android";
   if (p.android) return "android";
   if (p.firefox) return "firefox-desktop";
+  if (p.safariMac) return "safari-mac";
   return "generic";
 }
 
@@ -177,6 +186,27 @@ export function getGuideCopy(guide, appName = "this app") {
         {
           icon: "check",
           text: "On this computer: open the page in Chrome or Edge, then install.",
+        },
+      ],
+    };
+  }
+
+  if (guide === "safari-mac") {
+    return {
+      title: `Add ${name} to the Dock`,
+      lead: "Safari on a Mac (macOS 14 Sonoma or newer). File → Add to Dock.",
+      steps: [
+        {
+          icon: "share",
+          text: "Open this page in Safari (not Chrome).",
+        },
+        {
+          icon: "plus",
+          text: "File → Add to Dock. Or the share button in the toolbar → Add to Dock.",
+        },
+        {
+          icon: "check",
+          text: "Open it from the Dock like any other Mac app.",
         },
       ],
     };
@@ -282,7 +312,7 @@ export function landingInstallPathLabel(separator = " → ") {
 export function getLandingInstallModalCopy() {
   return {
     title: "Install Verodus from the dashboard",
-    lead: `Install from ${landingInstallPathLabel()}. Choose Android, Mobile, or Desktop.`,
+    lead: `Install from ${landingInstallPathLabel()}. Choose Android, Mobile, Desktop, or Safari.`,
     cta: "Open dashboard",
     dismiss: "Not now",
     href: DASHBOARD_PLATFORMS_HREF,
@@ -291,7 +321,7 @@ export function getLandingInstallModalCopy() {
 
 /**
  * Cards on Dashboard → Trading Resources → Platforms.
- * @returns {Array<{id: "android"|"mobile"|"desktop", title: string, lead: string, steps: string[], cta: string}>}
+ * @returns {Array<{id: "android"|"mobile"|"desktop"|"safari", title: string, lead: string, steps: string[], cta: string}>}
  */
 export function getPlatformsCards() {
   return [
@@ -327,6 +357,17 @@ export function getPlatformsCards() {
         "Open it from your dock, taskbar, or Start menu.",
       ],
       cta: "Install on desktop",
+    },
+    {
+      id: "safari",
+      title: "Safari",
+      lead: "Mac. Safari 17+ on macOS 14 Sonoma or newer. Creates a Dock web app.",
+      steps: [
+        "Open this page in Safari on your Mac (not Chrome).",
+        "File → Add to Dock. Or the share button in the toolbar → Add to Dock.",
+        "Open Verodus from the Dock like any other Mac app.",
+      ],
+      cta: "Show Safari steps",
     },
   ];
 }

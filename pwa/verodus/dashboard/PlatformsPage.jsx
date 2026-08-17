@@ -26,6 +26,13 @@ const DESKTOP_ICON = (
   </svg>
 );
 
+const SAFARI_ICON = (
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <circle cx="12" cy="12" r="9" />
+    <path d="m15 9-3 6-6 3 3-6 6-3z" />
+  </svg>
+);
+
 const CARDS = [
   {
     id: "android",
@@ -63,6 +70,18 @@ const CARDS = [
     cta: "Install on desktop",
     icon: DESKTOP_ICON,
   },
+  {
+    id: "safari",
+    title: "Safari",
+    lead: "Mac. Safari 17+ on macOS 14 Sonoma or newer. Creates a Dock web app.",
+    steps: [
+      "Open this page in Safari on your Mac (not Chrome).",
+      "File → Add to Dock. Or the share button in the toolbar → Add to Dock.",
+      "Open Verodus from the Dock like any other Mac app.",
+    ],
+    cta: "Show Safari steps",
+    icon: SAFARI_ICON,
+  },
 ];
 
 export default function PlatformsPage() {
@@ -71,8 +90,8 @@ export default function PlatformsPage() {
       <p className="v-platforms__done">Verodus is already installed on this device.</p>
       <h1>Platforms</h1>
       <p className="v-platforms__lede">
-        Install Verodus from Dashboard → Trading Resources → Platforms. Choose Android, Mobile, or
-        Desktop. Stay on this site — do not use the Play Store or App Store.
+        Install Verodus from Dashboard → Trading Resources → Platforms. Choose Android, Mobile,
+        Desktop, or Safari. Stay on this site — do not use the Play Store or App Store.
       </p>
       <div className="v-platforms__grid">
         {CARDS.map((card) => (

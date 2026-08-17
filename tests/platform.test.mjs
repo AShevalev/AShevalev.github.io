@@ -21,6 +21,8 @@ const UA = {
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:124.0) Gecko/20100101 Firefox/124.0",
   desktopChrome:
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+  desktopSafari:
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15",
 };
 
 test("iOS Safari, Chrome, and Firefox all use the Share-sheet guide", () => {
@@ -70,6 +72,15 @@ test("Firefox Android never claims a native prompt path without one", () => {
 
 test("Firefox desktop cannot install and gets a phone-first guide", () => {
   assert.equal(getInstallGuide({ userAgent: UA.desktopFirefox }), "firefox-desktop");
+});
+
+test("Safari on a Mac uses Add to Dock, not the iPhone Share sheet", () => {
+  assert.equal(getInstallGuide({ userAgent: UA.desktopSafari }), "safari-mac");
+  assert.equal(detectPlatform({ userAgent: UA.desktopSafari }).safariMac, true);
+  assert.equal(detectPlatform({ userAgent: UA.desktopChrome }).safariMac, false);
+  const copy = getGuideCopy("safari-mac", "Verodus");
+  assert.match(copy.title, /Dock/i);
+  assert.match(copy.steps[1].text, /Add to Dock/i);
 });
 
 test("already-installed sessions hide the CTA", () => {
@@ -141,15 +152,16 @@ test("landing modal copy points at Dashboard → Trading Resources → Platforms
   const copy = getLandingInstallModalCopy();
   assert.equal(landingInstallPathLabel(), "Dashboard → Trading Resources → Platforms");
   assert.match(copy.lead, /Dashboard → Trading Resources → Platforms/);
-  assert.match(copy.lead, /Android, Mobile, or Desktop/);
+  assert.match(copy.lead, /Android, Mobile, Desktop, or Safari/);
   assert.equal(copy.href, "https://dashboard.verodus.com/trading-resources/platforms");
 });
 
-test("Platforms page cards are Android, Mobile, and Desktop", () => {
+test("Platforms page cards are Android, Mobile, Desktop, and Safari", () => {
   const cards = getPlatformsCards();
   assert.deepEqual(
     cards.map((card) => card.id),
-    ["android", "mobile", "desktop"]
+    ["android", "mobile", "desktop", "safari"]
   );
   assert.match(cards.find((card) => card.id === "mobile").steps[1], /Add to Home Screen/);
+  assert.match(cards.find((card) => card.id === "safari").steps[1], /Add to Dock/);
 });
