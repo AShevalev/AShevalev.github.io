@@ -15,6 +15,7 @@ import {
   getGuideCopy,
   getInstallGuide,
   readBrowserEnv,
+  resolveInstallAction,
 } from "./platform.js";
 
 const ICONS = {
@@ -32,6 +33,10 @@ const HOME_ICON = `<svg class="aths-cta__icon" viewBox="0 0 24 24" aria-hidden="
  * @property {string} [appName]
  * @property {string} [serviceWorkerUrl] Register this SW so Chromium will install. Default `/sw.js`
  * @property {boolean} [registerServiceWorker]
+ * @property {string} [installUrl] If set to another origin (the dashboard), the CTA redirects there instead of installing the current site.
+ * @property {string} [manifestId] Passed to navigator.install() when installing another origin.
+ * @property {boolean} [styleButtons] Add gold CTA chrome. Default true. Set false for existing store pills.
+ * @property {string} [autoPromptParam] Query param that auto-opens the prompt. Default `install`
  * @property {ParentNode} [root]
  * @property {Window} [win]
  */
@@ -44,6 +49,10 @@ export function bindInstallCta(options = {}) {
   const selector = options.selector || "[data-install-app]";
   const registerSw = options.registerServiceWorker !== false;
   const swUrl = options.serviceWorkerUrl || "/sw.js";
+  const installUrl = options.installUrl || "";
+  const manifestId = options.manifestId || "";
+  const styleButtons = options.styleButtons !== false;
+  const autoPromptParam = options.autoPromptParam || "install";
 
   /** @type {any} */
   let deferredPrompt = null;
@@ -59,8 +68,14 @@ export function bindInstallCta(options = {}) {
   }
 
   function syncButtons() {
-    const guide = getInstallGuide(env());
-    const hide = guide === "hidden";
+    const snapshot = env();
+    const guide = getInstallGuide(snapshot);
+    const action = resolveInstallAction({
+      currentHref: win.location && win.location.href,
+      installUrl,
+      installed: snapshot.standalone || snapshot.displayModeStandalone || snapshot.displayModeFullscreen,
+    });
+    const hide = guide === "hidden" && action !== "redirect";
     for (const btn of buttons()) {
       btn.hidden = hide;
       btn.classList.toggle("is-hidden", hide);
@@ -71,9 +86,11 @@ export function bindInstallCta(options = {}) {
 
   function decorateButton(btn) {
     btn.dataset.athsBound = "1";
-    btn.classList.add("aths-cta");
-    if (!btn.querySelector(".aths-cta__icon")) {
-      btn.insertAdjacentHTML("afterbegin", HOME_ICON);
+    if (styleButtons) {
+      btn.classList.add("aths-cta");
+      if (!btn.querySelector(".aths-cta__icon")) {
+        btn.insertAdjacentHTML("afterbegin", HOME_ICON);
+      }
     }
     btn.addEventListener("click", (event) => {
       event.preventDefault();
@@ -140,6 +157,27 @@ export function bindInstallCta(options = {}) {
     const guide = getInstallGuide(env());
     if (guide === "hidden") return "dismissed";
 
+    const action = resolveInstallAction({
+      currentHref: win.location && win.location.href,
+      installUrl,
+      installed: guide === "hidden",
+    });
+
+    if (action === "redirect") {
+      const nav = win.navigator;
+      if (typeof nav.install === "function") {
+        try {
+          if (manifestId) await nav.install(installUrl, manifestId);
+          else await nav.install(installUrl);
+          return "accepted";
+        } catch {
+          // Fall through to a same-window navigation on the dashboard origin.
+        }
+      }
+      win.location.assign(installUrl);
+      return "redirect";
+    }
+
     if (deferredPrompt) {
       deferredPrompt.prompt();
       const choice = await deferredPrompt.userChoice;
@@ -188,6 +226,15 @@ export function bindInstallCta(options = {}) {
     syncButtons();
   }
 
+  try {
+    const params = new URLSearchParams(win.location.search);
+    if (params.has(autoPromptParam) && getInstallGuide(env()) !== "hidden") {
+      win.setTimeout(() => void promptInstall(), 400);
+    }
+  } catch {
+    // Ignore missing location in tests.
+  }
+
   return {
     promptInstall,
     getGuide: () => getInstallGuide(env()),
@@ -199,4 +246,9 @@ function navSupportsSw(win) {
   return Boolean(win.navigator && win.navigator.serviceWorker);
 }
 
-export { getGuideCopy, getInstallGuide, readBrowserEnv };
+export {
+  getGuideCopy,
+  getInstallGuide,
+  readBrowserEnv,
+  resolveInstallAction,
+};

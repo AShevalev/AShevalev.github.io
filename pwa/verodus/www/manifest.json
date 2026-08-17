@@ -1,0 +1,30 @@
+{
+  "id": "https://www.verodus.com/",
+  "name": "Verodus",
+  "short_name": "Verodus",
+  "description": "Verodus web app. Prefer installing from the dashboard origin so the CRM opens without a browser bar.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07003B",
+  "theme_color": "#1b2b8e",
+  "orientation": "any",
+  "scope_extensions": [
+    { "type": "origin", "origin": "https://dashboard.verodus.com" },
+    { "type": "origin", "origin": "https://trade.verodus.com" }
+  ],
+  "icons": [
+    {
+      "src": "/images/pwa-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/pwa-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

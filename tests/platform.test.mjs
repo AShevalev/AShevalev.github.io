@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { detectPlatform, getGuideCopy, getInstallGuide } from "../pwa/platform.js";
+import { detectPlatform, getGuideCopy, getInstallGuide, isAccountScopedPath, resolveInstallAction } from "../pwa/platform.js";
 
 const UA = {
   iosSafari:
@@ -95,4 +95,34 @@ test("guide copy interpolates the app name as plain text", () => {
   assert.match(copy.title, /Verodus/);
   assert.equal(copy.steps.length, 3);
   assert.match(copy.steps[1].text, /Add to Home Screen/i);
+});
+
+test("account cuids are detected and must not be start_url", () => {
+  assert.equal(
+    isAccountScopedPath("/tradehub/cmsu4y2u9000604ju8pad5x4j"),
+    true
+  );
+  assert.equal(
+    isAccountScopedPath("/p5/cmswfrqqb000204l7pnxhhj3w"),
+    true
+  );
+  assert.equal(isAccountScopedPath("/tradehub"), false);
+  assert.equal(isAccountScopedPath("/dashboard"), false);
+});
+
+test("homepage store pills redirect to the dashboard origin", () => {
+  assert.equal(
+    resolveInstallAction({
+      currentHref: "https://www.verodus.com/",
+      installUrl: "https://dashboard.verodus.com/dashboard?install=1",
+    }),
+    "redirect"
+  );
+  assert.equal(
+    resolveInstallAction({
+      currentHref: "https://dashboard.verodus.com/dashboard?install=1",
+      installUrl: "https://dashboard.verodus.com/dashboard?install=1",
+    }),
+    "prompt-here"
+  );
 });

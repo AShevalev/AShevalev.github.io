@@ -229,3 +229,36 @@ export function readBrowserEnv(win) {
     hasWebInstall: typeof nav.install === "function",
   };
 }
+
+/**
+ * TradeHub / Platform 5 account ids (CUID). These must never be a PWA start_url —
+ * every user would install someone else's account.
+ */
+export function isAccountScopedPath(pathname) {
+  return /\/(tradehub|p5)\/[a-z0-9]{20,}(?:\/|$)/i.test(String(pathname || ""));
+}
+
+export function isSameOrigin(urlA, urlB) {
+  try {
+    return new URL(urlA).origin === new URL(urlB).origin;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Homepage CTAs on verodus.com cannot install dashboard.verodus.com in-place.
+ * Send the user to the dashboard origin, then prompt there.
+ *
+ * @returns {"hidden"|"prompt-here"|"redirect"}
+ */
+export function resolveInstallAction({
+  currentHref = "",
+  installUrl = "",
+  installed = false,
+} = {}) {
+  if (installed) return "hidden";
+  if (!installUrl) return "prompt-here";
+  if (!currentHref || isSameOrigin(currentHref, installUrl)) return "prompt-here";
+  return "redirect";
+}
