@@ -69,32 +69,34 @@ def add(key, firm, plan, family, phases, funded_rules, skus, refund="first",
 
 
 # =============================================================================
-# 1. VERODUS — recommended VERO35 card 16 Aug 2026 (list = sale ÷ 0.65)
+# 1. VERODUS — reprice after news-included 17 Aug 2026 (list = sale ÷ 0.65)
 # =============================================================================
 add("Verodus Instant", "Verodus", "Instant", "instant",
     [P(None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20)],
-    None, sku((5e3,75,49),(1e4,106,69),(25e3,214,139),(5e4,368,239),(1e5,675,439)),
+    None, sku((5e3,75,49),(1e4,106,69),(25e3,229,149),(5e4,368,239),(1e5,675,439)),
     refund="none", split=0.80, instant=True, discount="VERO35",
-    source="recommended VERO35 card; 3% daily / 6% trail never locks / 20% cons")
+    source="reprice after news-included; Instant pinned under BG/FP")
 
 add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     [P(0.10, 0.06, "hybrid", 0.04, "sod", 0, 0.0, 0.50)],
     funded(0.06, "hybrid", 0.04, min_days=3, cons=None),
-    sku((5e3,55,36),(1e4,92,60),(25e3,185,120),(5e4,297,193),(1e5,515,335),(2e5,1006,654)),
-    refund="first", discount="VERO35", source="verodus.com/1-step.html")
+    sku((5e3,69,45),(1e4,106,69),(25e3,198,129),(5e4,337,219),(1e5,583,379),(2e5,1075,699)),
+    refund="first", discount="VERO35",
+    source="reprice after news-included; under Alpha/Fintokei/BG")
 
 add("Verodus 2-Step Lite", "Verodus", "2-Step Lite", "2-step",
     [P(0.08, 0.08, "static", 0.04, min_days=5), P(0.05, 0.08, "static", 0.04, min_days=5)],
     funded(0.08, "static", 0.04, min_days=3),
-    sku((5e3,65,42),(1e4,85,55),(25e3,145,94),(5e4,229,149),(1e5,414,269),(2e5,768,499)),
+    sku((5e3,75,49),(1e4,91,59),(25e3,152,99),(5e4,229,149),(1e5,423,275),(2e5,845,549)),
     refund="first", discount="VERO35",
-    source="recommended VERO35 card; Lite funded max DD 8%")
+    source="reprice after news-included; Lite funded max DD 8%")
 
 add("Verodus 2-Step Pro", "Verodus", "2-Step Pro", "2-step",
     [P(0.10, 0.10, "static", 0.05, min_days=5), P(0.05, 0.10, "static", 0.05, min_days=5)],
     funded(0.10, "static", 0.05, min_days=3),
-    sku((5e3,69,45),(1e4,91,59),(25e3,146,95),(5e4,245,159),(1e5,445,289),(2e5,888,577)),
-    refund="first", discount="VERO35", source="verodus.com/2-step-pro.html")
+    sku((5e3,85,55),(1e4,106,69),(25e3,168,109),(5e4,260,169),(1e5,475,309),(2e5,952,619)),
+    refund="first", discount="VERO35",
+    source="reprice after news-included; under Alpha Pro 6% from $50k")
 
 # =============================================================================
 # 2. FTMO — trading-objectives Aug 2026, EUR×1.16, no sitewide sale

@@ -118,27 +118,27 @@ AUG13 = {
 REC = {
     ("Instant", 5000): 49,
     ("Instant", 10000): 69,
-    ("Instant", 25000): 139,
+    ("Instant", 25000): 149,
     ("Instant", 50000): 239,
     ("Instant", 100000): 439,
-    ("1-Step", 5000): 36,
-    ("1-Step", 10000): 60,
-    ("1-Step", 25000): 120,
-    ("1-Step", 50000): 193,
-    ("1-Step", 100000): 335,
-    ("1-Step", 200000): 654,
-    ("2-Step Lite", 5000): 42,
-    ("2-Step Lite", 10000): 55,
-    ("2-Step Lite", 25000): 94,
+    ("1-Step", 5000): 45,
+    ("1-Step", 10000): 69,
+    ("1-Step", 25000): 129,
+    ("1-Step", 50000): 219,
+    ("1-Step", 100000): 379,
+    ("1-Step", 200000): 699,
+    ("2-Step Lite", 5000): 49,
+    ("2-Step Lite", 10000): 59,
+    ("2-Step Lite", 25000): 99,
     ("2-Step Lite", 50000): 149,
-    ("2-Step Lite", 100000): 269,
-    ("2-Step Lite", 200000): 499,
-    ("2-Step Pro", 5000): 45,
-    ("2-Step Pro", 10000): 59,
-    ("2-Step Pro", 25000): 95,
-    ("2-Step Pro", 50000): 159,
-    ("2-Step Pro", 100000): 289,
-    ("2-Step Pro", 200000): 577,
+    ("2-Step Lite", 100000): 275,
+    ("2-Step Lite", 200000): 549,
+    ("2-Step Pro", 5000): 55,
+    ("2-Step Pro", 10000): 69,
+    ("2-Step Pro", 25000): 109,
+    ("2-Step Pro", 50000): 169,
+    ("2-Step Pro", 100000): 309,
+    ("2-Step Pro", 200000): 619,
 }
 
 ANCHORS = (
@@ -176,18 +176,18 @@ EXTRA_E = {
 }
 
 # Suggested checkout %. Instant 90%+anytime must cover year-1.
-# News/weekend rec is 12/12 with Swing 20% (see competitor_addons.py).
+# News is included (0%). Weekend 15%. 90% On Demand 25% evals / 35% Instant.
 ADDON_REC_PCT = {
-    "news": 0.12,
-    "weekend": 0.12,
-    "weekly": 0.08,
-    "ondemand": 0.20,
+    "news": 0.0,
+    "weekend": 0.15,
+    "weekly": 0.10,
+    "ondemand": 0.25,
 }
 ADDON_REC_PCT_INSTANT = {
-    "news": 0.12,
-    "weekend": 0.12,
-    "weekly": 0.08,
-    "ondemand": 0.32,
+    "news": 0.0,
+    "weekend": 0.15,
+    "weekly": 0.10,
+    "ondemand": 0.35,
 }
 
 WHY = {
@@ -195,23 +195,21 @@ WHY = {
         "Stack: year-1 BE, +10% error, +$1, +wage share, then ÷ 0.80 for marketing. "
         "Instant $100k opex floor is $422; Alpha $274 fails it. FXIFY Lite $399 is "
         "close but short. Rec $439 sits under FP $444 and BG $467. "
-        "$10k $69 under FP $70; $25k/$50k $139 / $239 under FXIFY $149 / BG $243. "
-        "$5k stays the shop floor. No $200k Instant."
+        "$10k $69 under FP $70; $25k $149 matches FXIFY Lite and stays under BG $156; "
+        "$50k $239 under BG $243. $5k stays the shop floor. No $200k Instant."
     ),
     "1-Step": (
-        "Live already covers the full stack at every size. $335 vs opex floor $200 "
-        "at $100k. Fintokei / Alpha / Hola lows all cover. Keep live — leftover "
-        "pays most of the wage bill."
+        "News-on opex still prints at every size. Rec $45 / $69 / $129 / $219 / $379 / $699 "
+        "steps leftover up after news-included. $5k sits $2 under Hola/BG $47 (Alpha $40). "
+        "$100k is $19 under Alpha / Fintokei / BG $398–399."
     ),
     "2-Step Lite": (
-        "Live $18–$241 does not cover wages + 20% marketing on $5k–$100k. "
-        "Maven $18 / $35 / $79 also fail. Rec $42 / $55 / $94 / $149 / $269 — "
-        "under the first solvent peer. Maven $151 / $279 cover from $50k."
+        "Maven $18 / $35 / $79 fail the opex stack — do not copy. Rec $49 / $59 / $99 / "
+        "$149 / $275 / $549. $50k / $100k stay $2–$4 under Maven $151 / $279."
     ),
     "2-Step Pro": (
-        "Live $20 / $36 miss the $5k / $10k floor. Rec $45 / $59 / $95 / $159 / $289 "
-        "stays a step above Lite and just over Maven from $50k. "
-        "Maven $18 / $35 / $79 are not usable lows."
+        "Rec $55 / $69 / $109 / $169 / $309 / $619 stays a step above Lite and under "
+        "Alpha Pro 6% from $50k ($174 / $318 / $638). Maven $18 / $35 / $79 are not usable lows."
     ),
 }
 
@@ -1089,10 +1087,10 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = recommended sale. Each size shows <b>rec $</b> and <b>BE $</b>. "
-        "Instant $49 / $69 / $139 / $239 / $439 (under the first solvent peer). "
-        "Lite $42 / $55 / $94 / $149 / $269 / $499. "
-        "1-Step stays live (already cheapest). Pro $45 / $59 / $95 / $159 / $289. "
-        "List $100k is sale ÷ 0.65 (Instant $675 · 1-Step $515 · Lite $414 · Pro $445).",
+        "Instant $49 / $69 / $149 / $239 / $439 (under the first solvent peer). "
+        "Lite $49 / $59 / $99 / $149 / $275 / $549. "
+        "1-Step $45 / $69 / $129 / $219 / $379 / $699. Pro $55 / $69 / $109 / $169 / $309 / $619. "
+        "List $100k is sale ÷ 0.65 (Instant $675 · 1-Step $583 · Lite $423 · Pro $475).",
         s["body"],
     ))
 
@@ -1216,7 +1214,7 @@ def collect_story():
     story.append(P(
         "Instant $100k: S<sub>opex</sub> $422. Alpha $274 is a hole. FXIFY Lite $399 "
         "is still short. Rec $439 sits under FP $444 and BG $467. "
-        "Instant $10k $69 under FP $70; $25k/$50k $139 / $239 under FXIFY / BG. "
+        "Instant $10k $69 under FP $70; $25k $149 matches FXIFY Lite; $50k $239 under BG. "
         "1-Step lows all cover — keep live (cheapest). "
         "Lite sits on/under the first solvent peer. "
         "Pro stays a step above Lite and just over Maven from $50k. "
@@ -1382,7 +1380,7 @@ def collect_story():
     story.append(Spacer(1, 2*mm))
     story.append(P(
         "Green = Instant (year-1 BE). Blue = evals (first-payout BE). "
-        "1-Step $5k BE is $6; sale $36 is leftover live, not a 60% target. "
+        "1-Step $5k news-on BE is ~$7; sale $45 is leftover, not a 60% target. "
         "Instant $100k BE is $284, not $875. Columns are 20 / 40 / 60. Instant rec is the 30% print.",
         s["tiny"],
     ))

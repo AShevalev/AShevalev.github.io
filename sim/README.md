@@ -21,6 +21,7 @@ PYTHONPATH=sim python sim/run.py --n-sims 4000
 | `difficulty.py` | Numeric D (0–100) per plan; compare only if same family + size and \|ΔD\| ≤ 6 |
 | `write_rank_report.py` | D + 20%/30% rank inside the ±6 band → `results/Verodus_BE_Rank_Report_2026-08-16.pdf` |
 | `write_price_rec_pdf.py` | Attractive VERO35 card vs family street → `results/Verodus_Recommended_Prices_2026-08-16.pdf` |
+| `write_reprice_pdf.py` | News-included reprice (more leftover, still under peers) → `results/Verodus_Reprice_News_Included_2026-08-17.pdf` |
 | `competitor_addons.py` | 19-peer checkout add-ons + leftover vs rec → `results/COMPETITOR_ADDONS.md` |
 | `write_addon_analysis_pdf.py` | Competitor add-on analysis + why Verodus rec → `results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf` |
 | `write_addon_combo_pdf.py` | BE, margins, leftover for every legal add-on cart → `results/Verodus_Addon_BE_Margins_2026-08-17.pdf` |

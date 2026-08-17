@@ -13,11 +13,11 @@
      loop in updateSummary, and the addon price in gaItemsForSelection
      with the helpers below (BUNDLES / addonPct / addonPrice / addonPriceTag /
      applyAddonToggle). Reward cycles: default Bi-Weekly 80% / 14 calendar
-     days / $100 (not a toggle). Weekly 80% @ 8% XOR On Demand and XOR 90%.
-     On Demand 80% @ 12% evals / 15% Instant. 90% split @ 12% evals / 15% Instant.
-     Both = 90% On Demand @ 20% evals / 32% Instant. News+weekend = Swing.
-     Accounts 1–4 at VERO35 (no extra copy ladder). Tooltips are product/rules
-     only — no fee %. Complete page: checkout.html.
+     days / $100 (not a toggle). Weekly 80% @ 10% XOR On Demand and XOR 90%.
+     On Demand 80% @ 15% evals / 18% Instant. 90% split @ 15% evals / 18% Instant.
+     Both = 90% On Demand @ 25% evals / 35% Instant. News is included (no SKU).
+     Weekend is the paid holding add-on. Accounts 1–4 at VERO35 (no extra copy
+     ladder). Tooltips are product/rules only — no fee %. Complete page: checkout.html.
 
   Do not restyle. Existing .co-addon* / .co-toggle / #coAddonModal rules apply.
 -->
@@ -181,7 +181,7 @@
 <body>
 <div class="checkout-page">
   <h1>Add-Ons</h1>
-  <p class="co-note">Same checkout classes. Default reward cycle is Bi-Weekly 80% every 14 calendar days, min $100 — not an add-on. Weekly is the same 80% split every 7 days. Weekly and On Demand 90% are XOR. News + weekend = Swing. Up to 4 accounts in one order; each at VERO35, no extra cut on copies. Instant leftover cannot fund Blue Guardian’s 30/35/40% copy ladder, and Lite is almost as thin. No 5th free.</p>
+  <p class="co-note">Same checkout classes. Default reward cycle is Bi-Weekly 80% every 14 calendar days, min $100 — not an add-on. Weekly is the same 80% split every 7 days. Weekly and On Demand 90% are XOR. News is included on every account; Weekend Holding is the paid add-on. Up to 4 accounts in one order; each at VERO35, no extra cut on copies. Instant leftover cannot fund Blue Guardian’s 30/35/40% copy ladder, and Lite is almost as thin. No 5th free.</p>
   <div class="checkout-container">
     <div class="checkout-form-col">
       <div class="co-section">
@@ -209,7 +209,7 @@
       <div class="co-summary-card">
         <div class="co-summary-title">Order Summary</div>
         <div class="co-summary-base"><span id="sumChallenge">2-Step Pro</span><span id="sumSize">$100K</span></div>
-        <div class="co-summary-base"><span>Challenge</span><span id="sumBase">$445</span></div>
+        <div class="co-summary-base"><span>Challenge</span><span id="sumBase">$475</span></div>
         <div id="sumAddonsWrap"></div>
         <div id="sumQtyWrap"></div>
         <div class="co-summary-divider"></div>
@@ -246,28 +246,28 @@
     '1step': {
       label: '1-Step',
       sizes: {
-        '5000': { price: 55 }, '10000': { price: 92 }, '25000': { price: 185 },
-        '50000': { price: 297 }, '100000': { price: 515 }, '200000': { price: 1006 }
+        '5000': { price: 69 }, '10000': { price: 106 }, '25000': { price: 198 },
+        '50000': { price: 337 }, '100000': { price: 583 }, '200000': { price: 1075 }
       }
     },
     '2steplite': {
       label: '2-Step Lite',
       sizes: {
-        '5000': { price: 65 }, '10000': { price: 85 }, '25000': { price: 145 },
-        '50000': { price: 229 }, '100000': { price: 414 }, '200000': { price: 768 }
+        '5000': { price: 75 }, '10000': { price: 91 }, '25000': { price: 152 },
+        '50000': { price: 229 }, '100000': { price: 423 }, '200000': { price: 845 }
       }
     },
     '2steppro': {
       label: '2-Step Pro',
       sizes: {
-        '5000': { price: 69 }, '10000': { price: 91 }, '25000': { price: 146 },
-        '50000': { price: 245 }, '100000': { price: 445 }, '200000': { price: 888 }
+        '5000': { price: 85 }, '10000': { price: 106 }, '25000': { price: 168 },
+        '50000': { price: 260 }, '100000': { price: 475 }, '200000': { price: 952 }
       }
     },
     instant: {
       label: 'Instant',
       sizes: {
-        '5000': { price: 75 }, '10000': { price: 106 }, '25000': { price: 214 },
+        '5000': { price: 75 }, '10000': { price: 106 }, '25000': { price: 229 },
         '50000': { price: 368 }, '100000': { price: 675 }
       }
     }
@@ -287,21 +287,14 @@
   var PAYOUT_UPGRADES = ['on-demand-payout', 'split-90'];
 
   /* Bundles: when every id is on, charge bundle pct on chargeId; others Incl.
-     Instant 90% On Demand stays 32% (year-1 leftover). Do not copy live Instant
-     20% or BG Instant 15% — that Instant $100k SKU is a hole. */
+     Instant 90% On Demand stays 35% (year-1 leftover). Do not copy live Instant
+     20% or BG Instant 15% — that Instant $100k SKU is a hole. News is included. */
   var BUNDLES = [
-    {
-      name: 'Swing',
-      ids: ['news-trading', 'weekend-holding'],
-      chargeId: 'news-trading',
-      pct: 0.20,
-      summaryLabel: 'News Trading'
-    },
     {
       name: '90% On Demand',
       ids: ['on-demand-payout', 'split-90'],
       chargeId: 'on-demand-payout',
-      pct: function () { return selectedPlan === 'instant' ? 0.32 : 0.20; },
+      pct: function () { return selectedPlan === 'instant' ? 0.35 : 0.25; },
       summaryLabel: 'On Demand Rewards with 90% Split'
     }
   ];
@@ -309,36 +302,19 @@
   /* ═══ PASTE: replace live ADDONS ═══ */
   var ADDONS = [
     {
-      id: 'news-trading',
-      label: 'News Trading',
-      pct: 0.12,
-      desc: 'Trade NFP, FOMC, CPI, earnings and geopolitical events with zero restrictions',
-      tooltip: function () {
-        var swing = bundleOnName('Swing')
-          ? 'You also have Weekend Holding on — both are billed as Swing, not as two add-ons.'
-          : 'Pair with Weekend Holding to hold through news and weekends as Swing — billed as one add-on, not two.';
-        return 'Unlock unrestricted news trading on evaluation and funded accounts. Trade high-impact events like NFP, FOMC, CPI, earnings releases, and geopolitical news with zero restrictions. Perfect for event-driven strategies.\n\n'
-          + 'Default funded accounts pause around high-impact news. This add-on turns that window off.\n\n'
-          + swing;
-      }
-    },
-    {
       id: 'weekend-holding',
       label: 'Weekend Holding',
-      pct: 0.12,
+      pct: 0.15,
       desc: 'Hold positions over the weekend with zero restrictions.',
       tooltip: function () {
-        var swing = bundleOnName('Swing')
-          ? 'You also have News Trading on — both are billed as Swing, not as two add-ons.'
-          : 'Pair with News Trading to hold through news and weekends as Swing — billed as one add-on, not two.';
         return 'Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.\n\n'
-          + swing;
+          + 'News trading is included on every plan — this add-on is only weekend holding.';
       }
     },
     {
       id: 'weekly-payout',
       label: 'Weekly Rewards with 80% Reward Split',
-      pct: 0.08,
+      pct: 0.10,
       desc: 'Withdraw your 80% profit share every 7 calendar days',
       tooltip: function () {
         return 'Weekly Rewards with 80% Split\n\nKeep the same 80% reward share as the default Bi-Weekly cycle, requested every 7 calendar days instead of 14. Minimum reward $100.\n\n'
@@ -349,8 +325,8 @@
     {
       id: 'on-demand-payout',
       label: 'On Demand Rewards with 80% Split',
-      pct: 0.12,
-      instantPct: 0.15,
+      pct: 0.15,
+      instantPct: 0.18,
       desc: 'Withdraw your 80% profit share anytime after the plan trading-day rule',
       tooltip: function () {
         return 'On Demand Rewards with 80% Split\n\nRequest your 80% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.\n\n'
@@ -362,8 +338,8 @@
     {
       id: 'split-90',
       label: '90% Reward Split',
-      pct: 0.12,
-      instantPct: 0.15,
+      pct: 0.15,
+      instantPct: 0.18,
       desc: 'Keep 90% of profits on the default Bi-Weekly schedule',
       tooltip: function () {
         return '90% Reward Split\n\nKeep 90% of profits on the default Bi-Weekly cycle (every 14 calendar days). Minimum reward $100.\n\n'
@@ -726,12 +702,8 @@
     var byId = {};
     ADDONS.forEach(function (a) { byId[a.id] = a; });
     selectedPlan = '2steppro'; selectedSize = '100000';
-    activeAddons = { 'news-trading': true };
-    var news = addonPrice(byId['news-trading']);
     activeAddons = { 'weekend-holding': true };
     var weekend = addonPrice(byId['weekend-holding']);
-    activeAddons = { 'news-trading': true, 'weekend-holding': true };
-    var swing = getAddonsTotal();
     activeAddons = { 'weekly-payout': true };
     var weekly = addonPrice(byId['weekly-payout']);
     activeAddons = { 'on-demand-payout': true };
@@ -741,6 +713,8 @@
     activeAddons = { 'on-demand-payout': true, 'split-90': true };
     var od90 = getAddonsTotal();
     selectedPlan = 'instant';
+    activeAddons = { 'weekend-holding': true };
+    var weekendInst = addonPrice(byId['weekend-holding']);
     activeAddons = { 'weekly-payout': true };
     var weeklyInst = addonPrice(byId['weekly-payout']);
     activeAddons = { 'on-demand-payout': true };
@@ -751,9 +725,8 @@
     var od90Inst = getAddonsTotal();
     selectedPlan = savedPlan; selectedSize = savedSize; activeAddons = saved;
     return {
-      news: news, weekend: weekend, swing: swing,
-      weekly: weekly, onDemand80: od80, split90: split90, onDemand90: od90,
-      weeklyInstant: weeklyInst, onDemand80Instant: od80Inst,
+      weekend: weekend, weekly: weekly, onDemand80: od80, split90: split90, onDemand90: od90,
+      weekendInstant: weekendInst, weeklyInstant: weeklyInst, onDemand80Instant: od80Inst,
       split90Instant: split90Inst, onDemand90Instant: od90Inst
     };
   };

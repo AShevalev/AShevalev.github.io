@@ -18,7 +18,7 @@ from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from write_price_rec_pdf import (
-    ANCHORS, MARKETING, REC, SIZES, load, opex_rows, rec_list, usd,
+    ANCHORS, MARKETING, REC, SIZES, load, leftover_after_opex, opex_rows, rec_list, usd,
 )
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -38,52 +38,40 @@ GRID = colors.HexColor("#c5d0dc")
 HEAD_BG = colors.HexColor("#0f2744")
 
 # Extra E[X] vs default 80% biweekly, as a fraction of priced E[X] (BE).
-# Instant = year-1; evals = first-payout. Swing uses news+weekend.
+# Instant = year-1; evals = first-payout. News is included in the challenge fee.
 EXTRA_F = {
     "Instant": {
-        "news": 0.05, "weekend": 0.08, "weekly": 0.08,
-        "od80": 0.12, "split90": 0.125, "od90": 0.41, "swing": 0.13,
+        "weekend": 0.08, "weekly": 0.08,
+        "od80": 0.12, "split90": 0.125, "od90": 0.41,
     },
     "1-Step": {
-        "news": 0.02, "weekend": 0.04, "weekly": 0.05,
-        "od80": 0.05, "split90": 0.125, "od90": 0.125, "swing": 0.06,
+        "weekend": 0.04, "weekly": 0.05,
+        "od80": 0.05, "split90": 0.125, "od90": 0.125,
     },
 }
 EXTRA_F["2-Step Lite"] = dict(EXTRA_F["1-Step"])
 EXTRA_F["2-Step Pro"] = dict(EXTRA_F["1-Step"])
 
 PCT = {
-    "news": (0.12, 0.12),
-    "weekend": (0.12, 0.12),
-    "swing": (0.20, 0.20),
-    "weekly": (0.08, 0.08),
-    "od80": (0.12, 0.15),
-    "split90": (0.12, 0.15),
-    "od90": (0.20, 0.32),
+    "weekend": (0.15, 0.15),
+    "weekly": (0.10, 0.10),
+    "od80": (0.15, 0.18),
+    "split90": (0.15, 0.18),
+    "od90": (0.25, 0.35),
 }
 
-# Legal shopper carts. Weekly XOR payout upgrades. Swing is news+weekend bundle.
+# Legal shopper carts. Weekly XOR payout upgrades. News is included (no SKU).
 COMBOS = [
     ("Challenge only", ()),
-    ("News", ("news",)),
     ("Weekend", ("weekend",)),
-    ("Swing", ("swing",)),
     ("Weekly 80%", ("weekly",)),
     ("On-demand 80%", ("od80",)),
     ("90% split", ("split90",)),
     ("90% On Demand", ("od90",)),
-    ("News + weekly", ("news", "weekly")),
-    ("News + on-demand 80%", ("news", "od80")),
-    ("News + 90%", ("news", "split90")),
-    ("News + 90% On Demand", ("news", "od90")),
     ("Weekend + weekly", ("weekend", "weekly")),
     ("Weekend + on-demand 80%", ("weekend", "od80")),
     ("Weekend + 90%", ("weekend", "split90")),
     ("Weekend + 90% On Demand", ("weekend", "od90")),
-    ("Swing + weekly", ("swing", "weekly")),
-    ("Swing + on-demand 80%", ("swing", "od80")),
-    ("Swing + 90%", ("swing", "split90")),
-    ("Swing + 90% On Demand", ("swing", "od90")),
 ]
 
 
@@ -211,6 +199,8 @@ def combo_math(plan: str, list_px: float, be: float, keys: tuple[str, ...]):
 
 
 def sku_index(skus, ox):
+    news = pd.read_csv(RESULTS / "verodus_news_included_prices.csv")
+    news_ix = {(r.Plan, int(r.Size)): r for r in news.itertuples()}
     out = []
     for plan, _fam in ANCHORS:
         for sz in SIZES:
@@ -222,8 +212,13 @@ def sku_index(skus, ox):
             oxr = ox.get((plan, sz), {})
             sale = REC[(plan, sz)]
             list_px = rec_list(sale)
-            be = float(oxr.get("BE") or 0.0)
-            chal_left = float(oxr.get("Rec_left") or 0.0)
+            nr = news_ix.get((plan, sz))
+            if nr is not None:
+                be = float(nr.BE_on)
+                chal_left = leftover_after_opex(sale, float(nr.Loaded_on))
+            else:
+                be = float(oxr.get("BE") or 0.0)
+                chal_left = float(oxr.get("Rec_left") or 0.0)
             rec_m = (sale - be) / sale if sale else 0.0
             out.append({
                 "Plan": plan, "Size": sz, "Sale": sale, "List": list_px,
@@ -259,9 +254,10 @@ def build():
     story = []
     story.append(P("Add-on leftover: BE, margins, and every legal combination", s["cover"]))
     story.append(P(
-        "Challenge fees locked. Add-ons: news/weekend 12%, Swing 20%, weekly 80% at 8%, "
-        "on-demand 80% 12%/15% Instant, 90% 12%/15% Instant, 90% On Demand 20%/32% Instant. "
-        "VERO35 takes 35% off list + stickers. After ads = 52% of sticker minus extra E[X].",
+        "News is included on every phase (not an add-on). Remaining add-ons: weekend 15%, "
+        "weekly 80% at 10%, on-demand 80% 15%/18% Instant, 90% 15%/18% Instant, "
+        "90% On Demand 25%/35% Instant. VERO35 takes 35% off list + stickers. "
+        "After ads = 52% of sticker minus extra E[X]. Challenge leftover uses news-on BE.",
         s["sub"],
     ))
 
@@ -318,16 +314,15 @@ def build():
         28*mm, 40*mm, 18*mm, 22*mm, 26*mm, 24*mm, 18*mm,
     ], spec))
     story.append(P(
-        "Instant 90% On Demand at 32% is thin (−$4). That is the year-1 floor. "
+        "Instant 90% On Demand at 35% leftover ~$11. That is the year-1 floor. "
         "Do not copy Blue Guardian Instant 15% or FundedNext +5% for 90%+anytime.",
         s["tiny"],
     ))
 
     story.append(P("3. Instant $100k — every legal cart", s["h1"]))
     story.append(P(
-        "Weekly cannot mix with on-demand or 90%. News+weekend bills as Swing (20%), "
-        "not 12+12. On-demand+90% bills as 90% On Demand (32%), not 15+15. "
-        "Combined leftover = challenge leftover (~$13) + addon leftover.",
+        "Weekly cannot mix with on-demand or 90%. On-demand+90% bills as 90% On Demand "
+        "(35%), not 18+18. Combined leftover = challenge leftover (~$26) + addon leftover.",
         s["body"],
     ))
     inst_rows = [r for r in combo_rows(ix, 100000) if r["Plan"] == "Instant"]
@@ -355,8 +350,8 @@ def build():
 
     story.append(P("4. 2-Step Pro $100k — every legal cart", s["h1"]))
     story.append(P(
-        "Eval extra is first-payout only. 90% On Demand at 20% undercuts Blue Guardian "
-        "evals 25% and still prints. Challenge leftover ~$33.",
+        "Eval extra is first-payout only. 90% On Demand at 25% matches Blue Guardian "
+        "evals 25% and still prints. Challenge leftover ~$36.",
         s["body"],
     ))
     pro_rows = [r for r in combo_rows(ix, 100000) if r["Plan"] == "2-Step Pro"]
@@ -380,10 +375,10 @@ def build():
         48*mm, 22*mm, 26*mm, 24*mm, 26*mm, 28*mm, 24*mm, 18*mm,
     ], spec))
 
-    story.append(P("5. 1-Step and Lite $100k — 90% On Demand and Swing stacks", s["h1"]))
+    story.append(P("5. 1-Step and Lite $100k — 90% On Demand and Weekend stacks", s["h1"]))
     focus = {
-        "Challenge only", "Swing", "Weekly 80%", "On-demand 80%", "90% split",
-        "90% On Demand", "Swing + weekly", "Swing + 90% On Demand",
+        "Challenge only", "Weekend", "Weekly 80%", "On-demand 80%", "90% split",
+        "90% On Demand", "Weekend + weekly", "Weekend + 90% On Demand",
     }
     heads = ["Plan", "Cart", "Sticker", "Extra E[X]", "Addon after", "Combined", "Prints?"]
     data = [[P(h, s["th"]) for h in heads]]
@@ -413,7 +408,7 @@ def build():
         ("FN +5% on-demand with 95%", 0.05, 0.41),
         ("Alpha 10% 90% + our 15% anytime stacked", 0.10 + 0.15, 0.41),
         ("Weekly 70% @ 6% (old decoy)", 0.06, 0.08),
-        ("Rec Instant 90% On Demand 32%", 0.32, 0.41),
+        ("Rec Instant 90% On Demand 35%", 0.35, 0.41),
     ]
     heads = ["If Instant $100k charged…", "Sticker", "Extra E[X]", "After ads", "Prints?"]
     data = [[P(h, s["th"]) for h in heads]]

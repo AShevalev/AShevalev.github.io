@@ -2,26 +2,28 @@
 
 Paste `head-meta.html` into the Verodus-4-centered `<head>` (replace the current title / description / OG / Twitter block).
 
-Do **not** keep “from $18” — that was the old Lite $5k VERO35. Floor is **1-Step $36**. Instant starts at **$49**. Lite starts at **$42**.
+Do **not** keep “from $18” — that was the old Lite $5k VERO35. Floor is **1-Step $45**. Instant starts at **$49**. Lite starts at **$49**. Pro starts at **$55**.
 
 ## SERP copy (locked)
 
 | Field | Text | Chars |
 |---|---|---:|
 | Title | Verodus — Instant from $49. Funded on Day One. | 47 |
-| Description | Funded on day one from $49. Pass a 1-Step from $36 or Lite from $42. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit. | 136 |
+| Description | Funded on day one from $49. Pass a 1-Step from $45 or Lite from $49. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit. | 140 |
 | OG title | Verodus — Instant from $49. Funded on Day One. | 47 |
 
 Default split is **80%**. 90% is a paid add-on — do not lead the meta with 90% or $1M.
 
 ## Rec sale / list (VERO35)
 
+News-included reprice 17 Aug 2026. Instant stays pinned under FundingPips / Blue Guardian. Evals step leftover up under Alpha / Fintokei / Maven / Hola.
+
 | Plan | $5k | $10k | $25k | $50k | $100k | $200k |
 |---|---|---|---|---|---|---|
-| Instant | $49 / $75 | $69 / $106 | $139 / $214 | $239 / $368 | $439 / $675 | — |
-| 1-Step | $36 / $55 | $60 / $92 | $120 / $185 | $193 / $297 | $335 / $515 | $654 / $1,006 |
-| Lite | $42 / $65 | $55 / $85 | $94 / $145 | $149 / $229 | $269 / $414 | $499 / $768 |
-| Pro | $45 / $69 | $59 / $91 | $95 / $146 | $159 / $245 | $289 / $445 | $577 / $888 |
+| Instant | $49 / $75 | $69 / $106 | $149 / $229 | $239 / $368 | $439 / $675 | — |
+| 1-Step | $45 / $69 | $69 / $106 | $129 / $198 | $219 / $337 | $379 / $583 | $699 / $1,075 |
+| Lite | $49 / $75 | $59 / $91 | $99 / $152 | $149 / $229 | $275 / $423 | $549 / $845 |
+| Pro | $55 / $85 | $69 / $106 | $109 / $168 | $169 / $260 | $309 / $475 | $619 / $952 |
 
 JS: `plan-fees.js` — `[sale, list]`. Instant $200k is omitted on purpose.
 
@@ -33,17 +35,17 @@ Complete trading-objectives page: [`trading-objectives.html`](trading-objectives
 
 Plan-rule pages (live chrome, rec §4 payout copy): [`instant.html`](instant.html), [`1-step.html`](1-step.html), [`2-step-lite.html`](2-step-lite.html), [`2-step-pro.html`](2-step-pro.html). Rebuild with `python3 landing/stitch_plan_pages.py`. Instant also patches valid-day SOD equity, 6% trail never locks, and not-refundable-at-all. Evals keep the first-payout challenge-fee refund and add that add-ons are not refunded. **News is included** on every phase and funded account (not an add-on). Friday 22:00 flatten stays unless Weekend is paid.
 
-Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md) and PDF [`../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf`](../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf). 90% street is 10–20% of fee (Alpha 10, BG 15, FXIFY 20). Rec evals sit in that band; Instant 32% for 90% On Demand is the year-1 floor, not a street match.
+Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md) and PDF [`../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf`](../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf). 90% street is 10–20% of fee (Alpha 10, BG 15, FXIFY 20). Rec evals sit in that band; Instant **35%** for 90% On Demand is the year-1 floor, not a street match.
 
 Reward cycles for Instant, 1-Step, Lite, and Pro:
 
 | Cycle | Split | Request | Min | Checkout |
 |---|---|---|---|---|
-| On Demand | **80%** | Anytime after plan min days | $100 | add-on, **12%** evals / **15% Instant** |
-| Weekly | **80%** | every 7 calendar days | $100 | add-on, **8%** of list |
+| On Demand | **80%** | Anytime after plan min days | $100 | add-on, **15%** evals / **18% Instant** |
+| Weekly | **80%** | every 7 calendar days | $100 | add-on, **10%** of list |
 | **Bi-Weekly (default)** | **80%** | every **14** calendar days | $100 | not a toggle |
-| On Demand | **90%** | Anytime after plan min days | $100 | On Demand + 90% bundle, **20%** evals / **32% Instant** |
-| Bi-Weekly | **90%** | every 14 calendar days | $100 | 90% add-on, **12%** evals / **15% Instant** |
+| On Demand | **90%** | Anytime after plan min days | $100 | On Demand + 90% bundle, **25%** evals / **35% Instant** |
+| Bi-Weekly | **90%** | every 14 calendar days | $100 | 90% add-on, **15%** evals / **18% Instant** |
 
 Possible combinations (the five reward-cycle cards): **80% On Demand** · **80% Weekly** · **80% Bi-Weekly** included · **90% On Demand** · **90% Bi-Weekly**. Weekly XOR On Demand and XOR 90%. 90% Weekly is not offered.
 
@@ -55,23 +57,23 @@ First payout: Instant min $100 after 5 valid days; evals min $100 after 3 tradin
 
 BG Instant Standard **includes** on-demand at **80%**. The 90% add-on is **+15%** of the challenge fee. Evals: 90% **+15%**, 7-day **+15%**, **both +25%** (save 5pp). Checkout.blueguardian.com Instant $100k list $623 → 7-day $93.45 / 90% $93.45 / both $155.75.
 
-Verodus Instant default is **biweekly 80%**, so speed and 90% are paid add-ons. Do **not** sell Instant 90% On Demand at live’s 20% or BG’s 15% — year-1 extra E[X] is ~41% of BE ($116 on Instant $100k). After VERO35 and 20% ads, 15% of $675 leaves ~$53 vs $116 cost.
+Verodus Instant default is **biweekly 80%**, so speed and 90% are paid add-ons. Do **not** sell Instant 90% On Demand at live’s 20% or BG’s 15% — year-1 extra E[X] is ~41% of BE ($112 on Instant $100k news-on). After VERO35 and 20% ads, 15% of $675 leaves ~$53 vs $112 cost. Rec Instant 90% On Demand is **35%** (~$11 leftover).
 
 ### Locked billing
 
 | Add-on | Evals | Instant | Notes |
 |---|---:|---:|---|
 | News trading | **included** | **included** | Not an add-on. Allowed on evals and funded. |
-| Weekend holding | 12% | 12% | Friday flatten off |
+| Weekend holding | 15% | 15% | Friday flatten off. Street live was 18% |
 | Swing | **drop** | **drop** | News is already in the fee; do not charge 20% |
-| Weekly 80% | 8% | 8% | Every 7 calendar days, same 80% as default. XOR On Demand and XOR 90% |
-| On Demand 80% | 12% | **15%** | After plan min days, anytime. Instant 5 valid days; evals 3 trading days |
-| 90% split | 12% | **15%** | Bi-Weekly unless On Demand is also on. Min $100. XOR Weekly |
-| **90% On Demand** (both) | **20%** | **32%** | Instant 32% is the year-1 floor |
+| Weekly 80% | 10% | 10% | Every 7 calendar days, same 80% as default. XOR On Demand and XOR 90%. BG 7-day 15% evals |
+| On Demand 80% | 15% | **18%** | After plan min days, anytime. Instant 5 valid days; evals 3 trading days |
+| 90% split | 15% | **18%** | Bi-Weekly unless On Demand is also on. Min $100. XOR Weekly. Alpha 10, BG 15, FXIFY 20 |
+| **90% On Demand** (both) | **25%** | **35%** | Instant 35% is the year-1 floor. BG evals both 25% |
 
 Sticker = `Math.round(list * pct)`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.
 
-Pro $100k ($445): weekend $53 / weekly $36 / On Demand 80% $53 / 90% $53 / 90% On Demand $89. Instant $100k ($675): weekend $81 / weekly $54 / On Demand 80% $101 / 90% $101 / 90% On Demand $216. News is included (no sticker). Swing is dropped.
+Pro $100k ($475): weekend $71 / weekly $48 / On Demand 80% $71 / 90% $71 / 90% On Demand $119. Instant $100k ($675): weekend $101 / weekly $68 / On Demand 80% $122 / 90% $122 / 90% On Demand $236. News is included (no sticker). Swing is dropped.
 
 ### Multi-account (up to 4)
 
@@ -81,12 +83,12 @@ Do **not** copy the 30/35/40 ladder. VERO35 is already **35% off every copy**, w
 
 | SKU | Rec leftover after 20% ads | Max extra off the VERO35 sale |
 |---|---:|---:|
-| Instant $100k | ~$13 | ~4% |
-| Lite $100k | ~$14 | ~6% |
-| Pro $100k | ~$33 | ~14% |
-| 1-Step $100k | ~$108 | ~40% |
+| Instant $100k | ~$26 | ~8% |
+| Lite $100k | ~$15 | ~7% |
+| Pro $100k | ~$36 | ~15% |
+| 1-Step $100k | ~$123 | ~40% |
 
-Instant and Lite cannot fund a visible extra %. A 10% extra on Instant $100k copy 2 is about **−$22** after ads. Offer **qty 1–4 at VERO35, same add-ons on every copy, no extra ladder**.
+Instant and Lite cannot fund a visible extra %. A 10% extra on Instant $100k copy 2 is about **−$9** after ads. Offer **qty 1–4 at VERO35, same add-ons on every copy, no extra ladder**.
 
 Paste into `checkout.html`:
 
