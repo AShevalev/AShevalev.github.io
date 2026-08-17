@@ -286,7 +286,7 @@ Payout spacing is the cycle you selected: 7 calendar days for weekly, 14 calenda
 **`content.p28` (fee refund)** live: yes for first reward, no Instant exception. **Paste:**
 
 ```text
-Yes, on 1-Step, 2-Step Lite, and 2-Step Pro: 100% of the original challenge fee is refunded with your first successful performance reward. Instant has no challenge-fee refund.
+Yes, on 1-Step, 2-Step Lite, and 2-Step Pro: 100% of the original challenge fee is refunded with your first successful performance reward. Add-ons are not refunded if they were purchased (Weekend Holding, Weekly, On-Demand, or any other add-on). Instant has no challenge-fee refund.
 ```
 
 ---
@@ -331,4 +331,4 @@ Already aligned: news allowed on all four plans; holding time is No. No change r
 - Instant 5 valid +0.5% days ≠ 2-Step 5 trading days ≠ 1-Step no min days. Each plan keeps its own min; first and later payouts on that plan use **that** min **plus** the cycle.
 - Weekly 7 calendar days and bi-weekly 14 calendar days are the cycle clock. Do not add a separate “3 days between payouts” or “first after 4 / later after 3” clock on top.
 - 1-Step Best Day 50% ≠ Instant Best Day 20%.
-- Challenge fee refund on first reward is eval plans only, not Instant. That refund is not a different day rule.
+- Challenge fee refund on first reward is eval plans only, not Instant. Add-ons are never part of that refund. That refund is not a different day rule.
