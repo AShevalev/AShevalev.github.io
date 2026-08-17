@@ -472,7 +472,7 @@
                             <div class="eval-guide-name"><i class="fa-solid fa-newspaper"></i> <span data-i18n="pricing.newsTrading">News Trading</span></div>
                             <span class="badge badge-green" id="evalNewsBadge" data-i18n="pricing.allowed">Allowed</span>
                         </div>
-                        <div class="eval-guide-desc" id="evalNewsDesc" data-i18n="pricing.evalNewsDesc">News trading is permitted during evaluation phases.</div>
+                        <div class="eval-guide-desc" id="evalNewsDesc" data-i18n="pricing.evalNewsDesc">News trading is permitted. It is included on every plan — not an add-on.</div>
                     </div>
                     <div class="eval-guide-card">
                         <div class="eval-guide-top">
@@ -552,11 +552,10 @@
                 <div class="eval-guide-card">
                     <div class="eval-guide-top">
                         <div class="eval-guide-name"><i class="fa-solid fa-newspaper"></i> News Trading</div>
-                        <span class="badge badge-red" id="qpfNewsBadge">Restricted</span>
+                        <span class="badge badge-green" id="qpfNewsBadge">Allowed</span>
                     </div>
                     <div class="eval-news-desc-block">
-                        <div class="eval-guide-desc" id="qpfNewsDesc">Not allowed to open or close a position ±2 min around high-impact (red folder) news events.</div>
-                        <div class="eval-guide-desc">* Unless News Trading Addon purchased.</div>
+                        <div class="eval-guide-desc" id="qpfNewsDesc">News trading is permitted. It is included on every plan — not an add-on.</div>
                     </div>
                 </div>
                 <div class="eval-guide-card">
@@ -955,7 +954,7 @@ Crypto 1:3</div>
             if (evalBadge) evalBadge.className = 'badge badge-green';
 
             const qpfBadge = document.getElementById('qpfNewsBadge');
-            if (qpfBadge) qpfBadge.className = 'badge badge-red';
+            if (qpfBadge) { qpfBadge.className = 'badge badge-green'; qpfBadge.textContent = 'Allowed'; }
         }
 
         // ── Render funded guidelines ──
@@ -966,9 +965,9 @@ Crypto 1:3</div>
                 <div class="guide-card">
                     <div class="guide-top">
                         <div class="guide-name"><i class="fa-solid fa-newspaper"></i> News Trading</div>
-                        <span class="badge badge-red">Restricted</span>
+                        <span class="badge badge-green">Allowed</span>
                     </div>
-                    <div class="guide-desc">±2m window around high-impact news events. Profits deducted on violation.</div>
+                    <div class="guide-desc">News trading is permitted. It is included on every plan — not an add-on.</div>
                 </div>
                 <div class="guide-card">
                     <div class="guide-top">
@@ -1302,7 +1301,8 @@ Crypto 1:3`;
      Weekly cycle is 80% (same split as Bi-Weekly), not live's 70% decoy.
      Five legal cards: 80% On Demand / Weekly / Bi-Weekly, 90% On Demand /
      Bi-Weekly. 90% Weekly is not offered. On Demand still has to clear
-     Instant 5 valid days / eval 3 trading days. */
+     Instant 5 valid days / eval 3 trading days.
+     News is included on every plan (eval and funded). Not an add-on. */
   if (typeof pricingData === 'undefined') return;
 
   delete pricingData.instant['200000'];
@@ -1401,18 +1401,49 @@ Crypto 1:3`;
       });
     }
     origUpdateAll();
-    var evalNewsDesc = document.getElementById('evalNewsDesc');
-    if (evalNewsDesc) {
-      evalNewsDesc.textContent = currentTab === 'instant'
-        ? 'News trading is permitted on Instant funded accounts.'
-        : 'News trading is permitted during evaluation phases.';
-    }
+    applyNewsIncluded();
     var evalWeekendDesc = document.getElementById('evalWeekendDesc');
     if (evalWeekendDesc && currentTab === 'instant') {
       evalWeekendDesc.textContent = 'All open positions must close by 22:00 UTC Friday. Weekend holding requires the Weekend Holding Addon.';
     }
     applyRewardCycles();
   };
+
+  function applyNewsIncluded() {
+    var allowed = 'News trading is permitted. It is included on every plan — not an add-on.';
+    var evalBadge = document.getElementById('evalNewsBadge');
+    if (evalBadge) {
+      evalBadge.className = 'badge badge-green';
+      evalBadge.textContent = 'Allowed';
+    }
+    var evalNewsDesc = document.getElementById('evalNewsDesc');
+    if (evalNewsDesc) evalNewsDesc.textContent = allowed;
+    var qpfBadge = document.getElementById('qpfNewsBadge');
+    if (qpfBadge) {
+      qpfBadge.className = 'badge badge-green';
+      qpfBadge.textContent = 'Allowed';
+    }
+    var qpfNewsDesc = document.getElementById('qpfNewsDesc');
+    if (qpfNewsDesc) {
+      qpfNewsDesc.textContent = allowed;
+      var extra = qpfNewsDesc.nextElementSibling;
+      if (extra && /News Trading Addon/i.test(extra.textContent || '')) extra.remove();
+    }
+    var funded = document.getElementById('fundedGuides');
+    if (funded) {
+      funded.querySelectorAll('.guide-card').forEach(function (card) {
+        var name = card.querySelector('.guide-name');
+        if (!name || name.textContent.indexOf('News Trading') === -1) return;
+        var badge = card.querySelector('.badge');
+        if (badge) {
+          badge.className = 'badge badge-green';
+          badge.textContent = 'Allowed';
+        }
+        var desc = card.querySelector('.guide-desc');
+        if (desc) desc.textContent = allowed;
+      });
+    }
+  }
 
   function applyRewardCycles() {
     document.querySelectorAll('[data-i18n="content.p6"]').forEach(function (p) {

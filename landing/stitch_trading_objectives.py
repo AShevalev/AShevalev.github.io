@@ -179,6 +179,56 @@ def stitch(html: str, rec: str) -> str:
         count=1,
     )
 
+    qpf_badge_old = '<span class="badge badge-red" id="qpfNewsBadge">Restricted</span>'
+    qpf_desc_old = (
+        '<div class="eval-guide-desc" id="qpfNewsDesc">Not allowed to open or close a position ±2 min around high-impact (red folder) news events.</div>\n'
+        '                        <div class="eval-guide-desc">* Unless News Trading Addon purchased.</div>'
+    )
+    qpf_js_old = "if (qpfBadge) qpfBadge.className = 'badge badge-red';"
+    funded_news_old = (
+        '                        <span class="badge badge-red">Restricted</span>\n'
+        '                    </div>\n'
+        '                    <div class="guide-desc">±2m window around high-impact news events. Profits deducted on violation.</div>'
+    )
+    for label, needle in (
+        ("eval news desc", 'data-i18n="pricing.evalNewsDesc">'),
+        ("QPF news badge", qpf_badge_old),
+        ("QPF news desc", qpf_desc_old),
+        ("updateEvalNewsCard", qpf_js_old),
+        ("renderFundedGuides news", funded_news_old),
+    ):
+        if needle not in html:
+            raise SystemExit(f"news-included needle not found: {label}")
+
+    html = re.sub(
+        r'(data-i18n="pricing.evalNewsDesc">)[^<]*',
+        r'\1News trading is permitted. It is included on every plan — not an add-on.',
+        html,
+        count=1,
+    )
+    html = html.replace(
+        qpf_badge_old,
+        '<span class="badge badge-green" id="qpfNewsBadge">Allowed</span>',
+        1,
+    )
+    html = html.replace(
+        qpf_desc_old,
+        '<div class="eval-guide-desc" id="qpfNewsDesc">News trading is permitted. It is included on every plan — not an add-on.</div>',
+        1,
+    )
+    html = html.replace(
+        qpf_js_old,
+        "if (qpfBadge) { qpfBadge.className = 'badge badge-green'; qpfBadge.textContent = 'Allowed'; }",
+        1,
+    )
+    html = html.replace(
+        funded_news_old,
+        '                        <span class="badge badge-green">Allowed</span>\n'
+        '                    </div>\n'
+        '                    <div class="guide-desc">News trading is permitted. It is included on every plan — not an add-on.</div>',
+        1,
+    )
+
     html = strip_element(html, '<div class="rc-combo-wrap" id="rcComboWrap">')
     html = re.sub(
         r"\n        \.rc-combo-wrap \{.*?\n        \}\n",

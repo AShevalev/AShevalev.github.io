@@ -5,7 +5,8 @@
      Weekly cycle is 80% (same split as Bi-Weekly), not live's 70% decoy.
      Five legal cards: 80% On Demand / Weekly / Bi-Weekly, 90% On Demand /
      Bi-Weekly. 90% Weekly is not offered. On Demand still has to clear
-     Instant 5 valid days / eval 3 trading days. */
+     Instant 5 valid days / eval 3 trading days.
+     News is included on every plan (eval and funded). Not an add-on. */
   if (typeof pricingData === 'undefined') return;
 
   delete pricingData.instant['200000'];
@@ -104,18 +105,49 @@
       });
     }
     origUpdateAll();
-    var evalNewsDesc = document.getElementById('evalNewsDesc');
-    if (evalNewsDesc) {
-      evalNewsDesc.textContent = currentTab === 'instant'
-        ? 'News trading is permitted on Instant funded accounts.'
-        : 'News trading is permitted during evaluation phases.';
-    }
+    applyNewsIncluded();
     var evalWeekendDesc = document.getElementById('evalWeekendDesc');
     if (evalWeekendDesc && currentTab === 'instant') {
       evalWeekendDesc.textContent = 'All open positions must close by 22:00 UTC Friday. Weekend holding requires the Weekend Holding Addon.';
     }
     applyRewardCycles();
   };
+
+  function applyNewsIncluded() {
+    var allowed = 'News trading is permitted. It is included on every plan — not an add-on.';
+    var evalBadge = document.getElementById('evalNewsBadge');
+    if (evalBadge) {
+      evalBadge.className = 'badge badge-green';
+      evalBadge.textContent = 'Allowed';
+    }
+    var evalNewsDesc = document.getElementById('evalNewsDesc');
+    if (evalNewsDesc) evalNewsDesc.textContent = allowed;
+    var qpfBadge = document.getElementById('qpfNewsBadge');
+    if (qpfBadge) {
+      qpfBadge.className = 'badge badge-green';
+      qpfBadge.textContent = 'Allowed';
+    }
+    var qpfNewsDesc = document.getElementById('qpfNewsDesc');
+    if (qpfNewsDesc) {
+      qpfNewsDesc.textContent = allowed;
+      var extra = qpfNewsDesc.nextElementSibling;
+      if (extra && /News Trading Addon/i.test(extra.textContent || '')) extra.remove();
+    }
+    var funded = document.getElementById('fundedGuides');
+    if (funded) {
+      funded.querySelectorAll('.guide-card').forEach(function (card) {
+        var name = card.querySelector('.guide-name');
+        if (!name || name.textContent.indexOf('News Trading') === -1) return;
+        var badge = card.querySelector('.badge');
+        if (badge) {
+          badge.className = 'badge badge-green';
+          badge.textContent = 'Allowed';
+        }
+        var desc = card.querySelector('.guide-desc');
+        if (desc) desc.textContent = allowed;
+      });
+    }
+  }
 
   function applyRewardCycles() {
     document.querySelectorAll('[data-i18n="content.p6"]').forEach(function (p) {
