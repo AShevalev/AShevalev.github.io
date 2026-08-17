@@ -172,9 +172,9 @@ def stitch(html: str, logic: str, countries: str) -> str:
                                 <circle cx="12" cy="12" r="9"></circle>
                                 <polyline points="8 12 11 15 16 9"></polyline>
                             </svg>
-                            <span class="co-refundable-label" id="coRefundableLabel">Refundable on first payout</span>
+                            <span class="co-refundable-label" id="coRefundableLabel">Refundable on first payout excluding add-on fees.</span>
                         </span>
-                        <div class="co-refund-note" id="coRefundNote">Add-on fees are not refundable.</div>
+                        <div class="co-refund-note" id="coRefundNote"></div>
                     </div>"""
     if refund_old not in html:
         raise SystemExit("Refundable pill block not found")

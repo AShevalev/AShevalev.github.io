@@ -336,14 +336,15 @@
   function updateRefundCopy() {
     var wrap = $('#coRefundable');
     var pill = $('#coRefundablePill');
+    var label = $('#coRefundableLabel');
     var note = $('#coRefundNote');
     if (!wrap) return;
     var instant = selectedPlan === 'instant';
     if (pill) pill.style.display = instant ? 'none' : '';
+    if (label) label.textContent = 'Refundable on first payout excluding add-on fees.';
     if (note) {
-      note.textContent = instant
-        ? 'Instant purchases are not refundable. Add-on fees are not refundable.'
-        : 'Add-on fees are not refundable.';
+      note.textContent = instant ? 'Instant purchases are not refundable.' : '';
+      note.style.display = instant ? '' : 'none';
     }
   }
 
