@@ -9,3 +9,4 @@ Monte Carlo pricing for [Verodus](https://www.verodus.com/) against the top 20 f
 - **Full industry tables:** [`results/INDUSTRY_REPORT.md`](results/INDUSTRY_REPORT.md)
 - **Verodus-only (earlier book):** [`results/REPORT.md`](results/REPORT.md)
 - **How to run:** [`sim/README.md`](sim/README.md)
+- **Checkout add-ons vs 19 peers:** [`results/COMPETITOR_ADDONS.md`](results/COMPETITOR_ADDONS.md)

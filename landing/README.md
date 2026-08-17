@@ -29,6 +29,8 @@ JS: `plan-fees.js` — `[sale, list]`. Instant $200k is omitted on purpose.
 
 Open [`checkout-addons.html`](checkout-addons.html) for the Add-Ons section, ⓘ tooltips, bundles, and billing logic. Classes match live `checkout.css` (`.co-addon`, `.co-toggle`, `#coAddonModal`).
 
+Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md). 90% street is 10–20% of fee (Alpha 10, BG 15, FXIFY 20). Rec evals sit in that band; Instant 32% for 90%+anytime is the year-1 floor, not a street match.
+
 ### Blue Guardian (do not copy Instant 15%)
 
 BG Instant Standard **includes** on-demand at **80%**. The 90% add-on is **+15%** of the challenge fee. Evals: 90% **+15%**, 7-day **+15%**, **both +25%** (save 5pp). Checkout.blueguardian.com Instant $100k list $623 → 7-day $93.45 / 90% $93.45 / both $155.75.

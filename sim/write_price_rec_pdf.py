@@ -175,16 +175,17 @@ EXTRA_E = {
     "2-Step Pro": {"news": 0.02, "weekend": 0.04, "weekly": 0.05, "ondemand": 0.125},
 }
 
-# Suggested checkout %. Instant on-demand must cover year-1 90% + anytime.
+# Suggested checkout %. Instant 90%+anytime must cover year-1.
+# News/weekend rec is 12/12 with Swing 20% (see competitor_addons.py).
 ADDON_REC_PCT = {
-    "news": 0.15,
-    "weekend": 0.18,
+    "news": 0.12,
+    "weekend": 0.12,
     "weekly": 0.06,
     "ondemand": 0.20,
 }
 ADDON_REC_PCT_INSTANT = {
-    "news": 0.15,
-    "weekend": 0.18,
+    "news": 0.12,
+    "weekend": 0.12,
     "weekly": 0.06,
     "ondemand": 0.32,
 }
@@ -905,16 +906,16 @@ def addon_suggest_table(skus, s):
     heads = ["Add-on", "Live %", "Rec % Instant", "Rec % evals",
              "Instant $100k live", "Instant $100k rec", "Why"]
     why = {
-        "news": "Keep. High attach, low extra E[X]. Eval already allows news.",
-        "weekend": "Keep. Gap tail is the risk — do not cheapen.",
-        "weekly": "Keep cheap. Instant is about flat; 70% split is a decoy vs 90%.",
-        "ondemand": "Raise Instant to 32%. 90% + anytime is underwater at 20%.",
+        "news": "Cut live 15% → 12%. Street often includes eval news.",
+        "weekend": "Cut live 18% → 12%. Swing both at 20%, not 24%.",
+        "weekly": "Keep cheap. 70% split is a decoy vs 90%. Street weekly is 5–25%.",
+        "ondemand": "Evals 20% undercuts BG both-25%. Instant 32% covers year-1.",
     }
     data = [[P(h, s["th"]) for h in heads]]
     spec = {}
     inst_list = rec_list(REC[("Instant", 100000)])
     for i, (key, label, live_pct) in enumerate(ADDONS, start=1):
-        spec[i] = "rec" if key == "ondemand" else "live"
+        spec[i] = "rec"
         rec_i = ADDON_REC_PCT_INSTANT[key]
         rec_e = ADDON_REC_PCT[key]
         data.append([
@@ -928,6 +929,27 @@ def addon_suggest_table(skus, s):
         ])
     return grid(data, [
         36*mm, 16*mm, 26*mm, 22*mm, 26*mm, 26*mm, 64*mm,
+    ], spec)
+
+
+def competitor_addon_table(s):
+    """Published +% for the 19-peer CFD set. Full notes: COMPETITOR_ADDONS.md."""
+    from competitor_addons import FIRMS, pct_s
+    heads = ["Firm", "90%/100%", "On-demand / 7-day", "Weekly", "Swing / hold"]
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    for i, r in enumerate(FIRMS, start=1):
+        if r["firm"] in ("Blue Guardian", "FXIFY", "Alpha Capital", "FundedNext"):
+            spec[i] = "live"
+        data.append([
+            P(r["firm"], s["tdl"]),
+            P(pct_s(r["split90_pct"]), s["td"]),
+            P(pct_s(r["od_pct"]), s["td"]),
+            P(pct_s(r["weekly_pct"]), s["td"]),
+            P(pct_s(r["swing_pct"]), s["td"]),
+        ])
+    return grid(data, [
+        40*mm, 32*mm, 40*mm, 28*mm, 32*mm,
     ], spec)
 
 
@@ -1226,7 +1248,8 @@ def collect_story():
     story.append(P("1g. Checkout add-ons — do they change rec?", s["h1"]))
     story.append(P(
         "Live checkout already uses this list card. Add-on sticker = "
-        "<b>round(list × %)</b> (Pro $100k news = round($445 × 15%) = <b>$67</b>). "
+        "<b>round(list × %)</b> (Pro $100k news live = round($445 × 15%) = <b>$67</b>; "
+        "rec 12% is <b>$53</b>). "
         "VERO35 takes 35% off challenge + add-ons, so the shopper pays 65% of the sticker. "
         "Challenge rec does <b>not</b> move — shoppers compare the naked fee to FP / BG / Maven. "
         "Add-on cash is extra AOV. Do not cut rec because some buyers add news.",
@@ -1292,16 +1315,25 @@ def collect_story():
 
     story.append(P("1j. Suggested add-on % (not the challenge fee)", s["h1"]))
     story.append(P(
-        "Keep news 15%, weekend 18%, weekly 6% (Instant weekly is about flat — "
-        "leave it cheap so people pick 70% over 90%). "
-        "Raise Instant on-demand from 20% → <b>32% of list</b> ($135 → $216 sticker, "
-        "$88 → $140 shopper) so year-1 90% + anytime clears. "
-        "Evals keep 20%. Better product split: Instant on-demand stays 80% "
-        "(speed only, ~12% of list) and 90% is eval-only. "
-        "Do not refund add-ons on first payout — refund the challenge fee only.",
+        "News 12%, weekend 12%, Swing both 20% (not 24%). Weekly 6% stays a decoy. "
+        "Evals: on-demand 80% 12%, 90% 12%, both 20% (BG evals charge 25% for 90%+7-day). "
+        "Instant: on-demand 80% 15%, 90% 20%, both 32% so year-1 extra E[X] clears. "
+        "Do not copy BG Instant 15% for 90% while speed is free, or FundedNext +5% with 95%. "
+        "Qty 1–4 at VERO35, no extra copy ladder. Do not refund add-ons on first payout.",
         s["body"],
     ))
     story.append(addon_suggest_table(skus, s))
+    story.append(Spacer(1, 2*mm))
+
+    story.append(P("1k. 19-peer add-on street (published +% of their fee)", s["h1"]))
+    story.append(P(
+        "incl. = in the base product. — = not sold as a percent line. "
+        "90% street is 10–20% (Alpha 10, BG 15, FXIFY/BrightFunded 20). "
+        "FN 95% is 25–30%; FN on-demand +5% with 95% is a hole — ignore. "
+        "Only BG bundles 90%+7-day at 25%. Full notes: results/COMPETITOR_ADDONS.md.",
+        s["body"],
+    ))
+    story.append(competitor_addon_table(s))
     story.append(Spacer(1, 2*mm))
 
     # ----- BE for every account -----
