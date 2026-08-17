@@ -12,7 +12,7 @@ from __future__ import annotations
 # phase helper
 def P(target, max_dd, floor, daily, daily_type="sod", min_days=0, vdt=0.0,
       cons=None, trail_lock=None, daily_action="breach", max_risk=None,
-      funded_risk=None, cons_floor=None, cons_basis="eod"):
+      funded_risk=None, cons_floor=None, cons_basis="eod", cons_op="gt"):
     d = {
         "target": target,
         "max_dd": max_dd,
@@ -34,6 +34,7 @@ def P(target, max_dd, floor, daily, daily_type="sod", min_days=0, vdt=0.0,
     if cons_floor is not None:
         d["consistency_floor"] = cons_floor
         d["consistency_basis"] = cons_basis
+        d["consistency_op"] = cons_op
     return d
 
 

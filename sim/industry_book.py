@@ -157,7 +157,12 @@ def _counts_for_best_day(day_pnl, sod, eod, start, rules):
     denom = _consistency_denom(
         rules.get("consistency_basis", "eod"), sod, eod, start
     )
-    return denom > 0 and day_pnl > denom * floor
+    if denom <= 0:
+        return False
+    # Instant live: more than 0.5%. Old valid-day copy was often at least 0.5%.
+    if rules.get("consistency_op", "gt") == "ge":
+        return day_pnl >= denom * floor
+    return day_pnl > denom * floor
 
 
 def run_phase(start_balance, rules, profile_name, rng, is_funded=False,
