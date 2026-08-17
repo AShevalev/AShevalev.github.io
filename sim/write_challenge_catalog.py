@@ -23,14 +23,15 @@ from write_price_rec_pdf import (
     W,
     P,
     grid,
+    rec_list,
     styles as rec_styles,
     usd,
 )
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
-OUT = RESULTS / "Verodus_Challenge_Catalog_2026-08-16.pdf"
-OUT_SHOP = RESULTS / "verodus-challenge-catalog-2026-08-16.pdf"
+OUT = RESULTS / "Verodus_Challenge_Catalog_2026-08-17.pdf"
+OUT_SHOP = RESULTS / "verodus-challenge-catalog-2026-08-17.pdf"
 MD = RESULTS / "CHALLENGE_CATALOG.md"
 
 PAGE = landscape(A4)
@@ -56,7 +57,7 @@ def sku_rows():
             if (plan, sz) not in REC:
                 continue
             sale = REC[(plan, sz)]
-            list_px = round(sale / 0.65)
+            list_px = rec_list(sale)
             rows.append({
                 "Plan": PLAN_LABEL[plan],
                 "Key": plan,
@@ -74,7 +75,7 @@ def header_footer(canvas, doc):
     canvas.rect(0, H - 8 * mm, W, 8 * mm, fill=1, stroke=0)
     canvas.setFillColor(colors.white)
     canvas.setFont("Times-Bold", 8)
-    canvas.drawString(MARGIN, H - 5.4 * mm, "VERODUS  ·  Challenge catalog  ·  16 Aug 2026")
+    canvas.drawString(MARGIN, H - 5.4 * mm, "VERODUS  ·  Challenge catalog  ·  17 Aug 2026")
     canvas.drawRightString(W - MARGIN, H - 5.4 * mm, "Recommended VERO35 card")
     canvas.setFillColor(NAVY)
     canvas.rect(0, 0, W, 7 * mm, fill=1, stroke=0)
@@ -82,7 +83,8 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "List = sale ÷ 0.65. Sale = recommended VERO35. Instant $200k pulled. Lite funded max DD 8%.",
+        "List = sale ÷ 0.65. Sale = recommended VERO35. Instant $200k pulled. "
+        "News included. Lite funded max DD 8%. Street doors on Lite/Pro $5k–$10k.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
     canvas.restoreState()
@@ -96,7 +98,8 @@ def build():
     story.append(P("Current Verodus challenges", s["cover"]))
     story.append(P(
         f"{len(rows)} SKUs. List = checkout basePrice. Sale = recommended VERO35 "
-        "(what shoppers pay). Instant $200k is not offered.",
+        "(what shoppers pay). Instant $200k is not offered. News is included "
+        "(not an add-on). Lite/Pro $5k–$10k follow the 2-step street door.",
         s["sub"],
     ))
 
@@ -117,8 +120,8 @@ def build():
     story.append(Spacer(1, 3*mm))
     story.append(P(
         "Coupon default: <b>VERO35 (35%)</b>. List = sale ÷ 0.65 so the code still lands. "
-        "Green = Instant (year-1 opex-checked). Blue = evals. "
-        "Source: recommended-prices card 16 Aug 2026.",
+        "Green = Instant. Blue = evals. Door: Instant from $49 · 1-Step from $45 · "
+        "Lite from $39 · Pro from $45. Source: street-door rec 17 Aug 2026.",
         s["tiny"],
     ))
 
@@ -128,7 +131,8 @@ def build():
     story.append(P("Pass + drawdown rules", s["cover"]))
     story.append(P(
         "Same percentage rules on every size in a plan. "
-        "Only FAQ change vs the 13 Aug catalog: Lite funded max DD 10% → 8%.",
+        "News is included on every eval phase and funded account. "
+        "Lite funded max DD is 8%. Instant 6% trail never locks.",
         s["sub"],
     ))
 
@@ -178,30 +182,31 @@ def build():
     story.append(P(
         "<b>One-Step:</b> 10% target, 50% best-day, 4% daily (SOD), 6% hybrid max "
         "(locks at initial). Same DD on funded. First payout: 3 min days, no consistency. "
-        "Fee refunded on first payout.",
+        "Fee refunded on first payout (challenge fee only — add-ons are not refunded).",
         s["body"],
     ))
     story.append(P(
         "<b>Two-Step Lite:</b> P1 8% / P2 5%, 5 days each, 4% daily, "
         "<b>8% static max on eval and funded</b> (funded was 10% — now the same 8% floor). "
-        "Fee refunded on first payout.",
+        "Fee refunded on first payout (challenge fee only — add-ons are not refunded).",
         s["body"],
     ))
     story.append(P(
         "<b>Two-Step Pro:</b> P1 10% / P2 5%, 5 days each, 5% daily, 10% static max "
-        "eval and funded. Fee refunded on first payout.",
+        "eval and funded. Fee refunded on first payout (challenge fee only — add-ons are not refunded).",
         s["body"],
     ))
     story.append(P(
-        "News trading: plans default newsTradingAllowed=false. "
-        "Shared: VERO35 · 30-day inactivity · unlimited time · $100 min reward.",
+        "<b>News</b> is included on every plan (eval and funded). Weekend holding is a paid add-on. "
+        "Shared: VERO35 · 30-day inactivity · unlimited time · $100 min reward on every cycle.",
         s["tiny"],
     ))
 
     md = [
-        "# Verodus challenge catalog — 16 August 2026\n",
+        "# Verodus challenge catalog — 17 August 2026\n",
         "Recommended VERO35 sale. List = sale ÷ 0.65. Instant $200k pulled. "
-        "Lite funded max DD 8%.\n",
+        "News included. Lite funded max DD 8%. Street doors: Instant $49 · 1-Step $45 · "
+        "Lite $39 · Pro $45.\n",
         "## Prices\n",
         "| Plan | Size | List | Sale (VERO35) | Discount |",
         "|---|---:|---:|---:|---:|",
@@ -219,8 +224,9 @@ def build():
         md.append("| " + " | ".join(row[:7]) + " |")
     md.append("")
     md.append(
-        "Lite funded max DD is **8%** (was 10%). Instant has no fee refund. "
-        "PDF: `results/Verodus_Challenge_Catalog_2026-08-16.pdf`\n"
+        "News is **included** (not an add-on). Lite funded max DD is **8%**. "
+        "Instant has no fee refund. Evals refund the challenge fee only on first payout. "
+        "PDF: `results/Verodus_Challenge_Catalog_2026-08-17.pdf`\n"
     )
     MD.write_text("\n".join(md) + "\n")
 
@@ -231,7 +237,7 @@ def build():
         rightMargin=MARGIN,
         topMargin=12 * mm,
         bottomMargin=10 * mm,
-        title="Verodus challenge catalog — 16 Aug 2026",
+        title="Verodus challenge catalog — 17 Aug 2026",
         author="Verodus operator research",
     )
     doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)

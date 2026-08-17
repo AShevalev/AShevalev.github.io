@@ -1,6 +1,6 @@
-# Verodus challenge catalog — 16 August 2026
+# Verodus challenge catalog — 17 August 2026
 
-Recommended VERO35 sale. List = sale ÷ 0.65. Instant $200k pulled. Lite funded max DD 8%.
+Recommended VERO35 sale. List = sale ÷ 0.65. Instant $200k pulled. News included. Lite funded max DD 8%. Street doors: Instant $49 · 1-Step $45 · Lite $39 · Pro $45.
 
 ## Prices
 
@@ -8,27 +8,27 @@ Recommended VERO35 sale. List = sale ÷ 0.65. Instant $200k pulled. Lite funded 
 |---|---:|---:|---:|---:|
 | Instant Funding | $5,000 | $75 | $49 | 35% |
 | Instant Funding | $10,000 | $106 | $69 | 35% |
-| Instant Funding | $25,000 | $214 | $139 | 35% |
+| Instant Funding | $25,000 | $229 | $149 | 35% |
 | Instant Funding | $50,000 | $368 | $239 | 35% |
 | Instant Funding | $100,000 | $675 | $439 | 35% |
-| One-Step | $5,000 | $55 | $36 | 35% |
-| One-Step | $10,000 | $92 | $60 | 35% |
-| One-Step | $25,000 | $185 | $120 | 35% |
-| One-Step | $50,000 | $297 | $193 | 35% |
-| One-Step | $100,000 | $515 | $335 | 35% |
-| One-Step | $200,000 | $1,006 | $654 | 35% |
-| Two-Step Lite | $5,000 | $65 | $42 | 35% |
+| One-Step | $5,000 | $69 | $45 | 35% |
+| One-Step | $10,000 | $106 | $69 | 35% |
+| One-Step | $25,000 | $198 | $129 | 35% |
+| One-Step | $50,000 | $337 | $219 | 35% |
+| One-Step | $100,000 | $583 | $379 | 35% |
+| One-Step | $200,000 | $1,075 | $699 | 35% |
+| Two-Step Lite | $5,000 | $60 | $39 | 35% |
 | Two-Step Lite | $10,000 | $85 | $55 | 35% |
-| Two-Step Lite | $25,000 | $145 | $94 | 35% |
+| Two-Step Lite | $25,000 | $152 | $99 | 35% |
 | Two-Step Lite | $50,000 | $229 | $149 | 35% |
-| Two-Step Lite | $100,000 | $414 | $269 | 35% |
-| Two-Step Lite | $200,000 | $768 | $499 | 35% |
+| Two-Step Lite | $100,000 | $423 | $275 | 35% |
+| Two-Step Lite | $200,000 | $845 | $549 | 35% |
 | Two-Step Pro | $5,000 | $69 | $45 | 35% |
 | Two-Step Pro | $10,000 | $91 | $59 | 35% |
-| Two-Step Pro | $25,000 | $146 | $95 | 35% |
-| Two-Step Pro | $50,000 | $245 | $159 | 35% |
-| Two-Step Pro | $100,000 | $445 | $289 | 35% |
-| Two-Step Pro | $200,000 | $888 | $577 | 35% |
+| Two-Step Pro | $25,000 | $168 | $109 | 35% |
+| Two-Step Pro | $50,000 | $260 | $169 | 35% |
+| Two-Step Pro | $100,000 | $475 | $309 | 35% |
+| Two-Step Pro | $200,000 | $952 | $619 | 35% |
 
 ## Rules
 
@@ -44,5 +44,5 @@ Recommended VERO35 sale. List = sale ÷ 0.65. Instant $200k pulled. Lite funded 
 | Two-Step Pro | Phase 2 | 5% | 5 | None | 5% | 10% |
 | Two-Step Pro | Funded | None | 3 | None | 5% | 10% |
 
-Lite funded max DD is **8%** (was 10%). Instant has no fee refund. PDF: `results/Verodus_Challenge_Catalog_2026-08-16.pdf`
+News is **included** (not an add-on). Lite funded max DD is **8%**. Instant has no fee refund. Evals refund the challenge fee only on first payout. PDF: `results/Verodus_Challenge_Catalog_2026-08-17.pdf`
 

@@ -1118,9 +1118,9 @@ def collect_story():
 
     story.append(P("1a2. Shopper catalog — list, rec sale, vs 13 Aug", s["h1"]))
     story.append(P(
-        "This is the card in <i>Verodus_Challenge_Catalog_2026-08-16</i>. "
-        "Δ sale is rec minus the 13 Aug VERO35 fee. Lite and small Instant / Pro "
-        "move up so the opex stack clears. 1-Step is unchanged.",
+        "This is the card in <i>Verodus_Challenge_Catalog_2026-08-17</i>. "
+        "Δ sale is rec minus the 13 Aug VERO35 fee. Lite/Pro $5k–$10k are street doors. "
+        "1-Step leftover sits on $10k and up.",
         s["body"],
     ))
     stab, _srows = shopper_table(s)
