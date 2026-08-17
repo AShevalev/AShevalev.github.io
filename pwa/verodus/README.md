@@ -1,6 +1,8 @@
 # Hide the Chrome bar on Dashboard, TradeHub, and Platform 5
 
-Chrome shows that bar when the **top-level URL changes host**. A redirect from `dashboard.verodus.com` to `trade.verodus.com` is a new website, even inside an installed PWA. `scope_extensions` does not stop that on most phones.
+That X / URL / **Verodus CRM** strip is browser chrome when the window leaves the installed origin, including **desktop Chrome**. CSS cannot hide it.
+
+Per-browser behavior and install steps: **[BROWSERS.md](BROWSERS.md)**.
 
 Keep the window on **one origin**. Embed TradeHub and Platform 5; do not redirect to them.
 
@@ -43,6 +45,8 @@ Copy:
 | `dashboard/manifest.webmanifest` + `sw.js` + icons + `head.html` | so Chrome installs Dashboard as standalone |
 
 `start_url` stays `/dashboard`. Account ids stay in `/tradehub/{id}` and `/p5/{id}` after launch, never in `start_url`.
+
+Wire the account-card **Platform5** / **TradeHub** buttons with `AccountLaunchButtons.jsx` (or `href={launchPath('p5', id)}`). Load `InAppLaunches.jsx` from the root layout so leftover `trade.verodus.com` links are rewritten.
 
 ### 3. Let Dashboard frame TradeHub / P5
 

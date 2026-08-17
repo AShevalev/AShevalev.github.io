@@ -4,6 +4,7 @@ import {
   parsePlatformUrl,
   toInAppUrl,
   toTradeEmbedSrc,
+  launchPath,
 } from "../pwa/verodus/dashboard/same-origin.js";
 
 test("trade.verodus.com TradeHub URL becomes a dashboard path", () => {
@@ -41,4 +42,15 @@ test("iframe src still points at the trade origin", () => {
 test("unrelated URLs are not rewritten", () => {
   assert.equal(toInAppUrl("https://www.verodus.com/"), null);
   assert.equal(parsePlatformUrl("https://dashboard.verodus.com/dashboard"), null);
+});
+
+test("account card buttons use same-origin paths", () => {
+  assert.equal(
+    launchPath("p5", "cmswfrqqb000204l7pnxhhj3w"),
+    "/p5/cmswfrqqb000204l7pnxhhj3w"
+  );
+  assert.equal(
+    launchPath("tradehub", "cmsu4y2u9000604ju8pad5x4j"),
+    "/tradehub/cmsu4y2u9000604ju8pad5x4j"
+  );
 });

@@ -59,3 +59,16 @@ export function toTradeEmbedSrc(href, appOrigin = APP_ORIGIN) {
   const account = parsed.accountId ? `/${parsed.accountId}` : "";
   return `${TRADE_ORIGIN}/${parsed.kind}${account}${parsed.search}${parsed.hash}`;
 }
+
+/**
+ * Path for the Platform 5 / TradeHub buttons on an account card.
+ * Always a same-origin path. Never trade.verodus.com.
+ *
+ * @param {"p5"|"tradehub"|string} kind
+ * @param {string} accountId
+ */
+export function launchPath(kind, accountId) {
+  const platform = String(kind).toLowerCase() === "p5" ? "p5" : "tradehub";
+  const id = String(accountId || "").replace(/^\/+|\/+$/g, "");
+  return id ? `/${platform}/${id}` : `/${platform}`;
+}
