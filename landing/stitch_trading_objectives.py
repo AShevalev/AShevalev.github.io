@@ -202,7 +202,7 @@ def stitch(html: str, rec: str) -> str:
 
     html = re.sub(
         r'(data-i18n="pricing.evalNewsDesc">)[^<]*',
-        r'\1News trading is permitted. It is included on every plan — not an add-on.',
+        r'\1News trading is permitted.',
         html,
         count=1,
     )
@@ -213,7 +213,7 @@ def stitch(html: str, rec: str) -> str:
     )
     html = html.replace(
         qpf_desc_old,
-        '<div class="eval-guide-desc" id="qpfNewsDesc">News trading is permitted. It is included on every plan — not an add-on.</div>',
+        '<div class="eval-guide-desc" id="qpfNewsDesc">News trading is permitted.</div>',
         1,
     )
     html = html.replace(
@@ -225,7 +225,7 @@ def stitch(html: str, rec: str) -> str:
         funded_news_old,
         '                        <span class="badge badge-green">Allowed</span>\n'
         '                    </div>\n'
-        '                    <div class="guide-desc">News trading is permitted. It is included on every plan — not an add-on.</div>',
+        '                    <div class="guide-desc">News trading is permitted.</div>',
         1,
     )
 

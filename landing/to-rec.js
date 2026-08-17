@@ -114,7 +114,7 @@
   };
 
   function applyNewsIncluded() {
-    var allowed = 'News trading is permitted. It is included on every plan — not an add-on.';
+    var allowed = 'News trading is permitted.';
     var evalBadge = document.getElementById('evalNewsBadge');
     if (evalBadge) {
       evalBadge.className = 'badge badge-green';
