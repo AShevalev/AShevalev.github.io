@@ -5,7 +5,6 @@
 export const FRAME_HEADERS = [
   {
     key: "Content-Security-Policy",
-    value:
-      "frame-ancestors 'self' https://www.verodus.com https://verodus.com https://dashboard.verodus.com",
+    value: "frame-ancestors 'self' https://dashboard.verodus.com",
   },
 ];

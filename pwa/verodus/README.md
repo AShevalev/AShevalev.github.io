@@ -1,5 +1,7 @@
-# Install Verodus from the landing page without the Chrome bar
+# Verodus home-screen app
 
-**Do this first:** [SHIP.md](SHIP.md) — four landing files, two CSP headers, change the pills. That is the combination that works.
+**Chosen model: Dashboard is the app.** Follow **[SHIP-DASHBOARD.md](SHIP-DASHBOARD.md)**.
 
-Everything else in this folder (lock-origin, Dashboard `/p5` routes, Trade manifests) is optional and only needed if people install from Dashboard/Trade instead of verodus.com.
+CRM routes stay on `dashboard.verodus.com` (no bar). TradeHub / Platform 5 are iframed from `/tradehub/{id}` and `/p5/{id}`.
+
+The landing-page `/app` shell ([SHIP.md](SHIP.md)) is the other model — use it only if you insist on installing from verodus.com. Do not run both PWAs.

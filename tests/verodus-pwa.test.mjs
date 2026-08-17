@@ -47,3 +47,10 @@ test("practical install script stays on /app", () => {
   assert.match(src, /var APP = "\/app"/);
   assert.match(src, /beforeinstallprompt/);
 });
+
+test("dashboard-as-app start_url is the CRM not the landing page", () => {
+  const manifest = readJson("../pwa/verodus/dashboard/manifest.webmanifest");
+  assert.match(manifest.start_url, /^\/dashboard/);
+  assert.equal(manifest.scope, "/");
+  assert.equal(manifest.display, "standalone");
+});

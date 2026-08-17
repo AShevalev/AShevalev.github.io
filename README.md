@@ -8,6 +8,6 @@ Open the site on a phone and tap **Add to Home Screen**:
 - **Safari and every iOS browser** — Share → Add to Home Screen
 - **Firefox on Android** — menu → Install
 
-Ship the landing-page app (no Chrome bar): [pwa/verodus/SHIP.md](pwa/verodus/SHIP.md).
+Ship Dashboard as the app (CRM + TradeHub/P5, no Chrome bar): [pwa/verodus/SHIP-DASHBOARD.md](pwa/verodus/SHIP-DASHBOARD.md).
 
 How to drop the same button onto another page: [pwa/README.md](pwa/README.md).
