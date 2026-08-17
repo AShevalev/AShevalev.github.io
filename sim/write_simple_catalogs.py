@@ -60,16 +60,39 @@ RULES = (
      "5%", "10%", "Static vs initial"),
 )
 
+# Checkout row copy (desc) and ⓘ tooltip body. Modal title is the add-on name.
+# Weekly / On Demand tooltips split Instant vs eval min-day lines.
 ADDON_MENU = (
-    ("News trading", "included", "included", "Allowed on eval and funded. No SKU."),
-    ("Weekend Holding", "15%", "15%", "Friday 22:00 flatten off."),
-    ("Weekly Rewards with 70% Reward Split", "6%", "6%",
-     "Every 7 calendar days. Default is Bi-Weekly 80%. Min $100."),
-    ("On Demand Rewards with 90% Split", "32%", "15%",
-     "Anytime after Instant 5 valid days or eval 3 funded days. Min $100. Instant 32% prints year-1."),
-    ("Bi-Weekly 80%", "included", "included",
-     "Default. Every 14 calendar days. Min $100."),
-    ("Swing", "not offered", "not offered", "News is already in the fee."),
+    (
+        "News trading", "included", "included",
+        "Not a checkout row. Included on every account.",
+        "Not shown. News trading is permitted on evaluation and funded accounts.",
+    ),
+    (
+        "Weekend Holding", "15%", "15%",
+        "Hold positions over the weekend with zero restrictions.",
+        "Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.",
+    ),
+    (
+        "Weekly Rewards with 70% Reward Split", "6%", "6%",
+        "Withdraw your profit share weekly",
+        "Receive your 70% reward share every week. Default is Bi-Weekly 80%. Minimum reward $100. Instant: Payouts after 5 valid trading days (0.5% vs start-of-day equity). Evals: First request after 3 funded trading days.",
+    ),
+    (
+        "On Demand Rewards with 90% Split", "32%", "15%",
+        "Withdraw your profit share anytime — no waiting for fixed cycles",
+        "Request your 90% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100. Instant: Payouts after 5 valid trading days (0.5% vs start-of-day equity). Evals: First request after 3 funded trading days.",
+    ),
+    (
+        "Bi-Weekly 80%", "included", "included",
+        "Not a checkout add-on. Default reward cycle.",
+        "Not shown as an add-on. Bi-Weekly 80% every 14 calendar days, min $100, is the default.",
+    ),
+    (
+        "Swing", "not offered", "not offered",
+        "Not a checkout row. Not offered.",
+        "Not shown. News is already included. Do not sell a news+weekend bundle.",
+    ),
 )
 
 
@@ -225,7 +248,7 @@ def build_prices():
 
 
 def addon_pct_table(s):
-    heads = ["Add-on", "Instant", "1-Step / Lite / Pro", "What it is"]
+    heads = ["Add-on", "Instant", "1-Step / Lite / Pro", "Description", "Tooltip"]
     data = [[P(h, s["th"]) for h in heads]]
     spec = {}
     for i, row in enumerate(ADDON_MENU, start=1):
@@ -234,8 +257,16 @@ def addon_pct_table(s):
             spec[i] = "rec"
         elif row[0] in ("News trading", "Swing"):
             spec[i] = "live"
-        data.append([P(c, s["tdl"] if j in (0, 3) else s["td"]) for j, c in enumerate(row)])
-    return grid(data, [62 * mm, 28 * mm, 38 * mm, 100 * mm], spec)
+        data.append([
+            P(row[0], s["tdl"]),
+            P(row[1], s["td"]),
+            P(row[2], s["td"]),
+            P(row[3], s["tdl"]),
+            P(row[4], s["tdl"]),
+        ])
+    return grid(data, [
+        38 * mm, 18 * mm, 28 * mm, 52 * mm, 92 * mm,
+    ], spec)
 
 
 def build_addons():
@@ -245,8 +276,9 @@ def build_addons():
 
     story.append(P("Add-on percentages", s["cover"]))
     story.append(P(
-        "Percent of list. Sticker = round(list × %). VERO35 takes 35% off list + stickers. "
-        "News is included (no SKU). Swing is not sold. Default reward is Bi-Weekly 80%.",
+        "Percent of list. Description is the checkout row. Tooltip is the ⓘ modal body "
+        "(title is the add-on name). News and Bi-Weekly are not checkout add-on rows. "
+        "Sticker = round(list × %). VERO35 takes 35% off list + stickers.",
         s["sub"],
     ))
     story.append(addon_pct_table(s))
