@@ -41,12 +41,13 @@ PLAN_LABEL = {
     "2-Step Pro": "Two-Step Pro",
 }
 
-# Locked checkout. News is included (no SKU). Swing is not sold.
-# Weekly 70% is 6% of list. On Demand 90% is 20% of list.
+# News is included (no SKU). Swing is not sold.
+# Weekend and Weekly stay on the checkout card. On Demand Instant is 32%
+# so year-1 leftover prints; evals 15% match Blue Guardian.
 PCT = {
     "weekend": {"Instant": 0.15, "eval": 0.15},
     "weekly": {"Instant": 0.06, "eval": 0.06},
-    "od90": {"Instant": 0.20, "eval": 0.20},
+    "od90": {"Instant": 0.32, "eval": 0.15},
 }
 
 ADDONS = (
@@ -104,7 +105,8 @@ def header_footer(canvas, doc):
     canvas.setFont("Times-Roman", 7.5)
     canvas.drawString(
         MARGIN, 2.6 * mm,
-        "Weekend = round(list × 15%). Weekly 70% = round(list × 6%). On Demand 90% = round(list × 20%). "
+        "Weekend = round(list × 15%). Weekly 70% = round(list × 6%). "
+        "On Demand 90% = round(list × 32% Instant / 15% evals). "
         "News included. Swing dropped. Weekly and On Demand may stack.",
     )
     canvas.drawRightString(W - MARGIN, 2.6 * mm, f"{doc.page}")
@@ -119,8 +121,8 @@ def build():
     story.append(P("Add-on menu", s["cover"]))
     story.append(P(
         "Same percentage on every size in a plan. News is included (not an add-on). "
-        "Default reward is Bi-Weekly 80% — not a toggle. Stickers below are checkout "
-        "tags before VERO35.",
+        "Default reward is Bi-Weekly 80% — not a toggle. Stickers below are before VERO35. "
+        "Instant On Demand is 32% so year-1 leftover prints.",
         s["sub"],
     ))
 
@@ -130,7 +132,7 @@ def build():
         ("News trading", "included", "included", "Allowed on eval and funded. No SKU."),
         ("Weekend holding", "15%", "15%", "Friday 22:00 flatten off."),
         ("Weekly Rewards with 70% Reward Split", "6%", "6%", "Withdraw your profit share weekly. Same % on every size."),
-        ("On Demand Rewards with 90% Split", "20%", "20%", "Withdraw anytime after Instant 5 valid days or eval 3 funded days. Min $100."),
+        ("On Demand Rewards with 90% Split", "32%", "15%", "Withdraw anytime after Instant 5 valid days or eval 3 funded days. Min $100. Instant 32% is the year-1 print floor."),
         ("Swing", "not offered", "not offered", "News is already in the fee. Do not sell news+weekend."),
     )
     pspec = {}
@@ -156,7 +158,7 @@ def build():
     story.append(P(
         f"{len(rows)} SKUs. List = checkout basePrice from the 17 Aug catalog. "
         "Green = Instant. Blue = evals. Weekly 70% is 6% of list. "
-        "On Demand 90% is 20% of list.",
+        "On Demand 90% is 32% Instant / 15% evals.",
         s["sub"],
     ))
 
@@ -181,8 +183,8 @@ def build():
     ], spec))
     story.append(Spacer(1, 3 * mm))
     story.append(P(
-        "Instant $100k list $675: weekend $101 · weekly $41 · On Demand 90% $135. "
-        "Pro $100k list $475: weekend $71 · weekly $29 · On Demand 90% $95. "
+        "Instant $100k list $675: weekend $101 · weekly $41 · On Demand 90% $216. "
+        "Pro $100k list $537: weekend $81 · weekly $32 · On Demand 90% $81. "
         "Green = Instant. Blue = evals.",
         s["tiny"],
     ))
@@ -190,15 +192,15 @@ def build():
     md = [
         "# Verodus add-on catalog — 17 August 2026\n",
         "Weekend sticker = `round(list × 15%)`. Weekly 70% = `round(list × 6%)`. "
-        "On Demand 90% = `round(list × 20%)`. VERO35 is 35% off list + stickers. "
-        "News included. Swing not offered.\n",
+        "On Demand 90% = `round(list × 32%)` Instant / `round(list × 15%)` evals. "
+        "VERO35 is 35% off list + stickers. News included. Swing not offered.\n",
         "## Percent of list\n",
         "| Add-on | Instant | 1-Step / Lite / Pro |",
         "|---|---:|---:|",
         "| News trading | included | included |",
         "| Weekend holding | 15% | 15% |",
         "| Weekly Rewards with 70% Reward Split | 6% | 6% |",
-        "| On Demand Rewards with 90% Split | 20% | 20% |",
+        "| On Demand Rewards with 90% Split | 32% | 15% |",
         "| Swing | not offered | not offered |",
         "",
         "## Stickers per challenge\n",

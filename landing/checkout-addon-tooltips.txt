@@ -66,7 +66,7 @@ First request after 3 funded trading days.
 
 
 ========================================================================
-Section: On Demand Rewards with 90% Split  (20% of list)
+Section: On Demand Rewards with 90% Split  (32% Instant / 15% evals)
 ========================================================================
 
 Row copy: Withdraw your profit share anytime — no waiting for fixed cycles

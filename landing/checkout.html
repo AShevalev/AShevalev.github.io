@@ -508,7 +508,7 @@
   var paymentMethod = 'card';
 
   /* Default reward is Bi-Weekly 80% (not a toggle). News is included (no SKU).
-     Weekly 70% is 6% of list. On Demand is 90% at 20% of list. */
+     Weekly 70% is 6% of list. On Demand 90% is 32% Instant / 15% evals. */
   var PAYOUT_UPGRADES = [];
   var BUNDLES = [];
 
@@ -535,7 +535,8 @@
     {
       id: 'on-demand-payout',
       label: 'On Demand Rewards with 90% Split',
-      pct: 0.20,
+      pct: 0.15,
+      instantPct: 0.32,
       desc: 'Withdraw your profit share anytime — no waiting for fixed cycles',
       tooltip: function () {
         return 'On Demand Rewards with 90% Split\n\nRequest your 90% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.\n\n'

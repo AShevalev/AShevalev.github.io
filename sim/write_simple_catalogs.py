@@ -65,8 +65,8 @@ ADDON_MENU = (
     ("Weekend Holding", "15%", "15%", "Friday 22:00 flatten off."),
     ("Weekly Rewards with 70% Reward Split", "6%", "6%",
      "Every 7 calendar days. Default is Bi-Weekly 80%. Min $100."),
-    ("On Demand Rewards with 90% Split", "20%", "20%",
-     "Anytime after Instant 5 valid days or eval 3 funded days. Min $100."),
+    ("On Demand Rewards with 90% Split", "32%", "15%",
+     "Anytime after Instant 5 valid days or eval 3 funded days. Min $100. Instant 32% prints year-1."),
     ("Bi-Weekly 80%", "included", "included",
      "Default. Every 14 calendar days. Min $100."),
     ("Swing", "not offered", "not offered", "News is already in the fee."),
@@ -163,7 +163,7 @@ def build_rules():
     ))
     story.append(P(
         "Shared: unlimited time · 30-day inactivity · $100 minimum reward on every cycle · "
-        "default Bi-Weekly 80% every 14 calendar days. Weekly 70% (6% of list) and On Demand 90% (20% of list) are paid add-ons.",
+        "default Bi-Weekly 80% every 14 calendar days. Weekly 70% (6% of list) and On Demand 90% (32% Instant / 15% evals) are paid add-ons.",
         s["tiny"],
     ))
     write_pdf(
@@ -252,14 +252,15 @@ def build_addons():
     story.append(addon_pct_table(s))
     story.append(Spacer(1, 3 * mm))
     story.append(P(
-        "Checkout card. Weekend 15% · Weekly 70% 6% · On Demand 90% 20%. "
-        "Weekly and On Demand may stack. Shopper pays 65% of each sticker after VERO35.",
+        "Checkout Weekend 15% · Weekly 70% 6%. On Demand 90% is 32% Instant / 15% evals "
+        "so Instant year-1 leftover prints. Weekly and On Demand may stack. "
+        "Shopper pays 65% of each sticker after VERO35.",
         s["tiny"],
     ))
 
     story.append(PageBreak())
     story.append(P("Stickers per challenge (before VERO35)", s["h1"]))
-    heads = ["Plan", "Size", "List", "Weekend 15%", "Weekly 70% 6%", "On Demand 90% 20%"]
+    heads = ["Plan", "Size", "List", "Weekend 15%", "Weekly 70% 6%", "On Demand 90%"]
     data = [[P(h, s["th"]) for h in heads]]
     spec = {}
     for i, r in enumerate(rows, start=1):
@@ -277,14 +278,14 @@ def build_addons():
     ], spec))
     story.append(Spacer(1, 3 * mm))
     story.append(P(
-        "Instant $100k list $675: weekend $101 · weekly $41 · On Demand 90% $135. "
-        "Pro $100k list $537: weekend $81 · weekly $32 · On Demand 90% $107.",
+        "Instant $100k list $675: weekend $101 · weekly $41 · On Demand 90% $216 (32%). "
+        "Pro $100k list $537: weekend $81 · weekly $32 · On Demand 90% $81 (15%).",
         s["tiny"],
     ))
     write_pdf(
         OUT_ADDON, story,
         "VERODUS  ·  Add-on percentages",
-        "Weekend 15% · Weekly 70% 6% · On Demand 90% 20%. Sticker = round(list × %). VERO35 35% off.",
+        "Weekend 15% · Weekly 70% 6% · On Demand 90% 32% Instant / 15% evals. Sticker = round(list × %). VERO35 35% off.",
         OUT_ADDON_SHOP,
     )
 
