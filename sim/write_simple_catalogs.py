@@ -11,11 +11,13 @@ from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.units import mm
 from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer
 
-from write_addon_catalog import sku_rows
+from write_addon_catalog import PLAN_LABEL, sku_rows
 from write_price_rec_pdf import (
+    ANCHORS,
     H,
     MARGIN,
     NAVY,
+    SIZES,
     W,
     P,
     grid,
@@ -29,6 +31,8 @@ OUT_RULES = RESULTS / "Verodus_Plans_and_Rules_2026-08-17.pdf"
 OUT_RULES_SHOP = RESULTS / "verodus-plans-and-rules-2026-08-17.pdf"
 OUT_PRICES = RESULTS / "Verodus_Prices_and_Addons_2026-08-17.pdf"
 OUT_PRICES_SHOP = RESULTS / "verodus-prices-and-addons-2026-08-17.pdf"
+OUT_CAT = RESULTS / "Verodus_Pricing_Catalogue_2026-08-17.pdf"
+OUT_CAT_SHOP = RESULTS / "verodus-pricing-catalogue-2026-08-17.pdf"
 
 PAGE = landscape(A4)
 
@@ -86,6 +90,12 @@ def write_pdf(path: Path, story, title: str, foot: str, shop: Path):
     )
     doc.build(story, onFirstPage=header(title, foot), onLaterPages=header(title, foot))
     shutil.copyfile(path, shop)
+    if path == OUT_PRICES:
+        shutil.copyfile(path, OUT_CAT)
+        shutil.copyfile(path, OUT_CAT_SHOP)
+        art = Path("/opt/cursor/artifacts")
+        if art.is_dir():
+            shutil.copyfile(path, art / "Verodus_Pricing_Catalogue_2026-08-17.pdf")
     print(f"Wrote {path} ({path.stat().st_size:,} bytes)")
 
 
@@ -151,35 +161,42 @@ def build_rules():
     )
 
 
+def price_grid(rows, s):
+    heads = ["Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k"]
+    by = {(r["Key"], r["Size"]): r for r in rows}
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    for i, (plan, _fam) in enumerate(ANCHORS, start=1):
+        spec[i] = "rec" if plan == "Instant" else "live"
+        cells = [P(PLAN_LABEL[plan], s["tdl"])]
+        for sz in SIZES:
+            r = by.get((plan, sz))
+            if r is None:
+                cells.append(P("—", s["td"]))
+            else:
+                cells.append(P(f"{usd(r['Sale'])} / {usd(r['List'])}", s["td"]))
+        data.append(cells)
+    return grid(data, [
+        36 * mm, 32 * mm, 32 * mm, 32 * mm, 32 * mm, 34 * mm, 34 * mm,
+    ], spec)
+
+
 def build_prices():
     s = rec_styles()
     story = []
     rows = sku_rows()
 
-    story.append(P("Challenge prices", s["cover"]))
+    story.append(P("Pricing catalogue", s["cover"]))
     story.append(P(
-        "List = checkout basePrice. Sale = what the shopper pays with VERO35 (35% off). "
-        "Instant $200k is not offered.",
+        "Sale / list. Shopper pays the sale with VERO35 (35% off list). "
+        "List is checkout basePrice. Instant has no $200k.",
         s["sub"],
     ))
-
-    heads = ["Plan", "Size", "List", "Sale (VERO35)", "Discount"]
-    data = [[P(h, s["th"]) for h in heads]]
-    spec = {}
-    for i, r in enumerate(rows, start=1):
-        spec[i] = "rec" if r["Key"] == "Instant" else "live"
-        data.append([
-            P(r["Plan"], s["tdl"]),
-            P(f"${r['Size'] // 1000}k", s["td"]),
-            P(usd(r["List"]), s["td"]),
-            P(usd(r["Sale"]), s["td"]),
-            P("35%", s["td"]),
-        ])
-    story.append(grid(data, [48 * mm, 28 * mm, 36 * mm, 40 * mm, 28 * mm], spec))
+    story.append(price_grid(rows, s))
     story.append(Spacer(1, 3 * mm))
     story.append(P(
-        "Door: Instant from $49 · 1-Step from $45 · Lite from $39 · Pro from $45. "
-        "Green = Instant. Blue = evaluations.",
+        "Door: Instant from $49 · One-Step from $45 · Lite from $39 · Pro from $45. "
+        "Green = Instant. Blue = evaluations. Coupon default VERO35.",
         s["tiny"],
     ))
 
@@ -234,8 +251,8 @@ def build_prices():
     ))
     write_pdf(
         OUT_PRICES, story,
-        "VERODUS  ·  Prices and add-on cost",
-        "List = checkout basePrice. Sale = VERO35. Sticker = round(list × %).",
+        "VERODUS  ·  Pricing catalogue",
+        "Sale / list. VERO35 35% off. Weekend 15% · Weekly 70% 6% · On Demand 90% 20%.",
         OUT_PRICES_SHOP,
     )
 
