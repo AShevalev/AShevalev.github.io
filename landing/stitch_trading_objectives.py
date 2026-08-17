@@ -24,7 +24,7 @@ REWARD_CYCLE_GRID = """<div class="reward-cycle-grid">
                     <div class="rc-pct">80%</div>
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
-                        <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime after min days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime</span></div>
                         <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ REWARD_CYCLE_GRID = """<div class="reward-cycle-grid">
                     <div class="rc-pct">90%</div>
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
-                        <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime after min days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime</span></div>
                         <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
                     </div>
                 </div>
