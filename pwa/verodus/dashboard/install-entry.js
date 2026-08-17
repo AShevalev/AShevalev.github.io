@@ -1,8 +1,9 @@
 /**
- * Dashboard origin. Registers the SW and, when the URL has ?install=1
- * (homepage store pills), opens the native prompt or the iOS/Firefox sheet.
+ * Dashboard origin. Registers the SW, rewrites TradeHub / P5 launches so they
+ * never leave this host, and opens the install prompt when ?install=1.
  */
 import { bindInstallCta } from "../../add-to-home-screen.js";
+import "./intercept-launches.js";
 
 bindInstallCta({
   selector: "[data-install-app]",
