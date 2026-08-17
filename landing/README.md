@@ -2,28 +2,28 @@
 
 Paste `head-meta.html` into the Verodus-4-centered `<head>` (replace the current title / description / OG / Twitter block).
 
-Do **not** keep “from $18” — that was the old Lite $5k VERO35. Floor is **1-Step $45**. Instant starts at **$49**. Lite starts at **$49**. Pro starts at **$55**.
+Do **not** keep “from $18” — that was the old Lite $5k VERO35. Floor is **Lite $39**. Instant starts at **$49**. 1-Step starts at **$45**. Pro starts at **$45**.
 
 ## SERP copy (locked)
 
 | Field | Text | Chars |
 |---|---|---:|
 | Title | Verodus — Instant from $49. Funded on Day One. | 47 |
-| Description | Funded on day one from $49. Pass a 1-Step from $45 or Lite from $49. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit. | 140 |
+| Description | Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit. | 140 |
 | OG title | Verodus — Instant from $49. Funded on Day One. | 47 |
 
 Default split is **80%**. 90% is a paid add-on — do not lead the meta with 90% or $1M.
 
 ## Rec sale / list (VERO35)
 
-News-included reprice 17 Aug 2026. Instant stays pinned under FundingPips / Blue Guardian. Evals step leftover up under Alpha / Fintokei / Maven / Hola.
+News-included reprice 17 Aug 2026. Instant and 1-Step doors stay. Lite/Pro $5k–$10k follow the 2-step street door (Hola / TFT / Ment). Leftover stays on $25k and up.
 
 | Plan | $5k | $10k | $25k | $50k | $100k | $200k |
 |---|---|---|---|---|---|---|
 | Instant | $49 / $75 | $69 / $106 | $149 / $229 | $239 / $368 | $439 / $675 | — |
 | 1-Step | $45 / $69 | $69 / $106 | $129 / $198 | $219 / $337 | $379 / $583 | $699 / $1,075 |
-| Lite | $49 / $75 | $59 / $91 | $99 / $152 | $149 / $229 | $275 / $423 | $549 / $845 |
-| Pro | $55 / $85 | $69 / $106 | $109 / $168 | $169 / $260 | $309 / $475 | $619 / $952 |
+| Lite | $39 / $60 | $55 / $85 | $99 / $152 | $149 / $229 | $275 / $423 | $549 / $845 |
+| Pro | $45 / $69 | $59 / $91 | $109 / $168 | $169 / $260 | $309 / $475 | $619 / $952 |
 
 JS: `plan-fees.js` — `[sale, list]`. Instant $200k is omitted on purpose.
 

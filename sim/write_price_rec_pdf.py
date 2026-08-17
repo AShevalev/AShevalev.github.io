@@ -127,14 +127,14 @@ REC = {
     ("1-Step", 50000): 219,
     ("1-Step", 100000): 379,
     ("1-Step", 200000): 699,
-    ("2-Step Lite", 5000): 49,
-    ("2-Step Lite", 10000): 59,
+    ("2-Step Lite", 5000): 39,
+    ("2-Step Lite", 10000): 55,
     ("2-Step Lite", 25000): 99,
     ("2-Step Lite", 50000): 149,
     ("2-Step Lite", 100000): 275,
     ("2-Step Lite", 200000): 549,
-    ("2-Step Pro", 5000): 55,
-    ("2-Step Pro", 10000): 69,
+    ("2-Step Pro", 5000): 45,
+    ("2-Step Pro", 10000): 59,
     ("2-Step Pro", 25000): 109,
     ("2-Step Pro", 50000): 169,
     ("2-Step Pro", 100000): 309,
@@ -204,12 +204,14 @@ WHY = {
         "$100k is $19 under Alpha / Fintokei / BG $398–399."
     ),
     "2-Step Lite": (
-        "Maven $18 / $35 / $79 fail the opex stack — do not copy. Rec $49 / $59 / $99 / "
-        "$149 / $275 / $549. $50k / $100k stay $2–$4 under Maven $151 / $279."
+        "Maven $18 / $35 / $79 fail payout BE plus ads — do not copy. Door is the 2-step "
+        "street: $5k $39 (Hola $38 / TFT $39), $10k $55 (Hola/Ment $55). Leftover stays on "
+        "$25k+ ($99 / $149 / $275 / $549). $50k / $100k stay $2–$4 under Maven $151 / $279."
     ),
     "2-Step Pro": (
-        "Rec $55 / $69 / $109 / $169 / $309 / $619 stays a step above Lite and under "
-        "Alpha Pro 6% from $50k ($174 / $318 / $638). Maven $18 / $35 / $79 are not usable lows."
+        "Door a step above Lite: $45 / $59 (BG $44 / FXIFY $47 / FN $59). Rec $45 / $59 / "
+        "$109 / $169 / $309 / $619. Under Alpha Pro 6% from $50k ($174 / $318 / $638). "
+        "Maven $18 / $35 / $79 are not usable lows."
     ),
 }
 
@@ -1088,8 +1090,8 @@ def collect_story():
     story.append(P(
         "Green = recommended sale. Each size shows <b>rec $</b> and <b>BE $</b>. "
         "Instant $49 / $69 / $149 / $239 / $439 (under the first solvent peer). "
-        "Lite $49 / $59 / $99 / $149 / $275 / $549. "
-        "1-Step $45 / $69 / $129 / $219 / $379 / $699. Pro $55 / $69 / $109 / $169 / $309 / $619. "
+        "Lite $39 / $55 / $99 / $149 / $275 / $549. "
+        "1-Step $45 / $69 / $129 / $219 / $379 / $699. Pro $45 / $59 / $109 / $169 / $309 / $619. "
         "List $100k is sale ÷ 0.65 (Instant $675 · 1-Step $583 · Lite $423 · Pro $475).",
         s["body"],
     ))

@@ -37,17 +37,6 @@ GRID = colors.HexColor("#c5d0dc")
 HEAD_BG = colors.HexColor("#0f2744")
 
 OLD_REC = {
-    ("Instant", 5000): 49, ("Instant", 10000): 69, ("Instant", 25000): 139,
-    ("Instant", 50000): 239, ("Instant", 100000): 439,
-    ("1-Step", 5000): 36, ("1-Step", 10000): 60, ("1-Step", 25000): 120,
-    ("1-Step", 50000): 193, ("1-Step", 100000): 335, ("1-Step", 200000): 654,
-    ("2-Step Lite", 5000): 42, ("2-Step Lite", 10000): 55, ("2-Step Lite", 25000): 94,
-    ("2-Step Lite", 50000): 149, ("2-Step Lite", 100000): 269, ("2-Step Lite", 200000): 499,
-    ("2-Step Pro", 5000): 45, ("2-Step Pro", 10000): 59, ("2-Step Pro", 25000): 95,
-    ("2-Step Pro", 50000): 159, ("2-Step Pro", 100000): 289, ("2-Step Pro", 200000): 577,
-}
-
-REC = {
     ("Instant", 5000): 49, ("Instant", 10000): 69, ("Instant", 25000): 149,
     ("Instant", 50000): 239, ("Instant", 100000): 439,
     ("1-Step", 5000): 45, ("1-Step", 10000): 69, ("1-Step", 25000): 129,
@@ -55,6 +44,17 @@ REC = {
     ("2-Step Lite", 5000): 49, ("2-Step Lite", 10000): 59, ("2-Step Lite", 25000): 99,
     ("2-Step Lite", 50000): 149, ("2-Step Lite", 100000): 275, ("2-Step Lite", 200000): 549,
     ("2-Step Pro", 5000): 55, ("2-Step Pro", 10000): 69, ("2-Step Pro", 25000): 109,
+    ("2-Step Pro", 50000): 169, ("2-Step Pro", 100000): 309, ("2-Step Pro", 200000): 619,
+}
+
+REC = {
+    ("Instant", 5000): 49, ("Instant", 10000): 69, ("Instant", 25000): 149,
+    ("Instant", 50000): 239, ("Instant", 100000): 439,
+    ("1-Step", 5000): 45, ("1-Step", 10000): 69, ("1-Step", 25000): 129,
+    ("1-Step", 50000): 219, ("1-Step", 100000): 379, ("1-Step", 200000): 699,
+    ("2-Step Lite", 5000): 39, ("2-Step Lite", 10000): 55, ("2-Step Lite", 25000): 99,
+    ("2-Step Lite", 50000): 149, ("2-Step Lite", 100000): 275, ("2-Step Lite", 200000): 549,
+    ("2-Step Pro", 5000): 45, ("2-Step Pro", 10000): 59, ("2-Step Pro", 25000): 109,
     ("2-Step Pro", 50000): 169, ("2-Step Pro", 100000): 309, ("2-Step Pro", 200000): 619,
 }
 
@@ -70,14 +70,14 @@ BEAT = {
     ("1-Step", 50000): "Fintokei $231",
     ("1-Step", 100000): "Alpha / Fintokei / BG $398–399",
     ("1-Step", 200000): "BG $719",
-    ("2-Step Lite", 5000): "stack floor (Maven $18 fails)",
-    ("2-Step Lite", 10000): "Alpha 10% $62",
+    ("2-Step Lite", 5000): "Hola $38 / TFT $39 (Maven $18 fails)",
+    ("2-Step Lite", 10000): "Hola / Ment $55 (median $60)",
     ("2-Step Lite", 25000): "Ment $119 (Alpha 6% $94)",
     ("2-Step Lite", 50000): "Maven $151",
     ("2-Step Lite", 100000): "Maven $279",
     ("2-Step Lite", 200000): "Alpha 6% $638",
-    ("2-Step Pro", 5000): "E8 $59",
-    ("2-Step Pro", 10000): "step above Lite",
+    ("2-Step Pro", 5000): "BG $44 / FXIFY $47",
+    ("2-Step Pro", 10000): "FN $59 / Alpha 10% $62",
     ("2-Step Pro", 25000): "Ment $119",
     ("2-Step Pro", 50000): "Alpha 6% $174",
     ("2-Step Pro", 100000): "Alpha 6% $318",
@@ -244,24 +244,25 @@ def build():
             })
 
     story = []
-    story.append(P("Reprice: more leftover, still under the named peer", s["cover"]))
+    story.append(P("Reprice: street doors, leftover on $25k+", s["cover"]))
     story.append(P(
         "News is included on every phase and funded account — not an add-on. "
         f"Book leftover after opex + 20% ads ${old_pnl:,.0f}/mo → ${new_pnl:,.0f}/mo "
-        f"(+${new_pnl - old_pnl:,.0f}). Sale ${old_rev:,.0f} → ${new_rev:,.0f}. "
+        f"({new_pnl - old_pnl:+,.0f}). Sale ${old_rev:,.0f} → ${new_rev:,.0f}. "
         f"Leftover / sale {100 * old_pnl / old_rev:.1f}% → {100 * new_pnl / new_rev:.1f}%. "
-        "Instant barely moves: $5k–$10k / $50k–$100k are already $1–$5 under FundingPips or Blue Guardian.",
+        "Lite/Pro $5k–$10k follow the 2-step street door. Instant and 1-Step doors stay. "
+        "Leftover stays on $25k and up.",
         s["sub"],
     ))
 
     story.append(P("1. Rule", s["h1"]))
     story.append(P(
-        "Use the news-on BE. Keep leftover ≥ ~$7 on small SKUs. Do not match a peer that fails "
-        "the opex stack (Maven $5k–$25k, Alpha Instant, BrightFunded $200k). Instant stays under "
-        "Blue Guardian and FundingPips Zero. 1-Step sits under the Alpha / Fintokei / BG $398–399 "
-        "cluster and under Hola at $25k. Lite stays $2–$4 under Maven where Maven covers "
-        "($50k / $100k). Pro stays a step above Lite and under Alpha Pro 6% from $50k. "
-        "List = round(sale / 0.65). VERO35 still 35% off list.",
+        "Use the news-on BE. Fail rate is the same at every size; dollar payouts scale with "
+        "the account. The $100 min is 2.5% of a $5k and 0.12% of a $100k. Do not load CAD 10k "
+        "wages onto the door — recover them on $50k–$200k. Instant stays under Blue Guardian "
+        "and FundingPips Zero. 1-Step $5k stays $45 (Hola/BG $47). Lite $5k sits with Hola $38 / "
+        "TFT $39; do not copy Maven $18. Pro stays a step above Lite and under Alpha Pro 6% "
+        "from $50k. List = round(sale / 0.65). VERO35 still 35% off list.",
         s["body"],
     ))
 
@@ -282,9 +283,9 @@ def build():
         24*mm, 16*mm, 16*mm, 16*mm, 16*mm, 16*mm, 16*mm, 18*mm, 18*mm, 52*mm,
     ], spec))
     story.append(P(
-        "Yellow = sale moved. Green = Instant pinned to the street ceiling. "
-        "1-Step $5k $45 is $5 over Alpha One $40 and $2 under Hola/BG $47 — Alpha is the "
-        "closest peer; take the leftover rather than sit at $1 after news-on BE.",
+        "Yellow = Lite/Pro $5k–$10k cut to the 2-step street door. Green = unchanged. "
+        "Lite $5k leftover on allocated wages is about $0 — payout BE is $8, so the fee still "
+        "covers the check. Wages come from $50k–$200k.",
         s["tiny"],
     ))
 
@@ -388,10 +389,10 @@ def build():
     story.append(P("7. What not to do", s["h1"]))
     story.append(P(
         "Do not raise Instant $5k / $10k / $50k / $100k — each is already $1–$5 under "
-        "FundingPips or Blue Guardian. Do not copy Maven $18 / $35 / $79 (opex hole). "
-        "Do not copy Alpha Instant $274 at $100k. Do not put News back on checkout. "
-        "Do not sell Swing at 20%. Door headline stays Instant from $49; 1-Step from $45; "
-        "Lite from $49; Pro from $55.",
+        "FundingPips or Blue Guardian. Do not copy Maven $18 / $35 / $79. Do not put wages "
+        "back onto Lite/Pro $5k. Do not copy Alpha Instant $274 at $100k. Do not put News "
+        "back on checkout. Do not sell Swing at 20%. Door headline: Instant from $49; "
+        "1-Step from $45; Lite from $39; Pro from $45.",
         s["body"],
     ))
 
