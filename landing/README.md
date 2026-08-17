@@ -31,6 +31,8 @@ Complete working page: [`checkout.html`](checkout.html). Chrome (nav, footer, CS
 
 Complete trading-objectives page: [`trading-objectives.html`](trading-objectives.html). Same live chrome via `<base href>`. Plan tabs, size buttons, drawdown modals, and the five Reward Cycle cards (80% On Demand / Weekly / Bi-Weekly, 90% On Demand / Bi-Weekly). 90% Weekly is not offered. On Demand still has to meet Instant 5 valid days or eval 3 trading days. Rec Instant has no $200k, 5 valid days at +0.5% SOD, and a 6% trail that never locks. Rebuild with `python3 landing/stitch_trading_objectives.py`.
 
+Plan-rule pages (live chrome, rec §4 payout copy): [`instant.html`](instant.html), [`1-step.html`](1-step.html), [`2-step-lite.html`](2-step-lite.html), [`2-step-pro.html`](2-step-pro.html). Rebuild with `python3 landing/stitch_plan_pages.py`. Instant also patches valid-day SOD equity, 6% trail never locks, and not-refundable-at-all. Evals keep the first-payout challenge-fee refund and add that add-ons are not refunded. **News is included** on every phase and funded account (not an add-on). Friday 22:00 flatten stays unless Weekend is paid.
+
 Street vs 19 peers: [`../results/COMPETITOR_ADDONS.md`](../results/COMPETITOR_ADDONS.md) and PDF [`../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf`](../results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf). 90% street is 10–20% of fee (Alpha 10, BG 15, FXIFY 20). Rec evals sit in that band; Instant 32% for 90% On Demand is the year-1 floor, not a street match.
 
 Reward cycles for Instant, 1-Step, Lite, and Pro:
@@ -59,9 +61,9 @@ Verodus Instant default is **biweekly 80%**, so speed and 90% are paid add-ons. 
 
 | Add-on | Evals | Instant | Notes |
 |---|---:|---:|---|
-| News trading | 12% | 12% | Funded news window off |
+| News trading | **included** | **included** | Not an add-on. Allowed on evals and funded. |
 | Weekend holding | 12% | 12% | Friday flatten off |
-| **Swing** (both) | **20%** | **20%** | Not 12+12. Weekend `Incl.` |
+| Swing | **drop** | **drop** | News is already in the fee; do not charge 20% |
 | Weekly 80% | 8% | 8% | Every 7 calendar days, same 80% as default. XOR On Demand and XOR 90% |
 | On Demand 80% | 12% | **15%** | After plan min days, anytime. Instant 5 valid days; evals 3 trading days |
 | 90% split | 12% | **15%** | Bi-Weekly unless On Demand is also on. Min $100. XOR Weekly |
@@ -69,7 +71,7 @@ Verodus Instant default is **biweekly 80%**, so speed and 90% are paid add-ons. 
 
 Sticker = `Math.round(list * pct)`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.
 
-Pro $100k ($445): news $53 / weekend $53 / Swing $89 / weekly $36 / On Demand 80% $53 / 90% $53 / 90% On Demand $89. Instant $100k ($675): weekly $54 / On Demand 80% $101 / 90% $101 / 90% On Demand $216 / Swing $135.
+Pro $100k ($445): weekend $53 / weekly $36 / On Demand 80% $53 / 90% $53 / 90% On Demand $89. Instant $100k ($675): weekend $81 / weekly $54 / On Demand 80% $101 / 90% $101 / 90% On Demand $216. News is included (no sticker). Swing is dropped.
 
 ### Multi-account (up to 4)
 

@@ -1,0 +1,302 @@
+Product,Profile,Reason,Share,News
+Verodus Instant,Pro,p1_time_abandon,0.08416666666666667,False
+Verodus Instant,Pro,p1_max_dd,0.14666666666666667,False
+Verodus Instant,Pro,post_m1,0.30833333333333335,False
+Verodus Instant,Pro,post_m3,0.12833333333333333,False
+Verodus Instant,Pro,p1_rule_violation,0.0016666666666666668,False
+Verodus Instant,Pro,post_m12,0.0875,False
+Verodus Instant,Semi-skilled,p1_max_dd,0.315,False
+Verodus Instant,Semi-skilled,post_m3,0.09333333333333334,False
+Verodus Instant,Semi-skilled,p1_time_abandon,0.1,False
+Verodus Instant,Semi-skilled,post_m1,0.24333333333333335,False
+Verodus Instant,Semi-skilled,p1_daily_dd,0.0033333333333333335,False
+Verodus Instant,Semi-skilled,post_m12,0.055,False
+Verodus Instant,Semi-skilled,p1_rule_violation,0.006666666666666667,False
+Verodus Instant,Average,p1_max_dd,0.655,False
+Verodus Instant,Average,post_m1,0.06,False
+Verodus Instant,Average,p1_daily_dd,0.0475,False
+Verodus Instant,Average,p1_time_abandon,0.14,False
+Verodus Instant,Average,post_m12,0.015833333333333335,False
+Verodus Instant,Average,p1_rule_violation,0.008333333333333333,False
+Verodus Instant,Average,post_m3,0.020833333333333332,False
+Verodus Instant,Aggressive,p1_daily_dd,0.9933333333333333,False
+Verodus Instant,Aggressive,p1_max_dd,0.006666666666666667,False
+Verodus Instant,Lottery,p1_daily_dd,0.8308333333333333,False
+Verodus Instant,Lottery,p1_max_dd,0.16833333333333333,False
+Verodus Instant,Lottery,p1_rule_violation,0.0008333333333333334,False
+Verodus 1-Step,Pro,post_m1,0.15583333333333332,False
+Verodus 1-Step,Pro,p1_max_dd,0.31666666666666665,False
+Verodus 1-Step,Pro,funded_kyc_drop,0.05583333333333333,False
+Verodus 1-Step,Pro,p1_time_abandon,0.16666666666666666,False
+Verodus 1-Step,Pro,post_m3,0.0825,False
+Verodus 1-Step,Pro,funded_time_abandon,0.018333333333333333,False
+Verodus 1-Step,Pro,post_m12,0.03833333333333333,False
+Verodus 1-Step,Pro,funded_max_dd,0.030833333333333334,False
+Verodus 1-Step,Pro,funded_rule_violation,0.0008333333333333334,False
+Verodus 1-Step,Pro,p1_rule_violation,0.0033333333333333335,False
+Verodus 1-Step,Semi-skilled,p1_max_dd,0.5283333333333333,False
+Verodus 1-Step,Semi-skilled,funded_kyc_drop,0.0275,False
+Verodus 1-Step,Semi-skilled,post_m1,0.10916666666666666,False
+Verodus 1-Step,Semi-skilled,p1_time_abandon,0.17166666666666666,False
+Verodus 1-Step,Semi-skilled,post_m12,0.0225,False
+Verodus 1-Step,Semi-skilled,post_m3,0.034166666666666665,False
+Verodus 1-Step,Semi-skilled,funded_max_dd,0.0275,False
+Verodus 1-Step,Semi-skilled,funded_time_abandon,0.010833333333333334,False
+Verodus 1-Step,Semi-skilled,p1_rule_violation,0.005,False
+Verodus 1-Step,Semi-skilled,funded_rule_violation,0.0016666666666666668,False
+Verodus 1-Step,Average,p1_time_abandon,0.1525,False
+Verodus 1-Step,Average,p1_max_dd,0.7558333333333334,False
+Verodus 1-Step,Average,p1_daily_dd,0.0075,False
+Verodus 1-Step,Average,funded_max_dd,0.029166666666666667,False
+Verodus 1-Step,Average,post_m3,0.005833333333333334,False
+Verodus 1-Step,Average,post_m1,0.015,False
+Verodus 1-Step,Average,p1_rule_violation,0.011666666666666667,False
+Verodus 1-Step,Average,funded_kyc_drop,0.008333333333333333,False
+Verodus 1-Step,Average,post_m12,0.0025,False
+Verodus 1-Step,Average,funded_time_abandon,0.0033333333333333335,False
+Verodus 1-Step,Average,funded_rule_violation,0.0008333333333333334,False
+Verodus 1-Step,Aggressive,p1_daily_dd,0.5383333333333333,False
+Verodus 1-Step,Aggressive,p1_time_abandon,0.035,False
+Verodus 1-Step,Aggressive,p1_max_dd,0.4216666666666667,False
+Verodus 1-Step,Aggressive,p1_rule_violation,0.004166666666666667,False
+Verodus 1-Step,Aggressive,post_m3,0.0008333333333333334,False
+Verodus 1-Step,Lottery,p1_max_dd,0.7816666666666666,False
+Verodus 1-Step,Lottery,p1_daily_dd,0.2175,False
+Verodus 1-Step,Lottery,p1_rule_violation,0.0008333333333333334,False
+Verodus 2-Step Lite,Pro,p2_time_abandon,0.04416666666666667,False
+Verodus 2-Step Lite,Pro,post_m1,0.23666666666666666,False
+Verodus 2-Step Lite,Pro,p2_max_dd,0.08416666666666667,False
+Verodus 2-Step Lite,Pro,p1_max_dd,0.125,False
+Verodus 2-Step Lite,Pro,post_m3,0.10583333333333333,False
+Verodus 2-Step Lite,Pro,funded_kyc_drop,0.07416666666666667,False
+Verodus 2-Step Lite,Pro,p1_time_abandon,0.060833333333333336,False
+Verodus 2-Step Lite,Pro,funded_max_dd,0.029166666666666667,False
+Verodus 2-Step Lite,Pro,p2_rule_violation,0.0008333333333333334,False
+Verodus 2-Step Lite,Pro,funded_time_abandon,0.0175,False
+Verodus 2-Step Lite,Pro,post_m12,0.05,False
+Verodus 2-Step Lite,Pro,p1_rule_violation,0.008333333333333333,False
+Verodus 2-Step Lite,Semi-skilled,p2_max_dd,0.1425,False
+Verodus 2-Step Lite,Semi-skilled,p1_max_dd,0.335,False
+Verodus 2-Step Lite,Semi-skilled,p1_time_abandon,0.125,False
+Verodus 2-Step Lite,Semi-skilled,post_m3,0.04,False
+Verodus 2-Step Lite,Semi-skilled,post_m1,0.10666666666666667,False
+Verodus 2-Step Lite,Semi-skilled,funded_kyc_drop,0.03666666666666667,False
+Verodus 2-Step Lite,Semi-skilled,p2_time_abandon,0.0475,False
+Verodus 2-Step Lite,Semi-skilled,funded_max_dd,0.0325,False
+Verodus 2-Step Lite,Semi-skilled,post_m12,0.0275,False
+Verodus 2-Step Lite,Semi-skilled,funded_time_abandon,0.006666666666666667,False
+Verodus 2-Step Lite,Semi-skilled,p1_rule_violation,0.01,False
+Verodus 2-Step Lite,Semi-skilled,p2_rule_violation,0.005,False
+Verodus 2-Step Lite,Semi-skilled,funded_rule_violation,0.0008333333333333334,False
+Verodus 2-Step Lite,Average,p1_max_dd,0.6558333333333334,False
+Verodus 2-Step Lite,Average,p1_time_abandon,0.14333333333333334,False
+Verodus 2-Step Lite,Average,p2_time_abandon,0.02,False
+Verodus 2-Step Lite,Average,p2_rule_violation,0.0008333333333333334,False
+Verodus 2-Step Lite,Average,post_m12,0.005833333333333334,False
+Verodus 2-Step Lite,Average,p2_max_dd,0.095,False
+Verodus 2-Step Lite,Average,p2_daily_dd,0.004166666666666667,False
+Verodus 2-Step Lite,Average,p1_daily_dd,0.030833333333333334,False
+Verodus 2-Step Lite,Average,post_m1,0.008333333333333333,False
+Verodus 2-Step Lite,Average,funded_kyc_drop,0.004166666666666667,False
+Verodus 2-Step Lite,Average,funded_time_abandon,0.0016666666666666668,False
+Verodus 2-Step Lite,Average,p1_rule_violation,0.011666666666666667,False
+Verodus 2-Step Lite,Average,funded_max_dd,0.0125,False
+Verodus 2-Step Lite,Average,post_m3,0.0016666666666666668,False
+Verodus 2-Step Lite,Aggressive,p1_daily_dd,0.8883333333333333,False
+Verodus 2-Step Lite,Aggressive,p1_max_dd,0.10666666666666667,False
+Verodus 2-Step Lite,Aggressive,p1_time_abandon,0.0025,False
+Verodus 2-Step Lite,Aggressive,p2_daily_dd,0.0016666666666666668,False
+Verodus 2-Step Lite,Aggressive,p1_rule_violation,0.0008333333333333334,False
+Verodus 2-Step Lite,Lottery,p1_daily_dd,0.7708333333333334,False
+Verodus 2-Step Lite,Lottery,p1_max_dd,0.22666666666666666,False
+Verodus 2-Step Lite,Lottery,p1_rule_violation,0.0025,False
+Verodus 2-Step Pro,Pro,post_m12,0.055,False
+Verodus 2-Step Pro,Pro,post_m3,0.11,False
+Verodus 2-Step Pro,Pro,post_m1,0.26166666666666666,False
+Verodus 2-Step Pro,Pro,p1_time_abandon,0.05416666666666667,False
+Verodus 2-Step Pro,Pro,p2_max_dd,0.03833333333333333,False
+Verodus 2-Step Pro,Pro,funded_kyc_drop,0.11416666666666667,False
+Verodus 2-Step Pro,Pro,p1_max_dd,0.085,False
+Verodus 2-Step Pro,Pro,p1_rule_violation,0.009166666666666667,False
+Verodus 2-Step Pro,Pro,p2_rule_violation,0.004166666666666667,False
+Verodus 2-Step Pro,Pro,p2_time_abandon,0.029166666666666667,False
+Verodus 2-Step Pro,Pro,funded_max_dd,0.010833333333333334,False
+Verodus 2-Step Pro,Pro,funded_time_abandon,0.01,False
+Verodus 2-Step Pro,Semi-skilled,p1_max_dd,0.325,False
+Verodus 2-Step Pro,Semi-skilled,p1_time_abandon,0.13083333333333333,False
+Verodus 2-Step Pro,Semi-skilled,post_m1,0.12166666666666667,False
+Verodus 2-Step Pro,Semi-skilled,post_m3,0.045,False
+Verodus 2-Step Pro,Semi-skilled,p2_time_abandon,0.05,False
+Verodus 2-Step Pro,Semi-skilled,funded_kyc_drop,0.04583333333333333,False
+Verodus 2-Step Pro,Semi-skilled,p2_max_dd,0.10666666666666667,False
+Verodus 2-Step Pro,Semi-skilled,p1_rule_violation,0.011666666666666667,False
+Verodus 2-Step Pro,Semi-skilled,funded_max_dd,0.025,False
+Verodus 2-Step Pro,Semi-skilled,post_m12,0.025,False
+Verodus 2-Step Pro,Semi-skilled,funded_time_abandon,0.005,False
+Verodus 2-Step Pro,Semi-skilled,p2_rule_violation,0.0033333333333333335,False
+Verodus 2-Step Pro,Average,p1_max_dd,0.7158333333333333,False
+Verodus 2-Step Pro,Average,p1_time_abandon,0.1425,False
+Verodus 2-Step Pro,Average,p2_max_dd,0.075,False
+Verodus 2-Step Pro,Average,p2_daily_dd,0.0025,False
+Verodus 2-Step Pro,Average,p1_rule_violation,0.006666666666666667,False
+Verodus 2-Step Pro,Average,p2_time_abandon,0.006666666666666667,False
+Verodus 2-Step Pro,Average,funded_rule_violation,0.0008333333333333334,False
+Verodus 2-Step Pro,Average,funded_kyc_drop,0.009166666666666667,False
+Verodus 2-Step Pro,Average,funded_max_dd,0.01,False
+Verodus 2-Step Pro,Average,p1_daily_dd,0.006666666666666667,False
+Verodus 2-Step Pro,Average,post_m1,0.008333333333333333,False
+Verodus 2-Step Pro,Average,post_m3,0.004166666666666667,False
+Verodus 2-Step Pro,Average,funded_time_abandon,0.0016666666666666668,False
+Verodus 2-Step Pro,Average,post_m12,0.0025,False
+Verodus 2-Step Pro,Aggressive,p1_daily_dd,0.9608333333333333,False
+Verodus 2-Step Pro,Aggressive,p1_max_dd,0.03833333333333333,False
+Verodus 2-Step Pro,Aggressive,p1_rule_violation,0.0008333333333333334,False
+Verodus 2-Step Pro,Lottery,p1_max_dd,0.0925,False
+Verodus 2-Step Pro,Lottery,p1_daily_dd,0.9075,False
+Verodus Instant,Pro,post_m1,0.32166666666666666,True
+Verodus Instant,Pro,p1_max_dd,0.15083333333333335,True
+Verodus Instant,Pro,post_m12,0.07583333333333334,True
+Verodus Instant,Pro,post_m3,0.135,True
+Verodus Instant,Pro,p1_time_abandon,0.05416666666666667,True
+Verodus Instant,Pro,p1_rule_violation,0.0016666666666666668,True
+Verodus Instant,Semi-skilled,post_m1,0.23,True
+Verodus Instant,Semi-skilled,p1_time_abandon,0.11416666666666667,True
+Verodus Instant,Semi-skilled,post_m3,0.10583333333333333,True
+Verodus Instant,Semi-skilled,p1_max_dd,0.3125,True
+Verodus Instant,Semi-skilled,post_m12,0.05583333333333333,True
+Verodus Instant,Semi-skilled,p1_daily_dd,0.0025,True
+Verodus Instant,Semi-skilled,p1_rule_violation,0.0033333333333333335,True
+Verodus Instant,Average,p1_max_dd,0.6666666666666666,True
+Verodus Instant,Average,p1_daily_dd,0.04666666666666667,True
+Verodus Instant,Average,post_m12,0.014166666666666666,True
+Verodus Instant,Average,post_m3,0.02666666666666667,True
+Verodus Instant,Average,p1_time_abandon,0.13333333333333333,True
+Verodus Instant,Average,post_m1,0.059166666666666666,True
+Verodus Instant,Average,p1_rule_violation,0.0008333333333333334,True
+Verodus Instant,Aggressive,p1_daily_dd,0.9883333333333333,True
+Verodus Instant,Aggressive,p1_max_dd,0.011666666666666667,True
+Verodus Instant,Lottery,p1_daily_dd,0.8258333333333333,True
+Verodus Instant,Lottery,p1_max_dd,0.17333333333333334,True
+Verodus Instant,Lottery,p1_rule_violation,0.0008333333333333334,True
+Verodus 1-Step,Pro,p1_time_abandon,0.15333333333333332,True
+Verodus 1-Step,Pro,post_m1,0.20416666666666666,True
+Verodus 1-Step,Pro,post_m12,0.051666666666666666,True
+Verodus 1-Step,Pro,funded_max_dd,0.0275,True
+Verodus 1-Step,Pro,p1_max_dd,0.29583333333333334,True
+Verodus 1-Step,Pro,funded_kyc_drop,0.0525,True
+Verodus 1-Step,Pro,post_m3,0.065,True
+Verodus 1-Step,Pro,p1_rule_violation,0.0033333333333333335,True
+Verodus 1-Step,Pro,funded_time_abandon,0.0125,True
+Verodus 1-Step,Semi-skilled,p1_max_dd,0.515,True
+Verodus 1-Step,Semi-skilled,funded_kyc_drop,0.0375,True
+Verodus 1-Step,Semi-skilled,funded_max_dd,0.0275,True
+Verodus 1-Step,Semi-skilled,p1_time_abandon,0.17416666666666666,True
+Verodus 1-Step,Semi-skilled,post_m12,0.0275,True
+Verodus 1-Step,Semi-skilled,post_m1,0.09,True
+Verodus 1-Step,Semi-skilled,post_m3,0.045,True
+Verodus 1-Step,Semi-skilled,funded_time_abandon,0.015833333333333335,True
+Verodus 1-Step,Semi-skilled,p1_rule_violation,0.0016666666666666668,True
+Verodus 1-Step,Average,p1_max_dd,0.7475,True
+Verodus 1-Step,Average,post_m1,0.0175,True
+Verodus 1-Step,Average,p1_time_abandon,0.14916666666666667,True
+Verodus 1-Step,Average,funded_kyc_drop,0.014166666666666666,True
+Verodus 1-Step,Average,funded_max_dd,0.023333333333333334,True
+Verodus 1-Step,Average,p1_daily_dd,0.015,True
+Verodus 1-Step,Average,p1_rule_violation,0.004166666666666667,True
+Verodus 1-Step,Average,post_m12,0.006666666666666667,True
+Verodus 1-Step,Average,post_m3,0.004166666666666667,True
+Verodus 1-Step,Average,funded_time_abandon,0.0025,True
+Verodus 1-Step,Aggressive,p1_max_dd,0.4083333333333333,True
+Verodus 1-Step,Aggressive,p1_daily_dd,0.5616666666666666,True
+Verodus 1-Step,Aggressive,p1_time_abandon,0.029166666666666667,True
+Verodus 1-Step,Aggressive,p1_rule_violation,0.0008333333333333334,True
+Verodus 1-Step,Lottery,p1_daily_dd,0.25,True
+Verodus 1-Step,Lottery,p1_max_dd,0.7483333333333333,True
+Verodus 1-Step,Lottery,p1_time_abandon,0.0016666666666666668,True
+Verodus 2-Step Lite,Pro,p2_time_abandon,0.04416666666666667,True
+Verodus 2-Step Lite,Pro,post_m1,0.235,True
+Verodus 2-Step Lite,Pro,p1_max_dd,0.12416666666666666,True
+Verodus 2-Step Lite,Pro,post_m12,0.060833333333333336,True
+Verodus 2-Step Lite,Pro,post_m3,0.09,True
+Verodus 2-Step Lite,Pro,funded_kyc_drop,0.09,True
+Verodus 2-Step Lite,Pro,p1_time_abandon,0.049166666666666664,True
+Verodus 2-Step Lite,Pro,p2_max_dd,0.0825,True
+Verodus 2-Step Lite,Pro,funded_max_dd,0.019166666666666665,True
+Verodus 2-Step Lite,Pro,funded_time_abandon,0.015833333333333335,True
+Verodus 2-Step Lite,Pro,p1_rule_violation,0.0033333333333333335,True
+Verodus 2-Step Lite,Semi-skilled,p1_max_dd,0.295,True
+Verodus 2-Step Lite,Semi-skilled,funded_max_dd,0.03833333333333333,True
+Verodus 2-Step Lite,Semi-skilled,post_m3,0.041666666666666664,True
+Verodus 2-Step Lite,Semi-skilled,p1_time_abandon,0.10916666666666666,True
+Verodus 2-Step Lite,Semi-skilled,post_m1,0.11583333333333333,True
+Verodus 2-Step Lite,Semi-skilled,post_m12,0.02666666666666667,True
+Verodus 2-Step Lite,Semi-skilled,p2_max_dd,0.1475,True
+Verodus 2-Step Lite,Semi-skilled,p2_time_abandon,0.06166666666666667,True
+Verodus 2-Step Lite,Semi-skilled,funded_kyc_drop,0.050833333333333335,True
+Verodus 2-Step Lite,Semi-skilled,funded_time_abandon,0.011666666666666667,True
+Verodus 2-Step Lite,Semi-skilled,p2_rule_violation,0.0008333333333333334,True
+Verodus 2-Step Lite,Semi-skilled,p1_rule_violation,0.004166666666666667,True
+Verodus 2-Step Lite,Semi-skilled,p1_daily_dd,0.0008333333333333334,True
+Verodus 2-Step Lite,Average,p1_time_abandon,0.13416666666666666,True
+Verodus 2-Step Lite,Average,p1_max_dd,0.6425,True
+Verodus 2-Step Lite,Average,post_m1,0.0175,True
+Verodus 2-Step Lite,Average,p2_max_dd,0.10583333333333333,True
+Verodus 2-Step Lite,Average,post_m12,0.005833333333333334,True
+Verodus 2-Step Lite,Average,post_m3,0.0033333333333333335,True
+Verodus 2-Step Lite,Average,p2_time_abandon,0.02,True
+Verodus 2-Step Lite,Average,p1_daily_dd,0.024166666666666666,True
+Verodus 2-Step Lite,Average,funded_max_dd,0.016666666666666666,True
+Verodus 2-Step Lite,Average,funded_kyc_drop,0.013333333333333334,True
+Verodus 2-Step Lite,Average,funded_daily_dd,0.0008333333333333334,True
+Verodus 2-Step Lite,Average,p1_rule_violation,0.0008333333333333334,True
+Verodus 2-Step Lite,Average,funded_time_abandon,0.0025,True
+Verodus 2-Step Lite,Average,p2_daily_dd,0.004166666666666667,True
+Verodus 2-Step Lite,Aggressive,p1_daily_dd,0.9075,True
+Verodus 2-Step Lite,Aggressive,p1_max_dd,0.09083333333333334,True
+Verodus 2-Step Lite,Aggressive,p2_daily_dd,0.0008333333333333334,True
+Verodus 2-Step Lite,Aggressive,p1_time_abandon,0.0008333333333333334,True
+Verodus 2-Step Lite,Lottery,p1_max_dd,0.22,True
+Verodus 2-Step Lite,Lottery,p1_daily_dd,0.78,True
+Verodus 2-Step Pro,Pro,funded_kyc_drop,0.10583333333333333,True
+Verodus 2-Step Pro,Pro,post_m1,0.2758333333333333,True
+Verodus 2-Step Pro,Pro,p1_max_dd,0.065,True
+Verodus 2-Step Pro,Pro,p2_max_dd,0.058333333333333334,True
+Verodus 2-Step Pro,Pro,p1_time_abandon,0.050833333333333335,True
+Verodus 2-Step Pro,Pro,post_m3,0.11333333333333333,True
+Verodus 2-Step Pro,Pro,post_m12,0.07166666666666667,True
+Verodus 2-Step Pro,Pro,funded_time_abandon,0.0075,True
+Verodus 2-Step Pro,Pro,p2_time_abandon,0.028333333333333332,True
+Verodus 2-Step Pro,Pro,funded_max_dd,0.015,True
+Verodus 2-Step Pro,Pro,p1_rule_violation,0.0025,True
+Verodus 2-Step Pro,Pro,p2_rule_violation,0.0016666666666666668,True
+Verodus 2-Step Pro,Semi-skilled,funded_kyc_drop,0.04666666666666667,True
+Verodus 2-Step Pro,Semi-skilled,post_m1,0.14916666666666667,True
+Verodus 2-Step Pro,Semi-skilled,p1_max_dd,0.2991666666666667,True
+Verodus 2-Step Pro,Semi-skilled,p1_time_abandon,0.12583333333333332,True
+Verodus 2-Step Pro,Semi-skilled,post_m3,0.056666666666666664,True
+Verodus 2-Step Pro,Semi-skilled,p2_time_abandon,0.043333333333333335,True
+Verodus 2-Step Pro,Semi-skilled,p2_max_dd,0.12666666666666668,True
+Verodus 2-Step Pro,Semi-skilled,funded_time_abandon,0.004166666666666667,True
+Verodus 2-Step Pro,Semi-skilled,p1_rule_violation,0.0016666666666666668,True
+Verodus 2-Step Pro,Semi-skilled,post_m12,0.03166666666666667,True
+Verodus 2-Step Pro,Semi-skilled,funded_max_dd,0.025,True
+Verodus 2-Step Pro,Semi-skilled,p2_rule_violation,0.0008333333333333334,True
+Verodus 2-Step Pro,Average,p1_max_dd,0.7133333333333334,True
+Verodus 2-Step Pro,Average,p2_max_dd,0.08083333333333333,True
+Verodus 2-Step Pro,Average,p1_time_abandon,0.13083333333333333,True
+Verodus 2-Step Pro,Average,funded_max_dd,0.015,True
+Verodus 2-Step Pro,Average,post_m1,0.011666666666666667,True
+Verodus 2-Step Pro,Average,funded_kyc_drop,0.006666666666666667,True
+Verodus 2-Step Pro,Average,funded_time_abandon,0.0033333333333333335,True
+Verodus 2-Step Pro,Average,post_m12,0.0033333333333333335,True
+Verodus 2-Step Pro,Average,p1_daily_dd,0.009166666666666667,True
+Verodus 2-Step Pro,Average,p2_time_abandon,0.010833333333333334,True
+Verodus 2-Step Pro,Average,post_m3,0.004166666666666667,True
+Verodus 2-Step Pro,Average,p1_rule_violation,0.0008333333333333334,True
+Verodus 2-Step Pro,Average,p2_rule_violation,0.0008333333333333334,True
+Verodus 2-Step Pro,Average,p2_daily_dd,0.0008333333333333334,True
+Verodus 2-Step Pro,Aggressive,p1_daily_dd,0.9716666666666667,True
+Verodus 2-Step Pro,Aggressive,p1_max_dd,0.02666666666666667,True
+Verodus 2-Step Pro,Aggressive,p2_daily_dd,0.0016666666666666668,True
+Verodus 2-Step Pro,Lottery,p1_daily_dd,0.9058333333333334,True
+Verodus 2-Step Pro,Lottery,p1_max_dd,0.09416666666666666,True

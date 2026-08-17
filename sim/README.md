@@ -24,6 +24,7 @@ PYTHONPATH=sim python sim/run.py --n-sims 4000
 | `competitor_addons.py` | 19-peer checkout add-ons + leftover vs rec → `results/COMPETITOR_ADDONS.md` |
 | `write_addon_analysis_pdf.py` | Competitor add-on analysis + why Verodus rec → `results/Verodus_Addon_Competitor_Analysis_2026-08-17.pdf` |
 | `write_addon_combo_pdf.py` | BE, margins, leftover for every legal add-on cart → `results/Verodus_Addon_BE_Margins_2026-08-17.pdf` |
+| `run_news_included.py` | News allowed on all phases (not an add-on) → `results/Verodus_News_Included_2026-08-17.pdf` |
 | `write_complete_report.py` | One operator report (P(pay) audit + BE $ + margins) → `results/Verodus_Complete_Report_2026-08-16.pdf` |
 | `write_confirmed_book.py` | Confirmed summary + all rank / industry / rec tables → `results/Verodus_Confirmed_Book_2026-08-16.pdf` |
 | `write_challenge_catalog.py` | Shopper catalog (rec sale + list, Lite funded 8%) → `results/Verodus_Challenge_Catalog_2026-08-16.pdf` |

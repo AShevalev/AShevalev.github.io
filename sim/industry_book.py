@@ -98,16 +98,30 @@ def daily_floor(rules, start, sod, day_peak):
     return sod - dollars
 
 
-def simulate_trade(wr, rrr, risk_amt, regime, tilt, vol, rng):
+# Share of per-day rule_violation draws that are the funded/eval news window
+# (clawback → second-hit hard breach). Remainder is HFT / arb / copy / EA.
+NEWS_SHARE_OF_RULE = 0.65
+# High-impact event days (NFP / CPI / FOMC / similar), when news is allowed.
+NEWS_DAY_P = 0.12
+NEWS_VOL_MULT = 1.40
+NEWS_SHOCK_MULT = 2.20
+NEWS_WIN_RRR_MULT = 1.15
+
+
+def simulate_trade(wr, rrr, risk_amt, regime, tilt, vol, rng, news_day=False):
     friction = (risk_amt / 0.01) * FRICTION_BASE * REGIME_FRIC[regime]
     friction *= (1.0 + 0.42 * tilt) * vol
     shock_p = REGIME_SHOCK[regime] * (1.0 + 0.38 * tilt)
+    if news_day:
+        shock_p = min(0.55, shock_p * NEWS_SHOCK_MULT)
     if rng.random() < shock_p:
         return -risk_amt * rng.uniform(1.5, 2.6) - friction
     adj_wr = np.clip(wr * REGIME_WR[regime] * (1.0 - 0.16 * tilt), 0.21, 0.70)
     if rng.random() < adj_wr:
         actual_rrr = rrr * REGIME_RRR[regime] * rng.uniform(0.78, 1.20)
         actual_rrr *= 1.0 - 0.11 * tilt
+        if news_day:
+            actual_rrr *= NEWS_WIN_RRR_MULT
         return risk_amt * actual_rrr - friction
     slip = 1.0 + 0.20 * tilt
     return -risk_amt * min(slip, 2.1) - friction
@@ -120,7 +134,7 @@ def _consistency_ok(positive_pnls, cons):
 
 
 def run_phase(start_balance, rules, profile_name, rng, is_funded=False,
-              min_reward=0.0, split=0.80):
+              min_reward=0.0, split=0.80, news_allowed=False):
     p = PROFILES[profile_name]
     wr, rrr, tpd, risk_range, violation_hazard = p["sens"]
     room_awareness = p["awareness"]
@@ -146,7 +160,12 @@ def run_phase(start_balance, rules, profile_name, rng, is_funded=False,
         if consecutive_inactive >= INACTIVITY_LIMIT:
             return False, balance, "inactivity", days
         if rng.random() < violation_hazard:
-            return False, balance, "rule_violation", days
+            # Default: every rule draw is a fail (news window + other forbidden).
+            # news_allowed: skip the news-window share; HFT/arb/copy still fail.
+            if not news_allowed or rng.random() >= NEWS_SHARE_OF_RULE:
+                return False, balance, "rule_violation", days
+
+        news_day = bool(news_allowed and rng.random() < NEWS_DAY_P)
 
         regime = int(rng.choice(4, p=REGIME_P[regime]))
         activity = 0.71 + 0.16 * (1.0 - tilt)
@@ -171,6 +190,8 @@ def run_phase(start_balance, rules, profile_name, rng, is_funded=False,
             if paused:
                 break
             vol = SESSIONS[int(rng.choice(len(SESSIONS), p=SESSION_P))][0]
+            if news_day:
+                vol *= NEWS_VOL_MULT
             floor = get_floor(hwm, start, rules["max_dd"], rules["floor_type"], trail_lock_at)
             d_floor = daily_floor(rules, start, sod, day_peak)
             room = min(balance - floor, balance - d_floor)
@@ -208,7 +229,9 @@ def run_phase(start_balance, rules, profile_name, rng, is_funded=False,
             if risk_amt <= 0:
                 break
 
-            pnl = simulate_trade(wr, rrr, risk_amt, regime, tilt, vol, rng)
+            pnl = simulate_trade(
+                wr, rrr, risk_amt, regime, tilt, vol, rng, news_day=news_day
+            )
             balance += pnl
             day_pnl += pnl
             traded = True
