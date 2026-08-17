@@ -172,6 +172,12 @@ def stitch(html: str, rec: str) -> str:
         html,
         count=1,
     )
+    html = re.sub(
+        r'(data-i18n-html="content.p8"><strong>)First Payout:',
+        r'\1Payouts:',
+        html,
+        count=1,
+    )
 
     html = strip_element(html, '<div class="rc-combo-wrap" id="rcComboWrap">')
     html = re.sub(
