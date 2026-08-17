@@ -42,10 +42,56 @@ test("landing-page PWA starts at /app on www.verodus.com", () => {
   assert.equal(isAccountScopedPath(manifest.start_url), false);
 });
 
-test("practical install script stays on /app", () => {
+test("landing pills open a modal that points at Dashboard Platforms", () => {
   const src = readFileSync(new URL("../pwa/verodus/www/install.js", import.meta.url), "utf8");
-  assert.match(src, /var APP = "\/app"/);
+  assert.match(src, /Dashboard → Trading Resources → Platforms/);
+  assert.match(src, /https:\/\/dashboard\.verodus\.com\/trading-resources\/platforms/);
+  assert.doesNotMatch(src, /serviceWorker/);
+  assert.doesNotMatch(src, /beforeinstallprompt/);
+  assert.doesNotMatch(src, /play\.google|apps\.apple/);
+});
+
+test("landing store-button markup does not install www or open the stores", () => {
+  const html = readFileSync(
+    new URL("../pwa/verodus/www/store-buttons.html", import.meta.url),
+    "utf8"
+  );
+  assert.match(html, /data-open-platforms-modal/);
+  assert.match(html, /https:\/\/dashboard\.verodus\.com\/trading-resources\/platforms/);
+  assert.doesNotMatch(html, /play\.google|apps\.apple|href="\/app"/);
+});
+
+test("dashboard sidebar adds Platforms under Trading Resources", () => {
+  const src = readFileSync(
+    new URL("../pwa/verodus/dashboard/sidebar-trading-resources.jsx", import.meta.url),
+    "utf8"
+  );
+  assert.match(src, /title: "Trading Resources"/);
+  assert.match(src, /title: "Economic Calendar"/);
+  assert.match(src, /title: "News"/);
+  assert.match(src, /title: "Platforms"/);
+  assert.match(src, /href: "\/trading-resources\/platforms"/);
+});
+
+test("Platforms page offers Android, Mobile, and Desktop", () => {
+  const src = readFileSync(
+    new URL("../pwa/verodus/dashboard/PlatformsPage.jsx", import.meta.url),
+    "utf8"
+  );
+  assert.match(src, /id: "android"/);
+  assert.match(src, /id: "mobile"/);
+  assert.match(src, /id: "desktop"/);
+  assert.match(src, /data-install-platform=\{card\.id\}/);
+});
+
+test("dashboard install script handles per-platform CTAs", () => {
+  const src = readFileSync(
+    new URL("../pwa/verodus/dashboard/install.js", import.meta.url),
+    "utf8"
+  );
+  assert.match(src, /data-install-platform/);
   assert.match(src, /beforeinstallprompt/);
+  assert.match(src, /Add to Home Screen/);
 });
 
 test("dashboard-as-app start_url is the CRM not the landing page", () => {

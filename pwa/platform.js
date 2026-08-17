@@ -262,3 +262,71 @@ export function resolveInstallAction({
   if (!currentHref || isSameOrigin(currentHref, installUrl)) return "prompt-here";
   return "redirect";
 }
+
+/** Same-origin path of the Dashboard install page (Trading Resources → Platforms). */
+export const DASHBOARD_PLATFORMS_PATH = "/trading-resources/platforms";
+
+export const DASHBOARD_PLATFORMS_HREF =
+  "https://dashboard.verodus.com/trading-resources/platforms";
+
+export const LANDING_INSTALL_PATH = ["Dashboard", "Trading Resources", "Platforms"];
+
+export function landingInstallPathLabel(separator = " → ") {
+  return LANDING_INSTALL_PATH.join(separator);
+}
+
+/**
+ * Homepage store pills do not install the marketing site and do not open the stores.
+ * They open a modal that points at Dashboard → Trading Resources → Platforms.
+ */
+export function getLandingInstallModalCopy() {
+  return {
+    title: "Install Verodus from the dashboard",
+    lead: `Install from ${landingInstallPathLabel()}. Choose Android, Mobile, or Desktop.`,
+    cta: "Open dashboard",
+    dismiss: "Not now",
+    href: DASHBOARD_PLATFORMS_HREF,
+  };
+}
+
+/**
+ * Cards on Dashboard → Trading Resources → Platforms.
+ * @returns {Array<{id: "android"|"mobile"|"desktop", title: string, lead: string, steps: string[], cta: string}>}
+ */
+export function getPlatformsCards() {
+  return [
+    {
+      id: "android",
+      title: "Android",
+      lead: "Phone or tablet. Chrome, Edge, or Samsung Internet.",
+      steps: [
+        "Open this page in Chrome (or Edge / Samsung Internet).",
+        "Tap Install on Android, or the browser menu → Install app.",
+        "Open Verodus from your home screen.",
+      ],
+      cta: "Install on Android",
+    },
+    {
+      id: "mobile",
+      title: "Mobile",
+      lead: "iPhone and iPad. Works in Safari and every iOS browser.",
+      steps: [
+        "Tap Share in the toolbar (the square with the arrow).",
+        "Scroll and tap Add to Home Screen.",
+        "Tap Add. The icon lands next to your other apps.",
+      ],
+      cta: "Show iPhone steps",
+    },
+    {
+      id: "desktop",
+      title: "Desktop",
+      lead: "Windows, Mac, and Chromebook. Use Chrome or Edge.",
+      steps: [
+        "Open this page in Chrome or Edge (Firefox cannot install web apps).",
+        "Click Install Verodus in the address bar, or the menu → Install Verodus.",
+        "Open it from your dock, taskbar, or Start menu.",
+      ],
+      cta: "Install on desktop",
+    },
+  ];
+}

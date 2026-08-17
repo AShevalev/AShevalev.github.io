@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { detectPlatform, getGuideCopy, getInstallGuide, isAccountScopedPath, resolveInstallAction } from "../pwa/platform.js";
+import { detectPlatform, getGuideCopy, getInstallGuide, getLandingInstallModalCopy, getPlatformsCards, isAccountScopedPath, landingInstallPathLabel, resolveInstallAction } from "../pwa/platform.js";
 
 const UA = {
   iosSafari:
@@ -135,4 +135,21 @@ test("landing-page pills install www.verodus.com in place", () => {
     }),
     "prompt-here"
   );
+});
+
+test("landing modal copy points at Dashboard → Trading Resources → Platforms", () => {
+  const copy = getLandingInstallModalCopy();
+  assert.equal(landingInstallPathLabel(), "Dashboard → Trading Resources → Platforms");
+  assert.match(copy.lead, /Dashboard → Trading Resources → Platforms/);
+  assert.match(copy.lead, /Android, Mobile, or Desktop/);
+  assert.equal(copy.href, "https://dashboard.verodus.com/trading-resources/platforms");
+});
+
+test("Platforms page cards are Android, Mobile, and Desktop", () => {
+  const cards = getPlatformsCards();
+  assert.deepEqual(
+    cards.map((card) => card.id),
+    ["android", "mobile", "desktop"]
+  );
+  assert.match(cards.find((card) => card.id === "mobile").steps[1], /Add to Home Screen/);
 });

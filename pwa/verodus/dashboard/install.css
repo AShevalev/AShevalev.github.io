@@ -1,0 +1,95 @@
+/* Sheet used by /js/install.js on dashboard.verodus.com. Load in the root layout. */
+
+.v-platforms-modal[hidden] {
+  display: none !important;
+}
+
+.v-platforms-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.v-platforms-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(3, 0, 24, 0.72);
+}
+
+.v-platforms-modal__sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: min(92vh, 640px);
+  overflow: auto;
+  padding: 1.25rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  border-radius: 24px 24px 0 0;
+  color: #f5f5f5;
+  background:
+    radial-gradient(120% 80% at 90% 0%, rgba(212, 175, 55, 0.16), transparent 55%),
+    linear-gradient(165deg, #07003b 0%, #0d0752 48%, #1b2b8e 100%);
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.v-platforms-modal__handle {
+  width: 42px;
+  height: 4px;
+  margin: 0 auto 1rem;
+  border-radius: 999px;
+  background: rgba(245, 245, 245, 0.28);
+}
+
+.v-platforms-modal__sheet h2 {
+  margin: 0 0 0.4rem;
+  font: 700 1.25rem/1.25 Inter, system-ui, sans-serif;
+}
+
+.v-platforms-modal__lead {
+  margin: 0 0 1rem;
+  color: #cbd5e1;
+  font: 400 0.95rem/1.45 Inter, system-ui, sans-serif;
+}
+
+.v-platforms-modal__steps {
+  margin: 0 0 1.25rem;
+  padding-left: 1.2rem;
+  color: #e2e8f0;
+  font: 400 0.95rem/1.45 Inter, system-ui, sans-serif;
+}
+
+.v-platforms-modal__steps li + li {
+  margin-top: 0.45rem;
+}
+
+.v-platforms-modal__cta,
+.v-platforms-modal__done {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: #d4af37;
+  color: #0f172a;
+  font: 600 1rem/1 Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.v-platforms-modal__cta:focus-visible,
+.v-platforms-modal__done:focus-visible {
+  outline: 2px solid #f0dc9a;
+  outline-offset: 3px;
+}
+
+@media (min-width: 640px) {
+  .v-platforms-modal__sheet {
+    left: 50%;
+    right: auto;
+    bottom: 8vh;
+    width: min(420px, calc(100vw - 2rem));
+    transform: translateX(-50%);
+    border-radius: 24px;
+  }
+}

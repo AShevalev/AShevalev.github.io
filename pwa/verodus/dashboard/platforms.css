@@ -1,0 +1,121 @@
+/* Dashboard → Trading Resources → Platforms. Navy / gold to match the CRM. */
+
+.v-platforms {
+  --v-gold: #d4af37;
+  --v-gold-light: #f0dc9a;
+  --v-navy: #07003b;
+  --v-ink: #0f172a;
+  --v-body: #cbd5e1;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  color: #f5f5f5;
+}
+
+.v-platforms h1 {
+  margin: 0 0 0.5rem;
+  font: 700 clamp(1.6rem, 3vw, 2rem) / 1.2 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__lede {
+  margin: 0 0 1.75rem;
+  max-width: 40rem;
+  color: var(--v-body);
+  font: 400 1.05rem/1.5 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 800px) {
+  .v-platforms__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.v-platforms__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border-radius: 16px;
+  background: rgba(7, 0, 59, 0.55);
+  border: 1px solid rgba(240, 220, 154, 0.14);
+}
+
+.v-platforms__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.14);
+  color: var(--v-gold);
+}
+
+.v-platforms__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.v-platforms__card h2 {
+  margin: 0;
+  font: 700 1.15rem/1.2 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__card p {
+  margin: 0;
+  color: var(--v-body);
+  font: 400 0.92rem/1.45 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__card ol {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: #e2e8f0;
+  font: 400 0.9rem/1.45 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__card li + li {
+  margin-top: 0.35rem;
+}
+
+.v-platforms__cta {
+  appearance: none;
+  margin-top: auto;
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--v-gold);
+  color: var(--v-ink);
+  font: 600 0.95rem/1 Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.v-platforms__cta:focus-visible {
+  outline: 2px solid var(--v-gold-light);
+  outline-offset: 3px;
+}
+
+.v-platforms__cta[hidden],
+.v-platforms.is-installed .v-platforms__cta {
+  display: none;
+}
+
+.v-platforms__done {
+  display: none;
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: var(--v-gold-light);
+  font: 500 0.95rem/1.4 Inter, system-ui, sans-serif;
+}
+
+.v-platforms.is-installed .v-platforms__done {
+  display: block;
+}

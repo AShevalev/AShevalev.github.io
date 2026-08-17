@@ -29,6 +29,10 @@ export default function RootLayout({ children }) {
       <body>
         <InAppLaunches />
         {children}
+        {/* In the real layout also load:
+            <link rel="stylesheet" href="/css/install.css" />
+            <script src="/js/install.js" />
+            for Trading Resources → Platforms. */}
       </body>
     </html>
   );

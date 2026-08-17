@@ -1,8 +1,45 @@
 /**
  * Dashboard-only install. Host as /js/install.js on dashboard.verodus.com.
+ *
+ * Trading Resources → Platforms cards:
+ *   [data-install-app][data-install-platform="android"|"mobile"|"desktop"]
+ *
+ * Android / Desktop on Chromium: native beforeinstallprompt when available.
+ * Mobile (iPhone): Share → Add to Home Screen.
  */
 (function () {
   var deferred = null;
+  var sheet = null;
+
+  var COPY = {
+    android: {
+      title: "Install on Android",
+      lead: "Chrome, Edge, or Samsung Internet on your phone or tablet.",
+      steps: [
+        "Tap Install on Android if Chrome shows a prompt.",
+        "Or open the browser menu (three dots) → Install app.",
+        "Open Verodus from your home screen.",
+      ],
+    },
+    mobile: {
+      title: "Add to iPhone or iPad",
+      lead: "Works in Safari, Chrome, Firefox, and Edge on iOS.",
+      steps: [
+        "Tap Share in the toolbar (the square with the arrow).",
+        "Scroll and tap Add to Home Screen.",
+        "Tap Add. The icon lands next to your other apps.",
+      ],
+    },
+    desktop: {
+      title: "Install on desktop",
+      lead: "Use Chrome or Edge on Windows, Mac, or Chromebook.",
+      steps: [
+        "Click Install Verodus in the address bar.",
+        "Or open the browser menu → Install Verodus.",
+        "Open it from your dock, taskbar, or Start menu.",
+      ],
+    },
+  };
 
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
@@ -15,12 +52,21 @@
     deferred = event;
   });
 
+  window.addEventListener("appinstalled", function () {
+    deferred = null;
+    markInstalled();
+  });
+
   function ios() {
     var ua = navigator.userAgent || "";
     return (
       /iPhone|iPad|iPod/i.test(ua) ||
       (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
     );
+  }
+
+  function android() {
+    return /android/i.test(navigator.userAgent || "");
   }
 
   function standalone() {
@@ -31,23 +77,102 @@
     );
   }
 
+  function markInstalled() {
+    var root = document.querySelector(".v-platforms");
+    if (root) root.classList.add("is-installed");
+  }
+
+  function ensureSheet() {
+    if (sheet) return sheet;
+    var wrap = document.createElement("div");
+    wrap.className = "v-platforms-modal";
+    wrap.hidden = true;
+    wrap.innerHTML =
+      '<button type="button" class="v-platforms-modal__backdrop" aria-label="Dismiss"></button>' +
+      '<div class="v-platforms-modal__sheet" role="dialog" aria-modal="true" aria-labelledby="v-install-title" tabindex="-1">' +
+      '<div class="v-platforms-modal__handle" aria-hidden="true"></div>' +
+      '<h2 id="v-install-title"></h2>' +
+      '<p class="v-platforms-modal__lead"></p>' +
+      '<ol class="v-platforms-modal__steps"></ol>' +
+      '<button type="button" class="v-platforms-modal__cta v-platforms-modal__done">Got it</button>' +
+      "</div>";
+    document.body.appendChild(wrap);
+    wrap.querySelector(".v-platforms-modal__backdrop").addEventListener("click", closeSheet);
+    wrap.querySelector(".v-platforms-modal__done").addEventListener("click", closeSheet);
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && sheet && !sheet.hidden) closeSheet();
+    });
+    sheet = wrap;
+    return wrap;
+  }
+
+  function closeSheet() {
+    if (sheet) sheet.hidden = true;
+  }
+
+  function showCopy(kind) {
+    var data = COPY[kind] || COPY.desktop;
+    var el = ensureSheet();
+    el.querySelector("#v-install-title").textContent = data.title;
+    el.querySelector(".v-platforms-modal__lead").textContent = data.lead;
+    var list = el.querySelector(".v-platforms-modal__steps");
+    list.innerHTML = "";
+    data.steps.forEach(function (step) {
+      var li = document.createElement("li");
+      li.textContent = step;
+      list.appendChild(li);
+    });
+    el.hidden = false;
+    var dialog = el.querySelector(".v-platforms-modal__sheet");
+    if (dialog && dialog.focus) dialog.focus();
+  }
+
+  function canNative(kind) {
+    if (!deferred) return false;
+    if (kind === "mobile") return false;
+    if (kind === "android") return android() && !ios();
+    if (kind === "desktop") return !android() && !ios();
+    return true;
+  }
+
+  function promptNative() {
+    deferred.prompt();
+    return deferred.userChoice.finally(function () {
+      deferred = null;
+    });
+  }
+
+  if (standalone()) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", markInstalled);
+    } else {
+      markInstalled();
+    }
+  }
+
   document.addEventListener("click", function (event) {
     var btn = event.target.closest && event.target.closest("[data-install-app]");
     if (!btn) return;
+    event.preventDefault();
     if (standalone()) return;
-    if (deferred) {
-      event.preventDefault();
-      deferred.prompt();
-      deferred.userChoice.finally(function () {
-        deferred = null;
-      });
+
+    var kind = btn.getAttribute("data-install-platform") || "";
+    if (canNative(kind) || (!kind && deferred)) {
+      promptNative();
+      return;
+    }
+    if (kind) {
+      showCopy(kind);
       return;
     }
     if (ios()) {
-      event.preventDefault();
-      window.alert(
-        "Add Verodus to your Home Screen:\n1. Tap Share\n2. Add to Home Screen\n3. Tap Add"
-      );
+      showCopy("mobile");
+      return;
     }
+    if (deferred) {
+      promptNative();
+      return;
+    }
+    showCopy(android() ? "android" : "desktop");
   });
 })();
