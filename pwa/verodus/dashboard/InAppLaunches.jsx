@@ -6,6 +6,7 @@ import { useEffect } from "react";
 export default function InAppLaunches() {
   useEffect(() => {
     import("./intercept-launches.js");
+    import("../lock-origin-entry.js");
   }, []);
   return null;
 }

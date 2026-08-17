@@ -1,18 +1,26 @@
+"use client";
+
+import { useEffect } from "react";
+
 /**
- * Copy into the dashboard Next.js app as:
- *   components/PlatformFrame.jsx
- *   app/tradehub/[accountId]/page.jsx
- *   app/p5/[accountId]/page.jsx  (pass kind="p5")
+ * Copy into the dashboard Next.js app as components/PlatformFrame.jsx
  *
- * Top-level URL: https://dashboard.verodus.com/tradehub/{accountId}
- * iframe src:    https://trade.verodus.com/tradehub/{accountId}
- *
- * Chrome's standalone window follows the top-level URL, so the website bar
- * does not appear.
+ * Top-level Dashboard install: iframe TradeHub / P5 (one extra document).
+ * Already inside the landing /app iframe: navigate this frame to trade.verodus.com
+ * so we do not stack iframes.
  */
 export default function PlatformFrame({ accountId, kind = "tradehub" }) {
   const src = `https://trade.verodus.com/${kind}/${accountId}`;
   const title = kind === "p5" ? "Platform 5" : "TradeHub";
+  const nested =
+    typeof window !== "undefined" && window.self !== window.top;
+
+  useEffect(() => {
+    if (nested) window.location.replace(src);
+  }, [nested, src]);
+
+  if (nested) return null;
+
   return (
     <iframe
       src={src}

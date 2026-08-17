@@ -1,8 +1,8 @@
 # Install Verodus from the landing page without the Chrome bar
 
-Most people tap **for android** / **for iOS** on [verodus.com](https://www.verodus.com). That must install **www.verodus.com** and open `/app`. A top-level jump to `dashboard.verodus.com` is what draws the X / URL / Verodus CRM bar (desktop and mobile).
+Most people tap **for android** / **for iOS** on [verodus.com](https://www.verodus.com). Install from that page, the Chrome toolbar, Dashboard, or TradeHub: the window must **never change host**. `lock-origin.js` iframes the other Verodus app instead of redirecting (only in an installed window). One iframe is a small extra document; we do not nest frames.
 
-Per-browser matrix: **[BROWSERS.md](BROWSERS.md)**.
+Per-browser matrix and iframe cost: **[BROWSERS.md](BROWSERS.md)**.
 
 ```
 www.verodus.com          landing + install CTAs

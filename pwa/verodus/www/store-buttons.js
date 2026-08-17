@@ -7,6 +7,7 @@
  */
 import { bindInstallCta } from "../../add-to-home-screen.js";
 import "./standalone-gate.js";
+import "../lock-origin-entry.js";
 
 bindInstallCta({
   selector: ".v-store-pill, [data-install-app]",

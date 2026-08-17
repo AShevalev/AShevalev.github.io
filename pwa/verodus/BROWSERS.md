@@ -1,48 +1,36 @@
-# Every browser: install from verodus.com, no top bar
+# Every browser: install from any Verodus page, no top bar
 
-Most people tap **for android** / **for iOS** on the landing page. That must install **`https://www.verodus.com`**, then open `/app`. Sending them to `dashboard.verodus.com` is what draws the X / URL / Verodus CRM bar.
+Install from the landing pills, the Chrome toolbar, Dashboard, TradeHub, or Platform 5. Chrome’s X / URL bar appears only when the **top-level** URL changes host (`www` ↔ `dashboard` ↔ `trade`).
 
-```
-Landing pills  →  install www.verodus.com
-Home screen    →  https://www.verodus.com/app
-                  iframe → dashboard.verodus.com/dashboard
-                    (inside the frame) TradeHub / Platform 5
-```
+Each origin keeps its own window:
 
-The standalone window’s URL never leaves `www.verodus.com`. Chrome, Edge, and Safari do not show the out-of-scope bar for iframe navigations.
+- Installed on **www.verodus.com** → stay on `/app`, iframe the CRM (TradeHub/P5 then navigate **that same iframe**, not a second one).
+- Installed on **dashboard.verodus.com** → stay there, iframe TradeHub/P5.
+- Installed on **trade.verodus.com** → stay there, iframe Dashboard if they go back to the CRM.
 
-## Chrome toolbar (desktop and Android)
+`lock-origin.js` runs only in an **installed** window (`display-mode: standalone`). A normal browser tab on the landing page still navigates as a website.
 
-Yes. The address-bar install icon, ⋮ → **Install Verodus**, and the landing pills all install the **same** PWA. Chrome reads `manifest.json` for the page you are on. It does not use a different `start_url` for the toolbar.
+## Will the iframe slow things down?
 
-You must be on **`https://www.verodus.com`** (the landing page). Then Chrome installs `www.verodus.com` with `start_url: "/app"` and opens the shell. Dashboard / TradeHub / Platform 5 stay in the iframe, so the bar stays off.
+A little, once — not on every tick of the chart.
 
-Do **not** install from the toolbar after you have already opened `dashboard.verodus.com` or `trade.verodus.com` in that tab. Chrome would then install that host instead, and the next jump would show the bar again.
+| What | Cost |
+|---|---|
+| One full-viewport iframe | Extra document + JS world. Usually tens of milliseconds plus the destination load you would pay anyway. |
+| Nested iframes (landing shell **and** a PlatformFrame inside it) | Avoided. If we are already in a frame, we navigate that frame to `trade.verodus.com` instead of stacking. |
+| Charts / orders inside TradeHub or P5 | Same as opening those apps directly. The iframe is not in the hot path. |
 
-Use **Install Verodus** (PWA). **Create shortcut** / “Open as window” without a valid manifest is a bookmark and still shows chrome.
+The expensive part is the terminal bundle, not the frame. A reverse proxy onto one host would be slightly leaner and is the long-term option; one iframe is the change that works on every current Verodus host without merging the apps.
 
-The custom pill calls `preventDefault()` on `beforeinstallprompt` so Chrome does not auto-prompt. The toolbar icon still appears.
+Firefox desktop still cannot hide its own URL bar.
 
-## What each browser does
+## Chrome toolbar
 
-| Browser | Landing-page install | Bar when opening Dashboard / TradeHub / P5 |
-|---|---|---|
-| Chrome / Edge — **desktop** | Install icon / ⋮ → Install Verodus | Gone if they stay in `/app` |
-| Chrome / Edge / Samsung — **Android** | Pill → native prompt or ⋮ → Install app | Gone if they stay in `/app` |
-| Safari **iPhone / iPad** | Pill → Share → Add to Home Screen **on verodus.com** | Gone if `start_url` is `/app` |
-| Chrome / Firefox **on iOS** | Same share sheet (iOS 16.4+) | Same as Safari |
-| Safari **Mac** | Add to Dock on verodus.com | Gone if they stay in `/app` |
-| Firefox **Android** | ⋮ → Install | Gone if they stay in `/app` |
-| Firefox **desktop** | Cannot install | Firefox URL bar always stays |
-| Instagram / Gmail in-app browsers | Custom Tab — cannot install | Open in Chrome or Safari first |
+Same PWA as the pills. Install while the tab is on that Verodus host. Toolbar on Dashboard installs Dashboard; `lock-origin` then iframes Trade instead of leaving.
 
 ## Steps
 
-1. On `www.verodus.com`: PNG 192/512 icons, `manifest.json` with `start_url: "/app"`, `sw.js`, Apple tags (`www/head.html`).
-2. Replace Play Store / App Store `href`s with `/app` and load `store-buttons.js`.
-3. Ship `www/app.html` as **`/app`** (or `/app/index.html`). It iframes `https://dashboard.verodus.com/dashboard`.
-4. Dashboard + Trade CSP: `frame-ancestors 'self' https://www.verodus.com` (see `frame-headers.js` on both apps).
-5. Google login must stay in a **popup** or return to `/app`. A top-level redirect to `dashboard.verodus.com` brings the bar back.
-6. Uninstall any old icon that was installed from Dashboard or TradeHub, then install again from the landing pills **or** the Chrome toolbar while still on verodus.com.
-
-Platform 5 / TradeHub buttons inside the CRM can still point at `trade.verodus.com` **inside the iframe**. That does not move the top-level URL. Same-origin `/p5/{id}` routes on Dashboard remain a plus if someone opens the CRM in a normal tab.
+1. Landing: `start_url: "/app"`, pills, `sw.js`, PNG icons (`www/`).
+2. Dashboard + Trade: `frame-ancestors` includes `https://www.verodus.com` and `https://dashboard.verodus.com`.
+3. Load `lock-origin-entry.js` on all three origins (no-op in a normal tab).
+4. Google login: popup, or return to the **current** origin’s shell — never `window.top` to another Verodus host.
