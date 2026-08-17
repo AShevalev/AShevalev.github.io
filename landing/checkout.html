@@ -28,31 +28,54 @@
     <link rel="stylesheet" href="checkout.css?v=20260730nobanner">
 
     <style id="co-qty-css">
-      .co-qty-box { margin: .85rem 0 0; }
+      .co-qty-box {
+        justify-content: space-between; align-items: center; gap: 1rem;
+        margin: .85rem 0 0; display: flex;
+      }
+      .co-qty-copy { min-width: 0; }
       .co-qty-kicker {
-        color: var(--text-on-dark, #cbd5e1);
-        margin-bottom: .2rem;
-        font-size: .9rem;
+        color: #fff;
+        margin: 0;
+        font-size: .95rem;
         font-weight: 700;
+        line-height: 1.2;
       }
       .co-qty-label {
         color: var(--text-on-theme-dim, #e2e8f0a6);
-        margin-bottom: .55rem;
+        margin: .2rem 0 0;
         font-size: .75rem;
+        line-height: 1.3;
       }
-      .co-qty-tabs { flex-wrap: wrap; gap: .4rem; display: flex; }
-      .co-qty-tabs .co-tab {
-        flex: 1 1 calc(50% - .4rem);
-        justify-content: center;
-        min-width: 0;
-        padding: .5rem .6rem;
-        font-size: .78rem;
+      .co-qty-stepper {
+        border: 1px solid var(--border-on-theme, #ffffff26);
+        border-radius: 999px;
+        flex-shrink: 0; align-items: center;
+        min-width: 118px; height: 40px;
+        display: flex;
       }
+      .co-qty-btn {
+        color: #fff; cursor: pointer; background: 0 0; border: none;
+        flex: 1; height: 100%; padding: 0;
+        font-size: 1.15rem; line-height: 1;
+      }
+      .co-qty-btn:disabled { opacity: .35; cursor: default; }
+      .co-qty-value {
+        color: #fff; min-width: 1.4rem; text-align: center;
+        font-size: .95rem; font-weight: 700;
+      }
+      .co-refund-note {
+        color: var(--text-on-theme-dim, #e2e8f0a6);
+        margin: .55rem 0 0;
+        font-size: .75rem;
+        line-height: 1.4;
+      }
+      .co-refundable.is-hidden { display: none; }
       @media (width <= 960px) {
         .co-summary-col { position: static; }
       }
-      @media (width <= 640px) {
-        .co-qty-tabs .co-tab { flex: 1 1 calc(50% - .4rem); font-size: .72rem; padding: .45rem .4rem; }
+      @media (width <= 400px) {
+        .co-qty-box { align-items: flex-start; flex-direction: column; gap: .65rem; }
+        .co-qty-stepper { width: 100%; }
       }
       .co-coupon-feedback.ok { color: #34d399; }
       .co-coupon-feedback.err { color: #f87171; }
@@ -203,21 +226,14 @@
                         <span class="co-summary-row-value" id="sumSize">$5K</span>
                     </div>
 
-                    <div class="co-qty-box" id="coQtyBox">
-                        <div class="co-qty-kicker">Quantity</div>
-                        <div class="co-qty-label">Number of accounts to purchase</div>
-                        <div class="co-tabs co-qty-tabs" id="coQty"></div>
-                    </div>
-
-
                     <div class="co-summary-divider"></div>
 
                     <div id="coCouponSection">
                         <div class="co-summary-coupon">
-                            <input type="text" id="coCoupon" placeholder="Coupon code" autocomplete="off">
+                            <input type="text" id="coCoupon" placeholder="Coupon code" autocomplete="off" value="VERO35">
                             <button type="button" id="coApplyCoupon">Apply</button>
                         </div>
-                        <div class="co-coupon-feedback" id="coCouponFeedback" aria-live="polite"></div>
+                        <div class="co-coupon-feedback ok" id="coCouponFeedback" aria-live="polite">Coupon applied.</div>
 
                         <div class="co-summary-divider"></div>
                     </div>
@@ -238,14 +254,28 @@
                         <span class="co-total-amount" id="sumTotal">$65</span>
                     </div>
 
+                    <div class="co-qty-box" id="coQtyBox">
+                        <div class="co-qty-copy">
+                            <div class="co-qty-kicker">Quantity</div>
+                            <div class="co-qty-label">Number of accounts to purchase</div>
+                        </div>
+                        <div class="co-qty-stepper" id="coQty">
+                            <button type="button" class="co-qty-btn" id="coQtyMinus" aria-label="Decrease quantity">&minus;</button>
+                            <span class="co-qty-value" id="coQtyValue">1</span>
+                            <button type="button" class="co-qty-btn" id="coQtyPlus" aria-label="Increase quantity">+</button>
+                        </div>
+                    </div>
+
+
                     <div class="co-refundable" id="coRefundable">
-                        <span class="co-refundable-pill">
+                        <span class="co-refundable-pill" id="coRefundablePill">
                             <svg class="co-refundable-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <circle cx="12" cy="12" r="9"></circle>
                                 <polyline points="8 12 11 15 16 9"></polyline>
                             </svg>
-                            <span class="co-refundable-label">Refundable on first payout</span>
+                            <span class="co-refundable-label" id="coRefundableLabel">Refundable on first payout</span>
                         </span>
+                        <div class="co-refund-note" id="coRefundNote">Add-on fees are not refundable.</div>
                     </div>
 
                     <div class="co-order-terms">
@@ -393,7 +423,7 @@
             <div class="modal-body text-normal">
                 <p id="coAddonModalText"></p>
             </div>
-            <div class="modal-foot text-normal">Add-on eligibility and rules apply per program terms.</div>
+            <div class="modal-foot text-normal">Add-on fees are not refundable. Eligibility and rules apply per program terms.</div>
         </div>
     </div>
 
@@ -482,12 +512,11 @@
   var selectedSize = '5000';
   var selectedQty = 1;
   var QTY_MAX = 4;
-  var QTY_LABELS = ['1st Account', '2nd Account', '3rd Account', '4th Account'];
   var activeAddons = {};
   var addonModalOpen = false;
   var COMPETITION = null;
   var DISCOUNT_CAP_PCT = 35;
-  var appliedCoupon = null;
+  var appliedCoupon = { code: 'VERO35', pct: 35 };
   var paymentMethod = 'card';
 
   var PAYOUT_UPGRADES = ['on-demand-payout', 'split-90'];
@@ -777,6 +806,21 @@
 
     var totalEl = $('#sumTotal');
     if (totalEl) totalEl.textContent = '$' + money(getTotal());
+    updateRefundCopy();
+  }
+
+  function updateRefundCopy() {
+    var wrap = $('#coRefundable');
+    var pill = $('#coRefundablePill');
+    var note = $('#coRefundNote');
+    if (!wrap) return;
+    var instant = selectedPlan === 'instant';
+    if (pill) pill.style.display = instant ? 'none' : '';
+    if (note) {
+      note.textContent = instant
+        ? 'Instant purchases are not refundable. Add-on fees are not refundable.'
+        : 'Add-on fees are not refundable.';
+    }
   }
 
   function openAddonModal(addon) {
@@ -866,22 +910,35 @@
   }
 
   function renderQty() {
-    var wrap = $('#coQty');
-    if (!wrap) return;
-    var html = '';
-    for (var n = 1; n <= QTY_MAX; n++) {
-      html += '<button type="button" class="co-tab' + (n === selectedQty ? ' active' : '') + '" data-qty="' + n + '">'
-        + QTY_LABELS[n - 1] + '</button>';
-    }
-    wrap.innerHTML = html;
-    wrap.querySelectorAll('.co-tab').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        selectedQty = parseInt(btn.getAttribute('data-qty'), 10);
+    var val = $('#coQtyValue');
+    var minus = $('#coQtyMinus');
+    var plus = $('#coQtyPlus');
+    if (val) val.textContent = String(selectedQty);
+    if (minus) minus.disabled = selectedQty <= 1;
+    if (plus) plus.disabled = selectedQty >= QTY_MAX;
+  }
+
+  function bindQty() {
+    var minus = $('#coQtyMinus');
+    var plus = $('#coQtyPlus');
+    if (minus) {
+      minus.addEventListener('click', function () {
+        if (selectedQty <= 1) return;
+        selectedQty -= 1;
         renderQty();
         renderAddons();
         updateSummary();
       });
-    });
+    }
+    if (plus) {
+      plus.addEventListener('click', function () {
+        if (selectedQty >= QTY_MAX) return;
+        selectedQty += 1;
+        renderQty();
+        renderAddons();
+        updateSummary();
+      });
+    }
   }
 
   function fillCountries() {
@@ -897,27 +954,37 @@
     sel.innerHTML = html;
   }
 
-  function applyCoupon() {
-    var raw = (($('#coCoupon') && $('#coCoupon').value) || '').trim().toUpperCase();
+  function setCoupon(code, silent) {
     var fb = $('#coCouponFeedback');
-    if (!fb) return;
+    var raw = (code || '').trim().toUpperCase();
     if (!raw) {
       appliedCoupon = null;
-      fb.className = 'co-coupon-feedback';
-      fb.textContent = '';
+      if (fb) {
+        fb.className = 'co-coupon-feedback';
+        fb.textContent = '';
+      }
       updateSummary();
       return;
     }
     if (raw === 'VERO35') {
       appliedCoupon = { code: 'VERO35', pct: 35 };
-      fb.className = 'co-coupon-feedback ok';
-      fb.textContent = 'Coupon applied.';
+      if (fb) {
+        fb.className = 'co-coupon-feedback ok';
+        fb.textContent = silent ? 'Coupon applied.' : 'Coupon applied.';
+      }
     } else {
       appliedCoupon = null;
-      fb.className = 'co-coupon-feedback err';
-      fb.textContent = 'This coupon is not valid.';
+      if (fb) {
+        fb.className = 'co-coupon-feedback err';
+        fb.textContent = 'This coupon is not valid.';
+      }
     }
     updateSummary();
+  }
+
+  function applyCoupon() {
+    var input = $('#coCoupon');
+    setCoupon(input ? input.value : '', false);
   }
 
   function validEmail(v) {
@@ -972,6 +1039,20 @@
     if (coupon) {
       coupon.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') { e.preventDefault(); applyCoupon(); }
+      });
+      coupon.addEventListener('input', function () {
+        var raw = (coupon.value || '').trim().toUpperCase();
+        if (raw === 'VERO35') {
+          setCoupon('VERO35', true);
+          return;
+        }
+        appliedCoupon = null;
+        var fb = $('#coCouponFeedback');
+        if (fb) {
+          fb.className = 'co-coupon-feedback';
+          fb.textContent = '';
+        }
+        updateSummary();
       });
     }
     document.querySelectorAll('#coPaymentMethods .co-pm-option').forEach(function (lab) {
@@ -1032,6 +1113,7 @@
   fillCountries();
   bindForm();
   bindPlanTabs();
+  bindQty();
   syncPlanTabs();
   renderSizes();
   renderQty();

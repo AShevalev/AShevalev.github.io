@@ -36,12 +36,11 @@
   var selectedSize = '5000';
   var selectedQty = 1;
   var QTY_MAX = 4;
-  var QTY_LABELS = ['1st Account', '2nd Account', '3rd Account', '4th Account'];
   var activeAddons = {};
   var addonModalOpen = false;
   var COMPETITION = null;
   var DISCOUNT_CAP_PCT = 35;
-  var appliedCoupon = null;
+  var appliedCoupon = { code: 'VERO35', pct: 35 };
   var paymentMethod = 'card';
 
   var PAYOUT_UPGRADES = ['on-demand-payout', 'split-90'];
@@ -331,6 +330,21 @@
 
     var totalEl = $('#sumTotal');
     if (totalEl) totalEl.textContent = '$' + money(getTotal());
+    updateRefundCopy();
+  }
+
+  function updateRefundCopy() {
+    var wrap = $('#coRefundable');
+    var pill = $('#coRefundablePill');
+    var note = $('#coRefundNote');
+    if (!wrap) return;
+    var instant = selectedPlan === 'instant';
+    if (pill) pill.style.display = instant ? 'none' : '';
+    if (note) {
+      note.textContent = instant
+        ? 'Instant purchases are not refundable. Add-on fees are not refundable.'
+        : 'Add-on fees are not refundable.';
+    }
   }
 
   function openAddonModal(addon) {
@@ -420,22 +434,35 @@
   }
 
   function renderQty() {
-    var wrap = $('#coQty');
-    if (!wrap) return;
-    var html = '';
-    for (var n = 1; n <= QTY_MAX; n++) {
-      html += '<button type="button" class="co-tab' + (n === selectedQty ? ' active' : '') + '" data-qty="' + n + '">'
-        + QTY_LABELS[n - 1] + '</button>';
-    }
-    wrap.innerHTML = html;
-    wrap.querySelectorAll('.co-tab').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        selectedQty = parseInt(btn.getAttribute('data-qty'), 10);
+    var val = $('#coQtyValue');
+    var minus = $('#coQtyMinus');
+    var plus = $('#coQtyPlus');
+    if (val) val.textContent = String(selectedQty);
+    if (minus) minus.disabled = selectedQty <= 1;
+    if (plus) plus.disabled = selectedQty >= QTY_MAX;
+  }
+
+  function bindQty() {
+    var minus = $('#coQtyMinus');
+    var plus = $('#coQtyPlus');
+    if (minus) {
+      minus.addEventListener('click', function () {
+        if (selectedQty <= 1) return;
+        selectedQty -= 1;
         renderQty();
         renderAddons();
         updateSummary();
       });
-    });
+    }
+    if (plus) {
+      plus.addEventListener('click', function () {
+        if (selectedQty >= QTY_MAX) return;
+        selectedQty += 1;
+        renderQty();
+        renderAddons();
+        updateSummary();
+      });
+    }
   }
 
   function fillCountries() {
@@ -451,27 +478,37 @@
     sel.innerHTML = html;
   }
 
-  function applyCoupon() {
-    var raw = (($('#coCoupon') && $('#coCoupon').value) || '').trim().toUpperCase();
+  function setCoupon(code, silent) {
     var fb = $('#coCouponFeedback');
-    if (!fb) return;
+    var raw = (code || '').trim().toUpperCase();
     if (!raw) {
       appliedCoupon = null;
-      fb.className = 'co-coupon-feedback';
-      fb.textContent = '';
+      if (fb) {
+        fb.className = 'co-coupon-feedback';
+        fb.textContent = '';
+      }
       updateSummary();
       return;
     }
     if (raw === 'VERO35') {
       appliedCoupon = { code: 'VERO35', pct: 35 };
-      fb.className = 'co-coupon-feedback ok';
-      fb.textContent = 'Coupon applied.';
+      if (fb) {
+        fb.className = 'co-coupon-feedback ok';
+        fb.textContent = silent ? 'Coupon applied.' : 'Coupon applied.';
+      }
     } else {
       appliedCoupon = null;
-      fb.className = 'co-coupon-feedback err';
-      fb.textContent = 'This coupon is not valid.';
+      if (fb) {
+        fb.className = 'co-coupon-feedback err';
+        fb.textContent = 'This coupon is not valid.';
+      }
     }
     updateSummary();
+  }
+
+  function applyCoupon() {
+    var input = $('#coCoupon');
+    setCoupon(input ? input.value : '', false);
   }
 
   function validEmail(v) {
@@ -526,6 +563,20 @@
     if (coupon) {
       coupon.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') { e.preventDefault(); applyCoupon(); }
+      });
+      coupon.addEventListener('input', function () {
+        var raw = (coupon.value || '').trim().toUpperCase();
+        if (raw === 'VERO35') {
+          setCoupon('VERO35', true);
+          return;
+        }
+        appliedCoupon = null;
+        var fb = $('#coCouponFeedback');
+        if (fb) {
+          fb.className = 'co-coupon-feedback';
+          fb.textContent = '';
+        }
+        updateSummary();
       });
     }
     document.querySelectorAll('#coPaymentMethods .co-pm-option').forEach(function (lab) {
@@ -586,6 +637,7 @@
   fillCountries();
   bindForm();
   bindPlanTabs();
+  bindQty();
   syncPlanTabs();
   renderSizes();
   renderQty();

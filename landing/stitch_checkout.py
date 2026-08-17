@@ -18,39 +18,68 @@ LIVE_URL = "https://www.verodus.com/checkout.html"
 
 QTY_HTML = """
                     <div class="co-qty-box" id="coQtyBox">
-                        <div class="co-qty-kicker">Quantity</div>
-                        <div class="co-qty-label">Number of accounts to purchase</div>
-                        <div class="co-tabs co-qty-tabs" id="coQty"></div>
+                        <div class="co-qty-copy">
+                            <div class="co-qty-kicker">Quantity</div>
+                            <div class="co-qty-label">Number of accounts to purchase</div>
+                        </div>
+                        <div class="co-qty-stepper" id="coQty">
+                            <button type="button" class="co-qty-btn" id="coQtyMinus" aria-label="Decrease quantity">&minus;</button>
+                            <span class="co-qty-value" id="coQtyValue">1</span>
+                            <button type="button" class="co-qty-btn" id="coQtyPlus" aria-label="Increase quantity">+</button>
+                        </div>
                     </div>
 """
 
 QTY_CSS = """
     <style id="co-qty-css">
-      .co-qty-box { margin: .85rem 0 0; }
+      .co-qty-box {
+        justify-content: space-between; align-items: center; gap: 1rem;
+        margin: .85rem 0 0; display: flex;
+      }
+      .co-qty-copy { min-width: 0; }
       .co-qty-kicker {
-        color: var(--text-on-dark, #cbd5e1);
-        margin-bottom: .2rem;
-        font-size: .9rem;
+        color: #fff;
+        margin: 0;
+        font-size: .95rem;
         font-weight: 700;
+        line-height: 1.2;
       }
       .co-qty-label {
         color: var(--text-on-theme-dim, #e2e8f0a6);
-        margin-bottom: .55rem;
+        margin: .2rem 0 0;
         font-size: .75rem;
+        line-height: 1.3;
       }
-      .co-qty-tabs { flex-wrap: wrap; gap: .4rem; display: flex; }
-      .co-qty-tabs .co-tab {
-        flex: 1 1 calc(50% - .4rem);
-        justify-content: center;
-        min-width: 0;
-        padding: .5rem .6rem;
-        font-size: .78rem;
+      .co-qty-stepper {
+        border: 1px solid var(--border-on-theme, #ffffff26);
+        border-radius: 999px;
+        flex-shrink: 0; align-items: center;
+        min-width: 118px; height: 40px;
+        display: flex;
       }
+      .co-qty-btn {
+        color: #fff; cursor: pointer; background: 0 0; border: none;
+        flex: 1; height: 100%; padding: 0;
+        font-size: 1.15rem; line-height: 1;
+      }
+      .co-qty-btn:disabled { opacity: .35; cursor: default; }
+      .co-qty-value {
+        color: #fff; min-width: 1.4rem; text-align: center;
+        font-size: .95rem; font-weight: 700;
+      }
+      .co-refund-note {
+        color: var(--text-on-theme-dim, #e2e8f0a6);
+        margin: .55rem 0 0;
+        font-size: .75rem;
+        line-height: 1.4;
+      }
+      .co-refundable.is-hidden { display: none; }
       @media (width <= 960px) {
         .co-summary-col { position: static; }
       }
-      @media (width <= 640px) {
-        .co-qty-tabs .co-tab { flex: 1 1 calc(50% - .4rem); font-size: .72rem; padding: .45rem .4rem; }
+      @media (width <= 400px) {
+        .co-qty-box { align-items: flex-start; flex-direction: column; gap: .65rem; }
+        .co-qty-stepper { width: 100%; }
       }
       .co-coupon-feedback.ok { color: #34d399; }
       .co-coupon-feedback.err { color: #f87171; }
@@ -109,13 +138,53 @@ def stitch(html: str, logic: str, countries: str) -> str:
         count=1,
     )
 
-    needle = """                    <div class="co-summary-row">
-                        <span class="co-summary-row-label">Account Size</span>
-                        <span class="co-summary-row-value" id="sumSize">$5K</span>
+    total_needle = """                    <div class="co-summary-total">
+                        <span class="co-total-label">Total</span>
+                        <span class="co-total-amount" id="sumTotal">$65</span>
                     </div>"""
-    if needle not in html:
-        raise SystemExit("Account Size summary block not found")
-    html = html.replace(needle, needle + "\n" + QTY_HTML, 1)
+    if total_needle not in html:
+        raise SystemExit("Total summary block not found")
+    html = html.replace(total_needle, total_needle + "\n" + QTY_HTML, 1)
+
+    html = html.replace(
+        '<input type="text" id="coCoupon" placeholder="Coupon code" autocomplete="off">',
+        '<input type="text" id="coCoupon" placeholder="Coupon code" autocomplete="off" value="VERO35">',
+        1,
+    )
+    html = html.replace(
+        '<div class="co-coupon-feedback" id="coCouponFeedback" aria-live="polite"></div>',
+        '<div class="co-coupon-feedback ok" id="coCouponFeedback" aria-live="polite">Coupon applied.</div>',
+        1,
+    )
+
+    refund_old = """                    <div class="co-refundable" id="coRefundable">
+                        <span class="co-refundable-pill">
+                            <svg class="co-refundable-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <polyline points="8 12 11 15 16 9"></polyline>
+                            </svg>
+                            <span class="co-refundable-label">Refundable on first payout</span>
+                        </span>
+                    </div>"""
+    refund_new = """                    <div class="co-refundable" id="coRefundable">
+                        <span class="co-refundable-pill" id="coRefundablePill">
+                            <svg class="co-refundable-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <polyline points="8 12 11 15 16 9"></polyline>
+                            </svg>
+                            <span class="co-refundable-label" id="coRefundableLabel">Refundable on first payout</span>
+                        </span>
+                        <div class="co-refund-note" id="coRefundNote">Add-on fees are not refundable.</div>
+                    </div>"""
+    if refund_old not in html:
+        raise SystemExit("Refundable pill block not found")
+    html = html.replace(refund_old, refund_new, 1)
+
+    html = html.replace(
+        '<div class="modal-foot text-normal">Add-on eligibility and rules apply per program terms.</div>',
+        '<div class="modal-foot text-normal">Add-on fees are not refundable. Eligibility and rules apply per program terms.</div>',
+        1,
+    )
 
     # Drop the live orchestra script; keep overlays / header / footer.
     marker = "    <script>\n    (function () {"
