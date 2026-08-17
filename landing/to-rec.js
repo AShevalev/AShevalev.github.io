@@ -3,7 +3,9 @@
      6% trail never locks. 3% daily from the day's equity high. No fee refund.
      Lite funded max DD stays 8% (already in live pricingData).
      Weekly cycle is 80% (same split as Bi-Weekly), not live's 70% decoy.
-     On Demand still has to clear Instant 5 valid days / 1-Step 3 trading days. */
+     Five legal cards: 80% On Demand / Weekly / Bi-Weekly, 90% On Demand /
+     Bi-Weekly. 90% Weekly is not offered. On Demand still has to clear
+     Instant 5 valid days / eval 3 trading days. */
   if (typeof pricingData === 'undefined') return;
 
   delete pricingData.instant['200000'];
@@ -115,65 +117,9 @@
     applyRewardCycles();
   };
 
-  function ensureRow(details, key, label, value, onclick) {
-    var row = details.querySelector('[data-rc-' + key + ']');
-    if (!row) {
-      row = document.createElement('div');
-      row.className = 'rc-detail-row';
-      row.setAttribute('data-rc-' + key, '1');
-      row.innerHTML = '<span></span><span></span>';
-      var how = details.querySelector('[data-rc-how]');
-      if (how) details.insertBefore(row, how);
-      else details.appendChild(row);
-    }
-    row.querySelector('span:first-child').textContent = label;
-    row.querySelector('span:last-child').textContent = value;
-    if (onclick) {
-      row.style.cursor = 'pointer';
-      row.onclick = onclick;
-    } else {
-      row.style.cursor = '';
-      row.onclick = null;
-    }
-  }
-
-  function firstRequestLabel() {
-    return currentTab === 'instant' ? '5 valid days' : '3 trading days';
-  }
-
   function applyRewardCycles() {
-    var wrap = document.getElementById('rcComboWrap');
-    if (wrap) wrap.remove();
-
-    var cards = document.querySelectorAll('.reward-cycle-grid .reward-cycle-card');
-    if (cards[0]) {
-      var pct = cards[0].querySelector('.rc-pct');
-      if (pct) pct.textContent = '80%';
-      var wDetails = cards[0].querySelector('.rc-details');
-      ensureRow(wDetails, 'days', 'First request after', firstRequestLabel(), function () {
-        showModal('first-request');
-      });
-      ensureRow(wDetails, 'how', 'How', 'Add-on');
-    }
-    if (cards[1]) {
-      var bDetails = cards[1].querySelector('.rc-details');
-      ensureRow(bDetails, 'days', 'First request after', firstRequestLabel(), function () {
-        showModal('first-request');
-      });
-      ensureRow(bDetails, 'how', 'How', 'Included');
-    }
-    if (cards[2]) {
-      var odDetails = cards[2].querySelector('.rc-details');
-      var anytime = odDetails.querySelector('[data-i18n="content.span21"]');
-      if (anytime) anytime.textContent = 'Anytime after min days';
-      ensureRow(odDetails, 'days', 'First request after', firstRequestLabel(), function () {
-        showModal('first-request');
-      });
-      ensureRow(odDetails, 'how', 'How', 'Add-on');
-    }
-
     document.querySelectorAll('[data-i18n="content.p6"]').forEach(function (p) {
-      p.textContent = 'Possible combinations. Pick one — Weekly and On Demand cannot be combined.';
+      p.textContent = 'Possible combinations. Weekly cannot be combined with On Demand or 90%.';
     });
     document.querySelectorAll('[data-i18n="content.p7"]').forEach(function (p) {
       p.textContent = 'All reward request intervals are based on calendar days, not trading days. On Demand still has to meet the plan trading-day rule before the first request.';

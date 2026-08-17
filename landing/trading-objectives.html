@@ -163,7 +163,7 @@
         .guide-desc { font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
 
         /* ── reward cycles ── */
-        .reward-cycle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; max-width:1000px; margin:0 auto; }
+        .reward-cycle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; max-width:1100px; margin:0 auto; }
         @media (max-width:760px) { .reward-cycle-grid { grid-template-columns:1fr; } }
         .reward-highlight-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:700px; margin:1.5rem auto 0; }
         @media (max-width:560px) { .reward-highlight-grid { grid-template-columns:1fr; } }
@@ -185,7 +185,7 @@
         .rc-period { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.18em; font-weight:700; color:var(--text-secondary); margin-bottom:0.6rem; }
         .rc-pct { font-size:3rem; font-weight:800; color:var(--heading-h1); line-height:1; }
         .rc-label { font-size:0.78rem; color:var(--text-secondary); margin-bottom:1.2rem; }
-        .rc-details { display:grid; grid-template-rows:auto auto auto; gap:0.55rem; margin-top:auto; border-top:1px solid var(--border-subtle); padding-top:1rem; }
+        .rc-details { display:grid; grid-template-rows:auto auto; gap:0.55rem; margin-top:auto; border-top:1px solid var(--border-subtle); padding-top:1rem; }
         .rc-detail-row { display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-secondary); }
         .rc-detail-row span:last-child { color:var(--text-primary); font-weight:500; }
         .rc-detail-spacer { min-height:1.5em; }
@@ -614,9 +614,18 @@ Crypto 1:3</div>
     <div class="to-wrap to-section">
             <div style="text-align:center;margin-bottom:2.5rem;">
                 <h2 style="font-weight:700;margin:0 0 0.5rem;" data-i18n="content.h24">Reward Cycles</h2>
-                <p style="opacity:0.7;font-size:0.88rem;" data-i18n="content.p6">Possible combinations. Pick one — Weekly and On Demand cannot be combined.</p>
+                <p style="opacity:0.7;font-size:0.88rem;" data-i18n="content.p6">Possible combinations. Weekly cannot be combined with On Demand or 90%.</p>
             </div>
             <div class="reward-cycle-grid">
+                <div class="reward-cycle-card">
+                    <div class="rc-period" data-i18n="content.rcOnDemand">On Demand</div>
+                    <div class="rc-pct">80%</div>
+                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
+                    <div class="rc-details">
+                        <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime after min days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
+                    </div>
+                </div>
                 <div class="reward-cycle-card">
                     <div class="rc-period" data-i18n="content.rcWeekly">Weekly</div>
                     <div class="rc-pct">80%</div>
@@ -624,33 +633,37 @@ Crypto 1:3</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span17">7 days</span></div>
                         <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
-                        <div class="rc-detail-row" data-rc-days="1" onclick="showModal('first-request')" style="cursor:pointer;"><span>First request after</span><span>3 trading days</span></div>
-                        <div class="rc-detail-row" data-rc-how="1"><span>How</span><span>Add-on</span></div>
                     </div>
                 </div>
-                <div class="reward-cycle-card">
+                <div class="reward-cycle-card rc-featured">
                     <div class="rc-period" data-i18n="content.rcBiWeekly">Bi-Weekly</div>
                     <div class="rc-pct">80%</div>
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span19">14 days</span></div>
                         <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
-                        <div class="rc-detail-row" data-rc-days="1" onclick="showModal('first-request')" style="cursor:pointer;"><span>First request after</span><span>3 trading days</span></div>
-                        <div class="rc-detail-row" data-rc-how="1"><span>How</span><span>Included</span></div>
                     </div>
                 </div>
-                <div class="reward-cycle-card rc-featured">
+                <div class="reward-cycle-card">
                     <div class="rc-period" data-i18n="content.rcOnDemand">On Demand</div>
                     <div class="rc-pct">90%</div>
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime after min days</span></div>
                         <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
-                        <div class="rc-detail-row" data-rc-days="1" onclick="showModal('first-request')" style="cursor:pointer;"><span>First request after</span><span>3 trading days</span></div>
-                        <div class="rc-detail-row" data-rc-how="1"><span>How</span><span>Add-on</span></div>
+                    </div>
+                </div>
+                <div class="reward-cycle-card">
+                    <div class="rc-period" data-i18n="content.rcBiWeekly">Bi-Weekly</div>
+                    <div class="rc-pct">90%</div>
+                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
+                    <div class="rc-details">
+                        <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span19">14 days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
                     </div>
                 </div>
             </div>
+
             <p style="text-align:center;font-size:0.75rem;opacity:0.6;margin-top:1.8rem;" data-i18n="content.p7">All reward request intervals are based on calendar days, not trading days. On Demand still has to meet the plan trading-day rule before the first request.</p>
             <div class="reward-highlight-grid">
                 <div class="reward-highlight-card">
@@ -1265,7 +1278,9 @@ Crypto 1:3`;
      6% trail never locks. 3% daily from the day's equity high. No fee refund.
      Lite funded max DD stays 8% (already in live pricingData).
      Weekly cycle is 80% (same split as Bi-Weekly), not live's 70% decoy.
-     On Demand still has to clear Instant 5 valid days / 1-Step 3 trading days. */
+     Five legal cards: 80% On Demand / Weekly / Bi-Weekly, 90% On Demand /
+     Bi-Weekly. 90% Weekly is not offered. On Demand still has to clear
+     Instant 5 valid days / eval 3 trading days. */
   if (typeof pricingData === 'undefined') return;
 
   delete pricingData.instant['200000'];
@@ -1377,65 +1392,9 @@ Crypto 1:3`;
     applyRewardCycles();
   };
 
-  function ensureRow(details, key, label, value, onclick) {
-    var row = details.querySelector('[data-rc-' + key + ']');
-    if (!row) {
-      row = document.createElement('div');
-      row.className = 'rc-detail-row';
-      row.setAttribute('data-rc-' + key, '1');
-      row.innerHTML = '<span></span><span></span>';
-      var how = details.querySelector('[data-rc-how]');
-      if (how) details.insertBefore(row, how);
-      else details.appendChild(row);
-    }
-    row.querySelector('span:first-child').textContent = label;
-    row.querySelector('span:last-child').textContent = value;
-    if (onclick) {
-      row.style.cursor = 'pointer';
-      row.onclick = onclick;
-    } else {
-      row.style.cursor = '';
-      row.onclick = null;
-    }
-  }
-
-  function firstRequestLabel() {
-    return currentTab === 'instant' ? '5 valid days' : '3 trading days';
-  }
-
   function applyRewardCycles() {
-    var wrap = document.getElementById('rcComboWrap');
-    if (wrap) wrap.remove();
-
-    var cards = document.querySelectorAll('.reward-cycle-grid .reward-cycle-card');
-    if (cards[0]) {
-      var pct = cards[0].querySelector('.rc-pct');
-      if (pct) pct.textContent = '80%';
-      var wDetails = cards[0].querySelector('.rc-details');
-      ensureRow(wDetails, 'days', 'First request after', firstRequestLabel(), function () {
-        showModal('first-request');
-      });
-      ensureRow(wDetails, 'how', 'How', 'Add-on');
-    }
-    if (cards[1]) {
-      var bDetails = cards[1].querySelector('.rc-details');
-      ensureRow(bDetails, 'days', 'First request after', firstRequestLabel(), function () {
-        showModal('first-request');
-      });
-      ensureRow(bDetails, 'how', 'How', 'Included');
-    }
-    if (cards[2]) {
-      var odDetails = cards[2].querySelector('.rc-details');
-      var anytime = odDetails.querySelector('[data-i18n="content.span21"]');
-      if (anytime) anytime.textContent = 'Anytime after min days';
-      ensureRow(odDetails, 'days', 'First request after', firstRequestLabel(), function () {
-        showModal('first-request');
-      });
-      ensureRow(odDetails, 'how', 'How', 'Add-on');
-    }
-
     document.querySelectorAll('[data-i18n="content.p6"]').forEach(function (p) {
-      p.textContent = 'Possible combinations. Pick one — Weekly and On Demand cannot be combined.';
+      p.textContent = 'Possible combinations. Weekly cannot be combined with On Demand or 90%.';
     });
     document.querySelectorAll('[data-i18n="content.p7"]').forEach(function (p) {
       p.textContent = 'All reward request intervals are based on calendar days, not trading days. On Demand still has to meet the plan trading-day rule before the first request.';

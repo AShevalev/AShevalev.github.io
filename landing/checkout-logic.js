@@ -43,8 +43,9 @@
   var appliedCoupon = { code: 'VERO35', pct: 35 };
   var paymentMethod = 'card';
 
-  /* Weekly 80% XOR On Demand 90%. Default (neither on) is Bi-Weekly 80%. */
-  var PAYOUT_UPGRADES = ['on-demand-payout'];
+  /* Weekly 80% XOR On Demand and XOR 90%. Default is Bi-Weekly 80%.
+     On Demand + 90% is the 90% On Demand bundle. 90% Weekly is not offered. */
+  var PAYOUT_UPGRADES = ['on-demand-payout', 'split-90'];
 
   var BUNDLES = [
     {
@@ -53,6 +54,13 @@
       chargeId: 'news-trading',
       pct: 0.20,
       summaryLabel: 'News Trading'
+    },
+    {
+      name: '90% On Demand',
+      ids: ['on-demand-payout', 'split-90'],
+      chargeId: 'on-demand-payout',
+      pct: function () { return selectedPlan === 'instant' ? 0.32 : 0.20; },
+      summaryLabel: 'On Demand Rewards with 90% Split'
     }
   ];
 
@@ -90,36 +98,45 @@
       pct: 0.08,
       desc: 'Withdraw your 80% profit share every 7 calendar days',
       tooltip: function () {
-        var days = selectedPlan === 'instant'
-          ? 'Instant still requires 5 valid days first (closed-trade PnL ≥ 0.5% of that day’s start-of-day equity). The 20% Best Day rule still applies.'
-          : selectedPlan === '1step'
-            ? '1-Step still requires 3 trading days in the funded phase first (a trading day is a calendar day with at least one closed trade).'
-            : 'You still need 3 trading days in the funded phase first (a trading day is a calendar day with at least one closed trade).';
+        var days = minDaysCopy();
         return 'Weekly Rewards with 80% Split\n\nKeep the same 80% reward share as the default Bi-Weekly cycle, requested every 7 calendar days instead of 14. Minimum reward $100.\n\n'
           + days + '\n\n'
-          + 'First payout is processed within 48 hours once eligible. Default without this add-on is Bi-Weekly at 80% every 14 calendar days, minimum $100.\n\n'
-          + 'Cannot be combined with On Demand Rewards.';
+          + 'Cannot be combined with On Demand Rewards or the 90% Reward Split.';
       }
     },
     {
       id: 'on-demand-payout',
-      label: 'On Demand Rewards with 90% Split',
-      pct: 0.20,
-      instantPct: 0.32,
-      desc: 'Withdraw your 90% profit share anytime after the plan trading-day rule',
+      label: 'On Demand Rewards with 80% Split',
+      pct: 0.12,
+      instantPct: 0.15,
+      desc: 'Withdraw your 80% profit share anytime after the plan trading-day rule',
       tooltip: function () {
-        var days = selectedPlan === 'instant'
-          ? 'Instant still requires 5 valid days first (closed-trade PnL ≥ 0.5% of that day’s start-of-day equity). The 20% Best Day rule still applies.'
-          : selectedPlan === '1step'
-            ? '1-Step still requires 3 trading days in the funded phase first (a trading day is a calendar day with at least one closed trade).'
-            : 'You still need 3 trading days in the funded phase first (a trading day is a calendar day with at least one closed trade).';
-        return 'On Demand Rewards with 90% Split\n\nRequest your 90% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward 2% and $200.\n\n'
-          + days + '\n\n'
-          + 'First payout is processed within 48 hours once eligible. Default without this add-on is Bi-Weekly at 80% every 14 calendar days, minimum $100.\n\n'
+        return 'On Demand Rewards with 80% Split\n\nRequest your 80% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.\n\n'
+          + minDaysCopy() + '\n\n'
+          + 'Pair with 90% Reward Split to withdraw a 90% share on demand (minimum 2% and $200).\n\n'
+          + 'Cannot be combined with Weekly Rewards.';
+      }
+    },
+    {
+      id: 'split-90',
+      label: '90% Reward Split',
+      pct: 0.12,
+      instantPct: 0.15,
+      desc: 'Keep 90% of profits on the default Bi-Weekly schedule',
+      tooltip: function () {
+        return '90% Reward Split\n\nKeep 90% of profits on the default Bi-Weekly cycle (every 14 calendar days). Minimum reward 2% and $200. Performance scaling required.\n\n'
+          + minDaysCopy() + '\n\n'
+          + 'Pair with On Demand Rewards to withdraw that 90% share anytime after the plan trading-day rule.\n\n'
           + 'Cannot be combined with Weekly Rewards.';
       }
     }
   ];
+
+  function minDaysCopy() {
+    return selectedPlan === 'instant'
+      ? 'Instant Funding: first request after 5 valid trading days (0.5% vs start-of-day equity). Then request on the selected cycle, or anytime if On Demand is selected.'
+      : '1-Step, 2-Step Lite, and 2-Step Pro: first request after 3 funded trading days. Then request on the selected cycle, or anytime if On Demand is selected.';
+  }
 
   var HIDDEN_COUNTRY_CODES = { US: 1, PR: 1, GU: 1, VI: 1, AS: 1, MP: 1 };
 

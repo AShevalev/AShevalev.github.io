@@ -3,9 +3,9 @@
 
 Loads styles, images, nav, footer, and markup from www.verodus.com via
 <base href>. Rec Instant (no $200k, 5 valid days at +0.5% SOD, 6% trail
-never locks) is injected locally. Weekly is rec 80%. The three legal
-combinations are the reward-cycle cards. On Demand still has to meet
-Instant 5 valid days / 1-Step 3 trading days.
+never locks) is injected locally. The five legal reward combinations are
+the reward-cycle cards. 90% Weekly is not offered. On Demand still has
+to meet Instant 5 valid days / eval 3 trading days.
 """
 from __future__ import annotations
 
@@ -17,6 +17,55 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "landing" / "trading-objectives.html"
 REC = ROOT / "landing" / "to-rec.js"
 LIVE_URL = "https://www.verodus.com/trading-objectives.html"
+
+REWARD_CYCLE_GRID = """<div class="reward-cycle-grid">
+                <div class="reward-cycle-card">
+                    <div class="rc-period" data-i18n="content.rcOnDemand">On Demand</div>
+                    <div class="rc-pct">80%</div>
+                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
+                    <div class="rc-details">
+                        <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime after min days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
+                    </div>
+                </div>
+                <div class="reward-cycle-card">
+                    <div class="rc-period" data-i18n="content.rcWeekly">Weekly</div>
+                    <div class="rc-pct">80%</div>
+                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
+                    <div class="rc-details">
+                        <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span17">7 days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
+                    </div>
+                </div>
+                <div class="reward-cycle-card rc-featured">
+                    <div class="rc-period" data-i18n="content.rcBiWeekly">Bi-Weekly</div>
+                    <div class="rc-pct">80%</div>
+                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
+                    <div class="rc-details">
+                        <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span19">14 days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
+                    </div>
+                </div>
+                <div class="reward-cycle-card">
+                    <div class="rc-period" data-i18n="content.rcOnDemand">On Demand</div>
+                    <div class="rc-pct">90%</div>
+                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
+                    <div class="rc-details">
+                        <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime after min days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
+                    </div>
+                </div>
+                <div class="reward-cycle-card">
+                    <div class="rc-period" data-i18n="content.rcBiWeekly">Bi-Weekly</div>
+                    <div class="rc-pct">90%</div>
+                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
+                    <div class="rc-details">
+                        <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span19">14 days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
+                    </div>
+                </div>
+            </div>
+"""
 
 
 def fetch_live() -> str:
@@ -34,10 +83,10 @@ def fetch_live() -> str:
         raise
 
 
-def strip_element(html: str, needle: str) -> str:
+def replace_element(html: str, needle: str, replacement: str, eat_trailing_ws: bool = False) -> str:
     start = html.find(needle)
     if start < 0:
-        return html
+        raise SystemExit(f"needle not found: {needle}")
     i = start
     depth = 0
     while i < len(html):
@@ -52,12 +101,19 @@ def strip_element(html: str, needle: str) -> str:
             depth -= 1
             i += 6
             if depth == 0:
-                while i < len(html) and html[i] in " \t\r\n":
-                    i += 1
-                return html[:start] + html[i:]
+                if eat_trailing_ws:
+                    while i < len(html) and html[i] in " \t\r\n":
+                        i += 1
+                return html[:start] + replacement + html[i:]
             continue
         i += 1
-    return html
+    raise SystemExit(f"unclosed element starting at {needle}")
+
+
+def strip_element(html: str, needle: str) -> str:
+    if needle not in html:
+        return html
+    return replace_element(html, needle, "", eat_trailing_ws=True)
 
 
 def stitch(html: str, rec: str) -> str:
@@ -81,14 +137,8 @@ def stitch(html: str, rec: str) -> str:
         count=1,
     )
     html = re.sub(
-        r'(data-i18n="content.rcWeekly">Weekly</div>\s*<div class="rc-pct">)70%',
-        r'\g<1>80%',
-        html,
-        count=1,
-    )
-    html = re.sub(
         r'(data-i18n="content.p6">)[^<]*',
-        r'\1Possible combinations. Pick one — Weekly and On Demand cannot be combined.',
+        r'\1Possible combinations. Weekly cannot be combined with On Demand or 90%.',
         html,
         count=1,
     )
@@ -108,60 +158,16 @@ def stitch(html: str, rec: str) -> str:
         flags=re.S,
     )
 
+    html = replace_element(html, '<div class="reward-cycle-grid">', REWARD_CYCLE_GRID)
     html = html.replace(
-        '<span data-i18n="content.span21">Anytime</span>',
-        '<span data-i18n="content.span21">Anytime after min days</span>',
+        ".reward-cycle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; max-width:1000px; margin:0 auto; }",
+        ".reward-cycle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; max-width:1100px; margin:0 auto; }",
         1,
     )
-
-    if 'data-rc-how="1"' not in html:
-        weekly_how = """                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
-                    </div>
-                </div>
-                <div class="reward-cycle-card">
-                    <div class="rc-period" data-i18n="content.rcBiWeekly">Bi-Weekly</div>"""
-        weekly_how_new = """                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
-                        <div class="rc-detail-row" data-rc-days="1" onclick="showModal('first-request')" style="cursor:pointer;"><span>First request after</span><span>3 trading days</span></div>
-                        <div class="rc-detail-row" data-rc-how="1"><span>How</span><span>Add-on</span></div>
-                    </div>
-                </div>
-                <div class="reward-cycle-card">
-                    <div class="rc-period" data-i18n="content.rcBiWeekly">Bi-Weekly</div>"""
-        if weekly_how not in html:
-            raise SystemExit("Weekly card details needle not found")
-        html = html.replace(weekly_how, weekly_how_new, 1)
-        html = html.replace(
-            """                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
-                    </div>
-                </div>
-                <div class="reward-cycle-card rc-featured">""",
-            """                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
-                        <div class="rc-detail-row" data-rc-days="1" onclick="showModal('first-request')" style="cursor:pointer;"><span>First request after</span><span>3 trading days</span></div>
-                        <div class="rc-detail-row" data-rc-how="1"><span>How</span><span>Included</span></div>
-                    </div>
-                </div>
-                <div class="reward-cycle-card rc-featured">""",
-            1,
-        )
-        html = html.replace(
-            """                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
-                    </div>
-                </div>
-            </div>""",
-            """                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
-                        <div class="rc-detail-row" data-rc-days="1" onclick="showModal('first-request')" style="cursor:pointer;"><span>First request after</span><span>3 trading days</span></div>
-                        <div class="rc-detail-row" data-rc-how="1"><span>How</span><span>Add-on</span></div>
-                    </div>
-                </div>
-            </div>""",
-            1,
-        )
-    html = re.sub(
-        r'(data-i18n="content.rcBiWeekly">Bi-Weekly</div>.*?Minimum Reward</span><span>\$100</span></div>\n)(\s*<div class="rc-detail-row" data-rc-how="1">)',
-        r'\1                        <div class="rc-detail-row" data-rc-days="1" onclick="showModal(\'first-request\')" style="cursor:pointer;"><span>First request after</span><span>3 trading days</span></div>\n\2',
-        html,
-        count=1,
-        flags=re.S,
+    html = html.replace(
+        ".rc-details { display:grid; grid-template-rows:auto auto auto; gap:0.55rem; margin-top:auto; border-top:1px solid var(--border-subtle); padding-top:1rem; }",
+        ".rc-details { display:grid; grid-template-rows:auto auto; gap:0.55rem; margin-top:auto; border-top:1px solid var(--border-subtle); padding-top:1rem; }",
+        1,
     )
 
     if rec.strip() not in html:
