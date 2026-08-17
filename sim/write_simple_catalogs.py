@@ -41,10 +41,10 @@ PAGE = landscape(A4)
 
 RULES = (
     ("Instant Funding", "Funded (day 1)", "None",
-     "5 valid", "20% best day", "3%", "6%", "Trailing HWM (never locks)"),
+     "None", "20% best day (>0.5% EOD)", "3%", "6%", "Trailing HWM (never locks)"),
     ("One-Step", "Evaluation", "10%", "0", "50% best day",
      "4%", "6%", "Hybrid trail, locks at initial"),
-    ("One-Step", "Funded", "None", "3", "None",
+    ("One-Step", "Funded", "None", "0", "50% best day",
      "4%", "6%", "Hybrid trail, locks at initial"),
     ("Two-Step Lite", "Phase 1", "8%", "5", "None",
      "4%", "8%", "Static vs initial"),
@@ -76,12 +76,12 @@ ADDON_MENU = (
     (
         "Weekly Rewards with 70% Reward Split", "6%", "6%",
         "Withdraw your profit share weekly",
-        "Receive your 70% reward share every week. Default is Bi-Weekly 80%. Minimum reward $100. Instant: Payouts after 5 valid trading days (0.5% vs start-of-day equity). Evals: First request after 3 funded trading days.",
+        "Receive your 70% reward share every week. Default is Bi-Weekly 80%. Minimum reward $100. Instant: no min trading days; Best Day ≤20% (only days more than 0.5% profit of account balance count). 1-Step: no min trading days; Best Day ≤50%. 2-Step: 3 trading days.",
     ),
     (
         "On Demand Rewards with 90% Split", "32%", "15%",
         "Withdraw your profit share anytime — no waiting for fixed cycles",
-        "Request your 90% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100. Instant: Payouts after 5 valid trading days (0.5% vs start-of-day equity). Evals: First request after 3 funded trading days.",
+        "Request your 90% reward share anytime after you meet that plan’s payout rule — no waiting for a 7- or 14-day cycle. Minimum reward $100. Instant: $100 and Best Day ≤20% (only days more than 0.5% profit of account balance count); no min trading days. 1-Step: $100 and Best Day ≤50%; no min trading days. 2-Step: $100 and 3 trading days.",
     ),
     (
         "Bi-Weekly 80%", "included", "included",
@@ -160,27 +160,27 @@ def build_rules():
     story.append(P("What each plan is", s["h1"]))
     story.append(P(
         "<b>Instant Funding.</b> No evaluation. Funded on day one. Daily 3% from the day’s "
-        "equity high. Max 6% trails the peak and never locks. First payout after 5 valid days "
-        "(+0.5% of that day’s start-of-day equity), 20% best-day, $100 minimum. "
-        "No fee refund. Default split 80% bi-weekly.",
+        "equity high. Max 6% trails the peak and never locks. No min trading days. "
+        "Every payout: $100 and Best Day ≤20% (only days that close more than 0.5% profit "
+        "of account balance count). No fee refund. Default split 80% bi-weekly.",
         s["body"],
     ))
     story.append(P(
         "<b>One-Step.</b> One evaluation: 10% target, no min days, 50% best-day. "
         "4% daily, 6% hybrid max (locks at initial). Same drawdown on funded. "
-        "First payout after 3 funded trading days. Challenge fee refunded on first payout "
-        "(add-ons are not refunded).",
+        "No min trading days on Qualified Performance; every payout is $100 and Best Day ≤50%. "
+        "Challenge fee refunded on first payout (add-ons are not refunded).",
         s["body"],
     ))
     story.append(P(
         "<b>Two-Step Lite.</b> Phase 1 8% / Phase 2 5%, 5 days each. 4% daily, "
-        "8% static max on evaluation and funded. First payout after 3 funded trading days. "
+        "8% static max on evaluation and funded. Every Qualified Performance payout needs 3 trading days. "
         "Challenge fee refunded on first payout (add-ons are not refunded).",
         s["body"],
     ))
     story.append(P(
         "<b>Two-Step Pro.</b> Phase 1 10% / Phase 2 5%, 5 days each. 5% daily, "
-        "10% static max on evaluation and funded. First payout after 3 funded trading days. "
+        "10% static max on evaluation and funded. Every Qualified Performance payout needs 3 trading days. "
         "Challenge fee refunded on first payout (add-ons are not refunded).",
         s["body"],
     ))

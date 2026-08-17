@@ -141,10 +141,10 @@ def build():
     rdata = [[P(h, s["th"]) for h in rheads]]
     rules = (
         ("Instant Funding", "Funded (day 1)", "None (payout unlock)",
-         "5 valid", "20% best day", "3%", "6%", "Trailing HWM (never locks)"),
+         "None", "20% best day (>0.5% EOD)", "3%", "6%", "Trailing HWM (never locks)"),
         ("One-Step", "Evaluation", "10%", "0", "50% best day",
          "4%", "6%", "Hybrid trail, lock at initial"),
-        ("One-Step", "Funded", "None", "3", "None",
+        ("One-Step", "Funded", "None", "0", "50% best day",
          "4%", "6%", "Hybrid trail, lock at initial"),
         ("Two-Step Lite", "Phase 1", "8%", "5", "None",
          "4%", "8%", "Static vs initial"),
@@ -174,14 +174,15 @@ def build():
     story.append(P("Notes", s["h1"]))
     story.append(P(
         "<b>Instant:</b> no eval. Daily 3% of start from the day’s equity high. "
-        "Max 6% trails peak and never locks. First payout: 5 valid days "
-        "(+0.5% of day-start), 20% consistency, $100 min. "
+        "Max 6% trails peak and never locks. No min trading days. "
+        "20% Best Day (only days that close more than 0.5% of account "
+        "balance count), $100 min. "
         "<b>No fee refund.</b> Split 80/20, biweekly. No 2% risk cap, no first-reward cap, no $200k.",
         s["body"],
     ))
     story.append(P(
         "<b>One-Step:</b> 10% target, 50% best-day, 4% daily (SOD), 6% hybrid max "
-        "(locks at initial). Same DD on funded. First payout: 3 min days, no consistency. "
+        "(locks at initial). Same DD on funded. No min trading days; 50% Best Day. "
         "Fee refunded on first payout (challenge fee only — add-ons are not refunded).",
         s["body"],
     ))

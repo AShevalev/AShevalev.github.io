@@ -128,9 +128,35 @@ def simulate_trade(wr, rrr, risk_amt, regime, tilt, vol, rng, news_day=False):
 
 
 def _consistency_ok(positive_pnls, cons):
-    if cons is None or not positive_pnls:
+    if cons is None:
         return True
+    # Best Day is undefined on an empty Positive Days' Profit set.
+    if not positive_pnls:
+        return False
     return max(positive_pnls) <= sum(positive_pnls) * cons + 1e-12
+
+
+def _consistency_denom(basis, sod, eod, start):
+    if basis == "sod":
+        return sod
+    if basis == "initial":
+        return start
+    return eod
+
+
+def _counts_for_best_day(day_pnl, sod, eod, start, rules):
+    """Which closed days enter Best Day / Positive Days' Profit.
+
+    Instant: only days that close *more than* 0.5% profit of account
+    balance (EOD). 1-Step: every green day (no 0.5% floor).
+    """
+    floor = rules.get("consistency_floor")
+    if floor is None:
+        return day_pnl > 0
+    denom = _consistency_denom(
+        rules.get("consistency_basis", "eod"), sod, eod, start
+    )
+    return denom > 0 and day_pnl > denom * floor
 
 
 def run_phase(start_balance, rules, profile_name, rng, is_funded=False,
@@ -261,7 +287,7 @@ def run_phase(start_balance, rules, profile_name, rng, is_funded=False,
         if not traded:
             consecutive_inactive += 1
             continue
-        if day_pnl > 0:
+        if _counts_for_best_day(day_pnl, sod, balance, start, rules):
             positive_pnls.append(day_pnl)
 
         vdt = rules.get("valid_day_threshold", 0.0)

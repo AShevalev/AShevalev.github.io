@@ -77,6 +77,8 @@ def _phase_score(p: dict) -> float:
 
     if (p.get("valid_day_threshold") or 0) >= 0.005:
         s += 3.0
+    if (p.get("consistency_floor") or 0) >= 0.005:
+        s += 3.0
     if (p.get("min_days") or 0) >= 5:
         s += 2.0
     if p.get("max_risk_per_trade"):

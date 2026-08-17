@@ -109,11 +109,12 @@ SESSION_P = np.array([s[1] for s in SESSIONS], dtype=float)
 # 3. VERODUS PRODUCTS — FAQ / live rules
 # =============================================================================
 # Instant: funded day 1. 6% trailing HWM (never locks). Daily 3% of start from
-#   day's equity high. 5 valid days at +0.5% of day-start. 20% Best Day of
-#   Positive Days' Profit (not a hard breach). $100 min. Split 80%. No refund.
+#   day's equity high. No min trading days. 20% Best Day of Positive Days'
+#   Profit; a day counts only if it closes more than 0.5% of EOD balance.
+#   $100 min. Split 80%. No refund.
 # 1-Step: 10% target, no min days, 50% Best Day of Positive Days' Profit,
 #   4% daily from SOD equity (fixed $ of initial), 6% hybrid (lock at initial).
-#   Funded: same DD, 3 min days, no consistency. 100% fee refund on first reward.
+#   Funded: same DD, no min days, 50% Best Day. 100% fee refund on first reward.
 # Lite: P1 8% / P2 5%, 5 days each, 4% daily, 8% static eval and funded.
 # Pro:  P1 10% / P2 5%, 5 days each, 5% daily, 10% static eval and funded.
 
@@ -126,9 +127,11 @@ PRODUCTS = {
                 "floor_type": "trailing",
                 "daily_dd": 0.03,
                 "daily_dd_type": "intraday_peak",
-                "min_days": 5,
-                "valid_day_threshold": 0.005,
+                "min_days": 0,
+                "valid_day_threshold": 0.0,
                 "consistency": 0.20,
+                "consistency_floor": 0.005,
+                "consistency_basis": "eod",
             }
         ],
         "funded": None,
@@ -156,9 +159,9 @@ PRODUCTS = {
             "floor_type": "hybrid",
             "daily_dd": 0.04,
             "daily_dd_type": "sod",
-            "min_days": 3,
+            "min_days": 0,
             "valid_day_threshold": 0.0,
-            "consistency": None,
+            "consistency": 0.50,
         },
         "instant": False,
         "refund_on_first_payout": True,
@@ -320,11 +323,27 @@ def simulate_trade(wr, rrr, risk_amt, regime, tilt, vol, rng):
 
 
 def _consistency_ok(positive_pnls: list[float], cons: Optional[float]) -> bool:
-    if cons is None or not positive_pnls:
+    if cons is None:
         return True
+    if not positive_pnls:
+        return False
     best = max(positive_pnls)
     total = sum(positive_pnls)
     return best <= total * cons + 1e-12
+
+
+def _counts_for_best_day(day_pnl, sod, eod, start, rules) -> bool:
+    floor = rules.get("consistency_floor")
+    if floor is None:
+        return day_pnl > 0
+    basis = rules.get("consistency_basis", "eod")
+    if basis == "sod":
+        denom = sod
+    elif basis == "initial":
+        denom = start
+    else:
+        denom = eod
+    return denom > 0 and day_pnl > denom * floor
 
 
 def run_phase(start_balance, rules, sens, profile_name, rng, is_funded=False,
@@ -442,7 +461,7 @@ def run_phase(start_balance, rules, sens, profile_name, rng, is_funded=False,
             consecutive_inactive += 1
             continue
 
-        if day_pnl > 0:
+        if _counts_for_best_day(day_pnl, sod, balance, start, rules):
             positive_pnls.append(day_pnl)
 
         vdt = rules.get("valid_day_threshold", 0.0)

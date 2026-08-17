@@ -12,7 +12,7 @@ from __future__ import annotations
 # phase helper
 def P(target, max_dd, floor, daily, daily_type="sod", min_days=0, vdt=0.0,
       cons=None, trail_lock=None, daily_action="breach", max_risk=None,
-      funded_risk=None):
+      funded_risk=None, cons_floor=None, cons_basis="eod"):
     d = {
         "target": target,
         "max_dd": max_dd,
@@ -31,13 +31,18 @@ def P(target, max_dd, floor, daily, daily_type="sod", min_days=0, vdt=0.0,
         d["max_risk_per_trade"] = max_risk
     if funded_risk is not None:
         d["funded_risk_cap"] = funded_risk
+    if cons_floor is not None:
+        d["consistency_floor"] = cons_floor
+        d["consistency_basis"] = cons_basis
     return d
 
 
 def funded(max_dd, floor, daily, daily_type="sod", min_days=3, vdt=0.0,
-           cons=None, trail_lock=None, daily_action="breach", funded_risk=None):
+           cons=None, trail_lock=None, daily_action="breach", funded_risk=None,
+           cons_floor=None, cons_basis="eod"):
     return P(None, max_dd, floor, daily, daily_type, min_days, vdt, cons,
-             trail_lock, daily_action, funded_risk=funded_risk)
+             trail_lock, daily_action, funded_risk=funded_risk,
+             cons_floor=cons_floor, cons_basis=cons_basis)
 
 
 def sku(*pairs):
@@ -72,17 +77,18 @@ def add(key, firm, plan, family, phases, funded_rules, skus, refund="first",
 # 1. VERODUS — reprice after news-included 17 Aug 2026 (list = sale ÷ 0.65)
 # =============================================================================
 add("Verodus Instant", "Verodus", "Instant", "instant",
-    [P(None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20)],
+    [P(None, 0.06, "trailing", 0.03, "intraday_peak", 0, 0.0, 0.20,
+      cons_floor=0.005, cons_basis="eod")],
     None, sku((5e3,75,49),(1e4,106,69),(25e3,229,149),(5e4,368,239),(1e5,675,439)),
     refund="none", split=0.80, instant=True, discount="VERO35",
-    source="reprice after news-included; Instant pinned under BG/FP")
+    source="rule alignment: no min days; 20% Best Day on days >0.5% of EOD balance")
 
 add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     [P(0.10, 0.06, "hybrid", 0.04, "sod", 0, 0.0, 0.50)],
-    funded(0.06, "hybrid", 0.04, min_days=3, cons=None),
+    funded(0.06, "hybrid", 0.04, min_days=0, cons=0.50),
     sku((5e3,69,45),(1e4,106,69),(25e3,198,129),(5e4,337,219),(1e5,583,379),(2e5,1075,699)),
     refund="first", discount="VERO35",
-    source="reprice after news-included; under Alpha/Fintokei/BG")
+    source="rule alignment: QPP no min days; 50% Best Day (no 0.5% floor)")
 
 add("Verodus 2-Step Lite", "Verodus", "2-Step Lite", "2-step",
     [P(0.08, 0.08, "static", 0.04, min_days=5), P(0.05, 0.08, "static", 0.04, min_days=5)],
