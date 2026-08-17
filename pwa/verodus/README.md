@@ -25,6 +25,8 @@ www.verodus.com/app      installed app shell (never leaves this host)
 
 Pills `href="/app"`. JS runs the install prompt **on this origin**, then goes to `/app`. Copy the repo `pwa/` folder onto the landing origin so `/pwa/add-to-home-screen.js` and `store-buttons.js` resolve.
 
+The Chrome toolbar install icon is the same PWA: use it only while the tab is on `www.verodus.com`, not after a click-through to Dashboard.
+
 ## 2. Let `/app` iframe the CRM and terminals
 
 Dashboard `frame-ancestors`: `https://www.verodus.com`  

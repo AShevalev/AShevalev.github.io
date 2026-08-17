@@ -11,6 +11,18 @@ Home screen    →  https://www.verodus.com/app
 
 The standalone window’s URL never leaves `www.verodus.com`. Chrome, Edge, and Safari do not show the out-of-scope bar for iframe navigations.
 
+## Chrome toolbar (desktop and Android)
+
+Yes. The address-bar install icon, ⋮ → **Install Verodus**, and the landing pills all install the **same** PWA. Chrome reads `manifest.json` for the page you are on. It does not use a different `start_url` for the toolbar.
+
+You must be on **`https://www.verodus.com`** (the landing page). Then Chrome installs `www.verodus.com` with `start_url: "/app"` and opens the shell. Dashboard / TradeHub / Platform 5 stay in the iframe, so the bar stays off.
+
+Do **not** install from the toolbar after you have already opened `dashboard.verodus.com` or `trade.verodus.com` in that tab. Chrome would then install that host instead, and the next jump would show the bar again.
+
+Use **Install Verodus** (PWA). **Create shortcut** / “Open as window” without a valid manifest is a bookmark and still shows chrome.
+
+The custom pill calls `preventDefault()` on `beforeinstallprompt` so Chrome does not auto-prompt. The toolbar icon still appears.
+
 ## What each browser does
 
 | Browser | Landing-page install | Bar when opening Dashboard / TradeHub / P5 |
@@ -31,6 +43,6 @@ The standalone window’s URL never leaves `www.verodus.com`. Chrome, Edge, and 
 3. Ship `www/app.html` as **`/app`** (or `/app/index.html`). It iframes `https://dashboard.verodus.com/dashboard`.
 4. Dashboard + Trade CSP: `frame-ancestors 'self' https://www.verodus.com` (see `frame-headers.js` on both apps).
 5. Google login must stay in a **popup** or return to `/app`. A top-level redirect to `dashboard.verodus.com` brings the bar back.
-6. Uninstall any old icon that was installed from Dashboard or TradeHub, then install again from the landing pills.
+6. Uninstall any old icon that was installed from Dashboard or TradeHub, then install again from the landing pills **or** the Chrome toolbar while still on verodus.com.
 
 Platform 5 / TradeHub buttons inside the CRM can still point at `trade.verodus.com` **inside the iframe**. That does not move the top-level URL. Same-origin `/p5/{id}` routes on Dashboard remain a plus if someone opens the CRM in a normal tab.
