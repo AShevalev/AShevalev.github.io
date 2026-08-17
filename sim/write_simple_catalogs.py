@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Two simple PDFs: plans+rules, and prices+add-on costs."""
+"""Simple PDFs: plans+rules, pricing catalogue, add-on percentages."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from pathlib import Path
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.units import mm
-from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer
+from reportlab.platypus import PageBreak, SimpleDocTemplate, Spacer
 
 from write_addon_catalog import PLAN_LABEL, sku_rows
 from write_price_rec_pdf import (
@@ -27,12 +27,15 @@ from write_price_rec_pdf import (
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
+ART = Path("/opt/cursor/artifacts")
 OUT_RULES = RESULTS / "Verodus_Plans_and_Rules_2026-08-17.pdf"
 OUT_RULES_SHOP = RESULTS / "verodus-plans-and-rules-2026-08-17.pdf"
 OUT_PRICES = RESULTS / "Verodus_Prices_and_Addons_2026-08-17.pdf"
 OUT_PRICES_SHOP = RESULTS / "verodus-prices-and-addons-2026-08-17.pdf"
 OUT_CAT = RESULTS / "Verodus_Pricing_Catalogue_2026-08-17.pdf"
 OUT_CAT_SHOP = RESULTS / "verodus-pricing-catalogue-2026-08-17.pdf"
+OUT_ADDON = RESULTS / "Verodus_Addon_Percentages_2026-08-17.pdf"
+OUT_ADDON_SHOP = RESULTS / "verodus-addon-percentages-2026-08-17.pdf"
 
 PAGE = landscape(A4)
 
@@ -57,6 +60,18 @@ RULES = (
      "5%", "10%", "Static vs initial"),
 )
 
+ADDON_MENU = (
+    ("News trading", "included", "included", "Allowed on eval and funded. No SKU."),
+    ("Weekend Holding", "15%", "15%", "Friday 22:00 flatten off."),
+    ("Weekly Rewards with 70% Reward Split", "6%", "6%",
+     "Every 7 calendar days. Default is Bi-Weekly 80%. Min $100."),
+    ("On Demand Rewards with 90% Split", "20%", "20%",
+     "Anytime after Instant 5 valid days or eval 3 funded days. Min $100."),
+    ("Bi-Weekly 80%", "included", "included",
+     "Default. Every 14 calendar days. Min $100."),
+    ("Swing", "not offered", "not offered", "News is already in the fee."),
+)
+
 
 def header(title: str, foot: str):
     def _draw(canvas, doc):
@@ -77,7 +92,7 @@ def header(title: str, foot: str):
     return _draw
 
 
-def write_pdf(path: Path, story, title: str, foot: str, shop: Path):
+def write_pdf(path: Path, story, title: str, foot: str, shop: Path, aliases=()):
     doc = SimpleDocTemplate(
         str(path),
         pagesize=PAGE,
@@ -90,12 +105,10 @@ def write_pdf(path: Path, story, title: str, foot: str, shop: Path):
     )
     doc.build(story, onFirstPage=header(title, foot), onLaterPages=header(title, foot))
     shutil.copyfile(path, shop)
-    if path == OUT_PRICES:
-        shutil.copyfile(path, OUT_CAT)
-        shutil.copyfile(path, OUT_CAT_SHOP)
-        art = Path("/opt/cursor/artifacts")
-        if art.is_dir():
-            shutil.copyfile(path, art / "Verodus_Pricing_Catalogue_2026-08-17.pdf")
+    for dest in aliases:
+        shutil.copyfile(path, dest)
+    if ART.is_dir():
+        shutil.copyfile(path, ART / path.name)
     print(f"Wrote {path} ({path.stat().st_size:,} bytes)")
 
 
@@ -202,35 +215,51 @@ def build_prices():
         "Green = Instant. Blue = evaluations. Coupon default VERO35.",
         s["tiny"],
     ))
+    write_pdf(
+        OUT_PRICES, story,
+        "VERODUS  ·  Pricing catalogue",
+        "Sale and list in separate rows. VERO35 35% off list. Instant has no $200k.",
+        OUT_PRICES_SHOP,
+        aliases=(OUT_CAT, OUT_CAT_SHOP),
+    )
 
-    story.append(PageBreak())
-    story.append(P("Add-on cost", s["cover"]))
+
+def addon_pct_table(s):
+    heads = ["Add-on", "Instant", "1-Step / Lite / Pro", "What it is"]
+    data = [[P(h, s["th"]) for h in heads]]
+    spec = {}
+    for i, row in enumerate(ADDON_MENU, start=1):
+        if row[0] in ("Weekend Holding", "Weekly Rewards with 70% Reward Split",
+                      "On Demand Rewards with 90% Split"):
+            spec[i] = "rec"
+        elif row[0] in ("News trading", "Swing"):
+            spec[i] = "live"
+        data.append([P(c, s["tdl"] if j in (0, 3) else s["td"]) for j, c in enumerate(row)])
+    return grid(data, [62 * mm, 28 * mm, 38 * mm, 100 * mm], spec)
+
+
+def build_addons():
+    s = rec_styles()
+    story = []
+    rows = sku_rows()
+
+    story.append(P("Add-on percentages", s["cover"]))
     story.append(P(
-        "Sticker = round(list × %). VERO35 takes 35% off list + stickers. "
-        "News is permitted (no SKU). Swing is not sold.",
+        "Percent of list. Sticker = round(list × %). VERO35 takes 35% off list + stickers. "
+        "News is included (no SKU). Swing is not sold. Default reward is Bi-Weekly 80%.",
         s["sub"],
     ))
+    story.append(addon_pct_table(s))
+    story.append(Spacer(1, 3 * mm))
+    story.append(P(
+        "Checkout card. Weekend 15% · Weekly 70% 6% · On Demand 90% 20%. "
+        "Weekly and On Demand may stack. Shopper pays 65% of each sticker after VERO35.",
+        s["tiny"],
+    ))
 
-    pheads = ["Add-on", "Instant", "1-Step / Lite / Pro"]
-    pdata = [[P(h, s["th"]) for h in pheads]]
-    menu = (
-        ("News trading", "permitted", "permitted"),
-        ("Weekend holding", "15%", "15%"),
-        ("Weekly Rewards with 70% Reward Split", "6%", "6%"),
-        ("On Demand Rewards with 90% Split", "20%", "20%"),
-        ("Swing", "not offered", "not offered"),
-    )
-    pspec = {}
-    for i, row in enumerate(menu, start=1):
-        pspec[i] = "rec" if "Weekly" in row[0] or "On Demand" in row[0] else (
-            "live" if row[0] in ("News trading", "Swing") else None
-        )
-        pdata.append([P(c, s["tdl"] if j == 0 else s["td"]) for j, c in enumerate(row)])
-    story.append(grid(pdata, [90 * mm, 45 * mm, 45 * mm], pspec))
-    story.append(Spacer(1, 4 * mm))
-
+    story.append(PageBreak())
     story.append(P("Stickers per challenge (before VERO35)", s["h1"]))
-    heads = ["Plan", "Size", "List", "Weekend", "Weekly 70%", "On Demand 90%"]
+    heads = ["Plan", "Size", "List", "Weekend 15%", "Weekly 70% 6%", "On Demand 90% 20%"]
     data = [[P(h, s["th"]) for h in heads]]
     spec = {}
     for i, r in enumerate(rows, start=1):
@@ -244,19 +273,19 @@ def build_prices():
             P(usd(r["od90"]), s["td"]),
         ])
     story.append(grid(data, [
-        48 * mm, 22 * mm, 28 * mm, 32 * mm, 34 * mm, 38 * mm,
+        48 * mm, 22 * mm, 28 * mm, 32 * mm, 38 * mm, 42 * mm,
     ], spec))
     story.append(Spacer(1, 3 * mm))
     story.append(P(
-        "Default is Bi-Weekly 80%. Weekly 70% is 6% of list. On Demand 90% is 20% of list. "
-        "Weekly and On Demand may stack. Shopper pays 65% of each sticker after VERO35.",
+        "Instant $100k list $675: weekend $101 · weekly $41 · On Demand 90% $135. "
+        "Pro $100k list $537: weekend $81 · weekly $32 · On Demand 90% $107.",
         s["tiny"],
     ))
     write_pdf(
-        OUT_PRICES, story,
-        "VERODUS  ·  Pricing catalogue",
-        "Sale and list in separate rows. VERO35 35% off. Weekend 15% · Weekly 70% 6% · On Demand 90% 20%.",
-        OUT_PRICES_SHOP,
+        OUT_ADDON, story,
+        "VERODUS  ·  Add-on percentages",
+        "Weekend 15% · Weekly 70% 6% · On Demand 90% 20%. Sticker = round(list × %). VERO35 35% off.",
+        OUT_ADDON_SHOP,
     )
 
 
@@ -264,6 +293,7 @@ def build():
     RESULTS.mkdir(exist_ok=True)
     build_rules()
     build_prices()
+    build_addons()
 
 
 if __name__ == "__main__":
