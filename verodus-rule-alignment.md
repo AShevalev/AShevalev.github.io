@@ -97,16 +97,22 @@ A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand r
 Payout spacing follows the cycle you selected: 7 calendar days for weekly, 14 calendar days for bi-weekly, or the plan’s minimum trading days for on-demand. The first payout and later payouts use the same rule.
 ```
 
-**Plan pages — Eligibility** still says “at least 3 trading days since QPP / last payout.” That is a first-vs-later clock. **Rewrite:**
+**1-Step / 2-Step Eligibility** still says “at least 3 trading days since QPP / last payout.” Rewrite those to plan min + cycle (2-Step: 5 days; 1-Step: no min days + cycle).
+
+**Instant Eligibility (`instant.html` `li23` / `span47`) — replace the 3-day line.** Live:
+
+> Eligibility: You become eligible for a reward only after both of the following are met: At least 3 trading days have passed since you received your Qualified Performance Account or since your last payout, and …
+
+**Instant paste (`li23` / `span47`):**
 
 ```text
-Eligibility: You become eligible for a reward when net profit is at least $100, you have met the minimum number of trading days for that plan, and you have met the selected cycle (weekly 7 calendar days, bi-weekly 14 calendar days, or on-demand). The same rule applies to the first payout and every payout after.
+Eligibility: You become eligible for a reward when you have met 5 valid trading days (each +0.5% net profit) and the selected cycle (weekly 7 calendar days, bi-weekly 14 calendar days, or on-demand). The first payout and every payout after use this same rule. Do not use a 3-trading-day clock on Instant.
 ```
 
-Instant `li10` (“5 valid days before your first performance reward”) — drop “first.” Same 5 valid days for every Instant payout.
+Instant `li10` — drop “first.” Same 5 valid days for every Instant payout.
 
 ```text
-Minimum Trading Days Requirement: You must complete a minimum of 5 valid trading days (each +0.5% net profit) to be eligible for a performance reward. This applies to every payout, not only the first. You must also meet the selected cycle (weekly, bi-weekly, or on-demand).
+Minimum Trading Days Requirement: You must have met a minimum of 5 valid trading days (each +0.5% net profit) and the selected cycle (weekly, bi-weekly, or on-demand). The first payout and every payout after use this same rule.
 ```
 
 `performance-reward.html` “First reward after 3 trading days” / “Min. 3 trading days” — replace with plan min + cycle. No first/later split.
@@ -143,7 +149,7 @@ Payouts can be requested through the dashboard once the following conditions are
 
 ## 5. Instant — plan min + cycle, not 5-then-3
 
-Do **not** keep 5 valid days for the first reward and 3 days after that. Instant’s plan min is **5 valid +0.5% days on every payout**, plus the selected cycle (weekly 7 / bi-weekly 14 / on-demand).
+Do **not** keep 5 valid days for the first reward and 3 days after that. Instant’s plan min is **5 valid +0.5% days**, plus the selected cycle (weekly 7 / bi-weekly 14 / on-demand). Same checklist for the first payout and every payout after.
 
 Rewrite `li10` as in §2. Rewrite Eligibility (`li23` / `span47`) to the same sentence. Delete “3 trading days since last payout” if it makes first and later differ.
 
