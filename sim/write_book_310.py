@@ -562,6 +562,8 @@ def build_story(rows, book, families, scales, rec_add, chk_add):
         f"Lite {sum(r['N'] for r in rows if r['Plan']=='2-Step Lite')} · "
         f"Pro {sum(r['N'] for r in rows if r['Plan']=='2-Step Pro')} · "
         f"{N_BOOK} accounts. CAD 10,000 wages (~$7,200) are fixed. "
+        f"Day rules: Instant no min days + 20% Best Day on closes >0.5% of EOD; "
+        f"1-Step QPP no min days + 50% Best Day; 2-Step 5 eval / 3 QPP. "
         f"Challenge leftover {money(book['Left'])}/mo "
         f"({pct_s(book['Left_pct'])} of {money(book['Rev'])} sale revenue).",
         s["sub"],
@@ -576,9 +578,15 @@ def build_story(rows, book, families, scales, rec_add, chk_add):
     story.append(pl_table(book, s))
     story.append(Spacer(1, 3 * mm))
     story.append(family_table(families, book, s))
+    step_p = next(r["P_pay"] for r in rows if r["Plan"] == "1-Step")
+    inst_100 = next(
+        r for r in rows if r["Plan"] == "Instant" and r["Size"] == 100000
+    )
     story.append(P(
-        f"1-Step carries most leftover because P(pay) is 9.4% and the $25k–$100k doors sit well "
-        f"above the opex floor. Instant leftover is thinner: year-1 BE is the whole fee job. "
+        f"1-Step still carries most leftover (P(pay) {100 * step_p:.1f}%) and the "
+        f"$25k–$100k doors sit above the opex floor. Instant leftover is thinner: "
+        f"year-1 BE is the whole fee job. Instant $100k leftover is "
+        f"{money(inst_100['Left'])} after the Best Day day-count change. "
         f"Lite $5k is about $0 after allocated wages — keep the Hola/TFT street door.",
         s["tiny"],
     ))
@@ -594,8 +602,17 @@ def build_story(rows, book, families, scales, rec_add, chk_add):
     story.append(PageBreak())
     story.append(P("3. Per SKU at 310", s["h1"]))
     story.append(sku_table(rows, book, s))
+    under = [
+        f"{r['Plan']} ${r['Size'] // 1000}k {money(r['Left'])}"
+        for r in rows if r["Left"] is not None and r["Left"] < -1
+    ]
+    under_s = (
+        "Does not print: " + "; ".join(under) + "."
+        if under else
+        "No row is more than $1 under the floor."
+    )
     story.append(P(
-        "Green = Instant. Blue = evals. No row is more than $1 under the floor. "
+        f"Green = Instant. Blue = evals. {under_s} "
         "Lite $5k leftover is about $0; Pro $5k/$10k and Instant $5k/$10k are the next thinnest.",
         s["tiny"],
     ))

@@ -213,6 +213,12 @@ def write_md(cmp_df: pd.DataFrame, n_sims: int) -> Path:
     body = [
         "# Rule-alignment Monte Carlo — leftover vs prior day rules",
         "",
+        "**Margins did not increase on any account.** Instant leftover is down "
+        "on every size. 1-Step leftover is down on every size. 2-Step Lite and "
+        "Pro are unchanged (same paths). Instant $100k leftover at the current "
+        "$439 sale is now negative and no longer prints after opex. Prices were "
+        "not raised.",
+        "",
         f"News included. {n_sims} paths per profile, same 7/22/26/28/17 mix, "
         "paired per-product seeds. Sale card is unchanged (current rec).",
         "",
