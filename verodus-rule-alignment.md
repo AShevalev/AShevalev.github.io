@@ -1,22 +1,19 @@
 # Verodus site rule alignment
 
-**Superseded for edits.** Use `verodus-rule-alignment.md`. That file **does not revise `trading-objectives.html`**.
+**Do not edit `trading-objectives.html`.** Leave that page as it is. This pass aligns the rest of the site to the plan pages and TOS.
 
-**Date:** 17 Aug 2026  
-**Purpose:** Make remaining live copy match one rule set. Policy is already live (news allowed, 8(h) gone, on-demand `$100`). This file is the leftover **alignment** pass.
+Canonical source: `1-step.html`, `2-step-lite.html`, `2-step-pro.html`, `instant.html`, TOS §9, `restricted-trading.html`.
 
-Canonical source: plan pages (`1-step.html`, `2-step-lite.html`, `2-step-pro.html`, `instant.html`) plus TOS §9 / `restricted-trading.html`. FAQ and rewards pages must not contradict them. **Do not edit `trading-objectives.html`.**
-
-Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`.
+Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` except `trading-objectives.json`.
 
 ---
 
-## Canonical rules (do not invent new ones)
+## Canonical rules
 
 ### News
 - Allowed in **every phase**: Instant, 1-Step, 2-Step Lite, 2-Step Pro — evaluation and Qualified Performance / funded.
 - Open, close, or hold through high-impact news. **No** news time window. **No** news-trading breach.
-- **Banned:** news bracketing (straddling), gap trading (opened within 60 minutes of a market close and held through reopen).
+- **Banned:** news bracketing (straddling); gap trading (opened within 60 minutes of a market close and held through reopen).
 - **Banned (unchanged):** HFT, tick scalping, latency/arbitrage, rollover abuse.
 - No News Trading Addon. Do not name it.
 
@@ -33,6 +30,7 @@ Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`.
 - **2-Step Lite / Pro evaluation:** 5 trading days per phase.
 
 ### Do not change
+- `trading-objectives.html` (and `/locales/*/pages/trading-objectives.json`) — **no edits**
 - `$200,000` account sizes
 - Weekend Holding Addon
 - Best Day rules (1-Step 50%, Instant 20%)
@@ -46,9 +44,9 @@ Live on 1-Step `li36` / `span32`, 2-Step Lite & Pro `li32` / `span28`:
 
 > **Allowed in Evaluation:** Full news trading, Expert Advisors (EAs)…
 
-Instant already says **Allowed** (no “in Evaluation”). Dedicated news lines already say every phase.
+Instant already says **Allowed**. Dedicated news lines already say every phase.
 
-**Change the heading only** to **Allowed:** so news is not framed as eval-only. Keep the rest (EAs still subject to Section 6 HFT / mass-EA / hyperactivity / arb).
+**Change the heading only** to **Allowed:** Keep the rest (EAs still subject to Section 6 HFT / mass-EA / hyperactivity / arb).
 
 **Paste:**
 
@@ -56,19 +54,18 @@ Instant already says **Allowed** (no “in Evaluation”). Dedicated news lines 
 Allowed: Full news trading, Expert Advisors (EAs), scripts, and custom indicators are permitted, subject to the restrictions in Section 6 – Restricted Trading Practices (no HFT, no mass-distributed/copy-trading EAs, no server hyperactivity, no arbitrage exploitation, etc.).
 ```
 
-Optional: the shorter news bullets (`1-step` `li30`/`span26`, lite/pro `li26`/`span22`) still say “allowed on evaluation and Qualified Performance.” Fine. If you want one phrase everywhere, use: `News trading is allowed in every phase.`
+Optional: shorter news bullets (`1-step` `li30`/`span26`, lite/pro `li26`/`span22`) may stay “evaluation and Qualified Performance,” or use: `News trading is allowed in every phase.`
 
 ---
 
 ## 2. Align first-payout **trading days** (4 vs 3)
 
-| Page | Live | Canonical |
+| Page | Live | Action |
 |---|---|---|
 | Plan pages Eligibility | **3** trading days since QPP / last payout + 1 profitable trade | Keep 3 |
 | `performance-reward.html` | First reward after **3** trading days | Keep 3 |
-| `faq-qualified-trader.html` hardcoded list under `p9` | First payout after **4** trading days / subsequent **3** | **Change 4 → 3** |
-
-Skip `trading-objectives.html` `p8` and `p8Instant`. Leave those first-payout lines as they are.
+| `faq-qualified-trader.html` list under `p9` | First payout after **4** trading days / subsequent **3** | **Change 4 → 3** |
+| `trading-objectives.html` | — | **Do not edit** |
 
 **Replace the FAQ list under “Is there a minimum target…” with:**
 
@@ -87,13 +84,13 @@ Update JSON-LD for that question. Keep `content.p12` (“A minimum of 3 trading 
 
 **`content.p12` live:** `Minimum $100 since last reward (all plans).`
 
-Plan pages and Qualified Trader FAQ already require min days. This line does not.
-
 **Paste:**
 
 ```text
 Minimum $100 since last reward and the minimum trading days for that evaluation (all plans).
 ```
+
+Do not change on-demand copy on `trading-objectives.html`.
 
 ---
 
@@ -101,7 +98,7 @@ Minimum $100 since last reward and the minimum trading days for that evaluation 
 
 **`content.p13` live:** `Payouts can be requested at any time through the dashboard once the following conditions are met:`
 
-The list already has `$100` + min days, so this is acceptable. Optional paste so “at any time” is not read as a skip:
+The list already has `$100` + min days. Optional paste:
 
 ```text
 Payouts can be requested through the dashboard once the following conditions are met:
@@ -111,12 +108,12 @@ Payouts can be requested through the dashboard once the following conditions are
 
 ## 5. Instant Eligibility vs 5 valid days
 
-Both are live and both stay:
+Both stay:
 
 - `li10`: 5 valid +0.5% days before **first** reward
 - `li23` / `span47`: 3 trading days since account / last payout + 1 profitable trade
 
-Do not delete either. If support still gets “which is it?”, add one clause to Eligibility:
+Optional Eligibility clause if support mixes them:
 
 ```text
 Eligibility: For the first reward, complete 5 valid trading days (each +0.5%) and then the 3 trading-day rule below. After that, you become eligible for a reward only after both: at least 3 trading days since your last payout, and one closed profitable trade in that period.
@@ -126,7 +123,7 @@ Eligibility: For the first reward, complete 5 valid trading days (each +0.5%) an
 
 ## 6. Empty locale keys (cleanup, not visible)
 
-HTML nodes are already gone. Delete or leave blank:
+Leave `trading-objectives.json` alone. Elsewhere, delete or leave blank:
 
 - TOS: `content.h38`, `p51`, `p52`, `p53`
 - Restricted trading: `p9`, `p18`
@@ -135,25 +132,26 @@ HTML nodes are already gone. Delete or leave blank:
 
 ---
 
-## Alignment matrix (after this pass)
+## Alignment matrix
 
-| Rule | TOS | Restricted trading | Plan pages | FAQ Plans | FAQ General | FAQ Qualified | FAQ News | Objectives | Rewards |
-|---|---|---|---|---|---|---|---|---|---|
-| News every phase | Yes | Yes | Yes (fix “Allowed in Evaluation”) | Yes | n/a | Yes | Yes + Instant in table | Yes | n/a |
-| No news window | Yes | Yes | Yes | Yes | n/a | Yes | Yes | Yes | n/a |
-| No addon | Yes | Yes | Yes | Yes | n/a | Yes | Yes | footnote empty | n/a |
-| Bracketing / gap banned | Yes | Yes | Yes | n/a | n/a | Yes | Yes | n/a | n/a |
-| No 8(h) mix | Deleted | n/a | Not printed | “no min holding time” | **No** | n/a | n/a | n/a | n/a |
-| $100 weekly / bi-weekly / on-demand | n/a | n/a | Yes | n/a | n/a | Yes (`p9`) | n/a | Yes | Yes |
-| On-demand + min days | n/a | n/a | Yes | n/a | n/a | Yes | n/a | “Anytime after min trading days” | **Add days to p12** |
-| First payout 3 days (eval) | via model pages | n/a | 3 | n/a | n/a | **Change 4 → 3** | n/a | skip `p8` / `p8Instant` | 3 |
-| Instant 5 valid days first | n/a | n/a | Yes | Yes | n/a | Add to first-payout bullet | n/a | skip `p8Instant` | Instant 5 lives on instant.html |
+| Rule | TOS | Restricted trading | Plan pages | FAQ Plans | FAQ General | FAQ Qualified | FAQ News | Rewards |
+|---|---|---|---|---|---|---|---|---|
+| News every phase | Yes | Yes | Fix “Allowed in Evaluation” | Yes | n/a | Yes | Yes + Instant in table | n/a |
+| No news window | Yes | Yes | Yes | Yes | n/a | Yes | Yes | n/a |
+| No addon | Yes | Yes | Yes | Yes | n/a | Yes | Yes | n/a |
+| Bracketing / gap banned | Yes | Yes | Yes | n/a | n/a | Yes | Yes | n/a |
+| No 8(h) mix | Deleted | n/a | Not printed | “no min holding time” | **No** | n/a | n/a | n/a |
+| $100 weekly / bi-weekly / on-demand | n/a | n/a | Yes | n/a | n/a | Yes (`p9`) | n/a | Yes |
+| On-demand + min days | n/a | n/a | Yes | n/a | n/a | Yes | n/a | **Add days to p12** |
+| First payout 3 days (eval) | via model pages | n/a | 3 | n/a | n/a | **Change 4 → 3** | n/a | 3 |
+| Instant 5 valid days first | n/a | n/a | Yes | Yes | n/a | Add to first-payout bullet | n/a | Instant 5 lives on instant.html |
+
+`trading-objectives.html` is **out of this pass**. Do not use this matrix to change it.
 
 ---
 
-## Do not “align” these into each other
+## Do not merge these clocks
 
-- Instant 5 valid +0.5% days ≠ 2-Step 5 eval days ≠ QPP 3 days between rewards. Three different clocks.
+- Instant 5 valid +0.5% days ≠ 2-Step 5 eval days ≠ QPP 3 days between rewards.
 - 1-Step Best Day 50% ≠ Instant Best Day 20%.
-- Challenge fee refund on first reward is eval plans only, not Instant (`performance-reward` already says that).
-- **Skip** `trading-objectives.html` `content.p8` and `content.p8Instant`. Do not edit those first-payout lines.
+- Challenge fee refund on first reward is eval plans only, not Instant.
