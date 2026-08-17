@@ -76,15 +76,15 @@
       if (currentTab === 'instant') {
         titleEl.textContent = '5 Valid Days';
         contentEl.innerHTML = '<p>On Demand does not skip Instant trading-day rules. You must complete <strong>5 valid days</strong> before the first reward request, including On Demand.</p>'
-          + '<p>A valid day is a calendar day whose <strong>closed-trade PnL is at least 0.5%</strong> of that day\'s start-of-day equity. Unrealized PnL does not count. After that, you may request anytime. Minimum reward is 2% and $200. The 20% Best Day rule still applies.</p>';
+          + '<p>A valid day is a calendar day whose <strong>closed-trade PnL is at least 0.5%</strong> of that day\'s start-of-day equity. Unrealized PnL does not count. After that, you may request anytime. Minimum reward is $100. The 20% Best Day rule still applies.</p>';
       } else if (currentTab === '1step') {
         titleEl.textContent = '3 Trading Days';
         contentEl.innerHTML = '<p>On Demand does not skip 1-Step trading-day rules. You must complete <strong>3 trading days</strong> in the funded phase before the first reward request, including On Demand.</p>'
-          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is 2% and $200.</p>';
+          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is $100.</p>';
       } else {
         titleEl.textContent = '3 Trading Days';
         contentEl.innerHTML = '<p>On Demand does not skip the funded trading-day rule. You must complete <strong>3 trading days</strong> before the first reward request, including On Demand.</p>'
-          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is 2% and $200.</p>';
+          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is $100.</p>';
       }
       return;
     }

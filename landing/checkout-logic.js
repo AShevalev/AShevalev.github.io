@@ -113,7 +113,7 @@
       tooltip: function () {
         return 'On Demand Rewards with 80% Split\n\nRequest your 80% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.\n\n'
           + minDaysCopy() + '\n\n'
-          + 'Pair with 90% Reward Split to withdraw a 90% share on demand (minimum 2% and $200).\n\n'
+          + 'Pair with 90% Reward Split to withdraw a 90% share on demand (minimum $100).\n\n'
           + 'Cannot be combined with Weekly Rewards.';
       }
     },
@@ -124,7 +124,7 @@
       instantPct: 0.15,
       desc: 'Keep 90% of profits on the default Bi-Weekly schedule',
       tooltip: function () {
-        return '90% Reward Split\n\nKeep 90% of profits on the default Bi-Weekly cycle (every 14 calendar days). Minimum reward 2% and $200. Performance scaling required.\n\n'
+        return '90% Reward Split\n\nKeep 90% of profits on the default Bi-Weekly cycle (every 14 calendar days). Minimum reward $100.\n\n'
           + minDaysCopy() + '\n\n'
           + 'Pair with On Demand Rewards to withdraw that 90% share anytime after the plan trading-day rule.\n\n'
           + 'Cannot be combined with Weekly Rewards.';

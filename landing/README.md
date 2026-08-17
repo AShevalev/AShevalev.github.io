@@ -40,12 +40,12 @@ Reward cycles for Instant, 1-Step, Lite, and Pro:
 | On Demand | **80%** | Anytime after plan min days | $100 | add-on, **12%** evals / **15% Instant** |
 | Weekly | **80%** | every 7 calendar days | $100 | add-on, **8%** of list |
 | **Bi-Weekly (default)** | **80%** | every **14** calendar days | $100 | not a toggle |
-| On Demand | **90%** | Anytime after plan min days | 2% and $200 | On Demand + 90% bundle, **20%** evals / **32% Instant** |
-| Bi-Weekly | **90%** | every 14 calendar days | 2% and $200 | 90% add-on, **12%** evals / **15% Instant** |
+| On Demand | **90%** | Anytime after plan min days | $100 | On Demand + 90% bundle, **20%** evals / **32% Instant** |
+| Bi-Weekly | **90%** | every 14 calendar days | $100 | 90% add-on, **12%** evals / **15% Instant** |
 
 Possible combinations (the five reward-cycle cards): **80% On Demand** · **80% Weekly** · **80% Bi-Weekly** included · **90% On Demand** · **90% Bi-Weekly**. Weekly XOR On Demand and XOR 90%. 90% Weekly is not offered.
 
-On Demand still has to meet the plan trading-day rule: Instant **5 valid days** (0.5% SOD), 1-Step / Lite / Pro **3 trading days**. Then you may request anytime. 80% On Demand min $100. 90% min 2% and $200.
+On Demand still has to meet the plan trading-day rule: Instant **5 valid days** (0.5% SOD), 1-Step / Lite / Pro **3 trading days**. Then you may request anytime. Minimum reward is **$100** on every combination — not live’s On Demand 2% and $200.
 
 First payout: Instant min $100 after 5 valid days; evals min $100 after 3 trading days (within 48 hrs). Intervals are calendar days.
 
@@ -64,7 +64,7 @@ Verodus Instant default is **biweekly 80%**, so speed and 90% are paid add-ons. 
 | **Swing** (both) | **20%** | **20%** | Not 12+12. Weekend `Incl.` |
 | Weekly 80% | 8% | 8% | Every 7 calendar days, same 80% as default. XOR On Demand and XOR 90% |
 | On Demand 80% | 12% | **15%** | After plan min days, anytime. Instant 5 valid days; evals 3 trading days |
-| 90% split | 12% | **15%** | Bi-Weekly unless On Demand is also on. Min 2% and $200. XOR Weekly |
+| 90% split | 12% | **15%** | Bi-Weekly unless On Demand is also on. Min $100. XOR Weekly |
 | **90% On Demand** (both) | **20%** | **32%** | Instant 32% is the year-1 floor |
 
 Sticker = `Math.round(list * pct)`. VERO35 is 35% off `list + addon stickers`. Refunds are challenge fee only.

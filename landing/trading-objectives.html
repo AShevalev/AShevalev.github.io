@@ -163,7 +163,7 @@
         .guide-desc { font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
 
         /* ── reward cycles ── */
-        .reward-cycle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; max-width:1100px; margin:0 auto; }
+        .reward-cycle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; max-width:1000px; margin:0 auto; }
         @media (max-width:760px) { .reward-cycle-grid { grid-template-columns:1fr; } }
         .reward-highlight-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:700px; margin:1.5rem auto 0; }
         @media (max-width:560px) { .reward-highlight-grid { grid-template-columns:1fr; } }
@@ -364,7 +364,24 @@
             <script src="/i18n/config.js"></script>
     <script src="/i18n/i18n.js"></script>
 
-<link href="https://www.verodus.com/trading-objectives.html" hreflang="en" rel="alternate"><link href="https://www.verodus.com/es/trading-objectives.html" hreflang="es" rel="alternate"><link href="https://www.verodus.com/zh/trading-objectives.html" hreflang="zh" rel="alternate"><link href="https://www.verodus.com/ar/trading-objectives.html" hreflang="ar" rel="alternate"><link href="https://www.verodus.com/fr/trading-objectives.html" hreflang="fr" rel="alternate"><link href="https://www.verodus.com/pt/trading-objectives.html" hreflang="pt" rel="alternate"></head>
+<link href="https://www.verodus.com/trading-objectives.html" hreflang="en" rel="alternate"><link href="https://www.verodus.com/es/trading-objectives.html" hreflang="es" rel="alternate"><link href="https://www.verodus.com/zh/trading-objectives.html" hreflang="zh" rel="alternate"><link href="https://www.verodus.com/ar/trading-objectives.html" hreflang="ar" rel="alternate"><link href="https://www.verodus.com/fr/trading-objectives.html" hreflang="fr" rel="alternate"><link href="https://www.verodus.com/pt/trading-objectives.html" hreflang="pt" rel="alternate">
+    <style id="rec-reward-cycle-css">
+      .reward-cycle-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1.2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .reward-cycle-grid > .reward-cycle-card { grid-column: span 2; }
+      .reward-cycle-grid > .reward-cycle-card:nth-child(4) { grid-column: 2 / span 2; }
+      .reward-cycle-grid > .reward-cycle-card:nth-child(5) { grid-column: 4 / span 2; }
+      @media (max-width: 760px) {
+        .reward-cycle-grid { grid-template-columns: 1fr; }
+        .reward-cycle-grid > .reward-cycle-card { grid-column: auto; }
+      }
+    </style>
+</head>
 <body>
     <div id="header-container"><noscript><nav aria-label="Main navigation"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="trading-objectives.html">Trading Objectives</a> | <a href="trading-instruments.html">Instruments</a> | <a href="trading-platforms.html">Platforms</a> | <a href="performance-reward.html">Rewards</a> | <a href="economic-calendar.html">Calendar</a> | <a href="affiliate.html">Affiliate</a> | <a href="faq.html">FAQ</a> | <a href="blog.html">Blog</a> | <a href="contact.html">Contact</a></nav></noscript></div>
     <script src="header.js" defer=""></script>
@@ -650,7 +667,7 @@ Crypto 1:3</div>
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime after min days</span></div>
-                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
                     </div>
                 </div>
                 <div class="reward-cycle-card">
@@ -659,7 +676,7 @@ Crypto 1:3</div>
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span19">14 days</span></div>
-                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
                     </div>
                 </div>
             </div>
@@ -1351,15 +1368,15 @@ Crypto 1:3`;
       if (currentTab === 'instant') {
         titleEl.textContent = '5 Valid Days';
         contentEl.innerHTML = '<p>On Demand does not skip Instant trading-day rules. You must complete <strong>5 valid days</strong> before the first reward request, including On Demand.</p>'
-          + '<p>A valid day is a calendar day whose <strong>closed-trade PnL is at least 0.5%</strong> of that day\'s start-of-day equity. Unrealized PnL does not count. After that, you may request anytime. Minimum reward is 2% and $200. The 20% Best Day rule still applies.</p>';
+          + '<p>A valid day is a calendar day whose <strong>closed-trade PnL is at least 0.5%</strong> of that day\'s start-of-day equity. Unrealized PnL does not count. After that, you may request anytime. Minimum reward is $100. The 20% Best Day rule still applies.</p>';
       } else if (currentTab === '1step') {
         titleEl.textContent = '3 Trading Days';
         contentEl.innerHTML = '<p>On Demand does not skip 1-Step trading-day rules. You must complete <strong>3 trading days</strong> in the funded phase before the first reward request, including On Demand.</p>'
-          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is 2% and $200.</p>';
+          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is $100.</p>';
       } else {
         titleEl.textContent = '3 Trading Days';
         contentEl.innerHTML = '<p>On Demand does not skip the funded trading-day rule. You must complete <strong>3 trading days</strong> before the first reward request, including On Demand.</p>'
-          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is 2% and $200.</p>';
+          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is $100.</p>';
       }
       return;
     }

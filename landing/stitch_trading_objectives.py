@@ -52,7 +52,7 @@ REWARD_CYCLE_GRID = """<div class="reward-cycle-grid">
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime after min days</span></div>
-                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
                     </div>
                 </div>
                 <div class="reward-cycle-card">
@@ -61,10 +61,29 @@ REWARD_CYCLE_GRID = """<div class="reward-cycle-grid">
                     <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
                     <div class="rc-details">
                         <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span19">14 days</span></div>
-                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span data-i18n="content.span22">2% and $200</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
                     </div>
                 </div>
             </div>
+"""
+
+RC_CENTER_CSS = """
+    <style id="rec-reward-cycle-css">
+      .reward-cycle-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1.2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .reward-cycle-grid > .reward-cycle-card { grid-column: span 2; }
+      .reward-cycle-grid > .reward-cycle-card:nth-child(4) { grid-column: 2 / span 2; }
+      .reward-cycle-grid > .reward-cycle-card:nth-child(5) { grid-column: 4 / span 2; }
+      @media (max-width: 760px) {
+        .reward-cycle-grid { grid-template-columns: 1fr; }
+        .reward-cycle-grid > .reward-cycle-card { grid-column: auto; }
+      }
+    </style>
 """
 
 
@@ -160,15 +179,12 @@ def stitch(html: str, rec: str) -> str:
 
     html = replace_element(html, '<div class="reward-cycle-grid">', REWARD_CYCLE_GRID)
     html = html.replace(
-        ".reward-cycle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; max-width:1000px; margin:0 auto; }",
-        ".reward-cycle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; max-width:1100px; margin:0 auto; }",
-        1,
-    )
-    html = html.replace(
         ".rc-details { display:grid; grid-template-rows:auto auto auto; gap:0.55rem; margin-top:auto; border-top:1px solid var(--border-subtle); padding-top:1rem; }",
         ".rc-details { display:grid; grid-template-rows:auto auto; gap:0.55rem; margin-top:auto; border-top:1px solid var(--border-subtle); padding-top:1rem; }",
         1,
     )
+    if 'id="rec-reward-cycle-css"' not in html:
+        html = html.replace("</head>", RC_CENTER_CSS + "</head>", 1)
 
     if rec.strip() not in html:
         rec_block = (
