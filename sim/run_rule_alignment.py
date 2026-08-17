@@ -225,7 +225,7 @@ def write_md(cmp_df: pd.DataFrame, n_sims: int) -> Path:
         "",
         "Prior Instant: two checkboxes — 5 days at ≥0.5% of SOD **and** 20% Best "
         "Day on every green day. Aligned Instant: one rule — 20% Best Day on days "
-        "that close **more than 0.5% of EOD account balance**. The 20% cap still "
+        "a green day of at least 0.5% of start-of-day equity. The 20% cap still "
         "forces at least five counted days. The 5 is implied, not listed.",
         "",
         "Prior 1-Step QPP: 3 min days, no Best Day. Aligned 1-Step QPP: no min "
