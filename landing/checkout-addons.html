@@ -307,8 +307,7 @@
       pct: 0.15,
       desc: 'Hold positions over the weekend with zero restrictions.',
       tooltip: function () {
-        return 'Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.\n\n'
-          + 'News trading is included on every plan — this add-on is only weekend holding.';
+        return 'Exempts all open positions from the 22:00 UTC Friday liquidation rule so you may hold through the weekend on evaluation and funded accounts. Perfect for swing traders, position traders, and multi-day strategies.';
       }
     },
     {
@@ -352,8 +351,8 @@
 
   function minDaysCopy() {
     return selectedPlan === 'instant'
-      ? 'Instant Funding: first request after 5 valid trading days (0.5% vs start-of-day equity). Then request on the selected cycle, or anytime if On Demand is selected.'
-      : '1-Step, 2-Step Lite, and 2-Step Pro: first request after 3 funded trading days. Then request on the selected cycle, or anytime if On Demand is selected.';
+      ? 'Payouts after 5 valid trading days (0.5% vs start-of-day equity).'
+      : 'First request after 3 funded trading days.';
   }
 
   function escHtml(s) {
