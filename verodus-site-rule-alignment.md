@@ -1,6 +1,6 @@
 # Verodus site rule alignment
 
-**Superseded for edits.** Use `verodus-rule-alignment.md`. That file **does not revise `trading-objectives.html`**.
+**Superseded for edits.** Use `verodus-rule-alignment.md`. That file **does not revise `trading-objectives.html`**. Instant is now **20% Best Day** and only days with **more than 0.5%** profit count — not a standalone “5 valid days” checkbox.
 
 **Date:** 17 Aug 2026  
 **Purpose:** Make remaining live copy match one rule set. Policy is already live (news allowed, 8(h) gone, on-demand `$100`). This file is the leftover **alignment** pass.
