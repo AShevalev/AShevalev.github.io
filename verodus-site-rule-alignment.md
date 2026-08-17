@@ -1,6 +1,6 @@
 # Verodus site rule alignment
 
-**Superseded for edits.** Use `verodus-rule-alignment.md`. That file **does not revise `trading-objectives.html`**. Instant is now **20% Best Day** and only days with **more than 0.5%** profit count — not a standalone “5 valid days” checkbox.
+**Superseded for edits.** Use `verodus-rule-alignment.md`. Instant is **20% Best Day** and only days with **more than 0.5%** profit count — including the Instant Best Day modal on `trading-objectives.html`. 1-Step / 2-Step QPP payouts need **3 trading days**.
 
 **Date:** 17 Aug 2026  
 **Purpose:** Make remaining live copy match one rule set. Policy is already live (news allowed, 8(h) gone, on-demand `$100`). This file is the leftover **alignment** pass.

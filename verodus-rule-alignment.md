@@ -1,10 +1,10 @@
 # Verodus site rule alignment
 
-**Do not edit `trading-objectives.html`.** Leave that page as it is. This pass aligns the rest of the site to the plan pages and TOS.
+Apply these rules on **every Verodus page that names them**, including `trading-objectives.html` (Instant 20% Best Day modal must say a day counts only if it closes **more than 0.5%**). Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` **including** `trading-objectives.json` for Instant Best Day / day-count keys.
 
-Canonical source: `1-step.html`, `2-step-lite.html`, `2-step-pro.html`, `instant.html`, TOS §9, `restricted-trading.html`.
+Canonical source: `1-step.html`, `2-step-lite.html`, `2-step-pro.html`, `instant.html`, `trading-objectives.html` Instant Best Day modal, TOS §9, `restricted-trading.html`.
 
-Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` except `trading-objectives.json`.
+Do **not** put Instant 0.5% language on the 1-Step 50% Best Day modal or on 2-Step pages.
 
 ---
 
@@ -47,12 +47,12 @@ Use **more than 0.5%**, not “at least 0.5%.”
 - Instant-only. Do not put this combo on 1-Step (50%, no 0.5% floor) or 2-Step.
 
 ### Do not change
-- `trading-objectives.html` (and `/locales/*/pages/trading-objectives.json`) — **no edits**
 - `$200,000` account sizes
 - Weekend Holding Addon
 - Instant 3% daily from day’s equity high, 6% trail that never locks
 - 1-Step Best Day stays **50%** with **no** 0.5% floor
 - Instant Best Day stays **20%**; the new piece is only which days count (more than 0.5%)
+- 2-Step evaluation still **5 trading days per phase**. Do not rewrite the 2-Step “5 Minimum Active Performance Days” eval modal into Instant 0.5% language.
 
 ---
 
@@ -154,7 +154,7 @@ Best Day: Your Best Day must be ≤20% of Positive Days’ Profit. Only days tha
 
 `performance-reward.html` “First reward after 3 trading days” / “Min. 3 trading days” — keep **3 trading days** for **1-Step and 2-Step QPP only**. Drop the first/later split. Add `$100` + cycle. Do not put this 3-day min on Instant.
 
-`trading-objectives.html` — **do not edit.**
+`trading-objectives.html` — **edit Instant Best Day and Instant day-count copy.** See §8. Do not add Instant 0.5% to the 1-Step 50% Best Day modal.
 
 ---
 
@@ -168,7 +168,7 @@ Best Day: Your Best Day must be ≤20% of Positive Days’ Profit. Only days tha
 Minimum $100, that plan’s payout rule, and the selected cycle (same rule for the first payout and every payout after).
 ```
 
-Do not change on-demand copy on `trading-objectives.html`.
+On `trading-objectives.html`, Instant first-payout / on-demand lines must use Best Day + more-than-0.5% count, not “5 trading days.” 1-Step / 2-Step lines use **3 trading days** (every payout, not first-only).
 
 ---
 
@@ -215,7 +215,7 @@ Do not put Instant Best Day / 0.5% language on these pages.
 
 ## 6. Empty locale keys (cleanup, not visible)
 
-Leave `trading-objectives.json` alone. Elsewhere, delete or leave blank:
+Update Instant Best Day / day-count keys in `trading-objectives.json`. Elsewhere, delete or leave blank:
 
 - TOS: `content.h38`, `p51`, `p52`, `p53`
 - Restricted trading: `p9`, `p18`
@@ -226,7 +226,7 @@ Leave `trading-objectives.json` alone. Elsewhere, delete or leave blank:
 
 ## 7. FAQs — one answer per plan (do not blend clocks)
 
-FAQs that name “the evaluation” or one day number for all accounts are wrong. Split Instant / 1-Step / 2-Step. Skip `trading-objectives.html`.
+FAQs that name “the evaluation” or one day number for all accounts are wrong. Split Instant / 1-Step / 2-Step. Apply the same split on `trading-objectives.html` (Instant vs 1-Step vs 2-Step).
 
 ### Plan cheat sheet (use in every payout / days FAQ)
 
@@ -337,6 +337,75 @@ Already aligned: news allowed on all four plans; holding time is No. No change r
 
 ---
 
+## 8. Apply on the rest of the site — including Instant Best Day modals
+
+Live scan 17 Aug 2026. Same Instant sentence everywhere a 20% Best Day modal or Instant day-count appears. Same 1-Step / 2-Step QPP **3 trading days** everywhere those plans name payout days. Do not blend them.
+
+### Instant 20% Best Day modal — add the 0.5% day-count (required)
+
+Use **more than 0.5%**. Add this only when the tab / page is Instant. Leave the 1-Step 50% Best Day modal unchanged (no 0.5% floor).
+
+**`trading-objectives.html` `showModal('best-day')` — Instant branch.** Live first paragraph does not say which days count. After that paragraph, when `currentTab === 'instant'`, append:
+
+```text
+Only days that close more than 0.5% net profit (vs that day’s start-of-day equity) count toward Positive Days’ Profit and count as a day. A day that closes 0.5% or less does not count.
+```
+
+JS paste for the Instant extra sentence (keep the existing first paragraph; add the second only if `isInstant`):
+
+```javascript
+if (isInstant) {
+    contentEl.innerHTML += `<p>Only days that close <strong style="color:${gold}">more than 0.5%</strong> net profit (vs that day’s start-of-day equity) count toward Positive Days’ Profit and count as a day. A day that closes 0.5% or less does not count.</p>`;
+}
+```
+
+Do **not** add that sentence when `bestPctLimit === 50` (1-Step).
+
+**`instant.html` Best Day modal** (hardcoded under `#bestDayModal`). Live first paragraph is the 20% rule only. Insert the same 0.5% sentence after it:
+
+```text
+The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit at the time you request a payout. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit. Only days that close more than 0.5% net profit (vs that day’s start-of-day equity) count toward Positive Days’ Profit and count as a day. A day that closes 0.5% or less does not count.
+```
+
+Also on `instant.html` body copy (not only the modal):
+- `content.p8` / `li12`–`li14`: add that only days **more than 0.5%** count toward Positive Days’ Profit.
+- `content.li15`: drop “minimum requirement of 5 days.” Replace with: only days that close more than 0.5% count as a day for Best Day.
+- `content.li4`, `content.li9`, `content.li10`, hero `content.p3`, JSON-LD: drop the standalone “5 valid trading days” checkbox. The 0.5% floor plus 20% Best Day is the Instant day rule.
+- Eligibility `li23`: Instant Best Day + `$100` + cycle. **No** 3-day QPP min.
+
+### `trading-objectives.html` — other Instant / QPP lines (same pass)
+
+| Live | Change to |
+|---|---|
+| Instant card “Minimum Trading Days” = **5 Days** (`instantCardHTML` / `pricing.fiveDays`) | Drop the 5-day stat, or relabel to **Day count: more than 0.5%** (opens the Best Day modal). Do not keep a separate 5-day checkbox. |
+| Instant data `minDays:'5'` | Unused for a standalone min if the 5-day stat is gone. |
+| `content.p8Instant`: First Payout after **5 trading days** | Every Instant payout: `$100` + Best Day ≤20% (only days more than 0.5% count). Drop “first only.” |
+| `content.p8`: First Payout after **3 trading days** (1-Step / 2-Step) | Every 1-Step / 2-Step QPP payout: `$100` + **3 trading days**. Drop “first only.” This 3-day line is **not** for Instant (`p8Instant` stays Instant-only). |
+| Instant on-demand / “Anytime after min trading days” | Instant: `$100` + Best Day ≤20% on days that closed more than 0.5%. 1-Step / 2-Step: `$100` + 3 trading days. |
+| 1-Step Best Day modal (same `best-day` type, `bestPctLimit === 50`) | **No** 0.5% sentence. |
+| 2-Step `trading-days` modal: 5 active days in **evaluation** | Keep as **eval** 5 days. Do not turn it into Instant 0.5%. QPP payouts on 2-Step are **3** days — say that on Eligibility / rewards, not in the eval modal. |
+
+Locale: `/locales/*/pages/trading-objectives.json` and `common.json` keys used by the Instant card / `p8Instant` / Best Day strings.
+
+### Site-wide apply list (where the same rules appear)
+
+| Page | Apply |
+|---|---|
+| `instant.html` | 20% Best Day + more-than-0.5% count in body **and** modal. Drop 5-valid-day checkbox and 3-day QPP Eligibility. `$100` + cycle. |
+| `1-step.html` | QPP Eligibility: **3 trading days** (count, not “since last payout”) + `$100` + 50% Best Day + cycle. Eval: no min days. **No** Instant 0.5%. |
+| `2-step-lite.html` / `2-step-pro.html` | Eval: **5** trading days per phase. QPP Eligibility: **3 trading days** + `$100` + cycle. **No** Instant 20% / 0.5%. |
+| `trading-objectives.html` | Instant Best Day modal + Instant card / `p8Instant` as above. 1-Step / 2-Step `p8` = 3 QPP days every payout. |
+| `faq-plans.html` `p7` | Drop “5 minimum valid trading days.” Instant: 20% Best Day; a day counts only if more than 0.5%. |
+| `faq-plans.html` 1-Step / 2-Step cards | Optional: QPP payouts need 3 trading days. Do not put Instant 0.5% on those cards. |
+| `faq-qualified-trader.html` | Delete 4-then-3. Instant = Best Day + 0.5% count. 1-Step / 2-Step QPP = 3 trading days. Same first and later. |
+| `faq-evaluation.html` | Add Instant (Best Day + 0.5%, no eval). 1-Step: no min to pass; QPP 3 days. 2-Step: 5 per eval phase; QPP 3 days. |
+| `performance-reward.html` | “3 trading days” = **1-Step / 2-Step QPP only**. Instant = Best Day + 0.5%, not 3 days. Drop first-only. |
+| `terms.html` §8(b)/(c) | Keep “requirements vary by model.” Optional one line: Instant counted days need more than 0.5% net; 1-Step / 2-Step QPP payouts need 3 trading days; 2-Step eval needs 5. |
+| `restricted-trading.html` | No day-count change unless a leftover 5-valid-day / 3-day Instant line appears. |
+| `faq-news-trading.html` / `faq-general.html` | No day-count change unless a leftover Instant 5-valid-day line appears. |
+
+---
+
 ## Alignment matrix
 
 | Rule | TOS | Restricted trading | Plan pages | FAQ Plans | FAQ General | FAQ Qualified | FAQ News | Rewards |
@@ -350,7 +419,7 @@ Already aligned: news allowed on all four plans; holding time is No. No change r
 | On-demand + plan min + cycle | n/a | n/a | Rewrite Eligibility | n/a | n/a | Yes (`p9`) + cycle list | n/a | **Rewrite p12** |
 | Same rule first and later | n/a | n/a | 1-Step / 2-Step QPP: 3 trading days (not “since last payout”); Instant: Best Day, no 3-day min | n/a | n/a | Delete 4-then-3 list; rewrite `p9`/`p12` | n/a | 3 days = 1-Step / 2-Step QPP min, not Instant |
 
-`trading-objectives.html` is **out of this pass**. Do not use this matrix to change it.
+`trading-objectives.html` is **in this pass** for Instant Best Day + 0.5% count, Instant first-payout / min-days stats, and 1-Step / 2-Step QPP **3 trading days**. Do not put Instant 0.5% on the 1-Step Best Day modal.
 
 ---
 
