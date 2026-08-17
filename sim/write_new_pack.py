@@ -29,6 +29,13 @@ from write_price_rec_pdf import (
     styles as rec_styles,
     usd,
 )
+from write_book_310 import (
+    addon_table,
+    compute as book_310,
+    family_table,
+    pl_table,
+    scale_table,
+)
 from write_simple_catalogs import RULES
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -116,16 +123,37 @@ def build_margins():
         book_wk += r["N"] * p["weekly"]["left"]
         book_od += r["N"] * p["od90"]["left"]
 
-    story.append(P("Margins — new challenge prices + add-on leftover", s["cover"]))
+    _rows310, book, families, scales, rec_add, chk_add = book_310()
+
+    story.append(P("Margins — 310-account book + add-on leftover", s["cover"]))
     story.append(P(
-        "Lite/Pro $25k+ raised under Ment / Alpha 6% (Lite) and Hola / Alpha 10% (Pro). "
-        "Doors unchanged. Add-on leftover uses Weekend 12%, Weekly 70% at 8%, "
-        "On Demand 90% at 15% evals / 32% Instant. "
-        f"Challenge book leftover {money(book_chal)}/mo after opex and 20% ads.",
+        f"{book['N']} accounts/mo on the Instant-heavy mix. "
+        f"Challenge leftover {money(book['Left'])}/mo "
+        f"({book['Left_pct'] * 100:.1f}% of {money(book['Rev'])} sale revenue) "
+        "after payouts, 10% error, $1/account, CAD 10k wages, and 20% ads. "
+        "Lite/Pro $25k+ sit under Ment / Alpha 6% and Hola / Alpha 10%. Doors unchanged.",
         s["sub"],
     ))
 
-    story.append(P("1. Challenge leftover (news-included card)", s["h1"]))
+    story.append(P("1. Monthly P&L at 310", s["h1"]))
+    story.append(P(
+        "CAD 10,000 wages (~$7,200) are a fixed monthly cost, spread across 310 weighted accounts. "
+        "They do not scale down if volume is 150. Instant BE is year-1. Eval BE includes the first-payout refund.",
+        s["body"],
+    ))
+    story.append(pl_table(book, s))
+    story.append(Spacer(1, 3 * mm))
+    story.append(family_table(families, book, s))
+    story.append(P(
+        "1-Step carries most leftover. Instant is thinner because year-1 BE is the whole fee job. "
+        "Lite $5k is about $0 after allocated wages — keep the Hola/TFT street door.",
+        s["tiny"],
+    ))
+    story.append(P("1b. Same mix at 150 / 310 / 600", s["h1"]))
+    story.append(scale_table(scales, s))
+
+    story.append(PageBreak())
+    story.append(P("2. Challenge leftover by SKU", s["h1"]))
     story.append(P(
         "Leftover = sale × 0.80 − (BE + 10% error + $1 + wage share). "
         "Instant BE is year-1 E[X]. Eval BE is first-payout E[X] / (1 − P(pay)). "
@@ -157,7 +185,7 @@ def build_margins():
     ))
 
     story.append(PageBreak())
-    story.append(P("2. Add-on leftover at the rec %", s["h1"]))
+    story.append(P("3. Add-on leftover at the rec % (per buyer, not attach)", s["h1"]))
     story.append(P(
         "Addon leftover = round(list × %) × 0.52 − extra E[X]. Prints if leftover ≥ −$1. "
         "Weekend Instant extra 8% of BE · eval 4%. Weekly speed Instant 8% · eval 5%. "
@@ -198,7 +226,21 @@ def build_margins():
         s["tiny"],
     ))
 
-    story.append(P("3. $100k unit snapshot", s["h1"]))
+    story.append(P("3b. Add-ons attach-weighted on the 310 mix", s["h1"]))
+    story.append(P(
+        "News attach = 0. Weekend / Weekly / On Demand attach is the early-book mix, not 100% of N. "
+        "Rec card 12% / 8% / 15–32% vs checkout 15% / 6% / 20%.",
+        s["body"],
+    ))
+    story.append(addon_table(rec_add, chk_add, s))
+    story.append(P(
+        f"Blended leftover at rec add-on %: {money(book['Left'] + rec_add[2])}/mo. "
+        f"At checkout 15/6/20: {money(book['Left'] + chk_add[2])}/mo.",
+        s["tiny"],
+    ))
+
+    story.append(PageBreak())
+    story.append(P("4. $100k unit snapshot", s["h1"]))
     heads = ["Plan", "Sale", "Chal left", "WE left", "Wk left", "OD left",
              "WE comb", "Wk comb", "OD comb"]
     data = [[P(h, s["th"]) for h in heads]]
@@ -360,6 +402,8 @@ def build_catalog():
 
 def main():
     RESULTS.mkdir(exist_ok=True)
+    from write_book_310 import main as write_book
+    write_book()
     build_margins()
     build_catalog()
 

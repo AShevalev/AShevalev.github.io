@@ -33,5 +33,6 @@ PYTHONPATH=sim python sim/run.py --n-sims 4000
 | `write_addon_catalog.py` | Add-on % + stickers per SKU → `results/Verodus_Addon_Catalog_2026-08-17.pdf` |
 | `write_addon_pct_pdf.py` | Profitable-but-competitive add-on % + BE leftover → `results/Verodus_Addon_Pct_BE_2026-08-17.pdf` |
 | `write_new_pack.py` | Margins PDF + catalog (prices, rules, add-on %) on the 17 Aug card |
+| `write_book_310.py` | 310-account monthly P&L (wages CAD 10k, leftover after opex) |
 | `verodus_mc.py` | Verodus-only engine (FAQ rules) |
 | `run.py` | Verodus-only runner |
