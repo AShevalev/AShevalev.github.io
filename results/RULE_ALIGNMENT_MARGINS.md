@@ -1,10 +1,10 @@
 # Rule-alignment Monte Carlo — leftover vs prior day rules
 
-**Margins did not increase on any account.** Instant leftover is down on every size. 1-Step leftover is down on every size. 2-Step Lite and Pro are unchanged (same paths). Instant $100k leftover at the current $439 sale is now **−$10** and no longer prints after opex. Prices were not raised.
+**Margins did not increase on any account.** Instant leftover is down on every size. 1-Step leftover is down on every size. 2-Step Lite and Pro are unchanged (same paths). Instant $100k leftover at the current $439 sale is now negative and no longer prints after opex. Prices were not raised.
 
 News included. 1200 paths per profile, same 7/22/26/28/17 mix, paired per-product seeds. Sale card is unchanged (current rec).
 
-Prior Instant: two checkboxes — 5 days at ≥0.5% of start-of-day equity **and** 20% Best Day on every green day. Aligned Instant: one rule — 20% Best Day, and a day counts only if it closes **more than 0.5% of EOD account balance**. The 20% cap still forces at least five counted days (`1 ÷ n` of PDP). The 5 is implied, not a second checkbox.
+Prior Instant: two checkboxes — 5 days at ≥0.5% of SOD **and** 20% Best Day on every green day. New Instant: one rule — 20% Best Day; a counted day is a **green day of at least 0.5% of start-of-day equity**. The 20% cap still forces at least five counted days. The 5 is implied, not listed.
 
 Prior 1-Step QPP: 3 min days, no Best Day. Aligned 1-Step QPP: no min days, 50% Best Day (no 0.5% floor). 2-Step Lite/Pro unchanged (5 eval / 3 QPP).
 
@@ -12,11 +12,11 @@ Leftover = sale × 0.80 − (BE × 1.10 + $1 + wage share). Sale m is the ads-li
 
 | Plan | Size | Sale | P(pay) old → new | BE old → new | Leftover old → new | Sale m old → new | Leftover up? |
 |---|---:|---:|---|---|---|---|:---:|
-| Instant | $5,000 | $49 | 21.3% → 19.3% | $13.9 → $15.3 | $6.6 → $5.1 (-1.5) | +72% → +69% | no |
-| Instant | $10,000 | $69 | 21.3% → 19.3% | $27.8 → $30.5 | $6.9 → $3.9 (-3.0) | +60% → +56% | no |
-| Instant | $25,000 | $149 | 21.3% → 19.3% | $69.5 → $76.3 | $23.7 → $16.2 (-7.5) | +53% → +49% | no |
-| Instant | $50,000 | $239 | 21.3% → 19.3% | $139.0 → $152.6 | $17.2 → $2.2 (-15.0) | +42% → +36% | no |
-| Instant | $100,000 | $439 | 21.3% → 19.3% | $278.0 → $305.2 | $20.0 → $-10.0 (-30.0) | +37% → +30% | no |
+| Instant | $5,000 | $49 | 21.3% → 19.6% | $13.9 → $15.3 | $6.6 → $5.0 (-1.6) | +72% → +69% | no |
+| Instant | $10,000 | $69 | 21.3% → 19.6% | $27.8 → $30.6 | $6.9 → $3.8 (-3.1) | +60% → +56% | no |
+| Instant | $25,000 | $149 | 21.3% → 19.6% | $69.5 → $76.6 | $23.7 → $16.0 (-7.8) | +53% → +49% | no |
+| Instant | $50,000 | $239 | 21.3% → 19.6% | $139.0 → $153.1 | $17.2 → $1.6 (-15.6) | +42% → +36% | no |
+| Instant | $100,000 | $439 | 21.3% → 19.6% | $278.0 → $306.3 | $20.0 → $-11.1 (-31.2) | +37% → +30% | no |
 | 1-Step | $5,000 | $45 | 9.1% → 8.2% | $6.5 → $8.2 | $8.7 → $6.8 (-1.9) | +78% → +75% | no |
 | 1-Step | $10,000 | $69 | 9.1% → 8.2% | $13.0 → $16.4 | $20.3 → $16.4 (-3.8) | +74% → +70% | no |
 | 1-Step | $25,000 | $129 | 9.1% → 8.2% | $32.4 → $41.1 | $45.4 → $35.8 (-9.6) | +68% → +63% | no |
@@ -40,23 +40,7 @@ Leftover = sale × 0.80 − (BE × 1.10 + $1 + wage share). Sale m is the ads-li
 
 2-Step rows are bit-identical — those payout day rules did not change.
 
-## Why Instant and 1-Step leftover fell
+## Why Instant leftover is still down
 
-- Instant $100k leftover split (same seed, news on): prior two-box book **+$20**. Same 20% / five-counted-day floor but Best Day only on ≥0.5% SOD days (tiny greens out of PDP) **−$11**. Aligned >0.5% EOD **−$10**. So the Instant drop is **tiny greens leaving Positive Days’ Profit**, not the 5-day floor and not SOD vs EOD. P(pay) 21.3% → 19.3%. Paid paths stay longer (first-payout E[X] $825 → $881), year-1 BE $278 → $305.
-- 1-Step: 50% Best Day on Qualified Performance is tighter than “3 any trading days.” P(pay) fell 9.1% → 8.2%. Paid paths keep trading to flatten Best Day, so first-payout E[X] $100k $118 → $151 and BE $130 → $164.
-- Sale card was not raised. Instant $100k at $439 is the only challenge SKU that fails the opex stack (leftover −$10). Instant $50k is thin (+$2).
-
-## 310-account book
-
-Challenge leftover **$10,219 (18.8%) → $8,723 (16.1%)** of $54,270. Instant family leftover $1,684 → $548. 1-Step $4,048 → $3,172. Lite and Pro unchanged.
-
-## Instant $100k add-ons (same extra-E[X] fractions)
-
-| Add-on | Sticker | Extra E[X] | Leftover after ads |
-|---|---:|---:|---:|
-| Weekend 15% | $101 | $24 | +$28 |
-| Weekly 70% 6% | $41 | $24 | **−$3** |
-| On Demand 90% 32% | $216 | $125 | **−$13** |
-
-Weekly and On Demand on Instant $100k no longer print at the locked percents because challenge BE rose. 1-Step $100k add-ons still print.
+New Instant Best Day is a green day of at least 0.5% of SOD. That matches the old valid-day set. It does **not** put +0.1% / +0.4% chip days back into Positive Days’ Profit. Old Best Day used every green day, which made 20% easier. Instant $100k leftover stays about **−$11** (was +$20). Switching off EOD / “more than” did not recover the old book.
 

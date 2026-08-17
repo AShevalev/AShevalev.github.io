@@ -10,23 +10,23 @@ Mix: Instant 98 · 1-Step 67 · Lite 82 · Pro 63 · **310**.
 |---|---:|
 | Challenge revenue | $54,270 |
 | Ads 20% | −$10,854 |
-| Payout BE (Instant year-1 / eval first-payout + refund) | −$24,712 |
-| 10% assumption error on BE | −$2,471 |
+| Payout BE (Instant year-1 / eval first-payout + refund) | −$24,744 |
+| 10% assumption error on BE | −$2,474 |
 | $1 per account | −$310 |
 | Wages CAD 10,000 × 0.72 | −$7,200 |
-| **Leftover after opex** | **$8,723** |
+| **Leftover after opex** | **$8,687** |
 
-Leftover is **16.1%** of challenge revenue. Contribution before wages is $15,923 (29.3%). Payout-only sale margin (ignores ads/wages/$1/error) is 50.0% — do not run the desk on that number.
+Leftover is **16.0%** of challenge revenue. Contribution before wages is $15,887 (29.3%). Payout-only sale margin (ignores ads/wages/$1/error) is 50.0% — do not run the desk on that number.
 
 ## Family roll-up at 310
 
 | Plan | N | Revenue | Leftover | of revenue |
 |---|---:|---:|---:|---:|
-| Instant | 98 | $16,202 | $548 | 3.4% |
+| Instant | 98 | $16,202 | $512 | 3.2% |
 | 1-Step | 67 | $12,601 | $3,172 | 25.2% |
 | 2-Step Lite | 82 | $12,718 | $2,138 | 16.8% |
 | 2-Step Pro | 63 | $12,749 | $2,866 | 22.5% |
-| **Book** | **310** | **$54,270** | **$8,723** | **16.1%** |
+| **Book** | **310** | **$54,270** | **$8,687** | **16.0%** |
 
 ## Same mix at 150 / 310 / 600
 
@@ -34,9 +34,9 @@ Wages stay $7,200. Per-account wage falls as volume rises.
 
 | Accounts | Revenue | Leftover | of revenue |
 |---:|---:|---:|---:|
-| 150 | $26,260 | $505 | 1.9% |
-| 310 ← this book | $54,270 | $8,723 | 16.1% |
-| 600 | $105,039 | $23,619 | 22.5% |
+| 150 | $26,260 | $487 | 1.9% |
+| 310 ← this book | $54,270 | $8,687 | 16.0% |
+| 600 | $105,039 | $23,550 | 22.4% |
 
 ## Per SKU at 310
 
@@ -44,11 +44,11 @@ Leftover = sale × 0.80 − (BE × 1.10 + $1 + wage share). Sale m is payout-onl
 
 | Plan | Size | N | Sale | List | BE | Opex floor | Sale m | Left / unit | Book left |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Instant | $5,000 | 15 | $49 | $75 | $15 | $43 | 68.9% | $5 | $77 |
-| Instant | $10,000 | 25 | $69 | $106 | $31 | $64 | 55.8% | $4 | $97 |
-| Instant | $25,000 | 28 | $149 | $229 | $76 | $129 | 48.8% | $16 | $455 |
-| Instant | $50,000 | 18 | $239 | $368 | $153 | $236 | 36.1% | $2 | $39 |
-| Instant | $100,000 | 12 | $439 | $675 | $305 | $451 | 30.5% | −$10 | −$120 |
+| Instant | $5,000 | 15 | $49 | $75 | $15 | $43 | 68.7% | $5 | $76 |
+| Instant | $10,000 | 25 | $69 | $106 | $31 | $64 | 55.6% | $4 | $94 |
+| Instant | $25,000 | 28 | $149 | $229 | $77 | $129 | 48.6% | $16 | $447 |
+| Instant | $50,000 | 18 | $239 | $368 | $153 | $237 | 35.9% | $2 | $29 |
+| Instant | $100,000 | 12 | $439 | $675 | $306 | $453 | 30.2% | −$11 | −$134 |
 | 1-Step | $5,000 | 8 | $45 | $69 | $8 | $37 | 75.1% | $7 | $54 |
 | 1-Step | $10,000 | 14 | $69 | $106 | $16 | $48 | 70.0% | $16 | $230 |
 | 1-Step | $25,000 | 18 | $129 | $198 | $41 | $84 | 62.6% | $36 | $645 |
@@ -67,10 +67,10 @@ Leftover = sale × 0.80 − (BE × 1.10 + $1 + wage share). Sale m is payout-onl
 | 2-Step Pro | $50,000 | 14 | $199 | $306 | $79 | $142 | 53.0% | $46 | $640 |
 | 2-Step Pro | $100,000 | 10 | $349 | $537 | $157 | $257 | 48.1% | $74 | $738 |
 | 2-Step Pro | $200,000 | 5 | $699 | $1,075 | $314 | $487 | 48.2% | $170 | $849 |
-| **Book** | — | **310** | — | — | $24,712 | — | 50.0% | — | **$8,723** |
+| **Book** | — | **310** | — | — | $24,744 | — | 50.0% | — | **$8,687** |
 
-Does not print (leftover < −$1): Instant $100,000 −$10.
-Thin (under $2 leftover): 2-Step Lite $5,000 $0. Leave the street doors; the book still prints.
+Does not print (leftover < −$1): Instant $100,000 −$11.
+Thin (under $2 leftover): Instant $50,000 $2, 2-Step Lite $5,000 $0. Leave the street doors; the book still prints.
 
 ## Add-ons on the 310 mix (attach-weighted)
 
@@ -78,9 +78,9 @@ News attach is 0 (included). Weekend / Weekly / On Demand attach is the early-bo
 
 | Card | Weekend | Weekly 70% | On Demand 90% | Extra leftover | Extra net $ |
 |---|---:|---:|---:|---:|---:|
-| Rec 12% / 8% / 15–32% | $565 | $183 | $365 | **$1,113** | $2,939 |
-| Checkout 15% / 6% / 20% | $753 | $105 | $266 | **$1,124** | $2,953 |
+| Rec 12% / 8% / 15–32% | $565 | $182 | $363 | **$1,110** | $2,939 |
+| Checkout 15% / 6% / 20% | $753 | $105 | $263 | **$1,121** | $2,953 |
 
-Challenge leftover $8,723 plus rec add-on leftover $1,113 = **$9,836**/mo blended. Checkout 15/6/20 blended **$9,847**/mo. Instant $100k On Demand at checkout 20% still does not print on that SKU; attach-weighted book leftover can stay positive because smaller Instant doors do.
+Challenge leftover $8,687 plus rec add-on leftover $1,110 = **$9,798**/mo blended. Checkout 15/6/20 blended **$9,809**/mo. Instant $100k On Demand at checkout 20% still does not print on that SKU; attach-weighted book leftover can stay positive because smaller Instant doors do.
 
 PDF: `results/Verodus_Book_310_2026-08-17.pdf`
