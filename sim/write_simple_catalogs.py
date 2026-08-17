@@ -162,22 +162,25 @@ def build_rules():
 
 
 def price_grid(rows, s):
-    heads = ["Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k"]
+    heads = ["Plan", "Price", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k"]
     by = {(r["Key"], r["Size"]): r for r in rows}
     data = [[P(h, s["th"]) for h in heads]]
     spec = {}
-    for i, (plan, _fam) in enumerate(ANCHORS, start=1):
-        spec[i] = "rec" if plan == "Instant" else "live"
-        cells = [P(PLAN_LABEL[plan], s["tdl"])]
-        for sz in SIZES:
-            r = by.get((plan, sz))
-            if r is None:
-                cells.append(P("—", s["td"]))
-            else:
-                cells.append(P(f"{usd(r['Sale'])} / {usd(r['List'])}", s["td"]))
-        data.append(cells)
+    i = 0
+    for plan, _fam in ANCHORS:
+        for kind, field in (("Sale", "Sale"), ("List", "List")):
+            i += 1
+            spec[i] = "rec" if plan == "Instant" else "live"
+            cells = [P(PLAN_LABEL[plan], s["tdl"]), P(kind, s["td"])]
+            for sz in SIZES:
+                r = by.get((plan, sz))
+                if r is None:
+                    cells.append(P("—", s["td"]))
+                else:
+                    cells.append(P(usd(r[field]), s["td"]))
+            data.append(cells)
     return grid(data, [
-        36 * mm, 32 * mm, 32 * mm, 32 * mm, 32 * mm, 34 * mm, 34 * mm,
+        36 * mm, 18 * mm, 28 * mm, 28 * mm, 28 * mm, 28 * mm, 30 * mm, 30 * mm,
     ], spec)
 
 
@@ -188,7 +191,7 @@ def build_prices():
 
     story.append(P("Pricing catalogue", s["cover"]))
     story.append(P(
-        "Sale / list. Shopper pays the sale with VERO35 (35% off list). "
+        "Sale is what the shopper pays with VERO35 (35% off list). "
         "List is checkout basePrice. Instant has no $200k.",
         s["sub"],
     ))
@@ -252,7 +255,7 @@ def build_prices():
     write_pdf(
         OUT_PRICES, story,
         "VERODUS  ·  Pricing catalogue",
-        "Sale / list. VERO35 35% off. Weekend 15% · Weekly 70% 6% · On Demand 90% 20%.",
+        "Sale and list in separate rows. VERO35 35% off. Weekend 15% · Weekly 70% 6% · On Demand 90% 20%.",
         OUT_PRICES_SHOP,
     )
 

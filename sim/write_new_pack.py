@@ -285,31 +285,34 @@ def build_catalog():
 
     story.append(P("Catalog — prices, rules, add-on %", s["cover"]))
     story.append(P(
-        "VERO35 sale / list. Same percentage rules on every size in a plan. "
+        "VERO35 sale and list in separate rows. Same percentage rules on every size in a plan. "
         "News trading is included. Default reward is Bi-Weekly 80%, min $100.",
         s["sub"],
     ))
 
-    story.append(P("1. Challenge prices (sale / list)", s["h1"]))
-    heads = ["Plan", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k"]
+    story.append(P("1. Challenge prices", s["h1"]))
+    heads = ["Plan", "Price", "$5k", "$10k", "$25k", "$50k", "$100k", "$200k"]
     sizes = (5000, 10000, 25000, 50000, 100000, 200000)
     by = {}
     for r in skus:
         by[(r["Plan"], r["Size"])] = r
     data = [[P(h, s["th"]) for h in heads]]
     spec = {}
-    for i, plan in enumerate(("Instant", "1-Step", "2-Step Lite", "2-Step Pro"), start=1):
-        spec[i] = "rec" if plan == "Instant" else "live"
-        cells = [P(plan, s["tdl"])]
-        for sz in sizes:
-            r = by.get((plan, sz))
-            if r is None:
-                cells.append(P("—", s["td"]))
-            else:
-                cells.append(P(f"{usd(r['Sale'])} / {usd(r['List'])}", s["td"]))
-        data.append(cells)
+    i = 0
+    for plan in ("Instant", "1-Step", "2-Step Lite", "2-Step Pro"):
+        for kind, field in (("Sale", "Sale"), ("List", "List")):
+            i += 1
+            spec[i] = "rec" if plan == "Instant" else "live"
+            cells = [P(plan, s["tdl"]), P(kind, s["td"])]
+            for sz in sizes:
+                r = by.get((plan, sz))
+                if r is None:
+                    cells.append(P("—", s["td"]))
+                else:
+                    cells.append(P(usd(r[field]), s["td"]))
+            data.append(cells)
     story.append(grid(data, [
-        32 * mm, 32 * mm, 32 * mm, 32 * mm, 32 * mm, 34 * mm, 34 * mm,
+        32 * mm, 18 * mm, 28 * mm, 28 * mm, 28 * mm, 28 * mm, 30 * mm, 30 * mm,
     ], spec))
     story.append(P(
         "Door: Instant from $49 · 1-Step from $45 · Lite from $39 · Pro from $45. "
@@ -395,7 +398,7 @@ def build_catalog():
     write_pdf(
         OUT_CATALOG, story,
         "VERODUS  ·  Catalog  ·  prices, rules, add-on %",
-        "Sale / list. News included. Weekend 12% · Weekly 70% 8% · On Demand 90% 15% evals / 32% Instant.",
+        "Sale and list in separate rows. News included. Weekend 12% · Weekly 70% 8% · On Demand 90% 15% evals / 32% Instant.",
         OUT_CATALOG_SHOP,
     )
 
