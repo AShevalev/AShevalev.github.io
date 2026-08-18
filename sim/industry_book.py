@@ -147,9 +147,9 @@ def _consistency_denom(basis, sod, eod, start):
 def _counts_for_best_day(day_pnl, sod, eod, start, rules):
     """Which closed days enter Best Day / Positive Days' Profit.
 
-    Instant: a green day of at least 0.5% of start-of-day equity.
-    At 20% Best Day that still requires at least five counted days
-    (1/n of PDP). 1-Step: every green day (no 0.5% floor).
+    Instant: every green day is factored into Positive Days' Profit.
+    A day meets the 0.5% parameter only if profit is more than 0.5%
+    of start-of-day equity (valid-day gate). 1-Step: every green day.
     """
     floor = rules.get("consistency_floor")
     if floor is None:
@@ -298,7 +298,12 @@ def run_phase(start_balance, rules, profile_name, rng, is_funded=False,
 
         vdt = rules.get("valid_day_threshold", 0.0)
         if vdt > 0:
-            if day_pnl >= sod * vdt:
+            hit = (
+                day_pnl > sod * vdt
+                if rules.get("valid_day_op", "ge") == "gt"
+                else day_pnl >= sod * vdt
+            )
+            if hit:
                 valid_days += 1
         else:
             valid_days += 1

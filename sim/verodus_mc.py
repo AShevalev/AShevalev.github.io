@@ -109,10 +109,9 @@ SESSION_P = np.array([s[1] for s in SESSIONS], dtype=float)
 # 3. VERODUS PRODUCTS — FAQ / live rules
 # =============================================================================
 # Instant: funded day 1. 6% trailing HWM (never locks). Daily 3% of start from
-#   day's equity high. One payout rule: 20% Best Day of Positive Days' Profit;
-#   a counted day is a green day of at least 0.5% of start-of-day equity.
-#   The 20% cap cannot clear with fewer than five counted days (implied, not
-#   a 5-day checkbox). $100 min. Split 80%. No refund.
+#   day's equity high. Every green day is factored into Best Day / PDP. A day
+#   meets the 0.5% parameter only if profit is more than 0.5% of SOD. 20%
+#   Best Day. $100 min. Split 80%. No refund.
 # 1-Step: 10% target, no min days, 50% Best Day of Positive Days' Profit,
 #   4% daily from SOD equity (fixed $ of initial), 6% hybrid (lock at initial).
 #   Funded: same DD, no min days, 50% Best Day. 100% fee refund on first reward.
@@ -128,12 +127,10 @@ PRODUCTS = {
                 "floor_type": "trailing",
                 "daily_dd": 0.03,
                 "daily_dd_type": "intraday_peak",
-                "min_days": 0,
-                "valid_day_threshold": 0.0,
+                "min_days": 5,
+                "valid_day_threshold": 0.005,
+                "valid_day_op": "gt",
                 "consistency": 0.20,
-                "consistency_floor": 0.005,
-                "consistency_basis": "sod",
-                "consistency_op": "ge",
             }
         ],
         "funded": None,
@@ -472,7 +469,12 @@ def run_phase(start_balance, rules, sens, profile_name, rng, is_funded=False,
 
         vdt = rules.get("valid_day_threshold", 0.0)
         if vdt > 0:
-            if day_pnl >= sod * vdt:
+            hit = (
+                day_pnl > sod * vdt
+                if rules.get("valid_day_op", "ge") == "gt"
+                else day_pnl >= sod * vdt
+            )
+            if hit:
                 valid_days += 1
         else:
             valid_days += 1

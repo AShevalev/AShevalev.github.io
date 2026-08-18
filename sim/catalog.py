@@ -12,7 +12,8 @@ from __future__ import annotations
 # phase helper
 def P(target, max_dd, floor, daily, daily_type="sod", min_days=0, vdt=0.0,
       cons=None, trail_lock=None, daily_action="breach", max_risk=None,
-      funded_risk=None, cons_floor=None, cons_basis="eod", cons_op="gt"):
+      funded_risk=None, cons_floor=None, cons_basis="eod", cons_op="gt",
+      vdt_op="ge"):
     d = {
         "target": target,
         "max_dd": max_dd,
@@ -22,6 +23,7 @@ def P(target, max_dd, floor, daily, daily_type="sod", min_days=0, vdt=0.0,
         "daily_dd_basis": "initial",
         "min_days": min_days,
         "valid_day_threshold": vdt,
+        "valid_day_op": vdt_op,
         "consistency": cons,
         "daily_dd_action": daily_action,
     }
@@ -78,11 +80,11 @@ def add(key, firm, plan, family, phases, funded_rules, skus, refund="first",
 # 1. VERODUS — reprice after news-included 17 Aug 2026 (list = sale ÷ 0.65)
 # =============================================================================
 add("Verodus Instant", "Verodus", "Instant", "instant",
-    [P(None, 0.06, "trailing", 0.03, "intraday_peak", 0, 0.0, 0.20,
-      cons_floor=0.005, cons_basis="sod", cons_op="ge")],
+    [P(None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20,
+      vdt_op="gt")],
     None, sku((5e3,75,49),(1e4,106,69),(25e3,229,149),(5e4,368,239),(1e5,675,439)),
     refund="none", split=0.80, instant=True, discount="VERO35",
-    source="Instant Best Day: green day of at least 0.5% of SOD; 20% cap implies 5 counted days")
+    source="Instant: every green day in Best Day; a day meets 0.5% only if profit >0.5% of SOD")
 
 add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     [P(0.10, 0.06, "hybrid", 0.04, "sod", 0, 0.0, 0.50)],

@@ -141,7 +141,7 @@ def build():
     rdata = [[P(h, s["th"]) for h in rheads]]
     rules = (
         ("Instant Funding", "Funded (day 1)", "None (payout unlock)",
-         "None", "20% best day (0.5% green day)", "3%", "6%", "Trailing HWM (never locks)"),
+         "None", "20% best day (all green days)", "3%", "6%", "Trailing HWM (never locks)"),
         ("One-Step", "Evaluation", "10%", "0", "50% best day",
          "4%", "6%", "Hybrid trail, lock at initial"),
         ("One-Step", "Funded", "None", "0", "50% best day",
@@ -175,7 +175,7 @@ def build():
     story.append(P(
         "<b>Instant:</b> no eval. Daily 3% of start from the day’s equity high. "
         "Max 6% trails peak and never locks. One payout rule: 20% Best Day "
-        "(a counted day is a green day of at least 0.5% of start-of-day equity), $100 min. "
+        "(every green day is factored; a day meets 0.5% only if profit is more than 0.5% of SOD), $100 min. "
         "The 20% cap implies at least five counted days — do not list a 5-day checkbox. "
         "<b>No fee refund.</b> Split 80/20, biweekly. No 2% risk cap, no first-reward cap, no $200k.",
         s["body"],
