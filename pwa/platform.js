@@ -319,7 +319,7 @@ export function getLandingInstallModalCopy() {
   };
 }
 
-export const TRADE_APP_HREF = "https://trade.verodus.com/tradehub?source=pwa";
+export const TRADE_APP_HREF = "https://trade.verodus.com/dashboard";
 
 /**
  * Dashboard modal: how to install the separate TradeHub app.

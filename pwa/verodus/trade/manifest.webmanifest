@@ -3,7 +3,7 @@
   "name": "Verodus TradeHub",
   "short_name": "TradeHub",
   "description": "Verodus trading terminal",
-  "start_url": "/tradehub?source=pwa",
+  "start_url": "/dashboard?source=pwa",
   "scope": "/",
   "display": "standalone",
   "display_override": ["standalone", "fullscreen", "minimal-ui"],

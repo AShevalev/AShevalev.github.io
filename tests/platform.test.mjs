@@ -166,7 +166,7 @@ test("Platforms page cards are Android, Mobile, Desktop, Safari, and Trading", (
   assert.match(cards.find((card) => card.id === "safari").steps[1], /Add to Dock/);
   assert.equal(
     cards.find((card) => card.id === "trading").href,
-    "https://trade.verodus.com/tradehub?source=pwa"
+    "https://trade.verodus.com/dashboard"
   );
 });
 
@@ -174,6 +174,6 @@ test("trading install modal has instructions and a TradeHub link", () => {
   const copy = getTradingInstallModalCopy();
   assert.match(copy.title, /trading app/i);
   assert.match(copy.lead, /does not happen automatically/i);
-  assert.equal(copy.href, "https://trade.verodus.com/tradehub?source=pwa");
+  assert.equal(copy.href, "https://trade.verodus.com/dashboard");
   assert.equal(copy.cta, "Open TradeHub");
 });

@@ -17,11 +17,11 @@ test("dashboard PWA is standalone and does not pin an account id", () => {
   assert.deepEqual(origins, ["https://trade.verodus.com"]);
 });
 
-test("trade start_url is TradeHub without a cuid (covers Platform 5 on the same origin)", () => {
+test("trade start_url is /dashboard without a cuid", () => {
   const manifest = readJson("../pwa/verodus/trade/manifest.webmanifest");
   assert.equal(manifest.display, "standalone");
   assert.equal(isAccountScopedPath(manifest.start_url), false);
-  assert.match(manifest.start_url, /^\/tradehub/);
+  assert.match(manifest.start_url, /^\/dashboard/);
 });
 
 test("origin association opts trade into the dashboard app id", () => {
@@ -98,7 +98,7 @@ test("dashboard install script handles per-platform CTAs", () => {
   assert.match(src, /beforeinstallprompt/);
   assert.match(src, /Add to Home Screen/);
   assert.match(src, /Add to Dock/);
-  assert.match(src, /trade\.verodus\.com\/tradehub/);
+  assert.match(src, /trade\.verodus\.com\/dashboard/);
   assert.match(src, /v-platforms-modal__link/);
 });
 

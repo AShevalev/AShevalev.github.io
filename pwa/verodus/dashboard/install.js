@@ -58,7 +58,7 @@
         "When TradeHub loads: Chrome/Edge → Install in the address bar. iPhone → Share → Add to Home Screen. Safari on a Mac → File → Add to Dock.",
         "Open it from your home screen or Dock. TradeHub and Platform 5 are the same trading app.",
       ],
-      href: "https://trade.verodus.com/tradehub?source=pwa",
+      href: "https://trade.verodus.com/dashboard",
       linkCta: "Open TradeHub",
     },
   };

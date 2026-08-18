@@ -142,7 +142,7 @@ The five buttons use `data-install-app` + `data-install-platform="android|mobile
 - **Mobile** — iPhone / iPad Share → Add to Home Screen
 - **Desktop** — Chrome / Edge address-bar install (Firefox desktop cannot install PWAs)
 - **Safari** — Mac only. File → **Add to Dock** (Safari 17+ / macOS 14 Sonoma or newer). Creates a Dock web app.
-- **Trading** — opens a **modal** with steps and a link to `https://trade.verodus.com/tradehub?source=pwa`. Does **not** auto-install. User opens TradeHub in a normal tab, then Install / Add to Dock there.
+- **Trading** — opens a **modal** with steps and a link to `https://trade.verodus.com/dashboard`. Does **not** auto-install. User opens that page in a normal tab, then Install / Add to Dock there.
 
 Do not send these cards to Play or App Store. The iframe change in section 4 is optional and can wait.
 
