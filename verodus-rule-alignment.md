@@ -107,7 +107,7 @@ On-Demand (Add-on): Available when eligibility requirements are met.
 Do **not** paste these onto Instant / 1-Step / 2-Step plan pages:
 
 ```text
-Instant: On-demand: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A profitable day is a day that closes with at least 0.5% profit.
+Instant: On-demand: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A Valid Day is a day that closes with at least 0.5% profit.
 1-Step: On-demand: $100. No minimum trading days. Best Day ≤50% of Positive Days’ Profit.
 2-Step Lite / Pro: On-demand: $100 and 3 trading days.
 ```
@@ -228,7 +228,7 @@ On Instant pages, say **only** Instant rules. Do not mention 1-Step or 2-Step da
 | Eligibility | At least **3 trading days** since QPP; or one long bullet that dumps cycle + 0.5% | Short Eligibility: `$100` + Best Day ≤20% of Positive Days’ Profit + cycle. No min trading days. No 0.5% here. Do not dump Weekly / Bi-Weekly / On-Demand into this bullet. |
 | Weekly | 7 calendar days, no Best Day; or “starting from Qualified Performance Account” | **`$100`, 7 calendar days, Best Day ≤20% of Positive Days’ Profit.** Instant is funded from day one — do not say QPP account. |
 | Bi-Weekly | 14 calendar days, no Best Day | **`$100`, 14 calendar days, Best Day ≤20% of Positive Days’ Profit.** |
-| On-Demand | Wordy 0.5% “parameter” + “green day”; or two On-Demand bullets | **One line:** `$100`. No min trading days. Best Day ≤20% of Positive Days’ Profit. **A profitable day is a day that closes with at least 0.5% profit.** |
+| On-Demand | Wordy 0.5% “parameter” + “green day”; or two On-Demand bullets | **One line:** `$100`. No min trading days. Best Day ≤20% of Positive Days’ Profit. **A Valid Day is a day that closes with at least 0.5% profit.** |
 | `li10` / `span21` | 5 valid days before your **first** reward | **No minimum trading days.** Delete the 5-day line. |
 
 Delete the Instant “3 trading days since last payout” extra. Delete Instant 5-valid-day / 5-min-day lines. Do **not** add the 2-Step 3-day QPP min to Instant or 1-Step.
@@ -285,7 +285,7 @@ A 2-Step “trading day” = open and close on the same calendar day. Instant an
 
 ```html
 <ul>
-  <li>Instant: No evaluation phase. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A profitable day is a day that closes with at least 0.5% profit.</li>
+  <li>Instant: No evaluation phase. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A Valid Day is a day that closes with at least 0.5% profit.</li>
   <li>1-Step: No minimum trading days to pass evaluation. Qualified Performance has no minimum trading days. Best Day ≤50% of Positive Days’ Profit.</li>
   <li>2-Step Lite: 5 trading days per evaluation phase (open and close on the same calendar day). Qualified Performance payouts need 3 trading days.</li>
   <li>2-Step Pro: 5 trading days per evaluation phase (open and close on the same calendar day). Qualified Performance payouts need 3 trading days.</li>
@@ -323,7 +323,7 @@ A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand r
     <li>1-Step Qualified Performance: no minimum trading days, Best Day ≤50% of Positive Days’ Profit, plus the cycle</li>
     <li>2-Step Lite / Pro Qualified Performance: 3 trading days, plus the cycle</li>
     <li>Weekly: $100 and 7 calendar days · Bi-weekly: $100 and 14 calendar days</li>
-    <li>On-demand Instant: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A profitable day is a day that closes with at least 0.5% profit</li>
+    <li>On-demand Instant: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A Valid Day is a day that closes with at least 0.5% profit</li>
     <li>On-demand 1-Step: $100. No minimum trading days. Best Day ≤50% of Positive Days’ Profit</li>
     <li>On-demand 2-Step: $100 and 3 trading days</li>
 </ul>
@@ -431,7 +431,7 @@ Do **not** keep this Instant modal line (it wrongly drops small profitable days 
 **`instant.html` Best Day modal** (hardcoded under `#bestDayModal`). Live first paragraph is the 20% rule only. Insert the Instant 0.5% sentence after it:
 
 ```text
-The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit at the time you request a payout. Every profitable day is factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit. A profitable day is a day that closes with at least 0.5% profit. Small profitable days still count toward Positive Days' Profit.
+The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit at the time you request a payout. Every profitable day is factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit. A Valid Day is a day that closes with at least 0.5% profit. Small profitable days still count toward Positive Days' Profit.
 ```
 
 Also on `instant.html` body copy (not only the modal):
@@ -449,7 +449,7 @@ Also on `instant.html` body copy (not only the modal):
 | Instant data `minDays:'5'` | Drop or unused. |
 | `content.p8Instant`: First Payout after **5 trading days** | `Every payout: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit (within 48 hrs).` Drop “first only.” No 0.5% on this line. |
 | `content.p8`: First Payout after **3 trading days** (eval tabs) | **2-Step only:** every QPP payout `$100` + **3 trading days**. **1-Step:** `$100` + 50% Best Day of Positive Days’ Profit; no min trading days. Drop “first only.” Not for Instant (`p8Instant` stays Instant-only). |
-| Instant on-demand / “Anytime after min trading days” | Instant: `$100`. No min trading days. Best Day ≤20% of Positive Days’ Profit. A profitable day is a day that closes with at least 0.5% profit. 1-Step: `$100`. No minimum trading days. Best Day ≤50% of Positive Days’ Profit. 2-Step: `$100` + 3 trading days. |
+| Instant on-demand / “Anytime after min trading days” | Instant: `$100`. No min trading days. Best Day ≤20% of Positive Days’ Profit. A Valid Day is a day that closes with at least 0.5% profit. 1-Step: `$100`. No minimum trading days. Best Day ≤50% of Positive Days’ Profit. 2-Step: `$100` + 3 trading days. |
 | 1-Step Best Day modal (same `best-day` type, `bestPctLimit === 50`) | Every profitable day in PDP. Do not mention 0.5%. |
 | 2-Step `trading-days` modal: 5 active days in **evaluation** | Keep as **eval** 5 days. Do not turn it into Instant 0.5%. QPP payouts on 2-Step are **3** days — say that on Eligibility / rewards, not in the eval modal. |
 
@@ -463,7 +463,7 @@ Locale: `/locales/*/pages/trading-objectives.json` and `common.json` keys used b
 | `1-step.html` | QPP Eligibility: **no min trading days** + `$100` + 50% Best Day of Positive Days’ Profit + cycle. Weekly / Bi-Weekly: `$100` + Best Day ≤50% + clock. Delete the 3-day QPP line. Eval: no min days, same 50% Best Day. Do not mention 0.5%. |
 | `2-step-lite.html` / `2-step-pro.html` | Eval: **5** trading days per phase. QPP Eligibility: **3 trading days** + `$100` + cycle. Weekly / Bi-Weekly / On-Demand each name `$100` and 3 trading days. **One** On-Demand line. **No** Instant 20% / 0.5%. |
 | `trading-objectives.html` | Instant Best Day modal + Instant card / `p8Instant` as above. 1-Step `p8` = no min days. 2-Step `p8` = 3 QPP days every payout. |
-| `faq-plans.html` `p7` | Instant: no min trading days. 20% Best Day of Positive Days’ Profit. A profitable day is a day that closes with at least 0.5% profit. |
+| `faq-plans.html` `p7` | Instant: no min trading days. 20% Best Day of Positive Days’ Profit. A Valid Day is a day that closes with at least 0.5% profit. |
 | `faq-plans.html` 1-Step / 2-Step cards | 1-Step QPP: no min days; 50% Best Day of Positive Days’ Profit. 2-Step QPP: 3 trading days. Do not put Instant 0.5% on those cards. |
 | `faq-qualified-trader.html` | Delete 4-then-3. Instant = no min days + Best Day of every profitable day. 1-Step QPP = no min days + 50% Best Day of Positive Days’ Profit. 2-Step QPP = 3 trading days. Same first and later. |
 | `faq-evaluation.html` | Add Instant: no eval; no min trading days; Best Day of every profitable day. 1-Step: no min in eval or QPP; 50% Best Day of Positive Days’ Profit. 2-Step: 5 per eval phase; QPP 3 days. |
