@@ -74,21 +74,21 @@
       if (currentTab === 'instant') {
         titleEl.textContent = 'Instant payouts';
         contentEl.innerHTML = '<p>Every payout needs <strong>$100</strong>, Best Day ≤20% of Positive Days\' Profit, and the selected cycle. Instant has <strong>no minimum trading days</strong>.</p>'
-          + '<p>Weekly: $100, 7 calendar days, Best Day ≤20% of Positive Days\' Profit.</p>'
-          + '<p>Bi-Weekly: $100, 14 calendar days, Best Day ≤20% of Positive Days\' Profit.</p>'
-          + '<p>On-Demand: $100. No minimum trading days. Best Day ≤20% of Positive Days\' Profit. A profitable day is a day that closes with more than 0.5% profit.</p>';
+          + '<p>Weekly: 7 calendar days, Best Day ≤20% of Positive Days\' Profit.</p>'
+          + '<p>Bi-Weekly: 14 calendar days, Best Day ≤20% of Positive Days\' Profit.</p>'
+          + '<p>On-Demand: available when eligibility requirements are met.</p>';
       } else if (currentTab === '1step') {
         titleEl.textContent = '1-Step payouts';
         contentEl.innerHTML = '<p>Every payout needs <strong>$100</strong>, Best Day ≤50% of Positive Days\' Profit, and the selected cycle. 1-Step has <strong>no minimum trading days</strong>.</p>'
-          + '<p>Weekly: $100, 7 calendar days, Best Day ≤50% of Positive Days\' Profit.</p>'
-          + '<p>Bi-Weekly: $100, 14 calendar days, Best Day ≤50% of Positive Days\' Profit.</p>'
-          + '<p>On-Demand: $100. No minimum trading days. Best Day ≤50% of Positive Days\' Profit.</p>';
+          + '<p>Weekly: 7 calendar days, Best Day ≤50% of Positive Days\' Profit.</p>'
+          + '<p>Bi-Weekly: 14 calendar days, Best Day ≤50% of Positive Days\' Profit.</p>'
+          + '<p>On-Demand: available when eligibility requirements are met.</p>';
       } else {
         titleEl.textContent = '2-Step payouts';
         contentEl.innerHTML = '<p>Every payout needs <strong>$100</strong> and <strong>3 trading days</strong>, plus the selected cycle. The first payout and every payout after use this same rule.</p>'
-          + '<p>Weekly: $100, 7 calendar days, and 3 trading days.</p>'
-          + '<p>Bi-Weekly: $100, 14 calendar days, and 3 trading days.</p>'
-          + '<p>On-Demand: $100 and 3 trading days.</p>';
+          + '<p>Weekly: 7 calendar days, and 3 trading days.</p>'
+          + '<p>Bi-Weekly: 14 calendar days, and 3 trading days.</p>'
+          + '<p>On-Demand: available when eligibility requirements are met.</p>';
       }
       return;
     }

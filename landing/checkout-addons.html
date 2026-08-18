@@ -314,7 +314,7 @@
       instantPct: 0.32,
       desc: 'Withdraw your profit share anytime — no waiting for fixed cycles',
       tooltip: function () {
-        return 'On Demand Rewards with 90% Split\n\nRequest your 90% reward share with no 7- or 14-day wait. Minimum reward $100.\n\n'
+        return 'On Demand Rewards with 90% Split\n\nRequest your 90% reward share with no 7- or 14-day wait. Available when eligibility requirements are met.\n\n'
           + minDaysCopy();
       }
     }
@@ -322,12 +322,12 @@
 
   function minDaysCopy() {
     if (selectedPlan === 'instant') {
-      return 'Weekly / Bi-Weekly / On-Demand: $100 and Best Day ≤20% of Positive Days’ Profit. Instant has no minimum trading days.';
+      return 'Eligibility already includes $100 and Best Day ≤20% of Positive Days’ Profit. Weekly / Bi-Weekly add the 7- or 14-day clock.';
     }
     if (selectedPlan === '1step') {
-      return 'Weekly / Bi-Weekly / On-Demand: $100 and Best Day ≤50% of Positive Days’ Profit. 1-Step has no minimum trading days.';
+      return 'Eligibility already includes $100 and Best Day ≤50% of Positive Days’ Profit. Weekly / Bi-Weekly add the 7- or 14-day clock.';
     }
-    return 'Weekly / Bi-Weekly / On-Demand: $100 and 3 trading days.';
+    return 'Eligibility already includes $100 and 3 trading days. Weekly / Bi-Weekly add the 7- or 14-day clock.';
   }
 
   function escHtml(s) {

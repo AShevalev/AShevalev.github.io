@@ -66,15 +66,15 @@ REWARDS_INSTANT = "\n".join(
         ),
         _rstep(
             "Weekly (Add-on)",
-            "$100, 7 calendar days, Best Day ≤20% of Positive Days' Profit.",
+            "7 calendar days, Best Day ≤20% of Positive Days' Profit.",
         ),
         _rstep(
             "Bi-Weekly (Standard)",
-            "$100, 14 calendar days, Best Day ≤20% of Positive Days' Profit.",
+            "14 calendar days, Best Day ≤20% of Positive Days' Profit.",
         ),
         _rstep(
             "On-Demand (Add-on)",
-            "$100. No minimum trading days. Best Day ≤20% of Positive Days' Profit. A profitable day is a day that closes with more than 0.5% profit.",
+            "Available when eligibility requirements are met.",
         ),
         _rstep(
             "Intervals",
@@ -93,15 +93,15 @@ REWARDS_1STEP = "\n".join(
         ),
         _rstep(
             "Weekly (Add-on)",
-            "$100, 7 calendar days, Best Day ≤50% of Positive Days' Profit.",
+            "7 calendar days, Best Day ≤50% of Positive Days' Profit.",
         ),
         _rstep(
             "Bi-Weekly (Standard)",
-            "$100, 14 calendar days, Best Day ≤50% of Positive Days' Profit.",
+            "14 calendar days, Best Day ≤50% of Positive Days' Profit.",
         ),
         _rstep(
             "On-Demand (Add-on)",
-            "$100. No minimum trading days. Best Day ≤50% of Positive Days' Profit.",
+            "Available when eligibility requirements are met.",
         ),
         _rstep(
             "Intervals",
@@ -123,13 +123,16 @@ REWARDS_2STEP = "\n".join(
         ),
         _rstep(
             "Weekly (Add-on)",
-            "$100, 7 calendar days, and 3 trading days.",
+            "7 calendar days, and 3 trading days.",
         ),
         _rstep(
             "Bi-Weekly (Standard)",
-            "$100, 14 calendar days, and 3 trading days.",
+            "14 calendar days, and 3 trading days.",
         ),
-        _rstep("On-Demand (Add-on)", "$100 and 3 trading days."),
+        _rstep(
+            "On-Demand (Add-on)",
+            "Available when eligibility requirements are met.",
+        ),
         _rstep(
             "Intervals",
             "All reward request intervals are calendar days, not trading days",
@@ -507,6 +510,7 @@ def verify(slug: str, html: str) -> None:
             "no minimum trading days",
             "Best Day ≤20% of Positive Days",
             "A profitable day is a day that closes with more than 0.5% profit",
+            "Available when eligibility requirements are met",
         ):
             if needle not in html:
                 misses.append(needle)
@@ -524,6 +528,7 @@ def verify(slug: str, html: str) -> None:
             "Add-on fees are not refunded",
             "no minimum trading days",
             "Best Day ≤50% of Positive Days",
+            "Available when eligibility requirements are met",
         ):
             if needle not in html:
                 misses.append(needle)
@@ -539,9 +544,9 @@ def verify(slug: str, html: str) -> None:
         ]
         for needle in (
             "Add-on fees are not refunded",
-            "$100 and 3 trading days",
-            "$100, 7 calendar days, and 3 trading days",
-            "$100, 14 calendar days, and 3 trading days",
+            "Available when eligibility requirements are met",
+            "7 calendar days, and 3 trading days",
+            "14 calendar days, and 3 trading days",
         ):
             if needle not in html:
                 misses.append(needle)

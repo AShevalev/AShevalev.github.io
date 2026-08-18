@@ -29,19 +29,17 @@ Do **not** put Instant 0.5% language on the 1-Step 50% Best Day modal or on 2-St
   - **1-Step Qualified Performance:** **No minimum trading days.** The day rule is **50% Best Day of Positive Days’ Profit**. Every profitable day is factored into Positive Days’ Profit and Best Day. Two equal profitable days can pass (50/50); that split is rare, so the clock is usually 3 days. Do **not** list a 3-day min. Exceeding 50% is not a breach — keep trading until Best Day is ≤50%. Evaluation also has **no** minimum trading days to pass (same 50% Best Day at the 10% target). Do not mention Instant 0.5% on 1-Step.
   - **2-Step Lite / Pro Qualified Performance:** **3 minimum trading days** for every payout. Evaluation still needs **5 trading days per phase** (open and close the same calendar day). No Instant 20% / 0.5% language.
 - A 2-Step “trading day” = open and close on the same calendar day. The 3-day QPP rule is **2-Step only** — a **count** of trading days in that payout window, not “wait 3 days since last payout.” Do not put it on 1-Step or Instant.
-- Cycle (same for the first payout and every payout after). **$100** on every cycle:
-  - **Weekly (every plan):** `$100` and 7 calendar days since the account start or last reward. Always name `$100` on this bullet.
-  - **Bi-weekly (every plan):** `$100` and 14 calendar days since the account start or last reward. Always name `$100` on this bullet.
-  - **On-demand** is **plan-specific**. Write only that plan’s rule. Never put 1-Step or 2-Step rules on Instant, and never put Instant Best Day / 0.5% language on 1-Step or 2-Step.
-  - **Instant on-demand:** `$100`. No min trading days. Best Day ≤20% of Positive Days’ Profit. A profitable day is a day that closes with **more than 0.5% profit**.
-  - **1-Step on-demand:** `$100`. No minimum trading days. Best Day ≤50% of Positive Days’ Profit.
-  - **2-Step Lite / Pro on-demand:** `$100` and **3 trading days**.
+- Cycle (same for the first payout and every payout after). **`$100` lives in Eligibility / Minimum Reward — do not repeat it on Weekly, Bi-Weekly, or On-Demand.**
+  - **Weekly (every plan):** 7 calendar days since the account start or last reward, plus that plan’s Eligibility rule (Instant/1-Step Best Day; 2-Step 3 trading days).
+  - **Bi-weekly (every plan):** 14 calendar days since the account start or last reward, plus that plan’s Eligibility rule.
+  - **On-demand (every plan page):** `Available when eligibility requirements are met.` Do **not** paste Instant / 1-Step / 2-Step On-Demand variants onto each plan page.
+  - Instant 0.5% stays on the Instant Best Day modal only: a profitable day is a day that closes with **more than 0.5% profit**.
 - Do not add a first-vs-later split (e.g. “first after 4 days, later after 3”). Instant and 1-Step have no min trading days. The 3-day QPP min is **2-Step only**.
 
 ### Instant Best Day + 0.5% profit of a day
 Do **not** write “green day.” Do **not** write “0.5% parameter.”
 - Best Day ≤20% of **Positive Days’ Profit**. Every profitable day is included.
-- On Instant **On-Demand** and the Instant Best Day modal only, explain 0.5% in plain language: **a profitable day is a day that closes with more than 0.5% profit**.
+- On the Instant Best Day modal only, explain 0.5% in plain language: **a profitable day is a day that closes with more than 0.5% profit**.
 - Do **not** put 0.5% on Weekly, Bi-Weekly, Eligibility, or the short trading-objectives payout line.
 - Exceeding 20% is not a breach — keep trading until Best Day is ≤20% of total Positive Days’ Profit.
 - Instant-only. Do not put 0.5% on 1-Step or 2-Step.
@@ -99,7 +97,13 @@ That split is wrong. **Delete both bullets.** First and later payouts use the sa
 A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. The first payout and every payout after use the same rule: you must meet that plan’s payout rule and the selected cycle (weekly, bi-weekly, or on-demand).
 ```
 
-**On-demand paste — use only the line for that page’s plan:**
+**On-demand paste — same line on every plan page.** Do **not** paste Instant / 1-Step / 2-Step On-Demand variants onto each page. Eligibility already names `$100` and that plan’s payout rule.
+
+```text
+On-Demand (Add-on): Available when eligibility requirements are met.
+```
+
+Do **not** paste these onto Instant / 1-Step / 2-Step plan pages:
 
 ```text
 Instant: On-demand: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A profitable day is a day that closes with more than 0.5% profit.
@@ -107,18 +111,16 @@ Instant: On-demand: $100. No minimum trading days. Best Day ≤20% of Positive D
 2-Step Lite / Pro: On-demand: $100 and 3 trading days.
 ```
 
-Do **not** paste the Instant line onto 1-Step or 2-Step. Do **not** mention 1-Step or 2-Step on `instant.html`.
+Those plan-specific lines belong only in Eligibility (and, for Instant 0.5%, the Instant Best Day modal). Skip `$100` on Weekly / Bi-Weekly / On-Demand — Eligibility already has it.
 
 **Hub FAQ only** (Qualified Trader / Evaluation — pages that name every plan). Separate bullets, never one blended Instant sentence:
 
 ```html
 <ul>
   <li>Same rule for every payout (first and later): $100, that plan’s payout rule, and the cycle</li>
-  <li>Weekly: $100 and 7 calendar days since account start or last reward</li>
-  <li>Bi-weekly: $100 and 14 calendar days since account start or last reward</li>
-  <li>On-demand on Instant: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A profitable day is a day that closes with more than 0.5% profit</li>
-  <li>On-demand on 1-Step: $100. No minimum trading days. Best Day ≤50% of Positive Days’ Profit</li>
-  <li>On-demand on 2-Step Lite / Pro: $100 and 3 trading days</li>
+  <li>Weekly: 7 calendar days since account start or last reward (plus that plan’s Eligibility rule)</li>
+  <li>Bi-weekly: 14 calendar days since account start or last reward (plus that plan’s Eligibility rule)</li>
+  <li>On-demand: available when eligibility requirements are met</li>
 </ul>
 ```
 
@@ -136,20 +138,18 @@ Payout spacing follows the cycle you selected: 7 calendar days for weekly, 14 ca
 
 > Eligibility: You become eligible for a reward only after both of the following are met: At least 3 trading days have passed since you received your Qualified Performance Account or since your last payout, and …
 
-**Instant paste — Rewards & Payouts on `instant.html` (and Instant FAQ).** Keep Eligibility short. Weekly and Bi-Weekly still carry the Instant qualifying parameters (`$100` + Best Day ≤20% + the calendar clock). Put 0.5% on On-Demand / Best Day modal only. Do **not** say “Qualified Performance Account” on Instant (funded from day one). Do **not** write “green day” or “0.5% parameter.”
-
-Do **not** dump Weekly / Bi-Weekly / On-Demand into Eligibility. Do **not** repeat the cycle list in Payout Frequencies **and** Performance Reward Split **and** Rewards. Frequencies = split + clock. Split card = 80% included / 70% and 90% may stack. Rewards = qualifying checklist.
+**Instant paste — Rewards & Payouts on `instant.html` (and Instant FAQ).** Keep Eligibility short. Do **not** dump Weekly / Bi-Weekly / On-Demand into Eligibility. Skip `$100` on the cycle bullets — Eligibility already has it. Weekly and Bi-Weekly still name Best Day + the calendar clock. On-Demand is one line: available when eligibility requirements are met. Instant 0.5% stays on the Best Day modal only. Do **not** say “Qualified Performance Account” on Instant. Do **not** write “green day” or “0.5% parameter.”
 
 ```text
 Minimum Reward: $100 (processed within 48 hours)
 
 Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
 
-Weekly (Add-on): $100, 7 calendar days, Best Day ≤20% of Positive Days’ Profit.
+Weekly (Add-on): 7 calendar days, Best Day ≤20% of Positive Days’ Profit.
 
-Bi-Weekly (Standard): $100, 14 calendar days, Best Day ≤20% of Positive Days’ Profit.
+Bi-Weekly (Standard): 14 calendar days, Best Day ≤20% of Positive Days’ Profit.
 
-On-Demand (Add-on): $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A profitable day is a day that closes with more than 0.5% profit.
+On-Demand (Add-on): Available when eligibility requirements are met.
 ```
 
 **1-Step Eligibility paste — 1-Step only:**
@@ -158,12 +158,12 @@ On-Demand (Add-on): $100. No minimum trading days. Best Day ≤20% of Positive D
 Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤50% of Positive Days’ Profit, and you have met the selected cycle. 1-Step has no minimum trading days. Exceeding 50% is not a breach — keep trading until Best Day is ≤50%. The first payout and every payout after use this same rule.
 ```
 
-1-Step Weekly / Bi-Weekly / On-Demand (same page, separate bullets — qualifying parameters on every cycle):
+1-Step Weekly / Bi-Weekly / On-Demand (same page, separate bullets — no `$100` on these; Eligibility already has it):
 
 ```text
-Weekly (Add-on): $100, 7 calendar days, Best Day ≤50% of Positive Days’ Profit.
-Bi-Weekly (Standard): $100, 14 calendar days, Best Day ≤50% of Positive Days’ Profit.
-On-Demand (Add-on): $100. No minimum trading days. Best Day ≤50% of Positive Days’ Profit.
+Weekly (Add-on): 7 calendar days, Best Day ≤50% of Positive Days’ Profit.
+Bi-Weekly (Standard): 14 calendar days, Best Day ≤50% of Positive Days’ Profit.
+On-Demand (Add-on): Available when eligibility requirements are met.
 ```
 
 **2-Step Lite / Pro Eligibility paste — 2-Step only.** One On-Demand line. Do **not** also keep “does not skip the trading-day requirement” / “for that evaluation.”
@@ -171,9 +171,9 @@ On-Demand (Add-on): $100. No minimum trading days. Best Day ≤50% of Positive D
 ```text
 Eligibility: You become eligible for a reward when net profit is at least $100, you have met 3 trading days in Qualified Performance, and you have met the selected cycle. The first payout and every payout after use this same rule. A trading day is a calendar day with at least one closed trade.
 
-Weekly (Add-on): $100, 7 calendar days, and 3 trading days.
-Bi-Weekly (Standard): $100, 14 calendar days, and 3 trading days.
-On-Demand (Add-on): $100 and 3 trading days.
+Weekly (Add-on): 7 calendar days, and 3 trading days.
+Bi-Weekly (Standard): 14 calendar days, and 3 trading days.
+On-Demand (Add-on): Available when eligibility requirements are met.
 ```
 
 Instant `li10` / `span21` — Instant has **no minimum trading days.** Delete the 5-valid-day / first-reward line. Do not replace it with “5 min trading days” or “5 valid trading days.”
