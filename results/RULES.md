@@ -58,7 +58,7 @@ One evaluation phase, then funded.
 | 2 | Daily drawdown | **4%** of initial, from **start-of-day equity**. Breach = fail |
 | 3 | Max drawdown | **6% hybrid**: trails HWM, **locks at initial**. Never above initial |
 | 4 | Consistency | Best closed day ≤ **50%** of the sum of positive days |
-| 5 | Minimum trading days | **None** (the 50% best-day rule already forces more than one green day) |
+| 5 | Minimum trading days | **None** (the 50% best-day rule already forces more than one profitable day) |
 | 6 | Time / inactivity | Unlimited / 30 days |
 
 ### Funded (after pass)

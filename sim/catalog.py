@@ -84,7 +84,7 @@ add("Verodus Instant", "Verodus", "Instant", "instant",
       vdt_op="gt")],
     None, sku((5e3,75,49),(1e4,106,69),(25e3,229,149),(5e4,368,239),(1e5,675,439)),
     refund="none", split=0.80, instant=True, discount="VERO35",
-    source="Instant: every green day in Best Day; a day meets 0.5% only if profit >0.5% of SOD")
+    source="Instant: every profitable day in Best Day; a day meets 0.5% only if profit >0.5% of SOD")
 
 add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     [P(0.10, 0.06, "hybrid", 0.04, "sod", 0, 0.0, 0.50)],

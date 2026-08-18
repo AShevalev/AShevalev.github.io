@@ -2,7 +2,7 @@
 
 PDF `evaluateOneStepConsistencyRule` is **correct** for Instant Best Day:
 
-- Every green day (including chips) is in Positive Days’ Profit and can be Best Day.
+- Every profitable day (including small profitable days) is in Positive Days’ Profit and can be Best Day.
 - Red days and flats are ignored. Open trades ignored.
 - Instant pass iff Best Day ≤ 20% of Positive Days’ Profit. Not a breach.
 - Same function at 50% for 1-Step evaluation. Instant itself is 20%, not 50%.
@@ -15,12 +15,12 @@ News on. 1,200 paths per profile. Instant seed matches `run_rule_alignment`. Pri
 
 | Engine | Size | Sale | P(pay) | BE | Leftover | Sale m |
 |---|---:|---:|---:|---:|---:|---:|
-| catalog (5 days >0.5% SOD + 20% all green) | $5,000 | $49 | 21.3% | $13.9 | $6.6 | +72% |
+| catalog (5 days >0.5% SOD + 20% all profitable days) | $5,000 | $49 | 21.3% | $13.9 | $6.6 | +72% |
 | catalog | $10,000 | $69 | 21.3% | $27.8 | $6.9 | +60% |
 | catalog | $25,000 | $149 | 21.3% | $69.5 | $23.7 | +53% |
 | catalog | $50,000 | $239 | 21.3% | $139.0 | $17.2 | +42% |
 | catalog | $100,000 | $439 | 21.3% | $278.0 | $20.0 | +37% |
-| PDF engine (no valid-day gate, 20% all green) | $5,000 | $49 | 21.4% | $13.7 | $6.8 | +72% |
+| PDF engine (no valid-day gate, 20% all profitable days) | $5,000 | $49 | 21.4% | $13.7 | $6.8 | +72% |
 | PDF engine | $10,000 | $69 | 21.4% | $27.4 | $7.4 | +60% |
 | PDF engine | $25,000 | $149 | 21.4% | $68.4 | $25.0 | +54% |
 | PDF engine | $50,000 | $239 | 21.4% | $136.8 | $19.6 | +43% |
@@ -37,4 +37,4 @@ Killing the 0.5% valid-day gate **raises** Instant leftover (Instant $100k **+$2
 
 ## Copy implication
 
-Do not write that only days above 0.5% count toward Positive Days’ Profit. The live function never did that. The 0.5% “meets the parameter” line is also **not** in this engine. Instant copy is: every green day, 20% Best Day, no listed min trading days.
+Do not write that only days above 0.5% count toward Positive Days’ Profit. The live function never did that. The 0.5% “meets the parameter” line is also **not** in this engine. Instant copy is: every profitable day, 20% Best Day, no listed min trading days.

@@ -132,7 +132,7 @@ def build():
         ("News trading", "included", "included", "Allowed on eval and funded. No SKU."),
         ("Weekend holding", "15%", "15%", "Friday 22:00 flatten off."),
         ("Weekly Rewards with 70% Reward Split", "6%", "6%", "Withdraw your profit share weekly. Same % on every size."),
-        ("On Demand Rewards with 90% Split", "32%", "15%", "Withdraw anytime after that plan’s payout rule. Instant: $100 and Best Day ≤20% of every green day; a day meets 0.5% only if profit is more than 0.5% of SOD. 1-Step: $100 and Best Day ≤50%. 2-Step: $100 and 3 trading days. Instant 32% is the year-1 print floor."),
+        ("On Demand Rewards with 90% Split", "32%", "15%", "Withdraw anytime after that plan’s payout rule. Instant: $100 and Best Day ≤20% of every profitable day; a day meets 0.5% only if profit is more than 0.5% of SOD. 1-Step: $100 and Best Day ≤50%. 2-Step: $100 and 3 trading days. Instant 32% is the year-1 print floor."),
         ("Swing", "not offered", "not offered", "News is already in the fee. Do not sell news+weekend."),
     )
     pspec = {}

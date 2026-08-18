@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Instant leftover: current catalog vs live trading-engine PDF.
 
-The PDF (evaluateOneStepConsistencyRule) factors every green day into
+The PDF (evaluateOneStepConsistencyRule) factors every profitable day into
 Positive Days' Profit. There is no 0.5% start-of-day filter and no min
 valid-day count on consistency. Instant is 20%. 1-Step eval is 50% with
 the same function.
 
 Current catalog Instant still gates payout on 5 days at more than 0.5% of
-SOD, plus 20% Best Day on every green day. This run measures whether
+SOD, plus 20% Best Day on every profitable day. This run measures whether
 killing that valid-day gate moves leftover.
 
 News on. 1,200 paths per profile. Same Instant seed as run_rule_alignment.
@@ -47,11 +47,11 @@ VARIANTS = {
             None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20,
             vdt_op="gt",
         ),
-        "note": "5 days >0.5% SOD + 20% Best Day on every green day",
+        "note": "5 days >0.5% SOD + 20% Best Day on every profitable day",
     },
     "pdf_engine": {
         "phase": P(None, 0.06, "trailing", 0.03, "intraday_peak", 0, 0.0, 0.20),
-        "note": "PDF: every green day in PDP; no 0.5% valid-day gate; 20% Best Day",
+        "note": "PDF: every profitable day in PDP; no 0.5% valid-day gate; 20% Best Day",
     },
 }
 
@@ -123,7 +123,7 @@ def write_md(df: pd.DataFrame, notes: dict) -> Path:
     body = [
         "# Instant leftover — live engine PDF vs catalog",
         "",
-        "PDF `evaluateOneStepConsistencyRule`: every green day (including chips) "
+        "PDF `evaluateOneStepConsistencyRule`: every profitable day (including small profitable days) "
         "is in Positive Days’ Profit. No 0.5% start-of-day filter. No min valid "
         "days. Instant 20%. 1-Step eval uses the same function at 50%.",
         "",

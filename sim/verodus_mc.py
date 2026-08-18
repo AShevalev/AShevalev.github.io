@@ -109,7 +109,7 @@ SESSION_P = np.array([s[1] for s in SESSIONS], dtype=float)
 # 3. VERODUS PRODUCTS — FAQ / live rules
 # =============================================================================
 # Instant: funded day 1. 6% trailing HWM (never locks). Daily 3% of start from
-#   day's equity high. Every green day is factored into Best Day / PDP. A day
+#   day's equity high. Every profitable day is factored into Best Day / PDP. A day
 #   meets the 0.5% parameter only if profit is more than 0.5% of SOD. 20%
 #   Best Day. $100 min. Split 80%. No refund.
 # 1-Step: 10% target, no min days, 50% Best Day of Positive Days' Profit,

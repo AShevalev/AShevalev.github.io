@@ -147,9 +147,9 @@ def _consistency_denom(basis, sod, eod, start):
 def _counts_for_best_day(day_pnl, sod, eod, start, rules):
     """Which closed days enter Best Day / Positive Days' Profit.
 
-    Instant: every green day is factored into Positive Days' Profit.
+    Instant: every profitable day is factored into Positive Days' Profit.
     A day meets the 0.5% parameter only if profit is more than 0.5%
-    of start-of-day equity (valid-day gate). 1-Step: every green day.
+    of start-of-day equity (valid-day gate). 1-Step: every profitable day.
     """
     floor = rules.get("consistency_floor")
     if floor is None:
@@ -159,7 +159,7 @@ def _counts_for_best_day(day_pnl, sod, eod, start, rules):
     )
     if denom <= 0:
         return False
-    # Instant: at least 0.5% of a green day (SOD). Default op is gt for other firms.
+    # Instant: at least 0.5% of a profitable day (SOD). Default op is gt for other firms.
     if rules.get("consistency_op", "gt") == "ge":
         return day_pnl >= denom * floor
     return day_pnl > denom * floor

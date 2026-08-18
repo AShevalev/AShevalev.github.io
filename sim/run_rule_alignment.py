@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Paired Monte Carlo: prior Instant/1-Step day rules vs rule-alignment.
 
-News stays included. Instant factors every green day into Best Day. A day
+News stays included. Instant factors every profitable day into Best Day. A day
 meets the 0.5% parameter only if profit is more than 0.5% of SOD. 1-Step
 QPP drops the 3-day min and applies 50% Best Day. 2-Step Lite/Pro are
 unchanged (5 eval days, 3 QPP days). Same per-product seed so the delta
@@ -40,7 +40,7 @@ ART = Path("/opt/cursor/artifacts")
 OLD_RULES = {
     "Verodus Instant": {
         "phases": [P(None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20)],
-        "note": "5 valid days at ≥0.5% of SOD; 20% Best Day on every green day",
+        "note": "5 valid days at ≥0.5% of SOD; 20% Best Day on every profitable day",
     },
     "Verodus 1-Step": {
         "funded": funded(0.06, "hybrid", 0.04, min_days=3, cons=None),
@@ -213,7 +213,7 @@ def write_md(cmp_df: pd.DataFrame, n_sims: int) -> Path:
     body = [
         "# Rule-alignment Monte Carlo — leftover vs prior day rules",
         "",
-        "Instant leftover matches the old two-box book when every green day is "
+        "Instant leftover matches the old two-box book when every profitable day is "
         "factored into Best Day and 0.5% is only the more-than profit parameter. "
         "1-Step leftover is down (QPP is 50% Best Day). 2-Step Lite and Pro are "
         "unchanged. Prices were not raised.",
@@ -222,7 +222,7 @@ def write_md(cmp_df: pd.DataFrame, n_sims: int) -> Path:
         "paired per-product seeds. Sale card is unchanged (current rec).",
         "",
         "Prior Instant: two checkboxes — 5 days at ≥0.5% of SOD **and** 20% Best "
-        "Day on every green day. New Instant: every green day is factored into "
+        "Day on every profitable day. New Instant: every profitable day is factored into "
         "Best Day; a day meets the 0.5% parameter only if profit is **more than** "
         "0.5% of SOD. Do not list a 5-day checkbox.",
         "",
