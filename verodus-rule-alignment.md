@@ -1,6 +1,8 @@
 # Verodus site rule alignment
 
-Apply these rules on **every Verodus page that names them**, including `trading-objectives.html`. Instant Best Day copy is **live 1-Step wording** at **20%** (payout request, not evaluation pass). 1-Step stays live at **50%**. **No Instant 0.5% / Valid Day.** Do not mention 0.5% on Instant, 1-Step, or 2-Step. Do not write “green day.” Live 1-Step Calculation (“Profitable days are factored into Positive Days' Profit”) is the Instant Calculation too. Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` **including** `trading-objectives.json` for Instant Best Day / day-count keys.
+**Live paste list (use this on the site):** [`verodus-final-site-changes.md`](verodus-final-site-changes.md)
+
+Apply these rules on **every Verodus page that names them**, including `trading-objectives.html`. Instant Best Day copy is **live 1-Step wording** at **20%** (payout request, not evaluation pass). 1-Step stays live at **50%**. **No Instant 0.5% / Valid Day.** Do not mention 0.5% on Instant, 1-Step, or 2-Step. Do not write “green day.” Live 1-Step Calculation (“Profitable days are factored into Positive Days' Profit”) is the Instant Calculation too. Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` **including** `trading-objectives.json` for Instant Best Day / day-count keys. **Do not change** `performance-reward.html`.
 
 Canonical source: `1-step.html`, `2-step-lite.html`, `2-step-pro.html`, `instant.html`, `trading-objectives.html` Instant Best Day modal, TOS §9, `restricted-trading.html`.
 
@@ -331,7 +333,7 @@ Payout spacing is the cycle you selected: 7 calendar days for weekly, 14 calenda
 ```html
 <ul>
   <li>$100 since last reward</li>
-  <li>On Instant: no minimum trading days; Best Day ≤20% of Positive Days’ Profit (a Valid Day is a day that closes with at least 0.5% profit)</li>
+  <li>On Instant: no minimum trading days; Best Day ≤20% of Positive Days’ Profit</li>
   <li>On 1-Step Qualified Performance: $100. No minimum trading days. Best Day ≤50% of Positive Days’ Profit</li>
   <li>On 2-Step Lite / Pro Qualified Performance: 3 trading days</li>
 </ul>
@@ -347,7 +349,7 @@ Yes, on 1-Step, 2-Step Lite, and 2-Step Pro: 100% of the original challenge fee 
 
 ### `faq-plans.html`
 
-**Locked 18 Aug 2026.** Canonical four cards (same strings in `verodus-remaining-site-changes.md`). Shared note under the cards can stay (news allowed on all four; Weekend still an add-on). Do not add 0.5% / Valid Day. Do not name Instant on the 1-Step card.
+**Locked 18 Aug 2026.** Canonical four cards (same strings in `verodus-final-site-changes.md`). Shared note under the cards can stay (news allowed on all four; Weekend still an add-on). Do not add 0.5% / Valid Day. Do not name Instant on the 1-Step card.
 
 **Instant `content.p7`:**
 
@@ -450,7 +452,7 @@ Locale: `/locales/*/pages/trading-objectives.json` and `common.json` keys used b
 | `1-step.html` | QPP Eligibility: **no min trading days** + `$100` + 50% Best Day of Positive Days’ Profit + cycle. Weekly / Bi-Weekly: `$100` + Best Day ≤50% + clock. Delete the 3-day QPP line. Eval: no min days, same 50% Best Day. Do not mention 0.5%. |
 | `2-step-lite.html` / `2-step-pro.html` | Eval: **5** trading days per phase. QPP Eligibility: **3 trading days** + `$100` + cycle. Weekly / Bi-Weekly / On-Demand each name `$100` and 3 trading days. **One** On-Demand line. **No** Instant 20% / 0.5%. |
 | `trading-objectives.html` | Instant Best Day modal + Instant card / `p8Instant` as above. 1-Step `p8` = no min days. 2-Step `p8` = 3 QPP days every payout. |
-| `faq-plans.html` four cards | **Locked pastes** in `verodus-remaining-site-changes.md`. Instant `p7` has no 0.5%. 1-Step / Lite / Pro live cards stay. |
+| `faq-plans.html` four cards | **Locked pastes** in `verodus-final-site-changes.md`. Instant `p7` has no 0.5%. 1-Step / Lite / Pro live cards stay. |
 | `faq-qualified-trader.html` | Delete 4-then-3. Instant = no min days + Best Day of every profitable day. 1-Step QPP = no min days + 50% Best Day of Positive Days’ Profit. 2-Step QPP = 3 trading days. Same first and later. |
 | `faq-evaluation.html` | Add Instant: no eval; no min trading days; Best Day of every profitable day. 1-Step: no min in eval or QPP; 50% Best Day of Positive Days’ Profit. 2-Step: 5 per eval phase; QPP 3 days. |
 | `performance-reward.html` | **Do not change.** Leave live HTML and locales as they are. |
