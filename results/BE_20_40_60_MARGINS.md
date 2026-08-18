@@ -8,11 +8,11 @@ On Demand 90% is **32% Instant / 15% evals**. Weekend 15%. Weekly 70% 6%.
 
 | Plan | Size | List | Sale | E[X] | P(pay) | BE | 20% | 40% | 60% | Sale m |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Instant Funding | $5,000 | $75 | $49 | $15 | 19.6% | $15 | $19 | $26 | $38 | +69% |
-| Instant Funding | $10,000 | $106 | $69 | $31 | 19.6% | $31 | $38 | $51 | $77 | +56% |
-| Instant Funding | $25,000 | $229 | $149 | $77 | 19.6% | $77 | $96 | $128 | $191 | +49% |
-| Instant Funding | $50,000 | $368 | $239 | $153 | 19.6% | $153 | $191 | $255 | $383 | +36% |
-| Instant Funding | $100,000 | $675 | $439 | $306 | 19.6% | $306 | $383 | $510 | $766 | +30% |
+| Instant Funding | $5,000 | $75 | $49 | $14 | 21.3% | $14 | $17 | $23 | $35 | +72% |
+| Instant Funding | $10,000 | $106 | $69 | $28 | 21.3% | $28 | $35 | $46 | $69 | +60% |
+| Instant Funding | $25,000 | $229 | $149 | $69 | 21.3% | $69 | $87 | $116 | $174 | +53% |
+| Instant Funding | $50,000 | $368 | $239 | $139 | 21.3% | $139 | $174 | $232 | $347 | +42% |
+| Instant Funding | $100,000 | $675 | $439 | $278 | 21.3% | $278 | $347 | $463 | $695 | +37% |
 | One-Step | $5,000 | $69 | $45 | $8 | 8.2% | $8 | $10 | $14 | $21 | +75% |
 | One-Step | $10,000 | $106 | $69 | $15 | 8.2% | $16 | $21 | $27 | $41 | +70% |
 | One-Step | $25,000 | $198 | $129 | $38 | 8.2% | $41 | $51 | $68 | $103 | +63% |
@@ -36,21 +36,21 @@ On Demand 90% is **32% Instant / 15% evals**. Weekend 15%. Weekly 70% 6%.
 
 | Plan | Size | Add-on | % | Sticker | Sale | BE | 20% | 40% | 60% | Sale m |
 |---|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Instant Funding | $5,000 | Weekend Holding | 15% | $11 | $7 | $1 | $2 | $2 | $3 | +83% |
-| Instant Funding | $5,000 | Weekly 70% | 6% | $5 | $3 | $1 | $2 | $2 | $3 | +62% |
-| Instant Funding | $5,000 | On Demand 90% | 32% | $24 | $16 | $6 | $8 | $10 | $16 | +60% |
-| Instant Funding | $10,000 | Weekend Holding | 15% | $16 | $10 | $2 | $3 | $4 | $6 | +76% |
-| Instant Funding | $10,000 | Weekly 70% | 6% | $6 | $4 | $2 | $3 | $4 | $6 | +37% |
-| Instant Funding | $10,000 | On Demand 90% | 32% | $34 | $22 | $13 | $16 | $21 | $31 | +43% |
-| Instant Funding | $25,000 | Weekend Holding | 15% | $34 | $22 | $6 | $8 | $10 | $15 | +72% |
-| Instant Funding | $25,000 | Weekly 70% | 6% | $14 | $9 | $6 | $8 | $10 | $15 | +33% |
-| Instant Funding | $25,000 | On Demand 90% | 32% | $73 | $47 | $31 | $39 | $52 | $78 | +34% |
-| Instant Funding | $50,000 | Weekend Holding | 15% | $55 | $36 | $12 | $15 | $20 | $31 | +66% |
-| Instant Funding | $50,000 | Weekly 70% | 6% | $22 | $14 | $12 | $15 | $20 | $31 | +14% |
-| Instant Funding | $50,000 | On Demand 90% | 32% | $118 | $77 | $63 | $78 | $105 | $157 | +18% |
-| Instant Funding | $100,000 | Weekend Holding | 15% | $101 | $66 | $25 | $31 | $41 | $61 | +63% |
-| Instant Funding | $100,000 | Weekly 70% | 6% | $41 | $27 | $25 | $31 | $41 | $61 | +8% |
-| Instant Funding | $100,000 | On Demand 90% | 32% | $216 | $140 | $126 | $157 | $209 | $314 | +11% |
+| Instant Funding | $5,000 | Weekend Holding | 15% | $11 | $7 | $1 | $1 | $2 | $3 | +84% |
+| Instant Funding | $5,000 | Weekly 70% | 6% | $5 | $3 | $1 | $1 | $2 | $3 | +66% |
+| Instant Funding | $5,000 | On Demand 90% | 32% | $24 | $16 | $6 | $7 | $9 | $14 | +63% |
+| Instant Funding | $10,000 | Weekend Holding | 15% | $16 | $10 | $2 | $3 | $4 | $6 | +79% |
+| Instant Funding | $10,000 | Weekly 70% | 6% | $6 | $4 | $2 | $3 | $4 | $6 | +43% |
+| Instant Funding | $10,000 | On Demand 90% | 32% | $34 | $22 | $11 | $14 | $19 | $28 | +48% |
+| Instant Funding | $25,000 | Weekend Holding | 15% | $34 | $22 | $6 | $7 | $9 | $14 | +75% |
+| Instant Funding | $25,000 | Weekly 70% | 6% | $14 | $9 | $6 | $7 | $9 | $14 | +39% |
+| Instant Funding | $25,000 | On Demand 90% | 32% | $73 | $47 | $28 | $36 | $47 | $71 | +40% |
+| Instant Funding | $50,000 | Weekend Holding | 15% | $55 | $36 | $11 | $14 | $19 | $28 | +69% |
+| Instant Funding | $50,000 | Weekly 70% | 6% | $22 | $14 | $11 | $14 | $19 | $28 | +22% |
+| Instant Funding | $50,000 | On Demand 90% | 32% | $118 | $77 | $57 | $71 | $95 | $142 | +26% |
+| Instant Funding | $100,000 | Weekend Holding | 15% | $101 | $66 | $22 | $28 | $37 | $56 | +66% |
+| Instant Funding | $100,000 | Weekly 70% | 6% | $41 | $27 | $22 | $28 | $37 | $56 | +17% |
+| Instant Funding | $100,000 | On Demand 90% | 32% | $216 | $140 | $114 | $142 | $190 | $285 | +19% |
 | One-Step | $5,000 | Weekend Holding | 15% | $10 | $6 | $0 | $0 | $1 | $1 | +95% |
 | One-Step | $5,000 | Weekly 70% | 6% | $4 | $3 | $0 | $1 | $1 | $1 | +84% |
 | One-Step | $5,000 | On Demand 90% | 15% | $10 | $6 | $1 | $1 | $2 | $3 | +84% |
