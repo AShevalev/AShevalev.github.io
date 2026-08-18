@@ -97,8 +97,6 @@ Locale: `locales/*/pages/faq-plans.json`
 
 ## 2. Instant page (`instant.html`)
 
-Full rec page: `landing/instant.html`. Standalone preview: `landing/instant-preview.html`.
-
 ### Hero `content.p3` (drop 0.5% / qualifying days)
 
 ```
@@ -186,7 +184,7 @@ Locale: `locales/*/pages/instant.json`
 
 ## 3. 1-Step page (`1-step.html`)
 
-Full rec page: `landing/1-step.html`. **Keep live Best Day body.** Only strip Instant names.
+**Keep live Best Day body.** Only strip Instant names.
 
 ### Hero `content.p3`
 
@@ -430,9 +428,3 @@ Already aligned on the 18 Aug scan (no 0.5% / stack needles). Keep:
 | `performance-reward.json` | **Do not change** |
 
 Then the other nine locale folders.
-
----
-
-## Rec HTML already in this repo
-
-`landing/instant.html`, `landing/instant-preview.html`, `landing/1-step.html`, `landing/2-step-lite.html`, `landing/2-step-pro.html`, `landing/trading-objectives.html`, `landing/checkout.html`.
