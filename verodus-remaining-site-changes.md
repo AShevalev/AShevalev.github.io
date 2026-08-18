@@ -15,9 +15,10 @@ Apply HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`. English
 Live still treats 0.5% as a **Positive Days’ Profit filter**. Small days in profit are dropped. That is the Instant rule that is still wrong.
 
 **Names (do not merge these)**
-- **Positive Day** = a calendar day that **closes in profit**. That is the unit of **Positive Days’ Profit**. Use this, not “profitable day” and not “green day.”
-- **Do not write:** “A Positive Day is a day that closes with at least 0.5% profit.” That sentence makes 0.5% the definition of the day that counts, which is the live bug.
-- Instant 0.5% stays its own line, modal only: a day meets 0.5% if closed profit is **at least 0.5%** (**≥ 0.5%**). Do not write “more than 0.5%.” Small Positive Days still count toward Positive Days’ Profit.
+- **Positive Day** = a calendar day that **closes in profit** (including a small +0.1% day). That is the unit of **Positive Days’ Profit** and Best Day. Use this, not “green day.”
+- **Valid Day** (Instant only) = a calendar day that closes with **at least 0.5% profit** (**≥ 0.5%**). Use **Valid Day** for the 0.5% sentence. Do not write “A Positive Day is a day that closes with at least 0.5% profit.” That is the live bug.
+- A Valid Day is **not** which days enter Positive Days’ Profit. Small Positive Days still count even if they are not Valid Days.
+- Never write “5 Valid Days,” “5 valid trading days,” or any Valid Day count. Instant has **no** minimum trading days.
 
 **Locked Instant rule**
 - Best Day ≤20% of **Positive Days’ Profit**.
@@ -39,7 +40,7 @@ Live still treats 0.5% as a **Positive Days’ Profit filter**. Small days in pr
 **Instant Best Day modal paste**
 
 ```text
-The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit at the time you request a payout. A Positive Day is a calendar day that closes in profit. Every Positive Day is included in Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit. Instant: a day meets 0.5% if it closes with at least 0.5% profit (≥ 0.5%). That does not remove small Positive Days from Positive Days' Profit.
+The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit at the time you request a payout. A Positive Day is a calendar day that closes in profit. Every Positive Day is included in Positive Days' Profit. A Valid Day is a day that closes with at least 0.5% profit (≥ 0.5%). Valid Day is not a minimum trading-day count and does not remove small Positive Days from Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit.
 ```
 
 **Instant Eligibility paste** (no 0.5% on this bullet)
@@ -72,7 +73,7 @@ Live JS (`showModal('best-day')` when Instant):
 
 ```javascript
 if (isInstant) {
-  contentEl.innerHTML += `<p>A Positive Day is a calendar day that closes in profit. Every Positive Day is included in Positive Days’ Profit. Instant: a day meets 0.5% if it closes with <strong style="color:${gold}">at least 0.5% profit (≥ 0.5%)</strong>. That does not remove small Positive Days from Positive Days’ Profit.</p>`;
+  contentEl.innerHTML += `<p>A Positive Day is a calendar day that closes in profit. Every Positive Day is included in Positive Days’ Profit. A <strong>Valid Day</strong> is a day that closes with <strong style="color:${gold}">at least 0.5% profit (≥ 0.5%)</strong>. Valid Day is not a minimum trading-day count and does not remove small Positive Days from Positive Days’ Profit.</p>`;
 }
 ```
 
