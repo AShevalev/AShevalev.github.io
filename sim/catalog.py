@@ -80,18 +80,17 @@ def add(key, firm, plan, family, phases, funded_rules, skus, refund="first",
 # 1. VERODUS — reprice after news-included 17 Aug 2026 (list = sale ÷ 0.65)
 # =============================================================================
 add("Verodus Instant", "Verodus", "Instant", "instant",
-    [P(None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20,
-      vdt_op="ge")],
+    [P(None, 0.06, "trailing", 0.03, "intraday_peak", 0, 0.0, 0.20)],
     None, sku((5e3,75,49),(1e4,106,69),(25e3,229,149),(5e4,368,239),(1e5,675,439)),
     refund="none", split=0.80, instant=True, discount="VERO35",
-    source="Instant: every profitable day in Best Day; a day meets 0.5% if profit is at least 0.5% of SOD (≥)")
+    source="Instant: 20% Best Day of every Positive Day; no 0.5% Valid Day; no min days")
 
 add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     [P(0.10, 0.06, "hybrid", 0.04, "sod", 0, 0.0, 0.50)],
     funded(0.06, "hybrid", 0.04, min_days=0, cons=0.50),
     sku((5e3,69,45),(1e4,106,69),(25e3,198,129),(5e4,337,219),(1e5,583,379),(2e5,1075,699)),
     refund="first", discount="VERO35",
-    source="1-Step QPP: 50% Best Day (no 0.5% floor). Two equal days can pass; in the book that is the same as 3 days.")
+    source="1-Step: 50% Best Day of every Positive Day (same unit as Instant 20%). No 0.5%. Two equal days can pass.")
 
 add("Verodus 2-Step Lite", "Verodus", "2-Step Lite", "2-step",
     [P(0.08, 0.08, "static", 0.04, min_days=5), P(0.05, 0.08, "static", 0.04, min_days=5)],

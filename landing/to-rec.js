@@ -93,6 +93,16 @@
       return;
     }
     origShowModal(type);
+    if (type === 'best-day' && (currentTab === 'instant' || currentTab === '1step')) {
+      var bestEl = document.getElementById('modal-content');
+      if (bestEl) {
+        var pct = currentTab === 'instant' ? 20 : 50;
+        var when = currentTab === 'instant'
+          ? ' at payout request'
+          : ' when you pass evaluation and at every payout request';
+        bestEl.innerHTML = '<p>The Best Day Rule requires that your Best Day (highest profit calendar day) does not exceed <strong style="color:var(--gold-light)">' + pct + '%</strong> of your Positive Days\' Profit' + when + '. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days\' Profit. Losing days do not count toward Positive Days\' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding ' + pct + '% is not a breach — continue trading until Best Day is ≤' + pct + '%.</p>';
+      }
+    }
   };
 
   var origUpdateAll = updateAll;
