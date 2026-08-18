@@ -176,21 +176,15 @@ On-Demand (Add-on): Available when eligibility requirements are met.
 
 Instant `li10` / `span21` — **Delete.** Instant has **no minimum trading days.** Do not leave a leftover **“Minimum Trading Days: No minimum trading days.”** bullet. Keep one card stat (**None**). Do not also print “Minimum Trading Days: None” in the card meta.
 
-`performance-reward.html` “First reward after 3 trading days” / “Min. 3 trading days” — keep **3 trading days** for **2-Step QPP only**. 1-Step and Instant have no min trading days. Drop the first/later split. Add `$100` + cycle.
+**Do not change** `performance-reward.html` or its locales. Leave the live page as it is.
 
 `trading-objectives.html` — **edit Instant Best Day and Instant day-count copy.** See §8. Do not add Instant 0.5% to the 1-Step 50% Best Day modal.
 
 ---
 
-## 3. Align on-demand on `performance-reward.html`
+## 3. On-demand elsewhere (not `performance-reward.html`)
 
-**`content.p12` live:** `Minimum $100 since last reward (all plans).`
-
-**Paste:**
-
-```text
-Minimum $100, that plan’s payout rule, and the selected cycle (same rule for the first payout and every payout after).
-```
+**Do not change** `https://www.verodus.com/performance-reward.html` or `/locales/*/pages/performance-reward.json`.
 
 On `trading-objectives.html`, Instant and 1-Step have **no min trading days**. Instant payout line is short — **no 0.5%**:
 
@@ -459,7 +453,7 @@ Locale: `/locales/*/pages/trading-objectives.json` and `common.json` keys used b
 | `faq-plans.html` four cards | **Locked pastes** in `verodus-remaining-site-changes.md`. Instant `p7` has no 0.5%. 1-Step / Lite / Pro live cards stay. |
 | `faq-qualified-trader.html` | Delete 4-then-3. Instant = no min days + Best Day of every profitable day. 1-Step QPP = no min days + 50% Best Day of Positive Days’ Profit. 2-Step QPP = 3 trading days. Same first and later. |
 | `faq-evaluation.html` | Add Instant: no eval; no min trading days; Best Day of every profitable day. 1-Step: no min in eval or QPP; 50% Best Day of Positive Days’ Profit. 2-Step: 5 per eval phase; QPP 3 days. |
-| `performance-reward.html` | Instant and 1-Step = **no min trading days**. “3 trading days” = **2-Step QPP only**. Drop first-only. |
+| `performance-reward.html` | **Do not change.** Leave live HTML and locales as they are. |
 | `terms.html` §8(b)/(c) | Keep “requirements vary by model.” Do not add a plan-by-plan day-count line. |
 | `restricted-trading.html` | No day-count change unless a leftover 5-valid-day / 3-day Instant line appears. |
 | `faq-news-trading.html` / `faq-general.html` | No day-count change unless a leftover Instant 5-valid-day line appears. |

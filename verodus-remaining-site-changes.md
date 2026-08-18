@@ -3,13 +3,15 @@
 **Scan:** 18 Aug 2026 (re-fetched live `www.verodus.com` this pass).  
 **Repo rec HTML** (`landing/*.html`) already matches these Instant / 1-Step / 2-Step rules. This file is what still has to change **on the live site + locales**.
 
-**This scan’s still-wrong pages:** Instant FAQ card `p7` (0.5%), Instant page Best Day / Eligibility / JSON-LD / heading case, 1-Step Instant-name asides, index Instant FAQ blurb, FAQ Evaluation Instant 0.5%, Trading Objectives Instant modal, performance-reward scale-to-90/10, FAQ Qualified Trader leftover 90/10 + 85/15 scale, TOS site-wide min days + first-reward refund with no Instant exception.
+**This scan’s still-wrong pages:** Instant FAQ card `p7` (0.5%), Instant page Best Day / Eligibility / JSON-LD / heading case, 1-Step Instant-name asides, index Instant FAQ blurb, FAQ Evaluation Instant 0.5%, Trading Objectives Instant modal, FAQ Qualified Trader leftover 90/10 + 85/15 scale, TOS site-wide min days + first-reward refund with no Instant exception.
+
+**Leave as live — do not change:** `https://www.verodus.com/performance-reward.html` and `/locales/*/pages/performance-reward.json`. No HTML paste. No locale paste. Scale-to-90/10 copy on that page stays.
 
 **Already OK on this scan:** 1-Step / Lite / Pro FAQ-plans cards; checkout exclusive add-ons; FAQ news / FAQ hub / restricted-trading; 2-Step Lite / Pro plan pages (QPP language). FAQ Qualified Trader payout `$100` / Instant no min days / Instant no fee refund (`p9`, `p12`, `p28`) already match rec.
 
 **Do not reopen:** Instant leftover-prints at rec prices. Skip 0.5% / Valid Day on Instant. Do not name Instant on 1-Step. Weekly and On-Demand cannot stack. Instant is not refundable. Default split 80%; 90% is the On-Demand add-on only — **no performance scale to 90/10**.
 
-**After every HTML paste:** the same string in `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`. English JSON currently matches the live HTML errors (Instant 0.5%, Instant-on-1-Step, scale-to-90/10).
+**After every HTML paste:** the same string in `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`. English JSON currently matches the live HTML errors (Instant 0.5%, Instant-on-1-Step). **Exception:** do not touch `performance-reward.json`.
 
 ---
 
@@ -123,21 +125,7 @@ If that plan has a minimum, you must still meet it before you pass or get paid. 
 
 ---
 
-## 5. Performance reward — still sells scale-to-90/10
-
-Live `performance-reward.html` still has **Start at 80/20, scale to 90/10** (`h31`, `h32`) and **85/15 capital scaling** (`p5`). Rec: default **80%**; **90% only with On-Demand add-on**; **no** performance scale ladder.
-
-Replace those headings/body with:
-
-```
-Default split is 80%. 90% is available only with the On-Demand add-on. Weekly and On-Demand cannot both apply at once. There is no performance scale to 90/10.
-```
-
-`$100` minimum (`p12`) can stay.
-
----
-
-## 6. FAQ → Qualified Trader — leftover 90/10 + 85/15 scale
+## 5. FAQ → Qualified Trader — leftover 90/10 + 85/15 scale
 
 Visible split line (`p3`) already says start **80/20**. Live leftovers:
 
@@ -151,7 +139,7 @@ Payout `$100` / 3-day QPP / Instant no min days / first-reward refund **evals on
 
 ---
 
-## 7. Terms of Service
+## 6. Terms of Service
 
 Live `li4`: “A minimum number of Trading Days is required both during the evaluation phases and before/between Performance Rewards.” That is false for Instant and 1-Step.
 
@@ -164,14 +152,14 @@ Live first-reward note: “A successful first Performance Reward includes a 100%
 
 ---
 
-## 8. Checkout, news, restricted trading — already aligned on this scan
+## 7. Checkout, news, restricted trading — already aligned on this scan
 
 - `checkout.html`: no 0.5% / stack needles. Keep `PAYOUT_ADDON_EXCLUSIVE`. Add-on %: Weekend 15%, Weekly 6%, On Demand 32% Instant / 15% evals.
 - `faq-news-trading.html`, `faq.html`, `restricted-trading.html`: news included; Weekend still an add-on. No Instant 0.5% on this scan.
 
 ---
 
-## 9. 2-Step Lite / Pro plan pages
+## 8. 2-Step Lite / Pro plan pages
 
 Live already uses Qualified Performance (not Instant). Rec pages in `landing/2-step-lite.html` and `landing/2-step-pro.html` if you want the payout-list wording from stitch. Not a 0.5% / Instant-name hole.
 
@@ -187,9 +175,9 @@ Live already uses Qualified Performance (not Instant). Rec pages in `landing/2-s
 | `locales/en/pages/index.json` | Instant home blurb without 0.5% |
 | `locales/en/pages/faq-evaluation.json` | Instant sentence without 0.5% |
 | `locales/en/pages/trading-objectives.json` | Instant modal without 0.5% |
-| `locales/en/pages/performance-reward.json` | No scale-to-90/10 |
 | `locales/en/pages/faq-qualified-trader.json` | No leftover 90/10 scale |
 | `locales/en/pages/terms.json` | Min days + Instant not refundable |
+| `locales/*/pages/performance-reward.json` | **Do not change** |
 
 Then the other nine locale folders.
 
