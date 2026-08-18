@@ -52,7 +52,7 @@ SPLIT_ITEMS = "\n".join(
         _rstep("Default", "80% on the included Bi-Weekly cycle."),
         _rstep(
             "Add-ons",
-            "Weekly 70% and On Demand 90% are paid add-ons and may be purchased together.",
+            "Weekly and On-Demand are separate add-ons; they cannot both apply at once.",
         ),
     ]
 )
@@ -405,7 +405,7 @@ def patch_instant(html: str) -> str:
     html = html.replace(" of every profitable day", " of Positive Days' Profit")
     html = html.replace(
         "of your total Positive Days' Profit from every green day at the time you request a payout. Every green day is factored in, including small chip days.",
-        "of Positive Days' Profit at payout request. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.",
+        "of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.",
     )
     html = html.replace(
         "Best Day must be ≤20% of Positive Days' Profit from every green day. Every green day is factored in.",
@@ -441,11 +441,11 @@ def patch_instant(html: str) -> str:
     )
     html = html.replace(
         "does not exceed <strong class=\"hl\">20%</strong> of your Positive Days' Profit at the time you request a payout. Every profitable day is factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit.",
-        "does not exceed <strong class=\"hl\">20%</strong> of Positive Days' Profit at payout request. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.",
+        "does not exceed <strong class=\"hl\">20%</strong> of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.",
     )
     html = html.replace(
         "does not exceed <strong class=\"hl\">20%</strong> of your Positive Days' Profit at the time you request a payout. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit.",
-        "does not exceed <strong class=\"hl\">20%</strong> of Positive Days' Profit at payout request. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.",
+        "does not exceed <strong class=\"hl\">20%</strong> of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.",
     )
     html = html.replace(
         "Small profitable days still count toward Positive Days' Profit. Small profitable days still count toward Positive Days' Profit.",
@@ -498,7 +498,7 @@ def patch_1step(html: str) -> str:
     )
     html = html.replace(
         "Your single best profit day cannot account for more than 50% of your Positive Days' Profit at the time of passing the evaluation. This is not an immediate breach — you must continue trading until the condition is met.",
-        "Your Best Day (highest profit calendar day) must not exceed 50% of Positive Days' Profit when you pass evaluation and at every payout request. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.",
+        "Your Best Day (highest profit calendar day) must not exceed 50% of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.",
     )
     html = html.replace(
         "No single trading day can contribute more than 50% of your total Positive Days' Profit at the point you hit the 10% target.",
@@ -514,7 +514,7 @@ def patch_1step(html: str) -> str:
     )
     html = html.replace(
         "does not exceed <strong class=\"hl\">50%</strong> of your Positive Days' Profit on the account. Every profitable day is factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤50% of total Positive Days' Profit.",
-        "does not exceed <strong class=\"hl\">50%</strong> of Positive Days' Profit when you pass evaluation and at every payout request. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.",
+        "does not exceed <strong class=\"hl\">50%</strong> of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.",
     )
     return html
 
@@ -531,6 +531,7 @@ FORBIDDEN = (
     "News Trading Addon",
     "Tiered Breach Model",
     "2-minute restricted",
+    "may be purchased together",
 )
 
 INSTANT_FORBIDDEN = (

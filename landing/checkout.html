@@ -668,9 +668,19 @@
     return selectedQty > 1 ? (label + ' × ' + selectedQty) : label;
   }
 
+  var PAYOUT_ADDON_EXCLUSIVE = { 'weekly-payout': 1, 'on-demand-payout': 1 };
+
   function applyAddonToggle(id, checked) {
-    if (checked) activeAddons[id] = true;
-    else delete activeAddons[id];
+    if (checked) {
+      if (PAYOUT_ADDON_EXCLUSIVE[id]) {
+        Object.keys(PAYOUT_ADDON_EXCLUSIVE).forEach(function (other) {
+          if (other !== id) delete activeAddons[other];
+        });
+      }
+      activeAddons[id] = true;
+    } else {
+      delete activeAddons[id];
+    }
   }
 
   function renderAddons() {

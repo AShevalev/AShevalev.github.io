@@ -35,13 +35,13 @@ Live still treats 0.5% as a **Positive Days’ Profit filter**. Small days in pr
 | `#bestDayModal` | “Days below this floor are ignored” | Paste below. |
 | JSON-LD | “20% Best Day of **qualifying days**” | 20% Best Day of Positive Days’ Profit. All Positive Days count. No min trading days. |
 
-**Instant Best Day paste** (`p8` + modal)
+**Instant Best Day paste** (`p8` + modal) — same wording as 1-Step, 20% not 50%
 
 ```text
-Your Best Day (highest profit calendar day) must not exceed 20% of Positive Days’ Profit at payout request. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days’ Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.
+Your Best Day (highest profit calendar day) must not exceed 20% of Positive Days’ Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days’ Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.
 ```
 
-**Instant Eligibility paste**
+**Instant Eligibility paste** — same wording as 1-Step, 20% not 50%
 
 ```text
 You are eligible when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and the selected cycle is complete. No minimum trading days required. The same rule applies to every payout.
@@ -59,10 +59,10 @@ Do **not** keep:
 
 ### 1-Step — same Positive Day definition at 50%
 
-**1-Step Best Day paste**
+**1-Step Best Day paste** — same wording as Instant, 50% not 20%. Do not name Instant.
 
 ```text
-Your Best Day (highest profit calendar day) must not exceed 50% of Positive Days’ Profit when you pass evaluation and at every payout request. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days’ Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.
+Your Best Day (highest profit calendar day) must not exceed 50% of Positive Days’ Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days’ Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.
 ```
 
 **1-Step Eligibility paste**
@@ -75,7 +75,11 @@ Do not put Instant 20% or 0.5% on 1-Step. Drop “unique to 1-Step” on the Bes
 
 ### `trading-objectives.html` Instant / 1-Step Best Day modal
 
-Same Positive Day paragraph. Instant `20%` at payout request. 1-Step `50%` when you pass evaluation and at every payout request. No 0.5% extra paragraph on Instant.
+Use **one paragraph**. Instant is 20%. 1-Step is 50%. Do not name Instant on the 1-Step tab. Do not add a 0.5% sentence.
+
+```text
+The Best Day Rule requires that your Best Day (highest profit calendar day) does not exceed X% of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding X% is not a breach — continue trading until Best Day is ≤X%.
+```
 
 ### FAQs that still copy the Instant PDP filter
 
@@ -83,10 +87,20 @@ Same Positive Day paragraph. Instant `20%` at payout request. 1-Step `50%` when 
 
 > A day **only qualifies** for Best Day / Positive Days’ Profit when closed profit is at least 0.5% of that day’s start-of-day equity.
 
-**Paste**
+**`faq-plans.html` Instant card (`content.p7`)** — same skeleton as the 1-Step card. Instant rules only: no eval, 3%/6% trail never locks, **20%** Best Day, no `$200k`. Drop the 0.5% “only qualifies” sentence. Do not name 1-Step on Instant.
+
+**Paste** (1-Step `p1` with Instant-applicable rules and 20% in place of 50%)
 
 ```text
-No evaluation. You start on a funded simulated account. 6% trailing max drawdown from equity high water mark (the trail never locks). 3% daily drawdown from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. Best Day must be ≤20% of Positive Days’ Profit to request a payout. A Positive Day is a calendar day that closes in profit. Every Positive Day is included. No minimum trading days. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$100,000; no $200,000 Instant account.
+No evaluation. You start on a funded simulated account. 3% daily drawdown from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. 6% trailing max drawdown from equity high water mark (the trail never locks). Best Day must be ≤20% of Positive Days’ Profit to get paid. No minimum trading days. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$100,000.
+```
+
+Keep the 1-Step card as live (`content.p1`). Do not add Instant 20% to that card.
+
+**1-Step `p1` (keep — do not name Instant)**
+
+```text
+One evaluation phase, then a Qualified Performance account. 10% profit target. 4% daily drawdown from equity at 00:00 UTC (floating losses included). 6% hybrid max drawdown: trails the account peak, then locks at the initial balance. Best Day must be ≤50% of Positive Days’ Profit to pass and to get paid. No minimum trading days in evaluation or Qualified Performance. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$200,000.
 ```
 
 **`faq-evaluation.html`** live list + `p5` still say “qualifying days: closed profit ≥ 0.5% of SOD.”
@@ -108,23 +122,25 @@ JSON-LD on `faq-evaluation.html` repeats the same Instant qualifying-days line. 
 
 ---
 
-## 2. Weekly 70% and On Demand 90% may stack
+## 2. Weekly 70% and On Demand 90% cannot stack
 
-Locked: they **may stack**. Weekend stays paid. Default remains Bi-Weekly 80%.
+**Correct rule:** Weekly and On-Demand are separate add-ons; they cannot both apply at once. Weekend stays a separate paid add-on. Default remains Bi-Weekly 80%.
 
-**Live (wrong) on Instant, 1-Step, Lite, and Pro**
+Keep this live bullet on Instant, 1-Step, Lite, and Pro (`instant` `li20`, `1-step` `li18`, Lite/Pro `li15`):
 
-> Weekly and On-Demand are separate add-ons; they **cannot both apply at once**.
+```text
+Weekly and On-Demand are separate add-ons; they cannot both apply at once.
+```
 
-Delete that bullet (`instant` `li20`, `1-step` `li18`, Lite/Pro `li15`).
+Do **not** write that they may stack or may be purchased together.
 
-**Checkout** `checkout.html` still has:
+**Checkout** `checkout.html` must keep:
 
 ```javascript
 var PAYOUT_ADDON_EXCLUSIVE = { 'weekly-payout': 1, 'on-demand-payout': 1 };
 ```
 
-Remove the exclusive pair so Weekly and On Demand can both be selected.
+Selecting Weekly clears On Demand, and selecting On Demand clears Weekly.
 
 ---
 
@@ -168,12 +184,12 @@ On 1-Step, 2-Step Lite, and 2-Step Pro, a successful first Performance Reward in
 
 > 50% Best Day rule **(Instant uses 20%)**
 
-Drop the Instant clause. 1-Step is 50% of Positive Days’ Profit only. Do not mention 0.5% on 1-Step.
+Drop the Instant clause. 1-Step is 50% of Positive Days’ Profit only. Do not mention Instant or 0.5% on 1-Step.
 
 **Paste**
 
 ```text
-50% Best Day rule — your single best profit day cannot exceed 50% of Positive Days' Profit. See Section 3 for full details.
+50% Best Day rule — your Best Day cannot exceed 50% of Positive Days' Profit. See Section 3 for full details.
 ```
 
 ---
@@ -198,6 +214,7 @@ These English keys are unused in the current HTML but still hold old copy. Clear
 
 - Changing `at least 0.5%` / `≥ 0.5%` to “more than.”
 - Re-adding Instant “5 valid days” or a listed Instant day-count.
-- Putting Instant 0.5% on 1-Step or 2-Step.
+- Putting Instant 20% or 0.5% on 1-Step or 2-Step.
+- Letting Weekly and On Demand stack.
 - Re-splitting first vs later payouts.
 - News, holding time, Instant trail, Instant `$200k`, Instant not-refundable on the Instant page, 2-Step 5/3, `$100`, Trading Objectives Instant short payout line.

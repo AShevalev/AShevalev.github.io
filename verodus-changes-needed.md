@@ -59,15 +59,11 @@ Same English string is in **es / fr / pt / zh / ar / id / hi / tl / pa**.
 
 ---
 
-## 2. Weekly 70% and On Demand 90% may stack
+## 2. Weekly 70% and On Demand 90% cannot stack
 
-Live says they cannot. Locked: they **may stack**. Weekend stays a separate paid add-on.
+**Correct:** Weekly and On-Demand are separate add-ons; they cannot both apply at once. Weekend stays a separate paid add-on. Default remains Bi-Weekly 80%.
 
-**Delete on Instant, 1-Step, Lite, Pro**
-
-> Weekly and On-Demand are separate add-ons; they cannot both apply at once.
-
-**Checkout** (`checkout.html`): remove `PAYOUT_ADDON_EXCLUSIVE` so Weekly and On Demand can be selected together.
+Keep the live exclusive bullet. Keep checkout `PAYOUT_ADDON_EXCLUSIVE`. Do not write that they may stack.
 
 ---
 

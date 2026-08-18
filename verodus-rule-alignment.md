@@ -357,7 +357,7 @@ Yes, on 1-Step, 2-Step Lite, and 2-Step Pro: 100% of the original challenge fee 
 Cards already name news + no holding time. Instant cards that still say 5 valid days must switch to **no min trading days** + 20% Best Day of Positive Days’ Profit. Optional Instant (`p7`):
 
 ```text
-Instant has no minimum trading days. Every Instant payout (first and later) needs $100, Best Day ≤20% of Positive Days’ Profit, and the selected cycle (weekly, bi-weekly, or on-demand). Instant On-Demand: a Valid Day is a day that closes with at least 0.5% profit.
+Instant has no minimum trading days. Every Instant payout (first and later) needs $100, Best Day ≤20% of Positive Days’ Profit, and the selected cycle (weekly, bi-weekly, or on-demand).
 ```
 
 Do not add the 2-Step 3-day QPP min to Instant or 1-Step cards. Optional 2-Step line:

@@ -177,7 +177,7 @@
 
                 <div class="rules-warning-card" style="margin-top:1.5rem;">
                     <strong>50% Best Day Rule <i class="fa-solid fa-circle-info" onclick="openBestDayModal()" style="font-size:0.8em;color:var(--text-on-theme-dim);margin-left:0.3rem;cursor:pointer;vertical-align:middle;transition:color 0.15s;" onmouseenter="this.style.color='var(--gold-light)'" onmouseleave="this.style.color='var(--text-on-theme-dim)'"></i></strong>
-                    <p data-i18n="content.p7">Your Best Day (highest profit calendar day) must not exceed 50% of Positive Days' Profit when you pass evaluation and at every payout request. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.</p>
+                    <p data-i18n="content.p7">Your Best Day (highest profit calendar day) must not exceed 50% of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.</p>
                 </div>
                 <div class="rules-card">
                     <ul class="rules-step-list">
@@ -207,7 +207,7 @@
                     <p data-i18n-html="content.p9" style="margin-bottom:1.25rem;"><strong>Performance Reward Split</strong></p>
                     <ul class="rules-step-list">
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Default:</strong> 80% on the included Bi-Weekly cycle.</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Add-ons:</strong> Weekly 70% and On Demand 90% are paid add-ons and may be purchased together.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Add-ons:</strong> Weekly and On-Demand are separate add-ons; they cannot both apply at once.</span></li>
                     </ul>
                 </div>
                 <div class="rules-card" style="margin-top:1.25rem;">
@@ -317,7 +317,7 @@
                 <button type="button" class="modal-close" onclick="closeBestDayModal()" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body-wrap text-normal">
-                <p>The Best Day Rule requires that your Best Day (highest profit calendar day) does not exceed <strong class="hl">50%</strong> of Positive Days' Profit when you pass evaluation and at every payout request. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.</p>
+                <p>The Best Day Rule requires that your Best Day (highest profit calendar day) does not exceed <strong class="hl">50%</strong> of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.</p>
                 <div class="plan-best-day-chart-wrap" aria-hidden="true">
                     <svg viewBox="0 0 370 150" xmlns="http://www.w3.org/2000/svg" focusable="false">
                         <text x="6" y="20" class="chart-tick">$10k</text>
