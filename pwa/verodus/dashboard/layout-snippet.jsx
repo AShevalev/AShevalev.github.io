@@ -1,10 +1,9 @@
 /**
  * Merge into dashboard app/layout.jsx (or app/layout.tsx).
- * Apple tags + manifest belong in <head>; InAppLaunches rewrites leftover
- * TradeHub / P5 clicks. /js/install.js registers the service worker.
+ * Apple tags + manifest belong in <head>.
+ * /js/install.js registers the service worker and runs Platforms + Trading modals.
  */
 import Script from "next/script";
-import InAppLaunches from "@/components/InAppLaunches";
 
 export const metadata = {
   applicationName: "Verodus",
@@ -32,7 +31,6 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/css/install.css" />
       </head>
       <body>
-        <InAppLaunches />
         {children}
         <Script src="/js/install.js" strategy="afterInteractive" />
       </body>
