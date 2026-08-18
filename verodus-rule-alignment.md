@@ -143,11 +143,11 @@ Payout spacing follows the cycle you selected: 7 calendar days for weekly, 14 ca
 ```text
 Minimum Reward: $100 (processed within 48 hours)
 
-Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
+Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. A day meets the parameters only if it closes more than 0.5% profit of account balance. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
 
-Weekly (Add-on): 7 calendar days, Best Day ≤20% of Positive Days’ Profit.
+Weekly (Add-on): 7 calendar days and when eligibility requirements are met.
 
-Bi-Weekly (Standard): 14 calendar days, Best Day ≤20% of Positive Days’ Profit.
+Bi-Weekly (Standard): 14 calendar days and when eligibility requirements are met.
 
 On-Demand (Add-on): Available when eligibility requirements are met.
 ```
@@ -161,8 +161,8 @@ Eligibility: You become eligible for a reward when net profit is at least $100, 
 1-Step Weekly / Bi-Weekly / On-Demand (same page, separate bullets — no `$100` on these; Eligibility already has it):
 
 ```text
-Weekly (Add-on): 7 calendar days, Best Day ≤50% of Positive Days’ Profit.
-Bi-Weekly (Standard): 14 calendar days, Best Day ≤50% of Positive Days’ Profit.
+Weekly (Add-on): 7 calendar days and when eligibility requirements are met.
+Bi-Weekly (Standard): 14 calendar days and when eligibility requirements are met.
 On-Demand (Add-on): Available when eligibility requirements are met.
 ```
 
@@ -176,13 +176,7 @@ Bi-Weekly (Standard): 14 calendar days, and 3 trading days.
 On-Demand (Add-on): Available when eligibility requirements are met.
 ```
 
-Instant `li10` / `span21` — Instant has **no minimum trading days.** Delete the 5-valid-day / first-reward line. Do not replace it with “5 min trading days” or “5 valid trading days.”
-
-```text
-Minimum Trading Days: No minimum trading days.
-```
-
-Best Day stays in the Best Day block / modal (20% of Positive Days’ Profit). 0.5% stays on Instant On-Demand: a profitable day is a day that closes with more than 0.5% profit.
+Instant `li10` / `span21` — **Delete.** Instant has **no minimum trading days.** Do not leave a leftover **“Minimum Trading Days: No minimum trading days.”** bullet. Keep one card stat (**None**). Do not also print “Minimum Trading Days: None” in the card meta.
 
 `performance-reward.html` “First reward after 3 trading days” / “Min. 3 trading days” — keep **3 trading days** for **2-Step QPP only**. 1-Step and Instant have no min trading days. Drop the first/later split. Add `$100` + cycle.
 

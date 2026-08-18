@@ -131,7 +131,7 @@
                             </div>
                             <div class="phase-card-meta">
                                 <span data-i18n-html="content.span2">Trading Period: <strong>Unlimited</strong></span>
-                                <span data-i18n-html="content.span3">Minimum Trading Days: <strong>None</strong></span>
+                                
                             </div>
                         </div>
                     </div>
@@ -156,7 +156,6 @@
                         <li data-i18n-html="content.li7"><span class="rules-step-num">&bull;</span><div><strong>Maximum Drawdown: 6% Trailing (High Water Mark Equity):</strong><span>The maximum you can lose overall is a trailing drawdown that follows your account equity peak. The limit trails upward as new equity highs are achieved. It never locks. Breaching the 6% trailing maximum drawdown results in immediate account termination.</span></div></li>
                         <li data-i18n-html="content.li8"><span class="rules-step-num">&bull;</span><div><strong>Daily Drawdown: 3% (High Water Mark Equity):</strong><span>Your equity cannot fall more than <strong><span data-pct="3">3%</span> of your starting balance</strong> below the highest equity point reached during the current trading day. The limit resets daily at <strong>00:00 UTC</strong>. Floating (unrealized) P&amp;L is included in the calculation.</span></div></li>
                         <li data-i18n-html="content.li9"><span class="rules-step-num">&bull;</span><div><strong>No Minimum Trading Days:</strong><span>There is no minimum number of trading days required. You may trade at your own pace. A trading day counts when at least one trade is both opened and closed on that calendar day (UTC 00:00&#8211;23:59).</span></div></li>
-                        <li data-i18n-html="content.li10"><span class="rules-step-num">&bull;</span><div><strong>Minimum Trading Days:</strong><span>No minimum trading days.</span></div></li>
                     </ul>
                 </div>
             </section>
@@ -180,11 +179,11 @@
 
                 <div class="rules-warning-card" style="margin-top:1.5rem;">
                     <strong>20% Best Day Rule <i class="fa-solid fa-circle-info" onclick="openBestDayModal()" style="font-size:0.8em;color:var(--text-on-theme-dim);margin-left:0.3rem;cursor:pointer;vertical-align:middle;transition:color 0.15s;" onmouseenter="this.style.color='var(--gold-light)'" onmouseleave="this.style.color='var(--text-on-theme-dim)'"></i></strong>
-                    <p data-i18n="content.p8">Your single best profit day cannot account for more than 20% of your total Positive Days' Profit from every profitable day at the time you request a payout. Every profitable day is factored in, including small chip days.</p>
+                    <p data-i18n="content.p8">Your single best profit day cannot account for more than 20% of your total Positive Days' Profit at the time you request a payout. Every profitable day is factored in, including small chip days.</p>
                 </div>
                 <div class="rules-card">
                     <ul class="rules-step-list">
-                        <li data-i18n-html="content.li12"><span class="rules-step-num">&bull;</span><div><strong>Rule:</strong><span>Best Day must be ≤20% of Positive Days' Profit from every profitable day. Every profitable day is factored in.</span></div></li>
+                        <li data-i18n-html="content.li12"><span class="rules-step-num">&bull;</span><div><strong>Rule:</strong><span>Best Day must be ≤20% of Positive Days' Profit. Every profitable day is factored in.</span></div></li>
                         <li data-i18n-html="content.li13"><span class="rules-step-num">&bull;</span><div><strong>Not a Breach:</strong><span>Exceeding 20% on a single day does not immediately terminate your account — you must continue trading to grow your total Positive Days' Profit until the best day drops to 20% or below.</span></div></li>
                         <li data-i18n-html="content.li14"><span class="rules-step-num">&bull;</span><div><strong>Calculation:</strong><span>Profits are measured from closed trades at the end of each trading day (00:00 UTC). Every profitable day counts toward Positive Days' Profit. Losing days do not. Small profitable days still count toward Positive Days' Profit.</span></div></li>
                     </ul>
@@ -195,7 +194,7 @@
 
                 <div class="rules-card" style="margin-top:1.5rem;">
                     <ul class="rules-step-list">
-                        <li data-i18n-html="content.li15"><span class="rules-step-num">&bull;</span><div><strong>Every Payout:</strong><span>Minimum $100, Best Day ≤20% of every profitable day, and the selected cycle. Instant has no minimum trading days. The first payout and every payout after use this same rule. Processed within 48 hours.</span></div></li>
+                        <li data-i18n-html="content.li15"><span class="rules-step-num">&bull;</span><div><strong>Every Payout:</strong><span>Minimum $100, Best Day ≤20% of Positive Days' Profit, and the selected cycle. Instant has no minimum trading days. The first payout and every payout after use this same rule. Processed within 48 hours.</span></div></li>
                     </ul>
                 </div>
             </section>
@@ -223,9 +222,9 @@
                     <p data-i18n-html="content.p11" style="margin-bottom:1.25rem;"><strong>Rewards &amp; Payouts</strong></p>
                     <ul class="rules-step-list">
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Minimum Reward:</strong> $100 (processed within 48 hours)</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Eligibility:</strong> You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days' Profit, and you have met the selected cycle. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly (Add-on):</strong> 7 calendar days, Best Day ≤20% of Positive Days' Profit.</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly (Standard):</strong> 14 calendar days, Best Day ≤20% of Positive Days' Profit.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Eligibility:</strong> You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days' Profit, and you have met the selected cycle. A day meets the parameters only if it closes more than 0.5% profit of account balance. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly (Add-on):</strong> 7 calendar days and when eligibility requirements are met.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly (Standard):</strong> 14 calendar days and when eligibility requirements are met.</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On-Demand (Add-on):</strong> Available when eligibility requirements are met.</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Intervals:</strong> All reward request intervals are calendar days, not trading days</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Refund:</strong> Instant fees are not refundable</span></li>

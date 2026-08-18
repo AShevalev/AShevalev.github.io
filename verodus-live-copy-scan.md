@@ -31,11 +31,11 @@ Instant: On-demand: $100. No minimum trading days. Best Day ≤20% of Positive D
 ```text
 Minimum Reward: $100 (processed within 48 hours)
 
-Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
+Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. A day meets the parameters only if it closes more than 0.5% profit of account balance. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
 
-Weekly (Add-on): 7 calendar days, Best Day ≤20% of Positive Days’ Profit.
+Weekly (Add-on): 7 calendar days and when eligibility requirements are met.
 
-Bi-Weekly (Standard): 14 calendar days, Best Day ≤20% of Positive Days’ Profit.
+Bi-Weekly (Standard): 14 calendar days and when eligibility requirements are met.
 
 On-Demand (Add-on): Available when eligibility requirements are met.
 ```
@@ -47,9 +47,9 @@ Minimum Reward: $100 (processed within 48 hours)
 
 Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤50% of Positive Days’ Profit, and you have met the selected cycle. 1-Step has no minimum trading days. Exceeding 50% is not a breach — keep trading until Best Day is ≤50%. The first payout and every payout after use this same rule.
 
-Weekly (Add-on): 7 calendar days, Best Day ≤50% of Positive Days’ Profit.
+Weekly (Add-on): 7 calendar days and when eligibility requirements are met.
 
-Bi-Weekly (Standard): 14 calendar days, Best Day ≤50% of Positive Days’ Profit.
+Bi-Weekly (Standard): 14 calendar days and when eligibility requirements are met.
 
 On-Demand (Add-on): Available when eligibility requirements are met.
 ```

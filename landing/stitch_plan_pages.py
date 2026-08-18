@@ -62,15 +62,15 @@ REWARDS_INSTANT = "\n".join(
         _rstep("Minimum Reward", "$100 (processed within 48 hours)"),
         _rstep(
             "Eligibility",
-            "You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days' Profit, and you have met the selected cycle. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.",
+            "You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days' Profit, and you have met the selected cycle. A day meets the parameters only if it closes more than 0.5% profit of account balance. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.",
         ),
         _rstep(
             "Weekly (Add-on)",
-            "7 calendar days, Best Day ≤20% of Positive Days' Profit.",
+            "7 calendar days and when eligibility requirements are met.",
         ),
         _rstep(
             "Bi-Weekly (Standard)",
-            "14 calendar days, Best Day ≤20% of Positive Days' Profit.",
+            "14 calendar days and when eligibility requirements are met.",
         ),
         _rstep(
             "On-Demand (Add-on)",
@@ -93,11 +93,11 @@ REWARDS_1STEP = "\n".join(
         ),
         _rstep(
             "Weekly (Add-on)",
-            "7 calendar days, Best Day ≤50% of Positive Days' Profit.",
+            "7 calendar days and when eligibility requirements are met.",
         ),
         _rstep(
             "Bi-Weekly (Standard)",
-            "14 calendar days, Best Day ≤50% of Positive Days' Profit.",
+            "14 calendar days and when eligibility requirements are met.",
         ),
         _rstep(
             "On-Demand (Add-on)",
@@ -257,6 +257,12 @@ def patch_shared(html: str, slug: str) -> str:
         "cannot exceed 50% of your total Positive Days' Profit.",
     )
     html = html.replace(
+        " of Positive Days' Profit from every profitable day",
+        " of Positive Days' Profit",
+    )
+    html = html.replace(" from every profitable day", "")
+    html = html.replace(" of every profitable day", " of Positive Days' Profit")
+    html = html.replace(
         "keep up to 90% of performance rewards under our sustainable trading rules.",
         "keep 80% of performance rewards (90% is a paid add-on) under our sustainable trading rules.",
         1,
@@ -382,6 +388,22 @@ def patch_instant(html: str) -> str:
         "Minimum Trading Days: <strong>None</strong>",
     )
     html = html.replace(
+        '<span data-i18n-html="content.span3">Minimum Trading Days: <strong>None</strong></span>',
+        "",
+    )
+    html = re.sub(
+        r'\s*<li[^>]*>\s*<span class="rules-step-num">&bull;</span><div><strong>Minimum Trading Days:</strong><span>No minimum trading days\.</span></div></li>',
+        "",
+        html,
+        count=1,
+    )
+    html = html.replace(
+        " of Positive Days' Profit from every profitable day",
+        " of Positive Days' Profit",
+    )
+    html = html.replace(" from every profitable day", "")
+    html = html.replace(" of every profitable day", " of Positive Days' Profit")
+    html = html.replace(
         "of your total Positive Days' Profit from every green day at the time you request a payout. Every green day is factored in, including small chip days.",
         "of your total Positive Days' Profit at the time you request a payout. This rule promotes consistent performance.",
     )
@@ -473,6 +495,7 @@ INSTANT_FORBIDDEN = (
     "5 valid trading days",
     "5 valid days",
     "minimum of 5 valid",
+    "Minimum Trading Days:</strong><span>No minimum trading days",
     "green day",
     "0.5% parameter",
 )
@@ -509,7 +532,9 @@ def verify(slug: str, html: str) -> None:
             "not refundable",
             "no minimum trading days",
             "Best Day ≤20% of Positive Days",
-            "A profitable day is a day that closes with more than 0.5% profit",
+            "7 calendar days and when eligibility requirements are met",
+            "14 calendar days and when eligibility requirements are met",
+            "more than 0.5% profit of account balance",
             "Available when eligibility requirements are met",
         ):
             if needle not in html:
@@ -527,7 +552,8 @@ def verify(slug: str, html: str) -> None:
         for needle in (
             "Add-on fees are not refunded",
             "no minimum trading days",
-            "Best Day ≤50% of Positive Days",
+            "7 calendar days and when eligibility requirements are met",
+            "14 calendar days and when eligibility requirements are met",
             "Available when eligibility requirements are met",
         ):
             if needle not in html:
