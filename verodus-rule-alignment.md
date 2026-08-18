@@ -201,7 +201,7 @@ On `trading-objectives.html`, Instant and 1-Step have **no min trading days**. I
 Every payout: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit (within 48 hrs).
 ```
 
-1-Step payout lines use `$100` + 50% Best Day of Positive Days’ Profit. 2-Step lines use `$100` + **3 trading days** (every payout, not first-only). Instant 0.5% is On-Demand / Best Day modal only. Do not put Instant 0.5% on the 1-Step Best Day modal.
+1-Step payout lines use `$100` + 50% Best Day of Positive Days’ Profit. 2-Step lines use `$100` + **3 trading days** (every payout, not first-only). Instant 0.5% / **Valid Day** is Instant **Eligibility** and Best Day modal. Do not put Instant 0.5% on the 1-Step Best Day modal.
 
 ---
 

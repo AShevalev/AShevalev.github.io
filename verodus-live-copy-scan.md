@@ -4,7 +4,7 @@ Scanned `https://www.verodus.com/` plan pages, Trading Objectives, FAQ Plans, FA
 
 This note is the correction list for the **next site paste**. Rec HTML in this repo already follows the Rewards paste below. Live does not.
 
-Never write “green day” or “0.5% parameter.” Use **profitable day** and **Positive Days’ Profit**. Instant 0.5% belongs on the Instant Best Day modal only.
+Never write “green day” or “0.5% parameter.” Use **Positive Day** for Positive Days’ Profit. Instant **Valid Day** (at least 0.5% / ≥ 0.5%) belongs on Instant **Eligibility** and the Instant Best Day modal.
 
 ---
 
@@ -104,7 +104,7 @@ Live Weekly / Bi-Weekly still say “starting from the day you receive your Qual
 
 Still on Instant Best Day block + modal, Instant Eligibility, Instant On-Demand, Instant “Every Payout” card, 1-Step Best Day + Eligibility + On-Demand, FAQ Plans, FAQ Evaluation, FAQ Qualified Trader, Trading Objectives Instant / 1-Step payout lines and Best Day modal JS.
 
-**Replace “green day” with “profitable day.”** Drop “0.5% parameter.” Instant modal only: **a profitable day is a day that closes with at least 0.5% profit (≥ 0.5%).** Do not write “more than 0.5%.” Do not put 0.5% on 1-Step or 2-Step. Do not put 0.5% on Instant Eligibility, Weekly, Bi-Weekly, On-Demand, or the short Trading Objectives Instant payout line.
+**Replace “green day” with “Positive Day.”** Drop “0.5% parameter.” Instant **Eligibility** and Best Day modal: **a Valid Day is a day that closes with at least 0.5% profit (≥ 0.5%).** Do not write “more than 0.5%.” Do not put 0.5% on 1-Step or 2-Step. Do not put 0.5% on Instant Weekly, Bi-Weekly, On-Demand, or the short Trading Objectives Instant payout line.
 
 ### 3. Instant leftover that contradicts no-min-days
 
