@@ -1,8 +1,15 @@
 # Verodus — final live-site changes
 
-**This is the paste list.** Use it on live `www.verodus.com` and matching locale JSON. Rec HTML in this repo (`landing/*.html`) already matches these strings.
+**This is the paste list.** Use it on live `www.verodus.com` and matching locale JSON.
 
-**How to use:** paste HTML, then the same string in `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`. Scan: 18 Aug 2026.
+**How to use:** paste HTML, then the same string in `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`.
+
+**Fresh live scan: 18 Aug 2026 (re-fetched `www.verodus.com`, 44 HTML pages).** Locked FAQ four cards, Instant Best Day / Eligibility / JSON-LD, 1-Step Instant-name strip, home Instant blurb, FAQ Evaluation `p5`, Trading Objectives Instant modal, FAQ Qualified Trader 90/10 ladder, and TOS min-days / Instant-not-refundable **already match live**. Do not re-paste those unless a locale is still stale.
+
+**Still leftover on live**
+- Instant section still titled **Additional Qualified Performance Rules** (news body is Instant-correct). Prefer an Instant heading that does not say Qualified Performance.
+- `refund-policy.html` is still blanket non-refundable (no eval first-reward / Instant split). TOS already has the split.
+- `performance-reward.html` — **do not change** (still sells scale-to-90/10; leave as live).
 
 **Contents**
 1. [FAQ → Plans — four cards locked](#1-faq--plans-faq-planshtml--four-cards-locked)
@@ -59,13 +66,13 @@
 
 ## 1. FAQ → Plans (`faq-plans.html`) — four cards locked
 
-These four cards are **locked**. Instant is the only live card that still needs a paste (it still has the 0.5% qualifying-day filter). 1-Step / Lite / Pro already match live — paste them anyway so locales stay in lockstep.
+These four cards are **locked**. **Live HTML now matches all four** (Instant `p7` no longer has the 0.5% filter). Paste only if a locale is behind.
 
 Shared note under the cards can stay (news allowed on all four; Weekend still an add-on). Do **not** add 0.5% / Valid Day. Do **not** name Instant on the 1-Step card.
 
 Locale: `locales/*/pages/faq-plans.json`
 
-### Instant — `content.p7` (live is wrong)
+### Instant — `content.p7` (live now matches)
 
 **Delete:** “A day only qualifies for Best Day / Positive Days’ Profit when closed profit is at least 0.5% of that day’s start-of-day equity.”
 
@@ -111,7 +118,7 @@ No Minimum Trading Days: There is no minimum number of trading days required. Yo
 
 Delete leftover “5 valid trading days” / “Minimum Trading Days: 5 Days.”
 
-### JSON-LD / meta description (live still has 0.5%)
+### JSON-LD / meta description (live now matches)
 
 ```
 Instant access to a funded simulated account with no evaluation phases. 6% trailing max drawdown from equity high water mark (the trail never locks). 3% daily drawdown from that day’s equity high (fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC). 20% Best Day rule, and no minimum trading days. Sizes $5,000–$100,000.
@@ -119,7 +126,7 @@ Instant access to a funded simulated account with no evaluation phases. 6% trail
 
 ### Heading
 
-Live: “4. Payouts and **risk** limits” → **4. Payouts and Risk Limits** (`content.h24` and the TOC link).
+Live heading is **4. Payouts and Risk Limits** (`content.h24` and the TOC link). HTML comment may still say “risk limits.”
 
 Do **not** add Every Payout, Intervals, or Performance Reward Split on Instant.
 
@@ -402,7 +409,7 @@ Already aligned on the 18 Aug scan (no 0.5% / stack needles). Keep:
 
 ---
 
-## 11. Already OK on the 18 Aug scan
+## 11. Already OK on the 18 Aug afternoon rescan
 
 - FAQ news (`faq-news-trading.html`), FAQ hub (`faq.html`), `restricted-trading.html`
 - 2-Step Lite / Pro plan pages (QPP wording)
