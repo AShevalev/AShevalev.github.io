@@ -3,7 +3,7 @@
 **Scan:** 18 Aug 2026 (re-fetched live `www.verodus.com` this pass).  
 **Repo rec HTML** (`landing/*.html`) already matches these Instant / 1-Step / 2-Step rules. This file is what still has to change **on the live site + locales**.
 
-**This scan’s still-wrong pages:** Instant FAQ card `p7` (0.5%), Instant page Best Day / Eligibility / JSON-LD / heading case, 1-Step Instant-name asides, index Instant FAQ blurb, FAQ Evaluation Instant 0.5%, Trading Objectives Instant modal, FAQ Qualified Trader leftover 90/10 + 85/15 scale, TOS site-wide min days + first-reward refund with no Instant exception.
+**This scan’s still-wrong pages:** Instant FAQ card `p7` (0.5%), Instant page Best Day / Eligibility / JSON-LD / heading case, 1-Step Instant-name asides, index Instant FAQ blurb, FAQ Evaluation Instant 0.5%, Trading Objectives Instant modal, FAQ Qualified Trader leftover 90/10 + 85/15 scale, TOS site-wide min-days sentence (`li4`) + first-reward refund with no Instant exception.
 
 **Leave as live — do not change:** `https://www.verodus.com/performance-reward.html` and `/locales/*/pages/performance-reward.json`. No HTML paste. No locale paste. Scale-to-90/10 copy on that page stays.
 
@@ -141,13 +141,15 @@ Payout `$100` / 3-day QPP / Instant no min days / first-reward refund **evals on
 
 ## 6. Terms of Service
 
-Live `li4`: “A minimum number of Trading Days is required both during the evaluation phases and before/between Performance Rewards.” That is false for Instant and 1-Step.
+Live `li4`: “A minimum number of Trading Days is required both during the evaluation phases and before/between Performance Rewards.”
+
+**Rec for `li4`:** Keep “Requirements vary by model.” Do not add a plan-by-plan day-count line. Delete the site-wide min-days sentence.
 
 Live first-reward note: “A successful first Performance Reward includes a 100% refund of your original challenge fee.” No Instant exception, and it does not say add-ons are excluded.
 
 | Live | Rec |
 |------|-----|
-| Site-wide min trading days (`li4`) | Instant and 1-Step have **no** min days. 2-Step eval **5 days/phase**. 2-Step QPP **3 days**. |
+| Site-wide min trading days (`li4`) | Keep “Requirements vary by model.” Do not add a plan-by-plan day-count line. |
 | First-reward challenge-fee refund, no Instant exception | Instant is **not refundable**. Eval first-reward refund = **challenge fee only**, not add-ons. |
 
 ---
@@ -176,7 +178,7 @@ Live already uses Qualified Performance (not Instant). Rec pages in `landing/2-s
 | `locales/en/pages/faq-evaluation.json` | Instant sentence without 0.5% |
 | `locales/en/pages/trading-objectives.json` | Instant modal without 0.5% |
 | `locales/en/pages/faq-qualified-trader.json` | No leftover 90/10 scale |
-| `locales/en/pages/terms.json` | Min days + Instant not refundable |
+| `locales/en/pages/terms.json` | Keep “Requirements vary by model.” Instant not refundable |
 | `locales/*/pages/performance-reward.json` | **Do not change** |
 
 Then the other nine locale folders.

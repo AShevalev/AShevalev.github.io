@@ -198,7 +198,7 @@ Do not re-paste Instant 0.5% into this hub answer. Fee refund `p28` is already c
 
 | Live | Change to |
 |---|---|
-| §8(b) `li4`: “A minimum number of Trading Days is required both during the evaluation phases and before/between Performance Rewards.” | Keep “Requirements vary by model.” Delete the site-wide min-days sentence. Instant and 1-Step have no min trading days. |
+| §8(b) `li4`: “A minimum number of Trading Days is required both during the evaluation phases and before/between Performance Rewards.” | Keep “Requirements vary by model.” Delete the site-wide min-days sentence. Do not add a plan-by-plan day-count line. |
 | §8(a) `p40`: first Performance Reward includes a 100% challenge-fee refund, no Instant exception | Challenge-fee refund is eval plans only. Instant is not refundable. Add-ons are never part of that refund. |
 
 News TOS §9(b)(ii) is already aligned. Empty keys `h38` / `p51`–`p53` can stay blank.
