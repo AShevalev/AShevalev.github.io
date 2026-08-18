@@ -77,7 +77,7 @@ Live says they cannot. Locked: they **may stack**. Weekend stays a separate paid
 |---|---|
 | “green day” | **profitable day** |
 | “qualifying days only” | every profitable day |
-| Eligibility dumps 0.5% as a PDP filter | Short Eligibility. No 0.5% here. |
+| Eligibility dumps 0.5% as a PDP filter (“qualifying days only”) | Eligibility keeps **Valid Day**: a Valid Day is a day that closes with at least 0.5% profit (≥ 0.5%). Valid Day is not a min-day count and does not remove small Positive Days from Positive Days’ Profit. |
 | Locale leftovers `span49` / `span51` / `span53` (unused in HTML): “starting from Qualified Performance Account” / “does not skip the trading-day requirement” | Clear or rewrite. Instant is funded from day one — never say QPP account. |
 | JSON-LD: “20% Best Day of qualifying days (closed profit ≥ 0.5% of SOD)” | 20% Best Day of Positive Days’ Profit. Every profitable day is included. A profitable day is at least 0.5% profit (≥ 0.5%). No min trading days. |
 
@@ -86,7 +86,7 @@ Live says they cannot. Locked: they **may stack**. Weekend stays a separate paid
 ```text
 Minimum Reward: $100 (processed within 48 hours)
 
-Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
+Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. A Valid Day is a day that closes with at least 0.5% profit (≥ 0.5%). Valid Day is not a minimum trading-day count and does not remove small Positive Days from Positive Days’ Profit. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
 
 Weekly (Add-on): 7 calendar days and when eligibility requirements are met.
 

@@ -24,7 +24,7 @@ Live still treats 0.5% as a **Positive Days’ Profit filter**. Small days in pr
 - Best Day ≤20% of **Positive Days’ Profit**.
 - **Every Positive Day** is included, including small days.
 - Never write “green day,” “qualifying days only,” or “days below this floor are ignored.”
-- 0.5% belongs on the **Instant Best Day modal**. Do not use it to exclude days from Positive Days’ Profit on Eligibility, FAQs, or schema.
+- 0.5% / **Valid Day** belongs on Instant **Eligibility** and the Instant Best Day modal. Do not use it to exclude days from Positive Days’ Profit.
 
 ### `instant.html`
 
@@ -33,7 +33,7 @@ Live still treats 0.5% as a **Positive Days’ Profit filter**. Small days in pr
 | `content.p8` | “A day counts only when closed profit is at least 0.5% of that day’s start-of-day equity. **Smaller green days do not count** toward Best Day or Positive Days’ Profit.” | Every Positive Day is included. A Positive Day is a calendar day that closes in profit. Small Positive Days still count. Instant 0.5% is a separate modal line, not this definition. |
 | `content.li12` | “Best Day must be ≤20% of Positive Days' Profit **(qualifying days only)**.” | Best Day must be ≤20% of Positive Days’ Profit. |
 | `content.li14` | “Days under the 0.5% start-of-day equity floor **do not count**.” Example: +$400 does not qualify. | Closed trades at 00:00 UTC. Losing days do not count. Every Positive Day counts. |
-| Eligibility `li23` / `span47` | “**qualifying days only:** closed profit ≥ 0.5% of that day’s start-of-day equity” | `$100` + Best Day ≤20% of Positive Days’ Profit + cycle. No min trading days. **No 0.5% here.** |
+| Eligibility `li23` / `span47` | “**qualifying days only:** closed profit ≥ 0.5% of that day’s start-of-day equity” | `$100` + Best Day ≤20% of Positive Days’ Profit + cycle. **Valid Day** explanation here. No min trading days. Do not say qualifying days are the only days in PDP. |
 | `#bestDayModal` | “A day only qualifies … **at least 0.5%** of SOD. **Days below this floor are ignored** for the 20% Best Day calculation.” | Paste below. |
 | JSON-LD `description` | “20% Best Day of **qualifying days** (closed profit ≥ 0.5% of SOD)” | 20% Best Day of Positive Days’ Profit. Every Positive Day is included. No min trading days. |
 
@@ -43,10 +43,10 @@ Live still treats 0.5% as a **Positive Days’ Profit filter**. Small days in pr
 The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit at the time you request a payout. A Positive Day is a calendar day that closes in profit. Every Positive Day is included in Positive Days' Profit. A Valid Day is a day that closes with at least 0.5% profit (≥ 0.5%). Valid Day is not a minimum trading-day count and does not remove small Positive Days from Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit.
 ```
 
-**Instant Eligibility paste** (no 0.5% on this bullet)
+**Instant Eligibility paste** (Valid Day lives here)
 
 ```text
-Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
+Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. A Valid Day is a day that closes with at least 0.5% profit (≥ 0.5%). Valid Day is not a minimum trading-day count and does not remove small Positive Days from Positive Days’ Profit. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
 ```
 
 **Instant `p8` paste**

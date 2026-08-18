@@ -33,15 +33,15 @@ Do **not** put Instant 0.5% language on the 1-Step 50% Best Day modal or on 2-St
   - **Weekly (every plan):** 7 calendar days since the account start or last reward, plus that plan’s Eligibility rule (Instant/1-Step Best Day; 2-Step 3 trading days).
   - **Bi-weekly (every plan):** 14 calendar days since the account start or last reward, plus that plan’s Eligibility rule.
   - **On-demand (every plan page):** `Available when eligibility requirements are met.` Do **not** paste Instant / 1-Step / 2-Step On-Demand variants onto each plan page.
-- Instant 0.5% stays on the Instant Best Day modal only: a **Valid Day** is a day that closes with **at least 0.5% profit** (**≥ 0.5%**). Do not write “more than 0.5%.” Do not write “A Positive Day is a day that closes with at least 0.5% profit.” Never list “5 Valid Days.”
+- Instant 0.5% / **Valid Day** stays on Instant **Eligibility** and the Instant Best Day modal: a **Valid Day** is a day that closes with **at least 0.5% profit** (**≥ 0.5%**). Do not write “more than 0.5%.” Do not write “A Positive Day is a day that closes with at least 0.5% profit.” Never list “5 Valid Days.”
 - Do not add a first-vs-later split (e.g. “first after 4 days, later after 3”). Instant and 1-Step have no min trading days. The 3-day QPP min is **2-Step only**.
 
 ### Instant Best Day + 0.5% profit of a day
 Do **not** write “green day” or “profitable day.” Do **not** write “0.5% parameter.” Do **not** write “more than 0.5%.”
 - Best Day ≤20% of **Positive Days’ Profit**. A **Positive Day** is a calendar day that closes in profit. Every Positive Day is included.
 - **Do not write:** “A Positive Day is a day that closes with at least 0.5% profit.” That makes 0.5% the PDP filter.
-- On the Instant Best Day modal only, name the 0.5% line **Valid Day**: a Valid Day is a day that closes with **at least 0.5% profit** (**≥ 0.5%**). Exactly 0.5% meets it. Valid Day is not a minimum trading-day count and does not remove small Positive Days from Positive Days’ Profit. Never write “5 Valid Days.”
-- Do **not** put 0.5% on Weekly, Bi-Weekly, Eligibility, or the short trading-objectives payout line.
+- On Instant **Eligibility** and the Instant Best Day modal, name the 0.5% line **Valid Day**: a Valid Day is a day that closes with **at least 0.5% profit** (**≥ 0.5%**). Exactly 0.5% meets it. Valid Day is not a minimum trading-day count and does not remove small Positive Days from Positive Days’ Profit. Never write “5 Valid Days.”
+- Do **not** put 0.5% on Weekly, Bi-Weekly, On-Demand, or the short trading-objectives payout line.
 - Exceeding 20% is not a breach — keep trading until Best Day is ≤20% of total Positive Days’ Profit.
 - Instant-only. Do not put 0.5% on 1-Step or 2-Step.
 
@@ -58,7 +58,7 @@ Do **not** write “green day” or “profitable day.” Do **not** write “0.
 - Weekend Holding Addon
 - Instant 3% daily from day’s equity high, 6% trail that never locks
 - 1-Step Best Day stays **50% of Positive Days’ Profit** with **no** listed 3-day min. Do not mention 0.5% on 1-Step.
-- Instant Best Day stays **20% of Positive Days’ Profit**. A Positive Day is a calendar day that closes in profit. 0.5% is Instant Best Day modal only: a **Valid Day** is a day that closes with **at least 0.5% profit** (**≥ 0.5%**). Do not write “more than 0.5%.” Do not define Positive Day as the 0.5% line. Never list “5 Valid Days.”
+- Instant Best Day stays **20% of Positive Days’ Profit**. A Positive Day is a calendar day that closes in profit. 0.5% is Instant **Eligibility** and Best Day modal: a **Valid Day** is a day that closes with **at least 0.5% profit** (**≥ 0.5%**). Do not write “more than 0.5%.” Do not define Positive Day as the 0.5% line. Never list “5 Valid Days.”
 - 2-Step evaluation still **5 trading days per phase**. Do not rewrite the 2-Step “5 Minimum Active Performance Days” eval modal into Instant 0.5% language.
 
 ---
@@ -139,12 +139,12 @@ Payout spacing follows the cycle you selected: 7 calendar days for weekly, 14 ca
 
 > Eligibility: You become eligible for a reward only after both of the following are met: At least 3 trading days have passed since you received your Qualified Performance Account or since your last payout, and …
 
-**Instant paste — Rewards & Payouts on `instant.html` (and Instant FAQ).** Keep Eligibility short. Do **not** dump Weekly / Bi-Weekly / On-Demand into Eligibility. Skip `$100` on the cycle bullets — Eligibility already has it. Weekly and Bi-Weekly still name Best Day + the calendar clock. On-Demand is one line: available when eligibility requirements are met. Instant 0.5% stays on the Best Day modal only. Do **not** say “Qualified Performance Account” on Instant. Do **not** write “green day” or “0.5% parameter.”
+**Instant paste — Rewards & Payouts on `instant.html` (and Instant FAQ).** Keep Eligibility as `$100` + Best Day + **Valid Day** + cycle. Do **not** dump Weekly / Bi-Weekly / On-Demand into Eligibility. Skip `$100` on the cycle bullets — Eligibility already has it. On-Demand is one line: available when eligibility requirements are met. Do **not** say “Qualified Performance Account” on Instant. Do **not** write “green day” or “0.5% parameter.”
 
 ```text
 Minimum Reward: $100 (processed within 48 hours)
 
-Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. A day meets the parameters only if it closes at least 0.5% profit of account balance. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
+Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. A Valid Day is a day that closes with at least 0.5% profit (≥ 0.5%). Valid Day is not a minimum trading-day count and does not remove small Positive Days from Positive Days’ Profit. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
 
 Weekly (Add-on): 7 calendar days and when eligibility requirements are met.
 
@@ -221,11 +221,11 @@ Payouts can be requested through the dashboard once the following conditions are
 
 On Instant pages, say **only** Instant rules. Do not mention 1-Step or 2-Step day counts. Do not put Instant 20% / 0.5% language on 1-Step or 2-Step. Never write “green day,” “5 min trading days,” “5 valid trading days,” or “0.5% parameter.”
 
-`instant.html` Eligibility is wrong today. It still uses the 1-Step / 2-Step QPP **3 trading days** sentence. Instant has **no minimum trading days**. Instant’s day rule is **20% Best Day of Positive Days’ Profit**. Same first payout and every payout after. Weekly and Bi-Weekly keep `$100` **and** Best Day ≤20%. Put 0.5% on On-Demand only.
+`instant.html` Eligibility is wrong today. It still uses the 1-Step / 2-Step QPP **3 trading days** sentence, or it treats 0.5% as a PDP filter. Instant has **no minimum trading days**. Instant’s day rule is **20% Best Day of Positive Days’ Profit**. Same first payout and every payout after. Put **Valid Day** on Eligibility: a Valid Day is a day that closes with at least 0.5% profit (≥ 0.5%). That does not remove small Positive Days from Positive Days’ Profit.
 
 | Key | Live | Change to |
 |---|---|---|
-| Eligibility | At least **3 trading days** since QPP; or one long bullet that dumps cycle + 0.5% | Short Eligibility: `$100` + Best Day ≤20% of Positive Days’ Profit + cycle. No min trading days. No 0.5% here. Do not dump Weekly / Bi-Weekly / On-Demand into this bullet. |
+| Eligibility | At least **3 trading days** since QPP; or “qualifying days only” as a PDP filter | `$100` + Best Day ≤20% of Positive Days’ Profit + cycle. **Valid Day** = at least 0.5% profit (≥ 0.5%). Valid Day is not a min-day count and does not remove small Positive Days from PDP. Do not dump Weekly / Bi-Weekly / On-Demand into this bullet. |
 | Weekly | 7 calendar days, no Best Day; or “starting from Qualified Performance Account” | **`$100`, 7 calendar days, Best Day ≤20% of Positive Days’ Profit.** Instant is funded from day one — do not say QPP account. |
 | Bi-Weekly | 14 calendar days, no Best Day | **`$100`, 14 calendar days, Best Day ≤20% of Positive Days’ Profit.** |
 | On-Demand | Wordy 0.5% “parameter” + “green day”; or two On-Demand bullets | **One line:** `$100`. No min trading days. Best Day ≤20% of Positive Days’ Profit. **A Valid Day is a day that closes with at least 0.5% profit.** |
@@ -439,7 +439,7 @@ Also on `instant.html` body copy (not only the modal):
 - `content.p8` / `li12`–`li14`: every profitable day counts toward Positive Days’ Profit. Best Day ≤20% of that sum.
 - `content.li15`: 0.5% is Instant On-Demand only: a Valid Day is a day that closes with at least 0.5% profit.
 - Hero / `li4` / `li9`: drop “5 valid trading days.” Instant has no min trading days. Best Day stays 20% of Positive Days’ Profit.
-- Eligibility `li23`: `$100` + Best Day ≤20% of Positive Days’ Profit + cycle. **No** min trading days. **No** 3-day QPP min.
+- Eligibility `li23`: `$100` + Best Day ≤20% of Positive Days’ Profit + cycle + **Valid Day** (at least 0.5% / ≥ 0.5%; not a min-day count; does not drop small Positive Days). **No** 3-day QPP min.
 
 ### `trading-objectives.html` — other Instant / QPP lines (same pass)
 
@@ -459,7 +459,7 @@ Locale: `/locales/*/pages/trading-objectives.json` and `common.json` keys used b
 
 | Page | Apply |
 |---|---|
-| `instant.html` | **No min trading days.** 20% Best Day of Positive Days’ Profit in the Best Day block **and** modal. Weekly / Bi-Weekly: `$100` + Best Day ≤20% + clock. 0.5% is On-Demand only: a Valid Day is a day that closes with at least 0.5% profit. Drop 5-valid-day lines and the 3-day QPP Eligibility sentence. |
+| `instant.html` | **No min trading days.** 20% Best Day of Positive Days’ Profit in the Best Day block **and** modal. Eligibility: `$100` + Best Day + **Valid Day** (at least 0.5% / ≥ 0.5%). Weekly / Bi-Weekly: clock + eligibility. Drop 5-valid-day lines and the 3-day QPP Eligibility sentence. |
 | `1-step.html` | QPP Eligibility: **no min trading days** + `$100` + 50% Best Day of Positive Days’ Profit + cycle. Weekly / Bi-Weekly: `$100` + Best Day ≤50% + clock. Delete the 3-day QPP line. Eval: no min days, same 50% Best Day. Do not mention 0.5%. |
 | `2-step-lite.html` / `2-step-pro.html` | Eval: **5** trading days per phase. QPP Eligibility: **3 trading days** + `$100` + cycle. Weekly / Bi-Weekly / On-Demand each name `$100` and 3 trading days. **One** On-Demand line. **No** Instant 20% / 0.5%. |
 | `trading-objectives.html` | Instant Best Day modal + Instant card / `p8Instant` as above. 1-Step `p8` = no min days. 2-Step `p8` = 3 QPP days every payout. |
