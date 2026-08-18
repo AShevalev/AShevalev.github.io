@@ -359,6 +359,25 @@ def patch_news(html: str) -> str:
 
 
 def patch_instant(html: str) -> str:
+    # Keep Instant headings. Only the Best Day body uses live 1-Step wording.
+    html = html.replace("Payouts and risk limits", "Qualified Performance Phase")
+    if "<strong>Every Payout:</strong>" not in html:
+        card = (
+            '                <div class="rules-card" style="margin-top:1.5rem;">\n'
+            '                    <ul class="rules-step-list">\n'
+            '                        <li data-i18n-html="content.li15"><span class="rules-step-num">&bull;</span>'
+            "<div><strong>Every Payout:</strong><span>Minimum $100, Best Day ≤20% of Positive Days' Profit, "
+            "and the selected cycle. No minimum trading days required. The same rule applies to every payout. "
+            "Processed within 48 hours.</span></div></li>\n"
+            "                    </ul>\n"
+            "                </div>\n"
+        )
+        marker = 'onclick="openBestDayModal()"'
+        last = html.rfind(marker)
+        if last >= 0:
+            sec = html.find("</section>", last)
+            if sec >= 0:
+                html = html[:sec].rstrip() + "\n" + card + "            " + html[sec:]
     html = html.replace(
         "20% Best Day rule, and 5 minimum valid trading days (each requiring at least 0.5% net profit).",
         "20% Best Day rule. Instant has no minimum trading days.",
@@ -653,6 +672,7 @@ INSTANT_FORBIDDEN = (
     "qualifying days only",
     "qualifying days",
     "Days below this floor",
+    "Payouts and risk limits",
 )
 
 SHARED_FORBIDDEN = (
@@ -689,6 +709,8 @@ def verify(slug: str, html: str) -> None:
             "Your single best profit day cannot account for more than 20%",
             "Profitable days are factored into Positive Days' Profit",
             "at the time you request a payout",
+            "4. Qualified Performance Phase",
+            "Every Payout:",
             "7 calendar days and when eligibility requirements are met",
             "14 calendar days and when eligibility requirements are met",
             "Available when eligibility requirements are met",

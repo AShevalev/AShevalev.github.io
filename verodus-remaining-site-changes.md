@@ -2,6 +2,8 @@
 
 Live scan 18 Aug 2026. Only items still wrong on `https://www.verodus.com/`. Do not re-paste rules that already landed.
 
+**Keep Instant headings.** Do not rename Instant section 4 to “Payouts and risk limits.” Instant stays **4. Qualified Performance Phase**. Keep **20% Best Day Rule**, **Rule**, **Not a Breach**, **Calculation**, **Every Payout**. Only the body copy uses live 1-Step wording.
+
 **Locked Instant Best Day:** use **live 1-Step wording**, Instant-applicable only. Cap **20%**. Payout request, not evaluation pass. Instant has no 10% target. **No 0.5% / Valid Day / qualifying days.** 1-Step stays **live** at **50%**. Do not name Instant on 1-Step. Live 1-Step Calculation (“Profitable days are factored into Positive Days' Profit”) is the Instant Calculation too.
 
 **Already on live (do not redo):** news included / **Allowed:** heading; no min holding time; Instant no listed min days and no “5 valid days”; Instant 6% trail never locks; Instant no `$200k`; Instant fees not refundable on the Instant page; 1-Step no min days + 50% Best Day; 2-Step 5 eval days / 3 QPP days; `$100` every cycle; same first and later payouts; 4-then-3 gone; Trading Objectives Instant payout line already short (`$100`, no min days, Best Day ≤20%, no 0.5%); checkout On-Demand already “when eligibility requirements are met.”
@@ -34,9 +36,11 @@ Live Instant still treats 0.5% as a **Positive Days’ Profit filter**. Small da
 | `#bestDayModal` | “Days below this floor are ignored” | Live 1-Step modal, 20%. |
 | JSON-LD | “20% Best Day of **qualifying days**” | 20% Best Day rule, and no minimum trading days. |
 
-**Instant Best Day paste** (`p8` + rule cards) — live 1-Step wording, Instant-applicable only
+**Instant Best Day paste** (`p8` + rule cards) — live 1-Step wording under Instant headings
 
 ```text
+20% Best Day Rule
+
 Your single best profit day cannot account for more than 20% of your Positive Days' Profit at the time you request a payout. This is not an immediate breach — you must continue trading until the condition is met.
 
 Rule: No single trading day can contribute more than 20% of your total Positive Days' Profit at the time you request a payout.
@@ -44,6 +48,8 @@ Rule: No single trading day can contribute more than 20% of your total Positive 
 Not a Breach: Exceeding 20% on a single day does not immediately fail your account — you must simply keep trading to grow your total Positive Days' Profit until the Best Day drops to ≤20%.
 
 Calculation: Profits are measured from closed trades at the end of each trading day (00:00 UTC). Profitable days are factored into Positive Days' Profit. Losing days do not count.
+
+Every Payout: Minimum $100, Best Day ≤20% of Positive Days' Profit, and the selected cycle. No minimum trading days required. The same rule applies to every payout. Processed within 48 hours.
 ```
 
 **Instant Eligibility paste** — live 1-Step Eligibility, Instant-applicable
