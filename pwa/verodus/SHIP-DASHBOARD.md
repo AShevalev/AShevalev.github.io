@@ -54,7 +54,8 @@ The three cards call `[data-install-app][data-install-platform]`:
 - **Android** — Chrome/Edge/Samsung install prompt (or menu → Install app)
 - **Mobile** — iPhone/iPad Share → Add to Home Screen
 - **Desktop** — Chrome/Edge address-bar install (Firefox desktop cannot install PWAs)
-- **Safari** — Mac only. File → **Add to Dock** (Safari 17+ / macOS 14+). Creates a Dock web app. TradeHub and Platform 5 open at the top level (no iframe) — Safari does not show a URL bar on Verodus pages.
+- **Safari** — Mac only. File → **Add to Dock** (Safari 17+ / macOS 14+). Creates a Dock web app.
+- **Trading** — modal with instructions + **Open TradeHub** (`https://trade.verodus.com/tradehub?source=pwa`). No auto-install. Optional second app; skip the trade iframe until you want it.
 
 Stay on `dashboard.verodus.com`. Do not send people to Play or App Store.
 

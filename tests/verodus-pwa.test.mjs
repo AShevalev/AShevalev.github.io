@@ -74,7 +74,7 @@ test("dashboard sidebar adds Platforms under Trading Resources", () => {
   assert.match(src, /href: "\/trading-resources\/platforms"/);
 });
 
-test("Platforms page offers Android, Mobile, Desktop, and Safari", () => {
+test("Platforms page offers Android, Mobile, Desktop, Safari, and Trading", () => {
   const src = readFileSync(
     new URL("../pwa/verodus/dashboard/PlatformsPage.jsx", import.meta.url),
     "utf8"
@@ -83,8 +83,10 @@ test("Platforms page offers Android, Mobile, Desktop, and Safari", () => {
   assert.match(src, /id: "mobile"/);
   assert.match(src, /id: "desktop"/);
   assert.match(src, /id: "safari"/);
+  assert.match(src, /id: "trading"/);
   assert.match(src, /data-install-platform=\{card\.id\}/);
   assert.match(src, /Add to Dock/);
+  assert.match(src, /How to install Trading/);
 });
 
 test("dashboard install script handles per-platform CTAs", () => {
@@ -96,6 +98,8 @@ test("dashboard install script handles per-platform CTAs", () => {
   assert.match(src, /beforeinstallprompt/);
   assert.match(src, /Add to Home Screen/);
   assert.match(src, /Add to Dock/);
+  assert.match(src, /trade\.verodus\.com\/tradehub/);
+  assert.match(src, /v-platforms-modal__link/);
 });
 
 test("Safari on a Mac opens trade at the top level instead of an iframe", () => {

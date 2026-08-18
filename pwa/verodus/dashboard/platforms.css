@@ -101,7 +101,7 @@
 }
 
 .v-platforms__cta[hidden],
-.v-platforms.is-installed .v-platforms__cta {
+.v-platforms.is-installed .v-platforms__cta:not([data-install-platform="trading"]) {
   display: none;
 }
 

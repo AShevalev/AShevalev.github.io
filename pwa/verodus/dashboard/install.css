@@ -65,6 +65,11 @@
   margin-top: 0.45rem;
 }
 
+.v-platforms-modal__actions {
+  display: grid;
+  gap: 0.65rem;
+}
+
 .v-platforms-modal__cta,
 .v-platforms-modal__done {
   width: 100%;
@@ -75,6 +80,20 @@
   color: #0f172a;
   font: 600 1rem/1 Inter, system-ui, sans-serif;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v-platforms-modal__link[hidden] {
+  display: none !important;
+}
+
+.v-platforms-modal__dismiss {
+  border: 1px solid rgba(240, 220, 154, 0.28);
+  background: transparent;
+  color: #f5f5f5;
 }
 
 .v-platforms-modal__cta:focus-visible,

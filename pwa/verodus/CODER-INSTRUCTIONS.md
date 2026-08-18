@@ -108,7 +108,7 @@ Required `<head>` (Next metadata API is fine):
 
 ## 3. Dashboard — Trading Resources → Platforms
 
-**Goal:** Sidebar item **Platforms** under **Trading Resources**, next to Economic Calendar and News. Page has four cards: **Android**, **Mobile**, **Desktop**, **Safari**.
+**Goal:** Sidebar item **Platforms** under **Trading Resources**, next to Economic Calendar and News. Five cards: **Android**, **Mobile**, **Desktop**, **Safari**, **Trading**.
 
 ### Sidebar
 
@@ -136,20 +136,23 @@ Suggested icon: `MonitorSmartphone` from lucide-react (or equivalent).
 
 If the app uses `@/` → `src/`, keep that alias. Rename to `.tsx` if the repo is TypeScript.
 
-The four buttons use `data-install-app` + `data-install-platform="android|mobile|desktop|safari"`. `/js/install.js` handles the prompt:
+The five buttons use `data-install-app` + `data-install-platform="android|mobile|desktop|safari|trading"`. `/js/install.js` handles the prompt:
 
 - **Android** — Chrome / Edge / Samsung `beforeinstallprompt`, else menu → Install app
 - **Mobile** — iPhone / iPad Share → Add to Home Screen
 - **Desktop** — Chrome / Edge address-bar install (Firefox desktop cannot install PWAs)
 - **Safari** — Mac only. File → **Add to Dock** (Safari 17+ / macOS 14 Sonoma or newer). Creates a Dock web app.
+- **Trading** — opens a **modal** with steps and a link to `https://trade.verodus.com/tradehub?source=pwa`. Does **not** auto-install. User opens TradeHub in a normal tab, then Install / Add to Dock there.
 
-Do not send these cards to Play or App Store.
+Do not send these cards to Play or App Store. The iframe change in section 4 is optional and can wait.
 
 ---
 
-## 4. Dashboard — TradeHub / Platform 5 (no Chrome bar)
+## 4. Dashboard — TradeHub / Platform 5 (optional later)
 
-**Goal:** On Chrome / Edge, account-card buttons stay on `dashboard.verodus.com` and Dashboard routes **iframe** `trade.verodus.com`.
+Skip this section until you are ready. Live Platform5 / TradeHub buttons can stay as they are.
+
+**If you do it:** On Chrome / Edge, account-card buttons stay on `dashboard.verodus.com` and Dashboard routes **iframe** `trade.verodus.com`.
 
 **Safari on a Mac is different:** there is no URL bar on Verodus pages. `PlatformFrame` and `intercept-launches` skip the iframe and open `trade.verodus.com` at the top level. Do not force an iframe in Safari.
 

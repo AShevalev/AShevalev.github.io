@@ -2,11 +2,12 @@
  * Dashboard-only install. Host as /js/install.js on dashboard.verodus.com.
  *
  * Trading Resources → Platforms cards:
- *   [data-install-app][data-install-platform="android"|"mobile"|"desktop"|"safari"]
+ *   [data-install-app][data-install-platform="android"|"mobile"|"desktop"|"safari"|"trading"]
  *
  * Android / Desktop on Chromium: native beforeinstallprompt when available.
  * Mobile (iPhone): Share → Add to Home Screen.
  * Safari (Mac): File → Add to Dock.
+ * Trading: modal with instructions + link to trade.verodus.com (cannot auto-install).
  */
 (function () {
   var deferred = null;
@@ -48,6 +49,17 @@
         "File → Add to Dock. Or the share button in the toolbar → Add to Dock.",
         "Open Verodus from the Dock like any other Mac app.",
       ],
+    },
+    trading: {
+      title: "Install the trading app",
+      lead: "Chrome can only install the site you are on. Open TradeHub in the browser, then install there. This does not happen automatically.",
+      steps: [
+        "Tap Open TradeHub. Use Chrome or Safari — a normal tab, not only the Dashboard window.",
+        "When TradeHub loads: Chrome/Edge → Install in the address bar. iPhone → Share → Add to Home Screen. Safari on a Mac → File → Add to Dock.",
+        "Open it from your home screen or Dock. TradeHub and Platform 5 are the same trading app.",
+      ],
+      href: "https://trade.verodus.com/tradehub?source=pwa",
+      linkCta: "Open TradeHub",
     },
   };
 
@@ -114,8 +126,10 @@
       '<h2 id="v-install-title"></h2>' +
       '<p class="v-platforms-modal__lead"></p>' +
       '<ol class="v-platforms-modal__steps"></ol>' +
-      '<button type="button" class="v-platforms-modal__cta v-platforms-modal__done">Got it</button>' +
-      "</div>";
+      '<div class="v-platforms-modal__actions">' +
+      '<a class="v-platforms-modal__cta v-platforms-modal__link" hidden target="_blank" rel="noopener noreferrer">Open TradeHub</a>' +
+      '<button type="button" class="v-platforms-modal__done">Got it</button>' +
+      "</div></div>";
     document.body.appendChild(wrap);
     wrap.querySelector(".v-platforms-modal__backdrop").addEventListener("click", closeSheet);
     wrap.querySelector(".v-platforms-modal__done").addEventListener("click", closeSheet);
@@ -142,6 +156,20 @@
       li.textContent = step;
       list.appendChild(li);
     });
+    var link = el.querySelector(".v-platforms-modal__link");
+    var done = el.querySelector(".v-platforms-modal__done");
+    if (data.href) {
+      link.hidden = false;
+      link.setAttribute("href", data.href);
+      link.textContent = data.linkCta || "Open TradeHub";
+      done.textContent = "Not now";
+      done.classList.add("v-platforms-modal__dismiss");
+    } else {
+      link.hidden = true;
+      link.removeAttribute("href");
+      done.textContent = "Got it";
+      done.classList.remove("v-platforms-modal__dismiss");
+    }
     el.hidden = false;
     var dialog = el.querySelector(".v-platforms-modal__sheet");
     if (dialog && dialog.focus) dialog.focus();
@@ -149,7 +177,7 @@
 
   function canNative(kind) {
     if (!deferred) return false;
-    if (kind === "mobile" || kind === "safari") return false;
+    if (kind === "mobile" || kind === "safari" || kind === "trading") return false;
     if (kind === "android") return android() && !ios();
     if (kind === "desktop") return !android() && !ios() && !safariMac();
     return !safariMac();
@@ -174,9 +202,14 @@
     var btn = event.target.closest && event.target.closest("[data-install-app]");
     if (!btn) return;
     event.preventDefault();
-    if (standalone()) return;
 
     var kind = btn.getAttribute("data-install-platform") || "";
+    if (kind === "trading") {
+      showCopy("trading");
+      return;
+    }
+    if (standalone()) return;
+
     if (canNative(kind) || (!kind && deferred)) {
       promptNative();
       return;

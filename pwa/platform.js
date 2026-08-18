@@ -319,11 +319,28 @@ export function getLandingInstallModalCopy() {
   };
 }
 
+export const TRADE_APP_HREF = "https://trade.verodus.com/tradehub?source=pwa";
+
 /**
- * Cards on Dashboard → Trading Resources → Platforms.
- * @returns {Array<{id: "android"|"mobile"|"desktop"|"safari", title: string, lead: string, steps: string[], cta: string}>}
+ * Dashboard modal: how to install the separate TradeHub app.
+ * Chrome can only install the origin you are on — this cannot auto-install.
  */
+export function getTradingInstallModalCopy() {
+  return {
+    title: "Install the trading app",
+    lead: "Chrome can only install the site you are on. Open TradeHub in the browser, then install there. This does not happen automatically.",
+    steps: [
+      "Tap Open TradeHub. Use Chrome or Safari — a normal tab, not only the Dashboard window.",
+      "When TradeHub loads: Chrome/Edge → Install in the address bar. iPhone → Share → Add to Home Screen. Safari on a Mac → File → Add to Dock.",
+      "Open it from your home screen or Dock. TradeHub and Platform 5 are the same trading app.",
+    ],
+    cta: "Open TradeHub",
+    dismiss: "Not now",
+    href: TRADE_APP_HREF,
+  };
+}
 export function getPlatformsCards() {
+  const trading = getTradingInstallModalCopy();
   return [
     {
       id: "android",
@@ -368,6 +385,14 @@ export function getPlatformsCards() {
         "Open Verodus from the Dock like any other Mac app.",
       ],
       cta: "Show Safari steps",
+    },
+    {
+      id: "trading",
+      title: "Trading",
+      lead: "Optional second app. TradeHub and Platform 5 on trade.verodus.com.",
+      steps: trading.steps,
+      cta: "How to install Trading",
+      href: trading.href,
     },
   ];
 }

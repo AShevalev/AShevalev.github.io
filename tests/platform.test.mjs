@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { detectPlatform, getGuideCopy, getInstallGuide, getLandingInstallModalCopy, getPlatformsCards, isAccountScopedPath, landingInstallPathLabel, resolveInstallAction } from "../pwa/platform.js";
+import { detectPlatform, getGuideCopy, getInstallGuide, getLandingInstallModalCopy, getPlatformsCards, getTradingInstallModalCopy, isAccountScopedPath, landingInstallPathLabel, resolveInstallAction } from "../pwa/platform.js";
 
 const UA = {
   iosSafari:
@@ -156,12 +156,24 @@ test("landing modal copy points at Dashboard → Trading Resources → Platforms
   assert.equal(copy.href, "https://dashboard.verodus.com/trading-resources/platforms");
 });
 
-test("Platforms page cards are Android, Mobile, Desktop, and Safari", () => {
+test("Platforms page cards are Android, Mobile, Desktop, Safari, and Trading", () => {
   const cards = getPlatformsCards();
   assert.deepEqual(
     cards.map((card) => card.id),
-    ["android", "mobile", "desktop", "safari"]
+    ["android", "mobile", "desktop", "safari", "trading"]
   );
   assert.match(cards.find((card) => card.id === "mobile").steps[1], /Add to Home Screen/);
   assert.match(cards.find((card) => card.id === "safari").steps[1], /Add to Dock/);
+  assert.equal(
+    cards.find((card) => card.id === "trading").href,
+    "https://trade.verodus.com/tradehub?source=pwa"
+  );
+});
+
+test("trading install modal has instructions and a TradeHub link", () => {
+  const copy = getTradingInstallModalCopy();
+  assert.match(copy.title, /trading app/i);
+  assert.match(copy.lead, /does not happen automatically/i);
+  assert.equal(copy.href, "https://trade.verodus.com/tradehub?source=pwa");
+  assert.equal(copy.cta, "Open TradeHub");
 });

@@ -33,6 +33,12 @@ const SAFARI_ICON = (
   </svg>
 );
 
+const TRADING_ICON = (
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <path d="M4 19V9M9 19V5M14 19v-7M19 19V8" strokeLinecap="round" />
+  </svg>
+);
+
 const CARDS = [
   {
     id: "android",
@@ -82,6 +88,18 @@ const CARDS = [
     cta: "Show Safari steps",
     icon: SAFARI_ICON,
   },
+  {
+    id: "trading",
+    title: "Trading",
+    lead: "Optional second app. TradeHub and Platform 5. Opens a short guide with the link.",
+    steps: [
+      "Tap How to install Trading.",
+      "Read the steps, then Open TradeHub in Chrome or Safari.",
+      "Install / Add to Dock on trade.verodus.com — not from this page.",
+    ],
+    cta: "How to install Trading",
+    icon: TRADING_ICON,
+  },
 ];
 
 export default function PlatformsPage() {
@@ -91,7 +109,8 @@ export default function PlatformsPage() {
       <h1>Platforms</h1>
       <p className="v-platforms__lede">
         Install Verodus from Dashboard → Trading Resources → Platforms. Choose Android, Mobile,
-        Desktop, or Safari. Stay on this site — do not use the Play Store or App Store.
+        Desktop, or Safari for the CRM. Trading is a separate optional app — a modal shows the
+        steps and the TradeHub link.
       </p>
       <div className="v-platforms__grid">
         {CARDS.map((card) => (
