@@ -1,8 +1,21 @@
 # Verodus — final live-site changes
 
-Paste this file on **live** `www.verodus.com` and the matching locale JSON. Rec HTML in this repo (`landing/*.html`) already matches these strings.
+**This is the paste list.** Use it on live `www.verodus.com` and matching locale JSON. Rec HTML in this repo (`landing/*.html`) already matches these strings.
 
-**Scan:** 18 Aug 2026. After every HTML paste, put the same string in `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`.
+**How to use:** paste HTML, then the same string in `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`. Scan: 18 Aug 2026.
+
+**Contents**
+1. [FAQ → Plans — four cards locked](#1-faq--plans-faq-planshtml--four-cards-locked)
+2. [Instant page](#2-instant-page-instanthtml)
+3. [1-Step page](#3-1-step-page-1-stephtml)
+4. [2-Step Lite / Pro](#4-2-step-lite--pro-2-step-litehtml-2-step-prohtml)
+5. [Trading Objectives](#5-trading-objectives-trading-objectiveshtml)
+6. [Home](#6-home-indexhtml)
+7. [FAQ → Evaluation](#7-faq--evaluation-faq-evaluationhtml)
+8. [FAQ → Qualified Trader](#8-faq--qualified-trader-faq-qualified-traderhtml)
+9. [Terms of Service](#9-terms-of-service-termshtml)
+10. [Checkout](#10-checkout-checkouthtml)
+11. [Already OK / do not change](#11-already-ok-on-the-18-aug-scan)
 
 ---
 
@@ -46,7 +59,11 @@ Paste this file on **live** `www.verodus.com` and the matching locale JSON. Rec 
 
 ## 1. FAQ → Plans (`faq-plans.html`) — four cards locked
 
-Shared note under the cards can stay (news allowed on all four; Weekend still an add-on).
+These four cards are **locked**. Instant is the only live card that still needs a paste (it still has the 0.5% qualifying-day filter). 1-Step / Lite / Pro already match live — paste them anyway so locales stay in lockstep.
+
+Shared note under the cards can stay (news allowed on all four; Weekend still an add-on). Do **not** add 0.5% / Valid Day. Do **not** name Instant on the 1-Step card.
+
+Locale: `locales/*/pages/faq-plans.json`
 
 ### Instant — `content.p7` (live is wrong)
 
@@ -81,6 +98,20 @@ Locale: `locales/*/pages/faq-plans.json`
 ## 2. Instant page (`instant.html`)
 
 Full rec page: `landing/instant.html`. Standalone preview: `landing/instant-preview.html`.
+
+### Hero `content.p3` (drop 0.5% / qualifying days)
+
+```
+Get instant access to a funded simulated account with no evaluation phases. 6% trailing max drawdown from equity high water mark (the trail never locks). 3% daily drawdown from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. 20% Best Day rule. No minimum trading days. These rules are binding and form part of the Trader Agreement.
+```
+
+### Overview — no min days
+
+```
+No Minimum Trading Days: There is no minimum number of trading days required. You may trade at your own pace.
+```
+
+Delete leftover “5 valid trading days” / “Minimum Trading Days: 5 Days.”
 
 ### JSON-LD / meta description (live still has 0.5%)
 
@@ -290,13 +321,34 @@ Description: Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39
 If that plan has a minimum, you must still meet it before you pass or get paid. 1-Step has no minimum trading days in evaluation or Qualified Performance. Best Day ≤50% of Positive Days' Profit. 2-Step Lite and 2-Step Pro need 5 trading days per evaluation phase (open and close the same calendar day); Qualified Performance payouts need 3 trading days. Instant has no minimum trading days and no profit target to “hit first”; you need $100, Best Day ≤20% of Positive Days' Profit, and the selected payout cycle.
 ```
 
+**“How many trading days do I need for each program?”** — if Instant is missing from the list:
+
+```
+Instant: No evaluation phase. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. All Positive Days count toward Positive Days’ Profit.
+1-Step: No minimum trading days to pass evaluation. Qualified Performance has no minimum trading days. Best Day ≤50% of Positive Days’ Profit.
+2-Step Lite: 5 trading days per evaluation phase (open and close on the same calendar day). Qualified Performance payouts need 3 trading days.
+2-Step Pro: 5 trading days per evaluation phase (open and close on the same calendar day). Qualified Performance payouts need 3 trading days.
+```
+
 Locale: `locales/*/pages/faq-evaluation.json`
 
 ---
 
 ## 8. FAQ → Qualified Trader (`faq-qualified-trader.html`)
 
-Keep `p3` (start 80/20). Keep `p9` / `p12` / `p28` if they already match rec.
+Keep `p3` (start 80/20). 18 Aug scan: `p9` / `p12` / `p28` already match — keep them:
+
+**`p9` (keep):**
+
+```
+A fixed $100 profit threshold is required for weekly, bi-weekly, and on-demand rewards. The first payout and every payout after use the same rule: that plan’s payout rule and the selected cycle.
+```
+
+**`p12` (keep):**
+
+```
+Payout spacing is the cycle you selected: 7 calendar days for weekly, 14 calendar days for bi-weekly, or that plan’s payout rule for on-demand. Every cycle has a $100 minimum. Instant and 1-Step have no minimum trading days. 2-Step Qualified Performance needs 3 trading days on every payout. First and later payouts use the same rule.
+```
 
 **Delete** the performance split ladder (“After 6 consecutive profitable months … your split increases to 90/10”). **Do not** send people to rewrite `performance-reward.html`.
 
