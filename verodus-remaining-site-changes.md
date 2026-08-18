@@ -2,7 +2,7 @@
 
 Live scan 18 Aug 2026. Only items still wrong on `https://www.verodus.com/`. Do not re-paste rules that already landed.
 
-**Keep Instant headings.** Do not rename Instant section 4 to “Payouts and risk limits.” Instant stays **4. Qualified Performance Phase**. Keep **20% Best Day Rule**, **Rule**, **Not a Breach**, **Calculation**, **Every Payout**. Only the body copy uses live 1-Step wording.
+**Keep live Instant headings.** Instant section 4 is **4. Payouts and risk limits**. Keep **20% Best Day Rule**, **Rule**, **Not a Breach**, **Calculation**. Frequency headings stay live: **Weekly** (Selected Add-on), **Bi-Weekly** (Default), **On-Demand** (Selected Add-on). Rewards heading **Fees:** not Refund. Do not add Every Payout, Intervals, or Performance Reward Split. Only the Best Day body copy uses live 1-Step wording.
 
 **Locked Instant Best Day:** use **live 1-Step wording**, Instant-applicable only. Cap **20%**. Payout request, not evaluation pass. Instant has no 10% target. **No 0.5% / Valid Day / qualifying days.** 1-Step stays **live** at **50%**. Do not name Instant on 1-Step. Live 1-Step Calculation (“Profitable days are factored into Positive Days' Profit”) is the Instant Calculation too.
 
@@ -36,7 +36,7 @@ Live Instant still treats 0.5% as a **Positive Days’ Profit filter**. Small da
 | `#bestDayModal` | “Days below this floor are ignored” | Live 1-Step modal, 20%. |
 | JSON-LD | “20% Best Day of **qualifying days**” | 20% Best Day rule, and no minimum trading days. |
 
-**Instant Best Day paste** (`p8` + rule cards) — live 1-Step wording under Instant headings
+**Instant Best Day paste** (`p8` + rule cards) — live 1-Step wording under live Instant headings
 
 ```text
 20% Best Day Rule
@@ -48,8 +48,6 @@ Rule: No single trading day can contribute more than 20% of your total Positive 
 Not a Breach: Exceeding 20% on a single day does not immediately fail your account — you must simply keep trading to grow your total Positive Days' Profit until the Best Day drops to ≤20%.
 
 Calculation: Profits are measured from closed trades at the end of each trading day (00:00 UTC). Profitable days are factored into Positive Days' Profit. Losing days do not count.
-
-Every Payout: Minimum $100, Best Day ≤20% of Positive Days' Profit, and the selected cycle. No minimum trading days required. The same rule applies to every payout. Processed within 48 hours.
 ```
 
 **Instant Eligibility paste** — live 1-Step Eligibility, Instant-applicable

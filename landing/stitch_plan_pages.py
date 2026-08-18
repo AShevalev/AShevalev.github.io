@@ -28,7 +28,20 @@ def _rstep(label: str, body: str) -> str:
     )
 
 
-# Split + calendar clock only. Qualifying parameters live in Rewards & Payouts.
+# Instant frequencies use live Instant headings.
+FREQ_ITEMS_INSTANT = "\n".join(
+    [
+        '                        <li><span class="rules-step-num">&bull;</span>'
+        '<span class="rstep-inline"><strong>Weekly</strong> (Selected Add-on): 70% to trader</span></li>',
+        '                        <li><span class="rules-step-num">&bull;</span>'
+        '<span class="rstep-inline"><strong>Bi-Weekly</strong> (Default): 80% to trader</span></li>',
+        '                        <li><span class="rules-step-num">&bull;</span>'
+        '<span class="rstep-inline"><strong>On-Demand</strong> (Selected Add-on): 90% to trader</span></li>',
+        '                        <li><span class="rules-step-num">&bull;</span>'
+        '<span class="rstep-inline">Weekly and On-Demand are separate add-ons; they cannot both apply at once.</span></li>',
+    ]
+)
+
 FREQ_ITEMS = "\n".join(
     [
         _rstep(
@@ -76,11 +89,7 @@ REWARDS_INSTANT = "\n".join(
             "On-Demand (Add-on)",
             "Available when eligibility requirements are met.",
         ),
-        _rstep(
-            "Intervals",
-            "All reward request intervals are calendar days, not trading days",
-        ),
-        _rstep("Refund", "Instant fees are not refundable"),
+        _rstep("Fees", "Instant fees are not refundable."),
     ]
 )
 
@@ -210,6 +219,37 @@ def replace_list_under_title(html: str, title: str, items: str, *, required: boo
     )
 
 
+def drop_card_under_title(html: str, title: str) -> str:
+    marker = f"<strong>{title}</strong></p>"
+    i = html.find(marker)
+    if i < 0:
+        return html
+    card_open = html.rfind('<div class="rules-card"', 0, i)
+    if card_open < 0:
+        return html
+    ul_open = html.find('<ul class="rules-step-list">', i)
+    if ul_open < 0:
+        return html
+    ul_close = _matching_ul_end(html, ul_open)
+    card_end = html.find("</div>", ul_close)
+    if card_end < 0:
+        return html
+    card_end += len("</div>")
+    return html[:card_open].rstrip() + html[card_end:]
+
+
+def drop_every_payout_card(html: str) -> str:
+    return re.sub(
+        r'\s*<div class="rules-card"[^>]*>\s*<ul class="rules-step-list">\s*'
+        r'<li[^>]*>\s*<span class="rules-step-num">&bull;</span>'
+        r'<div><strong>Every Payout:</strong>.*?</ul>\s*</div>',
+        "",
+        html,
+        count=1,
+        flags=re.S,
+    )
+
+
 def ensure_split_card(html: str) -> str:
     if "<strong>Performance Reward Split</strong></p>" in html:
         return html
@@ -268,11 +308,15 @@ def chrome(html: str) -> str:
 
 
 def patch_shared(html: str, slug: str) -> str:
+    freq = FREQ_ITEMS_INSTANT if slug == "instant" else FREQ_ITEMS
     html = replace_list_under_title(
-        html, "Payout Frequencies &amp; Trader Profit Share", FREQ_ITEMS
+        html, "Payout Frequencies &amp; Trader Profit Share", freq
     )
-    html = ensure_split_card(html)
-    html = replace_list_under_title(html, "Performance Reward Split", SPLIT_ITEMS)
+    if slug == "instant":
+        html = drop_card_under_title(html, "Performance Reward Split")
+    else:
+        html = ensure_split_card(html)
+        html = replace_list_under_title(html, "Performance Reward Split", SPLIT_ITEMS)
     html = replace_list_under_title(html, "Rewards &amp; Payouts", rewards_for(slug))
     html = html.replace("Allowed in Evaluation:", "Allowed:")
     html = html.replace("48 business hours", "48 hours")
@@ -359,25 +403,7 @@ def patch_news(html: str) -> str:
 
 
 def patch_instant(html: str) -> str:
-    # Keep Instant headings. Only the Best Day body uses live 1-Step wording.
-    html = html.replace("Payouts and risk limits", "Qualified Performance Phase")
-    if "<strong>Every Payout:</strong>" not in html:
-        card = (
-            '                <div class="rules-card" style="margin-top:1.5rem;">\n'
-            '                    <ul class="rules-step-list">\n'
-            '                        <li data-i18n-html="content.li15"><span class="rules-step-num">&bull;</span>'
-            "<div><strong>Every Payout:</strong><span>Minimum $100, Best Day ≤20% of Positive Days' Profit, "
-            "and the selected cycle. No minimum trading days required. The same rule applies to every payout. "
-            "Processed within 48 hours.</span></div></li>\n"
-            "                    </ul>\n"
-            "                </div>\n"
-        )
-        marker = 'onclick="openBestDayModal()"'
-        last = html.rfind(marker)
-        if last >= 0:
-            sec = html.find("</section>", last)
-            if sec >= 0:
-                html = html[:sec].rstrip() + "\n" + card + "            " + html[sec:]
+    html = drop_every_payout_card(html)
     html = html.replace(
         "20% Best Day rule, and 5 minimum valid trading days (each requiring at least 0.5% net profit).",
         "20% Best Day rule. Instant has no minimum trading days.",
@@ -672,7 +698,11 @@ INSTANT_FORBIDDEN = (
     "qualifying days only",
     "qualifying days",
     "Days below this floor",
-    "Payouts and risk limits",
+    "Every Payout:",
+    "4. Qualified Performance Phase",
+    "Performance Reward Split",
+    "<strong>Intervals:</strong>",
+    "<strong>Refund:</strong>",
 )
 
 SHARED_FORBIDDEN = (
@@ -685,13 +715,17 @@ SHARED_FORBIDDEN = (
 
 def verify(slug: str, html: str) -> None:
     misses = []
-    for needle in (
-        "Weekly Rewards with 70% Reward Split",
-        "On Demand Rewards with 90% Split",
-        "calendar days, not trading days",
+    shared = [
         "News trading is permitted",
         "Minimum Reward:</strong> $100",
-    ):
+    ]
+    if slug != "instant":
+        shared += [
+            "Weekly Rewards with 70% Reward Split",
+            "On Demand Rewards with 90% Split",
+            "calendar days, not trading days",
+        ]
+    for needle in shared:
         if needle not in html:
             misses.append(needle)
     leftover = [s for s in FORBIDDEN if s in html]
@@ -709,8 +743,9 @@ def verify(slug: str, html: str) -> None:
             "Your single best profit day cannot account for more than 20%",
             "Profitable days are factored into Positive Days' Profit",
             "at the time you request a payout",
-            "4. Qualified Performance Phase",
-            "Every Payout:",
+            "4. Payouts and risk limits",
+            "<strong>Weekly</strong> (Selected Add-on)",
+            "<strong>Fees:</strong>",
             "7 calendar days and when eligibility requirements are met",
             "14 calendar days and when eligibility requirements are met",
             "Available when eligibility requirements are met",
