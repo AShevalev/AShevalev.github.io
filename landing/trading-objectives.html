@@ -1231,7 +1231,7 @@ Crypto 1:3`;
                 const posProfit = d2val + d5val;
                 const bestPct   = Math.round(d2val / posProfit * 100);
                 const needed    = isInstant ? d2val * 5 : d2val * 2;
-                contentEl.innerHTML = `<p>The Best Day Rule requires that your Best Day (highest profit calendar day) does not exceed <strong style="color:${gold}">${bestPctLimit}%</strong> of your Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding ${bestPctLimit}% is not a breach — continue trading until Best Day is ≤${bestPctLimit}%.</p>`;
+                contentEl.innerHTML = `<p>The Best Day Rule requires that your most profitable day ("Best Day") does not exceed <strong style="color:${gold}">${bestPctLimit}%</strong> of your Positive Days' Profit on the account. Profitable days are factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤${bestPctLimit}% of total Positive Days' Profit.</p>`;
                 const exEl = document.getElementById('modal-example');
                 if (exEl) exEl.innerHTML = `<p class="hl">Example ($${size.toLocaleString()} account): Day 1 = −$${lossVal.toLocaleString()}, Day 2 = +$${d2val.toLocaleString()}, Day 3 = −$${lossVal.toLocaleString()}, Day 4 = −$${lossVal.toLocaleString()}, Day 5 = +$${d5val.toLocaleString()}.<br>Positive Days' Profit = $${posProfit.toLocaleString()}. Best Day (Day 2) = $${d2val.toLocaleString()} (${bestPct}%) → Not satisfied. Need Positive Days' Profit ≥$${needed.toLocaleString()} if Day 2 remains Best Day.</p>`;
                 const lossData = [-lossVal, 0, -lossVal, -lossVal, 0];
@@ -1273,8 +1273,8 @@ Crypto 1:3`;
     <script>
     /* Rec Instant/Lite overlays. Chrome/CSS/nav/footer from verodus.com. */
 (function () {
-  /* Rec Instant: no $200k. No min trading days. 20% Best Day of every Positive Day.
-     Instant 20% and 1-Step 50% use the same Positive Day definition. No 0.5% Valid Day.
+  /* Rec Instant: no $200k. No min trading days. Live 1-Step Best Day wording at 20%.
+     Instant 20% / 1-Step 50%. No 0.5% Valid Day. Profitable days are factored in.
      6% trail never locks. 3% daily from the day's equity high. No fee refund.
      Lite funded max DD stays 8% (already in live pricingData).
      Weekly 70% is 6% of list. On Demand is 90% at 20% of list.
@@ -1372,7 +1372,7 @@ Crypto 1:3`;
       var bestEl = document.getElementById('modal-content');
       if (bestEl) {
         var pct = currentTab === 'instant' ? 20 : 50;
-        bestEl.innerHTML = '<p>The Best Day Rule requires that your Best Day (highest profit calendar day) does not exceed <strong style="color:var(--gold-light)">' + pct + '%</strong> of your Positive Days\' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days\' Profit. Losing days do not count toward Positive Days\' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding ' + pct + '% is not a breach — continue trading until Best Day is ≤' + pct + '%.</p>';
+        bestEl.innerHTML = '<p>The Best Day Rule requires that your most profitable day ("Best Day") does not exceed <strong style="color:var(--gold-light)">' + pct + '%</strong> of your Positive Days\' Profit on the account. Profitable days are factored into Positive Days\' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤' + pct + '% of total Positive Days\' Profit.</p>';
       }
     }
   };

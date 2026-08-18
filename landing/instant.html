@@ -38,7 +38,7 @@
       "@context": "https://schema.org",
       "@type": "Product",
       "name": "Verodus Instant Funding",
-      "description": "Instant access to a funded simulated account with no evaluation phases. 6% trailing max drawdown (equity high water mark), 3% daily drawdown (high water mark equity), 20% Best Day rule, and no minimum trading days.",
+      "description": "Instant access to a funded simulated account with no evaluation phases. 6% trailing max drawdown from equity high water mark (the trail never locks). 3% daily drawdown from that day’s equity high (fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC). 20% Best Day rule, and no minimum trading days. Sizes $5,000–$100,000.",
       "url": "https://www.verodus.com/instant.html",
       "image": "https://www.verodus.com/images/og-default.webp",
       "brand": { "@type": "Brand", "name": "Verodus" },
@@ -78,7 +78,7 @@
                 <a data-i18n="content.h21" href="#s0">1 &ndash; Instant Funding Overview</a>
                 <a data-i18n="content.h22" href="#s1">2 &ndash; Funded Account Rules</a>
                 <a data-i18n="content.h23" href="#s2">3 &ndash; Unique Instant Funding Rules</a>
-                <a data-i18n="content.h24" href="#s4">4 &ndash; Qualified Performance Phase</a>
+                <a data-i18n="content.h24" href="#s4">4 &ndash; Payouts and risk limits</a>
                 <a data-i18n="content.h25" href="#s5">5 &ndash; General Trading Rules</a>
                 <a data-i18n="content.h26" href="#s6">6 &ndash; Restricted Trading Practices</a>
                 <a data-i18n="content.h27" href="#s7">7 &ndash; Breach Consequences</a>
@@ -94,7 +94,7 @@
             <h1 data-i18n="content.h11">Instant Funding Plan</h1>
             <p data-i18n="content.p2" class="rules-meta">Last updated: August 2026</p>
             <div class="sim-disclaimer" data-i18n-html="content.disclaimer"><strong>Important Simulation Disclaimer</strong>All trading is conducted in a fully simulated trading environment using simulated capital only. Any references to "profits", "rewards", or "performance reward split" refer exclusively to simulated performance results. All payouts are performance rewards paid by Verodus from its own resources based on simulated trading performance — no real market capital is provided, traded, or allocated at any stage.</div>
-            <p data-i18n-html="content.p3" class="rules-meta" style="margin-top:-1rem;">Get <strong>instant access</strong> to a funded simulated account with no evaluation phases required. This plan uses a <strong>6% trailing maximum drawdown</strong> from your account equity high water mark combined with a <strong>3% daily drawdown</strong> also based on high water mark equity. It includes a <strong>20% Best Day consistency rule</strong>. There is <strong>no minimum trading days</strong> requirement. These rules are binding and form part of the Trader Agreement.</p>
+            <p data-i18n-html="content.p3" class="rules-meta" style="margin-top:-1rem;">Get <strong>instant access</strong> to a funded simulated account with no evaluation phases. <strong>6% trailing max drawdown</strong> from equity high water mark (the trail never locks). <strong>3% daily drawdown</strong> from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. <strong>20% Best Day</strong> rule. <strong>No minimum trading days</strong>. These rules are binding and form part of the Trader Agreement.</p>
             <div class="plan-size-row">
                 <div class="size-btns">
                     <button data-i18n="content.button1" class="plan-size-btn" onclick="planSelectSize(this,5000)">$5K</button>
@@ -115,7 +115,7 @@
 
             <section id="s0" class="rules-section">
                 <h2 data-i18n="content.h21">1. Instant Funding Overview</h2>
-                <p data-i18n="content.p4" style="color:var(--text-secondary);margin-bottom:1.25rem;font-weight:600;">Instant Activation &bull; No Challenge Phases &bull; Start Trading Funded Capital Immediately</p>
+                <p data-i18n="content.p4" style="color:var(--text-secondary);margin-bottom:1.25rem;font-weight:600;">Instant activation &bull; No challenge phases &bull; Simulated capital from day one</p>
                 <div class="rules-card">
                     <div class="phase-grid cols-1" style="margin-left:auto;margin-right:auto;">
                         <div class="phase-card">
@@ -131,13 +131,12 @@
                             </div>
                             <div class="phase-card-meta">
                                 <span data-i18n-html="content.span2">Trading Period: <strong>Unlimited</strong></span>
-                                
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="rules-card" style="margin-top:1.25rem;">
-                    <p data-i18n="content.p5" style="color:var(--text-secondary);line-height:1.8;margin-bottom:1.25rem;">Start trading our simulated capital immediately after purchase and verification. There are no profit targets to hit before funding. Once activated, you trade under our sustainable risk rules and can earn performance rewards at an 80% split (90% is a paid add-on) as soon as you meet that payout's qualifying parameters.</p>
+                    <p data-i18n="content.p5" style="color:var(--text-secondary);line-height:1.8;margin-bottom:1.25rem;">Start trading our simulated capital immediately after purchase and verification. There are no profit targets to hit before funding. Once activated, you trade under our sustainable risk rules and can earn performance rewards at the default 80% split (90% with the On-Demand add-on).</p>
                     <ul class="rules-step-list">
                         <li data-i18n-html="content.li1"><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong><span data-pct="6">6%</span></strong> Trailing Max Drawdown (high water mark equity)</span></li>
                         <li data-i18n-html="content.li2"><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong><span data-pct="3">3%</span></strong> Daily Drawdown (high water mark equity)</span></li>
@@ -153,9 +152,9 @@
                 <div class="rules-card">
                     <ul class="rules-step-list">
                         <li data-i18n-html="content.li6"><span class="rules-step-num">&bull;</span><div><strong>Instant Activation:</strong><span>You receive immediate access to your funded simulated account upon successful purchase and account verification. There are no challenge or verification phases to complete.</span></div></li>
-                        <li data-i18n-html="content.li7"><span class="rules-step-num">&bull;</span><div><strong>Maximum Drawdown: 6% Trailing (High Water Mark Equity):</strong><span>The maximum you can lose overall is a trailing drawdown that follows your account equity peak. The limit trails upward as new equity highs are achieved. It never locks. Breaching the 6% trailing maximum drawdown results in immediate account termination.</span></div></li>
-                        <li data-i18n-html="content.li8"><span class="rules-step-num">&bull;</span><div><strong>Daily Drawdown: 3% (High Water Mark Equity):</strong><span>Your equity cannot fall more than <strong><span data-pct="3">3%</span> of your starting balance</strong> below the highest equity point reached during the current trading day. The limit resets daily at <strong>00:00 UTC</strong>. Floating (unrealized) P&amp;L is included in the calculation.</span></div></li>
-                        <li data-i18n-html="content.li9"><span class="rules-step-num">&bull;</span><div><strong>No Minimum Trading Days:</strong><span>There is no minimum number of trading days required. You may trade at your own pace. A trading day counts when at least one trade is both opened and closed on that calendar day (UTC 00:00&#8211;23:59).</span></div></li>
+                        <li data-i18n-html="content.li7"><span class="rules-step-num">&bull;</span><div><strong>Maximum Drawdown: 6% Trailing (High Water Mark Equity):</strong><span>The maximum you can lose overall is a trailing drawdown that follows your account equity peak. The limit trails upward as new equity highs are achieved and never locks. Breaching the 6% trailing maximum drawdown results in immediate account termination.</span></div></li>
+                        <li data-i18n-html="content.li8"><span class="rules-step-num">&bull;</span><div><strong>Daily Drawdown: 3% (High Water Mark Equity):</strong><span>Fixed dollar limit equal to 3% of starting balance, measured from that day’s highest equity. Resets at <strong>00:00 UTC</strong>. Floating losses count. Example ($100,000): daily limit $3,000. If equity peaks at $102,000 that day, equity must not fall below $99,000 before the reset.</span></div></li>
+                        <li data-i18n-html="content.li9"><span class="rules-step-num">&bull;</span><div><strong>No Minimum Trading Days:</strong><span>There is no minimum number of trading days required. You may trade at your own pace.</span></div></li>
                     </ul>
                 </div>
             </section>
@@ -165,11 +164,11 @@
 
                 <div class="rules-warning-card">
                     <strong>6% Trailing Max Drawdown (High Water Mark Equity)</strong>
-                    <p data-i18n="content.p6">The maximum you can lose overall is a trailing drawdown calculated from your account equity high water mark. The limit follows your highest equity peak and trails upward with new highs. It never locks. This rule applies at all times, including weekends (floating losses included).</p>
+                    <p data-i18n="content.p6">The maximum you can lose overall is a trailing drawdown calculated from your account equity high water mark. The limit follows your highest equity peak, trails upward with new highs, and never locks. This rule applies at all times, including weekends (floating losses included). Example ($100,000): 6% = $6,000 trailing. Peak equity $110,000 → floor $104,000. The floor keeps trailing new highs and does not lock at $100,000 (that lock is 1-Step only).</p>
                 </div>
                 <div class="rules-warning-card" style="margin-top:1.5rem;">
                     <strong>3% Daily Drawdown (High Water Mark Equity)</strong>
-                    <p data-i18n="content.p7">Each trading day has a fixed loss limit of 3% of your starting balance, measured from the highest equity point reached during that day. The limit resets daily at server reset time (00:00 UTC). Floating losses are included.</p>
+                    <p data-i18n="content.p7">Daily drawdown is a fixed dollar limit equal to 3% of starting balance. Each day it is measured from that day’s highest equity. It resets at 00:00 UTC. Floating losses count. Example ($100,000): the daily limit is $3,000. If equity peaks at $102,000 that day, equity must not fall below $99,000 before the reset.</p>
                 </div>
                 <div class="rules-card" style="margin-top:1.5rem;">
                     <ul class="rules-step-list">
@@ -179,30 +178,25 @@
 
                 <div class="rules-warning-card" style="margin-top:1.5rem;">
                     <strong>20% Best Day Rule <i class="fa-solid fa-circle-info" onclick="openBestDayModal()" style="font-size:0.8em;color:var(--text-on-theme-dim);margin-left:0.3rem;cursor:pointer;vertical-align:middle;transition:color 0.15s;" onmouseenter="this.style.color='var(--gold-light)'" onmouseleave="this.style.color='var(--text-on-theme-dim)'"></i></strong>
-                    <p data-i18n="content.p8">Your Best Day (highest profit calendar day) must not exceed 20% of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.</p>
+                    <p data-i18n="content.p8">Your single best profit day cannot account for more than 20% of your Positive Days' Profit at the time you request a payout. This is not an immediate breach — you must continue trading until the condition is met.</p>
                 </div>
                 <div class="rules-card">
                     <ul class="rules-step-list">
-                        <li data-i18n-html="content.li12"><span class="rules-step-num">&bull;</span><div><strong>Rule:</strong><span>Best Day must be ≤20% of Positive Days' Profit. All Positive Days count.</span></div></li>
-                        <li data-i18n-html="content.li13"><span class="rules-step-num">&bull;</span><div><strong>Not a Breach:</strong><span>Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.</span></div></li>
-                        <li data-i18n-html="content.li14"><span class="rules-step-num">&bull;</span><div><strong>Calculation:</strong><span>Profits are calculated from closed trades at 00:00 UTC. Losing days do not count toward Positive Days' Profit.</span></div></li>
+                        <li data-i18n-html="content.li12"><span class="rules-step-num">&bull;</span><div><strong>Rule:</strong><span>No single trading day can contribute more than 20% of your total Positive Days' Profit at the time you request a payout.</span></div></li>
+                        <li data-i18n-html="content.li13"><span class="rules-step-num">&bull;</span><div><strong>Not a Breach:</strong><span>Exceeding 20% on a single day does not immediately fail your account — you must simply keep trading to grow your total Positive Days' Profit until the Best Day drops to ≤20%.</span></div></li>
+                        <li data-i18n-html="content.li14"><span class="rules-step-num">&bull;</span><div><strong>Calculation:</strong><span>Profits are measured from closed trades at the end of each trading day (00:00 UTC). Profitable days are factored into Positive Days' Profit. Losing days do not count.</span></div></li>
                     </ul>
                     <button data-i18n="content.button7" onclick="openBestDayModal()" style="margin-top:1.25rem;padding:0.5rem 1.25rem;background:var(--accent-tint-8);border:1px solid var(--accent-glow);color:var(--gold-light);border-radius:0.5rem;cursor:pointer;font-size:0.85rem;font-weight:600;display:inline-flex;align-items:center;gap:0.4rem;">
                         <i class="fa-solid fa-chart-bar"></i> See example &amp; chart
                     </button>
                 </div>
 
-                <div class="rules-card" style="margin-top:1.5rem;">
-                    <ul class="rules-step-list">
-                        <li data-i18n-html="content.li15"><span class="rules-step-num">&bull;</span><div><strong>Every Payout:</strong><span>Minimum $100, Best Day ≤20% of Positive Days' Profit, and the selected cycle. No minimum trading days required. The same rule applies to every payout. Processed within 48 hours.</span></div></li>
-                    </ul>
-                </div>
             </section>
 
         
-            <!-- 04 â€” Qualified Performance Phase -->
+            <!-- 04 — Payouts and risk limits -->
             <section id="s4" class="rules-section">
-                <h2 data-i18n="content.h24">4. Qualified Performance Phase</h2>
+                <h2 data-i18n="content.h24">4. Payouts and risk limits</h2>
                 <div class="rules-card">
                     <p data-i18n-html="content.p9" style="margin-bottom:1.25rem;"><strong>Payout Frequencies &amp; Trader Profit Share</strong></p>
                     <ul class="rules-step-list">
@@ -222,7 +216,7 @@
                     <p data-i18n-html="content.p11" style="margin-bottom:1.25rem;"><strong>Rewards &amp; Payouts</strong></p>
                     <ul class="rules-step-list">
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Minimum Reward:</strong> $100 (processed within 48 hours)</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Eligibility:</strong> You are eligible when net profit is at least $100, your Best Day is ≤20% of Positive Days' Profit, and the selected cycle is complete. No minimum trading days required. The same rule applies to every payout.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Eligibility:</strong> You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. Instant has no minimum trading days. See Section 3. The first payout and every payout after use this same rule.</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly (Add-on):</strong> 7 calendar days and when eligibility requirements are met.</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly (Standard):</strong> 14 calendar days and when eligibility requirements are met.</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On-Demand (Add-on):</strong> Available when eligibility requirements are met.</span></li>
@@ -249,7 +243,7 @@
                 <h2 data-i18n="content.h25">5. General Trading Rules</h2>
                 <div class="rules-card">
                     <ul class="rules-step-list">
-                        <li data-i18n-html="content.li32"><span class="rules-step-num">&bull;</span><div><strong>Drawdown Type:</strong><span>The <strong><span data-pct="6">6%</span></strong> maximum drawdown is trailing from your account equity high water mark and never locks. The <strong><span data-pct="3">3%</span></strong> daily drawdown is a fixed dollar limit (3% of starting balance) measured from the highest equity reached during the current day and resets daily at 00:00 UTC. Both rules apply from the moment your Instant Funding account is activated.</span></div></li>
+                        <li data-i18n-html="content.li32"><span class="rules-step-num">&bull;</span><div><strong>Drawdown Type:</strong><span>See Section 3 for the full 6% trailing max and 3% daily drawdown rules and examples. Both apply from the moment your Instant Funding account is activated.</span></div></li>
                         <li data-i18n-html="content.li33"><span class="rules-step-num">&bull;</span><div><strong>Tradable Instruments:</strong><span>Forex majors &amp; minors, major Indices, Commodities (metals &amp; energies), major Cryptocurrencies (subject to broker availability).</span></div></li>
                         <li data-i18n-html="content.li34"><span class="rules-step-num">&bull;</span><div><strong>Leverage:</strong><span>Fixed per asset class &#8212; FX <strong>1:30</strong>, Metals <strong>1:20</strong>, Indices / Commodities / Energies <strong>1:10</strong>, Equities <strong>1:5</strong>, Crypto <strong>1:2</strong>.</span></div></li>
                         <li data-i18n-html="content.li35"><span class="rules-step-num">&bull;</span><div><strong>Weekend Holding and Friday Liquidation:</strong><span>All open positions, irrespective of asset class, must be closed by 22:00 UTC Friday. Weekend holding of open positions is permitted solely upon purchase of the Weekend Holding Addon, which grants a full exemption from the Friday liquidation requirement. Auto-close is enforced server-side at the designated time. Traders may continue to open new positions in any instrument whose market is open during the weekend.</span></div></li>
@@ -326,7 +320,7 @@
                 <button type="button" class="modal-close" onclick="closeBestDayModal()" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body-wrap text-normal">
-                <p>The Best Day Rule requires that your Best Day (highest profit calendar day) does not exceed <strong class="hl">20%</strong> of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.</p>
+                <p>The Best Day Rule requires that your most profitable day (&quot;Best Day&quot;) does not exceed <strong class="hl">20%</strong> of your Positive Days' Profit on the account. Profitable days are factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit.</p>
                 <div class="plan-best-day-chart-wrap" aria-hidden="true">
                     <svg viewBox="0 0 370 150" xmlns="http://www.w3.org/2000/svg" focusable="false">
                         <text x="6" y="20" class="chart-tick">$10k</text>

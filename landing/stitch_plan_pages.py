@@ -62,7 +62,7 @@ REWARDS_INSTANT = "\n".join(
         _rstep("Minimum Reward", "$100 (processed within 48 hours)"),
         _rstep(
             "Eligibility",
-            "You are eligible when net profit is at least $100, your Best Day is ≤20% of Positive Days' Profit, and the selected cycle is complete. No minimum trading days required. The same rule applies to every payout.",
+            "You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. Instant has no minimum trading days. See Section 3. The first payout and every payout after use this same rule.",
         ),
         _rstep(
             "Weekly (Add-on)",
@@ -89,7 +89,7 @@ REWARDS_1STEP = "\n".join(
         _rstep("Minimum Reward", "$100 (processed within 48 hours)"),
         _rstep(
             "Eligibility",
-            "You are eligible when net profit is at least $100, your Best Day is ≤50% of Positive Days' Profit, and the selected cycle is complete. No minimum trading days required. The same rule applies to every payout.",
+            "You become eligible for a reward when net profit is at least $100, your Best Day is ≤50% of Positive Days’ Profit, and you have met the selected cycle. 1-Step has no minimum trading days. See Section 3. The first payout and every payout after use this same rule.",
         ),
         _rstep(
             "Weekly (Add-on)",
@@ -188,14 +188,18 @@ def _matching_ul_end(html: str, ul_open: int) -> int:
     raise SystemExit("unmatched <ul>")
 
 
-def replace_list_under_title(html: str, title: str, items: str) -> str:
+def replace_list_under_title(html: str, title: str, items: str, *, required: bool = True) -> str:
     marker = f"<strong>{title}</strong></p>"
     i = html.find(marker)
     if i < 0:
-        raise SystemExit(f"{title!r}: title not found")
+        if required:
+            raise SystemExit(f"{title!r}: title not found")
+        return html
     ul_open = html.find('<ul class="rules-step-list">', i)
     if ul_open < 0 or ul_open - i > 200:
-        raise SystemExit(f"{title!r}: list not found after title")
+        if required:
+            raise SystemExit(f"{title!r}: list not found after title")
+        return html
     ul_close = _matching_ul_end(html, ul_open)
     return (
         html[:ul_open]
@@ -204,6 +208,33 @@ def replace_list_under_title(html: str, title: str, items: str) -> str:
         + "\n                    </ul>"
         + html[ul_close + 5 :]
     )
+
+
+def ensure_split_card(html: str) -> str:
+    if "<strong>Performance Reward Split</strong></p>" in html:
+        return html
+    marker = "<strong>Payout Frequencies &amp; Trader Profit Share</strong></p>"
+    i = html.find(marker)
+    if i < 0:
+        raise SystemExit("Payout Frequencies title not found; cannot insert split card")
+    ul_open = html.find('<ul class="rules-step-list">', i)
+    if ul_open < 0:
+        raise SystemExit("Payout Frequencies list not found")
+    ul_close = _matching_ul_end(html, ul_open)
+    card_end = html.find("</div>", ul_close)
+    if card_end < 0:
+        raise SystemExit("Payout Frequencies card end not found")
+    card_end += len("</div>")
+    split_card = (
+        '\n                <div class="rules-card" style="margin-top:1.25rem;">\n'
+        '                    <p data-i18n-html="content.p10" style="margin-bottom:1.25rem;">'
+        "<strong>Performance Reward Split</strong></p>\n"
+        '                    <ul class="rules-step-list">\n'
+        + SPLIT_ITEMS
+        + "\n                    </ul>\n"
+        "                </div>"
+    )
+    return html[:card_end] + split_card + html[card_end:]
 
 
 def chrome(html: str) -> str:
@@ -240,6 +271,7 @@ def patch_shared(html: str, slug: str) -> str:
     html = replace_list_under_title(
         html, "Payout Frequencies &amp; Trader Profit Share", FREQ_ITEMS
     )
+    html = ensure_split_card(html)
     html = replace_list_under_title(html, "Performance Reward Split", SPLIT_ITEMS)
     html = replace_list_under_title(html, "Rewards &amp; Payouts", rewards_for(slug))
     html = html.replace("Allowed in Evaluation:", "Allowed:")
@@ -377,7 +409,7 @@ def patch_instant(html: str) -> str:
     )
     html = html.replace(
         '<strong>0.5% Minimum Profit to Count as a Trading Day:</strong><span>Only days where you achieve a net closed-trade profit of at least <strong>0.5%</strong> of that day\'s start-of-day equity are counted as valid trading days toward the minimum requirement of 5 days.</span>',
-        "<strong>Positive Day:</strong><span>A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit.</span>",
+        "<strong>No Minimum Trading Days:</strong><span>Instant has no minimum trading days. Every payout needs $100, Best Day ≤20% of Positive Days' Profit, and the selected cycle.</span>",
     )
     html = html.replace(
         '<div><div class="phase-stat-lbl">Minimum Trading Days</div><div class="phase-stat-val">N/A</div></div>',
@@ -403,17 +435,42 @@ def patch_instant(html: str) -> str:
     )
     html = html.replace(" from every profitable day", "")
     html = html.replace(" of every profitable day", " of Positive Days' Profit")
+    # Instant Best Day = live 1-Step wording, Instant-applicable only (20%; payout request).
     html = html.replace(
-        "of your total Positive Days' Profit from every green day at the time you request a payout. Every green day is factored in, including small chip days.",
-        "of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.",
+        "Your single best qualifying profit day cannot account for more than 20% of Positive Days’ Profit at the time you request a payout. A day counts only when closed profit is at least 0.5% of that day’s start-of-day equity. Smaller green days do not count toward Best Day or Positive Days’ Profit.",
+        "Your single best profit day cannot account for more than 20% of your Positive Days' Profit at the time you request a payout. This is not an immediate breach — you must continue trading until the condition is met.",
     )
     html = html.replace(
-        "Best Day must be ≤20% of Positive Days' Profit from every green day. Every green day is factored in.",
-        "No single trading day can contribute more than 20% of your total Positive Days' Profit.",
+        "Your single best qualifying profit day cannot account for more than 20% of Positive Days’ Profit at the time you request a payout. A day counts only when closed profit is at least 0.5% of that day’s start-of-day equity. Smaller profitable days do not count toward Best Day or Positive Days’ Profit.",
+        "Your single best profit day cannot account for more than 20% of your Positive Days' Profit at the time you request a payout. This is not an immediate breach — you must continue trading until the condition is met.",
     )
     html = html.replace(
-        "Profits are measured from closed trades at the end of each trading day (00:00 UTC). Every green day counts toward Positive Days' Profit. Losing days do not. A day meets the 0.5% parameter only if it closes at least 0.5% profit of account balance. Small green days still count toward Positive Days' Profit.",
-        "Profits are calculated from closed trades at 00:00 UTC. Losing days do not count toward Positive Days' Profit.",
+        "Your Best Day (highest profit calendar day) must not exceed 20% of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.",
+        "Your single best profit day cannot account for more than 20% of your Positive Days' Profit at the time you request a payout. This is not an immediate breach — you must continue trading until the condition is met.",
+    )
+    html = html.replace(
+        "Best Day must be ≤20% of Positive Days' Profit (qualifying days only).",
+        "No single trading day can contribute more than 20% of your total Positive Days' Profit at the time you request a payout.",
+    )
+    html = html.replace(
+        "Best Day must be ≤20% of Positive Days' Profit. All Positive Days count.",
+        "No single trading day can contribute more than 20% of your total Positive Days' Profit at the time you request a payout.",
+    )
+    html = html.replace(
+        "Exceeding 20% on a single day does not immediately terminate your account — you must continue trading to grow your total Positive Days' Profit until the best day drops to 20% or below.",
+        "Exceeding 20% on a single day does not immediately fail your account — you must simply keep trading to grow your total Positive Days' Profit until the Best Day drops to ≤20%.",
+    )
+    html = html.replace(
+        "<strong>Not a Breach:</strong><span>Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.</span>",
+        "<strong>Not a Breach:</strong><span>Exceeding 20% on a single day does not immediately fail your account — you must simply keep trading to grow your total Positive Days' Profit until the Best Day drops to ≤20%.</span>",
+    )
+    html = html.replace(
+        "Closed trades only, at 00:00 UTC. Losing days do not count. Days under the 0.5% start-of-day equity floor do not count. Example ($100,000 start-of-day equity): the floor for that day is $500 closed profit. +$400 does not qualify. +$600 does. If the largest qualifying day is $10,000, Positive Days’ Profit must be at least $50,000 before you can request a payout.",
+        "Profits are measured from closed trades at the end of each trading day (00:00 UTC). Profitable days are factored into Positive Days' Profit. Losing days do not count.",
+    )
+    html = html.replace(
+        "<strong>Calculation:</strong><span>Profits are calculated from closed trades at 00:00 UTC. Losing days do not count toward Positive Days' Profit.</span>",
+        "<strong>Calculation:</strong><span>Profits are measured from closed trades at the end of each trading day (00:00 UTC). Profitable days are factored into Positive Days' Profit. Losing days do not count.</span>",
     )
     html = html.replace(
         '<strong>Every Payout:</strong><span>Minimum $100, Best Day ≤20% of every green day, and the selected cycle. Instant has no minimum trading days. The first payout and every payout after use this same rule. Processed within 48 hours.</span>',
@@ -437,19 +494,37 @@ def patch_instant(html: str) -> str:
     )
     html = html.replace(
         "A day meets the 0.5% parameter only if it closes at least 0.5% profit of account balance.",
-        "A Positive Day is a calendar day that closes in profit.",
+        "",
+    )
+    LIVE_1STEP_INSTANT_MODAL = (
+        'does not exceed <strong class="hl">20%</strong> of your Positive Days\' Profit on the account. '
+        "Profitable days are factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). "
+        "Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit."
     )
     html = html.replace(
         "does not exceed <strong class=\"hl\">20%</strong> of your Positive Days' Profit at the time you request a payout. Every profitable day is factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit.",
-        "does not exceed <strong class=\"hl\">20%</strong> of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.",
+        LIVE_1STEP_INSTANT_MODAL,
     )
     html = html.replace(
         "does not exceed <strong class=\"hl\">20%</strong> of your Positive Days' Profit at the time you request a payout. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit.",
+        LIVE_1STEP_INSTANT_MODAL,
+    )
+    html = html.replace(
         "does not exceed <strong class=\"hl\">20%</strong> of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.",
+        LIVE_1STEP_INSTANT_MODAL,
     )
     html = html.replace(
         "Small profitable days still count toward Positive Days' Profit. Small profitable days still count toward Positive Days' Profit.",
         "Small profitable days still count toward Positive Days' Profit.",
+    )
+    # Live Instant modal still has the 0.5% qualifying-day filter.
+    html = re.sub(
+        r'The Best Day Rule requires that your most profitable <strong>qualifying</strong> day \(&quot;Best Day&quot;\) does not exceed <strong class="hl">20%</strong>.*?(?=</p>)',
+        "The Best Day Rule requires that your most profitable day (&quot;Best Day&quot;) "
+        + LIVE_1STEP_INSTANT_MODAL,
+        html,
+        count=1,
+        flags=re.S,
     )
     if "never locks" not in html:
         html = html.replace(
@@ -478,43 +553,69 @@ def patch_instant(html: str) -> str:
     )
     html = html.replace(
         "Every profitable day is factored in, including small chip days.",
-        "A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit.",
+        "Profitable days are factored into Positive Days' Profit.",
+    )
+    html = html.replace(
+        "20% Best Day of qualifying days (closed profit ≥ 0.5% of that day’s start-of-day equity). No minimum trading days.",
+        "20% Best Day rule, and no minimum trading days.",
+    )
+    html = html.replace(
+        "20% Best Day of qualifying days (closed profit ≥ 0.5% of that day's start-of-day equity). No minimum trading days.",
+        "20% Best Day rule, and no minimum trading days.",
     )
     return html
 
 
 def patch_1step(html: str) -> str:
+    # Keep live 1-Step Best Day / Eligibility wording. Drop Instant from 1-Step.
+    html = html.replace(" (Instant uses 20%)", "")
     html = html.replace(
         "plus the 50% Best Day consistency rule unique to 1-Step.",
         "plus the 50% Best Day rule.",
+    )
+    html = html.replace(
+        "See Section 3. Instant also trails, but Instant never locks.",
+        "Unique to this plan; see Section 3.",
+    )
+    html = html.replace(
+        "<strong>50% Best Day Rule (Instant uses 20%)",
+        "<strong>50% Best Day Rule",
     )
     html = html.replace(
         "<strong>50% Best Day Rule — unique to 1-Step",
         "<strong>50% Best Day Rule",
     )
     html = html.replace(
+        "50% Best Day rule (Instant uses 20%) — your single best profit day cannot exceed 50% of Positive Days' Profit. See Section 3 for full details.",
+        "50% Best Day rule — your single best profit day cannot exceed 50% of Positive Days' Profit. See Section 3 for full details.",
+    )
+    html = html.replace(
         "Unique to 1-Step — your single best profit day cannot exceed 50% of your total Positive Days' Profit. See Section 3 for full details.",
+        "50% Best Day rule — your single best profit day cannot exceed 50% of Positive Days' Profit. See Section 3 for full details.",
+    )
+    html = html.replace(
         "Best Day must be ≤50% of Positive Days' Profit. All Positive Days count. See Section 3 for full details.",
+        "50% Best Day rule — your single best profit day cannot exceed 50% of Positive Days' Profit. See Section 3 for full details.",
     )
     html = html.replace(
-        "Your single best profit day cannot account for more than 50% of your Positive Days' Profit at the time of passing the evaluation. This is not an immediate breach — you must continue trading until the condition is met.",
         "Your Best Day (highest profit calendar day) must not exceed 50% of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.",
+        "Your single best profit day cannot account for more than 50% of your Positive Days' Profit at the time of passing the evaluation. This is not an immediate breach — you must continue trading until the condition is met.",
     )
     html = html.replace(
-        "No single trading day can contribute more than 50% of your total Positive Days' Profit at the point you hit the 10% target.",
         "Best Day must be ≤50% of Positive Days' Profit. All Positive Days count.",
+        "No single trading day can contribute more than 50% of your total Positive Days' Profit at the point you hit the 10% target.",
     )
     html = html.replace(
-        "Exceeding 50% on a single day does not immediately fail your evaluation — you must simply keep trading to grow your total Positive Days' Profit until the Best Day drops to ≤50%.",
-        "Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.",
+        "<strong>Not a Breach:</strong><span>Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.</span>",
+        "<strong>Not a Breach:</strong><span>Exceeding 50% on a single day does not immediately fail your evaluation — you must simply keep trading to grow your total Positive Days' Profit until the Best Day drops to ≤50%.</span>",
     )
     html = html.replace(
-        "Profits are measured from closed trades at the end of each trading day (00:00 UTC). Every profitable day is factored into Positive Days' Profit. Losing days do not count.",
-        "Profits are calculated from closed trades at 00:00 UTC. Losing days do not count toward Positive Days' Profit.",
+        "<strong>Calculation:</strong><span>Profits are calculated from closed trades at 00:00 UTC. Losing days do not count toward Positive Days' Profit.</span>",
+        "<strong>Calculation:</strong><span>Profits are measured from closed trades at the end of each trading day (00:00 UTC). Profitable days are factored into Positive Days' Profit. Losing days do not count.</span>",
     )
     html = html.replace(
-        "does not exceed <strong class=\"hl\">50%</strong> of your Positive Days' Profit on the account. Every profitable day is factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤50% of total Positive Days' Profit.",
         "does not exceed <strong class=\"hl\">50%</strong> of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.",
+        "does not exceed <strong class=\"hl\">50%</strong> of your Positive Days' Profit on the account. Profitable days are factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤50% of total Positive Days' Profit.",
     )
     return html
 
@@ -549,6 +650,9 @@ INSTANT_FORBIDDEN = (
     "0.5% parameter",
     "Valid Day",
     "at least 0.5% profit",
+    "qualifying days only",
+    "qualifying days",
+    "Days below this floor",
 )
 
 SHARED_FORBIDDEN = (
@@ -564,7 +668,6 @@ def verify(slug: str, html: str) -> None:
     for needle in (
         "Weekly Rewards with 70% Reward Split",
         "On Demand Rewards with 90% Split",
-        "paid add-on",
         "calendar days, not trading days",
         "News trading is permitted",
         "Minimum Reward:</strong> $100",
@@ -581,9 +684,11 @@ def verify(slug: str, html: str) -> None:
         for needle in (
             "never locks",
             "not refundable",
-            "No minimum trading days required",
-            "Best Day ≤20% of Positive Days",
-            "A Positive Day is a calendar day",
+            "Instant has no minimum trading days",
+            "your Best Day is ≤20% of Positive Days",
+            "Your single best profit day cannot account for more than 20%",
+            "Profitable days are factored into Positive Days' Profit",
+            "at the time you request a payout",
             "7 calendar days and when eligibility requirements are met",
             "14 calendar days and when eligibility requirements are met",
             "Available when eligibility requirements are met",
@@ -597,14 +702,17 @@ def verify(slug: str, html: str) -> None:
                 "3 trading days in the funded",
                 "0.5% profit",
                 "5 valid",
+                "Instant uses 20%",
+                "Instant also trails",
             )
             if s in html
         ]
         for needle in (
             "Add-on fees are not refunded",
-            "No minimum trading days required",
-            "A Positive Day is a calendar day",
-            "Best Day must be ≤50% of Positive Days",
+            "1-Step has no minimum trading days",
+            "Your single best profit day cannot account for more than 50%",
+            "Profitable days are factored into Positive Days' Profit",
+            "at the time of passing the evaluation",
             "7 calendar days and when eligibility requirements are met",
             "14 calendar days and when eligibility requirements are met",
             "Available when eligibility requirements are met",

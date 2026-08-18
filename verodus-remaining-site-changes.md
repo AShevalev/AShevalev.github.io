@@ -2,7 +2,7 @@
 
 Live scan 18 Aug 2026. Only items still wrong on `https://www.verodus.com/`. Do not re-paste rules that already landed.
 
-**Locked Instant / 1-Step Best Day:** same Positive Day definition. Instant cap **20%**. 1-Step cap **50%**. **No 0.5% / Valid Day** on Instant. Do not write “green day” or “profitable day.”
+**Locked Instant Best Day:** use **live 1-Step wording**, Instant-applicable only. Cap **20%**. Payout request, not evaluation pass. Instant has no 10% target. **No 0.5% / Valid Day / qualifying days.** 1-Step stays **live** at **50%**. Do not name Instant on 1-Step. Live 1-Step Calculation (“Profitable days are factored into Positive Days' Profit”) is the Instant Calculation too.
 
 **Already on live (do not redo):** news included / **Allowed:** heading; no min holding time; Instant no listed min days and no “5 valid days”; Instant 6% trail never locks; Instant no `$200k`; Instant fees not refundable on the Instant page; 1-Step no min days + 50% Best Day; 2-Step 5 eval days / 3 QPP days; `$100` every cycle; same first and later payouts; 4-then-3 gone; Trading Objectives Instant payout line already short (`$100`, no min days, Best Day ≤20%, no 0.5%); checkout On-Demand already “when eligibility requirements are met.”
 
@@ -10,41 +10,52 @@ Apply HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`. English
 
 ---
 
-## 1. Instant Best Day — every Positive Day is in Positive Days’ Profit (no 0.5%)
+## 1. Instant Best Day — live 1-Step wording at 20% (no 0.5%)
 
-Live still treats 0.5% as a **Positive Days’ Profit filter**. Small days in profit are dropped. That is the Instant rule that is still wrong. Do not replace it with a Valid Day sentence. **Skip 0.5% entirely.**
+Live Instant still treats 0.5% as a **Positive Days’ Profit filter**. Small days in profit are dropped. That is the Instant rule that is still wrong. Do not replace it with a Valid Day sentence. **Skip 0.5% entirely.** Paste live 1-Step Best Day / Eligibility / modal, with Instant swaps only.
 
-**Names**
-- **Positive Day** = a calendar day that **closes in profit** (including a small +0.1% day). That is the unit of **Positive Days’ Profit** and Best Day. Use this, not “green day.”
-- Instant has **no** Valid Day and **no** 0.5% line. 1-Step uses the same Positive Day definition at **50%**.
-
-**Locked Instant rule**
-- Best Day ≤20% of **Positive Days’ Profit**.
-- **All Positive Days** count, including small days.
-- Losing days do not count toward Positive Days’ Profit.
-- Never write “green day,” “qualifying days only,” “days below this floor are ignored,” or Valid Day.
+**Instant-applicable swaps from live 1-Step**
+- 50% → **20%**
+- “at the time of passing the evaluation” → **“at the time you request a payout”**
+- “at the point you hit the 10% target” → **“at the time you request a payout”**
+- “fail your evaluation” → **“fail your account”**
+- “1-Step has no minimum trading days” → **“Instant has no minimum trading days”**
+- Do **not** keep “A Positive Day is a calendar day…” — live 1-Step does not use that paragraph.
 
 ### `instant.html`
 
 | Key / spot | Live (wrong) | Change to |
 |---|---|---|
-| `content.p8` | “A day counts only when closed profit is at least 0.5% … **Smaller green days do not count**” | Paste below. |
-| `content.li12` | “Best Day must be ≤20% of Positive Days' Profit **(qualifying days only)**.” | Best Day must be ≤20% of Positive Days’ Profit. All Positive Days count. |
-| `content.li14` | “Days under the 0.5% … **do not count**.” | Closed trades at 00:00 UTC. Losing days do not count toward Positive Days’ Profit. |
-| Eligibility | “**qualifying days only:** closed profit ≥ 0.5%” | `$100` + Best Day ≤20% + cycle. No min days. No 0.5%. |
-| `#bestDayModal` | “Days below this floor are ignored” | Paste below. |
-| JSON-LD | “20% Best Day of **qualifying days**” | 20% Best Day of Positive Days’ Profit. All Positive Days count. No min trading days. |
+| `content.p8` | “A day counts only when closed profit is at least 0.5% … **Smaller green days do not count**” | Live 1-Step `p7`, 20%, payout request. |
+| `content.li12` | “Best Day must be ≤20% of Positive Days' Profit **(qualifying days only)**.” | Live 1-Step Rule at 20%, payout request. |
+| `content.li13` | “does not immediately **terminate** your account” | Live 1-Step Not a Breach: **fail your account**, ≤20%. |
+| `content.li14` | “Days under the 0.5% … **do not count**.” | Live 1-Step Calculation. |
+| Eligibility | “**qualifying days only:** closed profit ≥ 0.5%” | Live 1-Step Eligibility, Instant, 20%. |
+| `#bestDayModal` | “Days below this floor are ignored” | Live 1-Step modal, 20%. |
+| JSON-LD | “20% Best Day of **qualifying days**” | 20% Best Day rule, and no minimum trading days. |
 
-**Instant Best Day paste** (`p8` + modal) — same wording as 1-Step, 20% not 50%
+**Instant Best Day paste** (`p8` + rule cards) — live 1-Step wording, Instant-applicable only
 
 ```text
-Your Best Day (highest profit calendar day) must not exceed 20% of Positive Days’ Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days’ Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 20% is not a breach — continue trading until Best Day is ≤20%.
+Your single best profit day cannot account for more than 20% of your Positive Days' Profit at the time you request a payout. This is not an immediate breach — you must continue trading until the condition is met.
+
+Rule: No single trading day can contribute more than 20% of your total Positive Days' Profit at the time you request a payout.
+
+Not a Breach: Exceeding 20% on a single day does not immediately fail your account — you must simply keep trading to grow your total Positive Days' Profit until the Best Day drops to ≤20%.
+
+Calculation: Profits are measured from closed trades at the end of each trading day (00:00 UTC). Profitable days are factored into Positive Days' Profit. Losing days do not count.
 ```
 
-**Instant Eligibility paste** — same wording as 1-Step, 20% not 50%
+**Instant Eligibility paste** — live 1-Step Eligibility, Instant-applicable
 
 ```text
-You are eligible when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and the selected cycle is complete. No minimum trading days required. The same rule applies to every payout.
+You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. Instant has no minimum trading days. See Section 3. The first payout and every payout after use this same rule.
+```
+
+**Instant modal paste** — live 1-Step modal, 20%
+
+```text
+The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit on the account. Profitable days are factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit.
 ```
 
 Do **not** keep:
@@ -57,28 +68,32 @@ Do **not** keep:
 
 > Valid Day / 0.5%
 
-### 1-Step — same Positive Day definition at 50%
+> A Positive Day is a calendar day that closes in profit. All Positive Days count…
 
-**1-Step Best Day paste** — same wording as Instant, 50% not 20%. Do not name Instant.
+### 1-Step — keep live wording at 50%
+
+Do **not** rewrite 1-Step Best Day, Rule, Not a Breach, Calculation, Eligibility, or modal. Keep live. Drop “Instant uses 20%” only.
+
+**1-Step `p7` (keep)**
 
 ```text
-Your Best Day (highest profit calendar day) must not exceed 50% of Positive Days’ Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days’ Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding 50% is not a breach — continue trading until Best Day is ≤50%.
+Your single best profit day cannot account for more than 50% of your Positive Days' Profit at the time of passing the evaluation. This is not an immediate breach — you must continue trading until the condition is met.
 ```
 
-**1-Step Eligibility paste**
+**1-Step Eligibility (keep)**
 
 ```text
-You are eligible when net profit is at least $100, your Best Day is ≤50% of Positive Days’ Profit, and the selected cycle is complete. No minimum trading days required. The same rule applies to every payout.
+You become eligible for a reward when net profit is at least $100, your Best Day is ≤50% of Positive Days’ Profit, and you have met the selected cycle. 1-Step has no minimum trading days. See Section 3. The first payout and every payout after use this same rule.
 ```
 
 Do not put Instant 20% or 0.5% on 1-Step. Drop “unique to 1-Step” on the Best Day heading (hybrid 6% lock can stay unique).
 
 ### `trading-objectives.html` Instant / 1-Step Best Day modal
 
-Use **one paragraph**. Instant is 20%. 1-Step is 50%. Do not name Instant on the 1-Step tab. Do not add a 0.5% sentence.
+Use the **live 1-Step modal paragraph**. Instant is 20%. 1-Step is 50%. Do not name Instant on the 1-Step tab. Do not add a 0.5% sentence. Do not add “A Positive Day is a calendar day…”.
 
 ```text
-The Best Day Rule requires that your Best Day (highest profit calendar day) does not exceed X% of Positive Days' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days' Profit. Losing days do not count toward Positive Days' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding X% is not a breach — continue trading until Best Day is ≤X%.
+The Best Day Rule requires that your most profitable day ("Best Day") does not exceed X% of your Positive Days' Profit on the account. Profitable days are factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤X% of total Positive Days' Profit.
 ```
 
 ### FAQs that still copy the Instant PDP filter
@@ -92,7 +107,7 @@ The Best Day Rule requires that your Best Day (highest profit calendar day) does
 **Paste** (1-Step `p1` with Instant-applicable rules and 20% in place of 50%)
 
 ```text
-No evaluation. You start on a funded simulated account. 3% daily drawdown from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. 6% trailing max drawdown from equity high water mark (the trail never locks). Best Day must be ≤20% of Positive Days’ Profit to get paid. No minimum trading days. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$100,000.
+No evaluation. You start on a funded simulated account. 3% daily drawdown from that day’s equity high (floating losses included). 6% trailing max drawdown that never locks at the starting balance. Best Day must be ≤20% of Positive Days’ Profit to get paid. No minimum trading days. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$100,000.
 ```
 
 Keep the 1-Step card as live (`content.p1`). Do not add Instant 20% to that card.
@@ -109,7 +124,7 @@ One evaluation phase, then a Qualified Performance account. 10% profit target. 4
 
 ```html
 <ul>
-  <li>Instant: No evaluation phase. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A Positive Day is a calendar day that closes in profit. Every Positive Day is included.</li>
+  <li>Instant: No evaluation phase. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. Profitable days are factored into Positive Days' Profit.</li>
   <li>1-Step: No minimum trading days to pass evaluation. Qualified Performance has no minimum trading days. Best Day ≤50% of Positive Days’ Profit.</li>
   <li>2-Step Lite: 5 trading days per evaluation phase (open and close on the same calendar day). Qualified Performance payouts need 3 trading days.</li>
   <li>2-Step Pro: 5 trading days per evaluation phase (open and close on the same calendar day). Qualified Performance payouts need 3 trading days.</li>
@@ -180,16 +195,18 @@ On 1-Step, 2-Step Lite, and 2-Step Pro, a successful first Performance Reward in
 
 ## 4. Do not name Instant on 1-Step
 
-**Live** on `1-step.html` hero (`p3`), Best Day heading, and `li9` / `span7`:
+**Live** on `1-step.html` hero (`p3`), Best Day heading, `li8`, and `li9`:
 
 > 50% Best Day rule **(Instant uses 20%)**
+>
+> Instant also trails, but Instant never locks.
 
 Drop the Instant clause. 1-Step is 50% of Positive Days’ Profit only. Do not mention Instant or 0.5% on 1-Step.
 
 **Paste**
 
 ```text
-50% Best Day rule — your Best Day cannot exceed 50% of Positive Days' Profit. See Section 3 for full details.
+50% Best Day rule — your single best profit day cannot exceed 50% of Positive Days' Profit. See Section 3 for full details.
 ```
 
 ---

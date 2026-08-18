@@ -1,5 +1,5 @@
 (function () {
-  /* Rec Instant: no $200k. No min trading days. 20% Best Day of Positive Days' Profit.
+  /* Rec Instant: no $200k. No min trading days. Live 1-Step Best Day wording at 20%.
      6% trail never locks. 3% daily from the day's equity high. No fee refund.
      Lite funded max DD stays 8% (already in live pricingData).
      Weekly 70% is 6% of list. On Demand is 90% at 20% of list.
@@ -97,7 +97,7 @@
       var bestEl = document.getElementById('modal-content');
       if (bestEl) {
         var pct = currentTab === 'instant' ? 20 : 50;
-        bestEl.innerHTML = '<p>The Best Day Rule requires that your Best Day (highest profit calendar day) does not exceed <strong style="color:var(--gold-light)">' + pct + '%</strong> of your Positive Days\' Profit. A Positive Day is a calendar day that closes in profit. All Positive Days count toward Positive Days\' Profit. Losing days do not count toward Positive Days\' Profit. Profits are calculated from closed trades at 00:00 UTC. Exceeding ' + pct + '% is not a breach — continue trading until Best Day is ≤' + pct + '%.</p>';
+        bestEl.innerHTML = '<p>The Best Day Rule requires that your most profitable day ("Best Day") does not exceed <strong style="color:var(--gold-light)">' + pct + '%</strong> of your Positive Days\' Profit on the account. Profitable days are factored into Positive Days\' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤' + pct + '% of total Positive Days\' Profit.</p>';
       }
     }
   };
