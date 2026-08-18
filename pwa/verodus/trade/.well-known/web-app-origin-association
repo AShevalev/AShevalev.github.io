@@ -1,0 +1,10 @@
+{
+  "https://dashboard.verodus.com/": { "scope": "/" },
+  "https://www.verodus.com/": { "scope": "/" },
+  "https://verodus.com/": { "scope": "/" },
+  "web_apps": [
+    { "web_app_identity": "https://dashboard.verodus.com/" },
+    { "web_app_identity": "https://www.verodus.com/" },
+    { "web_app_identity": "https://verodus.com/" }
+  ]
+}

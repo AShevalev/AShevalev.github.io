@@ -1,0 +1,28 @@
+<!-- Landing-page pills. Do not link to Play / App Store and do not install this
+     origin. JS opens a modal: Dashboard → Trading Resources → Platforms.
+     href is the no-JS fallback (opens that dashboard page). -->
+
+<link rel="stylesheet" href="/pwa/verodus/www/platforms-modal.css" />
+
+<div class="_stores_kptsv_152">
+  <a
+    class="v-store-pill"
+    data-open-platforms-modal
+    href="https://dashboard.verodus.com/trading-resources/platforms"
+    aria-label="Install Verodus on Android from the dashboard"
+  >
+    <!-- keep the existing Android SVG -->
+    <span data-i18n="content.span58">for android</span>
+  </a>
+  <a
+    class="v-store-pill"
+    data-open-platforms-modal
+    href="https://dashboard.verodus.com/trading-resources/platforms"
+    aria-label="Install Verodus on iPhone from the dashboard"
+  >
+    <!-- keep the existing Apple SVG -->
+    <span data-i18n="content.span59">for iOS</span>
+  </a>
+</div>
+
+<script src="/js/install.js"></script>

@@ -1,0 +1,156 @@
+/* Dashboard → Trading Resources → Platforms. Navy / gold to match the CRM. */
+
+.v-platforms {
+  --v-gold: #d4af37;
+  --v-gold-light: #f0dc9a;
+  --v-navy: #07003b;
+  --v-ink: #0f172a;
+  --v-body: #cbd5e1;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  color: #f5f5f5;
+}
+
+.v-platforms h1 {
+  margin: 0 0 0.5rem;
+  font: 700 clamp(1.6rem, 3vw, 2rem) / 1.2 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__lede {
+  margin: 0 0 1.75rem;
+  max-width: 42rem;
+  color: var(--v-body);
+  font: 400 1.05rem/1.5 Inter, system-ui, sans-serif;
+}
+
+.v-platforms a {
+  color: var(--v-gold-light);
+}
+
+.v-platforms__hint {
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: var(--v-gold-light);
+  font: 500 0.95rem/1.4 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__hint[hidden] {
+  display: none !important;
+}
+
+.v-platforms__section {
+  margin: 0 0 2.75rem;
+  padding-bottom: 0.25rem;
+}
+
+.v-platforms__section h2 {
+  margin: 0 0 0.35rem;
+  font: 700 1.25rem/1.2 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__section > p {
+  margin: 0 0 1rem;
+  color: var(--v-body);
+  font: 400 0.95rem/1.45 Inter, system-ui, sans-serif;
+}
+
+.v-platforms.is-installed [data-install-section="dashboard"] .v-platforms__cta {
+  display: none;
+}
+
+.v-platforms__table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(240, 220, 154, 0.14);
+  background: rgba(7, 0, 59, 0.55);
+}
+
+.v-platforms__table {
+  width: 100%;
+  min-width: 40rem;
+  border-collapse: collapse;
+  font: 400 0.88rem/1.4 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__table caption {
+  caption-side: top;
+  text-align: left;
+  padding: 0.85rem 1rem 0.4rem;
+  font: 600 0.95rem/1.3 Inter, system-ui, sans-serif;
+  color: #f0dc9a;
+}
+
+.v-platforms__table th,
+.v-platforms__table td {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid rgba(240, 220, 154, 0.12);
+}
+
+.v-platforms__table thead th {
+  color: #cbd5e1;
+  font-weight: 600;
+  white-space: nowrap;
+  border-top: 0;
+}
+
+.v-platforms__table tbody th {
+  color: #f5f5f5;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.v-platforms__table td {
+  color: #e2e8f0;
+}
+
+.v-platforms__table tr.is-suggested {
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.v-platforms__cta {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.25rem 0 0;
+  width: 100%;
+  max-width: 22rem;
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--v-gold);
+  color: var(--v-ink);
+  font: 600 0.95rem/1 Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.v-platforms__cta:focus-visible {
+  outline: 2px solid var(--v-gold-light);
+  outline-offset: 3px;
+}
+
+.v-platforms__cta[hidden] {
+  display: none;
+}
+
+.v-platforms__done {
+  display: none;
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: var(--v-gold-light);
+  font: 500 0.95rem/1.4 Inter, system-ui, sans-serif;
+}
+
+.v-platforms.is-installed .v-platforms__done {
+  display: block;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Verodus</title>
+    <meta name="theme-color" content="#07003B" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Verodus" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/images/pwa-icon-192.png" />
+    <style>
+      html,
+      body,
+      iframe {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: #07003b;
+      }
+      iframe {
+        position: fixed;
+        inset: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      Top-level URL stays https://www.verodus.com/app after a landing-page install.
+      Dashboard / TradeHub / Platform 5 load inside this frame, so Chrome never
+      treats a host change as a website.
+    -->
+    <iframe
+      id="verodus-app"
+      title="Verodus"
+      src="https://dashboard.verodus.com/dashboard"
+      allow="fullscreen; clipboard-read; clipboard-write; accelerometer; gyroscope"
+      allowfullscreen
+    ></iframe>
+  </body>
+</html>
