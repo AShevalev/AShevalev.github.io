@@ -1,6 +1,6 @@
 # Verodus site rule alignment
 
-Apply these rules on **every Verodus page that names them**, including `trading-objectives.html`. Never write “green day.” Use **profitable day** and **Positive Days’ Profit**. Instant 20% Best Day modal: every profitable day is included in Positive Days’ Profit. 1-Step 50% Best Day modal: every profitable day is included. Do not mention 0.5% on 1-Step. Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` **including** `trading-objectives.json` for Instant Best Day / day-count keys.
+Apply these rules on **every Verodus page that names them**, including `trading-objectives.html`. Never write “green day” or “profitable day.” Use **Positive Day** and **Positive Days’ Profit**. A Positive Day is a calendar day that closes in profit. Instant 20% Best Day modal: every Positive Day is included in Positive Days’ Profit. Instant 0.5% is a separate modal line (**at least 0.5% / ≥ 0.5%**), not the definition of a Positive Day. 1-Step 50% Best Day modal: every Positive Day is included. Do not mention 0.5% on 1-Step. Update HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…` **including** `trading-objectives.json` for Instant Best Day / day-count keys.
 
 Canonical source: `1-step.html`, `2-step-lite.html`, `2-step-pro.html`, `instant.html`, `trading-objectives.html` Instant Best Day modal, TOS §9, `restricted-trading.html`.
 
@@ -25,7 +25,7 @@ Do **not** put Instant 0.5% language on the 1-Step 50% Best Day modal or on 2-St
 - **$100** is the money minimum on **every payout cycle** — weekly, bi-weekly, and on-demand — on every plan. Same `$100` for the first payout and every payout after.
 - **First and subsequent payouts are the same.** No “first after X days, later after Y.” Every request must meet **that plan’s payout rule** **and** the **selected cycle**.
 - Plan payout rules (same for every payout on that plan):
-  - **Instant:** **No minimum trading days.** Never write “green day,” “5 min trading days,” “5 valid trading days,” or any Instant day-count. Instant’s day rule is **20% Best Day of Positive Days’ Profit**. Every profitable day is included. Best Day must be ≤20% of Positive Days’ Profit. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. Instant has **no** 3-day QPP min. Same first payout and every payout after. Do not put 0.5% on Weekly, Bi-Weekly, or the short trading-objectives payout line.
+  - **Instant:** **No minimum trading days.** Never write “green day,” “profitable day,” “5 min trading days,” “5 valid trading days,” or any Instant day-count. Instant’s day rule is **20% Best Day of Positive Days’ Profit**. A Positive Day is a calendar day that closes in profit. Every Positive Day is included. Best Day must be ≤20% of Positive Days’ Profit. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. Instant has **no** 3-day QPP min. Same first payout and every payout after. Do not put 0.5% on Weekly, Bi-Weekly, or the short trading-objectives payout line.
   - **1-Step Qualified Performance:** **No minimum trading days.** The day rule is **50% Best Day of Positive Days’ Profit**. Every profitable day is factored into Positive Days’ Profit and Best Day. Two equal profitable days can pass (50/50); that split is rare, so the clock is usually 3 days. Do **not** list a 3-day min. Exceeding 50% is not a breach — keep trading until Best Day is ≤50%. Evaluation also has **no** minimum trading days to pass (same 50% Best Day at the 10% target). Do not mention Instant 0.5% on 1-Step.
   - **2-Step Lite / Pro Qualified Performance:** **3 minimum trading days** for every payout. Evaluation still needs **5 trading days per phase** (open and close the same calendar day). No Instant 20% / 0.5% language.
 - A 2-Step “trading day” = open and close on the same calendar day. The 3-day QPP rule is **2-Step only** — a **count** of trading days in that payout window, not “wait 3 days since last payout.” Do not put it on 1-Step or Instant.
@@ -33,13 +33,14 @@ Do **not** put Instant 0.5% language on the 1-Step 50% Best Day modal or on 2-St
   - **Weekly (every plan):** 7 calendar days since the account start or last reward, plus that plan’s Eligibility rule (Instant/1-Step Best Day; 2-Step 3 trading days).
   - **Bi-weekly (every plan):** 14 calendar days since the account start or last reward, plus that plan’s Eligibility rule.
   - **On-demand (every plan page):** `Available when eligibility requirements are met.` Do **not** paste Instant / 1-Step / 2-Step On-Demand variants onto each plan page.
-  - Instant 0.5% stays on the Instant Best Day modal only: a profitable day is a day that closes with **at least 0.5% profit** (**≥ 0.5%**). Do not write “more than 0.5%.”
+  - Instant 0.5% stays on the Instant Best Day modal only: a day meets 0.5% if it closes with **at least 0.5% profit** (**≥ 0.5%**). Do not write “more than 0.5%.” Do not write “A Positive Day is a day that closes with at least 0.5% profit.”
 - Do not add a first-vs-later split (e.g. “first after 4 days, later after 3”). Instant and 1-Step have no min trading days. The 3-day QPP min is **2-Step only**.
 
 ### Instant Best Day + 0.5% profit of a day
-Do **not** write “green day.” Do **not** write “0.5% parameter.” Do **not** write “more than 0.5%.”
-- Best Day ≤20% of **Positive Days’ Profit**. Every profitable day is included.
-- On the Instant Best Day modal only, explain 0.5% in plain language: **a profitable day is a day that closes with at least 0.5% profit** (**≥ 0.5%**). Exactly 0.5% meets it.
+Do **not** write “green day” or “profitable day.” Do **not** write “0.5% parameter.” Do **not** write “more than 0.5%.”
+- Best Day ≤20% of **Positive Days’ Profit**. A **Positive Day** is a calendar day that closes in profit. Every Positive Day is included.
+- **Do not write:** “A Positive Day is a day that closes with at least 0.5% profit.” That makes 0.5% the PDP filter.
+- On the Instant Best Day modal only, keep 0.5% as its own line: a day meets 0.5% if it closes with **at least 0.5% profit** (**≥ 0.5%**). Exactly 0.5% meets it. That does not remove small Positive Days from Positive Days’ Profit.
 - Do **not** put 0.5% on Weekly, Bi-Weekly, Eligibility, or the short trading-objectives payout line.
 - Exceeding 20% is not a breach — keep trading until Best Day is ≤20% of total Positive Days’ Profit.
 - Instant-only. Do not put 0.5% on 1-Step or 2-Step.
@@ -57,7 +58,7 @@ Do **not** write “green day.” Do **not** write “0.5% parameter.” Do **no
 - Weekend Holding Addon
 - Instant 3% daily from day’s equity high, 6% trail that never locks
 - 1-Step Best Day stays **50% of Positive Days’ Profit** with **no** listed 3-day min. Do not mention 0.5% on 1-Step.
-- Instant Best Day stays **20% of Positive Days’ Profit**. 0.5% is Instant On-Demand / Best Day modal only: a profitable day is a day that closes with **at least 0.5% profit** (**≥ 0.5%**). Do not write “more than 0.5%.”
+- Instant Best Day stays **20% of Positive Days’ Profit**. A Positive Day is a calendar day that closes in profit. 0.5% is Instant Best Day modal only: a day meets 0.5% if it closes with **at least 0.5% profit** (**≥ 0.5%**). Do not write “more than 0.5%.” Do not define Positive Day as the 0.5% line.
 - 2-Step evaluation still **5 trading days per phase**. Do not rewrite the 2-Step “5 Minimum Active Performance Days” eval modal into Instant 0.5% language.
 
 ---

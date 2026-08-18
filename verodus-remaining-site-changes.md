@@ -10,32 +10,36 @@ Apply HTML **and** `/locales/{en,es,fr,pt,zh,ar,id,hi,tl,pa}/pages/…`. English
 
 ---
 
-## 1. Instant Best Day — every profitable day is in PDP
+## 1. Instant Best Day — every Positive Day is in Positive Days’ Profit
 
-Live still treats 0.5% as a **Positive Days’ Profit filter**. Small profitable days are dropped. That is the Instant rule that is still wrong.
+Live still treats 0.5% as a **Positive Days’ Profit filter**. Small days in profit are dropped. That is the Instant rule that is still wrong.
+
+**Names (do not merge these)**
+- **Positive Day** = a calendar day that **closes in profit**. That is the unit of **Positive Days’ Profit**. Use this, not “profitable day” and not “green day.”
+- **Do not write:** “A Positive Day is a day that closes with at least 0.5% profit.” That sentence makes 0.5% the definition of the day that counts, which is the live bug.
+- Instant 0.5% stays its own line, modal only: a day meets 0.5% if closed profit is **at least 0.5%** (**≥ 0.5%**). Do not write “more than 0.5%.” Small Positive Days still count toward Positive Days’ Profit.
 
 **Locked Instant rule**
 - Best Day ≤20% of **Positive Days’ Profit**.
-- **Every profitable day** is included, including small days.
-- A profitable day is a day that closes with **at least 0.5% profit** (**≥ 0.5%**).
+- **Every Positive Day** is included, including small days.
 - Never write “green day,” “qualifying days only,” or “days below this floor are ignored.”
-- 0.5% belongs on the **Instant Best Day modal**. Do not use it to exclude days from PDP on Eligibility, FAQs, or schema.
+- 0.5% belongs on the **Instant Best Day modal**. Do not use it to exclude days from Positive Days’ Profit on Eligibility, FAQs, or schema.
 
 ### `instant.html`
 
 | Key / spot | Live (wrong) | Change to |
 |---|---|---|
-| `content.p8` | “A day counts only when closed profit is at least 0.5% of that day’s start-of-day equity. **Smaller green days do not count** toward Best Day or Positive Days’ Profit.” | Every profitable day is included. A profitable day is a day that closes with at least 0.5% profit. Small profitable days still count. |
+| `content.p8` | “A day counts only when closed profit is at least 0.5% of that day’s start-of-day equity. **Smaller green days do not count** toward Best Day or Positive Days’ Profit.” | Every Positive Day is included. A Positive Day is a calendar day that closes in profit. Small Positive Days still count. Instant 0.5% is a separate modal line, not this definition. |
 | `content.li12` | “Best Day must be ≤20% of Positive Days' Profit **(qualifying days only)**.” | Best Day must be ≤20% of Positive Days’ Profit. |
-| `content.li14` | “Days under the 0.5% start-of-day equity floor **do not count**.” Example: +$400 does not qualify. | Closed trades at 00:00 UTC. Losing days do not count. Every profitable day counts. A profitable day is a day that closes with at least 0.5% profit. |
+| `content.li14` | “Days under the 0.5% start-of-day equity floor **do not count**.” Example: +$400 does not qualify. | Closed trades at 00:00 UTC. Losing days do not count. Every Positive Day counts. |
 | Eligibility `li23` / `span47` | “**qualifying days only:** closed profit ≥ 0.5% of that day’s start-of-day equity” | `$100` + Best Day ≤20% of Positive Days’ Profit + cycle. No min trading days. **No 0.5% here.** |
 | `#bestDayModal` | “A day only qualifies … **at least 0.5%** of SOD. **Days below this floor are ignored** for the 20% Best Day calculation.” | Paste below. |
-| JSON-LD `description` | “20% Best Day of **qualifying days** (closed profit ≥ 0.5% of SOD)” | 20% Best Day of Positive Days’ Profit. Every profitable day is included. A profitable day is a day that closes with at least 0.5% profit. No min trading days. |
+| JSON-LD `description` | “20% Best Day of **qualifying days** (closed profit ≥ 0.5% of SOD)” | 20% Best Day of Positive Days’ Profit. Every Positive Day is included. No min trading days. |
 
 **Instant Best Day modal paste**
 
 ```text
-The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit at the time you request a payout. Every profitable day is factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit. A profitable day is a day that closes with at least 0.5% profit (≥ 0.5%). Small profitable days still count toward Positive Days' Profit.
+The Best Day Rule requires that your most profitable day ("Best Day") does not exceed 20% of your Positive Days' Profit at the time you request a payout. A Positive Day is a calendar day that closes in profit. Every Positive Day is included in Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit. Instant: a day meets 0.5% if it closes with at least 0.5% profit (≥ 0.5%). That does not remove small Positive Days from Positive Days' Profit.
 ```
 
 **Instant Eligibility paste** (no 0.5% on this bullet)
@@ -47,7 +51,7 @@ Eligibility: You become eligible for a reward when net profit is at least $100, 
 **Instant `p8` paste**
 
 ```text
-Your single best profit day cannot account for more than 20% of Positive Days’ Profit at the time you request a payout. Every profitable day is factored into Positive Days’ Profit. A profitable day is a day that closes with at least 0.5% profit. Small profitable days still count toward Positive Days’ Profit.
+Your single best profit day cannot account for more than 20% of Positive Days’ Profit at the time you request a payout. A Positive Day is a calendar day that closes in profit. Every Positive Day is included in Positive Days’ Profit. Small Positive Days still count.
 ```
 
 Do **not** keep:
@@ -68,7 +72,7 @@ Live JS (`showModal('best-day')` when Instant):
 
 ```javascript
 if (isInstant) {
-  contentEl.innerHTML += `<p>Every profitable day is factored into Positive Days’ Profit. A profitable day is a day that closes with <strong style="color:${gold}">at least 0.5% profit (≥ 0.5%)</strong>. Small profitable days still count toward Positive Days’ Profit and Best Day.</p>`;
+  contentEl.innerHTML += `<p>A Positive Day is a calendar day that closes in profit. Every Positive Day is included in Positive Days’ Profit. Instant: a day meets 0.5% if it closes with <strong style="color:${gold}">at least 0.5% profit (≥ 0.5%)</strong>. That does not remove small Positive Days from Positive Days’ Profit.</p>`;
 }
 ```
 
@@ -83,7 +87,7 @@ Do **not** add that 0.5% sentence on the 1-Step 50% modal. Live 1-Step extra lin
 **Paste**
 
 ```text
-No evaluation. You start on a funded simulated account. 6% trailing max drawdown from equity high water mark (the trail never locks). 3% daily drawdown from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. Best Day must be ≤20% of Positive Days’ Profit to request a payout. Every profitable day is included. A profitable day is a day that closes with at least 0.5% profit. No minimum trading days. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$100,000; no $200,000 Instant account.
+No evaluation. You start on a funded simulated account. 6% trailing max drawdown from equity high water mark (the trail never locks). 3% daily drawdown from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. Best Day must be ≤20% of Positive Days’ Profit to request a payout. A Positive Day is a calendar day that closes in profit. Every Positive Day is included. No minimum trading days. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$100,000; no $200,000 Instant account.
 ```
 
 **`faq-evaluation.html`** live list + `p5` still say “qualifying days: closed profit ≥ 0.5% of SOD.”
@@ -92,7 +96,7 @@ No evaluation. You start on a funded simulated account. 6% trailing max drawdown
 
 ```html
 <ul>
-  <li>Instant: No evaluation phase. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. Every profitable day is included. A profitable day is a day that closes with at least 0.5% profit.</li>
+  <li>Instant: No evaluation phase. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A Positive Day is a calendar day that closes in profit. Every Positive Day is included.</li>
   <li>1-Step: No minimum trading days to pass evaluation. Qualified Performance has no minimum trading days. Best Day ≤50% of Positive Days’ Profit.</li>
   <li>2-Step Lite: 5 trading days per evaluation phase (open and close on the same calendar day). Qualified Performance payouts need 3 trading days.</li>
   <li>2-Step Pro: 5 trading days per evaluation phase (open and close on the same calendar day). Qualified Performance payouts need 3 trading days.</li>
