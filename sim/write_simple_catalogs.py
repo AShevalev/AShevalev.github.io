@@ -76,12 +76,12 @@ ADDON_MENU = (
     (
         "Weekly Rewards with 70% Reward Split", "6%", "6%",
         "Withdraw your profit share weekly",
-        "Receive your 70% reward share every week. Default is Bi-Weekly 80%. Minimum reward $100. Instant: Best Day ≤20% of every profitable day; a day meets the 0.5% parameter only if profit is more than 0.5% of start-of-day equity. 1-Step: no min trading days; Best Day ≤50%. 2-Step: 3 trading days.",
+        "Receive your 70% reward share every week. Default is Bi-Weekly 80%. Minimum reward $100. Instant: Best Day ≤20% of every profitable day; a day meets the 0.5% parameter only if profit is at least 0.5% of start-of-day equity. 1-Step: no min trading days; Best Day ≤50%. 2-Step: 3 trading days.",
     ),
     (
         "On Demand Rewards with 90% Split", "32%", "15%",
         "Withdraw your profit share anytime — no waiting for fixed cycles",
-        "Request your 90% reward share anytime after you meet that plan’s payout rule — no waiting for a 7- or 14-day cycle. Minimum reward $100. Instant: $100 and Best Day ≤20% of every profitable day; a day meets 0.5% only if profit is more than 0.5% of start-of-day equity. 1-Step: $100 and Best Day ≤50%; no min trading days. 2-Step: $100 and 3 trading days.",
+        "Request your 90% reward share anytime after you meet that plan’s payout rule — no waiting for a 7- or 14-day cycle. Minimum reward $100. Instant: $100 and Best Day ≤20% of every profitable day; a day meets 0.5% only if profit is at least 0.5% of start-of-day equity. 1-Step: $100 and Best Day ≤50%; no min trading days. 2-Step: $100 and 3 trading days.",
     ),
     (
         "Bi-Weekly 80%", "included", "included",
@@ -161,7 +161,7 @@ def build_rules():
     story.append(P(
         "<b>Instant Funding.</b> No evaluation. Funded on day one. Daily 3% from the day’s "
         "equity high. Max 6% trails the peak and never locks. One payout rule: $100 and "
-        "Best Day ≤20% of every profitable day. A day meets the 0.5% parameter only if profit is more than 0.5% of that day’s start-of-day equity. "
+        "Best Day ≤20% of every profitable day. A day meets the 0.5% parameter only if profit is at least 0.5% of that day’s start-of-day equity. "
         "The 20% cap cannot clear with fewer than five counted days — implied, not a second "
         "checkbox. Do not list “5 valid days.” No fee refund. Default split 80% bi-weekly.",
         s["body"],

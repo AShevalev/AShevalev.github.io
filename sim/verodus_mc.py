@@ -110,7 +110,7 @@ SESSION_P = np.array([s[1] for s in SESSIONS], dtype=float)
 # =============================================================================
 # Instant: funded day 1. 6% trailing HWM (never locks). Daily 3% of start from
 #   day's equity high. Every profitable day is factored into Best Day / PDP. A day
-#   meets the 0.5% parameter only if profit is more than 0.5% of SOD. 20%
+#   meets the 0.5% parameter only if profit is at least 0.5% of SOD. 20%
 #   Best Day. $100 min. Split 80%. No refund.
 # 1-Step: 10% target, no min days, 50% Best Day of Positive Days' Profit,
 #   4% daily from SOD equity (fixed $ of initial), 6% hybrid (lock at initial).

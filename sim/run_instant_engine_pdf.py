@@ -6,7 +6,7 @@ Positive Days' Profit. There is no 0.5% start-of-day filter and no min
 valid-day count on consistency. Instant is 20%. 1-Step eval is 50% with
 the same function.
 
-Current catalog Instant still gates payout on 5 days at more than 0.5% of
+Current catalog Instant still gates payout on 5 days at at least 0.5% of
 SOD, plus 20% Best Day on every profitable day. This run measures whether
 killing that valid-day gate moves leftover.
 
@@ -45,9 +45,9 @@ VARIANTS = {
     "catalog_two_box": {
         "phase": P(
             None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20,
-            vdt_op="gt",
+            vdt_op="ge",
         ),
-        "note": "5 days >0.5% SOD + 20% Best Day on every profitable day",
+        "note": "5 days ≥0.5% SOD + 20% Best Day on every profitable day",
     },
     "pdf_engine": {
         "phase": P(None, 0.06, "trailing", 0.03, "intraday_peak", 0, 0.0, 0.20),

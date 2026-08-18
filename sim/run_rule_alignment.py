@@ -2,7 +2,7 @@
 """Paired Monte Carlo: prior Instant/1-Step day rules vs rule-alignment.
 
 News stays included. Instant factors every profitable day into Best Day. A day
-meets the 0.5% parameter only if profit is more than 0.5% of SOD. 1-Step
+meets the 0.5% parameter only if profit is at least 0.5% of SOD. 1-Step
 QPP drops the 3-day min and applies 50% Best Day. 2-Step Lite/Pro are
 unchanged (5 eval days, 3 QPP days). Same per-product seed so the delta
 is the rule change, not a new random stream.
@@ -214,7 +214,7 @@ def write_md(cmp_df: pd.DataFrame, n_sims: int) -> Path:
         "# Rule-alignment Monte Carlo — leftover vs prior day rules",
         "",
         "Instant leftover matches the old two-box book when every profitable day is "
-        "factored into Best Day and 0.5% is only the more-than profit parameter. "
+        "factored into Best Day and 0.5% is at least 0.5% profit (≥ 0.5%). "
         "1-Step leftover is down (QPP is 50% Best Day). 2-Step Lite and Pro are "
         "unchanged. Prices were not raised.",
         "",
@@ -223,8 +223,8 @@ def write_md(cmp_df: pd.DataFrame, n_sims: int) -> Path:
         "",
         "Prior Instant: two checkboxes — 5 days at ≥0.5% of SOD **and** 20% Best "
         "Day on every profitable day. New Instant: every profitable day is factored into "
-        "Best Day; a day meets the 0.5% parameter only if profit is **more than** "
-        "0.5% of SOD. Do not list a 5-day checkbox.",
+        "Best Day; a day meets the 0.5% parameter only if profit is **at least** "
+        "0.5% of SOD (**≥ 0.5%**). Do not list a 5-day checkbox.",
         "",
         "Prior 1-Step QPP: 3 min days, no Best Day. Aligned 1-Step QPP: no min "
         "days, 50% Best Day (no 0.5% floor). 2-Step Lite/Pro unchanged (5 eval / 3 QPP).",

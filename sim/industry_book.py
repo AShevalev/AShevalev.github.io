@@ -148,7 +148,7 @@ def _counts_for_best_day(day_pnl, sod, eod, start, rules):
     """Which closed days enter Best Day / Positive Days' Profit.
 
     Instant: every profitable day is factored into Positive Days' Profit.
-    A day meets the 0.5% parameter only if profit is more than 0.5%
+    A day meets the 0.5% parameter only if profit is at least 0.5%
     of start-of-day equity (valid-day gate). 1-Step: every profitable day.
     """
     floor = rules.get("consistency_floor")

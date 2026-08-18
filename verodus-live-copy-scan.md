@@ -21,7 +21,7 @@ On-Demand (Add-on): Available when eligibility requirements are met.
 Do **not** put these on Instant.html / 1-step.html / 2-step-*.html:
 
 ```text
-Instant: On-demand: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A profitable day is a day that closes with more than 0.5% profit.
+Instant: On-demand: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit. A profitable day is a day that closes with at least 0.5% profit.
 1-Step: On-demand: $100. No minimum trading days. Best Day ≤50% of Positive Days’ Profit.
 2-Step Lite / Pro: On-demand: $100 and 3 trading days.
 ```
@@ -31,7 +31,7 @@ Instant: On-demand: $100. No minimum trading days. Best Day ≤20% of Positive D
 ```text
 Minimum Reward: $100 (processed within 48 hours)
 
-Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. A day meets the parameters only if it closes more than 0.5% profit of account balance. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
+Eligibility: You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days’ Profit, and you have met the selected cycle. A day meets the parameters only if it closes at least 0.5% profit of account balance. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.
 
 Weekly (Add-on): 7 calendar days and when eligibility requirements are met.
 
@@ -104,7 +104,7 @@ Live Weekly / Bi-Weekly still say “starting from the day you receive your Qual
 
 Still on Instant Best Day block + modal, Instant Eligibility, Instant On-Demand, Instant “Every Payout” card, 1-Step Best Day + Eligibility + On-Demand, FAQ Plans, FAQ Evaluation, FAQ Qualified Trader, Trading Objectives Instant / 1-Step payout lines and Best Day modal JS.
 
-**Replace “green day” with “profitable day.”** Drop “0.5% parameter.” Instant modal only: **a profitable day is a day that closes with more than 0.5% profit.** Do not put 0.5% on 1-Step or 2-Step. Do not put 0.5% on Instant Eligibility, Weekly, Bi-Weekly, On-Demand, or the short Trading Objectives Instant payout line.
+**Replace “green day” with “profitable day.”** Drop “0.5% parameter.” Instant modal only: **a profitable day is a day that closes with at least 0.5% profit (≥ 0.5%).** Do not write “more than 0.5%.” Do not put 0.5% on 1-Step or 2-Step. Do not put 0.5% on Instant Eligibility, Weekly, Bi-Weekly, On-Demand, or the short Trading Objectives Instant payout line.
 
 ### 3. Instant leftover that contradicts no-min-days
 

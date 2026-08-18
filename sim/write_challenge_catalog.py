@@ -175,7 +175,7 @@ def build():
     story.append(P(
         "<b>Instant:</b> no eval. Daily 3% of start from the day’s equity high. "
         "Max 6% trails peak and never locks. One payout rule: 20% Best Day "
-        "(every profitable day is factored; a day meets 0.5% only if profit is more than 0.5% of SOD), $100 min. "
+        "(every profitable day is factored; a day meets 0.5% only if profit is at least 0.5% of SOD), $100 min. "
         "The 20% cap implies at least five counted days — do not list a 5-day checkbox. "
         "<b>No fee refund.</b> Split 80/20, biweekly. No 2% risk cap, no first-reward cap, no $200k.",
         s["body"],

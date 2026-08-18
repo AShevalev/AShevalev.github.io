@@ -81,10 +81,10 @@ def add(key, firm, plan, family, phases, funded_rules, skus, refund="first",
 # =============================================================================
 add("Verodus Instant", "Verodus", "Instant", "instant",
     [P(None, 0.06, "trailing", 0.03, "intraday_peak", 5, 0.005, 0.20,
-      vdt_op="gt")],
+      vdt_op="ge")],
     None, sku((5e3,75,49),(1e4,106,69),(25e3,229,149),(5e4,368,239),(1e5,675,439)),
     refund="none", split=0.80, instant=True, discount="VERO35",
-    source="Instant: every profitable day in Best Day; a day meets 0.5% only if profit >0.5% of SOD")
+    source="Instant: every profitable day in Best Day; a day meets 0.5% if profit is at least 0.5% of SOD (≥)")
 
 add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     [P(0.10, 0.06, "hybrid", 0.04, "sod", 0, 0.0, 0.50)],

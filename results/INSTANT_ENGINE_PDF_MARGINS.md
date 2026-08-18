@@ -9,7 +9,7 @@ PDF `evaluateOneStepConsistencyRule` is **correct** for Instant Best Day:
 - The +$0.01 epsilon is rounding, not a chip exploit.
 - Worked examples in the PDF all check out (`Positive ≥ Best / 0.20` for Instant).
 
-The PDF also says the retired Instant **+0.5% valid-day counter is dead** and was never wired into consistency. Our leftover catalog still gates Instant payouts on **5 days at more than 0.5% of SOD** plus 20% Best Day. That extra gate is **not** in the live function.
+The PDF also says the retired Instant **+0.5% valid-day counter is dead** and was never wired into consistency. Our leftover catalog still gates Instant payouts on **5 days at at least 0.5% of SOD** plus 20% Best Day. That extra gate is **not** in the live function.
 
 News on. 1,200 paths per profile. Instant seed matches `run_rule_alignment`. Prices were not raised.
 
