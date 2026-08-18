@@ -2,11 +2,11 @@
 """Stitch live Verodus trading-objectives chrome + rec Instant/Lite rules.
 
 Loads styles, images, nav, footer, and markup from www.verodus.com via
-<base href>. Rec Instant (no $200k, 5 valid days at +0.5% SOD, 6% trail
+<base href>. Rec Instant (no $200k, no min trading days, 20% Best Day, 6% trail
 never locks) is injected locally. Reward-cycle cards match live: Weekly 70%,
 Bi-Weekly 80% (featured), On Demand 90% (min $100). Default is Bi-Weekly 80%.
-Weekly 70% and On Demand 90% are paid add-ons. On Demand still has to meet
-Instant 5 valid days / eval 3 trading days. News is permitted (not an add-on).
+Weekly 70% and On Demand 90% are paid add-ons. Each cycle still needs that
+plan’s qualifying parameters. News is permitted (not an add-on).
 """
 from __future__ import annotations
 
@@ -147,7 +147,7 @@ def stitch(html: str, rec: str) -> str:
     )
     html = re.sub(
         r'(data-i18n="content.p7">)All reward request intervals are based on calendar days, not trading days\.[^<]*',
-        r'\1All reward request intervals are based on calendar days, not trading days. On Demand still has to meet the plan trading-day rule before the first request.',
+        r'\1All reward request intervals are based on calendar days, not trading days. Each cycle still needs that plan’s qualifying parameters.',
         html,
         count=1,
     )

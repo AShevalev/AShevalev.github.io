@@ -46,18 +46,18 @@
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "USD",
-        "lowPrice": "65",
-        "highPrice": "1299",
+        "lowPrice": "45",
+        "highPrice": "699",
         "offerCount": "6",
         "availability": "https://schema.org/InStock",
         "priceValidUntil": "2028-12-31",
         "offers": [
-          { "@type": "Offer", "name": "$5,000 simulated account",   "price": "65",   "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
-          { "@type": "Offer", "name": "$10,000 simulated account",  "price": "109",  "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
-          { "@type": "Offer", "name": "$25,000 simulated account",  "price": "219",  "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
-          { "@type": "Offer", "name": "$50,000 simulated account",  "price": "399",  "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
-          { "@type": "Offer", "name": "$100,000 simulated account", "price": "699",  "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
-          { "@type": "Offer", "name": "$200,000 simulated account", "price": "1299", "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" }
+          { "@type": "Offer", "name": "$5,000 simulated account",   "price": "45",   "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
+          { "@type": "Offer", "name": "$10,000 simulated account",  "price": "69",   "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
+          { "@type": "Offer", "name": "$25,000 simulated account",  "price": "129",  "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
+          { "@type": "Offer", "name": "$50,000 simulated account",  "price": "219",  "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
+          { "@type": "Offer", "name": "$100,000 simulated account", "price": "379",  "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
+          { "@type": "Offer", "name": "$200,000 simulated account", "price": "699",  "priceCurrency": "USD", "url": "https://www.verodus.com/1-step.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" }
         ]
       }
     }
@@ -155,7 +155,7 @@
                         <li data-i18n-html="content.li6"><span class="rules-step-num">&bull;</span><div><strong>No Minimum Trading Days:</strong><span>There is no minimum number of trading days required. You may complete the evaluation at your own pace without a time constraint.</span></div></li>
                         <li data-i18n-html="content.li7"><span class="rules-step-num">&bull;</span><div><strong>Maximum Daily Loss:</strong><span><span data-pct="4">4%</span> &#8212; Measured from equity at server reset time (floating losses included). Daily reset at 00:00 UTC.</span></div></li>
                         <li data-i18n-html="content.li8"><span class="rules-step-num">&bull;</span><div><strong>Maximum Overall Drawdown:</strong><span><span data-pct="6">6%</span> hybrid max drawdown — trailing from your <strong>account equity peak</strong> (locks at your initial balance when reached). Unique to this plan; see Section 3.</span></div></li>
-                        <li data-i18n-html="content.li9"><span class="rules-step-num">&bull;</span><div><strong>50% Best Day Rule:</strong><span>Unique to 1-Step — your single best profit day cannot exceed 50% of your total profit target. See Section 3 for full details.</span></div></li>
+                        <li data-i18n-html="content.li9"><span class="rules-step-num">&bull;</span><div><strong>50% Best Day Rule:</strong><span>Unique to 1-Step — your single best profit day cannot exceed 50% of your total Positive Days' Profit. See Section 3 for full details.</span></div></li>
                     </ul>
                 </div>
             </section>
@@ -183,7 +183,7 @@
                     <ul class="rules-step-list">
                         <li data-i18n-html="content.li11"><span class="rules-step-num">&bull;</span><div><strong>Rule:</strong><span>No single trading day can contribute more than 50% of your total Positive Days' Profit at the point you hit the 10% target.</span></div></li>
                         <li data-i18n-html="content.li12"><span class="rules-step-num">&bull;</span><div><strong>Not a Breach:</strong><span>Exceeding 50% on a single day does not immediately fail your evaluation — you must simply keep trading to grow your total Positive Days' Profit until the Best Day drops to ≤50%.</span></div></li>
-                        <li data-i18n-html="content.li13"><span class="rules-step-num">&bull;</span><div><strong>Calculation:</strong><span>Profits are measured from closed trades at the end of each trading day (00:00 UTC). Losing days do not count toward Positive Days' Profit.</span></div></li>
+                        <li data-i18n-html="content.li13"><span class="rules-step-num">&bull;</span><div><strong>Calculation:</strong><span>Profits are measured from closed trades at the end of each trading day (00:00 UTC). Every profitable day is factored into Positive Days' Profit. Losing days do not count.</span></div></li>
                     </ul>
                     <button data-i18n="content.button7" onclick="openBestDayModal()" style="margin-top:1.25rem;padding:0.5rem 1.25rem;background:var(--accent-tint-8);border:1px solid var(--accent-glow);color:var(--gold-light);border-radius:0.5rem;cursor:pointer;font-size:0.85rem;font-weight:600;display:inline-flex;align-items:center;gap:0.4rem;">
                         <i class="fa-solid fa-chart-bar"></i> See example &amp; chart
@@ -198,27 +198,26 @@
                 <div class="rules-card">
                     <p data-i18n-html="content.p8" style="margin-bottom:1.25rem;"><strong>Payout Frequencies &amp; Trader Profit Share</strong></p>
                     <ul class="rules-step-list">
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly</strong> (Standard, included): 80% to trader, every 14 calendar days. Minimum reward $100</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly Rewards with 70% Reward Split</strong> (Add-on): 70% to trader, every 7 calendar days. Withdraw your profit share weekly. Minimum reward $100</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand Rewards with 90% Split</strong> (Add-on): 90% to trader, anytime after first eligibility. Minimum reward $100</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly (Standard, included):</strong> 80% to trader, every 14 calendar days.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly Rewards with 70% Reward Split (Add-on):</strong> 70% to trader, every 7 calendar days.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand Rewards with 90% Split (Add-on):</strong> 90% to trader. No 7- or 14-day wait.</span></li>
                     </ul>
                 </div>
                 <div class="rules-card" style="margin-top:1.25rem;">
                     <p data-i18n-html="content.p9" style="margin-bottom:1.25rem;"><strong>Performance Reward Split</strong></p>
                     <ul class="rules-step-list">
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Default:</strong> 80/20 (trader/firm) on the Bi-Weekly cycle. Minimum reward $100</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly 70%:</strong> paid add-on. Every 7 calendar days. Minimum reward $100</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand 90%:</strong> paid add-on. Anytime after first eligibility. Minimum reward $100</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Default:</strong> 80% on the included Bi-Weekly cycle.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Add-ons:</strong> Weekly 70% and On Demand 90% are paid add-ons and may be purchased together.</span></li>
                     </ul>
                 </div>
                 <div class="rules-card" style="margin-top:1.25rem;">
                     <p data-i18n-html="content.p10" style="margin-bottom:1.25rem;"><strong>Rewards &amp; Payouts</strong></p>
                     <ul class="rules-step-list">
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Minimum Reward:</strong> $100 (processed within 48 hours)</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>First eligibility:</strong> 3 trading days in the funded (Qualified Performance) phase. A trading day is a calendar day with at least one closed trade</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly (Add-on):</strong> Every 7 calendar days after first eligibility</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly (Standard):</strong> Every 14 calendar days after first eligibility</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand (Add-on):</strong> Anytime after first eligibility</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Eligibility:</strong> You become eligible for a reward when net profit is at least $100, your Best Day is ≤50% of Positive Days' Profit, and you have met the selected cycle. 1-Step has no minimum trading days. Exceeding 50% is not a breach — keep trading until Best Day is ≤50%. The first payout and every payout after use this same rule.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly (Add-on):</strong> $100, 7 calendar days, Best Day ≤50% of Positive Days' Profit.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly (Standard):</strong> $100, 14 calendar days, Best Day ≤50% of Positive Days' Profit.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On-Demand (Add-on):</strong> $100. No minimum trading days. Best Day ≤50% of Positive Days' Profit.</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Intervals:</strong> All reward request intervals are calendar days, not trading days</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>100% Challenge Fee Refund:</strong> The original challenge fee is refunded with the first successful performance reward. Add-on fees are not refunded</span></li>
                     </ul>
@@ -233,7 +232,7 @@
                 <div class="rules-card" style="margin-top:1.25rem;">
                     <p data-i18n-html="content.p12" style="margin-bottom:1.25rem;"><strong>Additional Qualified Performance Rules</strong></p>
                     <ul class="rules-step-list">
-                        <li data-i18n-html="content.li30"><span class="rules-step-num">&bull;</span><div><strong>News Trading:</strong><span>News trading is permitted. There is no News Trading add-on and no restricted news window.</span></div></li>
+                        <li data-i18n-html="content.li30"><span class="rules-step-num">&bull;</span><div><strong>News Trading:</strong><span>Allowed on evaluation and Qualified Performance. You may open and close around high-impact news. See <a href="faq-news-trading.html">News Trading Policy</a>.</span></div></li>
                     </ul>
                 </div>
             </section>
@@ -247,7 +246,7 @@
                         <li data-i18n-html="content.li33"><span class="rules-step-num">&bull;</span><div><strong>Leverage:</strong><span>Fixed per asset class &#8212; FX <strong>1:30</strong>, Metals <strong>1:20</strong>, Indices / Commodities / Energies <strong>1:10</strong>, Equities <strong>1:5</strong>, Crypto <strong>1:2</strong>.</span></div></li>
                         <li data-i18n-html="content.li34"><span class="rules-step-num">&bull;</span><div><strong>Weekend Holding and Friday Liquidation:</strong><span>All open positions, irrespective of asset class, must be closed by 22:00 UTC Friday. Weekend holding of open positions is permitted solely upon purchase of the Weekend Holding Addon, which grants a full exemption from the Friday liquidation requirement. Auto-close is enforced server-side at the designated time. Traders may continue to open new positions in any instrument whose market is open during the weekend.</span></div></li>
                         <li data-i18n-html="content.li35"><span class="rules-step-num">&bull;</span><div><strong>Friday Close Window:</strong><span>No new entries or modifications are permitted between 21:00 and 22:00 UTC Friday.</span></div></li>
-                        <li data-i18n-html="content.li36"><span class="rules-step-num">&bull;</span><div><strong>Allowed in Evaluation:</strong><span>News trading is permitted. Expert Advisors (EAs), scripts, and custom indicators are permitted, subject to the restrictions in Section 6 &#8211; Restricted Trading Practices (no HFT, no mass-distributed/copy-trading EAs, no server hyperactivity, no arbitrage exploitation, etc.).</span></div></li>
+                        <li data-i18n-html="content.li36"><span class="rules-step-num">&bull;</span><div><strong>Allowed:</strong><span>News trading is permitted. Expert Advisors (EAs), scripts, and custom indicators are permitted, subject to the restrictions in Section 6 &#8211; Restricted Trading Practices (no HFT, no mass-distributed/copy-trading EAs, no server hyperactivity, no arbitrage exploitation, etc.).</span></div></li>
                         <li data-i18n-html="content.li37"><span class="rules-step-num">&bull;</span><div><strong>Inactivity Rule: (Applies in Each Phase)</strong><span>No executed trades for 30 consecutive calendar days results in automatic account termination. This rule applies in any phase of the Evaluation.</span></div></li>
                     </ul>
                 </div>
@@ -275,6 +274,7 @@
                     </ul>
                     <p data-i18n-html="content.p16" style="margin-bottom:0.75rem;"><strong>(3) Unrealistic Market Behavior and Poor Risk Management</strong></p>
                     <ul style="margin:0 0 1.5rem 1.5rem;color:var(--text-secondary);line-height:1.8;">
+                        <li data-i18n-html="content.li48"><strong>News Trading:</strong> Allowed in every phase. You may open, close, or hold through high-impact news.</li>
                         <li data-i18n-html="content.li50"><strong>News Bracketing and Gap Trading:</strong> Straddling news events or opening positions within 60 minutes of market close and holding through reopen is banned.</li>
                         <li data-i18n-html="content.li51"><strong>One-Sided Bets and Gambling:</strong> Massive unanalyzed positions or intentionally blowing an account ("account rolling").</li>
                     </ul>
@@ -317,7 +317,7 @@
                 <button type="button" class="modal-close" onclick="closeBestDayModal()" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body-wrap text-normal">
-                <p>The Best Day Rule requires that your most profitable day (&quot;Best Day&quot;) does not exceed <strong class="hl">50%</strong> of your Positive Days' Profit on the account. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤50% of total Positive Days' Profit.</p>
+                <p>The Best Day Rule requires that your most profitable day (&quot;Best Day&quot;) does not exceed <strong class="hl">50%</strong> of your Positive Days' Profit on the account. Every profitable day is factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤50% of total Positive Days' Profit.</p>
                 <div class="plan-best-day-chart-wrap" aria-hidden="true">
                     <svg viewBox="0 0 370 150" xmlns="http://www.w3.org/2000/svg" focusable="false">
                         <text x="6" y="20" class="chart-tick">$10k</text>

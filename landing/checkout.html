@@ -539,16 +539,20 @@
       instantPct: 0.32,
       desc: 'Withdraw your profit share anytime — no waiting for fixed cycles',
       tooltip: function () {
-        return 'On Demand Rewards with 90% Split\n\nRequest your 90% reward share anytime after you meet the plan trading-day rule — no waiting for a 7- or 14-day cycle. Minimum reward $100.\n\n'
+        return 'On Demand Rewards with 90% Split\n\nRequest your 90% reward share with no 7- or 14-day wait. Minimum reward $100.\n\n'
           + minDaysCopy();
       }
     }
   ];
 
   function minDaysCopy() {
-    return selectedPlan === 'instant'
-      ? 'Payouts after 5 valid trading days (0.5% vs start-of-day equity).'
-      : 'First request after 3 funded trading days.';
+    if (selectedPlan === 'instant') {
+      return 'Weekly / Bi-Weekly / On-Demand: $100 and Best Day ≤20% of Positive Days’ Profit. Instant has no minimum trading days.';
+    }
+    if (selectedPlan === '1step') {
+      return 'Weekly / Bi-Weekly / On-Demand: $100 and Best Day ≤50% of Positive Days’ Profit. 1-Step has no minimum trading days.';
+    }
+    return 'Weekly / Bi-Weekly / On-Demand: $100 and 3 trading days.';
   }
 
   var HIDDEN_COUNTRY_CODES = { US: 1, PR: 1, GU: 1, VI: 1, AS: 1, MP: 1 };

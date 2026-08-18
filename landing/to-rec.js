@@ -1,5 +1,5 @@
 (function () {
-  /* Rec Instant: no $200k. Valid day = closed PnL ≥ 0.5% of SOD equity.
+  /* Rec Instant: no $200k. No min trading days. 20% Best Day of Positive Days' Profit.
      6% trail never locks. 3% daily from the day's equity high. No fee refund.
      Lite funded max DD stays 8% (already in live pricingData).
      Weekly 70% is 6% of list. On Demand is 90% at 20% of list.
@@ -20,9 +20,9 @@
       + '      <div class="phase-stat-lbl">' + i18nTxt('pricing.profitTarget', 'Profit Target') + '</div>'
       + '      <div class="phase-stat-val-w">' + i18nTxt('pricing.none', 'None') + '</div>'
       + '    </div>'
-      + '    <div onclick="showModal(\'valid-days\')" style="cursor:pointer;">'
-      + '      <div class="phase-stat-lbl">Valid Days <i class="fa-solid fa-circle-info perf-info-icon"></i></div>'
-      + '      <div class="phase-stat-val-w">5</div>'
+      + '    <div>'
+      + '      <div class="phase-stat-lbl">' + i18nTxt('pricing.minTradingDays', 'Minimum Trading Days') + '</div>'
+      + '      <div class="phase-stat-val-w">' + i18nTxt('pricing.none', 'None') + '</div>'
       + '    </div>'
       + '    <div onclick="showModal(\'best-day\')" style="cursor:pointer;">'
       + '      <div class="phase-stat-lbl">' + i18nTxt('pricing.bestDayRule', 'Best Day Rule') + ' <i class="fa-solid fa-circle-info perf-info-icon"></i></div>'
@@ -72,17 +72,23 @@
       if (canvas) canvas.style.display = 'none';
       if (exEl) exEl.innerHTML = '';
       if (currentTab === 'instant') {
-        titleEl.textContent = '5 Valid Days';
-        contentEl.innerHTML = '<p>On Demand does not skip Instant trading-day rules. You must complete <strong>5 valid days</strong> before the first reward request, including On Demand.</p>'
-          + '<p>A valid day is a calendar day whose <strong>closed-trade PnL is at least 0.5%</strong> of that day\'s start-of-day equity. Unrealized PnL does not count. After that, you may request anytime. Minimum reward is $100. The 20% Best Day rule still applies.</p>';
+        titleEl.textContent = 'Instant payouts';
+        contentEl.innerHTML = '<p>Every payout needs <strong>$100</strong>, Best Day ≤20% of Positive Days\' Profit, and the selected cycle. Instant has <strong>no minimum trading days</strong>.</p>'
+          + '<p>Weekly: $100, 7 calendar days, Best Day ≤20% of Positive Days\' Profit.</p>'
+          + '<p>Bi-Weekly: $100, 14 calendar days, Best Day ≤20% of Positive Days\' Profit.</p>'
+          + '<p>On-Demand: $100. No minimum trading days. Best Day ≤20% of Positive Days\' Profit. A profitable day is a day that closes with more than 0.5% profit.</p>';
       } else if (currentTab === '1step') {
-        titleEl.textContent = '3 Trading Days';
-        contentEl.innerHTML = '<p>On Demand does not skip 1-Step trading-day rules. You must complete <strong>3 trading days</strong> in the funded phase before the first reward request, including On Demand.</p>'
-          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is $100.</p>';
+        titleEl.textContent = '1-Step payouts';
+        contentEl.innerHTML = '<p>Every payout needs <strong>$100</strong>, Best Day ≤50% of Positive Days\' Profit, and the selected cycle. 1-Step has <strong>no minimum trading days</strong>.</p>'
+          + '<p>Weekly: $100, 7 calendar days, Best Day ≤50% of Positive Days\' Profit.</p>'
+          + '<p>Bi-Weekly: $100, 14 calendar days, Best Day ≤50% of Positive Days\' Profit.</p>'
+          + '<p>On-Demand: $100. No minimum trading days. Best Day ≤50% of Positive Days\' Profit.</p>';
       } else {
-        titleEl.textContent = '3 Trading Days';
-        contentEl.innerHTML = '<p>On Demand does not skip the funded trading-day rule. You must complete <strong>3 trading days</strong> before the first reward request, including On Demand.</p>'
-          + '<p>A trading day is a calendar day with at least one closed trade. After that, you may request anytime. Minimum reward is $100.</p>';
+        titleEl.textContent = '2-Step payouts';
+        contentEl.innerHTML = '<p>Every payout needs <strong>$100</strong> and <strong>3 trading days</strong>, plus the selected cycle. The first payout and every payout after use this same rule.</p>'
+          + '<p>Weekly: $100, 7 calendar days, and 3 trading days.</p>'
+          + '<p>Bi-Weekly: $100, 14 calendar days, and 3 trading days.</p>'
+          + '<p>On-Demand: $100 and 3 trading days.</p>';
       }
       return;
     }
@@ -151,12 +157,14 @@
       p.textContent = 'Default reward is Bi-Weekly 80%. Weekly 70% and On Demand 90% are paid add-ons.';
     });
     document.querySelectorAll('[data-i18n="content.p7"]').forEach(function (p) {
-      p.textContent = 'All reward request intervals are based on calendar days, not trading days. On Demand still has to meet the plan trading-day rule before the first request.';
+      p.textContent = 'All reward request intervals are calendar days, not trading days. Each cycle still needs that plan’s qualifying parameters.';
     });
     document.querySelectorAll('[data-i18n-html="content.p8"]').forEach(function (p) {
       p.innerHTML = currentTab === 'instant'
-        ? '<strong>Payouts:</strong> Minimum $100 after 5 valid days (within 48 hrs)'
-        : '<strong>Payouts:</strong> Minimum $100 after 3 trading days (within 48 hrs)';
+        ? '<strong>Payouts:</strong> Every payout: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit (within 48 hrs)'
+        : currentTab === '1step'
+          ? '<strong>Payouts:</strong> Every payout: $100. No minimum trading days. Best Day ≤50% of Positive Days’ Profit (within 48 hrs)'
+          : '<strong>Payouts:</strong> Every payout: $100 and 3 trading days (within 48 hrs)';
     });
     var refund = document.getElementById('refundHighlightCard');
     var rhGrid = document.querySelector('.reward-highlight-grid');

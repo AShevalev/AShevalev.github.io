@@ -38,7 +38,7 @@
       "@context": "https://schema.org",
       "@type": "Product",
       "name": "Verodus Instant Funding",
-      "description": "Instant access to a funded simulated account with no evaluation phases. 6% trailing max drawdown (equity high water mark), 3% daily drawdown (high water mark equity), 20% Best Day rule, and 5 minimum valid trading days (each requiring at least 0.5% net profit).",
+      "description": "Instant access to a funded simulated account with no evaluation phases. 6% trailing max drawdown (equity high water mark), 3% daily drawdown (high water mark equity), 20% Best Day rule, and no minimum trading days.",
       "url": "https://www.verodus.com/instant.html",
       "image": "https://www.verodus.com/images/og-default.webp",
       "brand": { "@type": "Brand", "name": "Verodus" },
@@ -54,7 +54,7 @@
         "offers": [
           { "@type": "Offer", "name": "$5,000 simulated account",   "price": "49",   "priceCurrency": "USD", "url": "https://www.verodus.com/instant.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
           { "@type": "Offer", "name": "$10,000 simulated account",  "price": "69",   "priceCurrency": "USD", "url": "https://www.verodus.com/instant.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
-          { "@type": "Offer", "name": "$25,000 simulated account",  "price": "139",  "priceCurrency": "USD", "url": "https://www.verodus.com/instant.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
+          { "@type": "Offer", "name": "$25,000 simulated account",  "price": "149",  "priceCurrency": "USD", "url": "https://www.verodus.com/instant.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
           { "@type": "Offer", "name": "$50,000 simulated account",  "price": "239",  "priceCurrency": "USD", "url": "https://www.verodus.com/instant.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" },
           { "@type": "Offer", "name": "$100,000 simulated account", "price": "439",  "priceCurrency": "USD", "url": "https://www.verodus.com/instant.html", "availability": "https://schema.org/InStock", "priceValidUntil": "2028-12-31" }
         ]
@@ -94,7 +94,7 @@
             <h1 data-i18n="content.h11">Instant Funding Plan</h1>
             <p data-i18n="content.p2" class="rules-meta">Last updated: August 2026</p>
             <div class="sim-disclaimer" data-i18n-html="content.disclaimer"><strong>Important Simulation Disclaimer</strong>All trading is conducted in a fully simulated trading environment using simulated capital only. Any references to "profits", "rewards", or "performance reward split" refer exclusively to simulated performance results. All payouts are performance rewards paid by Verodus from its own resources based on simulated trading performance — no real market capital is provided, traded, or allocated at any stage.</div>
-            <p data-i18n-html="content.p3" class="rules-meta" style="margin-top:-1rem;">Get <strong>instant access</strong> to a funded simulated account with no evaluation phases required. This plan uses a <strong>6% trailing maximum drawdown</strong> from your account equity high water mark combined with a <strong>3% daily drawdown</strong> also based on high water mark equity. It includes a <strong>20% Best Day consistency rule</strong> and requires a <strong>minimum of 5 valid trading days</strong>, where each day must achieve at least <strong>0.5% net profit</strong> to count. These rules are binding and form part of the Trader Agreement.</p>
+            <p data-i18n-html="content.p3" class="rules-meta" style="margin-top:-1rem;">Get <strong>instant access</strong> to a funded simulated account with no evaluation phases required. This plan uses a <strong>6% trailing maximum drawdown</strong> from your account equity high water mark combined with a <strong>3% daily drawdown</strong> also based on high water mark equity. It includes a <strong>20% Best Day consistency rule</strong>. There is <strong>no minimum trading days</strong> requirement. These rules are binding and form part of the Trader Agreement.</p>
             <div class="plan-size-row">
                 <div class="size-btns">
                     <button data-i18n="content.button1" class="plan-size-btn" onclick="planSelectSize(this,5000)">$5K</button>
@@ -127,22 +127,22 @@
                                 <div><div class="phase-stat-lbl dd-clickable" onclick="openMaxDDModal()">Max Drawdown <i class="fa-solid fa-circle-info dd-info-icon"></i></div><div class="phase-stat-val red"><span data-pct="6">6%</span></div></div>
                                 <div><div class="phase-stat-lbl dd-clickable" onclick="openDailyDDModal()">Daily Drawdown <i class="fa-solid fa-circle-info dd-info-icon"></i></div><div class="phase-stat-val red"><span data-pct="3">3%</span></div></div>
                                 <div><div class="phase-stat-lbl">Best Day Rule</div><div class="phase-stat-val">20%</div></div>
-                                <div><div class="phase-stat-lbl">Minimum Trading Days</div><div class="phase-stat-val">5</div></div>
+                                <div><div class="phase-stat-lbl">Minimum Trading Days</div><div class="phase-stat-val">None</div></div>
                             </div>
                             <div class="phase-card-meta">
                                 <span data-i18n-html="content.span2">Trading Period: <strong>Unlimited</strong></span>
-                                <span data-i18n-html="content.span3">Valid Day Threshold: <strong>&ge;0.5% of that day's start-of-day equity</strong></span>
+                                <span data-i18n-html="content.span3">Minimum Trading Days: <strong>None</strong></span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="rules-card" style="margin-top:1.25rem;">
-                    <p data-i18n="content.p5" style="color:var(--text-secondary);line-height:1.8;margin-bottom:1.25rem;">Start trading our simulated capital immediately after purchase and verification. There are no profit targets to hit before funding. Once activated, you trade under our sustainable risk rules and can earn performance rewards at an 80% split (90% is a paid add-on) as soon as you meet the minimum activity requirements.</p>
+                    <p data-i18n="content.p5" style="color:var(--text-secondary);line-height:1.8;margin-bottom:1.25rem;">Start trading our simulated capital immediately after purchase and verification. There are no profit targets to hit before funding. Once activated, you trade under our sustainable risk rules and can earn performance rewards at an 80% split (90% is a paid add-on) as soon as you meet that payout's qualifying parameters.</p>
                     <ul class="rules-step-list">
                         <li data-i18n-html="content.li1"><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong><span data-pct="6">6%</span></strong> Trailing Max Drawdown (high water mark equity)</span></li>
                         <li data-i18n-html="content.li2"><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong><span data-pct="3">3%</span></strong> Daily Drawdown (high water mark equity)</span></li>
                         <li data-i18n-html="content.li3"><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>20%</strong> Best Day Rule</span></li>
-                        <li data-i18n-html="content.li4"><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>5</strong> Minimum valid trading days (each with closed-trade PnL of at least 0.5% of that day's start-of-day equity)</span></li>
+                        <li data-i18n-html="content.li4"><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>No</strong> minimum trading days</span></li>
                         <li data-i18n-html="content.li5"><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>No profit target</strong> required to begin</span></li>
                     </ul>
                 </div>
@@ -155,8 +155,8 @@
                         <li data-i18n-html="content.li6"><span class="rules-step-num">&bull;</span><div><strong>Instant Activation:</strong><span>You receive immediate access to your funded simulated account upon successful purchase and account verification. There are no challenge or verification phases to complete.</span></div></li>
                         <li data-i18n-html="content.li7"><span class="rules-step-num">&bull;</span><div><strong>Maximum Drawdown: 6% Trailing (High Water Mark Equity):</strong><span>The maximum you can lose overall is a trailing drawdown that follows your account equity peak. The limit trails upward as new equity highs are achieved. It never locks. Breaching the 6% trailing maximum drawdown results in immediate account termination.</span></div></li>
                         <li data-i18n-html="content.li8"><span class="rules-step-num">&bull;</span><div><strong>Daily Drawdown: 3% (High Water Mark Equity):</strong><span>Your equity cannot fall more than <strong><span data-pct="3">3%</span> of your starting balance</strong> below the highest equity point reached during the current trading day. The limit resets daily at <strong>00:00 UTC</strong>. Floating (unrealized) P&amp;L is included in the calculation.</span></div></li>
-                        <li data-i18n-html="content.li9"><span class="rules-step-num">&bull;</span><div><strong>Valid Trading Day Definition:</strong><span>A trading day only counts if closed-trade PnL is at least <strong>0.5%</strong> of that day's start-of-day equity (after commissions, swaps, spreads, and platform fees). Unrealized PnL does not count. Days below +0.5% of that day's start-of-day equity do not count toward the minimum trading day requirement.</span></div></li>
-                        <li data-i18n-html="content.li10"><span class="rules-step-num">&bull;</span><div><strong>Minimum Trading Days Requirement:</strong><span>You must complete a minimum of <strong>5 valid trading days</strong> (each with closed-trade PnL of at least 0.5% of that day's start-of-day equity) before you become eligible for your first performance reward.</span></div></li>
+                        <li data-i18n-html="content.li9"><span class="rules-step-num">&bull;</span><div><strong>No Minimum Trading Days:</strong><span>There is no minimum number of trading days required. You may trade at your own pace. A trading day counts when at least one trade is both opened and closed on that calendar day (UTC 00:00&#8211;23:59).</span></div></li>
+                        <li data-i18n-html="content.li10"><span class="rules-step-num">&bull;</span><div><strong>Minimum Trading Days:</strong><span>No minimum trading days.</span></div></li>
                     </ul>
                 </div>
             </section>
@@ -180,13 +180,13 @@
 
                 <div class="rules-warning-card" style="margin-top:1.5rem;">
                     <strong>20% Best Day Rule <i class="fa-solid fa-circle-info" onclick="openBestDayModal()" style="font-size:0.8em;color:var(--text-on-theme-dim);margin-left:0.3rem;cursor:pointer;vertical-align:middle;transition:color 0.15s;" onmouseenter="this.style.color='var(--gold-light)'" onmouseleave="this.style.color='var(--text-on-theme-dim)'"></i></strong>
-                    <p data-i18n="content.p8">Your single best profit day cannot account for more than 20% of your total Positive Days' Profit at the time you request a payout. This rule promotes consistent performance.</p>
+                    <p data-i18n="content.p8">Your single best profit day cannot account for more than 20% of your total Positive Days' Profit from every profitable day at the time you request a payout. Every profitable day is factored in, including small chip days.</p>
                 </div>
                 <div class="rules-card">
                     <ul class="rules-step-list">
-                        <li data-i18n-html="content.li12"><span class="rules-step-num">&bull;</span><div><strong>Rule:</strong><span>No single trading day can contribute more than 20% of your total Positive Days' Profit.</span></div></li>
+                        <li data-i18n-html="content.li12"><span class="rules-step-num">&bull;</span><div><strong>Rule:</strong><span>Best Day must be ≤20% of Positive Days' Profit from every profitable day. Every profitable day is factored in.</span></div></li>
                         <li data-i18n-html="content.li13"><span class="rules-step-num">&bull;</span><div><strong>Not a Breach:</strong><span>Exceeding 20% on a single day does not immediately terminate your account — you must continue trading to grow your total Positive Days' Profit until the best day drops to 20% or below.</span></div></li>
-                        <li data-i18n-html="content.li14"><span class="rules-step-num">&bull;</span><div><strong>Calculation:</strong><span>Profits are measured from closed trades at the end of each trading day (00:00 UTC). Losing days do not count toward Positive Days' Profit.</span></div></li>
+                        <li data-i18n-html="content.li14"><span class="rules-step-num">&bull;</span><div><strong>Calculation:</strong><span>Profits are measured from closed trades at the end of each trading day (00:00 UTC). Every profitable day counts toward Positive Days' Profit. Losing days do not. Small profitable days still count toward Positive Days' Profit.</span></div></li>
                     </ul>
                     <button data-i18n="content.button7" onclick="openBestDayModal()" style="margin-top:1.25rem;padding:0.5rem 1.25rem;background:var(--accent-tint-8);border:1px solid var(--accent-glow);color:var(--gold-light);border-radius:0.5rem;cursor:pointer;font-size:0.85rem;font-weight:600;display:inline-flex;align-items:center;gap:0.4rem;">
                         <i class="fa-solid fa-chart-bar"></i> See example &amp; chart
@@ -195,7 +195,7 @@
 
                 <div class="rules-card" style="margin-top:1.5rem;">
                     <ul class="rules-step-list">
-                        <li data-i18n-html="content.li15"><span class="rules-step-num">&bull;</span><div><strong>0.5% Minimum Profit to Count as a Trading Day:</strong><span>Only days where you achieve a net closed-trade profit of at least <strong>0.5%</strong> of that day's start-of-day equity are counted as valid trading days toward the minimum requirement of 5 days.</span></div></li>
+                        <li data-i18n-html="content.li15"><span class="rules-step-num">&bull;</span><div><strong>Every Payout:</strong><span>Minimum $100, Best Day ≤20% of every profitable day, and the selected cycle. Instant has no minimum trading days. The first payout and every payout after use this same rule. Processed within 48 hours.</span></div></li>
                     </ul>
                 </div>
             </section>
@@ -207,27 +207,26 @@
                 <div class="rules-card">
                     <p data-i18n-html="content.p9" style="margin-bottom:1.25rem;"><strong>Payout Frequencies &amp; Trader Profit Share</strong></p>
                     <ul class="rules-step-list">
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly</strong> (Standard, included): 80% to trader, every 14 calendar days. Minimum reward $100</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly Rewards with 70% Reward Split</strong> (Add-on): 70% to trader, every 7 calendar days. Withdraw your profit share weekly. Minimum reward $100</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand Rewards with 90% Split</strong> (Add-on): 90% to trader, anytime after first eligibility. Minimum reward $100</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly (Standard, included):</strong> 80% to trader, every 14 calendar days.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly Rewards with 70% Reward Split (Add-on):</strong> 70% to trader, every 7 calendar days.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand Rewards with 90% Split (Add-on):</strong> 90% to trader. No 7- or 14-day wait.</span></li>
                     </ul>
                 </div>
                 <div class="rules-card" style="margin-top:1.25rem;">
                     <p data-i18n-html="content.p10" style="margin-bottom:1.25rem;"><strong>Performance Reward Split</strong></p>
                     <ul class="rules-step-list">
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Default:</strong> 80/20 (trader/firm) on the Bi-Weekly cycle. Minimum reward $100</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly 70%:</strong> paid add-on. Every 7 calendar days. Minimum reward $100</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand 90%:</strong> paid add-on. Anytime after first eligibility. Minimum reward $100</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Default:</strong> 80% on the included Bi-Weekly cycle.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Add-ons:</strong> Weekly 70% and On Demand 90% are paid add-ons and may be purchased together.</span></li>
                     </ul>
                 </div>
                 <div class="rules-card" style="margin-top:1.25rem;">
                     <p data-i18n-html="content.p11" style="margin-bottom:1.25rem;"><strong>Rewards &amp; Payouts</strong></p>
                     <ul class="rules-step-list">
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Minimum Reward:</strong> $100 (processed within 48 hours)</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>First eligibility:</strong> 5 valid trading days. A valid day is a calendar day whose closed-trade PnL is at least 0.5% of that day's start-of-day equity. Unrealized PnL does not count. The 20% Best Day rule still applies.</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly (Add-on):</strong> Every 7 calendar days after first eligibility</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly (Standard):</strong> Every 14 calendar days after first eligibility</span></li>
-                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On Demand (Add-on):</strong> Anytime after first eligibility</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Eligibility:</strong> You become eligible for a reward when net profit is at least $100, your Best Day is ≤20% of Positive Days' Profit, and you have met the selected cycle. Instant has no minimum trading days. Exceeding 20% is not a breach — keep trading until Best Day is ≤20%. The first payout and every payout after use this same rule.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Weekly (Add-on):</strong> $100, 7 calendar days, Best Day ≤20% of Positive Days' Profit.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Bi-Weekly (Standard):</strong> $100, 14 calendar days, Best Day ≤20% of Positive Days' Profit.</span></li>
+                        <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>On-Demand (Add-on):</strong> $100. No minimum trading days. Best Day ≤20% of Positive Days' Profit. A profitable day is a day that closes with more than 0.5% profit.</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Intervals:</strong> All reward request intervals are calendar days, not trading days</span></li>
                         <li><span class="rules-step-num">&bull;</span><span class="rstep-inline"><strong>Refund:</strong> Instant fees are not refundable</span></li>
                     </ul>
@@ -242,7 +241,7 @@
                 <div class="rules-card" style="margin-top:1.25rem;">
                     <p data-i18n-html="content.p13" style="margin-bottom:1.25rem;"><strong>Additional Qualified Performance Rules</strong></p>
                     <ul class="rules-step-list">
-                        <li data-i18n-html="content.li31"><span class="rules-step-num">&bull;</span><div><strong>News Trading:</strong><span>News trading is permitted. There is no News Trading add-on and no restricted news window.</span></div></li>
+                        <li data-i18n-html="content.li31"><span class="rules-step-num">&bull;</span><div><strong>News Trading:</strong><span>Allowed on Instant Funding (funded from day one). You may open and close around high-impact news. See <a href="faq-news-trading.html">News Trading Policy</a>.</span></div></li>
                     </ul>
                 </div>
             </section>
@@ -284,6 +283,7 @@
                     </ul>
                     <p data-i18n-html="content.p17" style="margin-bottom:0.75rem;"><strong>(3) Unrealistic Market Behavior and Poor Risk Management</strong></p>
                     <ul style="margin:0 0 1.5rem 1.5rem;color:var(--text-secondary);line-height:1.8;">
+                        <li data-i18n-html="content.li49"><strong>News Trading:</strong> Allowed in every phase. You may open, close, or hold through high-impact news.</li>
                         <li data-i18n-html="content.li51"><strong>News Bracketing and Gap Trading:</strong> Straddling news events or opening positions within 60 minutes of market close and holding through reopen is banned.</li>
                         <li data-i18n-html="content.li52"><strong>One-Sided Bets and Gambling:</strong> Massive unanalyzed positions or intentionally blowing an account ("account rolling").</li>
                     </ul>
@@ -327,7 +327,7 @@
                 <button type="button" class="modal-close" onclick="closeBestDayModal()" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body-wrap text-normal">
-                <p>The Best Day Rule requires that your most profitable day (&quot;Best Day&quot;) does not exceed <strong class="hl">20%</strong> of your Positive Days' Profit at the time you request a payout. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit.</p>
+                <p>The Best Day Rule requires that your most profitable day (&quot;Best Day&quot;) does not exceed <strong class="hl">20%</strong> of your Positive Days' Profit at the time you request a payout. Every profitable day is factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤20% of total Positive Days' Profit. A profitable day is a day that closes with more than 0.5% profit. Small profitable days still count toward Positive Days' Profit.</p>
                 <div class="plan-best-day-chart-wrap" aria-hidden="true">
                     <svg viewBox="0 0 370 150" xmlns="http://www.w3.org/2000/svg" focusable="false">
                         <text x="6" y="20" class="chart-tick">$10k</text>
