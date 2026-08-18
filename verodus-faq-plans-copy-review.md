@@ -41,7 +41,7 @@ A trader comparing plans has to hunt for the same facts in different order, with
 | What the plan is | Yes | Yes (“clear risk limits”) | Missing (starts with numbers) | Yes |
 | Evaluation min days | No min | No min | **Omitted** (5 per phase) | **Omitted** (5 per phase) |
 | Payout min days | Implied (none) | Stated (none) | 3 days | 3 days |
-| Best Day | Stated twice | Named, then explained | None (correct) | None (correct) |
+| Best Day | Stated twice; **missing 0.5% qualifying-day floor** | Named, then explained | None (correct) | None (correct) |
 | Default split | 80% only | 80% and 90% On-Demand | Omitted | Omitted |
 | Payout cycles named | “selected cycle” | “selected cycle” | weekly / bi-weekly / on-demand | weekly / bi-weekly / on-demand |
 | Account sizes | $5k–$100k, no $200k | Omitted | Omitted | Omitted |
@@ -104,10 +104,11 @@ Issues:
 - Best Day is stated twice.
 - Split omits the 90% On-Demand add-on, which 1-Step includes and the Instant rules page also offers.
 - JSON-LD answer is missing “no $200,000 Instant account” and appends “View Instant Funding Rules →” as if it were part of the answer.
+- The 20% Best Day rule is missing the qualifying-day floor: a day counts toward Best Day / Positive Days’ Profit only when closed profit is at least **0.5% of that day’s start-of-day equity**. The Instant modal currently says only “more than 0.5% profit,” which is vaguer and easy to misread as 0.5% of starting balance.
 
 **Proposed Instant answer**
 
-> No evaluation. You start on a funded simulated account. 6% trailing max drawdown from equity high water mark (the trail never locks). 3% daily drawdown from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. Best Day must be ≤20% of Positive Days’ Profit to request a payout. No minimum trading days. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$100,000; no $200,000 Instant account.
+> No evaluation. You start on a funded simulated account. 6% trailing max drawdown from equity high water mark (the trail never locks). 3% daily drawdown from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. Best Day must be ≤20% of Positive Days’ Profit to request a payout. A day only qualifies for Best Day / Positive Days’ Profit when closed profit is at least 0.5% of that day’s start-of-day equity. No minimum trading days. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$100,000; no $200,000 Instant account.
 
 ### 1-Step — current
 
@@ -174,9 +175,38 @@ Instant has no evaluation. Traders land in payout rules from day one. Rename to 
 
 Change to: **Instant activation • No challenge phases • Simulated capital from day one.**
 
-**Best Day 0.5% threshold only appears in the modal**
+**20% Best Day — add the 0.5% qualifying-day floor (Instant only)**
 
-The Instant example modal says: “A profitable day is a day that closes with more than 0.5% profit.” That definition is not in Section 3, not on 1-Step, and not in the FAQ. Either put it in the Best Day body copy on both Instant and 1-Step, or remove it from the modal if it is not the rule.
+This is a binding Instant rule. Put it in the FAQ blurb, Section 3 body, the Rule bullet, payout eligibility, and the example modal. Do not leave it in the modal only.
+
+Current modal (too vague):
+
+> A profitable day is a day that closes with more than 0.5% profit.
+
+Required wording:
+
+> A day only qualifies as a valid Best Day (and counts toward Positive Days’ Profit) when that day’s **closed profit is at least 0.5% of that day’s start-of-day equity**. Days below this floor are ignored for the 20% Best Day calculation.
+
+**Proposed Section 3 Best Day block**
+
+> **20% Best Day Rule**  
+> Your single best *qualifying* profit day cannot account for more than 20% of Positive Days’ Profit at the time you request a payout.
+>
+> **Qualifying day:** A day counts only when closed profit is at least 0.5% of that day’s start-of-day equity. Smaller green days do not count toward Best Day or Positive Days’ Profit.
+>
+> **Rule:** Best Day must be ≤20% of Positive Days’ Profit.
+>
+> **Not a breach:** Exceeding 20% does not terminate the account. Keep trading until Best Day is ≤20%.
+>
+> **Calculation:** Closed trades only, at 00:00 UTC. Losing days do not count. Days under the 0.5% floor do not count.
+>
+> Example ($100,000 start-of-day equity): the floor for that day is $500 closed profit. +$400 does not qualify. +$600 does. If the largest qualifying day is $10,000, Positive Days’ Profit must be at least $50,000 before you can request a payout.
+
+**Proposed Section 4 eligibility line**
+
+> You become eligible for a reward when net profit is at least $100, Best Day is ≤20% of Positive Days’ Profit (qualifying days only: closed profit ≥ 0.5% of that day’s start-of-day equity), and you have met the selected cycle. Instant has no minimum trading days. Exceeding 20% is not a breach. See Section 3.
+
+Do not add this 0.5% floor to 1-Step unless product confirms it there too. 1-Step currently has no such sentence.
 
 ### Cut repeated explanations (say once)
 
@@ -187,14 +217,9 @@ Keep:
 - Intro: one-sentence overview + pointer to the sections.
 - Stat card: numbers only (drop the extra “Minimum Trading Days: None” under the card; the grid already has it).
 - Section 3: the full rule + one numbered example.
-- Section 4 eligibility: “See Section 3” instead of restating Best Day.
+- Section 4 eligibility: “See Section 3” for the 20% cap, and one short reminder of the 0.5% qualifying-day floor so payout copy is complete.
 
-**Section 3 Best Day** currently repeats itself:
-
-> …20% of your total Positive Days' Profit… Profitable days are factored into Positive Days' Profit.  
-> **Rule:** Best Day must be ≤20% of Positive Days' Profit. Profitable days are factored in.
-
-Keep the paragraph. Change the bullets to: Rule (one line), Not a breach, Calculation. Drop “Profitable days are factored in” from the Rule bullet.
+**Section 3 Best Day** currently repeats “Profitable days are factored in” and never states the 0.5% floor. Use the proposed block above. Drop the duplicate Rule sentence.
 
 ### Daily drawdown — write it once, with an example
 
@@ -220,6 +245,7 @@ Add a matching max-drawdown example next to it:
 - Fees are non-refundable in payouts and again in breach. Keep it in payouts; in breach, say “see Fees.”
 - News trading is allowed in Section 4, Section 5 Allowed, and Section 6 (inside Restricted Practices). Keep Section 6’s distinction: news trading allowed, **news bracketing and gap trading banned**. Link the policy once.
 - HTML comment still says “50% Best Day Rule Modal.” Change to 20%.
+- Replace the modal’s “more than 0.5% profit” with **at least 0.5% of that day’s start-of-day equity**.
 
 ---
 
@@ -350,7 +376,7 @@ Use this as the body of `faq-plans.html` after the H1. JSON-LD `acceptedAnswer` 
 
 **Instant**
 
-> No evaluation. You start on a funded simulated account. 6% trailing max drawdown from equity high water mark (the trail never locks). 3% daily drawdown from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. Best Day must be ≤20% of Positive Days’ Profit to request a payout. No minimum trading days. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$100,000; no $200,000 Instant account.
+> No evaluation. You start on a funded simulated account. 6% trailing max drawdown from equity high water mark (the trail never locks). 3% daily drawdown from that day’s equity high, as a fixed dollar amount equal to 3% of starting balance; resets at 00:00 UTC. Best Day must be ≤20% of Positive Days’ Profit to request a payout. A day only qualifies for Best Day / Positive Days’ Profit when closed profit is at least 0.5% of that day’s start-of-day equity. No minimum trading days. Every payout needs $100 profit, the Best Day rule, and the selected cycle (weekly, bi-weekly, or on-demand). Default split 80% (90% with On-Demand). Sizes $5,000–$100,000; no $200,000 Instant account.
 
 **1-Step**
 
@@ -373,7 +399,7 @@ These are not the FAQ plan pages, but they still publish the old Instant story:
 | Page | What to align |
 | --- | --- |
 | [Homepage Instant tab](https://www.verodus.com/) | Min days none; FX 1:30 not “up to 1:50”; hide $200k for Instant |
-| [Evaluation FAQs](https://www.verodus.com/faq-evaluation.html) | Already closer; still dated 19 March 2026; Instant/1-Step Best Day answers overlap the new plan FAQs — keep Evaluation FAQs for *how a day is counted*, and let plan FAQs own the numbers |
+| [Evaluation FAQs](https://www.verodus.com/faq-evaluation.html) | Already closer; still dated 19 March 2026; Instant/1-Step Best Day answers overlap the new plan FAQs — keep Evaluation FAQs for *how a day is counted*, and let plan FAQs own the numbers. Add the Instant 0.5% qualifying-day floor wherever Instant Best Day is mentioned. |
 | [Trading objectives](https://www.verodus.com/trading-objectives.html) | Mostly aligned; confirm Instant $200k is not selectable |
 | Terms of Service Instant/1-Step/Lite/Pro links | Fine; Pro page title should match “2-Step Pro Evaluation” |
 
@@ -391,7 +417,8 @@ These are not the FAQ plan pages, but they still publish the old Instant story:
 - [ ] 2-Step Pro H1 includes “Pro”
 - [ ] Lite/Pro: one trading-day definition, used in evaluation and payouts
 - [ ] Split lists merged; stacking 70%/90% explained or removed
-- [ ] Best Day 0.5% profitable-day rule either documented on Instant and 1-Step, or removed from the Instant modal
+- [ ] Instant 20% Best Day: qualifying day = closed profit ≥ 0.5% of that day’s start-of-day equity, in FAQ, Section 3, eligibility, and modal (not “more than 0.5% profit”)
+- [ ] Do not add the Instant 0.5% floor to 1-Step unless product confirms it there
 - [ ] JSON-LD matches visible FAQ text (no “View rules →” inside answers)
 - [ ] Homepage Instant table matches the FAQ
 - [ ] Last-updated dates match what actually changed
