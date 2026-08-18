@@ -1,64 +1,77 @@
 /**
  * Dashboard-only install. Host as /js/install.js on dashboard.verodus.com.
  *
- * Trading Resources → Platforms cards:
- *   [data-install-app][data-install-platform="android"|"mobile"|"desktop"|"safari"|"trading"]
+ * [data-install-app][data-install-section="dashboard"|"trading"]
+ * [data-install-platform="ios"|"android"|"desktop"]
  *
- * Android / Desktop on Chromium: native beforeinstallprompt when available.
- * Mobile (iPhone): Share → Add to Home Screen.
- * Safari (Mac): File → Add to Dock.
- * Trading: modal with instructions + link to trade.verodus.com (cannot auto-install).
+ * Chrome on iPhone is iOS (Share), never the Android prompt.
+ * Trading: modal + link to https://trade.verodus.com/dashboard (no auto-install).
  */
 (function () {
+  var TRADE = "https://trade.verodus.com/dashboard";
   var deferred = null;
   var sheet = null;
 
   var COPY = {
-    android: {
-      title: "Install on Android",
+    "dashboard-ios": {
+      title: "Add Dashboard to iPhone or iPad",
+      lead: "Works in Safari, Chrome, Firefox, and Edge on iOS. Chrome on iPhone still uses Share — it is not the Android install.",
+      steps: [
+        "Stay on this Dashboard page.",
+        "Tap Share in the toolbar (the square with the arrow).",
+        "Tap Add to Home Screen, then Add.",
+      ],
+    },
+    "dashboard-android": {
+      title: "Install Dashboard on Android",
       lead: "Chrome, Edge, or Samsung Internet on your phone or tablet.",
       steps: [
-        "Tap Install on Android if Chrome shows a prompt.",
-        "Or open the browser menu (three dots) → Install app.",
+        "Stay on this Dashboard page in Chrome (or Edge / Samsung Internet).",
+        "Tap Install, or the browser menu → Install app.",
         "Open Verodus from your home screen.",
       ],
     },
-    mobile: {
-      title: "Add to iPhone or iPad",
-      lead: "Works in Safari, Chrome, Firefox, and Edge on iOS.",
+    "dashboard-desktop": {
+      title: "Install Dashboard on desktop",
+      lead: "Windows, Mac, and Chromebook.",
       steps: [
-        "Tap Share in the toolbar (the square with the arrow).",
-        "Scroll and tap Add to Home Screen.",
-        "Tap Add. The icon lands next to your other apps.",
+        "Chrome or Edge: Install in the address bar, or the menu → Install Verodus.",
+        "Safari on a Mac (macOS 14+): File → Add to Dock (or Share → Add to Dock).",
+        "Firefox on desktop cannot install web apps — use Chrome, Edge, or Safari.",
       ],
     },
-    desktop: {
-      title: "Install on desktop",
-      lead: "Use Chrome or Edge on Windows, Mac, or Chromebook.",
+    "trading-ios": {
+      title: "Install Trading on iPhone or iPad",
+      lead: "Chrome on iPhone is still iOS — use Share, not the Android install. Open TradeHub first; this page cannot install it.",
       steps: [
-        "Click Install Verodus in the address bar.",
-        "Or open the browser menu → Install Verodus.",
-        "Open it from your dock, taskbar, or Start menu.",
+        "Tap Open TradeHub. Use a normal Safari or Chrome tab.",
+        "Tap Share → Add to Home Screen → Add.",
+        "Open Trading from your home screen. TradeHub and Platform 5 are the same app.",
       ],
+      href: TRADE,
+      linkCta: "Open TradeHub",
     },
-    safari: {
-      title: "Add to the Dock in Safari",
-      lead: "Safari on a Mac. macOS 14 Sonoma or newer (Safari 17+).",
+    "trading-android": {
+      title: "Install Trading on Android",
+      lead: "Open TradeHub in Chrome, Edge, or Samsung Internet, then install there.",
       steps: [
-        "Open this page in Safari (not Chrome).",
-        "File → Add to Dock. Or the share button in the toolbar → Add to Dock.",
-        "Open Verodus from the Dock like any other Mac app.",
+        "Tap Open TradeHub in Chrome (or Edge / Samsung Internet).",
+        "Tap Install, or the browser menu → Install app.",
+        "Open it from your home screen. TradeHub and Platform 5 are the same app.",
       ],
+      href: TRADE,
+      linkCta: "Open TradeHub",
     },
-    trading: {
-      title: "Install the trading app",
-      lead: "Chrome can only install the site you are on. Open TradeHub in the browser, then install there. This does not happen automatically.",
+    "trading-desktop": {
+      title: "Install Trading on desktop",
+      lead: "Open TradeHub in a normal browser tab, then install there.",
       steps: [
-        "Tap Open TradeHub. Use Chrome or Safari — a normal tab, not only the Dashboard window.",
-        "When TradeHub loads: Chrome/Edge → Install in the address bar. iPhone → Share → Add to Home Screen. Safari on a Mac → File → Add to Dock.",
-        "Open it from your home screen or Dock. TradeHub and Platform 5 are the same trading app.",
+        "Tap Open TradeHub.",
+        "Chrome or Edge: Install in the address bar (or the menu → Install).",
+        "Safari on a Mac (macOS 14+): File → Add to Dock.",
+        "Firefox on desktop cannot install web apps — use Chrome, Edge, or Safari.",
       ],
-      href: "https://trade.verodus.com/dashboard",
+      href: TRADE,
       linkCta: "Open TradeHub",
     },
   };
@@ -87,6 +100,10 @@
     );
   }
 
+  function chromeIos() {
+    return /CriOS/i.test(navigator.userAgent || "");
+  }
+
   function safariMac() {
     var ua = navigator.userAgent || "";
     if (ios()) return false;
@@ -101,6 +118,23 @@
     return /android/i.test(navigator.userAgent || "");
   }
 
+  function suggestedSurface() {
+    if (ios()) return "ios";
+    if (android()) return "android";
+    return "desktop";
+  }
+
+  function normalizePlatform(value) {
+    if (value === "mobile") return "ios";
+    if (value === "safari") return "desktop";
+    if (value === "ios" || value === "android" || value === "desktop") return value;
+    return "";
+  }
+
+  function sheetKey(section, platform) {
+    return section + "-" + platform;
+  }
+
   function standalone() {
     return (
       window.matchMedia("(display-mode: standalone)").matches ||
@@ -112,6 +146,26 @@
   function markInstalled() {
     var root = document.querySelector(".v-platforms");
     if (root) root.classList.add("is-installed");
+  }
+
+  function markSuggested() {
+    var surface = suggestedSurface();
+    var cards = document.querySelectorAll(".v-platforms__card[data-install-platform]");
+    cards.forEach(function (card) {
+      card.classList.toggle("is-suggested", card.getAttribute("data-install-platform") === surface);
+    });
+    var hint = document.querySelector("[data-platforms-hint]");
+    if (!hint) return;
+    if (ios() && chromeIos()) {
+      hint.hidden = false;
+      hint.textContent =
+        "You are on iPhone Chrome. Use iOS (Share → Add to Home Screen), not Android.";
+    } else if (safariMac()) {
+      hint.hidden = false;
+      hint.textContent = "You are in Safari on a Mac. Use Desktop → Add to Dock.";
+    } else {
+      hint.hidden = true;
+    }
   }
 
   function ensureSheet() {
@@ -144,8 +198,8 @@
     if (sheet) sheet.hidden = true;
   }
 
-  function showCopy(kind) {
-    var data = COPY[kind] || COPY.desktop;
+  function showCopy(key) {
+    var data = COPY[key] || COPY["dashboard-desktop"];
     var el = ensureSheet();
     el.querySelector("#v-install-title").textContent = data.title;
     el.querySelector(".v-platforms-modal__lead").textContent = data.lead;
@@ -175,12 +229,13 @@
     if (dialog && dialog.focus) dialog.focus();
   }
 
-  function canNative(kind) {
+  function canNative(section, platform) {
+    if (section !== "dashboard") return false;
     if (!deferred) return false;
-    if (kind === "mobile" || kind === "safari" || kind === "trading") return false;
-    if (kind === "android") return android() && !ios();
-    if (kind === "desktop") return !android() && !ios() && !safariMac();
-    return !safariMac();
+    if (platform === "ios") return false;
+    if (platform === "android") return android() && !ios();
+    if (platform === "desktop") return !android() && !ios() && !safariMac();
+    return false;
   }
 
   function promptNative() {
@@ -190,46 +245,42 @@
     });
   }
 
-  if (standalone()) {
+  function onReady(fn) {
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", markInstalled);
+      document.addEventListener("DOMContentLoaded", fn);
     } else {
-      markInstalled();
+      fn();
     }
   }
+
+  onReady(function () {
+    if (standalone()) markInstalled();
+    markSuggested();
+  });
 
   document.addEventListener("click", function (event) {
     var btn = event.target.closest && event.target.closest("[data-install-app]");
     if (!btn) return;
     event.preventDefault();
 
-    var kind = btn.getAttribute("data-install-platform") || "";
-    if (kind === "trading") {
-      showCopy("trading");
+    var section = btn.getAttribute("data-install-section") || "dashboard";
+    var platform = normalizePlatform(btn.getAttribute("data-install-platform") || "");
+    if (btn.getAttribute("data-install-platform") === "trading") {
+      section = "trading";
+      platform = suggestedSurface();
+    }
+    if (!platform) platform = suggestedSurface();
+
+    var key = sheetKey(section, platform);
+    if (section === "trading") {
+      showCopy(key);
       return;
     }
     if (standalone()) return;
-
-    if (canNative(kind) || (!kind && deferred)) {
+    if (canNative(section, platform)) {
       promptNative();
       return;
     }
-    if (kind) {
-      showCopy(kind);
-      return;
-    }
-    if (ios()) {
-      showCopy("mobile");
-      return;
-    }
-    if (safariMac()) {
-      showCopy("safari");
-      return;
-    }
-    if (deferred) {
-      promptNative();
-      return;
-    }
-    showCopy(android() ? "android" : "desktop");
+    showCopy(key);
   });
 })();

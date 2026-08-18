@@ -27,8 +27,9 @@ Google login stays on dashboard.verodus.com.
 
 Add **Platforms** under Trading Resources.
 
-- **Android / Mobile / Desktop / Safari** — install the CRM
-- **Trading** — modal with **Open TradeHub** → `https://trade.verodus.com/dashboard` (no auto-install)
+- **Dashboard** and **Trading**, each with **iOS / Android / Desktop**
+- iOS includes Chrome on iPhone (Share sheet). Desktop includes Safari Add to Dock.
+- Trading is a modal + **Open TradeHub** → `https://trade.verodus.com/dashboard`
 
 Leave account-card Platform5 / TradeHub buttons as they are.
 

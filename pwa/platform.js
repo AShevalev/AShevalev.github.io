@@ -325,74 +325,155 @@ export const TRADE_APP_HREF = "https://trade.verodus.com/dashboard";
  * Dashboard modal: how to install the separate TradeHub app.
  * Chrome can only install the origin you are on — this cannot auto-install.
  */
-export function getTradingInstallModalCopy() {
-  return {
-    title: "Install the trading app",
-    lead: "Chrome can only install the site you are on. Open TradeHub in the browser, then install there. This does not happen automatically.",
-    steps: [
-      "Tap Open TradeHub. Use Chrome or Safari — a normal tab, not only the Dashboard window.",
-      "When TradeHub loads: Chrome/Edge → Install in the address bar. iPhone → Share → Add to Home Screen. Safari on a Mac → File → Add to Dock.",
-      "Open it from your home screen or Dock. TradeHub and Platform 5 are the same trading app.",
-    ],
+export function getTradingInstallModalCopy(platform = "desktop") {
+  const href = TRADE_APP_HREF;
+  const shared = {
     cta: "Open TradeHub",
     dismiss: "Not now",
-    href: TRADE_APP_HREF,
+    href,
+  };
+
+  if (platform === "ios") {
+    return {
+      ...shared,
+      title: "Install Trading on iPhone or iPad",
+      lead: "Chrome on iPhone is still iOS — use Share, not the Android install. Open TradeHub first; this page cannot install it.",
+      steps: [
+        "Tap Open TradeHub. Use a normal Safari or Chrome tab.",
+        "Tap Share (the square with the arrow) → Add to Home Screen → Add.",
+        "Open Trading from your home screen. TradeHub and Platform 5 are the same app.",
+      ],
+    };
+  }
+
+  if (platform === "android") {
+    return {
+      ...shared,
+      title: "Install Trading on Android",
+      lead: "Open TradeHub in Chrome, Edge, or Samsung Internet, then install there. This does not happen automatically.",
+      steps: [
+        "Tap Open TradeHub in Chrome (or Edge / Samsung Internet).",
+        "Tap Install, or the browser menu → Install app.",
+        "Open it from your home screen. TradeHub and Platform 5 are the same app.",
+      ],
+    };
+  }
+
+  return {
+    ...shared,
+    title: "Install Trading on desktop",
+    lead: "Open TradeHub in a normal browser tab, then install there. This does not happen automatically.",
+    steps: [
+      "Tap Open TradeHub.",
+      "Chrome or Edge: Install in the address bar (or the menu → Install).",
+      "Safari on a Mac (macOS 14+): File → Add to Dock.",
+      "Firefox on desktop cannot install web apps — use Chrome, Edge, or Safari.",
+    ],
   };
 }
-export function getPlatformsCards() {
-  const trading = getTradingInstallModalCopy();
-  return [
+
+/**
+ * iOS (including Chrome on iPhone), Android, or Desktop.
+ * Chrome on iOS is not Android — it has no install prompt.
+ */
+export function recommendedInstallSurface(env = {}) {
+  const p = detectPlatform(env);
+  if (p.ios) return "ios";
+  if (p.android) return "android";
+  return "desktop";
+}
+
+export function getDashboardInstallCopy(platform = "desktop") {
+  if (platform === "ios") {
+    return {
+      title: "Add Dashboard to iPhone or iPad",
+      lead: "Works in Safari, Chrome, Firefox, and Edge on iOS. Chrome on iPhone still uses Share — it is not the Android install.",
+      steps: [
+        "Stay on this Dashboard page.",
+        "Tap Share in the toolbar (the square with the arrow).",
+        "Tap Add to Home Screen, then Add.",
+      ],
+    };
+  }
+  if (platform === "android") {
+    return {
+      title: "Install Dashboard on Android",
+      lead: "Chrome, Edge, or Samsung Internet on your phone or tablet.",
+      steps: [
+        "Stay on this Dashboard page in Chrome (or Edge / Samsung Internet).",
+        "Tap Install, or the browser menu → Install app.",
+        "Open Verodus from your home screen.",
+      ],
+    };
+  }
+  return {
+    title: "Install Dashboard on desktop",
+    lead: "Windows, Mac, and Chromebook.",
+    steps: [
+      "Chrome or Edge: Install in the address bar, or the menu → Install Verodus.",
+      "Safari on a Mac (macOS 14+): File → Add to Dock (or Share → Add to Dock).",
+      "Firefox on desktop cannot install web apps — use Chrome, Edge, or Safari.",
+    ],
+  };
+}
+
+export function getPlatformsSections() {
+  const devices = [
+    {
+      id: "ios",
+      title: "iOS",
+      lead: "iPhone and iPad. Safari, Chrome, Firefox, and Edge all use Share → Add to Home Screen.",
+    },
     {
       id: "android",
       title: "Android",
       lead: "Phone or tablet. Chrome, Edge, or Samsung Internet.",
-      steps: [
-        "Open this page in Chrome (or Edge / Samsung Internet).",
-        "Tap Install on Android, or the browser menu → Install app.",
-        "Open Verodus from your home screen.",
-      ],
-      cta: "Install on Android",
-    },
-    {
-      id: "mobile",
-      title: "Mobile",
-      lead: "iPhone and iPad. Works in Safari and every iOS browser.",
-      steps: [
-        "Tap Share in the toolbar (the square with the arrow).",
-        "Scroll and tap Add to Home Screen.",
-        "Tap Add. The icon lands next to your other apps.",
-      ],
-      cta: "Show iPhone steps",
     },
     {
       id: "desktop",
       title: "Desktop",
-      lead: "Windows, Mac, and Chromebook. Use Chrome or Edge.",
-      steps: [
-        "Open this page in Chrome or Edge (Firefox cannot install web apps).",
-        "Click Install Verodus in the address bar, or the menu → Install Verodus.",
-        "Open it from your dock, taskbar, or Start menu.",
-      ],
-      cta: "Install on desktop",
+      lead: "Chrome or Edge: Install. Safari on a Mac: Add to Dock.",
     },
+  ];
+
+  return [
     {
-      id: "safari",
-      title: "Safari",
-      lead: "Mac. Safari 17+ on macOS 14 Sonoma or newer. Creates a Dock web app.",
-      steps: [
-        "Open this page in Safari on your Mac (not Chrome).",
-        "File → Add to Dock. Or the share button in the toolbar → Add to Dock.",
-        "Open Verodus from the Dock like any other Mac app.",
-      ],
-      cta: "Show Safari steps",
+      id: "dashboard",
+      title: "Dashboard",
+      lead: "The CRM. Accounts, Journal, Payouts, and the rest of Verodus.",
+      devices: devices.map((device) => ({
+        ...device,
+        ...getDashboardInstallCopy(device.id),
+        cta: device.id === "ios" ? "Show iOS steps" : `Install on ${device.title}`,
+      })),
     },
     {
       id: "trading",
       title: "Trading",
-      lead: "Optional second app. TradeHub and Platform 5 on trade.verodus.com.",
-      steps: trading.steps,
-      cta: "How to install Trading",
-      href: trading.href,
+      lead: "Optional second app. TradeHub and Platform 5. Opens a guide and a link — it cannot auto-install from here.",
+      devices: devices.map((device) => {
+        const copy = getTradingInstallModalCopy(device.id);
+        return {
+          ...device,
+          ...copy,
+          cta: "How to install",
+        };
+      }),
     },
   ];
+}
+
+/** @deprecated flattened view — prefer getPlatformsSections() */
+export function getPlatformsCards() {
+  return getPlatformsSections().flatMap((section) =>
+    section.devices.map((device) => ({
+      id: `${section.id}-${device.id}`,
+      section: section.id,
+      title: `${section.title} · ${device.title}`,
+      lead: device.lead,
+      steps: device.steps,
+      cta: device.cta,
+      href: device.href,
+    }))
+  );
 }

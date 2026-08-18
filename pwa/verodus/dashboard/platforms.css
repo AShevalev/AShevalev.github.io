@@ -24,6 +24,35 @@
   font: 400 1.05rem/1.5 Inter, system-ui, sans-serif;
 }
 
+.v-platforms__hint {
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: var(--v-gold-light);
+  font: 500 0.95rem/1.4 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__hint[hidden] {
+  display: none !important;
+}
+
+.v-platforms__section {
+  margin: 0 0 2rem;
+}
+
+.v-platforms__section h2 {
+  margin: 0 0 0.35rem;
+  font: 700 1.25rem/1.2 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__section > p {
+  margin: 0 0 1rem;
+  color: var(--v-body);
+  font: 400 0.95rem/1.45 Inter, system-ui, sans-serif;
+}
+
 .v-platforms__grid {
   display: grid;
   gap: 1rem;
@@ -31,8 +60,22 @@
 
 @media (min-width: 800px) {
   .v-platforms__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.v-platforms__card h3 {
+  margin: 0;
+  font: 700 1.05rem/1.2 Inter, system-ui, sans-serif;
+}
+
+.v-platforms__card.is-suggested {
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.35);
+}
+
+.v-platforms.is-installed [data-install-section="dashboard"] .v-platforms__cta {
+  display: none;
 }
 
 .v-platforms__card {
@@ -100,8 +143,7 @@
   outline-offset: 3px;
 }
 
-.v-platforms__cta[hidden],
-.v-platforms.is-installed .v-platforms__cta:not([data-install-platform="trading"]) {
+.v-platforms__cta[hidden] {
   display: none;
 }
 

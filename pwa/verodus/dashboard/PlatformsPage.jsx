@@ -1,21 +1,20 @@
 /**
  * Dashboard → Trading Resources → Platforms.
- * Copy to components/PlatformsPage.jsx next to platforms.css.
- *
- * Android / Mobile / Desktop CTAs use [data-install-app][data-install-platform].
- * Load /css/install.css + /js/install.js in the root layout.
+ * Two apps (Dashboard, Trading). Each has iOS, Android, Desktop.
+ * Chrome on iPhone is iOS (Share sheet), not Android.
  */
 import "./platforms.css";
-const ANDROID_ICON = (
-  <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-    <path d="M17.6 9.48 19.1 6.9a.5.5 0 0 0-.86-.5l-1.55 2.68A8.1 8.1 0 0 0 12 8.1a8.1 8.1 0 0 0-4.69.98L5.76 6.4a.5.5 0 1 0-.86.5l1.5 2.58A7.4 7.4 0 0 0 4 15.2v.4h16v-.4a7.4 7.4 0 0 0-2.4-5.72ZM8.2 13.4a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Zm7.6 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Z" />
-  </svg>
-);
 
-const MOBILE_ICON = (
+const IOS_ICON = (
   <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
     <rect x="7" y="3" width="10" height="18" rx="2.2" />
     <path d="M11 18.5h2" strokeLinecap="round" />
+  </svg>
+);
+
+const ANDROID_ICON = (
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+    <path d="M17.6 9.48 19.1 6.9a.5.5 0 0 0-.86-.5l-1.55 2.68A8.1 8.1 0 0 0 12 8.1a8.1 8.1 0 0 0-4.69.98L5.76 6.4a.5.5 0 1 0-.86.5l1.5 2.58A7.4 7.4 0 0 0 4 15.2v.4h16v-.4a7.4 7.4 0 0 0-2.4-5.72ZM8.2 13.4a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Zm7.6 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Z" />
   </svg>
 );
 
@@ -26,114 +25,76 @@ const DESKTOP_ICON = (
   </svg>
 );
 
-const SAFARI_ICON = (
-  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <circle cx="12" cy="12" r="9" />
-    <path d="m15 9-3 6-6 3 3-6 6-3z" />
-  </svg>
-);
+const ICONS = { ios: IOS_ICON, android: ANDROID_ICON, desktop: DESKTOP_ICON };
 
-const TRADING_ICON = (
-  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <path d="M4 19V9M9 19V5M14 19v-7M19 19V8" strokeLinecap="round" />
-  </svg>
-);
-
-const CARDS = [
+const DEVICES = [
+  {
+    id: "ios",
+    title: "iOS",
+    lead: "iPhone and iPad. Safari, Chrome, Firefox, and Edge all use Share → Add to Home Screen. Chrome on iPhone is not Android.",
+    cta: "Show iOS steps",
+  },
   {
     id: "android",
     title: "Android",
     lead: "Phone or tablet. Chrome, Edge, or Samsung Internet.",
-    steps: [
-      "Open this page in Chrome (or Edge / Samsung Internet).",
-      "Tap Install on Android, or the browser menu → Install app.",
-      "Open Verodus from your home screen.",
-    ],
-    cta: "Install on Android",
-    icon: ANDROID_ICON,
-  },
-  {
-    id: "mobile",
-    title: "Mobile",
-    lead: "iPhone and iPad. Works in Safari and every iOS browser.",
-    steps: [
-      "Tap Share in the toolbar (the square with the arrow).",
-      "Scroll and tap Add to Home Screen.",
-      "Tap Add. The icon lands next to your other apps.",
-    ],
-    cta: "Show iPhone steps",
-    icon: MOBILE_ICON,
+    cta: "Show Android steps",
   },
   {
     id: "desktop",
     title: "Desktop",
-    lead: "Windows, Mac, and Chromebook. Use Chrome or Edge.",
-    steps: [
-      "Open this page in Chrome or Edge (Firefox cannot install web apps).",
-      "Click Install Verodus in the address bar, or the menu → Install Verodus.",
-      "Open it from your dock, taskbar, or Start menu.",
-    ],
-    cta: "Install on desktop",
-    icon: DESKTOP_ICON,
+    lead: "Chrome or Edge: Install. Safari on a Mac: Add to Dock. Firefox desktop cannot install.",
+    cta: "Show desktop steps",
   },
+];
+
+const SECTIONS = [
   {
-    id: "safari",
-    title: "Safari",
-    lead: "Mac. Safari 17+ on macOS 14 Sonoma or newer. Creates a Dock web app.",
-    steps: [
-      "Open this page in Safari on your Mac (not Chrome).",
-      "File → Add to Dock. Or the share button in the toolbar → Add to Dock.",
-      "Open Verodus from the Dock like any other Mac app.",
-    ],
-    cta: "Show Safari steps",
-    icon: SAFARI_ICON,
+    id: "dashboard",
+    title: "Dashboard",
+    lead: "The Verodus CRM. Accounts, Journal, Payouts, and settings. Install this site.",
   },
   {
     id: "trading",
     title: "Trading",
-    lead: "Optional second app. TradeHub and Platform 5. Opens a short guide with the link.",
-    steps: [
-      "Tap How to install Trading.",
-      "Read the steps, then Open TradeHub in Chrome or Safari.",
-      "Install / Add to Dock on trade.verodus.com — not from this page.",
-    ],
-    cta: "How to install Trading",
-    icon: TRADING_ICON,
+    lead: "Optional second app for TradeHub and Platform 5. A short guide plus a link — it cannot install from this page.",
   },
 ];
 
 export default function PlatformsPage() {
   return (
     <section className="v-platforms">
-      <p className="v-platforms__done">Verodus is already installed on this device.</p>
+      <p className="v-platforms__done">Dashboard is already installed on this device. You can still add Trading.</p>
       <h1>Platforms</h1>
       <p className="v-platforms__lede">
-        Install Verodus from Dashboard → Trading Resources → Platforms. Choose Android, Mobile,
-        Desktop, or Safari for the CRM. Trading is a separate optional app — a modal shows the
-        steps and the TradeHub link.
+        Two apps: Dashboard and Trading. Pick iOS, Android, or Desktop for each. If you are on an
+        iPhone in Chrome, use iOS — Chrome on iOS has no Android-style install prompt.
       </p>
-      <div className="v-platforms__grid">
-        {CARDS.map((card) => (
-          <article key={card.id} className="v-platforms__card">
-            <div className="v-platforms__icon">{card.icon}</div>
-            <h2>{card.title}</h2>
-            <p>{card.lead}</p>
-            <ol>
-              {card.steps.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ol>
-            <button
-              type="button"
-              className="v-platforms__cta"
-              data-install-app
-              data-install-platform={card.id}
-            >
-              {card.cta}
-            </button>
-          </article>
-        ))}
-      </div>
+      <p className="v-platforms__hint" data-platforms-hint hidden></p>
+      {SECTIONS.map((section) => (
+        <section key={section.id} className="v-platforms__section" data-install-section={section.id}>
+          <h2>{section.title}</h2>
+          <p>{section.lead}</p>
+          <div className="v-platforms__grid">
+            {DEVICES.map((device) => (
+              <article key={device.id} className="v-platforms__card" data-install-platform={device.id}>
+                <div className="v-platforms__icon">{ICONS[device.id]}</div>
+                <h3>{device.title}</h3>
+                <p>{device.lead}</p>
+                <button
+                  type="button"
+                  className="v-platforms__cta"
+                  data-install-app
+                  data-install-section={section.id}
+                  data-install-platform={device.id}
+                >
+                  {device.cta}
+                </button>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
     </section>
   );
 }
