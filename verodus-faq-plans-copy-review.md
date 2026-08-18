@@ -12,6 +12,45 @@ Goal: remove redundancy, make the four plans comparable, and fix wording that is
 
 ---
 
+## Rescan — 18 August 2026 (later pass)
+
+Live pages were fetched again after the copy pass. **The requested Instant 20% Best Day qualifying-day floor is live**, and most of the FAQ/rules rewrites landed.
+
+### Instant 20% Best Day (the follow-up request) — done
+
+Closed profit must be at least **0.5% of that day’s start-of-day equity** now appears in:
+
+| Location | Status |
+| --- | --- |
+| [Plan FAQs — Instant](https://www.verodus.com/faq-plans.html) | Live, including JSON-LD (no “View rules →” inside the answer) |
+| `instant.html` Section 3 body + Rule/Calculation bullets + $100k / $500 example | Live |
+| Instant payout eligibility | Live (“qualifying days only: closed profit ≥ 0.5%…”) |
+| Instant Best Day modal | Live (replaced “more than 0.5% profit”) |
+| [Evaluation FAQs](https://www.verodus.com/faq-evaluation.html) Instant bullets | Live |
+| Homepage “What evaluation models…” answer | Live |
+| 1-Step | Correctly **not** given this floor |
+
+### Other review items — landed
+
+- FAQ hub: one shared note (“News trading is allowed on all four plans… Weekend Holding add-on”). The four answers no longer repeat news/holding.
+- Four FAQ answers use the same fact order; Lite/Pro now include **5 evaluation days**; Instant daily vs trailing drawdown is split; splits/sizes/cycles are consistent.
+- Instant: duplicate min-days bullet gone; Section 4 retitled **Payouts and risk limits**; overview line is “Simulated capital from day one.”
+- 1-Step: “unique to 1-Step” and “end-of-day equity” gone; intro now says hybrid locks at initial balance and “50% Best Day rule (Instant uses 20%).” Last updated **August 2026**.
+- 2-Step Pro H1 is **2-Step Pro Evaluation**. Lite/Pro intros no longer say “balanced / scaling / highest earning.” Payout trading-day definition now matches evaluation (opened **and** closed). Phase 2 min days: “counted the same way as Phase 1.” Last updated August 2026.
+- Duplicate 70/80/90 split lists and “may stack” are gone on the plan pages.
+- Homepage Instant table no longer shows “5 Days” or “Up to 1:50” in the live HTML (1:30 is present).
+
+### Still open (small leftovers)
+
+- Instant overview still says “There are no profit targets to hit **before funding**” and “sustainable risk rules.”
+- Instant still names Section 3 **Unique Instant Funding Rules**.
+- Instant news trading is still said twice; Restricted Practices still says “Allowed in **every phase**” (Instant has no phases).
+- Evaluation FAQ article dates are still **19 March 2026** even though Instant 0.5% copy inside them was updated.
+
+The original section-by-section notes below are the first-pass review. Use the rescan table above for what is already live.
+
+---
+
 ## 1. Cross-plan issues (fix these first)
 
 ### 1.1 Shared lines repeated on every FAQ card
@@ -407,18 +446,21 @@ These are not the FAQ plan pages, but they still publish the old Instant story:
 
 ## 10. Checklist
 
-- [ ] Shared news / holding note once on the FAQ hub; removed from the four answers
-- [ ] Four FAQ answers use the same fact order
-- [ ] 2-Step Lite and Pro FAQ answers include 5 evaluation days
-- [ ] Instant FAQ: daily vs trailing drawdown not glued into one clause
-- [ ] Instant Section 2: duplicate min-days bullet removed
-- [ ] Instant Section 4 retitled so it does not look like an evaluation phase
-- [ ] 1-Step: “unique” and “end-of-day” corrected
-- [ ] 2-Step Pro H1 includes “Pro”
-- [ ] Lite/Pro: one trading-day definition, used in evaluation and payouts
-- [ ] Split lists merged; stacking 70%/90% explained or removed
-- [ ] Instant 20% Best Day: qualifying day = closed profit ≥ 0.5% of that day’s start-of-day equity, in FAQ, Section 3, eligibility, and modal (not “more than 0.5% profit”)
-- [ ] Do not add the Instant 0.5% floor to 1-Step unless product confirms it there
-- [ ] JSON-LD matches visible FAQ text (no “View rules →” inside answers)
-- [ ] Homepage Instant table matches the FAQ
-- [ ] Last-updated dates match what actually changed
+Rescan 18 August 2026: items marked done are live on verodus.com.
+
+- [x] Shared news / holding note once on the FAQ hub; removed from the four answers
+- [x] Four FAQ answers use the same fact order
+- [x] 2-Step Lite and Pro FAQ answers include 5 evaluation days
+- [x] Instant FAQ: daily vs trailing drawdown not glued into one clause
+- [x] Instant Section 2: duplicate min-days bullet removed
+- [x] Instant Section 4 retitled so it does not look like an evaluation phase
+- [x] 1-Step: “unique” and “end-of-day” corrected
+- [x] 2-Step Pro H1 includes “Pro”
+- [x] Lite/Pro: one trading-day definition, used in evaluation and payouts
+- [x] Split lists merged; stacking 70%/90% explained or removed
+- [x] Instant 20% Best Day: qualifying day = closed profit ≥ 0.5% of that day’s start-of-day equity, in FAQ, Section 3, eligibility, and modal (not “more than 0.5% profit”)
+- [x] Do not add the Instant 0.5% floor to 1-Step unless product confirms it there
+- [x] JSON-LD matches visible FAQ text (no “View rules →” inside answers)
+- [x] Homepage Instant table matches the FAQ (5-day / 1:50 Instant leftovers gone from live HTML)
+- [ ] Instant leftovers: “before funding,” “sustainable risk rules,” Section 3 still titled “Unique…,” news trading still “every phase”
+- [ ] Evaluation FAQ “Last updated” dates still 19 March 2026 after Instant 0.5% edits
