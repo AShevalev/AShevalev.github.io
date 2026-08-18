@@ -404,6 +404,7 @@ def patch_news(html: str) -> str:
 
 def patch_instant(html: str) -> str:
     html = drop_every_payout_card(html)
+    html = html.replace("Payouts and risk limits", "Payouts and Risk Limits")
     html = html.replace(
         "20% Best Day rule, and 5 minimum valid trading days (each requiring at least 0.5% net profit).",
         "20% Best Day rule. Instant has no minimum trading days.",
@@ -743,7 +744,7 @@ def verify(slug: str, html: str) -> None:
             "Your single best profit day cannot account for more than 20%",
             "Profitable days are factored into Positive Days' Profit",
             "at the time you request a payout",
-            "4. Payouts and risk limits",
+            "4. Payouts and Risk Limits",
             "<strong>Weekly</strong> (Selected Add-on)",
             "<strong>Fees:</strong>",
             "7 calendar days and when eligibility requirements are met",

@@ -2,7 +2,7 @@
 
 Live scan 18 Aug 2026. Only items still wrong on `https://www.verodus.com/`. Do not re-paste rules that already landed.
 
-**Keep live Instant headings.** Instant section 4 is **4. Payouts and risk limits**. Keep **20% Best Day Rule**, **Rule**, **Not a Breach**, **Calculation**. Frequency headings stay live: **Weekly** (Selected Add-on), **Bi-Weekly** (Default), **On-Demand** (Selected Add-on). Rewards heading **Fees:** not Refund. Do not add Every Payout, Intervals, or Performance Reward Split. Only the Best Day body copy uses live 1-Step wording.
+**Keep live Instant headings.** Instant section 4 is **4. Payouts and Risk Limits**. Keep **20% Best Day Rule**, **Rule**, **Not a Breach**, **Calculation**. Frequency headings stay live: **Weekly** (Selected Add-on), **Bi-Weekly** (Default), **On-Demand** (Selected Add-on). Rewards heading **Fees:** not Refund. Do not add Every Payout, Intervals, or Performance Reward Split. Only the Best Day body copy uses live 1-Step wording.
 
 **Locked Instant Best Day:** use **live 1-Step wording**, Instant-applicable only. Cap **20%**. Payout request, not evaluation pass. Instant has no 10% target. **No 0.5% / Valid Day / qualifying days.** 1-Step stays **live** at **50%**. Do not name Instant on 1-Step. Live 1-Step Calculation (“Profitable days are factored into Positive Days' Profit”) is the Instant Calculation too.
 
