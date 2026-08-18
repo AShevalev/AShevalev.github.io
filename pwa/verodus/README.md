@@ -4,7 +4,7 @@
 
 **Hand this to the dashboard/landing coder:** [CODER-INSTRUCTIONS.md](CODER-INSTRUCTIONS.md) plus the zip [verodus-platforms-for-coder.zip](verodus-platforms-for-coder.zip).
 
-CRM routes stay on `dashboard.verodus.com`. Install lives at **Trading Resources → Platforms** (Android / Mobile / Desktop / Safari). Trading is a modal with a link to `https://trade.verodus.com/dashboard`. **No iframe.**
+CRM routes stay on `dashboard.verodus.com`. Install lives at **Trading Resources → Platforms** — two sections, **Dashboard** and **Verodus Trading**, each with the same phone and desktop tables. Trading is a modal with a link to `https://trade.verodus.com/dashboard`. **No iframe.**
 
 Landing pills on verodus.com open a modal that points at that path — they do not install the marketing site and do not open the stores.
 

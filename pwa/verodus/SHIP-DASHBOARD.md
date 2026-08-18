@@ -7,7 +7,7 @@ Do **not** install from verodus.com. A landing-page PWA makes Dashboard look lik
 ```
 chrome toolbar / install on dashboard.verodus.com
   → /dashboard, /accounts, /journal, …     same origin
-  → /trading-resources/platforms            Android / Mobile / Desktop / Safari / Trading modal
+  → /trading-resources/platforms            Dashboard + Verodus Trading (same install tables)
 ```
 
 Google login stays on dashboard.verodus.com.
@@ -27,9 +27,10 @@ Google login stays on dashboard.verodus.com.
 
 Add **Platforms** under Trading Resources.
 
-- **Dashboard** and **Trading**, each with **iOS / Android / Desktop**
-- iOS includes Chrome on iPhone (Share sheet). Desktop includes Safari Add to Dock.
-- Trading is a modal + **Open TradeHub** → `https://trade.verodus.com/dashboard`
+Two sections: **Dashboard** and **Verodus Trading**. Each has Android / iOS / iPadOS and Windows / macOS / ChromeOS·Linux tables (how to install, quality, notes).
+
+- **Dashboard** — install this origin
+- **Verodus Trading** — same tables; modal + link to `https://trade.verodus.com/dashboard`
 
 Leave account-card Platform5 / TradeHub buttons as they are.
 
@@ -41,4 +42,4 @@ Modal: install from **Dashboard → Trading Resources → Platforms**. Copy `www
 
 1. Uninstall old Verodus icons.
 2. Landing pills → modal → Open dashboard.
-3. Trading Resources → Platforms → install CRM; Trading card → modal → `https://trade.verodus.com/dashboard`.
+3. Trading Resources → Platforms: **Dashboard** and **Verodus Trading** tables; Trading → `https://trade.verodus.com/dashboard`.

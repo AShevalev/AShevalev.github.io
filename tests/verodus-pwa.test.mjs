@@ -45,7 +45,7 @@ test("landing-page PWA starts at /app on www.verodus.com", () => {
 test("landing pills open a modal that points at Dashboard Platforms", () => {
   const src = readFileSync(new URL("../pwa/verodus/www/install.js", import.meta.url), "utf8");
   assert.match(src, /Dashboard → Trading Resources → Platforms/);
-  assert.match(src, /Android, Mobile, Desktop, or Safari/);
+  assert.match(src, /Two sections — Dashboard and Verodus Trading/);
   assert.match(src, /https:\/\/dashboard\.verodus\.com\/trading-resources\/platforms/);
   assert.doesNotMatch(src, /serviceWorker/);
   assert.doesNotMatch(src, /beforeinstallprompt/);
@@ -74,18 +74,20 @@ test("dashboard sidebar adds Platforms under Trading Resources", () => {
   assert.match(src, /href: "\/trading-resources\/platforms"/);
 });
 
-test("Platforms page has Dashboard and Trading, each with iOS Android Desktop", () => {
+test("Platforms page has Dashboard and Verodus Trading tables", () => {
   const src = readFileSync(
     new URL("../pwa/verodus/dashboard/PlatformsPage.jsx", import.meta.url),
     "utf8"
   );
-  assert.match(src, /id: "dashboard"/);
-  assert.match(src, /id: "trading"/);
-  assert.match(src, /id: "ios"/);
-  assert.match(src, /id: "android"/);
-  assert.match(src, /id: "desktop"/);
-  assert.match(src, /data-install-section=\{section\.id\}/);
-  assert.match(src, /Chrome on iOS has no Android-style install prompt/);
+  assert.match(src, /data-install-section="dashboard"/);
+  assert.match(src, /Verodus Trading/);
+  assert.match(src, /How users install/);
+  assert.match(src, /Quality of experience/);
+  assert.match(src, /Automatic install prompt/);
+  assert.match(src, /Add to Home Screen/);
+  assert.match(src, /Add to Dock/);
+  assert.match(src, /trade\.verodus\.com\/dashboard/);
+  assert.match(src, /Open Verodus Trading/);
 });
 
 test("dashboard install script handles per-platform CTAs", () => {

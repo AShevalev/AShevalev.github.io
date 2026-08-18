@@ -152,7 +152,7 @@ test("landing modal copy points at Dashboard → Trading Resources → Platforms
   const copy = getLandingInstallModalCopy();
   assert.equal(landingInstallPathLabel(), "Dashboard → Trading Resources → Platforms");
   assert.match(copy.lead, /Dashboard → Trading Resources → Platforms/);
-  assert.match(copy.lead, /Android, Mobile, Desktop, or Safari/);
+  assert.match(copy.lead, /Two sections — Dashboard and Verodus Trading/);
   assert.equal(copy.href, "https://dashboard.verodus.com/trading-resources/platforms");
 });
 
@@ -160,39 +160,41 @@ test("Chrome on iPhone is iOS, not Android", () => {
   assert.equal(recommendedInstallSurface({ userAgent: UA.iosChrome }), "ios");
   assert.equal(recommendedInstallSurface({ userAgent: UA.iosSafari }), "ios");
   assert.equal(recommendedInstallSurface({ userAgent: UA.androidChrome }), "android");
-  assert.equal(recommendedInstallSurface({ userAgent: UA.desktopChrome }), "desktop");
-  assert.equal(recommendedInstallSurface({ userAgent: UA.desktopSafari }), "desktop");
+  assert.equal(recommendedInstallSurface({ userAgent: UA.desktopChrome }), "macos");
+  assert.equal(recommendedInstallSurface({ userAgent: UA.desktopSafari }), "macos");
 });
 
-test("Platforms is two apps each with iOS, Android, and Desktop", () => {
+test("Platforms is Dashboard and Verodus Trading with phone and desktop tables", () => {
   const sections = getPlatformsSections();
   assert.deepEqual(
     sections.map((section) => section.id),
     ["dashboard", "trading"]
   );
+  assert.equal(sections[1].title, "Verodus Trading");
   assert.deepEqual(
-    sections[0].devices.map((device) => device.id),
-    ["ios", "android", "desktop"]
+    sections[0].phone.map((row) => row.id),
+    ["android", "ios"]
   );
-  assert.equal(sections[1].devices[0].href, "https://trade.verodus.com/dashboard");
+  assert.deepEqual(
+    sections[0].desktop.map((row) => row.id),
+    ["windows", "macos", "linux"]
+  );
+  assert.equal(sections[1].cta, "Open Verodus Trading");
+  assert.equal(sections[0].phone[0].how, "Automatic install prompt + Menu → Install app / Add to Home screen");
+  assert.equal(sections[0].phone[1].platform, "iOS / iPadOS");
+  assert.equal(sections[0].desktop[0].platform, "Windows");
+  assert.equal(sections[0].desktop[1].how, "Chrome/Edge install icon → Dock. Safari 17+ → File → Add to Dock");
+  assert.equal(sections[0].desktop[2].platform, "ChromeOS / Linux");
+  assert.equal(sections[1].href, "https://trade.verodus.com/dashboard");
   const cards = getPlatformsCards();
-  assert.deepEqual(
-    cards.map((card) => card.id),
-    [
-      "dashboard-ios",
-      "dashboard-android",
-      "dashboard-desktop",
-      "trading-ios",
-      "trading-android",
-      "trading-desktop",
-    ]
-  );
+  assert.ok(cards.some((card) => card.id === "dashboard-android"));
+  assert.ok(cards.some((card) => card.id === "trading-macos"));
 });
 
 test("trading install modal has instructions and a TradeHub link", () => {
   const copy = getTradingInstallModalCopy("ios");
   assert.match(copy.title, /iPhone/i);
-  assert.match(copy.lead, /Chrome on iPhone is still iOS/i);
+  assert.match(copy.steps[1], /Add to Home Screen/);
   assert.equal(copy.href, "https://trade.verodus.com/dashboard");
   assert.equal(copy.cta, "Open TradeHub");
 });

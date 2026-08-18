@@ -125,9 +125,11 @@
   }
 
   function normalizePlatform(value) {
-    if (value === "mobile") return "ios";
-    if (value === "safari") return "desktop";
-    if (value === "ios" || value === "android" || value === "desktop") return value;
+    if (value === "mobile" || value === "ios") return "ios";
+    if (value === "android") return "android";
+    if (value === "safari" || value === "desktop" || value === "windows" || value === "macos" || value === "linux") {
+      return "desktop";
+    }
     return "";
   }
 
@@ -148,21 +150,30 @@
     if (root) root.classList.add("is-installed");
   }
 
+  function suggestedRow() {
+    if (ios()) return "ios";
+    if (android()) return "android";
+    if (safariMac()) return "macos";
+    if (/Win/i.test(navigator.userAgent || "")) return "windows";
+    if (/Linux|CrOS/i.test(navigator.userAgent || "")) return "linux";
+    return "macos";
+  }
+
   function markSuggested() {
-    var surface = suggestedSurface();
-    var cards = document.querySelectorAll(".v-platforms__card[data-install-platform]");
-    cards.forEach(function (card) {
-      card.classList.toggle("is-suggested", card.getAttribute("data-install-platform") === surface);
+    var row = suggestedRow();
+    var cells = document.querySelectorAll(".v-platforms [data-install-platform]");
+    cells.forEach(function (el) {
+      el.classList.toggle("is-suggested", el.getAttribute("data-install-platform") === row);
     });
     var hint = document.querySelector("[data-platforms-hint]");
     if (!hint) return;
     if (ios() && chromeIos()) {
       hint.hidden = false;
       hint.textContent =
-        "You are on iPhone Chrome. Use iOS (Share → Add to Home Screen), not Android.";
+        "You are on iPhone Chrome. Use iOS / iPadOS → Share → Add to Home Screen.";
     } else if (safariMac()) {
       hint.hidden = false;
-      hint.textContent = "You are in Safari on a Mac. Use Desktop → Add to Dock.";
+      hint.textContent = "You are in Safari on a Mac. Use macOS → File → Add to Dock.";
     } else {
       hint.hidden = true;
     }

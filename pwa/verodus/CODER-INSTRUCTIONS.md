@@ -102,13 +102,26 @@ Required `<head>` (Next metadata API is fine):
 
 Add **Platforms** under **Trading Resources**, next to Economic Calendar and News.
 
-Two sections: **Dashboard** and **Trading**. Each has **iOS**, **Android**, and **Desktop**.
+Two sections: **Dashboard** and **Verodus Trading**. Each has the same tables:
 
-- **iOS** — iPhone / iPad. Safari *and* Chrome on iOS use Share → Add to Home Screen. Chrome on iPhone is **not** the Android install.
-- **Android** — Chrome / Edge / Samsung → Install app
-- **Desktop** — Chrome / Edge → Install; Safari on a Mac → Add to Dock; Firefox desktop cannot install
+**Phone and tablet**
 
-Dashboard buttons install this origin. Trading buttons open a **modal** with device steps and **Open TradeHub** → `https://trade.verodus.com/dashboard`.
+| Platform | How users install | Quality of experience | Notes |
+|---|---|---|---|
+| Android | Automatic install prompt + Menu → Install app / Add to Home screen | Excellent (almost native) | Chrome, Edge, Samsung Internet, Brave all support it well. Can become a WebAPK. |
+| iOS / iPadOS | Safari → Share → Add to Home Screen (also possible from Chrome/Edge on iOS 16.4+) | Good but manual | No automatic `beforeinstallprompt`. You must show clear instructions. Push notifications only work after install. |
+
+**Desktop**
+
+| Platform | How users install | Quality of experience | Notes |
+|---|---|---|---|
+| Windows | Chrome/Edge address bar install icon or Menu → Install app | Excellent | Appears in Start Menu, can pin to taskbar |
+| macOS | Chrome/Edge install icon → Dock. Safari 17+ → File → Add to Dock | Very good | Works well on Sonoma and later |
+| ChromeOS / Linux | Same as Chromium browsers | Good | — |
+
+**Dashboard** — Install button stays on this origin (`data-install-section="dashboard"`).
+
+**Verodus Trading** — same tables, plus **Open Verodus Trading** (`data-install-section="trading"`) which opens a modal with steps and a link to `https://trade.verodus.com/dashboard`. Does not auto-install.
 
 ```js
 { title: "Platforms", href: "/trading-resources/platforms" }
@@ -128,7 +141,7 @@ Suggested icon: `MonitorSmartphone` from lucide-react.
 | `dashboard/components/platforms.css` | next to `PlatformsPage.jsx` |
 | `dashboard/app/trading-resources/platforms/page.jsx` | `app/trading-resources/platforms/page.jsx` |
 
-The buttons use `data-install-app` + `data-install-section="dashboard|trading"` + `data-install-platform="ios|android|desktop"`.
+The buttons use `data-install-app` + `data-install-section="dashboard|trading"`.
 
 Do not send these to Play or App Store. Leave existing Platform5 / TradeHub account-card buttons unchanged.
 
@@ -138,9 +151,9 @@ Do not send these to Play or App Store. Leave existing Platform5 / TradeHub acco
 
 1. Uninstall old Verodus / “Verodus CRM” home-screen icons.
 2. **www.verodus.com** — tap **for android** / **for iOS** → modal with Dashboard → Trading Resources → Platforms. **Open dashboard**.
-3. Sidebar: **Trading Resources → Platforms**. Two sections (Dashboard, Trading), each with iOS / Android / Desktop.
+3. Sidebar: **Trading Resources → Platforms**. Two sections (**Dashboard**, **Verodus Trading**), each with Android / iOS and Windows / macOS / ChromeOS tables.
 4. Open the installed CRM: Dashboard, Accounts, Journal stay on `dashboard.verodus.com`.
-5. Trading → pick a device → modal → **Open TradeHub** → `https://trade.verodus.com/dashboard`.
+5. Verodus Trading → **Open Verodus Trading** → modal → `https://trade.verodus.com/dashboard`.
 6. iPhone (Safari or Chrome): Share → Add to Home Screen on Dashboard, or the Trading iOS guide + link.
 
 Firefox desktop cannot hide its URL bar and cannot install PWAs. Use Chrome or Edge on desktop.

@@ -22,7 +22,7 @@
       '<div class="v-platforms-modal__sheet" role="dialog" aria-modal="true" aria-labelledby="v-platforms-title" tabindex="-1">' +
       '<div class="v-platforms-modal__handle" aria-hidden="true"></div>' +
       '<h2 id="v-platforms-title">Install Verodus from the dashboard</h2>' +
-      '<p class="v-platforms-modal__lead">Install from Dashboard → Trading Resources → Platforms. Choose Android, Mobile, Desktop, or Safari.</p>' +
+      '<p class="v-platforms-modal__lead">Install from Dashboard → Trading Resources → Platforms. Two sections — Dashboard and Verodus Trading.</p>' +
       '<ol class="v-platforms-modal__path">' +
       "<li>Dashboard</li>" +
       "<li>Trading Resources</li>" +
