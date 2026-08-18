@@ -91,7 +91,7 @@ add("Verodus 1-Step", "Verodus", "1-Step", "1-step",
     funded(0.06, "hybrid", 0.04, min_days=0, cons=0.50),
     sku((5e3,69,45),(1e4,106,69),(25e3,198,129),(5e4,337,219),(1e5,583,379),(2e5,1075,699)),
     refund="first", discount="VERO35",
-    source="rule alignment: QPP no min days; 50% Best Day (no 0.5% floor)")
+    source="1-Step QPP: 50% Best Day (no 0.5% floor). Two equal days can pass; in the book that is the same as 3 days.")
 
 add("Verodus 2-Step Lite", "Verodus", "2-Step Lite", "2-step",
     [P(0.08, 0.08, "static", 0.04, min_days=5), P(0.05, 0.08, "static", 0.04, min_days=5)],

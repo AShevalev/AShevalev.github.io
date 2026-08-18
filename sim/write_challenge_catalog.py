@@ -182,7 +182,8 @@ def build():
     ))
     story.append(P(
         "<b>One-Step:</b> 10% target, 50% best-day, 4% daily (SOD), 6% hybrid max "
-        "(locks at initial). Same DD on funded. No min trading days; 50% Best Day. "
+        "(locks at initial). Same DD on funded. 50% Best Day (two equal days can pass; "
+        "that split is rare, so the clock is usually three days). Do not list a 3-day min. "
         "Fee refunded on first payout (challenge fee only — add-ons are not refunded).",
         s["body"],
     ))

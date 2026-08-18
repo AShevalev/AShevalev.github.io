@@ -38,5 +38,15 @@ Leftover = sale × 0.80 − (BE × 1.10 + $1 + wage share). Sale m is the ads-li
 
 **0 SKUs leftover up · 6 down · 17 flat** (±$0.05).
 
-2-Step rows should be flat aside from Monte Carlo noise — those payout day rules did not change.
+2-Step rows are bit-identical. Instant is bit-identical to the old two-box book at this seed (`>` vs `≥` 0.5% did not move a path).
+
+## Instant rule
+
+Every green day is factored into Positive Days’ Profit / Best Day. A day meets the 0.5% parameter only if closed profit is **more than** 0.5% of start-of-day equity. Chip days (+0.1%, +0.4%) dilute Best Day again. Instant $100k leftover is **+$20**. Instant family leftover on 98 accounts is **+$1,486**. The 310 book is **$9,661 (17.8%)** — Instant is back; 1-Step is the remaining leftover cut.
+
+## 1-Step 50% Best Day ≈ 3 days on the clock
+
+Two equal green days = 50% Best Day and can pay. That 50/50 split is rare, so the clock is usually three days. In this book `50% Best Day` and `50% Best Day + 3 min days` are the same leftover ($93 at $100k). Adding a listed 3-day min does nothing.
+
+Leftover still fell vs the old QPP rule because old QPP was **3 any trading days, no Best Day**. A lopsided book (one big day + two small days) paid then. 50% Best Day rejects that until more green profit is added. Paid paths stay longer and pay more (first-payout E[X] $100k $118 → $151). Do not list a 3-day min on 1-Step.
 

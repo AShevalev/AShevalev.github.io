@@ -169,7 +169,8 @@ def build_rules():
     story.append(P(
         "<b>One-Step.</b> One evaluation: 10% target, no min days, 50% best-day. "
         "4% daily, 6% hybrid max (locks at initial). Same drawdown on funded. "
-        "No min trading days on Qualified Performance; every payout is $100 and Best Day ≤50%. "
+        "Qualified Performance: $100 and Best Day ≤50% (no 0.5% floor). Two equal green days "
+        "can pass; that split is rare, so the clock is usually three days. Do not list a 3-day min. "
         "Challenge fee refunded on first payout (add-ons are not refunded).",
         s["body"],
     ))
