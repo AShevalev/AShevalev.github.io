@@ -29,11 +29,23 @@ This is a copy brief, not a legal opinion. Counsel should still review Terms, Ri
 
 ## Locked: homepage hero
 
-No copy, price, or “funded” changes in the hero block.
+Do not edit H1, subhead, or CTAs. Do not change prices or “funded” inside those three lines.
 
 The Instant table currently starts at **$72**, not $49. Do **not** “fix” that by editing the hero or the meta.
 
 Use **funded** less **everywhere else**. The hero already carries the search term.
+
+---
+
+## Add under the hero (simulation next to “Funding Traders Worldwide”)
+
+Do **not** rewrite the H1. Add **one new line** immediately under the CTAs, before the stat strip.
+
+> Simulated accounts. Cash rewards when you qualify. No deposit of trading capital.
+
+That is the whole fix. Retail still sees **Funding Traders Worldwide** and the locked meta. Experienced traders see **simulated** on the same screen, not only in FAQ and Terms.
+
+Do not put that sentence on the No Personal Capital card. Do not edit the hero subhead (it already says no deposits / no brokerage; it does not say simulated — this new line does).
 
 ---
 
@@ -61,6 +73,7 @@ Inner-page titles stay as they are even when a single on-page word changes.
 2. **“Funded”** below the hero (Instant labels, Instant rules, FAQ, dashboard) still sounds like live money. Swap the word; do not rewrite the Instant product story.
 3. **“Discretionary”** on the legitimacy FAQ tells people you might not pay even if they follow the rules. Replace that sentence only.
 4. One public legal name.
+5. Simulation honesty sits **on the same screen** as Funding Traders Worldwide (one new line under the CTAs). Not only in FAQ and legal.
 
 ---
 
@@ -273,22 +286,22 @@ Use only when a listed swap above already applies. Do not hunt the site to rewri
 
 ## 15. Homepage order
 
-Do not reorder the page. Hero, meta, pricing module, How it works, Trustpilot score, and Why Verodus cards stay where they are.
+Do not reorder the page. After the locked hero CTAs, add the one simulation line, then the existing stat strip. Pricing, How it works, Trustpilot, and Why Verodus stay where they are.
 
 ---
 
 ## 16. What not to change
 
-- **Homepage hero** (H1, subhead, CTAs).
+- **Homepage hero** (H1, subhead, CTAs). You **may** add the one simulation line **under** the CTAs.
 - **Meta on every page.** Homepage description stays **Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit.**
 - Instant / pricing module (sizes, $200k row, leftover fee line, no new refund sentence).
-- Why Verodus intro and cards, including **Supported Platforms** (no US Platform 5 add) and **No Personal Capital** (do not add “Trading is simulated.”).
+- Why Verodus intro and cards, including **Supported Platforms** (no US Platform 5 add) and **No Personal Capital** (do not add “Trading is simulated.” — that line goes under the hero CTAs instead).
 - How it works steps, calculator, bottom CTA.
 - Trustpilot **Rated 4.5 / 5** (do not widget-ize or remove).
 - Existing testimonial quotes.
 - FAQ answers other than the two phrase swaps in section 10.
 - About opening / mission copy.
-- About **Read Bio** modals (already in place; do not add on-page bios).
+- About **Read Bio** UI stays modal. Do not paste bios onto the About page. Fill the modals (section 18).
 - Stat strip **$1M Max Capital** and **&lt;24h Reward Processing**.
 - Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages.
 - Restricted-country and US Platform 5 notes where they already live.
@@ -298,12 +311,47 @@ Do not reorder the page. Hero, meta, pricing module, How it works, Trustpilot sc
 
 ## 17. Implementation order
 
-1. FAQ “Is Verodus legitimate?” — remove “discretionary” only.
-2. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3).
-3. One legal name in footer / Privacy / Terms. Counsel-gated Privacy amendment for anonymized/aggregated data sale (section 12) — do not publish until counsel signs.
-4. Stat strip: reward split (and 3,000+ traders if you still want it).
-5. About: fix “Architects of Scale,” swap “behavioral analysis.” Skip bios — they are already modals.
-6. Certificates: unique IDs or hide duplicates — no copy rewrite.
-7. Blog body numbers only, if they are wrong.
+1. Add the one simulation line under the hero CTAs.
+2. FAQ “Is Verodus legitimate?” — remove “discretionary” only.
+3. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3).
+4. One legal name in footer / Privacy / Terms. Counsel-gated Privacy amendment for anonymized/aggregated data sale (section 12) — do not publish until counsel signs.
+5. Stat strip: reward split (and 3,000+ traders if you still want it).
+6. About: fix “Architects of Scale,” swap “behavioral analysis.” Fill Read Bio **modals** with founder proof (section 18). Do not put bios on the page.
+7. Certificates: unique IDs or hide duplicates — no copy rewrite.
+8. Blog body numbers only, if they are wrong.
 
 Do **not** include a hero rewrite, a meta rewrite, a pricing-module rewrite, or a Trustpilot rewrite in this pass. Do **not** put data-sale language on marketing pages.
+
+---
+
+## 18. How to create founder proof
+
+Founder proof is not a slogan. It is a stranger being able to confirm **two named people run Verodus**. Empty “Read Bio” chrome, smashed headings, and stock language do the opposite. Bios stay in the existing **modals**. Put the proof **inside** those modals and in a few off-site places that match.
+
+**On Verodus (modals only)**
+
+Each modal needs all of this:
+
+- A real photo (same face as LinkedIn and any AMA).
+- The name as it appears on the Dubai FZ record.
+- Title: Co-founder & CEO / Co-founder & COO.
+- Two to four sentences of work they actually did, that a search can confirm. What they run at Verodus (rules and product vs operations and payouts).
+- A LinkedIn URL that opens.
+- No “Architects of Scale,” no invented banks, no MIT/Jane Street unless it is true and checkable.
+
+Template (replace with real facts only):
+
+> **Kim Chen** — Co-founder and CEO. Runs evaluation products and published rules. [One true prior role, years, firm.]  
+> **Alexander Vladimirovich** — Co-founder and COO. Runs operations, payouts, and trader support. [One true prior role, years, firm.]
+
+**Off-site (this is what actually creates proof)**
+
+1. **Registry.** Verodus L.L.C.-FZ on the Dubai FZ public search with the same two names. If you publish a license number, it must match that record.
+2. **LinkedIn.** Company page lists both as founders. Personal profiles name Verodus, are not empty, and use the same photos.
+3. **One filmed appearance.** Discord AMA or short video with both (or the CEO) on camera. Same faces as the modals. Record it; leave it up.
+4. **Same names on paper.** Support signatures, trader agreement, and any PropFirmMatch / press listing use Kim Chen and Alexander Vladimirovich, not “the team.”
+5. **Do not buy** interviews, fake employee counts, or stock-photo leadership. That is anti-proof.
+
+**What this does not do**
+
+Founder proof is not payout proof. It answers “are these people real?” It does not answer “do they pay?” That still needs unique certificate IDs, a Trustpilot people can open, and third-party talk.

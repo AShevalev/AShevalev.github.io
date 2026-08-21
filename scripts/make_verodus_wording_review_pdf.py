@@ -176,7 +176,8 @@ def build():
     pdf.set_y(78)
     pdf.callout(
         "Label after this pass: an unproven Instant/challenge simulated-evaluation firm "
-        "with careful FAQ and Terms, one UAE FZ name, and Instant-search marketing. "
+        "with careful FAQ and Terms, one UAE FZ name, Instant-search marketing, and "
+        "simulated accounts stated on the same screen as Funding Traders Worldwide. "
         "Not a scam site. Not a licensed broker. Not live capital. Not a known payer. "
         "Hero and meta still sell Funded on day one from $49."
     )
@@ -185,14 +186,16 @@ def build():
     pdf.body(
         "Light phrase swaps. No hero rewrite, no meta rewrite, no Instant pricing rewrite, "
         "no Trustpilot rewrite, no Why Verodus rewrite, no How it works rewrite, no FAQ "
-        "rewrite except two phrases, no About bios (already modals)."
+        "rewrite except two phrases. Bios stay in Read Bio modals (fill them; do not move "
+        "them onto the page). One new line under the hero CTAs: Simulated accounts. "
+        "Cash rewards when you qualify. No deposit of trading capital."
     )
     add_table(
         pdf,
         ["In", "Out"],
         [
             [
-                "One legal name: Verodus L.L.C.-FZ. Payments: Capital Inc. affiliate.",
+                "One line under hero CTAs: Simulated accounts. Cash rewards when you qualify. No deposit of trading capital.",
                 "Hero H1, subhead, CTAs. Title Instant from $49. Funded on Day One.",
             ],
             [
@@ -200,28 +203,32 @@ def build():
                 "Meta: Funded on day one from $49. 1-Step from $45. Lite from $39. $5k-$200k. Keep 80%. No deposit.",
             ],
             [
-                "Instant label, FAQ Instant line, dashboard, Privacy: Instant / Qualified Performance, not Funded.",
+                "One legal name: Verodus L.L.C.-FZ. Payments: Capital Inc. affiliate.",
                 "Instant table $200k row, leftover $296 / -35% line, refund sentence.",
             ],
             [
-                "Stat strip: 3,000+ traders; 90% reward split. Keep $1M and <24h as-is.",
+                "Instant label, FAQ Instant line, dashboard, Privacy: Instant / Qualified Performance, not Funded.",
                 "Trustpilot 4.5/5. Quotes. Platform 5 on Why Verodus. Trading is simulated on No Personal Capital.",
             ],
             [
-                "About: Leadership heading. Behavioral analysis -> risk control. Bios stay in modals.",
-                "About opening, mission, Read Bio content.",
-            ],
-            [
-                "Certificates: unique IDs or hide duplicates. Copy stays Real traders. Real certificates.",
+                "Stat strip: 3,000+ traders; 90% reward split. Keep $1M and <24h as-is.",
                 "How it works, calculator, bottom CTA.",
             ],
             [
-                "Blog body numbers to live rules, or unpublish. Meta of that page stays.",
+                "About: Leadership heading. Behavioral analysis -> risk control. Fill Read Bio modals (founder proof). Do not paste bios on the page.",
+                "About opening / mission copy. Moving bios out of modals.",
+            ],
+            [
+                "Certificates: unique IDs or hide duplicates. Copy stays Real traders. Real certificates.",
                 "Any other section rewrite.",
             ],
             [
-                "Privacy (counsel-gated): anonymized/aggregated data license clauses. Not on homepage.",
+                "Blog body numbers to live rules, or unpublish. Meta of that page stays.",
                 "We sell trading data on marketing pages.",
+            ],
+            [
+                "Privacy (counsel-gated): anonymized/aggregated data license clauses. Not on homepage.",
+                "Hero H1, subhead, CTAs unchanged. Meta unchanged.",
             ],
         ],
         [87, 87],
@@ -235,7 +242,7 @@ def build():
             [
                 "Google / Instant buyer",
                 "Funded on day one from $49. Keep 80%. $5k-$200k.",
-                "Same. First screen is still cheap Instant funding.",
+                "Same search snippet. First screen now also says simulated accounts, cash rewards, no deposit.",
             ],
             [
                 "Trader who reads FAQ / Terms",
@@ -276,10 +283,10 @@ def build():
             ["Search / Instant pitch", "Funded on day one from $49", "Unchanged"],
             ["Payout promise", "Discretionary", "Rules + KYC; clawback for breaches"],
             ["Legal identity", "LLC vs L.L.C.-FZ", "One FZ name + Capital Inc. affiliate"],
-            ["Funded vs simulation", "Funded on Instant cards next to simulated capital", "Hero/meta keep Funded; cards say Instant"],
+            ["Funded vs simulation", "Funded on Instant cards next to simulated capital", "Hero/meta keep Funded; one line under CTAs says simulated; cards say Instant"],
             ["Stat strip honesty", "Profit split + $1M max capital", "Reward split; $1M stays"],
             ["Social proof", "4.5 Trustpilot, first-name quotes, duplicate certificates", "Trustpilot and quotes stay; duplicates should go"],
-            ["About polish", "Smashed heading; behavioral analysis", "Leadership; risk control; bios still modals"],
+            ["About polish", "Smashed heading; behavioral analysis; empty-feeling leadership", "Leadership; risk control; founder proof inside modals"],
             ["Price / SKU match", "$49 meta vs $72 Instant; $200k Instant in table", "Unchanged (pricing skipped)"],
             ["Public payout proof", "None independent", "Unchanged"],
         ],
@@ -310,8 +317,16 @@ def build():
         "If they stay, that block still costs more trust than it buys."
     )
     pdf.bullet(
-        "Leadership and risk control remove two amateur tells. They do not create founder "
-        "proof. Bios stay in modals."
+        "One line under the hero CTAs puts simulation on the same screen as Funding "
+        "Traders Worldwide: Simulated accounts. Cash rewards when you qualify. No "
+        "deposit of trading capital. H1, subhead, CTAs, and meta stay locked. Search "
+        "still says Funded on day one from $49. The page no longer hides simulated "
+        "until FAQ."
+    )
+    pdf.bullet(
+        "Leadership and risk control remove two amateur tells. Founder proof is filling "
+        "the Read Bio modals with photos, LinkedIn, and checkable work history, plus "
+        "registry and one filmed AMA. That is off-copy work, not a heading change."
     )
 
     pdf.h2("What still hurts")
@@ -333,13 +348,35 @@ def build():
         "First-name testimonials stay. Social proof is still self-issued."
     )
     pdf.bullet(
-        "Simulation honesty still lives in FAQ, Instant rules, and legal pages, not next "
-        "to Funding Traders Worldwide. Retail Instant buyers still hear funded. "
-        "Experienced traders still hear demo."
-    )
-    pdf.bullet(
         "No Reddit, PropFirmMatch, or independent payout corpus. Wording does not create "
         "that. Until it exists the honest public label is unproven, not scam, not FTMO-grade."
+    )
+
+    pdf.h2("How to create founder proof")
+    pdf.body(
+        "A stranger must be able to confirm two named people run Verodus. Keep bios in "
+        "the existing Read Bio modals. Do not paste them onto the About page."
+    )
+    pdf.bullet(
+        "Each modal: real photo (same as LinkedIn), name as on the Dubai FZ record, "
+        "CEO/COO title, two to four checkable sentences of prior work plus what they "
+        "run at Verodus, and a LinkedIn URL that opens. No invented banks or degrees."
+    )
+    pdf.bullet(
+        "Registry: Verodus L.L.C.-FZ public search with the same two names. Only publish "
+        "a license number if it matches."
+    )
+    pdf.bullet(
+        "LinkedIn company page lists both as founders. Personal profiles name Verodus "
+        "and are not empty."
+    )
+    pdf.bullet(
+        "One filmed appearance (Discord AMA or short video) with the same faces. Leave it up."
+    )
+    pdf.bullet(
+        "Same names on the trader agreement and any PropFirmMatch or press listing. "
+        "Do not buy interviews or use stock photos. Founder proof answers are these "
+        "people real. It does not answer do they pay."
     )
 
     pdf.h2("Privacy amendment (counsel-gated, not marketing)")
@@ -359,12 +396,13 @@ def build():
     pdf.h2("Clean verdict")
     pdf.callout(
         "Do the edits. They close the worst self-inflicted leaks: discretionary, two "
-        "names, Funded as a phase label, smashed About heading. After they ship, Verodus "
-        "is a careful Instant shop, not a new kind of firm. Attractive to Instant buyers "
-        "on Google. Less alarming to traders who read FAQ and Terms. Unchanged for anyone "
-        "waiting on third-party payout proof. Reputation in this category is paid for with "
-        "verifiable payouts, a Trustpilot people can open, and numbers that match checkout. "
-        "Those remain outside this pass."
+        "names, Funded as a phase label, smashed About heading, and simulation buried "
+        "in FAQ. After they ship, Verodus is a careful Instant shop, not a new kind of "
+        "firm. Attractive to Instant buyers on Google. Less alarming to traders who read "
+        "the first screen, FAQ, and Terms. Unchanged for anyone waiting on third-party "
+        "payout proof. Reputation in this category is paid for with verifiable payouts, "
+        "a Trustpilot people can open, numbers that match checkout, and founder proof "
+        "(registry + LinkedIn + one filmed AMA). Those last items remain mostly outside copy."
     )
 
     pdf.ln(2)
