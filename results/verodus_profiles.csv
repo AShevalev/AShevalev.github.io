@@ -1,0 +1,17 @@
+Product,Profile,Weight,N,Phase1,Phase2,Funded,P_pay,P_yr1,E_payout_100k,E_payout_if_paid_100k,Avg_days
+Verodus Instant,Disciplined / Pro,0.035,4000,0.7995,,0.7995,0.7995,0.25525,3490.254850878532,4365.547030492223,43.257
+Verodus Instant,Average Retail,0.145,4000,0.0,,0.0,0.0,0.0,0.0,0.0,7.1215
+Verodus Instant,Aggressive / Over-leveraged,0.6,4000,0.0,,0.0,0.0,0.0,0.0,0.0,1.45875
+Verodus Instant,Scalper / High-frequency,0.22,4000,0.0,,0.0,0.0,0.0,0.0,0.0,4.0235
+Verodus 1-Step,Disciplined / Pro,0.035,4000,0.555,,0.523,0.523,0.1725,672.8532548293484,1286.5262998649107,79.07175
+Verodus 1-Step,Average Retail,0.145,4000,0.0285,,0.00625,0.00625,0.00175,19.477703928581438,3116.4326285730303,20.7095
+Verodus 1-Step,Aggressive / Over-leveraged,0.6,4000,0.001,,0.0,0.0,0.0,0.0,0.0,3.11725
+Verodus 1-Step,Scalper / High-frequency,0.22,4000,0.00275,,0.00025,0.00025,0.00025,0.6848958396866016,2739.5833587464062,16.98325
+Verodus 2-Step Lite,Disciplined / Pro,0.035,4000,0.82025,0.8479122218835721,0.68175,0.68175,0.216,876.8072828618407,1286.1126261266456,89.17525
+Verodus 2-Step Lite,Average Retail,0.145,4000,0.05025,0.07960199004975124,0.00125,0.00125,0.00025,3.2600479862641514,2608.0383890113217,9.91325
+Verodus 2-Step Lite,Aggressive / Over-leveraged,0.6,4000,0.0,,0.0,0.0,0.0,0.0,0.0,1.482
+Verodus 2-Step Lite,Scalper / High-frequency,0.22,4000,0.004,0.0,0.0,0.0,0.0,0.0,0.0,6.778
+Verodus 2-Step Pro,Disciplined / Pro,0.035,4000,0.859,0.8926076833527358,0.75,0.75,0.238,910.4706794668923,1213.9609059558563,94.95525
+Verodus 2-Step Pro,Average Retail,0.145,4000,0.0415,0.09036144578313253,0.001,0.001,0.0,4.723899608180957,4723.899608180958,13.92125
+Verodus 2-Step Pro,Aggressive / Over-leveraged,0.6,4000,0.0,,0.0,0.0,0.0,0.0,0.0,1.55525
+Verodus 2-Step Pro,Scalper / High-frequency,0.22,4000,0.00325,0.0,0.0,0.0,0.0,0.0,0.0,10.23

@@ -1,0 +1,179 @@
+checkout.html vs live verodus.com/checkout.html
+Compared 17 Aug 2026. Rec page keeps live chrome (nav, footer, CSS, form, payment marks) via <base href="https://www.verodus.com/"> and replaces billing + add-on logic.
+
+Rebuild: python3 landing/stitch_checkout.py
+
+
+------------------------------------------------------------------------
+UNCHANGED
+------------------------------------------------------------------------
+
+Plan tabs: Instant, 1-Step, 2-Step Lite, 2-Step Pro.
+Default selection: 1-Step $5k.
+Instant still has no $200k.
+Country dropdown still hides US, PR, GU, VI, AS, MP.
+Form fields, payment method marks, and layout classes are live’s.
+Coupon code name is still VERO35 at 35% off (cap 35%).
+Weekend holding still exists as a paid add-on (Friday 22:00 flatten off).
+
+
+------------------------------------------------------------------------
+1. CHALLENGE LIST PRICES  (checkout basePrice)
+------------------------------------------------------------------------
+
+List is what size buttons show. Shopper pays 65% after VERO35.
+
+Plan / size          LIVE list    REC list     REC sale (VERO35)
+Instant $5k          $75          $75          $49
+Instant $10k         $106         $106         $69
+Instant $25k         $214         $229         $149
+Instant $50k         $368         $368         $239
+Instant $100k        $675         $675         $439
+Instant $200k        not offered  not offered  —
+
+1-Step $5k           $55          $69          $45
+1-Step $10k          $92          $106         $69
+1-Step $25k          $185         $198         $129
+1-Step $50k          $297         $337         $219
+1-Step $100k         $515         $583         $379
+1-Step $200k         $1,006       $1,075       $699
+
+2-Step Lite $5k      $65          $60          $39
+2-Step Lite $10k     $85          $85          $55
+2-Step Lite $25k     $145         $177         $115
+2-Step Lite $50k     $229         $260         $169
+2-Step Lite $100k    $414         $475         $309
+2-Step Lite $200k    $768         $922         $599
+
+2-Step Pro $5k       $69          $69          $45
+2-Step Pro $10k      $91          $91          $59
+2-Step Pro $25k      $146         $192         $125
+2-Step Pro $50k      $245         $306         $199
+2-Step Pro $100k     $445         $537         $349
+2-Step Pro $200k     $888         $1,075       $699
+
+
+------------------------------------------------------------------------
+2. ADD-ON MENU
+------------------------------------------------------------------------
+
+LIVE (4 SKUs, same % on every plan):
+  News Trading                         15%
+  Weekend Holding                      18%
+  Weekly Rewards with 70% Split         6%
+  On Demand Rewards with 90% Split     20%
+  All four can be stacked. No XOR.
+  No separate 90% Bi-Weekly SKU. On Demand IS the 90% product.
+  On Demand min reward: 2% of balance AND $200.
+
+REC (3 SKUs). News and Swing are gone:
+  Weekend Holding                              15% of list
+  Weekly Rewards with 70% Reward Split         6% of list (same as live)
+  On Demand Rewards with 90% Split             32% Instant / 15% evals
+  Weekly and On Demand can be selected together (same as live).
+  No separate 90% Bi-Weekly SKU. On Demand IS the 90% product.
+
+Default cycle is Bi-Weekly 80% (not a toggle).
+Min reward $100 on every combination (no 2% / $200 On Demand floor).
+News trading is included in the challenge fee (no SKU).
+Swing (news+weekend bundle) is not sold.
+
+Sticker = round(list × %). VERO35 takes 35% off list + stickers.
+
+
+------------------------------------------------------------------------
+3. ADD-ON TOOLTIPS
+------------------------------------------------------------------------
+
+LIVE:
+  News: unrestricted news on eval and funded.
+  Weekend: Friday 22:00 flatten off. (same idea as rec)
+  Weekly 70%: first payout when funded-phase requirements are met, min $100.
+  On Demand 90%: first payout when funded-phase requirements are met, min 2% and $200.
+
+REC:
+  No News tooltip (SKU removed).
+  Weekend: same Friday 22:00 copy. Does NOT say “news is included”.
+  Weekly 70% / On Demand 90%: Instant says “Payouts after 5 valid trading days (0.5% vs start-of-day equity).”
+  Evals say “First request after 3 funded trading days.”
+  Weekly row copy: “Withdraw your profit share weekly”
+  On Demand row copy: “Withdraw your profit share anytime — no waiting for fixed cycles”
+  Full per-plan copy: landing/checkout-addon-tooltips.txt
+
+Modal foot
+  LIVE: Add-on eligibility and rules apply per program terms.
+  REC:  Add-on fees are not refundable. Eligibility and rules apply per program terms.
+
+
+------------------------------------------------------------------------
+4. QUANTITY
+------------------------------------------------------------------------
+
+LIVE: one account per order. No quantity stepper.
+
+REC: quantity 1–4 under the order total (Blue Guardian-style stepper).
+     Every copy is VERO35. No extra 30/35/40% copy ladder. No 5th free.
+
+
+------------------------------------------------------------------------
+5. COUPON
+------------------------------------------------------------------------
+
+LIVE:
+  Input starts empty, then JS auto-fills VERO35 and POSTs /api/validate-coupon.
+  Other live coupons can apply. Discount cap 35%.
+
+REC:
+  Input is pre-filled value="VERO35". Feedback already says “Coupon applied.”
+  Only VERO35 is accepted (local, no API). Anything else: “This coupon is not valid.”
+  Still 35% off (list + add-on stickers), cap 35%.
+
+
+------------------------------------------------------------------------
+6. REFUND COPY
+------------------------------------------------------------------------
+
+LIVE:
+  Pill: “Refundable on first payout”
+  Instant (and competition): the whole refund block is hidden.
+  Evals: challenge fee refundable on first payout (live does not say add-ons are excluded in the pill).
+
+REC:
+  Evals pill: “Refundable on first payout excluding add-on fees.”
+  Instant: pill hidden; note under it: “Instant purchases are not refundable.”
+  Instant is not refundable at all. Evals refund challenge fee only, not add-ons.
+
+
+------------------------------------------------------------------------
+7. LEGAL / TERMS
+------------------------------------------------------------------------
+
+LIVE currently has no “I confirm that I am not a U.S. citizen or resident” checkbox.
+REC stitch still strips that line if live ever puts it back.
+
+Country list still omits US territories (same as live).
+
+
+------------------------------------------------------------------------
+8. PURCHASE / TECH (rec is a drop-in mock)
+------------------------------------------------------------------------
+
+LIVE checkout posts a real order (coupon API, purchase, ads pixels).
+
+REC checkout:
+  Keeps live markup/CSS.
+  Replaces the big live <script> with rec billing (landing/checkout-logic.js).
+  Purchase button only opens the success modal after 700ms. It does not charge.
+  Weglot translation scripts are stripped.
+  <base href="https://www.verodus.com/"> so images/CSS/nav still load from live.
+  Competition URL mode exists as a stub (COMPETITION = null) — live still runs real competition entries.
+
+
+------------------------------------------------------------------------
+9. WHAT TO PASTE ONTO LIVE
+------------------------------------------------------------------------
+
+Do not paste the mock purchase handler.
+Paste: PRICING, ADDONS (Weekend 15%, Weekly 70% at 6%, On Demand 90% at 32% Instant / 15% evals), quantity 1–4, refund copy, VERO35 on list+stickers, tooltips from checkout-addon-tooltips.txt.
+Keep live’s /api/validate-coupon and real purchase.
+News SKU stays off. Instant $200k stays off. Weekly and On Demand may stack.

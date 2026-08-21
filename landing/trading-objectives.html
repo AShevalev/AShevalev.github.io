@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="https://www.verodus.com/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View Verodus trading objectives, profit targets, drawdown thresholds, payout cycles, and core risk-control requirements.">
+    <!-- PWA and Icons -->
+    <link rel="manifest" href="/manifest.json?v=9">
+    <link rel="icon" type="image/webp" sizes="48x48" href="/images/favicon-48x48.webp">
+    <link rel="icon" type="image/webp" sizes="32x32" href="/images/favicon-32x32.webp">
+    <link rel="icon" type="image/webp" sizes="16x16" href="/images/favicon-16x16.webp">
+    <link rel="apple-touch-icon" href="/images/pwa-icon-192.webp">
+    <meta name="theme-color" content="#1b2b8e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Verodus">
+    <title>Trading Objectives & Rules | Verodus</title>
+    <link rel="stylesheet" href="styles.css?v=20260417">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css"></noscript>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer=""></script>
+    <style>
+        .to-alt { padding: 0 var(--content-padding); }
+        @media(max-width:960px){
+            .to-alt, #evaluations { max-width: 100vw; box-sizing: border-box; overflow-x: hidden; }
+            .to-alt .about-container, .to-alt .compartment, .to-alt .compartment-inner,
+            #evaluations .about-container, #evaluations .compartment, #evaluations .compartment-inner { min-width: 0; max-width: 100%; overflow-x: hidden; }
+        }
+        .to-alt-dark  { background:transparent; color:var(--text-on-dark); }
+        .to-alt-light { background:transparent; color:var(--text-on-dark); }
+        /* to-alt-light now dark — apply same card/text overrides as to-alt-dark */
+        .to-alt-light .section-heading h2, .to-alt-light h2, .to-alt-light h3 { color:var(--heading-h2); }
+        .to-alt-light .section-heading p, .to-alt-light p { color:var(--text-on-banner-dim); }
+        .to-alt-light .sub-label-muted { color:var(--text-on-theme-dim); }
+        .to-alt-light .ftr-rule-btn { background:var(--card-bg); border:1px solid var(--card-border); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); color:var(--text-on-dark); }
+        .to-alt-light .ftr-rule-btn:hover { border-color:var(--accent-glow); background:var(--accent-tint-15); }
+        .to-alt-light .ftr-rule-icon { background:var(--border-on-theme); color:var(--text-on-dark); }
+        .to-alt-light .flow-inner { color:var(--text-on-banner); background:var(--accent-tint-8); border-color:var(--border-on-theme); }
+        .to-alt-light .ftr-reward h3 { color:var(--text-on-dark); }
+        /* #evaluations dark: tabs and size buttons */
+        #evaluations .pricing-tab { background:var(--card-bg); border-color:var(--card-border); color:var(--text-on-banner); }
+        #evaluations .pricing-tab:hover:not(.active) { border-color:var(--text-on-banner-dim); color:var(--text-on-dark); }
+        #evaluations .pricing-tab.active { background:var(--theme-cta); border-color:var(--theme-cta); color:var(--theme-cta-text); }
+        #evaluations .size-btn { background:var(--card-bg-dark); border-color:var(--border-on-theme); color:var(--text-on-banner); }
+        #evaluations .size-btn:hover:not(.active) { border-color:var(--text-on-banner-dim); color:var(--text-on-dark); }
+        #evaluations .size-btn.active { background:var(--theme-cta); border-color:var(--theme-cta); color:var(--theme-cta-text); }
+        .to-wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--content-padding); }
+        .to-alt .compartment-inner { padding: 2rem var(--content-padding); }
+        /* Same horizontal gutter as phase/QPF cards (avoid double --content-padding from .to-wrap) */
+        .to-alt .compartment-inner > .to-wrap { padding-left: 0; padding-right: 0; }
+        /* #evaluations is outside .to-alt; match .to-alt .compartment-inner so step headers line up */
+        #evaluations .compartment-inner { padding: 2rem var(--content-padding); }
+        .to-section { padding: 2.5rem 0; }
+
+        /* ── sub labels ── */
+        .sub-label { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.18em; font-weight:600; margin-bottom:1.2rem; }
+        .sub-label-gold  { color: var(--gold-light); }
+        .sub-label-red   { color: var(--danger); }
+        .sub-label-muted { color: var(--text-secondary); }
+
+
+        /* ── section heading ── */
+        .section-heading { display:flex; align-items:center; gap:0.8rem; margin-bottom:2rem; }
+        .section-heading-icon {
+            width:2.2rem; height:2.2rem;
+            background:var(--theme); color:var(--text-on-dark);
+            border-radius:0.6rem;
+            display:flex; align-items:center; justify-content:center;
+            font-weight:700; font-size:1.1rem;
+        }
+        .section-heading h2 { font-weight:600; color:var(--text-primary); margin:0; }
+        .section-heading p  { font-size:0.9rem; color:var(--text-secondary); margin:0; }
+        .to-alt-dark .section-heading h2,
+        .to-alt-dark h2 { color:var(--heading-h2); }
+        .to-alt-dark .section-heading p  { color:var(--text-on-banner-dim); }
+        .to-alt-dark .sub-label-muted { color:var(--text-on-theme-dim); }
+        .to-alt-dark .section-box { background:var(--card-bg); border:1px solid var(--card-border); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+        .to-alt-dark .phase-card,
+        .to-alt-dark .eval-guide-card,
+        .to-alt-dark .perf-limit-card,
+        .to-alt-dark .guide-card { background:var(--card-bg); border:1px solid var(--card-border); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+        .to-alt-dark .phase-name,
+        .to-alt-dark .phase-meta span,
+        .to-alt-dark .eval-guide-name,
+        .to-alt-dark .perf-limit-name { color:var(--text-on-dark); }
+        .to-alt-dark .phase-stat-val-w { color:var(--text-on-dark); }
+        .to-alt-dark .phase-meta,
+        .to-alt-dark .eval-guide-desc,
+        .to-alt-dark .perf-limit-desc,
+        .to-alt-dark .dd-card-lbl,
+        .to-alt-dark .phase-stat-lbl { color:var(--text-on-theme-dim); }
+        .to-alt-dark .dd-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+        .to-alt-dark .reward-cycle-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+        .to-alt-dark .rc-title { color:var(--text-on-dark); }
+        .to-alt-dark .rc-period, .to-alt-dark .rc-label { color:var(--text-on-dark); }
+        .to-alt-dark .rc-pct { color:var(--heading-h1); }
+        .to-alt-dark .rc-detail-row { color:var(--text-on-theme-dim); }
+        .to-alt-dark .rc-detail-row span:last-child { color:var(--text-on-dark); }
+        .to-alt-dark .reward-highlight-card { background:var(--card-bg); border:1px solid var(--card-border); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+        .to-alt-dark .reward-highlight-card p { color:var(--text-on-banner-dim); }
+        .to-alt-dark .reward-highlight-card p strong { color:var(--text-on-dark); }
+        .to-alt-dark .rh-icon { background:var(--border-on-theme); color:var(--text-on-dark); }
+        .to-alt-dark .sub-label-gold { color:var(--gold-light); }
+
+        /* ── phase cards ── */
+        .phase-grid { display:grid; gap:1.5rem; min-width:0; }
+        .phase-grid.cols-1 { grid-template-columns: minmax(0,560px); justify-content:center; }
+        .phase-card { min-width:0; max-width:100%; box-sizing:border-box; box-shadow:none; }
+        .phase-stats { min-width:0; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+        .phase-stats > div { min-width:0; }
+        .dd-card-row { min-width:0; }
+        .dd-card { min-width:0; }
+        @media(max-width:400px){
+            .phase-stat-val, .phase-stat-val-w { font-size:2.2rem; }
+            .phase-stat-lbl { font-size:0.6rem; letter-spacing:0.05em; }
+        }
+        .phase-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+        .phase-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+        @media (max-width:1200px) { .phase-grid.cols-3 { grid-template-columns:1fr 1fr; justify-items:center; } .phase-grid.cols-3 > .phase-card:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: 50%; } }
+        @media (max-width:600px) { .phase-grid.cols-2, .phase-grid.cols-3 { grid-template-columns:1fr; } }
+
+        .phase-card {
+            background:var(--bg-card);
+            border:1px solid var(--border-subtle);
+            border-radius:1.25rem;
+            padding:1.8rem;
+        }
+        .phase-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.4rem; }
+        .phase-step-lbl { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--gold-light); font-weight:600; margin-bottom:0.2rem; }
+        .phase-name { font-size:1.3rem; font-weight:600; color:var(--text-primary); }
+        .phase-badge { background:var(--accent-tint-8); color:var(--gold-light); font-size:0.65rem; font-weight:700; padding:0.3rem 0.8rem; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+        .phase-stats { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; align-items:end; }
+        .phase-stat-lbl { font-size:0.7rem; color:var(--text-secondary); margin-bottom:0.25rem; text-transform:uppercase; letter-spacing:0.1em; min-height:2.2rem; }
+        .phase-stat-val { font-size:3rem; font-weight:700; color:var(--gold-light); line-height:1; }
+        .phase-stat-val-w { font-size:3rem; font-weight:700; color:var(--text-primary); line-height:1; }
+        .phase-meta { display:flex; gap:1.5rem; margin-top:1.2rem; font-size:0.82rem; color:var(--text-secondary); flex-wrap:wrap; }
+        .phase-meta span { color:var(--text-primary); font-weight:500; }
+        .phase-dd { margin-top:1.2rem; padding-top:1.2rem; border-top:1px solid var(--border-subtle); }
+        .phase-dd-cards { display:flex; gap:0.75rem; }
+        .dd-card { flex:1; background:var(--bg-overlay); border:1px solid var(--border-subtle); border-radius:0.85rem; padding:0.8rem 1rem; cursor:pointer; transition:border-color 0.2s; display:flex; flex-direction:column; justify-content:center; }
+        .dd-card:hover { border-color:color-mix(in srgb, var(--danger) 45%, transparent); }
+        .dd-card-row { display:flex; justify-content:space-between; align-items:center; gap:0.5rem; }
+        .dd-card-lbl { font-size:0.8rem; font-weight:500; color:var(--text-secondary); }
+        .dd-card .badge { font-size:1.4rem; font-weight:700; padding:0.3rem 0.6rem; background:transparent !important; border:none !important; }
+
+        /* ── badges ── */
+        .badge { font-size:0.68rem; font-weight:700; padding:0.22rem 0.7rem; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+        .badge-red      { background:color-mix(in srgb, var(--danger) 12%, transparent); color:var(--danger); }
+        .badge-green    { background:color-mix(in srgb, var(--success) 10%, transparent);  color:var(--success); }
+        .badge-gold     { background:var(--accent-tint-8); color:var(--gold-light); }
+        .badge-redfill  { background:var(--danger); color:var(--text-on-dark); }
+        .badge-greenfill{ background:var(--success); color:var(--text-on-dark); }
+
+        /* ── guide cards ── */
+        .guide-grid { display:grid; grid-template-columns:repeat(2, minmax(0,420px)); gap:1.2rem; justify-content:center; }
+        @media (max-width:600px) { .guide-grid { grid-template-columns:1fr; } }
+
+        .guide-card { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:1.1rem; padding:1.3rem 1.4rem; }
+        .guide-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.6rem; }
+        .guide-name { font-size:0.88rem; font-weight:500; color:var(--text-primary); display:flex; align-items:center; gap:0.5rem; }
+        .guide-name i { color:var(--gold-light); }
+        .guide-desc { font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
+
+        /* ── reward cycles ── */
+        .reward-cycle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; max-width:1000px; margin:0 auto; }
+        @media (max-width:760px) { .reward-cycle-grid { grid-template-columns:1fr; } }
+        .reward-highlight-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:700px; margin:1.5rem auto 0; }
+        @media (max-width:560px) { .reward-highlight-grid { grid-template-columns:1fr; } }
+        .reward-highlight-card { display:flex; align-items:flex-start; gap:1rem; background:var(--accent-tint-8); border:1px solid var(--border-subtle); border-radius:1rem; padding:1.2rem 1.25rem; }
+        .rh-icon { flex-shrink:0; width:2.2rem; height:2.2rem; background:var(--accent-tint-8); border-radius:0.6rem; display:flex; align-items:center; justify-content:center; color:var(--theme); font-size:0.95rem; margin-top:0.1rem; }
+        .reward-highlight-card p { margin:0; font-size:0.85rem; line-height:1.55; color:var(--text-secondary); }
+        .reward-highlight-card p strong { color:var(--theme); font-weight:600; }
+
+        .reward-cycle-card {
+            background:var(--bg-card);
+            border:1px solid var(--border-subtle);
+            border-radius:1.25rem;
+            padding:1.8rem 1.4rem 1.2rem;
+            display:flex; flex-direction:column; gap:0.3rem;
+            transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;
+        }
+        .reward-cycle-card:hover { transform:translateY(-4px); box-shadow:0 10px 24px var(--shadow-card-hover); }
+        .rc-featured { border-color:var(--accent-glow); box-shadow:0 0 20px var(--accent-tint-8); }
+        .rc-period { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.18em; font-weight:700; color:var(--text-secondary); margin-bottom:0.6rem; }
+        .rc-pct { font-size:3rem; font-weight:800; color:var(--heading-h1); line-height:1; }
+        .rc-label { font-size:0.78rem; color:var(--text-secondary); margin-bottom:1.2rem; }
+        .rc-details { display:grid; grid-template-rows:auto auto; gap:0.55rem; margin-top:auto; border-top:1px solid var(--border-subtle); padding-top:1rem; }
+        .rc-detail-row { display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-secondary); }
+        .rc-detail-row span:last-child { color:var(--text-primary); font-weight:500; }
+        .rc-detail-spacer { min-height:1.5em; }
+
+        /* ── flow bar ── */
+        .flow-bar { padding:2rem 1rem; text-align:center; }
+        .flow-inner {
+            display:inline-table;
+            background:var(--theme);
+            border:1px solid var(--border-on-theme);
+            border-radius:999px;
+            padding:0.65rem 1.6rem;
+            white-space:nowrap;
+        }
+        .flow-inner > * { display:table-cell; vertical-align:middle; }
+        .flow-check { display:table-cell; vertical-align:middle; padding-right:0.5rem; }
+        .flow-check-node { width:1.4em; height:1.4em; border-radius:50%; background:color-mix(in srgb, var(--theme) 60%, var(--text-on-dark)); border:2px solid color-mix(in srgb, var(--gold-light) 70%, transparent); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .flow-check-node svg { width:0.65em; height:0.65em; }
+        .qpf-check-node { width:2.4rem; height:2.4rem; border-radius:50%; background:color-mix(in srgb, var(--theme) 60%, var(--text-on-dark)); border:2px solid color-mix(in srgb, var(--gold-light) 70%, transparent); display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 0 20px var(--accent-tint-15); }
+        .section-heading-icon.step-icon-gold-ring { background:color-mix(in srgb, var(--theme) 60%, var(--text-on-dark)); border:2px solid color-mix(in srgb, var(--gold-light) 70%, transparent); border-radius:50%; box-shadow:0 0 20px var(--accent-tint-15); }
+        .flow-passed { font-size:0.67rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-light); }
+        .flow-sep    { color:var(--text-on-theme-dim); padding:0 0.85rem; font-size:0.8rem; user-select:none; }
+        .flow-step   { font-size:0.67rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-light); }
+        .flow-funded { font-size:0.67rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-light); }
+
+        /* ── %/$ toggle ── */
+        .mode-toggle-wrap { display:flex; align-items:center; gap:0.75rem; margin-top:0; justify-content:center; }
+        .mode-toggle-wrap span { font-size:0.78rem; color:var(--text-secondary); }
+        .mode-toggle-wrap #mode-label { font-size:0.78rem; font-weight:600; color:var(--text-primary); min-width:6rem; }
+        .toggle-switch { position:relative; display:inline-block; width:52px; height:28px; }
+        .toggle-switch input { opacity:0; width:0; height:0; }
+        .toggle-switch .slider { position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background:var(--border-subtle); transition:.3s; border-radius:9999px; border:1px solid var(--border-on-theme); }
+        .toggle-switch .slider:before { position:absolute; content:""; height:20px; width:20px; left:3px; bottom:3px; background:var(--text-on-dark); transition:.3s; border-radius:50%; }
+        .toggle-switch input:checked + .slider { background:var(--theme); border-color:var(--theme); }
+        .toggle-switch input:checked + .slider:before { transform:translateX(24px); }
+
+        /* ── performance limits (card grid) ── */
+        .perf-limits-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; }
+        @media (max-width:660px) { .perf-limits-grid { grid-template-columns:1fr; } }
+        .perf-limit-card { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:1.25rem; padding:1.6rem 1.8rem; cursor:pointer; transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s; }
+        .perf-limit-card:hover { transform:translateY(-3px); box-shadow:0 8px 20px var(--shadow-card-hover); border-color:color-mix(in srgb, var(--danger) 30%, transparent); }
+        .perf-limit-body { display:flex; align-items:stretch; gap:1.2rem; }
+        .perf-limit-text { flex:1; min-width:0; }
+        .perf-limit-name { font-size:0.95rem; font-weight:600; color:var(--text-primary); }
+        .perf-limit-desc { font-size:0.78rem; color:var(--text-secondary); line-height:1.6; margin-top:0.5rem; }
+        .perf-limit-badge { align-self:stretch; display:flex; align-items:center; justify-content:center; min-width:3rem; padding:0 0.5rem; background:transparent !important; border:none !important; border-radius:0; font-size:2.2rem; font-weight:800; }
+
+        /* ── evaluation guidelines (4-col) ── */
+        .eval-guide-grid { display:flex; flex-wrap:wrap; gap:1.2rem; justify-content:center; }
+        .eval-guide-card { flex:1 1 200px; max-width:280px; }
+        @media (max-width:480px) { .eval-guide-card { max-width:100%; flex:1 1 100%; } }
+        .section-box { background:var(--bg-overlay); border:1px solid var(--border-subtle); border-radius:1.25rem; padding:2rem; width:100%; box-sizing:border-box; }
+        .eval-guide-card { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:1.25rem; padding:1.4rem 1.5rem; }
+        .eval-guide-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; gap:0.5rem; }
+        .eval-guide-name { font-size:0.88rem; font-weight:600; color:var(--text-primary); display:flex; align-items:center; gap:0.5rem; }
+        .eval-guide-name i { color:var(--gold-light); font-size:0.85rem; }
+        .eval-guide-desc { font-size:0.75rem; color:var(--text-secondary); line-height:1.65; }
+        .funded-lev-desc { white-space: pre-line; }
+        .eval-news-desc-block { display:flex; flex-direction:column; gap:0.35rem; }
+
+        /* ── performance guidelines (2-col) ── */
+        .guide-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:1.5rem; }
+        @media (max-width:600px) { .guide-grid { grid-template-columns:1fr; } }
+        .guide-card { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:1.1rem; padding:1.3rem 1.4rem; }
+        .guide-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.6rem; }
+        .guide-name { font-size:0.88rem; font-weight:500; color:var(--text-primary); display:flex; align-items:center; gap:0.5rem; }
+        .guide-name i { color:var(--gold-light); }
+        .guide-desc { font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
+
+        /* ── follow the rules ── */
+        .ftr-layout { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:center; }
+        @media (max-width:680px) { .ftr-layout { grid-template-columns:1fr; gap:2rem; } }
+
+        .ftr-rules { display:flex; flex-direction:column; gap:0.75rem; }
+        .ftr-rule-btn { display:flex; align-items:center; gap:0.9rem; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:0.9rem; padding:0.95rem 1.2rem; cursor:pointer; transition:border-color 0.2s,background 0.2s; font-size:0.92rem; font-weight:500; color:var(--text-primary); text-align:left; width:100%; }
+        .ftr-rule-btn:hover { border-color:var(--theme); background:var(--accent-tint-8); }
+        .ftr-rule-icon { width:2rem; height:2rem; border-radius:0.55rem; background:var(--accent-tint-8); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.9rem; color:var(--text-secondary); }
+
+        .ftr-reward { display:flex; flex-direction:column; align-items:center; text-align:center; gap:1rem; }
+        .ftr-check-node { width:3.5rem; height:3.5rem; border-radius:50%; background:color-mix(in srgb, var(--theme) 60%, var(--text-on-dark)); border:2px solid color-mix(in srgb, var(--gold-light) 70%, transparent); display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 0 20px var(--accent-tint-15); }
+        .ftr-check-node svg { width:1.1rem; height:1.1rem; }
+        .ftr-reward h3 { font-size:1.5rem; font-weight:700; color:var(--text-primary); margin:0; line-height:1.3; }
+        .ftr-reward p  { font-size:0.9rem; color:var(--text-secondary); margin:0; line-height:1.65; max-width:28rem; }
+        .to-alt-light .ftr-reward p { color:var(--text-on-banner); }
+
+        /* ── info icons ── */
+        .perf-info-icon { font-size:0.8rem; color:color-mix(in srgb, var(--danger) 55%, transparent); margin-left:0.4rem; vertical-align:middle; transition:color 0.2s; }
+        .perf-limit-card:hover .perf-info-icon, .dd-card:hover .perf-info-icon { color:var(--danger); }
+        .ftr-info-icon { font-size:0.9rem; color:var(--text-on-theme-dim); margin-left:auto; transition:color 0.2s; flex-shrink:0; }
+        .ftr-rule-btn:hover .ftr-info-icon { color:var(--gold-light); }
+
+        /* ── modal ── */
+        .modal-overlay { display:none; position:fixed; inset:0; background:var(--shadow-card-hover); z-index:9999; align-items:center; justify-content:center; }
+        .modal-overlay.open { display:flex; }
+        .modal-box { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:1.25rem; max-width:520px; width:calc(100% - 2rem); overflow:hidden; animation:mPop 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+        @keyframes mPop { from{transform:scale(0.88);opacity:0} to{transform:scale(1);opacity:1} }
+        .modal-head { display:flex; justify-content:space-between; align-items:center; padding:1.4rem 1.8rem; border-bottom:1px solid var(--border-subtle); }
+        .modal-head h3 { font-size:var(--text-size-normal); font-weight:400; margin:0; }
+        .modal-close { background:none; border:none; color:var(--heading-h3); font-size:1.8rem; cursor:pointer; line-height:1; transition:color 0.2s; }
+        .modal-close:hover { color:var(--text-on-dark); }
+        .modal-body { padding:1.4rem 1.8rem; }
+        .modal-body p, .modal-body .hl { font-size:var(--text-size-normal); font-weight:400; line-height:1.7; margin-bottom:0.8rem; }
+        .modal-body .hl { color:var(--gold-light); }
+        .modal-foot { background:var(--bg-overlay); padding:0.85rem 1.8rem; font-size:0.72rem; border-top:1px solid var(--border-subtle); }
+
+        /* ── CTA ── */
+        .cta-section { background:transparent; padding:2.5rem var(--content-padding); text-align:center; }
+        .cta-section h2 { color:var(--text-on-theme); margin-bottom:1.8rem; }
+        .cta-section .cta-heading { font-size:1.5rem; font-weight:700; color:var(--heading-h3); margin:0 0 1.8rem; }
+        .cta-btn { display:inline-block; padding:0.95rem 2.8rem; background:var(--theme-cta); color:var(--theme-cta-text); font-weight:700; font-size:1rem; border-radius:50px; border:none; cursor:pointer; text-decoration:none; transition:all 0.3s; }
+        .cta-btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 8px 24px var(--accent-glow); }
+
+        /* ── MOBILE ── */
+        @media (max-width:640px) {
+            .section-box { padding:1.2rem 1rem; border-radius:1rem; }
+
+            /* section heading: stack toggle below title on mobile */
+            .section-heading { flex-direction:column; align-items:flex-start; gap:0.75rem; margin-bottom:1.2rem; }
+            .section-heading > div:first-child { flex-direction:row; }
+            .mode-toggle-wrap { position:static !important; margin-top:0.5rem !important; }
+
+            /* modal: compact on very small screens */
+            .modal-body p, .modal-body .hl { font-size:0.85rem; line-height:1.4; margin-bottom:0.35rem; }
+            .modal-head h3 { font-size:var(--text-size-normal); }
+            .modal-body { padding:0.8rem 1.2rem; }
+            .modal-head { padding:0.8rem 1.2rem; }
+            .modal-box { max-height:92vh; overflow-y:auto; }
+
+            /* sub-labels: shrink + center on mobile */
+            .sub-label { font-size:0.6rem; letter-spacing:0.12em; text-align:center; }
+
+            /* phase card stats: reduce font and align on same row */
+            .phase-stat-val,
+            .phase-stat-val-w { font-size:1.8rem; }
+            .phase-stats { grid-template-columns:1fr 1fr; gap:0.75rem; align-items:start; }
+            .phase-stat-lbl { font-size:0.6rem; white-space:nowrap; }
+
+            /* drawdown cards: stack vertically */
+            .phase-dd-cards { flex-direction:column; }
+
+            /* flow bar: keep single line, shrink font, scroll if needed */
+            .flow-bar { padding:1rem 0; overflow-x:auto; }
+            .flow-inner { white-space:nowrap; font-size:0.55rem; letter-spacing:0.08em; padding:0.6rem 1rem; }
+            .flow-sep { padding:0 0.4rem; }
+
+            /* ftr-layout: already stacks on mobile */
+
+            /* reward cycle grid */
+            .reward-cycle-grid { grid-template-columns:1fr; }
+
+            /* perf limits */
+            .perf-limits-grid { grid-template-columns:1fr; }
+
+            /* eval guide cards: full width */
+            .eval-guide-card { flex:1 1 100%; max-width:100%; }
+
+            /* section heading: toggle centered below on mobile */
+            #evalHeading { flex-wrap:wrap; gap:0.75rem; }
+            #evalHeading .mode-toggle-wrap { width:100%; justify-content:center; }
+
+            /* shrink heading so icon + title stay on one line */
+        }
+    </style>
+    <link rel="canonical" href="https://www.verodus.com/trading-objectives.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.verodus.com/trading-objectives.html">
+    <meta property="og:title" content="Trading Objectives & Rules | Verodus">
+    <meta property="og:description" content="View Verodus trading objectives, profit targets, drawdown thresholds, payout cycles, and core risk-control requirements.">
+    <meta property="og:image" content="https://www.verodus.com/images/og-default.webp">
+    <meta property="og:site_name" content="Verodus">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trading Objectives & Rules | Verodus">
+    <meta name="twitter:description" content="View Verodus trading objectives, profit targets, drawdown thresholds, payout cycles, and core risk-control requirements.">
+    <meta name="twitter:image" content="https://www.verodus.com/images/og-default.webp">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+            <script src="/i18n/config.js"></script>
+    <script src="/i18n/i18n.js"></script>
+
+<link href="https://www.verodus.com/trading-objectives.html" hreflang="en" rel="alternate"><link href="https://www.verodus.com/es/trading-objectives.html" hreflang="es" rel="alternate"><link href="https://www.verodus.com/zh/trading-objectives.html" hreflang="zh" rel="alternate"><link href="https://www.verodus.com/ar/trading-objectives.html" hreflang="ar" rel="alternate"><link href="https://www.verodus.com/fr/trading-objectives.html" hreflang="fr" rel="alternate"><link href="https://www.verodus.com/pt/trading-objectives.html" hreflang="pt" rel="alternate">
+    <style id="rec-reward-cycle-css">
+      .reward-cycle-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      @media (max-width: 760px) {
+        .reward-cycle-grid { grid-template-columns: 1fr; }
+      }
+      #refundHighlightCard[hidden] { display: none !important; }
+      .reward-highlight-grid.rh-no-refund {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+    </style>
+</head>
+<body>
+    <div id="header-container"><noscript><nav aria-label="Main navigation"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="trading-objectives.html">Trading Objectives</a> | <a href="trading-instruments.html">Instruments</a> | <a href="trading-platforms.html">Platforms</a> | <a href="performance-reward.html">Rewards</a> | <a href="economic-calendar.html">Calendar</a> | <a href="affiliate.html">Affiliate</a> | <a href="faq.html">FAQ</a> | <a href="blog.html">Blog</a> | <a href="contact.html">Contact</a></nav></noscript></div>
+    <script src="header.js" defer=""></script>
+    <main>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Trading Objectives</h1>
+            <p>Choose an evaluation program to explore its objectives, rules, and performance requirements.</p>
+        </div>
+    </section>
+
+    <!-- ══ EVALUATION SELECTOR ══ -->
+    <section id="evaluations" class="about-content-section" style="padding:1.5rem var(--content-padding) 2.5rem; position:relative; overflow:hidden; background:transparent;">
+        <div class="about-container">
+            <div class="compartment">
+                <div class="compartment-inner" style="position:relative; z-index:1;">
+
+            <!-- Select Account Type/Size header -->
+            <div class="section-heading" style="margin-bottom:1.5rem;">
+                <div style="display:flex;align-items:center;gap:0.8rem;">
+                    <div class="section-heading-icon step-icon-gold-ring">1</div>
+                    <h2 style="margin:0;color:var(--heading-h2);font-weight:600;">Select Account Type/Size</h2>
+                </div>
+            </div>
+
+            <!-- Plan Tabs -->
+            <div style="display:flex;gap:0.75rem;justify-content:center;margin-bottom:1rem;flex-wrap:wrap;">
+                <button class="pricing-tab" data-tab="instant" data-i18n="content.button7">Instant</button>
+                <button class="pricing-tab" data-tab="1step" data-i18n="content.button1">1-Step</button>
+                <button class="pricing-tab" data-tab="2steplite" data-i18n="content.button2">2-Step Lite</button>
+                <button class="pricing-tab active" data-tab="2steppro" data-i18n="content.button3">2-Step Pro</button>
+            </div>
+
+            <!-- Account Size Buttons -->
+            <div style="display:flex;gap:0.75rem;justify-content:center;margin-bottom:0.5rem;flex-wrap:wrap;">
+                <button class="size-btn" data-size="5000">$5,000</button>
+                <button class="size-btn" data-size="10000">$10,000</button>
+                <button class="size-btn" data-size="25000">$25,000</button>
+                <button class="size-btn" data-size="50000">$50,000</button>
+                <button class="size-btn active" data-size="100000">$100,000</button>
+                <button class="size-btn" data-size="200000">$200,000</button>
+            </div>
+            <p style="text-align:center;font-size:0.8rem;color:var(--text-on-theme-dim);margin-bottom:0;font-style:italic;">Simulated Performance Tier (Virtual — Not Real Capital)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ PHASE CARDS ══ -->
+    <div class="to-alt to-alt-dark about-content-section">
+    <div class="about-container">
+        <div class="compartment">
+            <div class="compartment-inner">
+    <div class="to-wrap to-section">
+            <div class="section-heading" id="evalHeading" style="justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+                <div style="display:flex;align-items:center;gap:0.8rem;">
+                    <div class="section-heading-icon step-icon-gold-ring" id="evalStepIcon">2</div>
+                    <div>
+                        <h2 id="evalHeadingTitle">
+                            <span data-eval-heading="1step" data-i18n="content.span1" hidden="">1-Step Evaluation</span>
+                            <span data-eval-heading="2steplite" data-i18n="content.span2" hidden="">2-Step Lite Evaluation</span>
+                            <span data-eval-heading="2steppro" data-i18n="content.span3">2-Step Pro Evaluation</span>
+                            <span data-eval-heading="instant" data-i18n="content.span23" hidden="">Instant Funding</span>
+                        </h2>
+                        <p id="evalHeadingDesc">
+                            <span data-eval-desc="1step" data-i18n="content.span4" hidden="">Complete the single evaluation phase to become eligible for performance rewards.</span>
+                            <span data-eval-desc="2steplite" data-i18n="content.span5" hidden="">Complete both phases to become eligible for performance rewards.</span>
+                            <span data-eval-desc="2steppro" data-eval-desc-shared="2steplite" data-i18n="content.span5">Complete both phases to become eligible for performance rewards.</span>
+                            <span data-eval-desc="instant" data-i18n="content.span24" hidden="">Get instant access to a funded simulated account — no evaluation phases required.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="phaseCards" class="phase-grid cols-1">
+                <!-- populated by JS -->
+            </div>
+            <div style="margin-top:2rem;">
+                <div class="sub-label sub-label-muted" style="margin-bottom:1.2rem;" data-i18n="pricing.guidelines">Guidelines</div>
+                <div class="eval-guide-grid">
+                    <div class="eval-guide-card" id="evalNewsTradingCard">
+                        <div class="eval-guide-top">
+                            <div class="eval-guide-name"><i class="fa-solid fa-newspaper"></i> <span data-i18n="pricing.newsTrading">News Trading</span></div>
+                            <span class="badge badge-green" id="evalNewsBadge" data-i18n="pricing.allowed">Allowed</span>
+                        </div>
+                        <div class="eval-guide-desc" id="evalNewsDesc" data-i18n="pricing.evalNewsDesc">News trading is permitted.</div>
+                    </div>
+                    <div class="eval-guide-card">
+                        <div class="eval-guide-top">
+                            <div class="eval-guide-name"><i class="fa-solid fa-moon"></i> <span id="evalWeekendName" data-i18n="content.span7">Overnight &amp; Weekend Holding</span></div>
+                            <span class="badge badge-green" data-i18n="pricing.allowed">Allowed</span>
+                        </div>
+                        <div class="eval-guide-desc" id="evalWeekendDesc" data-i18n="pricing.evalWeekendDesc">All open positions must close by 22:00 UTC Friday. Weekend holding requires the Weekend Holding Addon.</div>
+                    </div>
+                    <div class="eval-guide-card">
+                        <div class="eval-guide-top">
+                            <div class="eval-guide-name"><i class="fa-solid fa-infinity"></i> <span data-i18n="pricing.noTimeLimit">No Time Limit</span></div>
+                            <span class="badge badge-green" data-i18n="pricing.allowed">Allowed</span>
+                        </div>
+                        <div class="eval-guide-desc" data-i18n="pricing.noTimeLimitDesc">No maximum time limit to complete the evaluation.</div>
+                    </div>
+                </div>
+            </div>
+    </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- ══ FLOW BAR ══ -->
+    <div class="to-alt to-alt-light">
+    <div class="flow-bar">
+        <div class="flow-inner">
+            <span class="flow-check"><span class="flow-check-node"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 L9 17 l-5-5"></path></svg></span></span><span class="flow-passed" id="flowFirstStep" data-i18n="content.span8">Passed</span><span class="flow-sep">›</span><span class="flow-step" data-i18n="content.span9">KYC</span><span class="flow-sep">›</span><span class="flow-step" data-i18n="content.span10">Contract</span><span class="flow-sep">›</span><span class="flow-funded" data-i18n="content.h23">Qualified Performance Phase</span>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- ══ MASTER ACCOUNT / PERFORMANCE PHASE ══ -->
+    <div class="to-alt to-alt-dark about-content-section">
+    <div class="about-container">
+        <div class="compartment">
+            <div class="compartment-inner">
+    <div class="to-wrap to-section">
+        <!-- Header -->
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;">
+            <div class="qpf-check-node"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 L9 17 l-5-5"></path></svg></div>
+            <div>
+                <h2 style="margin:0;">Qualified Performance Phase</h2>
+                <p style="font-size:0.82rem;opacity:0.7;margin:0;">Follow these rules to remain eligible for performance rewards.</p>
+            </div>
+        </div>
+
+        <!-- Rules & Limits — card grid style -->
+        <div class="sub-label sub-label-red" data-i18n="pricing.rulesLimits">Rules &amp; Limits — Hard Breaches</div>
+        <div class="perf-limits-grid">
+            <div class="perf-limit-card" onclick="showModal('drawdown')">
+                <div class="perf-limit-body">
+                    <div class="perf-limit-text">
+                        <div class="perf-limit-name"><span data-i18n="pricing.maxDrawdown">Maximum Drawdown</span> <i class="fa-solid fa-circle-info perf-info-icon"></i></div>
+                        <div class="perf-limit-desc" data-i18n="pricing.maxDrawdownDesc">The amount you are allowed to lose overall.</div>
+                    </div>
+                    <span id="masterDD" class="badge badge-red perf-limit-badge">10%</span>
+                </div>
+            </div>
+            <div class="perf-limit-card" onclick="showModal('daily-loss')">
+                <div class="perf-limit-body">
+                    <div class="perf-limit-text">
+                        <div class="perf-limit-name"><span data-i18n="pricing.maxDailyDrawdown">Maximum Daily Drawdown</span> <i class="fa-solid fa-circle-info perf-info-icon"></i></div>
+                        <div class="perf-limit-desc" data-i18n="pricing.maxDailyDrawdownDesc">The amount you are allowed to lose every day.</div>
+                    </div>
+                    <span id="masterDaily" class="badge badge-red perf-limit-badge">5%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guidelines -->
+        <div style="margin-top:2.5rem;">
+            <div class="sub-label sub-label-muted">Guidelines</div>
+            <div class="eval-guide-grid">
+                <div class="eval-guide-card">
+                    <div class="eval-guide-top">
+                        <div class="eval-guide-name"><i class="fa-solid fa-newspaper"></i> News Trading</div>
+                        <span class="badge badge-green" id="qpfNewsBadge">Allowed</span>
+                    </div>
+                    <div class="eval-news-desc-block">
+                        <div class="eval-guide-desc" id="qpfNewsDesc">News trading is permitted.</div>
+                    </div>
+                </div>
+                <div class="eval-guide-card">
+                    <div class="eval-guide-top">
+                        <div class="eval-guide-name"><i class="fa-solid fa-moon"></i> <span id="qpfWeekendName">Weekend Holding &amp; Friday Liquidation</span></div>
+                        <span class="badge badge-gold">Addon</span>
+                    </div>
+                    <div class="eval-news-desc-block">
+                        <div class="eval-guide-desc" id="qpfWeekendDesc">All open positions must close by 22:00 UTC Friday. Weekend holding requires the Weekend Holding Addon.</div>
+                        <div class="eval-guide-desc">* Unless Weekend Holding Addon purchased.</div>
+                    </div>
+                </div>
+                <div class="eval-guide-card">
+                    <div class="eval-guide-top">
+                        <div class="eval-guide-name"><i class="fa-solid fa-user-clock"></i> Inactivity</div>
+                        <span class="badge badge-red">30 Days</span>
+                    </div>
+                    <div class="eval-guide-desc">Close at least 1 trade every 30 days.</div>
+                </div>
+                <div class="eval-guide-card">
+                    <div class="eval-guide-top">
+                        <div class="eval-guide-name"><i class="fa-solid fa-chart-bar"></i> Leverage</div>
+                        <span id="fundedLevBadge" class="badge badge-green">1:100</span>
+                    </div>
+                    <div id="fundedLevDesc" class="eval-guide-desc funded-lev-desc">FX 1:100
+Metals 1:50
+Indices / Commodities / Energies 1:20
+Equities 1:10
+Crypto 1:3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- ══ FOLLOW THE RULES ══ -->
+    <div class="to-alt to-alt-light about-content-section">
+    <div class="to-wrap to-section ftr-layout">
+                <div>
+                    <div class="sub-label sub-label-muted" style="margin-bottom:1.2rem;" data-i18n="pricing.followRules">Follow the Rules</div>
+                    <div class="ftr-rules">
+                        <button class="ftr-rule-btn" onclick="showModal('drawdown')">
+                            <div class="ftr-rule-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <span data-i18n="content.button4">Maximum Drawdown</span>
+                            <i class="fa-solid fa-circle-info ftr-info-icon"></i>
+                        </button>
+                        <button class="ftr-rule-btn" onclick="showModal('daily-loss')">
+                            <div class="ftr-rule-icon"><i class="fa-solid fa-chart-line"></i></div>
+                            <span data-i18n="content.button5">Maximum Daily Drawdown</span>
+                            <i class="fa-solid fa-circle-info ftr-info-icon"></i>
+                        </button>
+                        <button id="ftr-rule-third" class="ftr-rule-btn">
+                            <div class="ftr-rule-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                            <span id="ftr-rule-third-text">5 Trading Days</span>
+                            <i class="fa-solid fa-circle-info ftr-info-icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="ftr-reward">
+                    <div class="ftr-check-node"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 L9 17 l-5-5"></path></svg></div>
+                    <h3>Get Rewarded. <span style="color:var(--gold-light);">Consistently.</span></h3>
+                    <p>Meet the objectives and become eligible for discretionary performance rewards following internal review.</p>
+                </div>
+    </div>
+
+    </div>
+
+    <!-- ══ REWARD CYCLES ══ -->
+    <div class="to-alt to-alt-dark about-content-section">
+    <div class="about-container">
+        <div class="compartment">
+            <div class="compartment-inner">
+    <div class="to-wrap to-section">
+            <div style="text-align:center;margin-bottom:2.5rem;">
+                <h2 style="font-weight:700;margin:0 0 0.5rem;" data-i18n="content.h24">Reward Cycles</h2>
+                <p style="opacity:0.7;font-size:0.88rem;" data-i18n="content.p6">Default reward is Bi-Weekly 80%. Weekly 70% and On Demand 90% are paid add-ons.</p>
+            </div>
+            <div class="reward-cycle-grid">
+                <div class="reward-cycle-card">
+                    <div class="rc-period" data-i18n="content.rcWeekly">Weekly</div>
+                    <div class="rc-pct">70%</div>
+                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
+                    <div class="rc-details">
+                        <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span17">7 days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
+                    </div>
+                </div>
+                <div class="reward-cycle-card rc-featured">
+                    <div class="rc-period" data-i18n="content.rcBiWeekly">Bi-Weekly</div>
+                    <div class="rc-pct">80%</div>
+                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
+                    <div class="rc-details">
+                        <div class="rc-detail-row"><span data-i18n="content.span16">Request every</span><span data-i18n="content.span19">14 days</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
+                    </div>
+                </div>
+                <div class="reward-cycle-card">
+                    <div class="rc-period" data-i18n="content.rcOnDemand">On Demand</div>
+                    <div class="rc-pct">90%</div>
+                    <div class="rc-label" data-i18n="content.rcRewardSplit">Reward Split</div>
+                    <div class="rc-details">
+                        <div class="rc-detail-row"><span data-i18n="content.span20">Request</span><span data-i18n="content.span21">Anytime</span></div>
+                        <div class="rc-detail-row"><span data-i18n="content.span18">Minimum Reward</span><span>$100</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align:center;font-size:0.75rem;opacity:0.6;margin-top:1.8rem;" data-i18n="content.p7">All reward request intervals are based on calendar days, not trading days. Each cycle still needs that plan’s qualifying parameters.</p>
+            <div class="reward-highlight-grid">
+                <div class="reward-highlight-card">
+                    <div class="rh-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                    <p data-i18n-html="content.p8"><strong>Payouts:</strong> Every payout: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit (within 48 hrs)</p>
+                </div>
+                <div class="reward-highlight-card" id="refundHighlightCard">
+                    <div class="rh-icon"><i class="fa-solid fa-rotate-left"></i></div>
+                    <p data-i18n-html="content.p9"><strong>100% Challenge Fee Refund</strong> on first successful payout</p>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- ══ MODAL ══ -->
+    <div id="modal" class="modal-overlay">
+        <div class="modal-box modal-with-chart">
+            <div class="modal-head">
+                <h3 id="modal-title" class="text-normal"></h3>
+                <button class="modal-close" onclick="hideModal()">×</button>
+            </div>
+            <div class="modal-body text-normal">
+                <div id="modal-content"></div>
+                <div id="modal-chart-wrap" class="modal-chart-wrap" style="background:rgba(0,0,0,0.06);border-radius:8px;padding:0.5rem;margin:0.85rem 0;">
+                    <canvas id="modal-chart" style="width:100%;max-height:200px;"></canvas>
+                </div>
+                <div id="modal-example" style="margin-top:0.85rem;"></div>
+            </div>
+            <div class="modal-foot text-normal" data-i18n="pricing.modalFoot">All calculations use server time and closed trades only.</div>
+        </div>
+    </div>
+
+    <!-- ══ CTA ══ -->
+    <div class="cta-section">
+        <div class="to-wrap">
+            <h3 class="cta-heading">Ready to get started?</h3>
+            <a href="index.html#evaluations" class="cta-btn">Start Your Evaluation Now</a>
+        </div>
+    </div>
+    </main>
+
+    <div id="footer-container"><noscript><footer><hr><nav aria-label="Footer navigation"><a href="about.html">About</a> | <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a> | <a href="refund-policy.html">Refunds</a> | <a href="risk-disclosure.html">Risk Disclosure</a> | <a href="contact.html">Contact</a> | <a href="blog.html">Blog</a> | <a href="faq.html">FAQ</a></nav></footer></noscript></div>
+
+    <script src="shared.js" defer=""></script>
+    <script src="footer.js?v=5" defer=""></script>
+    <script>
+        // ── State ──
+        let currentTab  = '2steppro';
+        let currentSize = '100000';
+        let currentChart = null;
+
+        function i18nTxt(key, fallback) {
+            if (typeof VerodusI18n !== 'undefined' && VerodusI18n.t) {
+                var val = VerodusI18n.t(key, '');
+                if (val != null && val !== '' && val !== key) return val;
+            }
+            return fallback != null ? fallback : key;
+        }
+
+        function getPlanLabel(tab) {
+            var map = {
+                '1step': ['content.button1', '1-Step'],
+                '2steplite': ['content.button2', '2-Step Lite'],
+                '2steppro': ['content.button3', '2-Step Pro'],
+                'instant': ['content.button7', 'Instant']
+            };
+            var pair = map[tab] || [tab, tab];
+            return i18nTxt(pair[0], pair[1]);
+        }
+        function fmt(pctStr) {
+            return pctStr;
+        }
+
+        const planNames = { '1step': '1-Step', '2steplite': '2-Step Lite', '2steppro': '2-Step Pro', 'instant': 'Instant' };
+
+        // ── Pricing data (matches index.html) ──
+        const pricingData = {
+            '1step': {
+                '5000':  { step1Profit:'10%', maxDrawdown:'6%', dailyDrawdown:'4%', leverage:'1:30', price:36 },
+                '10000': { step1Profit:'10%', maxDrawdown:'6%', dailyDrawdown:'4%', leverage:'1:30', price:60 },
+                '25000': { step1Profit:'10%', maxDrawdown:'6%', dailyDrawdown:'4%', leverage:'1:30', price:120 },
+                '50000': { step1Profit:'10%', maxDrawdown:'6%', dailyDrawdown:'4%', leverage:'1:30', price:193 },
+                '100000':{ step1Profit:'10%', maxDrawdown:'6%', dailyDrawdown:'4%', leverage:'1:30', price:335 },
+                '200000':{ step1Profit:'10%', maxDrawdown:'6%', dailyDrawdown:'4%', leverage:'1:30', price:654 }
+            },
+            '2steplite': {
+                '5000':  { step1Profit:'8%', step2Profit:'5%', maxDrawdown:'8%', dailyDrawdown:'4%', leverage:'1:100', price:42 },
+                '10000': { step1Profit:'8%', step2Profit:'5%', maxDrawdown:'8%', dailyDrawdown:'4%', leverage:'1:100', price:55 },
+                '25000': { step1Profit:'8%', step2Profit:'5%', maxDrawdown:'8%', dailyDrawdown:'4%', leverage:'1:100', price:94 },
+                '50000': { step1Profit:'8%', step2Profit:'5%', maxDrawdown:'8%', dailyDrawdown:'4%', leverage:'1:100', price:149 },
+                '100000':{ step1Profit:'8%', step2Profit:'5%', maxDrawdown:'8%', dailyDrawdown:'4%', leverage:'1:100', price:269 },
+                '200000':{ step1Profit:'8%', step2Profit:'5%', maxDrawdown:'8%', dailyDrawdown:'4%', leverage:'1:100', price:499 }
+            },
+            '2steppro': {
+                '5000':  { step1Profit:'10%', step2Profit:'5%', maxDrawdown:'10%', dailyDrawdown:'5%', leverage:'1:100', price:45 },
+                '10000': { step1Profit:'10%', step2Profit:'5%', maxDrawdown:'10%', dailyDrawdown:'5%', leverage:'1:100', price:59 },
+                '25000': { step1Profit:'10%', step2Profit:'5%', maxDrawdown:'10%', dailyDrawdown:'5%', leverage:'1:100', price:95 },
+                '50000': { step1Profit:'10%', step2Profit:'5%', maxDrawdown:'10%', dailyDrawdown:'5%', leverage:'1:100', price:159 },
+                '100000':{ step1Profit:'10%', step2Profit:'5%', maxDrawdown:'10%', dailyDrawdown:'5%', leverage:'1:100', price:289 },
+                '200000':{ step1Profit:'10%', step2Profit:'5%', maxDrawdown:'10%', dailyDrawdown:'5%', leverage:'1:100', price:577 }
+            },
+            'instant': {
+                '5000':  { maxDrawdown:'6%', dailyDrawdown:'3%', leverage:'1:30', price:49, bestDay:'20%', minDays:'5' },
+                '10000': { maxDrawdown:'6%', dailyDrawdown:'3%', leverage:'1:30', price:69, bestDay:'20%', minDays:'5' },
+                '25000': { maxDrawdown:'6%', dailyDrawdown:'3%', leverage:'1:30', price:139, bestDay:'20%', minDays:'5' },
+                '50000': { maxDrawdown:'6%', dailyDrawdown:'3%', leverage:'1:30', price:239, bestDay:'20%', minDays:'5' },
+                '100000':{ maxDrawdown:'6%', dailyDrawdown:'3%', leverage:'1:30', price:439, bestDay:'20%', minDays:'5' }
+            },
+        
+        };
+
+        // ── Helper: get active data ──
+        function getData() {
+            return pricingData[currentTab][currentSize] || pricingData[currentTab][Object.keys(pricingData[currentTab])[0]];
+        }
+
+        // ── Build phase card HTML ──
+        function phaseCardHTML(stepNum, stepName, phaseName, profit, minDays, leverage, maxDD, dailyDD, minDaysLabel, ddLabel) {
+            const isHybrid = ddLabel === 'Hybrid Drawdown Rules';
+            const resolvedDdLabel = isHybrid
+                ? i18nTxt('pricing.hybridDrawdown', 'Hybrid Drawdown Rules')
+                : i18nTxt('pricing.staticDrawdown', 'Static Drawdown Rules');
+            return `
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div>
+                        <div class="phase-step-lbl">${i18nTxt('pricing.phase', 'Phase')} ${stepNum}</div>
+                        <div class="phase-name">${phaseName}</div>
+                    </div>
+                </div>
+                <div class="phase-stats">
+                    <div>
+                        <div class="phase-stat-lbl">${i18nTxt('pricing.target', 'Target')}</div>
+                        <div class="phase-stat-val">${fmt(profit)}</div>
+                    </div>
+                    ${minDays ? `<div>
+                        <div class="phase-stat-lbl">${minDaysLabel || i18nTxt('pricing.minTradingDays', 'Minimum Trading Days')}</div>
+                        <div class="phase-stat-val-w">${minDays}</div>
+                    </div>` : ''}
+                    ${isHybrid ? `<div onclick="showModal('best-day')" style="cursor:pointer;">
+                        <div class="phase-stat-lbl">${i18nTxt('pricing.bestDayRule', 'Best Day Rule')} <i class="fa-solid fa-circle-info perf-info-icon"></i></div>
+                        <div class="phase-stat-val-w">50%</div>
+                    </div>` : ''}
+                </div>
+                <div class="phase-meta">
+                    <div>${i18nTxt('pricing.leveragePrefix', 'Leverage:')} <span>${leverage}</span></div>
+                    ${!isHybrid ? `<div>${i18nTxt('pricing.tradingPeriodPrefix', 'Trading Period:')} <span>${i18nTxt('pricing.unlimited', 'Unlimited')}</span></div>` : ''}
+                </div>
+                <div class="phase-dd">
+                    <div class="sub-label sub-label-red" style="margin-bottom:0.5rem;">${resolvedDdLabel}</div>
+                    ${isHybrid ? `<p style="font-size:0.72rem;color:var(--text-secondary);line-height:1.5;margin:0 0 0.75rem;">${i18nTxt('pricing.hybridHint', 'Trailing floor rises with your equity — click either card below for full details & chart.')}</p>` : ''}
+                    <div class="phase-dd-cards">
+                        <div class="dd-card" onclick="showModal('drawdown')">
+                            <div class="dd-card-row">
+                                <div class="dd-card-lbl">${i18nTxt('pricing.maxDrawdown', 'Maximum Drawdown')} <i class="fa-solid fa-circle-info perf-info-icon"></i></div>
+                                <span class="badge badge-red">${fmt(maxDD)}</span>
+                            </div>
+                        </div>
+                        <div class="dd-card" onclick="showModal('daily-loss')">
+                            <div class="dd-card-row">
+                                <div class="dd-card-lbl">${i18nTxt('pricing.maxDailyDrawdown', 'Maximum Daily Drawdown')} <i class="fa-solid fa-circle-info perf-info-icon"></i></div>
+                                <span class="badge badge-red">${fmt(dailyDD)}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        function instantCardHTML(d) {
+            const fiveDays = i18nTxt('pricing.fiveDays', '5 Days');
+            return `
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div>
+                        <div class="phase-name">${i18nTxt('pricing.fundedAccount', 'Funded Account')}</div>
+                    </div>
+                </div>
+                <div class="phase-stats">
+                    <div>
+                        <div class="phase-stat-lbl">${i18nTxt('pricing.profitTarget', 'Profit Target')}</div>
+                        <div class="phase-stat-val-w">${i18nTxt('pricing.none', 'None')}</div>
+                    </div>
+                    <div>
+                        <div class="phase-stat-lbl">${i18nTxt('pricing.minTradingDays', 'Minimum Trading Days')}</div>
+                        <div class="phase-stat-val-w">${fiveDays}</div>
+                    </div>
+                    <div onclick="showModal('best-day')" style="cursor:pointer;">
+                        <div class="phase-stat-lbl">${i18nTxt('pricing.bestDayRule', 'Best Day Rule')} <i class="fa-solid fa-circle-info perf-info-icon"></i></div>
+                        <div class="phase-stat-val-w">${d.bestDay}</div>
+                    </div>
+                </div>
+                <div class="phase-meta">
+                    <div>${i18nTxt('pricing.leveragePrefix', 'Leverage:')} <span>${d.leverage}</span></div>
+                    <div>${i18nTxt('pricing.tradingPeriodPrefix', 'Trading Period:')} <span>${i18nTxt('pricing.unlimited', 'Unlimited')}</span></div>
+                </div>
+                <div class="phase-dd">
+                    <div class="sub-label sub-label-red" style="margin-bottom:0.5rem;">${i18nTxt('pricing.trailingDrawdown', 'Trailing Drawdown Rules')}</div>
+                    <p style="font-size:0.72rem;color:var(--text-secondary);line-height:1.5;margin:0 0 0.75rem;">${i18nTxt('pricing.instantDdHint', '6% trailing max and 3% daily drawdown measured from equity high water mark.')}</p>
+                    <div class="phase-dd-cards">
+                        <div class="dd-card" onclick="showModal('drawdown')">
+                            <div class="dd-card-row">
+                                <div class="dd-card-lbl">${i18nTxt('pricing.maxDrawdown', 'Maximum Drawdown')} <i class="fa-solid fa-circle-info perf-info-icon"></i></div>
+                                <span class="badge badge-red">${fmt(d.maxDrawdown)}</span>
+                            </div>
+                        </div>
+                        <div class="dd-card" onclick="showModal('daily-loss')">
+                            <div class="dd-card-row">
+                                <div class="dd-card-lbl">${i18nTxt('pricing.maxDailyDrawdown', 'Maximum Daily Drawdown')} <i class="fa-solid fa-circle-info perf-info-icon"></i></div>
+                                <span class="badge badge-red">${fmt(d.dailyDrawdown)}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        // ── Render phase cards ──
+        function renderPhaseCards() {
+            const d = getData();
+            const container = document.getElementById('phaseCards');
+            const icon = document.getElementById('evalStepIcon');
+            const heading = document.getElementById('evalHeadingTitle');
+            const desc = document.getElementById('evalHeadingDesc');
+            let html = '';
+            const is2step = currentTab === '2steplite' || currentTab === '2steppro';
+
+            icon.classList.add('step-icon-gold-ring');
+            if (currentTab === 'instant') {
+                container.className = 'phase-grid cols-1';
+                icon.textContent = '2';
+                html = instantCardHTML(d);
+            } else if (currentTab === '1step') {
+                container.className = 'phase-grid cols-1';
+                icon.textContent = '2';
+                html = phaseCardHTML(1, 'Step 1', i18nTxt('pricing.challenge', 'Challenge'), d.step1Profit, null, d.leverage, d.maxDrawdown, d.dailyDrawdown, undefined, 'Hybrid Drawdown Rules');
+            } else {
+                container.className = 'phase-grid cols-2';
+                icon.textContent = '2';
+                const fiveDays = i18nTxt('pricing.fiveDays', '5 Days');
+                html  = phaseCardHTML(1, 'Step 1', i18nTxt('pricing.challenge', 'Challenge'),    d.step1Profit, fiveDays, d.leverage, d.maxDrawdown, d.dailyDrawdown);
+                html += phaseCardHTML(2, 'Step 2', i18nTxt('pricing.verification', 'Verification'), d.step2Profit, fiveDays, d.leverage, d.maxDrawdown, d.dailyDrawdown);
+            }
+
+            container.innerHTML = html;
+
+            if (heading) {
+                heading.querySelectorAll('[data-eval-heading]').forEach(function (el) {
+                    el.hidden = el.dataset.evalHeading !== currentTab;
+                });
+            }
+            if (desc) {
+                desc.querySelectorAll('[data-eval-desc]').forEach(function (el) {
+                    el.hidden = el.dataset.evalDesc !== currentTab;
+                });
+            }
+        }
+
+        // ── Update news trading + weekend holding cards (eval + QPF) ──
+        function updateEvalNewsCard() {
+            const evalBadge = document.getElementById('evalNewsBadge');
+            if (evalBadge) evalBadge.className = 'badge badge-green';
+
+            const qpfBadge = document.getElementById('qpfNewsBadge');
+            if (qpfBadge) { qpfBadge.className = 'badge badge-green'; qpfBadge.textContent = 'Allowed'; }
+        }
+
+        // ── Render funded guidelines ──
+        function renderFundedGuides() {
+            const container = document.getElementById('fundedGuides');
+            if (!container) return;
+            container.innerHTML = `
+                <div class="guide-card">
+                    <div class="guide-top">
+                        <div class="guide-name"><i class="fa-solid fa-newspaper"></i> News Trading</div>
+                        <span class="badge badge-green">Allowed</span>
+                    </div>
+                    <div class="guide-desc">News trading is permitted.</div>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-top">
+                        <div class="guide-name"><i class="fa-solid fa-moon"></i> Weekend Holding &amp; Friday Liquidation</div>
+                        <span class="badge badge-gold">Addon</span>
+                    </div>
+                    <div class="guide-desc">All positions must close by 22:00 UTC Friday. Weekend holding requires the Weekend Holding Addon.</div>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-top">
+                        <div class="guide-name"><i class="fa-solid fa-scale-balanced"></i> Leverage</div>
+                        <span class="badge badge-gold">${getData().leverage} FX</span>
+                    </div>
+                    <div class="guide-desc">${getData().leverage} FX · 1:20 Indices · 1:10 Energies/Metals · 1:2 Crypto</div>
+                </div>`;
+        }
+
+        // ── Update funded badges ──
+        const FUNDED_LEV_DESC_1STEP = `FX 1:30
+Metals 1:20
+Indices / Commodities / Energies 1:10
+Equities 1:5
+Crypto 1:2`;
+
+        const FUNDED_LEV_DESC_2STEP = `FX 1:100
+Metals 1:50
+Indices / Commodities / Energies 1:20
+Equities 1:10
+Crypto 1:3`;
+
+        function updateFundedBadges() {
+            const d = getData();
+            const levBadge = document.getElementById('fundedLevBadge');
+            const levDesc  = document.getElementById('fundedLevDesc');
+            if (levBadge) levBadge.textContent = d.leverage;
+            if (levDesc) {
+                if (currentTab === '1step' || currentTab === 'instant') {
+                    levDesc.textContent = FUNDED_LEV_DESC_1STEP;
+                } else if (currentTab === '2steplite' || currentTab === '2steppro') {
+                    levDesc.textContent = FUNDED_LEV_DESC_2STEP;
+                }
+            }
+        }
+
+        // ── Follow the Rules: 3rd item = 50% Best Day (1-Step) or 5 Trading Days (2-Step) ──
+        function updateFtrRuleThird() {
+            const btn = document.getElementById('ftr-rule-third');
+            const span = document.getElementById('ftr-rule-third-text');
+            if (!btn || !span) return;
+            const is1step = currentTab === '1step';
+            const isInstant = currentTab === 'instant';
+            if (isInstant) {
+                span.textContent = i18nTxt('pricing.twentyBestDay', '20% Best Day');
+                btn.onclick = () => showModal('best-day');
+            } else {
+                span.textContent = is1step ? i18nTxt('pricing.fiftyBestDay', '50% Best Day') : i18nTxt('pricing.fiveTradingDays', '5 Trading Days');
+                btn.onclick = () => showModal(is1step ? 'best-day' : 'trading-days');
+            }
+        }
+
+        function updateFlowBar() {
+            const flowFirst = document.getElementById('flowFirstStep');
+            if (flowFirst) {
+                flowFirst.textContent = currentTab === 'instant'
+                    ? i18nTxt('content.span25', 'Purchase')
+                    : i18nTxt('content.span8', 'Passed');
+            }
+            const refundCard = document.getElementById('refundHighlightCard');
+            if (refundCard) {
+                refundCard.hidden = currentTab === 'instant';
+            }
+        }
+
+        // ── Master update ──
+        function updateAll() {
+            renderPhaseCards();
+            renderFundedGuides();
+            updateEvalNewsCard();
+            updateFundedBadges();
+            updateFtrRuleThird();
+            updateFlowBar();
+            const d = getData();
+            const daily = document.getElementById('masterDaily');
+            const dd    = document.getElementById('masterDD');
+            if (daily) daily.textContent = fmt(d.dailyDrawdown);
+            if (dd)    dd.textContent    = fmt(d.maxDrawdown);
+        }
+
+        // ── Tab / size event listeners ──
+        document.addEventListener('DOMContentLoaded', function () {
+            currentTab = '2steppro';
+            currentSize = '100000';
+            document.querySelectorAll('.pricing-tab').forEach(b => b.classList.remove('active'));
+            document.querySelector('.pricing-tab[data-tab="2steppro"]').classList.add('active');
+
+            document.querySelectorAll('.pricing-tab').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    currentTab = this.dataset.tab;
+                    document.querySelectorAll('.pricing-tab').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    document.querySelectorAll('.size-btn').forEach(function (b) {
+                        var hide = currentTab === 'instant' && b.dataset.size === '200000';
+                        b.hidden = hide;
+                        b.style.display = hide ? 'none' : '';
+                    });
+                    if (currentTab === 'instant' && currentSize === '200000') {
+                        currentSize = '100000';
+                        document.querySelectorAll('.size-btn').forEach(function (b) {
+                            b.classList.toggle('active', b.dataset.size === '100000');
+                        });
+                    }
+                    updateAll();
+                });
+            });
+
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    currentSize = this.dataset.size;
+                    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    updateAll();
+                });
+            });
+
+            updateAll();
+        });
+
+        function refreshToI18n() {
+            updateAll();
+            if (typeof VerodusI18n !== 'undefined' && VerodusI18n.refresh) {
+                var root = document.querySelector('main') || document.body;
+                VerodusI18n.refresh(root);
+            }
+        }
+        document.addEventListener('verodus:i18nReady', refreshToI18n);
+        document.addEventListener('verodus:languageChanged', refreshToI18n);
+        if (typeof VerodusI18n !== 'undefined' && VerodusI18n.onReady) {
+            VerodusI18n.onReady(refreshToI18n);
+        }
+
+        // ── Chart.js Modals ──
+        const green = '#4ade80', gold = '#ebca75', red = '#f87171', blue = '#4282cb';
+        function getModalChartOpts() {
+            const tickC = (getComputedStyle(document.documentElement).getPropertyValue('--modal-chart-text').trim() || '#ffffff');
+            const m = tickC.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+            const gridC = m ? 'rgba('+parseInt(m[1],16)+','+parseInt(m[2],16)+','+parseInt(m[3],16)+',0.25)' : 'rgba(255,255,255,0.25)';
+            return { tickC, gridC, baseOpts: { animation: false, plugins: { legend: { labels: { color: tickC, boxWidth: 12 } } }, scales: { x: { grid:{color:gridC}, ticks:{color:tickC} }, y: { grid:{color:gridC}, ticks:{color:tickC} } } } };
+        }
+
+        function showModal(type) {
+            const overlay  = document.getElementById('modal');
+            const titleEl  = document.getElementById('modal-title');
+            const contentEl= document.getElementById('modal-content');
+            const canvas   = document.getElementById('modal-chart');
+            const chartWrap= document.getElementById('modal-chart-wrap');
+            overlay.classList.add('open');
+            if (currentChart) { currentChart.destroy(); currentChart = null; }
+            if (chartWrap) chartWrap.style.display = 'block';
+            canvas.style.display = 'block';
+            const exEl = document.getElementById('modal-example');
+            if (exEl) exEl.innerHTML = '';
+
+            const { baseOpts, tickC, gridC } = getModalChartOpts();
+            const d    = getData();
+            const size = parseInt(currentSize);
+            const dailyPct = parseFloat(d.dailyDrawdown) / 100;
+            const ddPct    = parseFloat(d.maxDrawdown)   / 100;
+
+            if (type === 'daily-loss' && currentTab === 'instant') {
+                titleEl.textContent = 'Maximum Daily Drawdown ' + d.dailyDrawdown;
+                const dollar = size * dailyPct;
+                /** Intraday points within ONE trading day: floor = day's equity high − fixed $, ratchets with each new high, resets 00:00 UTC. */
+                const eq = [size, size*1.02, size*1.01, size*1.025, size*1.025 - dollar - size*0.002];
+                const fl = (() => { let high = size; return eq.map(e => { if (e > high) high = e; return high - dollar; }); })();
+                contentEl.innerHTML = `
+                    <p>The daily limit is a fixed dollar amount — <strong>$${dollar.toLocaleString()}</strong> (${d.dailyDrawdown} of your starting balance). The floor sits that amount below the <strong>highest equity point reached during the current trading day</strong>, so it ratchets up with every new intraday high and never moves back down within the day. It resets at 00:00 UTC. Floating (unrealized) P&amp;L is included.</p>
+                    <p class="hl"><strong>Example ($${size.toLocaleString()} account, ${d.dailyDrawdown} rule):</strong> At 00:00 equity $${eq[0].toLocaleString()} → floor $${fl[0].toLocaleString()}. Intraday high $${eq[1].toLocaleString()} → floor $${fl[1].toLocaleString()}. New high $${eq[3].toLocaleString()} → floor $${fl[3].toLocaleString()}. Equity falls to $${Math.round(eq[4]).toLocaleString()} (below the floor) → <strong>breach</strong>.</p>
+                `;
+                currentChart = new Chart(canvas, { type:'line', data:{ labels:['00:00','Morning','Midday','Afternoon','Close'], datasets:[
+                    { label:'Equity', data:eq, borderColor:'#4ade80', backgroundColor:'rgba(74,222,128,0.08)', tension:0.35, borderWidth:3, pointRadius:6, pointBackgroundColor:'#4ade80', fill:false },
+                    { label:'Daily Floor (trails intraday high)', data:fl, borderColor:red, borderDash:[6,4], borderWidth:2, pointRadius:3, pointBackgroundColor:red, fill:false, stepped:'before' }
+                ]}, options:{ ...baseOpts, scales:{ ...baseOpts.scales, y:{ ...baseOpts.scales.y, ticks:{color:tickC,callback:v=>'$'+v.toLocaleString()} } } } });
+            }
+            else if (type === 'daily-loss') {
+                titleEl.textContent = 'Maximum Daily Drawdown ' + d.dailyDrawdown;
+                const dollar = size * dailyPct;
+                /** Points ≈ equity after each 00:00 through start of Day 4; last = Day 4 close (breach). Floor each calendar day =
+                 * equity at that 00:00 minus fixed \$ from initial balance; flat until next 00:00. */
+                const eq = [size, size*1.03, size*1.00, size*0.97, size*0.96-dollar];
+                const d1fl = eq[0] - dollar, d2fl = eq[1] - dollar, d3fl = eq[2] - dollar, d4fl = eq[3] - dollar;
+                const floorLine = [d1fl, d2fl, d3fl, d4fl, d4fl];
+                contentEl.innerHTML = `
+                    <p>The maximum you can lose in a single day is a fixed dollar amount calculated from your initial balance. This amount does not change as your account grows.</p>
+                    <p>The daily floor resets every day at 00:00 server time based on your equity at that moment. Your equity is monitored in real time, and if it falls below the daily floor at any point, it is a breach.</p>
+                    <p class="hl"><strong>Example ($${size.toLocaleString()} account, ${d.dailyDrawdown} rule):</strong> At Start (00:00), equity $${eq[0].toLocaleString()} → day's floor $${d1fl.toLocaleString()} (equity − $${dollar.toLocaleString()}). After Day 1, next 00:00 equity $${eq[1].toLocaleString()} → floor $${d2fl.toLocaleString()}. Next 00:00 $${eq[2].toLocaleString()} → floor $${d3fl.toLocaleString()}. Next 00:00 $${eq[3].toLocaleString()} → floor $${d4fl.toLocaleString()} (same all day regardless of intraday swings). Day 4 close equity $${eq[4].toLocaleString()} (below $${d4fl.toLocaleString()}) → <strong>breach</strong>.</p>
+                `;
+                currentChart = new Chart(canvas, { type:'line', data:{ labels:['Start','Day 1','Day 2','Day 3','Day 4'], datasets:[
+                    { label:'Equity', data:eq, borderColor:'#4ade80', backgroundColor:'rgba(74,222,128,0.08)', tension:0.35, borderWidth:3, pointRadius:6, pointBackgroundColor:'#4ade80', fill:false },
+                    { label:'Daily Floor (fixed until 00:00 reset)', data:floorLine, borderColor:red, borderDash:[6,4], borderWidth:2, pointRadius:3, pointBackgroundColor:red, fill:false, stepped:'before' }
+                ]}, options:{ ...baseOpts, scales:{ ...baseOpts.scales, y:{ ...baseOpts.scales.y, ticks:{color:tickC,callback:v=>'$'+v.toLocaleString()} } } } });
+            }
+            else if (type === 'drawdown') {
+                if (currentTab === 'instant') {
+                    titleEl.textContent = 'Trailing Drawdown ' + d.maxDrawdown;
+                    // Floor trails the running equity PEAK (high-water mark) — it ratchets up and never moves back down.
+                    const equityPts = [size, size*1.03, size*1.06, size*1.04, size*1.08, size*1.02];
+                    const floorPts = (() => { let peak = size; return equityPts.map(eq => { if (eq > peak) peak = eq; return peak * (1 - ddPct); }); })();
+                    contentEl.innerHTML = `
+                        <p>The maximum you can lose overall is a <strong>trailing drawdown</strong> from your account equity high water mark. The floor ratchets up with each new equity peak, trails at ${d.maxDrawdown} below that peak at all times — including weekends (floating losses included) — and never moves back down. It does not stop at your initial balance.</p>
+                        <p class="hl"><strong>Example ($${size.toLocaleString()} account, ${d.maxDrawdown} rule):</strong> Peak equity $${Math.round(size*1.06).toLocaleString()} → floor $${Math.round(size*1.06*(1-ddPct)).toLocaleString()}. Peak $${Math.round(size*1.08).toLocaleString()} → floor $${Math.round(size*1.08*(1-ddPct)).toLocaleString()}. A later close below the trailing floor → <strong>breach</strong>.</p>
+                    `;
+                    currentChart = new Chart(canvas, { type:'line', data:{ labels:['Start','Day 1','Day 2','Day 3','Day 4','Day 5'], datasets:[
+                        { label:'Equity', data:equityPts, borderColor:'#4ade80', backgroundColor:'rgba(74,222,128,0.08)', tension:0.3, borderWidth:3, pointRadius:5, pointBackgroundColor:'#4ade80', fill:false },
+                        { label:'Trailing Floor (HWM)', data:floorPts, borderColor:red, borderDash:[6,4], borderWidth:2, pointRadius:4, pointBackgroundColor:red, fill:false }
+                    ]}, options:{ ...baseOpts, scales:{ ...baseOpts.scales, y:{ ...baseOpts.scales.y, ticks:{color:tickC,callback:v=>'$'+v.toLocaleString()} } } } });
+                } else if (currentTab === '1step') {
+                    titleEl.textContent = 'Hybrid Drawdown ' + d.maxDrawdown;
+                    const initFloor = Math.round(size * (1 - ddPct));
+                    // Floor = peak × (1 − dd%); it reaches the initial balance once peak = initial ÷ (1 − dd%), then locks.
+                    const lockAt    = Math.round(size / (1 - ddPct));
+                    const equityPts = [size, size*1.02, size*1.05, lockAt, size*1.10, size*0.995];
+                    const floorPts = (() => {
+                        let peak = size, locked = false;
+                        return equityPts.map(eq => {
+                            if (eq > peak) peak = eq;
+                            const trail = Math.round(peak * (1 - ddPct));
+                            if (trail >= size) locked = true;
+                            return locked ? size : trail;
+                        });
+                    })();
+                    const ex1Eq = size*1.02, ex1Fl = Math.round(ex1Eq*(1-ddPct));
+                    const ex2Eq = size*1.05, ex2Fl = Math.round(ex2Eq*(1-ddPct));
+                    contentEl.innerHTML = `
+                        <p>The floor <strong>trails at ${d.maxDrawdown} below your equity peak</strong>. As your equity reaches new highs, the floor rises with the peak. Once the floor reaches your initial balance (at a peak of $${lockAt.toLocaleString()}), it <strong>locks there permanently</strong>.</p>
+                        <p class="hl"><strong>Example ($${size.toLocaleString()} account, ${d.maxDrawdown} rule):</strong> Initial floor = $${initFloor.toLocaleString()}. Peak equity $${ex1Eq.toLocaleString()} → floor = $${ex1Fl.toLocaleString()}. Peak equity $${ex2Eq.toLocaleString()} → floor = $${ex2Fl.toLocaleString()}. Peak $${lockAt.toLocaleString()} → floor = $${size.toLocaleString()} locked. Closing equity $${Math.round(size*0.995).toLocaleString()} → <strong>breach</strong>.</p>
+                    `;
+                    currentChart = new Chart(canvas, { type:'line', data:{ labels:['Start','Day 1','Day 2','Day 3 🔒','Day 4','Day 5'], datasets:[
+                        { label:'Equity', data:equityPts, borderColor:'#4ade80', backgroundColor:'rgba(74,222,128,0.08)', tension:0.3, borderWidth:3, pointRadius:5, pointBackgroundColor:'#4ade80', fill:false },
+                        { label:'Trailing Floor', data:floorPts, borderColor:red, borderDash:[6,4], borderWidth:2, pointRadius:4, pointBackgroundColor:red, fill:false }
+                    ]}, options:{ ...baseOpts, scales:{ ...baseOpts.scales, y:{ ...baseOpts.scales.y, ticks:{color:tickC,callback:v=>'$'+v.toLocaleString()} } } } });
+                } else {
+                    titleEl.textContent = 'Static Drawdown ' + d.maxDrawdown;
+                    const dollar = size * ddPct;
+                    const floor  = size - dollar;
+                    // Equity: $100k,$108k,$96k,$112k,$98k, then breach = floor−$1k
+                    const equityPts = [size, size*1.08, size*0.96, size*1.12, size*0.98, floor - size*0.01];
+                    contentEl.innerHTML = `
+                        <p>The floor is <strong>fixed at ${d.maxDrawdown} below your initial balance</strong> ($${floor.toLocaleString()}). It never moves — not when your equity grows, not when it falls. Your account can never go below this level at any time, including weekends.</p>
+                        <p class="hl"><strong>Example ($${size.toLocaleString()} account):</strong> Floor = $${size.toLocaleString()} − $${dollar.toLocaleString()} = <strong>$${floor.toLocaleString()}</strong> (fixed forever). Even if equity grows to $${Math.round(size*1.5).toLocaleString()}, floor stays at $${floor.toLocaleString()}. Equity drops to $${(floor-1).toLocaleString()} → <strong>breach</strong>.</p>
+                    `;
+                    currentChart = new Chart(canvas, { type:'line', data:{ labels:['Start','Day 1','Day 2','Day 3','Day 4','Day 5'], datasets:[
+                        { label:'Equity', data:equityPts, borderColor:'#4ade80', backgroundColor:'rgba(74,222,128,0.08)', tension:0.3, borderWidth:3, pointRadius:5, pointBackgroundColor:'#4ade80', fill:false },
+                        { label:'Static Floor', data:Array(6).fill(floor), borderColor:red, borderDash:[6,4], borderWidth:2, pointRadius:3, pointBackgroundColor:red, fill:false }
+                    ]}, options:{ ...baseOpts, scales:{ ...baseOpts.scales, y:{ ...baseOpts.scales.y, ticks:{color:tickC,callback:v=>'$'+v.toLocaleString()} } } } });
+                }
+            }
+            else if (type === 'profit-target') {
+                titleEl.textContent = 'Profit Targets';
+                const d2 = getData();
+                let labels = ['Phase 1'], vals = [parseFloat(d2.step1Profit)];
+                if (d2.step2Profit) { labels.push('Phase 2'); vals.push(parseFloat(d2.step2Profit)); }
+                if (d2.step3Profit) { labels.push('Phase 3'); vals.push(parseFloat(d2.step3Profit)); }
+                contentEl.innerHTML = `<p>Only net closed-trade profit counts toward the target. Unrealized P&amp;L does not contribute.</p>`;
+                currentChart = new Chart(canvas, { type:'bar', data:{ labels, datasets:[{ label:'Target', data:vals, backgroundColor:[gold,blue,'#a78bfa'] }] }, options:{ ...baseOpts, indexAxis:'y', scales:{ x:{ ...baseOpts.scales.x, max:Math.max(...vals)+3, ticks:{color:tickC,callback:v=>v+'%'} }, y:{ ...baseOpts.scales.y, grid:{display:false} } } } });
+            }
+            else if (type === 'trading-days') {
+                titleEl.textContent = '5 Minimum Active Performance Days';
+                contentEl.innerHTML = `<p>You must complete at least <strong style="color:${gold}">5 active performance days</strong> during the evaluation phase before passing.</p><p>An active performance day is any calendar day on which at least one trade is opened and closed within server hours.</p>`;
+                if (chartWrap) chartWrap.style.display = 'none';
+            }
+            else if (type === 'weekend') {
+                titleEl.textContent = 'Weekend Holding Rules';
+                contentEl.innerHTML = `<p>All open positions, irrespective of asset class, must be closed by 22:00 UTC Friday. Weekend holding of open positions is permitted solely upon purchase of the Weekend Holding Addon. No new entries or modifications are permitted between 21:00 and 22:00 UTC Friday.</p>`;
+                if (chartWrap) chartWrap.style.display = 'none';
+            }
+            else if (type === 'best-day') {
+                const isInstant = currentTab === 'instant';
+                const bestPctLimit = isInstant ? 20 : 50;
+                titleEl.textContent = bestPctLimit + '% Best Day Rule';
+                const d2val     = isInstant ? Math.round(size * 0.10) : Math.round(size * parseFloat(d.step1Profit || 10) / 100);
+                const d5val     = Math.round(d2val * 0.6);
+                const lossVal   = Math.round(d2val * 0.2);
+                const posProfit = d2val + d5val;
+                const bestPct   = Math.round(d2val / posProfit * 100);
+                const needed    = isInstant ? d2val * 5 : d2val * 2;
+                contentEl.innerHTML = `<p>The Best Day Rule requires that your most profitable day ("Best Day") does not exceed <strong style="color:${gold}">${bestPctLimit}%</strong> of your Positive Days' Profit on the account. Profitable days are factored into Positive Days' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤${bestPctLimit}% of total Positive Days' Profit.</p>`;
+                const exEl = document.getElementById('modal-example');
+                if (exEl) exEl.innerHTML = `<p class="hl">Example ($${size.toLocaleString()} account): Day 1 = −$${lossVal.toLocaleString()}, Day 2 = +$${d2val.toLocaleString()}, Day 3 = −$${lossVal.toLocaleString()}, Day 4 = −$${lossVal.toLocaleString()}, Day 5 = +$${d5val.toLocaleString()}.<br>Positive Days' Profit = $${posProfit.toLocaleString()}. Best Day (Day 2) = $${d2val.toLocaleString()} (${bestPct}%) → Not satisfied. Need Positive Days' Profit ≥$${needed.toLocaleString()} if Day 2 remains Best Day.</p>`;
+                const lossData = [-lossVal, 0, -lossVal, -lossVal, 0];
+                const bestData = [0, d2val, 0, 0, 0];
+                const profitData = [0, 0, 0, 0, d5val];
+                currentChart = new Chart(canvas, { type:'bar', data:{ labels:['Day 1','Day 2','Day 3','Day 4','Day 5'], datasets:[
+                    { label:'Loss', data:lossData, backgroundColor:red },
+                    { label:'Best Day', data:bestData, backgroundColor:gold },
+                    { label:'Profit', data:profitData, backgroundColor:green }
+                ]}, options:{ ...baseOpts, plugins:{ ...baseOpts.plugins, legend:{ ...baseOpts.plugins.legend, position:'top' } }, scales:{ x:{ ...baseOpts.scales.x, grid:{display:false} }, y:{ ...baseOpts.scales.y, stacked:false, ticks:{...baseOpts.scales.y.ticks, callback:v=>v!=null?'$'+v.toLocaleString():''} } } } });
+            }
+            else if (type === 'leverage') {
+                titleEl.textContent = 'Leverage Guidelines';
+                // Ladders match the plan pages: 1-Step & Instant use the 1:30 FX ladder; 2-Step plans use 1:100.
+                const low = (currentTab === '1step' || currentTab === 'instant');
+                const ladder = low
+                    ? { fx: 30, metals: 20, indices: 10, equities: 5, crypto: 2 }
+                    : { fx: 100, metals: 50, indices: 20, equities: 10, crypto: 3 };
+                contentEl.innerHTML = `<p>Fixed per asset class:</p><ul style="margin-top:0.8rem;color:var(--text-secondary);line-height:2;list-style:none;padding:0;">
+                    <li><strong style="color:var(--text-primary);">Forex:</strong> 1:${ladder.fx}</li>
+                    <li><strong style="color:var(--text-primary);">Metals:</strong> 1:${ladder.metals}</li>
+                    <li><strong style="color:var(--text-primary);">Indices / Commodities / Energies:</strong> 1:${ladder.indices}</li>
+                    <li><strong style="color:var(--text-primary);">Equities:</strong> 1:${ladder.equities}</li>
+                    <li><strong style="color:var(--text-primary);">Crypto:</strong> 1:${ladder.crypto}</li></ul>`;
+                currentChart = new Chart(canvas, { type:'bar', data:{ labels:['FX','Metals','Indices','Equities','Crypto'], datasets:[{ label:'Max Leverage', data:[ladder.fx,ladder.metals,ladder.indices,ladder.equities,ladder.crypto], backgroundColor:gold }] }, options:{ ...baseOpts, scales:{ y:{ ...baseOpts.scales.y, ticks:{color:tickC,callback:v=>'1:'+v} }, x:{ ...baseOpts.scales.x, grid:{display:false} } } } });
+            }
+        }
+
+        function hideModal() {
+            document.getElementById('modal').classList.remove('open');
+            if (currentChart) { currentChart.destroy(); currentChart = null; }
+        }
+
+        document.getElementById('modal').addEventListener('click', function(e) { if (e.target===this) hideModal(); });
+        document.addEventListener('keydown', e => { if (e.key==='Escape') hideModal(); });
+
+    </script>
+
+    <script>
+    /* Rec Instant/Lite overlays. Chrome/CSS/nav/footer from verodus.com. */
+(function () {
+  /* Rec Instant: no $200k. No min trading days. Live 1-Step Best Day wording at 20%.
+     Instant 20% / 1-Step 50%. No 0.5% Valid Day. Profitable days are factored in.
+     6% trail never locks. 3% daily from the day's equity high. No fee refund.
+     Lite funded max DD stays 8% (already in live pricingData).
+     Weekly 70% is 6% of list. On Demand is 90% at 20% of list.
+     Default is Bi-Weekly 80%. News is included on every plan. */
+  if (typeof pricingData === 'undefined') return;
+
+  delete pricingData.instant['200000'];
+
+  var origInstantCard = instantCardHTML;
+  instantCardHTML = function (d) {
+    return ''
+      + '<div class="phase-card">'
+      + '  <div class="phase-header"><div>'
+      + '    <div class="phase-name">' + i18nTxt('pricing.fundedAccount', 'Funded Account') + '</div>'
+      + '  </div></div>'
+      + '  <div class="phase-stats">'
+      + '    <div>'
+      + '      <div class="phase-stat-lbl">' + i18nTxt('pricing.profitTarget', 'Profit Target') + '</div>'
+      + '      <div class="phase-stat-val-w">' + i18nTxt('pricing.none', 'None') + '</div>'
+      + '    </div>'
+      + '    <div>'
+      + '      <div class="phase-stat-lbl">' + i18nTxt('pricing.minTradingDays', 'Minimum Trading Days') + '</div>'
+      + '      <div class="phase-stat-val-w">' + i18nTxt('pricing.none', 'None') + '</div>'
+      + '    </div>'
+      + '    <div onclick="showModal(\'best-day\')" style="cursor:pointer;">'
+      + '      <div class="phase-stat-lbl">' + i18nTxt('pricing.bestDayRule', 'Best Day Rule') + ' <i class="fa-solid fa-circle-info perf-info-icon"></i></div>'
+      + '      <div class="phase-stat-val-w">' + d.bestDay + '</div>'
+      + '    </div>'
+      + '  </div>'
+      + '  <div class="phase-meta">'
+      + '    <div>' + i18nTxt('pricing.leveragePrefix', 'Leverage:') + ' <span>' + d.leverage + '</span></div>'
+      + '    <div>' + i18nTxt('pricing.tradingPeriodPrefix', 'Trading Period:') + ' <span>' + i18nTxt('pricing.unlimited', 'Unlimited') + '</span></div>'
+      + '  </div>'
+      + '  <div class="phase-dd">'
+      + '    <div class="sub-label sub-label-red" style="margin-bottom:0.5rem;">' + i18nTxt('pricing.trailingDrawdown', 'Trailing Drawdown Rules') + '</div>'
+      + '    <p style="font-size:0.72rem;color:var(--text-secondary);line-height:1.5;margin:0 0 0.75rem;">6% trailing max from the equity high-water mark — it never locks. 3% daily from the day\'s equity high.</p>'
+      + '    <div class="phase-dd-cards">'
+      + '      <div class="dd-card" onclick="showModal(\'drawdown\')">'
+      + '        <div class="dd-card-row">'
+      + '          <div class="dd-card-lbl">' + i18nTxt('pricing.maxDrawdown', 'Maximum Drawdown') + ' <i class="fa-solid fa-circle-info perf-info-icon"></i></div>'
+      + '          <span class="badge badge-red">' + fmt(d.maxDrawdown) + '</span>'
+      + '        </div>'
+      + '      </div>'
+      + '      <div class="dd-card" onclick="showModal(\'daily-loss\')">'
+      + '        <div class="dd-card-row">'
+      + '          <div class="dd-card-lbl">' + i18nTxt('pricing.maxDailyDrawdown', 'Maximum Daily Drawdown') + ' <i class="fa-solid fa-circle-info perf-info-icon"></i></div>'
+      + '          <span class="badge badge-red">' + fmt(d.dailyDrawdown) + '</span>'
+      + '        </div>'
+      + '      </div>'
+      + '    </div>'
+      + '  </div>'
+      + '</div>';
+  };
+
+  var origShowModal = showModal;
+  showModal = function (type) {
+    if (type === 'valid-days' || type === 'first-request') {
+      var overlay = document.getElementById('modal');
+      var titleEl = document.getElementById('modal-title');
+      var contentEl = document.getElementById('modal-content');
+      var canvas = document.getElementById('modal-chart');
+      var chartWrap = document.getElementById('modal-chart-wrap');
+      var exEl = document.getElementById('modal-example');
+      overlay.classList.add('open');
+      if (typeof currentChart !== 'undefined' && currentChart) {
+        currentChart.destroy();
+        currentChart = null;
+      }
+      if (chartWrap) chartWrap.style.display = 'none';
+      if (canvas) canvas.style.display = 'none';
+      if (exEl) exEl.innerHTML = '';
+      if (currentTab === 'instant') {
+        titleEl.textContent = 'Instant payouts';
+        contentEl.innerHTML = '<p>Every payout needs <strong>$100</strong>, Best Day ≤20% of Positive Days\' Profit, and the selected cycle. Instant has <strong>no minimum trading days</strong>.</p>'
+          + '<p>Weekly: 7 calendar days and when eligibility requirements are met.</p>'
+          + '<p>Bi-Weekly: 14 calendar days and when eligibility requirements are met.</p>'
+          + '<p>On-Demand: available when eligibility requirements are met.</p>';
+      } else if (currentTab === '1step') {
+        titleEl.textContent = '1-Step payouts';
+        contentEl.innerHTML = '<p>Every payout needs <strong>$100</strong>, Best Day ≤50% of Positive Days\' Profit, and the selected cycle. 1-Step has <strong>no minimum trading days</strong>.</p>'
+          + '<p>Weekly: 7 calendar days and when eligibility requirements are met.</p>'
+          + '<p>Bi-Weekly: 14 calendar days and when eligibility requirements are met.</p>'
+          + '<p>On-Demand: available when eligibility requirements are met.</p>';
+      } else {
+        titleEl.textContent = '2-Step payouts';
+        contentEl.innerHTML = '<p>Every payout needs <strong>$100</strong> and <strong>3 trading days</strong>, plus the selected cycle. The first payout and every payout after use this same rule.</p>'
+          + '<p>Weekly: 7 calendar days, and 3 trading days.</p>'
+          + '<p>Bi-Weekly: 14 calendar days, and 3 trading days.</p>'
+          + '<p>On-Demand: available when eligibility requirements are met.</p>';
+      }
+      return;
+    }
+    origShowModal(type);
+    if (type === 'best-day' && (currentTab === 'instant' || currentTab === '1step')) {
+      var bestEl = document.getElementById('modal-content');
+      if (bestEl) {
+        var pct = currentTab === 'instant' ? 20 : 50;
+        bestEl.innerHTML = '<p>The Best Day Rule requires that your most profitable day ("Best Day") does not exceed <strong style="color:var(--gold-light)">' + pct + '%</strong> of your Positive Days\' Profit on the account. Profitable days are factored into Positive Days\' Profit. Profits are calculated from closed trades at the end of each trading day (00:00 UTC). Exceeding this is not a breach — you must continue trading to add more profit until the Best Day is ≤' + pct + '% of total Positive Days\' Profit.</p>';
+      }
+    }
+  };
+
+  var origUpdateAll = updateAll;
+  updateAll = function () {
+    var hide200 = currentTab === 'instant';
+    document.querySelectorAll('.size-btn[data-size="200000"]').forEach(function (btn) {
+      btn.hidden = hide200;
+    });
+    if (hide200 && currentSize === '200000') {
+      currentSize = '100000';
+      document.querySelectorAll('.size-btn').forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-size') === '100000');
+      });
+    }
+    origUpdateAll();
+    applyNewsIncluded();
+    var evalWeekendDesc = document.getElementById('evalWeekendDesc');
+    if (evalWeekendDesc && currentTab === 'instant') {
+      evalWeekendDesc.textContent = 'All open positions must close by 22:00 UTC Friday. Weekend holding requires the Weekend Holding Addon.';
+    }
+    applyRewardCycles();
+  };
+
+  function applyNewsIncluded() {
+    var allowed = 'News trading is permitted.';
+    var evalBadge = document.getElementById('evalNewsBadge');
+    if (evalBadge) {
+      evalBadge.className = 'badge badge-green';
+      evalBadge.textContent = 'Allowed';
+    }
+    var evalNewsDesc = document.getElementById('evalNewsDesc');
+    if (evalNewsDesc) evalNewsDesc.textContent = allowed;
+    var qpfBadge = document.getElementById('qpfNewsBadge');
+    if (qpfBadge) {
+      qpfBadge.className = 'badge badge-green';
+      qpfBadge.textContent = 'Allowed';
+    }
+    var qpfNewsDesc = document.getElementById('qpfNewsDesc');
+    if (qpfNewsDesc) {
+      qpfNewsDesc.textContent = allowed;
+      var extra = qpfNewsDesc.nextElementSibling;
+      if (extra && /News Trading Addon/i.test(extra.textContent || '')) extra.remove();
+    }
+    var funded = document.getElementById('fundedGuides');
+    if (funded) {
+      funded.querySelectorAll('.guide-card').forEach(function (card) {
+        var name = card.querySelector('.guide-name');
+        if (!name || name.textContent.indexOf('News Trading') === -1) return;
+        var badge = card.querySelector('.badge');
+        if (badge) {
+          badge.className = 'badge badge-green';
+          badge.textContent = 'Allowed';
+        }
+        var desc = card.querySelector('.guide-desc');
+        if (desc) desc.textContent = allowed;
+      });
+    }
+  }
+
+  function applyRewardCycles() {
+    document.querySelectorAll('[data-i18n="content.p6"]').forEach(function (p) {
+      p.textContent = 'Default reward is Bi-Weekly 80%. Weekly 70% and On Demand 90% are paid add-ons.';
+    });
+    document.querySelectorAll('[data-i18n="content.p7"]').forEach(function (p) {
+      p.textContent = 'All reward request intervals are based on calendar days, not trading days. Each cycle still needs that plan’s qualifying parameters.';
+    });
+    document.querySelectorAll('[data-i18n-html="content.p8"]').forEach(function (p) {
+      p.innerHTML = currentTab === 'instant'
+        ? '<strong>Payouts:</strong> Every payout: $100. No minimum trading days. Best Day ≤20% of Positive Days’ Profit (within 48 hrs)'
+        : currentTab === '1step'
+          ? '<strong>Payouts:</strong> Every payout: $100. No minimum trading days. Best Day ≤50% of Positive Days’ Profit (within 48 hrs)'
+          : '<strong>Payouts:</strong> Every payout: $100 and 3 trading days (within 48 hrs)';
+    });
+    var refund = document.getElementById('refundHighlightCard');
+    var rhGrid = document.querySelector('.reward-highlight-grid');
+    if (refund) refund.hidden = currentTab === 'instant';
+    if (rhGrid) rhGrid.classList.toggle('rh-no-refund', currentTab === 'instant');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { updateAll(); });
+  } else {
+    updateAll();
+  }
+})();
+    </script>
+</body>
+</html>

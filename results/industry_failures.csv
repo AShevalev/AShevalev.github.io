@@ -1,0 +1,1918 @@
+Product,Profile,Reason,Share
+Verodus Instant,Pro,p1_time_abandon,0.089
+Verodus Instant,Pro,p1_max_dd,0.147
+Verodus Instant,Pro,post_m1,0.301
+Verodus Instant,Pro,post_m3,0.129
+Verodus Instant,Pro,p1_rule_violation,0.002
+Verodus Instant,Pro,post_m12,0.089
+Verodus Instant,Semi-skilled,p1_max_dd,0.304
+Verodus Instant,Semi-skilled,post_m1,0.254
+Verodus Instant,Semi-skilled,post_m12,0.059
+Verodus Instant,Semi-skilled,post_m3,0.092
+Verodus Instant,Semi-skilled,p1_time_abandon,0.101
+Verodus Instant,Semi-skilled,p1_rule_violation,0.006
+Verodus Instant,Semi-skilled,p1_daily_dd,0.002
+Verodus Instant,Average,p1_max_dd,0.666
+Verodus Instant,Average,p1_time_abandon,0.136
+Verodus Instant,Average,post_m3,0.023
+Verodus Instant,Average,p1_daily_dd,0.04
+Verodus Instant,Average,p1_rule_violation,0.011
+Verodus Instant,Average,post_m1,0.055
+Verodus Instant,Average,post_m12,0.013
+Verodus Instant,Aggressive,p1_daily_dd,0.988
+Verodus Instant,Aggressive,p1_max_dd,0.011
+Verodus Instant,Aggressive,p1_rule_violation,0.001
+Verodus Instant,Lottery,p1_daily_dd,0.841
+Verodus Instant,Lottery,p1_max_dd,0.159
+Verodus 1-Step,Pro,p1_max_dd,0.32
+Verodus 1-Step,Pro,p1_time_abandon,0.166
+Verodus 1-Step,Pro,post_m1,0.162
+Verodus 1-Step,Pro,funded_kyc_drop,0.061
+Verodus 1-Step,Pro,post_m12,0.033
+Verodus 1-Step,Pro,post_m3,0.076
+Verodus 1-Step,Pro,funded_time_abandon,0.013
+Verodus 1-Step,Pro,funded_max_dd,0.027
+Verodus 1-Step,Pro,p1_rule_violation,0.002
+Verodus 1-Step,Pro,funded_rule_violation,0.001
+Verodus 1-Step,Semi-skilled,post_m1,0.102
+Verodus 1-Step,Semi-skilled,p1_time_abandon,0.152
+Verodus 1-Step,Semi-skilled,p1_max_dd,0.523
+Verodus 1-Step,Semi-skilled,funded_kyc_drop,0.051
+Verodus 1-Step,Semi-skilled,funded_max_dd,0.033
+Verodus 1-Step,Semi-skilled,post_m3,0.034
+Verodus 1-Step,Semi-skilled,post_m12,0.017
+Verodus 1-Step,Semi-skilled,funded_time_abandon,0.007
+Verodus 1-Step,Semi-skilled,p1_rule_violation,0.009
+Verodus 1-Step,Average,p1_max_dd,0.728
+Verodus 1-Step,Average,p1_time_abandon,0.176
+Verodus 1-Step,Average,post_m1,0.014
+Verodus 1-Step,Average,funded_max_dd,0.028
+Verodus 1-Step,Average,funded_kyc_drop,0.01
+Verodus 1-Step,Average,funded_time_abandon,0.002
+Verodus 1-Step,Average,p1_rule_violation,0.01
+Verodus 1-Step,Average,p1_daily_dd,0.008
+Verodus 1-Step,Average,post_m3,0.006
+Verodus 1-Step,Average,post_m12,0.004
+Verodus 1-Step,Aggressive,p1_daily_dd,0.541
+Verodus 1-Step,Aggressive,p1_max_dd,0.417
+Verodus 1-Step,Aggressive,p1_time_abandon,0.038
+Verodus 1-Step,Aggressive,funded_daily_dd,0.001
+Verodus 1-Step,Aggressive,funded_max_dd,0.001
+Verodus 1-Step,Aggressive,p1_rule_violation,0.002
+Verodus 1-Step,Lottery,p1_max_dd,0.782
+Verodus 1-Step,Lottery,p1_daily_dd,0.215
+Verodus 1-Step,Lottery,p1_rule_violation,0.002
+Verodus 1-Step,Lottery,p1_time_abandon,0.001
+Verodus 2-Step Lite,Pro,post_m3,0.122
+Verodus 2-Step Lite,Pro,p1_max_dd,0.118
+Verodus 2-Step Lite,Pro,funded_time_abandon,0.015
+Verodus 2-Step Lite,Pro,post_m1,0.223
+Verodus 2-Step Lite,Pro,p1_time_abandon,0.057
+Verodus 2-Step Lite,Pro,funded_kyc_drop,0.072
+Verodus 2-Step Lite,Pro,p2_max_dd,0.081
+Verodus 2-Step Lite,Pro,p2_time_abandon,0.049
+Verodus 2-Step Lite,Pro,post_m12,0.051
+Verodus 2-Step Lite,Pro,p2_rule_violation,0.002
+Verodus 2-Step Lite,Pro,funded_max_dd,0.027
+Verodus 2-Step Lite,Pro,p1_rule_violation,0.005
+Verodus 2-Step Lite,Semi-skilled,p1_max_dd,0.311
+Verodus 2-Step Lite,Semi-skilled,p1_time_abandon,0.126
+Verodus 2-Step Lite,Semi-skilled,funded_max_dd,0.034
+Verodus 2-Step Lite,Semi-skilled,post_m1,0.088
+Verodus 2-Step Lite,Semi-skilled,p2_max_dd,0.144
+Verodus 2-Step Lite,Semi-skilled,post_m3,0.059
+Verodus 2-Step Lite,Semi-skilled,funded_kyc_drop,0.039
+Verodus 2-Step Lite,Semi-skilled,p2_rule_violation,0.004
+Verodus 2-Step Lite,Semi-skilled,post_m12,0.03
+Verodus 2-Step Lite,Semi-skilled,p2_time_abandon,0.056
+Verodus 2-Step Lite,Semi-skilled,funded_time_abandon,0.009
+Verodus 2-Step Lite,Semi-skilled,p1_rule_violation,0.009
+Verodus 2-Step Lite,Average,p1_time_abandon,0.14
+Verodus 2-Step Lite,Average,p2_max_dd,0.093
+Verodus 2-Step Lite,Average,p1_max_dd,0.667
+Verodus 2-Step Lite,Average,p1_daily_dd,0.028
+Verodus 2-Step Lite,Average,p1_rule_violation,0.008
+Verodus 2-Step Lite,Average,post_m1,0.01
+Verodus 2-Step Lite,Average,funded_max_dd,0.009
+Verodus 2-Step Lite,Average,p2_time_abandon,0.016
+Verodus 2-Step Lite,Average,funded_kyc_drop,0.006
+Verodus 2-Step Lite,Average,post_m3,0.007
+Verodus 2-Step Lite,Average,p2_rule_violation,0.001
+Verodus 2-Step Lite,Average,post_m12,0.005
+Verodus 2-Step Lite,Average,p2_daily_dd,0.002
+Verodus 2-Step Lite,Average,funded_time_abandon,0.003
+Verodus 2-Step Lite,Aggressive,p1_daily_dd,0.894
+Verodus 2-Step Lite,Aggressive,p1_max_dd,0.104
+Verodus 2-Step Lite,Aggressive,p1_rule_violation,0.001
+Verodus 2-Step Lite,Aggressive,p2_daily_dd,0.001
+Verodus 2-Step Lite,Lottery,p1_daily_dd,0.772
+Verodus 2-Step Lite,Lottery,p1_max_dd,0.228
+Verodus 2-Step Pro,Pro,p1_time_abandon,0.059
+Verodus 2-Step Pro,Pro,post_m3,0.1
+Verodus 2-Step Pro,Pro,p2_max_dd,0.054
+Verodus 2-Step Pro,Pro,post_m12,0.062
+Verodus 2-Step Pro,Pro,funded_max_dd,0.014
+Verodus 2-Step Pro,Pro,funded_kyc_drop,0.114
+Verodus 2-Step Pro,Pro,post_m1,0.267
+Verodus 2-Step Pro,Pro,p1_max_dd,0.078
+Verodus 2-Step Pro,Pro,p2_time_abandon,0.029
+Verodus 2-Step Pro,Pro,funded_time_abandon,0.008
+Verodus 2-Step Pro,Pro,p1_rule_violation,0.007
+Verodus 2-Step Pro,Pro,p2_rule_violation,0.003
+Verodus 2-Step Pro,Semi-skilled,p1_time_abandon,0.104
+Verodus 2-Step Pro,Semi-skilled,p1_max_dd,0.318
+Verodus 2-Step Pro,Semi-skilled,post_m1,0.13
+Verodus 2-Step Pro,Semi-skilled,p2_max_dd,0.122
+Verodus 2-Step Pro,Semi-skilled,post_m12,0.021
+Verodus 2-Step Pro,Semi-skilled,post_m3,0.053
+Verodus 2-Step Pro,Semi-skilled,funded_kyc_drop,0.036
+Verodus 2-Step Pro,Semi-skilled,p2_time_abandon,0.05
+Verodus 2-Step Pro,Semi-skilled,funded_max_dd,0.028
+Verodus 2-Step Pro,Semi-skilled,p2_rule_violation,0.007
+Verodus 2-Step Pro,Semi-skilled,funded_time_abandon,0.006
+Verodus 2-Step Pro,Semi-skilled,p1_rule_violation,0.009
+Verodus 2-Step Pro,Average,p1_max_dd,0.721
+Verodus 2-Step Pro,Average,p1_time_abandon,0.146
+Verodus 2-Step Pro,Average,p1_rule_violation,0.007
+Verodus 2-Step Pro,Average,funded_max_dd,0.008
+Verodus 2-Step Pro,Average,p2_max_dd,0.065
+Verodus 2-Step Pro,Average,post_m1,0.008
+Verodus 2-Step Pro,Average,p2_time_abandon,0.013
+Verodus 2-Step Pro,Average,p1_daily_dd,0.01
+Verodus 2-Step Pro,Average,funded_time_abandon,0.002
+Verodus 2-Step Pro,Average,p2_rule_violation,0.003
+Verodus 2-Step Pro,Average,post_m3,0.003
+Verodus 2-Step Pro,Average,p2_daily_dd,0.001
+Verodus 2-Step Pro,Average,funded_kyc_drop,0.004
+Verodus 2-Step Pro,Average,post_m12,0.001
+Verodus 2-Step Pro,Aggressive,p1_daily_dd,0.956
+Verodus 2-Step Pro,Aggressive,p1_max_dd,0.041
+Verodus 2-Step Pro,Aggressive,p1_rule_violation,0.002
+Verodus 2-Step Pro,Aggressive,p2_daily_dd,0.001
+Verodus 2-Step Pro,Lottery,p1_daily_dd,0.897
+Verodus 2-Step Pro,Lottery,p1_max_dd,0.102
+Verodus 2-Step Pro,Lottery,p1_rule_violation,0.001
+FTMO 1-Step,Pro,post_m12,0.077
+FTMO 1-Step,Pro,p1_time_abandon,0.074
+FTMO 1-Step,Pro,post_m1,0.263
+FTMO 1-Step,Pro,p1_max_dd,0.119
+FTMO 1-Step,Pro,funded_max_dd,0.02
+FTMO 1-Step,Pro,funded_kyc_drop,0.104
+FTMO 1-Step,Pro,post_m3,0.111
+FTMO 1-Step,Pro,p1_rule_violation,0.006
+FTMO 1-Step,Pro,funded_time_abandon,0.006
+FTMO 1-Step,Pro,funded_rule_violation,0.001
+FTMO 1-Step,Semi-skilled,p1_time_abandon,0.13
+FTMO 1-Step,Semi-skilled,post_m1,0.142
+FTMO 1-Step,Semi-skilled,p1_max_dd,0.384
+FTMO 1-Step,Semi-skilled,p1_rule_violation,0.006
+FTMO 1-Step,Semi-skilled,funded_kyc_drop,0.058
+FTMO 1-Step,Semi-skilled,post_m12,0.044
+FTMO 1-Step,Semi-skilled,post_m3,0.053
+FTMO 1-Step,Semi-skilled,funded_max_dd,0.055
+FTMO 1-Step,Semi-skilled,funded_time_abandon,0.016
+FTMO 1-Step,Semi-skilled,p1_daily_dd,0.001
+FTMO 1-Step,Average,p1_max_dd,0.647
+FTMO 1-Step,Average,p1_time_abandon,0.14
+FTMO 1-Step,Average,p1_daily_dd,0.106
+FTMO 1-Step,Average,funded_kyc_drop,0.016
+FTMO 1-Step,Average,funded_max_dd,0.022
+FTMO 1-Step,Average,p1_rule_violation,0.013
+FTMO 1-Step,Average,post_m3,0.007
+FTMO 1-Step,Average,funded_time_abandon,0.005
+FTMO 1-Step,Average,funded_daily_dd,0.008
+FTMO 1-Step,Average,post_m1,0.018
+FTMO 1-Step,Average,post_m12,0.003
+FTMO 1-Step,Aggressive,p1_daily_dd,0.981
+FTMO 1-Step,Aggressive,p1_max_dd,0.018
+FTMO 1-Step,Aggressive,funded_daily_dd,0.001
+FTMO 1-Step,Lottery,p1_daily_dd,0.859
+FTMO 1-Step,Lottery,p1_max_dd,0.141
+FTMO 2-Step,Pro,funded_kyc_drop,0.1
+FTMO 2-Step,Pro,post_m1,0.279
+FTMO 2-Step,Pro,p1_time_abandon,0.058
+FTMO 2-Step,Pro,p1_max_dd,0.061
+FTMO 2-Step,Pro,post_m12,0.072
+FTMO 2-Step,Pro,p2_max_dd,0.06
+FTMO 2-Step,Pro,post_m3,0.103
+FTMO 2-Step,Pro,p2_time_abandon,0.02
+FTMO 2-Step,Pro,p1_rule_violation,0.005
+FTMO 2-Step,Pro,p2_rule_violation,0.004
+FTMO 2-Step,Pro,funded_max_dd,0.005
+FTMO 2-Step,Pro,funded_time_abandon,0.003
+FTMO 2-Step,Semi-skilled,p2_time_abandon,0.042
+FTMO 2-Step,Semi-skilled,p1_max_dd,0.326
+FTMO 2-Step,Semi-skilled,p1_rule_violation,0.007
+FTMO 2-Step,Semi-skilled,post_m1,0.13
+FTMO 2-Step,Semi-skilled,post_m12,0.036
+FTMO 2-Step,Semi-skilled,p1_time_abandon,0.108
+FTMO 2-Step,Semi-skilled,p2_max_dd,0.117
+FTMO 2-Step,Semi-skilled,funded_max_dd,0.016
+FTMO 2-Step,Semi-skilled,post_m3,0.05
+FTMO 2-Step,Semi-skilled,funded_kyc_drop,0.045
+FTMO 2-Step,Semi-skilled,p2_rule_violation,0.007
+FTMO 2-Step,Semi-skilled,funded_time_abandon,0.007
+FTMO 2-Step,Semi-skilled,funded_rule_violation,0.001
+FTMO 2-Step,Average,p1_max_dd,0.719
+FTMO 2-Step,Average,p1_time_abandon,0.132
+FTMO 2-Step,Average,p1_daily_dd,0.007
+FTMO 2-Step,Average,p2_max_dd,0.067
+FTMO 2-Step,Average,p2_time_abandon,0.012
+FTMO 2-Step,Average,p1_rule_violation,0.014
+FTMO 2-Step,Average,funded_max_dd,0.007
+FTMO 2-Step,Average,post_m12,0.004
+FTMO 2-Step,Average,post_m3,0.005
+FTMO 2-Step,Average,post_m1,0.015
+FTMO 2-Step,Average,funded_kyc_drop,0.007
+FTMO 2-Step,Average,p2_rule_violation,0.002
+FTMO 2-Step,Average,p2_daily_dd,0.001
+FTMO 2-Step,Aggressive,p1_daily_dd,0.956
+FTMO 2-Step,Aggressive,p1_max_dd,0.04
+FTMO 2-Step,Aggressive,p2_daily_dd,0.003
+FTMO 2-Step,Aggressive,p1_rule_violation,0.001
+FTMO 2-Step,Lottery,p1_daily_dd,0.91
+FTMO 2-Step,Lottery,p1_max_dd,0.09
+FN Stellar 1-Step,Pro,post_m3,0.109
+FN Stellar 1-Step,Pro,p1_rule_violation,0.006
+FN Stellar 1-Step,Pro,post_m1,0.261
+FN Stellar 1-Step,Pro,post_m12,0.059
+FN Stellar 1-Step,Pro,p1_max_dd,0.163
+FN Stellar 1-Step,Pro,p1_time_abandon,0.09
+FN Stellar 1-Step,Pro,funded_kyc_drop,0.083
+FN Stellar 1-Step,Pro,funded_time_abandon,0.007
+FN Stellar 1-Step,Pro,funded_max_dd,0.025
+FN Stellar 1-Step,Semi-skilled,p1_time_abandon,0.127
+FN Stellar 1-Step,Semi-skilled,p1_daily_dd,0.009
+FN Stellar 1-Step,Semi-skilled,p1_max_dd,0.364
+FN Stellar 1-Step,Semi-skilled,post_m12,0.035
+FN Stellar 1-Step,Semi-skilled,funded_kyc_drop,0.069
+FN Stellar 1-Step,Semi-skilled,post_m1,0.133
+FN Stellar 1-Step,Semi-skilled,p1_rule_violation,0.013
+FN Stellar 1-Step,Semi-skilled,post_m3,0.085
+FN Stellar 1-Step,Semi-skilled,funded_max_dd,0.031
+FN Stellar 1-Step,Semi-skilled,funded_time_abandon,0.013
+FN Stellar 1-Step,Semi-skilled,funded_rule_violation,0.001
+FN Stellar 1-Step,Average,p1_max_dd,0.66
+FN Stellar 1-Step,Average,post_m1,0.023
+FN Stellar 1-Step,Average,p1_daily_dd,0.09
+FN Stellar 1-Step,Average,p1_time_abandon,0.143
+FN Stellar 1-Step,Average,post_m12,0.01
+FN Stellar 1-Step,Average,p1_rule_violation,0.005
+FN Stellar 1-Step,Average,funded_max_dd,0.02
+FN Stellar 1-Step,Average,funded_kyc_drop,0.014
+FN Stellar 1-Step,Average,post_m3,0.01
+FN Stellar 1-Step,Average,funded_daily_dd,0.001
+FN Stellar 1-Step,Average,funded_time_abandon,0.002
+FN Stellar 1-Step,Aggressive,p1_daily_dd,0.966
+FN Stellar 1-Step,Aggressive,p1_max_dd,0.03
+FN Stellar 1-Step,Aggressive,funded_daily_dd,0.002
+FN Stellar 1-Step,Aggressive,p1_time_abandon,0.001
+FN Stellar 1-Step,Aggressive,funded_kyc_drop,0.001
+FN Stellar 1-Step,Lottery,p1_daily_dd,0.75
+FN Stellar 1-Step,Lottery,p1_max_dd,0.247
+FN Stellar 1-Step,Lottery,funded_daily_dd,0.001
+FN Stellar 1-Step,Lottery,funded_max_dd,0.002
+FN Stellar 2-Step,Pro,funded_kyc_drop,0.074
+FN Stellar 2-Step,Pro,post_m1,0.275
+FN Stellar 2-Step,Pro,p2_time_abandon,0.031
+FN Stellar 2-Step,Pro,p2_max_dd,0.05
+FN Stellar 2-Step,Pro,post_m3,0.106
+FN Stellar 2-Step,Pro,post_m12,0.077
+FN Stellar 2-Step,Pro,p1_max_dd,0.098
+FN Stellar 2-Step,Pro,p1_rule_violation,0.003
+FN Stellar 2-Step,Pro,p1_time_abandon,0.04
+FN Stellar 2-Step,Pro,p2_rule_violation,0.002
+FN Stellar 2-Step,Pro,funded_max_dd,0.013
+FN Stellar 2-Step,Pro,funded_time_abandon,0.004
+FN Stellar 2-Step,Pro,funded_rule_violation,0.001
+FN Stellar 2-Step,Semi-skilled,p2_max_dd,0.163
+FN Stellar 2-Step,Semi-skilled,p1_max_dd,0.297
+FN Stellar 2-Step,Semi-skilled,post_m12,0.052
+FN Stellar 2-Step,Semi-skilled,post_m1,0.122
+FN Stellar 2-Step,Semi-skilled,p1_time_abandon,0.098
+FN Stellar 2-Step,Semi-skilled,funded_kyc_drop,0.04
+FN Stellar 2-Step,Semi-skilled,post_m3,0.053
+FN Stellar 2-Step,Semi-skilled,funded_max_dd,0.024
+FN Stellar 2-Step,Semi-skilled,p2_time_abandon,0.03
+FN Stellar 2-Step,Semi-skilled,funded_time_abandon,0.005
+FN Stellar 2-Step,Semi-skilled,p1_rule_violation,0.012
+FN Stellar 2-Step,Semi-skilled,p2_rule_violation,0.004
+FN Stellar 2-Step,Average,p1_max_dd,0.675
+FN Stellar 2-Step,Average,p1_time_abandon,0.132
+FN Stellar 2-Step,Average,p2_max_dd,0.1
+FN Stellar 2-Step,Average,post_m3,0.005
+FN Stellar 2-Step,Average,p2_time_abandon,0.019
+FN Stellar 2-Step,Average,post_m1,0.011
+FN Stellar 2-Step,Average,funded_kyc_drop,0.01
+FN Stellar 2-Step,Average,post_m12,0.006
+FN Stellar 2-Step,Average,p1_rule_violation,0.009
+FN Stellar 2-Step,Average,funded_max_dd,0.012
+FN Stellar 2-Step,Average,p2_rule_violation,0.004
+FN Stellar 2-Step,Average,p1_daily_dd,0.004
+FN Stellar 2-Step,Average,funded_time_abandon,0.001
+FN Stellar 2-Step,Aggressive,p1_daily_dd,0.965
+FN Stellar 2-Step,Aggressive,p1_max_dd,0.032
+FN Stellar 2-Step,Aggressive,p2_daily_dd,0.002
+FN Stellar 2-Step,Aggressive,p1_rule_violation,0.001
+FN Stellar 2-Step,Lottery,p1_daily_dd,0.897
+FN Stellar 2-Step,Lottery,p1_max_dd,0.101
+FN Stellar 2-Step,Lottery,p1_rule_violation,0.002
+FN Stellar Lite,Pro,post_m1,0.251
+FN Stellar Lite,Pro,p2_time_abandon,0.034
+FN Stellar Lite,Pro,p2_max_dd,0.075
+FN Stellar Lite,Pro,p1_max_dd,0.12
+FN Stellar Lite,Pro,p1_time_abandon,0.061
+FN Stellar Lite,Pro,post_m3,0.113
+FN Stellar Lite,Pro,p1_rule_violation,0.004
+FN Stellar Lite,Pro,funded_kyc_drop,0.078
+FN Stellar Lite,Pro,post_m12,0.058
+FN Stellar Lite,Pro,funded_time_abandon,0.003
+FN Stellar Lite,Pro,funded_rule_violation,0.001
+FN Stellar Lite,Pro,p2_rule_violation,0.001
+FN Stellar Lite,Pro,funded_max_dd,0.015
+FN Stellar Lite,Semi-skilled,p1_max_dd,0.327
+FN Stellar Lite,Semi-skilled,p1_time_abandon,0.13
+FN Stellar Lite,Semi-skilled,p2_time_abandon,0.034
+FN Stellar Lite,Semi-skilled,funded_kyc_drop,0.05
+FN Stellar Lite,Semi-skilled,post_m1,0.118
+FN Stellar Lite,Semi-skilled,p2_max_dd,0.121
+FN Stellar Lite,Semi-skilled,post_m3,0.054
+FN Stellar Lite,Semi-skilled,funded_max_dd,0.021
+FN Stellar Lite,Semi-skilled,funded_time_abandon,0.005
+FN Stellar Lite,Semi-skilled,p1_rule_violation,0.015
+FN Stellar Lite,Semi-skilled,post_m12,0.025
+FN Stellar Lite,Semi-skilled,p2_rule_violation,0.002
+FN Stellar Lite,Average,p1_time_abandon,0.137
+FN Stellar Lite,Average,p2_max_dd,0.087
+FN Stellar Lite,Average,p1_max_dd,0.657
+FN Stellar Lite,Average,post_m12,0.006
+FN Stellar Lite,Average,p1_rule_violation,0.01
+FN Stellar Lite,Average,p1_daily_dd,0.027
+FN Stellar Lite,Average,p2_time_abandon,0.017
+FN Stellar Lite,Average,p2_rule_violation,0.003
+FN Stellar Lite,Average,post_m1,0.023
+FN Stellar Lite,Average,funded_kyc_drop,0.007
+FN Stellar Lite,Average,p2_daily_dd,0.002
+FN Stellar Lite,Average,post_m3,0.007
+FN Stellar Lite,Average,funded_max_dd,0.005
+FN Stellar Lite,Average,funded_time_abandon,0.001
+FN Stellar Lite,Aggressive,p1_daily_dd,0.909
+FN Stellar Lite,Aggressive,p1_max_dd,0.089
+FN Stellar Lite,Aggressive,p1_rule_violation,0.001
+FN Stellar Lite,Aggressive,p2_daily_dd,0.001
+FN Stellar Lite,Lottery,p1_daily_dd,0.781
+FN Stellar Lite,Lottery,p1_max_dd,0.219
+FN Stellar Instant,Pro,post_m3,0.146
+FN Stellar Instant,Pro,post_m1,0.388
+FN Stellar Instant,Pro,p1_max_dd,0.031
+FN Stellar Instant,Pro,p1_time_abandon,0.018
+FN Stellar Instant,Pro,post_m12,0.11
+FN Stellar Instant,Pro,p1_rule_violation,0.001
+FN Stellar Instant,Semi-skilled,post_m1,0.358
+FN Stellar Instant,Semi-skilled,post_m3,0.15
+FN Stellar Instant,Semi-skilled,post_m12,0.101
+FN Stellar Instant,Semi-skilled,p1_time_abandon,0.027
+FN Stellar Instant,Semi-skilled,p1_max_dd,0.058
+FN Stellar Instant,Average,p1_max_dd,0.206
+FN Stellar Instant,Average,post_m1,0.316
+FN Stellar Instant,Average,post_m12,0.092
+FN Stellar Instant,Average,p1_time_abandon,0.041
+FN Stellar Instant,Average,post_m3,0.125
+FN Stellar Instant,Aggressive,p1_max_dd,0.776
+FN Stellar Instant,Aggressive,post_m1,0.085
+FN Stellar Instant,Aggressive,post_m3,0.024
+FN Stellar Instant,Aggressive,post_m12,0.025
+FN Stellar Instant,Aggressive,p1_time_abandon,0.014
+FN Stellar Instant,Aggressive,p1_rule_violation,0.002
+FN Stellar Instant,Lottery,p1_max_dd,0.939
+FN Stellar Instant,Lottery,post_m1,0.029
+FN Stellar Instant,Lottery,p1_time_abandon,0.004
+FN Stellar Instant,Lottery,post_m3,0.008
+FN Stellar Instant,Lottery,post_m12,0.001
+5ers High Stakes,Pro,post_m1,0.271
+5ers High Stakes,Pro,p1_time_abandon,0.065
+5ers High Stakes,Pro,post_m3,0.102
+5ers High Stakes,Pro,p1_max_dd,0.076
+5ers High Stakes,Pro,funded_kyc_drop,0.091
+5ers High Stakes,Pro,funded_max_dd,0.027
+5ers High Stakes,Pro,post_m12,0.057
+5ers High Stakes,Pro,p2_max_dd,0.059
+5ers High Stakes,Pro,p1_rule_violation,0.004
+5ers High Stakes,Pro,p2_time_abandon,0.031
+5ers High Stakes,Pro,p2_rule_violation,0.002
+5ers High Stakes,Pro,funded_time_abandon,0.011
+5ers High Stakes,Pro,funded_rule_violation,0.002
+5ers High Stakes,Semi-skilled,p1_max_dd,0.32
+5ers High Stakes,Semi-skilled,p1_time_abandon,0.106
+5ers High Stakes,Semi-skilled,p2_max_dd,0.116
+5ers High Stakes,Semi-skilled,post_m1,0.116
+5ers High Stakes,Semi-skilled,p2_time_abandon,0.047
+5ers High Stakes,Semi-skilled,p1_rule_violation,0.012
+5ers High Stakes,Semi-skilled,post_m3,0.057
+5ers High Stakes,Semi-skilled,funded_max_dd,0.052
+5ers High Stakes,Semi-skilled,funded_kyc_drop,0.045
+5ers High Stakes,Semi-skilled,post_m12,0.022
+5ers High Stakes,Semi-skilled,funded_time_abandon,0.016
+5ers High Stakes,Semi-skilled,p2_rule_violation,0.004
+5ers High Stakes,Average,p1_max_dd,0.727
+5ers High Stakes,Average,p1_time_abandon,0.121
+5ers High Stakes,Average,p2_max_dd,0.082
+5ers High Stakes,Average,p2_time_abandon,0.016
+5ers High Stakes,Average,funded_rule_violation,0.001
+5ers High Stakes,Average,p1_rule_violation,0.008
+5ers High Stakes,Average,p1_daily_dd,0.005
+5ers High Stakes,Average,funded_time_abandon,0.002
+5ers High Stakes,Average,post_m12,0.002
+5ers High Stakes,Average,funded_max_dd,0.009
+5ers High Stakes,Average,funded_kyc_drop,0.005
+5ers High Stakes,Average,post_m1,0.011
+5ers High Stakes,Average,p2_daily_dd,0.003
+5ers High Stakes,Average,post_m3,0.001
+5ers High Stakes,Aggressive,p1_daily_dd,0.954
+5ers High Stakes,Aggressive,p1_max_dd,0.039
+5ers High Stakes,Aggressive,p2_daily_dd,0.005
+5ers High Stakes,Aggressive,p1_time_abandon,0.001
+5ers High Stakes,Aggressive,p2_max_dd,0.001
+5ers High Stakes,Lottery,p1_daily_dd,0.934
+5ers High Stakes,Lottery,p1_max_dd,0.064
+5ers High Stakes,Lottery,p2_daily_dd,0.001
+5ers High Stakes,Lottery,p1_rule_violation,0.001
+5ers Hyper Growth,Pro,post_m1,0.276
+5ers Hyper Growth,Pro,p1_time_abandon,0.078
+5ers Hyper Growth,Pro,p1_max_dd,0.15
+5ers Hyper Growth,Pro,post_m3,0.116
+5ers Hyper Growth,Pro,post_m12,0.074
+5ers Hyper Growth,Pro,funded_kyc_drop,0.091
+5ers Hyper Growth,Pro,funded_max_dd,0.031
+5ers Hyper Growth,Pro,funded_time_abandon,0.008
+5ers Hyper Growth,Pro,p1_rule_violation,0.004
+5ers Hyper Growth,Semi-skilled,p1_time_abandon,0.135
+5ers Hyper Growth,Semi-skilled,p1_max_dd,0.378
+5ers Hyper Growth,Semi-skilled,funded_time_abandon,0.012
+5ers Hyper Growth,Semi-skilled,post_m12,0.041
+5ers Hyper Growth,Semi-skilled,post_m1,0.171
+5ers Hyper Growth,Semi-skilled,post_m3,0.058
+5ers Hyper Growth,Semi-skilled,funded_kyc_drop,0.046
+5ers Hyper Growth,Semi-skilled,p1_rule_violation,0.01
+5ers Hyper Growth,Semi-skilled,funded_rule_violation,0.001
+5ers Hyper Growth,Semi-skilled,funded_max_dd,0.028
+5ers Hyper Growth,Average,p1_max_dd,0.739
+5ers Hyper Growth,Average,p1_time_abandon,0.143
+5ers Hyper Growth,Average,funded_time_abandon,0.007
+5ers Hyper Growth,Average,post_m12,0.007
+5ers Hyper Growth,Average,p1_rule_violation,0.018
+5ers Hyper Growth,Average,funded_max_dd,0.015
+5ers Hyper Growth,Average,post_m1,0.024
+5ers Hyper Growth,Average,post_m3,0.013
+5ers Hyper Growth,Average,funded_kyc_drop,0.005
+5ers Hyper Growth,Aggressive,p1_max_dd,0.942
+5ers Hyper Growth,Aggressive,funded_max_dd,0.028
+5ers Hyper Growth,Aggressive,p1_rule_violation,0.003
+5ers Hyper Growth,Aggressive,p1_time_abandon,0.018
+5ers Hyper Growth,Aggressive,post_m1,0.003
+5ers Hyper Growth,Aggressive,funded_kyc_drop,0.002
+5ers Hyper Growth,Aggressive,post_m3,0.001
+5ers Hyper Growth,Aggressive,funded_time_abandon,0.001
+5ers Hyper Growth,Aggressive,post_m12,0.001
+5ers Hyper Growth,Lottery,p1_max_dd,0.969
+5ers Hyper Growth,Lottery,funded_max_dd,0.019
+5ers Hyper Growth,Lottery,post_m1,0.001
+5ers Hyper Growth,Lottery,p1_time_abandon,0.006
+5ers Hyper Growth,Lottery,funded_kyc_drop,0.002
+5ers Hyper Growth,Lottery,post_m3,0.002
+5ers Hyper Growth,Lottery,p1_rule_violation,0.001
+5ers Bootcamp,Pro,p2_max_dd,0.134
+5ers Bootcamp,Pro,p3_max_dd,0.087
+5ers Bootcamp,Pro,post_m3,0.05
+5ers Bootcamp,Pro,p1_time_abandon,0.096
+5ers Bootcamp,Pro,p1_max_dd,0.203
+5ers Bootcamp,Pro,funded_kyc_drop,0.034
+5ers Bootcamp,Pro,post_m12,0.033
+5ers Bootcamp,Pro,funded_max_dd,0.021
+5ers Bootcamp,Pro,post_m1,0.114
+5ers Bootcamp,Pro,p3_time_abandon,0.052
+5ers Bootcamp,Pro,p2_time_abandon,0.064
+5ers Bootcamp,Pro,p1_rule_violation,0.006
+5ers Bootcamp,Pro,funded_time_abandon,0.008
+5ers Bootcamp,Pro,p2_rule_violation,0.002
+5ers Bootcamp,Pro,p3_rule_violation,0.002
+5ers Bootcamp,Semi-skilled,p3_max_dd,0.093
+5ers Bootcamp,Semi-skilled,p2_time_abandon,0.071
+5ers Bootcamp,Semi-skilled,p1_max_dd,0.332
+5ers Bootcamp,Semi-skilled,p1_time_abandon,0.124
+5ers Bootcamp,Semi-skilled,funded_max_dd,0.016
+5ers Bootcamp,Semi-skilled,p2_max_dd,0.186
+5ers Bootcamp,Semi-skilled,post_m1,0.047
+5ers Bootcamp,Semi-skilled,post_m3,0.024
+5ers Bootcamp,Semi-skilled,p3_rule_violation,0.001
+5ers Bootcamp,Semi-skilled,funded_kyc_drop,0.015
+5ers Bootcamp,Semi-skilled,p3_time_abandon,0.032
+5ers Bootcamp,Semi-skilled,funded_time_abandon,0.007
+5ers Bootcamp,Semi-skilled,post_m12,0.014
+5ers Bootcamp,Semi-skilled,p1_rule_violation,0.008
+5ers Bootcamp,Semi-skilled,p2_rule_violation,0.001
+5ers Bootcamp,Average,p2_max_dd,0.149
+5ers Bootcamp,Average,p1_time_abandon,0.141
+5ers Bootcamp,Average,p1_max_dd,0.641
+5ers Bootcamp,Average,p3_max_dd,0.027
+5ers Bootcamp,Average,p2_time_abandon,0.026
+5ers Bootcamp,Average,post_m3,0.001
+5ers Bootcamp,Average,p3_time_abandon,0.003
+5ers Bootcamp,Average,funded_kyc_drop,0.001
+5ers Bootcamp,Average,funded_max_dd,0.002
+5ers Bootcamp,Average,funded_time_abandon,0.001
+5ers Bootcamp,Average,post_m1,0.002
+5ers Bootcamp,Average,p1_rule_violation,0.004
+5ers Bootcamp,Average,p2_rule_violation,0.001
+5ers Bootcamp,Aggressive,p1_max_dd,0.898
+5ers Bootcamp,Aggressive,p1_time_abandon,0.019
+5ers Bootcamp,Aggressive,p1_rule_violation,0.003
+5ers Bootcamp,Aggressive,p2_max_dd,0.067
+5ers Bootcamp,Aggressive,p3_max_dd,0.008
+5ers Bootcamp,Aggressive,p3_time_abandon,0.001
+5ers Bootcamp,Aggressive,funded_max_dd,0.001
+5ers Bootcamp,Aggressive,p2_time_abandon,0.003
+5ers Bootcamp,Lottery,p1_max_dd,0.954
+5ers Bootcamp,Lottery,p3_max_dd,0.004
+5ers Bootcamp,Lottery,p2_max_dd,0.039
+5ers Bootcamp,Lottery,p2_time_abandon,0.001
+5ers Bootcamp,Lottery,p1_time_abandon,0.002
+FP Zero,Pro,p1_max_dd,0.225
+FP Zero,Pro,p1_time_abandon,0.116
+FP Zero,Pro,post_m3,0.106
+FP Zero,Pro,post_m1,0.26
+FP Zero,Pro,post_m12,0.061
+FP Zero,Pro,p1_rule_violation,0.004
+FP Zero,Semi-skilled,p1_max_dd,0.439
+FP Zero,Semi-skilled,p1_time_abandon,0.143
+FP Zero,Semi-skilled,post_m3,0.063
+FP Zero,Semi-skilled,post_m1,0.18
+FP Zero,Semi-skilled,post_m12,0.04
+FP Zero,Semi-skilled,p1_rule_violation,0.006
+FP Zero,Average,p1_max_dd,0.756
+FP Zero,Average,p1_time_abandon,0.136
+FP Zero,Average,post_m3,0.012
+FP Zero,Average,p1_daily_dd,0.033
+FP Zero,Average,post_m1,0.023
+FP Zero,Average,p1_rule_violation,0.01
+FP Zero,Average,post_m12,0.008
+FP Zero,Aggressive,p1_daily_dd,0.967
+FP Zero,Aggressive,p1_max_dd,0.027
+FP Zero,Aggressive,p1_time_abandon,0.005
+FP Zero,Aggressive,p1_rule_violation,0.001
+FP Zero,Lottery,p1_daily_dd,0.787
+FP Zero,Lottery,p1_max_dd,0.213
+FP 1-Step Flex,Pro,funded_kyc_drop,0.105
+FP 1-Step Flex,Pro,post_m1,0.32
+FP 1-Step Flex,Pro,post_m12,0.058
+FP 1-Step Flex,Pro,p1_max_dd,0.058
+FP 1-Step Flex,Pro,post_m3,0.148
+FP 1-Step Flex,Pro,p1_time_abandon,0.049
+FP 1-Step Flex,Pro,p1_rule_violation,0.014
+FP 1-Step Flex,Pro,funded_max_dd,0.006
+FP 1-Step Flex,Pro,funded_time_abandon,0.003
+FP 1-Step Flex,Semi-skilled,p1_max_dd,0.271
+FP 1-Step Flex,Semi-skilled,p1_time_abandon,0.145
+FP 1-Step Flex,Semi-skilled,funded_max_dd,0.018
+FP 1-Step Flex,Semi-skilled,funded_kyc_drop,0.067
+FP 1-Step Flex,Semi-skilled,post_m3,0.089
+FP 1-Step Flex,Semi-skilled,post_m1,0.177
+FP 1-Step Flex,Semi-skilled,p1_rule_violation,0.012
+FP 1-Step Flex,Semi-skilled,funded_time_abandon,0.004
+FP 1-Step Flex,Semi-skilled,post_m12,0.054
+FP 1-Step Flex,Semi-skilled,p1_daily_dd,0.008
+FP 1-Step Flex,Average,p1_daily_dd,0.18
+FP 1-Step Flex,Average,p1_max_dd,0.623
+FP 1-Step Flex,Average,p1_time_abandon,0.112
+FP 1-Step Flex,Average,p1_rule_violation,0.016
+FP 1-Step Flex,Average,funded_kyc_drop,0.009
+FP 1-Step Flex,Average,post_m1,0.024
+FP 1-Step Flex,Average,funded_max_dd,0.01
+FP 1-Step Flex,Average,funded_daily_dd,0.001
+FP 1-Step Flex,Average,post_m12,0.003
+FP 1-Step Flex,Average,post_m3,0.004
+FP 1-Step Flex,Aggressive,p1_daily_dd,0.992
+FP 1-Step Flex,Aggressive,funded_daily_dd,0.005
+FP 1-Step Flex,Aggressive,funded_kyc_drop,0.002
+FP 1-Step Flex,Aggressive,post_m1,0.001
+FP 1-Step Flex,Lottery,p1_daily_dd,0.984
+FP 1-Step Flex,Lottery,funded_daily_dd,0.013
+FP 1-Step Flex,Lottery,funded_kyc_drop,0.001
+FP 1-Step Flex,Lottery,p1_rule_violation,0.002
+FP 2-Step Standard,Pro,p1_time_abandon,0.046
+FP 2-Step Standard,Pro,funded_kyc_drop,0.11
+FP 2-Step Standard,Pro,post_m1,0.284
+FP 2-Step Standard,Pro,p1_max_dd,0.072
+FP 2-Step Standard,Pro,post_m12,0.057
+FP 2-Step Standard,Pro,post_m3,0.103
+FP 2-Step Standard,Pro,p2_max_dd,0.056
+FP 2-Step Standard,Pro,funded_time_abandon,0.01
+FP 2-Step Standard,Pro,funded_max_dd,0.02
+FP 2-Step Standard,Pro,p2_time_abandon,0.03
+FP 2-Step Standard,Pro,p1_rule_violation,0.002
+FP 2-Step Standard,Pro,p2_rule_violation,0.001
+FP 2-Step Standard,Semi-skilled,p1_max_dd,0.292
+FP 2-Step Standard,Semi-skilled,p2_max_dd,0.131
+FP 2-Step Standard,Semi-skilled,funded_kyc_drop,0.048
+FP 2-Step Standard,Semi-skilled,p1_rule_violation,0.01
+FP 2-Step Standard,Semi-skilled,p1_time_abandon,0.105
+FP 2-Step Standard,Semi-skilled,post_m3,0.053
+FP 2-Step Standard,Semi-skilled,post_m1,0.134
+FP 2-Step Standard,Semi-skilled,p2_time_abandon,0.042
+FP 2-Step Standard,Semi-skilled,funded_max_dd,0.032
+FP 2-Step Standard,Semi-skilled,post_m12,0.031
+FP 2-Step Standard,Semi-skilled,funded_time_abandon,0.008
+FP 2-Step Standard,Semi-skilled,p2_rule_violation,0.003
+FP 2-Step Standard,Semi-skilled,funded_rule_violation,0.001
+FP 2-Step Standard,Average,p1_max_dd,0.661
+FP 2-Step Standard,Average,p2_max_dd,0.116
+FP 2-Step Standard,Average,p1_time_abandon,0.137
+FP 2-Step Standard,Average,funded_kyc_drop,0.007
+FP 2-Step Standard,Average,post_m1,0.012
+FP 2-Step Standard,Average,post_m3,0.005
+FP 2-Step Standard,Average,funded_max_dd,0.01
+FP 2-Step Standard,Average,p1_rule_violation,0.01
+FP 2-Step Standard,Average,p2_time_abandon,0.013
+FP 2-Step Standard,Average,p1_daily_dd,0.01
+FP 2-Step Standard,Average,post_m12,0.003
+FP 2-Step Standard,Average,funded_time_abandon,0.005
+FP 2-Step Standard,Aggressive,p1_daily_dd,0.952
+FP 2-Step Standard,Aggressive,p1_max_dd,0.037
+FP 2-Step Standard,Aggressive,p2_daily_dd,0.01
+FP 2-Step Standard,Aggressive,p1_rule_violation,0.001
+FP 2-Step Standard,Lottery,p1_daily_dd,0.915
+FP 2-Step Standard,Lottery,p1_max_dd,0.085
+FP 2-Step Flex,Pro,post_m3,0.12
+FP 2-Step Flex,Pro,post_m1,0.29
+FP 2-Step Flex,Pro,p2_time_abandon,0.025
+FP 2-Step Flex,Pro,p1_max_dd,0.058
+FP 2-Step Flex,Pro,post_m12,0.079
+FP 2-Step Flex,Pro,p1_time_abandon,0.046
+FP 2-Step Flex,Pro,funded_kyc_drop,0.079
+FP 2-Step Flex,Pro,p2_max_dd,0.043
+FP 2-Step Flex,Pro,funded_max_dd,0.006
+FP 2-Step Flex,Pro,funded_time_abandon,0.007
+FP 2-Step Flex,Pro,p1_rule_violation,0.008
+FP 2-Step Flex,Pro,p2_rule_violation,0.003
+FP 2-Step Flex,Semi-skilled,p1_time_abandon,0.114
+FP 2-Step Flex,Semi-skilled,p2_max_dd,0.107
+FP 2-Step Flex,Semi-skilled,p1_max_dd,0.265
+FP 2-Step Flex,Semi-skilled,funded_kyc_drop,0.052
+FP 2-Step Flex,Semi-skilled,post_m3,0.052
+FP 2-Step Flex,Semi-skilled,post_m1,0.162
+FP 2-Step Flex,Semi-skilled,p2_time_abandon,0.043
+FP 2-Step Flex,Semi-skilled,p1_rule_violation,0.007
+FP 2-Step Flex,Semi-skilled,funded_max_dd,0.018
+FP 2-Step Flex,Semi-skilled,post_m12,0.039
+FP 2-Step Flex,Semi-skilled,funded_time_abandon,0.005
+FP 2-Step Flex,Semi-skilled,funded_rule_violation,0.004
+FP 2-Step Flex,Semi-skilled,p2_rule_violation,0.005
+FP 2-Step Flex,Average,p1_max_dd,0.636
+FP 2-Step Flex,Average,post_m3,0.002
+FP 2-Step Flex,Average,p1_time_abandon,0.139
+FP 2-Step Flex,Average,p2_max_dd,0.087
+FP 2-Step Flex,Average,p1_daily_dd,0.042
+FP 2-Step Flex,Average,p2_time_abandon,0.024
+FP 2-Step Flex,Average,post_m1,0.018
+FP 2-Step Flex,Average,funded_max_dd,0.011
+FP 2-Step Flex,Average,p1_rule_violation,0.008
+FP 2-Step Flex,Average,post_m12,0.002
+FP 2-Step Flex,Average,p2_daily_dd,0.004
+FP 2-Step Flex,Average,funded_time_abandon,0.002
+FP 2-Step Flex,Average,funded_kyc_drop,0.009
+FP 2-Step Flex,Average,funded_daily_dd,0.002
+FP 2-Step Flex,Average,p2_rule_violation,0.001
+FP 2-Step Flex,Aggressive,p1_daily_dd,0.982
+FP 2-Step Flex,Aggressive,p2_daily_dd,0.012
+FP 2-Step Flex,Aggressive,p1_max_dd,0.006
+FP 2-Step Flex,Lottery,p1_daily_dd,0.995
+FP 2-Step Flex,Lottery,p1_max_dd,0.005
+FP 2-Step Pro,Pro,post_m1,0.208
+FP 2-Step Pro,Pro,p1_time_abandon,0.064
+FP 2-Step Pro,Pro,funded_time_abandon,0.015
+FP 2-Step Pro,Pro,funded_kyc_drop,0.079
+FP 2-Step Pro,Pro,p1_max_dd,0.124
+FP 2-Step Pro,Pro,funded_max_dd,0.024
+FP 2-Step Pro,Pro,p2_time_abandon,0.058
+FP 2-Step Pro,Pro,p2_max_dd,0.1
+FP 2-Step Pro,Pro,post_m12,0.06
+FP 2-Step Pro,Pro,post_m3,0.085
+FP 2-Step Pro,Pro,funded_rule_violation,0.001
+FP 2-Step Pro,Pro,p2_rule_violation,0.002
+FP 2-Step Pro,Pro,p1_rule_violation,0.001
+FP 2-Step Pro,Semi-skilled,p2_rule_violation,0.006
+FP 2-Step Pro,Semi-skilled,post_m1,0.111
+FP 2-Step Pro,Semi-skilled,p1_max_dd,0.311
+FP 2-Step Pro,Semi-skilled,funded_max_dd,0.04
+FP 2-Step Pro,Semi-skilled,p2_time_abandon,0.05
+FP 2-Step Pro,Semi-skilled,p1_time_abandon,0.111
+FP 2-Step Pro,Semi-skilled,post_m3,0.04
+FP 2-Step Pro,Semi-skilled,p2_max_dd,0.174
+FP 2-Step Pro,Semi-skilled,post_m12,0.02
+FP 2-Step Pro,Semi-skilled,p1_rule_violation,0.007
+FP 2-Step Pro,Semi-skilled,funded_kyc_drop,0.044
+FP 2-Step Pro,Semi-skilled,funded_time_abandon,0.008
+FP 2-Step Pro,Semi-skilled,p2_daily_dd,0.003
+FP 2-Step Pro,Semi-skilled,p1_daily_dd,0.002
+FP 2-Step Pro,Average,p1_time_abandon,0.115
+FP 2-Step Pro,Average,p1_daily_dd,0.072
+FP 2-Step Pro,Average,p1_max_dd,0.587
+FP 2-Step Pro,Average,post_m1,0.007
+FP 2-Step Pro,Average,p2_max_dd,0.134
+FP 2-Step Pro,Average,p2_daily_dd,0.016
+FP 2-Step Pro,Average,post_m3,0.007
+FP 2-Step Pro,Average,p2_rule_violation,0.002
+FP 2-Step Pro,Average,p2_time_abandon,0.024
+FP 2-Step Pro,Average,funded_kyc_drop,0.007
+FP 2-Step Pro,Average,funded_max_dd,0.006
+FP 2-Step Pro,Average,post_m12,0.007
+FP 2-Step Pro,Average,p1_rule_violation,0.006
+FP 2-Step Pro,Average,funded_daily_dd,0.001
+FP 2-Step Pro,Aggressive,p1_daily_dd,0.903
+FP 2-Step Pro,Aggressive,p1_max_dd,0.032
+FP 2-Step Pro,Aggressive,p2_daily_dd,0.058
+FP 2-Step Pro,Aggressive,p2_max_dd,0.002
+FP 2-Step Pro,Aggressive,funded_daily_dd,0.004
+FP 2-Step Pro,Aggressive,p1_time_abandon,0.001
+FP 2-Step Pro,Lottery,p1_max_dd,0.268
+FP 2-Step Pro,Lottery,p1_daily_dd,0.699
+FP 2-Step Pro,Lottery,p1_rule_violation,0.002
+FP 2-Step Pro,Lottery,p2_daily_dd,0.024
+FP 2-Step Pro,Lottery,p2_max_dd,0.006
+FP 2-Step Pro,Lottery,funded_kyc_drop,0.001
+E8 One 6%,Pro,p1_max_dd,0.274
+E8 One 6%,Pro,post_m1,0.18
+E8 One 6%,Pro,p1_time_abandon,0.144
+E8 One 6%,Pro,post_m3,0.049
+E8 One 6%,Pro,post_m12,0.051
+E8 One 6%,Pro,funded_kyc_drop,0.079
+E8 One 6%,Pro,funded_max_dd,0.053
+E8 One 6%,Pro,funded_time_abandon,0.021
+E8 One 6%,Pro,p1_rule_violation,0.005
+E8 One 6%,Pro,funded_rule_violation,0.001
+E8 One 6%,Pro,p1_daily_dd,0.001
+E8 One 6%,Semi-skilled,p1_max_dd,0.485
+E8 One 6%,Semi-skilled,p1_time_abandon,0.173
+E8 One 6%,Semi-skilled,post_m3,0.03
+E8 One 6%,Semi-skilled,post_m1,0.086
+E8 One 6%,Semi-skilled,funded_max_dd,0.07
+E8 One 6%,Semi-skilled,funded_time_abandon,0.023
+E8 One 6%,Semi-skilled,funded_kyc_drop,0.042
+E8 One 6%,Semi-skilled,post_m12,0.017
+E8 One 6%,Semi-skilled,p1_rule_violation,0.007
+E8 One 6%,Semi-skilled,p1_daily_dd,0.002
+E8 One 6%,Semi-skilled,funded_rule_violation,0.001
+E8 One 6%,Average,p1_max_dd,0.723
+E8 One 6%,Average,p1_time_abandon,0.149
+E8 One 6%,Average,p1_daily_dd,0.032
+E8 One 6%,Average,funded_time_abandon,0.008
+E8 One 6%,Average,funded_max_dd,0.041
+E8 One 6%,Average,p1_rule_violation,0.012
+E8 One 6%,Average,post_m1,0.01
+E8 One 6%,Average,post_m3,0.003
+E8 One 6%,Average,funded_kyc_drop,0.006
+E8 One 6%,Average,post_m12,0.004
+E8 One 6%,Average,funded_daily_dd,0.002
+E8 One 6%,Aggressive,p1_daily_dd,0.806
+E8 One 6%,Aggressive,p1_max_dd,0.19
+E8 One 6%,Aggressive,p1_time_abandon,0.004
+E8 One 6%,Lottery,p1_daily_dd,0.493
+E8 One 6%,Lottery,p1_max_dd,0.505
+E8 One 6%,Lottery,p1_time_abandon,0.001
+E8 One 6%,Lottery,p1_rule_violation,0.001
+E8 Signature,Pro,p1_time_abandon,0.154
+E8 Signature,Pro,p1_max_dd,0.322
+E8 Signature,Pro,funded_max_dd,0.061
+E8 Signature,Pro,post_m3,0.05
+E8 Signature,Pro,post_m1,0.146
+E8 Signature,Pro,funded_kyc_drop,0.074
+E8 Signature,Pro,p1_rule_violation,0.006
+E8 Signature,Pro,funded_time_abandon,0.033
+E8 Signature,Pro,post_m12,0.032
+E8 Signature,Pro,funded_rule_violation,0.001
+E8 Signature,Pro,p1_daily_dd,0.001
+E8 Signature,Semi-skilled,p1_max_dd,0.502
+E8 Signature,Semi-skilled,p1_time_abandon,0.145
+E8 Signature,Semi-skilled,funded_max_dd,0.083
+E8 Signature,Semi-skilled,post_m3,0.048
+E8 Signature,Semi-skilled,p1_daily_dd,0.022
+E8 Signature,Semi-skilled,post_m1,0.057
+E8 Signature,Semi-skilled,funded_time_abandon,0.03
+E8 Signature,Semi-skilled,post_m12,0.019
+E8 Signature,Semi-skilled,funded_kyc_drop,0.033
+E8 Signature,Semi-skilled,funded_daily_dd,0.006
+E8 Signature,Semi-skilled,p1_rule_violation,0.005
+E8 Signature,Semi-skilled,funded_rule_violation,0.001
+E8 Signature,Average,p1_daily_dd,0.733
+E8 Signature,Average,p1_max_dd,0.156
+E8 Signature,Average,post_m1,0.007
+E8 Signature,Average,funded_daily_dd,0.043
+E8 Signature,Average,funded_max_dd,0.008
+E8 Signature,Average,p1_time_abandon,0.035
+E8 Signature,Average,funded_kyc_drop,0.007
+E8 Signature,Average,post_m3,0.002
+E8 Signature,Average,funded_time_abandon,0.003
+E8 Signature,Average,p1_rule_violation,0.002
+E8 Signature,Aggressive,p1_max_dd,0.259
+E8 Signature,Aggressive,p1_daily_dd,0.707
+E8 Signature,Aggressive,p1_time_abandon,0.03
+E8 Signature,Aggressive,p1_rule_violation,0.004
+E8 Signature,Lottery,p1_daily_dd,0.524
+E8 Signature,Lottery,p1_max_dd,0.468
+E8 Signature,Lottery,p1_time_abandon,0.006
+E8 Signature,Lottery,p1_rule_violation,0.002
+Alpha Instant,Pro,post_m1,0.251
+Alpha Instant,Pro,p1_max_dd,0.278
+Alpha Instant,Pro,post_m3,0.089
+Alpha Instant,Pro,post_m12,0.064
+Alpha Instant,Pro,p1_time_abandon,0.113
+Alpha Instant,Pro,p1_rule_violation,0.005
+Alpha Instant,Semi-skilled,p1_max_dd,0.484
+Alpha Instant,Semi-skilled,p1_time_abandon,0.148
+Alpha Instant,Semi-skilled,p1_rule_violation,0.007
+Alpha Instant,Semi-skilled,post_m1,0.159
+Alpha Instant,Semi-skilled,post_m12,0.032
+Alpha Instant,Semi-skilled,post_m3,0.053
+Alpha Instant,Semi-skilled,p1_daily_dd,0.001
+Alpha Instant,Average,p1_max_dd,0.779
+Alpha Instant,Average,p1_time_abandon,0.144
+Alpha Instant,Average,post_m1,0.013
+Alpha Instant,Average,p1_daily_dd,0.037
+Alpha Instant,Average,post_m12,0.004
+Alpha Instant,Average,p1_rule_violation,0.009
+Alpha Instant,Average,post_m3,0.005
+Alpha Instant,Aggressive,p1_daily_dd,0.962
+Alpha Instant,Aggressive,p1_max_dd,0.03
+Alpha Instant,Aggressive,p1_time_abandon,0.008
+Alpha Instant,Lottery,p1_daily_dd,0.8
+Alpha Instant,Lottery,p1_max_dd,0.198
+Alpha Instant,Lottery,p1_rule_violation,0.002
+Alpha One 10%,Pro,post_m1,0.149
+Alpha One 10%,Pro,p1_time_abandon,0.164
+Alpha One 10%,Pro,p1_max_dd,0.329
+Alpha One 10%,Pro,post_m12,0.037
+Alpha One 10%,Pro,funded_kyc_drop,0.057
+Alpha One 10%,Pro,post_m3,0.059
+Alpha One 10%,Pro,funded_max_dd,0.056
+Alpha One 10%,Pro,funded_time_abandon,0.019
+Alpha One 10%,Pro,p1_rule_violation,0.004
+Alpha One 10%,Pro,funded_rule_violation,0.001
+Alpha One 10%,Semi-skilled,p1_max_dd,0.56
+Alpha One 10%,Semi-skilled,p1_time_abandon,0.164
+Alpha One 10%,Semi-skilled,funded_max_dd,0.053
+Alpha One 10%,Semi-skilled,funded_rule_violation,0.002
+Alpha One 10%,Semi-skilled,funded_kyc_drop,0.028
+Alpha One 10%,Semi-skilled,post_m1,0.077
+Alpha One 10%,Semi-skilled,post_m3,0.029
+Alpha One 10%,Semi-skilled,funded_time_abandon,0.018
+Alpha One 10%,Semi-skilled,post_m12,0.013
+Alpha One 10%,Semi-skilled,p1_rule_violation,0.005
+Alpha One 10%,Average,p1_max_dd,0.757
+Alpha One 10%,Average,p1_time_abandon,0.149
+Alpha One 10%,Average,post_m1,0.011
+Alpha One 10%,Average,funded_max_dd,0.027
+Alpha One 10%,Average,p1_daily_dd,0.016
+Alpha One 10%,Average,p1_rule_violation,0.012
+Alpha One 10%,Average,funded_kyc_drop,0.009
+Alpha One 10%,Average,funded_time_abandon,0.005
+Alpha One 10%,Average,funded_daily_dd,0.001
+Alpha One 10%,Average,post_m12,0.005
+Alpha One 10%,Average,post_m3,0.003
+Alpha One 10%,Aggressive,p1_daily_dd,0.533
+Alpha One 10%,Aggressive,p1_max_dd,0.425
+Alpha One 10%,Aggressive,p1_rule_violation,0.004
+Alpha One 10%,Aggressive,p1_time_abandon,0.037
+Alpha One 10%,Aggressive,funded_max_dd,0.001
+Alpha One 10%,Lottery,p1_max_dd,0.813
+Alpha One 10%,Lottery,p1_daily_dd,0.186
+Alpha One 10%,Lottery,p1_time_abandon,0.001
+Alpha Pro 6%,Pro,p1_time_abandon,0.053
+Alpha Pro 6%,Pro,post_m3,0.094
+Alpha Pro 6%,Pro,funded_kyc_drop,0.1
+Alpha Pro 6%,Pro,p1_max_dd,0.125
+Alpha Pro 6%,Pro,post_m1,0.228
+Alpha Pro 6%,Pro,p2_max_dd,0.095
+Alpha Pro 6%,Pro,p1_rule_violation,0.003
+Alpha Pro 6%,Pro,post_m12,0.041
+Alpha Pro 6%,Pro,p2_time_abandon,0.055
+Alpha Pro 6%,Pro,funded_max_dd,0.028
+Alpha Pro 6%,Pro,funded_time_abandon,0.011
+Alpha Pro 6%,Pro,p2_rule_violation,0.003
+Alpha Pro 6%,Pro,funded_rule_violation,0.003
+Alpha Pro 6%,Semi-skilled,p1_max_dd,0.345
+Alpha Pro 6%,Semi-skilled,p2_time_abandon,0.055
+Alpha Pro 6%,Semi-skilled,post_m1,0.099
+Alpha Pro 6%,Semi-skilled,p2_max_dd,0.189
+Alpha Pro 6%,Semi-skilled,funded_kyc_drop,0.034
+Alpha Pro 6%,Semi-skilled,p1_time_abandon,0.105
+Alpha Pro 6%,Semi-skilled,post_m12,0.026
+Alpha Pro 6%,Semi-skilled,post_m3,0.032
+Alpha Pro 6%,Semi-skilled,p1_rule_violation,0.009
+Alpha Pro 6%,Semi-skilled,funded_time_abandon,0.01
+Alpha Pro 6%,Semi-skilled,funded_max_dd,0.028
+Alpha Pro 6%,Semi-skilled,p2_daily_dd,0.002
+Alpha Pro 6%,Semi-skilled,p2_rule_violation,0.003
+Alpha Pro 6%,Semi-skilled,funded_rule_violation,0.002
+Alpha Pro 6%,Average,p1_max_dd,0.589
+Alpha Pro 6%,Average,p2_max_dd,0.131
+Alpha Pro 6%,Average,p1_time_abandon,0.131
+Alpha Pro 6%,Average,post_m3,0.003
+Alpha Pro 6%,Average,funded_kyc_drop,0.005
+Alpha Pro 6%,Average,p2_time_abandon,0.024
+Alpha Pro 6%,Average,p2_daily_dd,0.016
+Alpha Pro 6%,Average,p1_daily_dd,0.053
+Alpha Pro 6%,Average,post_m12,0.004
+Alpha Pro 6%,Average,post_m1,0.007
+Alpha Pro 6%,Average,funded_max_dd,0.018
+Alpha Pro 6%,Average,p1_rule_violation,0.009
+Alpha Pro 6%,Average,funded_time_abandon,0.003
+Alpha Pro 6%,Average,funded_daily_dd,0.001
+Alpha Pro 6%,Average,p2_rule_violation,0.001
+Alpha Pro 6%,Aggressive,p1_daily_dd,0.959
+Alpha Pro 6%,Aggressive,p2_daily_dd,0.012
+Alpha Pro 6%,Aggressive,p1_max_dd,0.027
+Alpha Pro 6%,Aggressive,p1_time_abandon,0.001
+Alpha Pro 6%,Aggressive,p1_rule_violation,0.001
+Alpha Pro 6%,Lottery,p1_daily_dd,0.772
+Alpha Pro 6%,Lottery,p1_max_dd,0.227
+Alpha Pro 6%,Lottery,p1_rule_violation,0.001
+Alpha Pro 10%,Pro,p1_max_dd,0.09
+Alpha Pro 10%,Pro,post_m12,0.072
+Alpha Pro 10%,Pro,p1_time_abandon,0.044
+Alpha Pro 10%,Pro,p2_max_dd,0.052
+Alpha Pro 10%,Pro,post_m3,0.109
+Alpha Pro 10%,Pro,post_m1,0.264
+Alpha Pro 10%,Pro,funded_kyc_drop,0.095
+Alpha Pro 10%,Pro,p2_time_abandon,0.024
+Alpha Pro 10%,Pro,p1_rule_violation,0.007
+Alpha Pro 10%,Pro,p2_rule_violation,0.003
+Alpha Pro 10%,Pro,funded_time_abandon,0.009
+Alpha Pro 10%,Pro,funded_max_dd,0.009
+Alpha Pro 10%,Semi-skilled,p1_max_dd,0.331
+Alpha Pro 10%,Semi-skilled,p1_time_abandon,0.104
+Alpha Pro 10%,Semi-skilled,p2_max_dd,0.119
+Alpha Pro 10%,Semi-skilled,post_m1,0.124
+Alpha Pro 10%,Semi-skilled,funded_kyc_drop,0.054
+Alpha Pro 10%,Semi-skilled,post_m3,0.051
+Alpha Pro 10%,Semi-skilled,p2_time_abandon,0.047
+Alpha Pro 10%,Semi-skilled,funded_max_dd,0.03
+Alpha Pro 10%,Semi-skilled,post_m12,0.031
+Alpha Pro 10%,Semi-skilled,funded_time_abandon,0.008
+Alpha Pro 10%,Semi-skilled,p2_rule_violation,0.005
+Alpha Pro 10%,Semi-skilled,funded_rule_violation,0.001
+Alpha Pro 10%,Semi-skilled,p1_rule_violation,0.002
+Alpha Pro 10%,Average,p1_max_dd,0.736
+Alpha Pro 10%,Average,p1_time_abandon,0.128
+Alpha Pro 10%,Average,funded_kyc_drop,0.007
+Alpha Pro 10%,Average,p2_max_dd,0.072
+Alpha Pro 10%,Average,post_m1,0.01
+Alpha Pro 10%,Average,p2_time_abandon,0.013
+Alpha Pro 10%,Average,p1_rule_violation,0.009
+Alpha Pro 10%,Average,funded_time_abandon,0.002
+Alpha Pro 10%,Average,funded_max_dd,0.007
+Alpha Pro 10%,Average,p1_daily_dd,0.004
+Alpha Pro 10%,Average,post_m3,0.005
+Alpha Pro 10%,Aggressive,p1_daily_dd,0.967
+Alpha Pro 10%,Aggressive,p1_max_dd,0.021
+Alpha Pro 10%,Aggressive,p2_daily_dd,0.012
+Alpha Pro 10%,Lottery,p1_daily_dd,0.901
+Alpha Pro 10%,Lottery,p1_max_dd,0.098
+Alpha Pro 10%,Lottery,p1_rule_violation,0.001
+Goat Instant,Pro,post_m1,0.325
+Goat Instant,Pro,p1_time_abandon,0.1
+Goat Instant,Pro,post_m3,0.111
+Goat Instant,Pro,p1_max_dd,0.17
+Goat Instant,Pro,post_m12,0.088
+Goat Instant,Pro,p1_rule_violation,0.004
+Goat Instant,Semi-skilled,p1_max_dd,0.419
+Goat Instant,Semi-skilled,p1_time_abandon,0.13
+Goat Instant,Semi-skilled,post_m3,0.071
+Goat Instant,Semi-skilled,post_m12,0.053
+Goat Instant,Semi-skilled,post_m1,0.18
+Goat Instant,Semi-skilled,p1_rule_violation,0.009
+Goat Instant,Average,p1_max_dd,0.733
+Goat Instant,Average,p1_time_abandon,0.139
+Goat Instant,Average,post_m1,0.031
+Goat Instant,Average,p1_daily_dd,0.044
+Goat Instant,Average,post_m3,0.013
+Goat Instant,Average,p1_rule_violation,0.014
+Goat Instant,Average,post_m12,0.008
+Goat Instant,Aggressive,p1_max_risk,0.944
+Goat Instant,Aggressive,p1_daily_dd,0.055
+Goat Instant,Aggressive,p1_rule_violation,0.001
+Goat Instant,Lottery,p1_max_risk,0.999
+Goat Instant,Lottery,p1_rule_violation,0.001
+Goat 2-Step,Pro,post_m1,0.287
+Goat 2-Step,Pro,p2_max_dd,0.058
+Goat 2-Step,Pro,post_m3,0.107
+Goat 2-Step,Pro,funded_kyc_drop,0.086
+Goat 2-Step,Pro,p2_time_abandon,0.03
+Goat 2-Step,Pro,p1_max_dd,0.061
+Goat 2-Step,Pro,post_m12,0.078
+Goat 2-Step,Pro,funded_time_abandon,0.007
+Goat 2-Step,Pro,p1_time_abandon,0.045
+Goat 2-Step,Pro,funded_max_dd,0.016
+Goat 2-Step,Pro,p2_rule_violation,0.004
+Goat 2-Step,Pro,p1_rule_violation,0.003
+Goat 2-Step,Pro,funded_rule_violation,0.001
+Goat 2-Step,Semi-skilled,p1_time_abandon,0.107
+Goat 2-Step,Semi-skilled,funded_kyc_drop,0.05
+Goat 2-Step,Semi-skilled,p1_max_dd,0.264
+Goat 2-Step,Semi-skilled,post_m1,0.126
+Goat 2-Step,Semi-skilled,p2_max_dd,0.153
+Goat 2-Step,Semi-skilled,post_m3,0.059
+Goat 2-Step,Semi-skilled,p2_time_abandon,0.043
+Goat 2-Step,Semi-skilled,post_m12,0.034
+Goat 2-Step,Semi-skilled,p1_rule_violation,0.008
+Goat 2-Step,Semi-skilled,funded_max_dd,0.034
+Goat 2-Step,Semi-skilled,funded_time_abandon,0.009
+Goat 2-Step,Semi-skilled,p2_rule_violation,0.005
+Goat 2-Step,Average,p1_max_dd,0.666
+Goat 2-Step,Average,p1_time_abandon,0.131
+Goat 2-Step,Average,p2_max_dd,0.11
+Goat 2-Step,Average,post_m1,0.017
+Goat 2-Step,Average,post_m3,0.006
+Goat 2-Step,Average,funded_kyc_drop,0.009
+Goat 2-Step,Average,p1_rule_violation,0.011
+Goat 2-Step,Average,p2_time_abandon,0.015
+Goat 2-Step,Average,funded_max_dd,0.012
+Goat 2-Step,Average,p1_daily_dd,0.008
+Goat 2-Step,Average,p2_daily_dd,0.002
+Goat 2-Step,Average,post_m12,0.003
+Goat 2-Step,Average,funded_time_abandon,0.001
+Goat 2-Step,Average,p2_rule_violation,0.001
+Goat 2-Step,Aggressive,p1_daily_dd,0.959
+Goat 2-Step,Aggressive,p2_daily_dd,0.007
+Goat 2-Step,Aggressive,p1_max_dd,0.03
+Goat 2-Step,Aggressive,p2_max_dd,0.002
+Goat 2-Step,Aggressive,p1_rule_violation,0.001
+Goat 2-Step,Aggressive,funded_daily_dd,0.001
+Goat 2-Step,Lottery,p1_daily_dd,0.915
+Goat 2-Step,Lottery,p1_max_dd,0.083
+Goat 2-Step,Lottery,p1_rule_violation,0.001
+Goat 2-Step,Lottery,p2_daily_dd,0.001
+Maven 2-Step,Pro,post_m1,0.279
+Maven 2-Step,Pro,p1_max_dd,0.091
+Maven 2-Step,Pro,funded_max_dd,0.018
+Maven 2-Step,Pro,p1_time_abandon,0.038
+Maven 2-Step,Pro,post_m3,0.115
+Maven 2-Step,Pro,funded_kyc_drop,0.085
+Maven 2-Step,Pro,p2_max_dd,0.052
+Maven 2-Step,Pro,post_m12,0.071
+Maven 2-Step,Pro,p2_rule_violation,0.005
+Maven 2-Step,Pro,p2_time_abandon,0.034
+Maven 2-Step,Pro,funded_time_abandon,0.011
+Maven 2-Step,Semi-skilled,p1_max_dd,0.293
+Maven 2-Step,Semi-skilled,p1_time_abandon,0.08
+Maven 2-Step,Semi-skilled,p2_max_dd,0.149
+Maven 2-Step,Semi-skilled,funded_max_dd,0.029
+Maven 2-Step,Semi-skilled,post_m12,0.037
+Maven 2-Step,Semi-skilled,post_m1,0.136
+Maven 2-Step,Semi-skilled,funded_time_abandon,0.006
+Maven 2-Step,Semi-skilled,funded_kyc_drop,0.05
+Maven 2-Step,Semi-skilled,p2_time_abandon,0.053
+Maven 2-Step,Semi-skilled,post_m3,0.043
+Maven 2-Step,Semi-skilled,p1_rule_violation,0.008
+Maven 2-Step,Semi-skilled,p2_rule_violation,0.003
+Maven 2-Step,Semi-skilled,funded_rule_violation,0.001
+Maven 2-Step,Average,p1_max_dd,0.671
+Maven 2-Step,Average,p1_time_abandon,0.14
+Maven 2-Step,Average,p1_rule_violation,0.009
+Maven 2-Step,Average,p2_max_dd,0.092
+Maven 2-Step,Average,p1_daily_dd,0.005
+Maven 2-Step,Average,post_m3,0.004
+Maven 2-Step,Average,post_m12,0.004
+Maven 2-Step,Average,p2_time_abandon,0.025
+Maven 2-Step,Average,funded_kyc_drop,0.006
+Maven 2-Step,Average,funded_time_abandon,0.002
+Maven 2-Step,Average,funded_max_dd,0.015
+Maven 2-Step,Average,post_m1,0.015
+Maven 2-Step,Average,p2_rule_violation,0.002
+Maven 2-Step,Aggressive,p1_daily_dd,0.963
+Maven 2-Step,Aggressive,p1_max_dd,0.022
+Maven 2-Step,Aggressive,p1_time_abandon,0.002
+Maven 2-Step,Aggressive,p2_daily_dd,0.01
+Maven 2-Step,Aggressive,p2_max_dd,0.001
+Maven 2-Step,Aggressive,p1_rule_violation,0.002
+Maven 2-Step,Lottery,p1_daily_dd,0.924
+Maven 2-Step,Lottery,p1_max_dd,0.075
+Maven 2-Step,Lottery,p2_daily_dd,0.001
+Maven 3-Step,Pro,post_m1,0.144
+Maven 3-Step,Pro,p3_max_dd,0.083
+Maven 3-Step,Pro,funded_time_abandon,0.01
+Maven 3-Step,Pro,p2_time_abandon,0.054
+Maven 3-Step,Pro,post_m3,0.06
+Maven 3-Step,Pro,funded_max_dd,0.023
+Maven 3-Step,Pro,p3_time_abandon,0.047
+Maven 3-Step,Pro,p1_max_dd,0.153
+Maven 3-Step,Pro,post_m12,0.027
+Maven 3-Step,Pro,p1_time_abandon,0.088
+Maven 3-Step,Pro,p2_rule_violation,0.004
+Maven 3-Step,Pro,p2_max_dd,0.125
+Maven 3-Step,Pro,funded_kyc_drop,0.046
+Maven 3-Step,Pro,p3_rule_violation,0.004
+Maven 3-Step,Pro,p1_rule_violation,0.004
+Maven 3-Step,Semi-skilled,p1_max_dd,0.336
+Maven 3-Step,Semi-skilled,p2_time_abandon,0.062
+Maven 3-Step,Semi-skilled,p2_max_dd,0.192
+Maven 3-Step,Semi-skilled,p1_time_abandon,0.112
+Maven 3-Step,Semi-skilled,p2_rule_violation,0.008
+Maven 3-Step,Semi-skilled,post_m1,0.048
+Maven 3-Step,Semi-skilled,p3_time_abandon,0.022
+Maven 3-Step,Semi-skilled,p3_max_dd,0.105
+Maven 3-Step,Semi-skilled,post_m12,0.014
+Maven 3-Step,Semi-skilled,post_m3,0.019
+Maven 3-Step,Semi-skilled,funded_kyc_drop,0.021
+Maven 3-Step,Semi-skilled,funded_max_dd,0.02
+Maven 3-Step,Semi-skilled,p1_rule_violation,0.005
+Maven 3-Step,Semi-skilled,funded_rule_violation,0.001
+Maven 3-Step,Semi-skilled,funded_time_abandon,0.004
+Maven 3-Step,Semi-skilled,p3_rule_violation,0.002
+Maven 3-Step,Average,p2_max_dd,0.155
+Maven 3-Step,Average,p1_max_dd,0.604
+Maven 3-Step,Average,p3_max_dd,0.04
+Maven 3-Step,Average,p1_time_abandon,0.122
+Maven 3-Step,Average,p1_rule_violation,0.012
+Maven 3-Step,Average,post_m3,0.001
+Maven 3-Step,Average,p2_time_abandon,0.036
+Maven 3-Step,Average,p1_daily_dd,0.008
+Maven 3-Step,Average,p3_rule_violation,0.001
+Maven 3-Step,Average,p2_rule_violation,0.004
+Maven 3-Step,Average,p3_time_abandon,0.006
+Maven 3-Step,Average,funded_max_dd,0.003
+Maven 3-Step,Average,funded_time_abandon,0.002
+Maven 3-Step,Average,funded_kyc_drop,0.001
+Maven 3-Step,Average,post_m1,0.001
+Maven 3-Step,Aggressive,p1_daily_dd,0.754
+Maven 3-Step,Aggressive,p1_max_dd,0.184
+Maven 3-Step,Aggressive,p2_max_dd,0.01
+Maven 3-Step,Aggressive,p2_daily_dd,0.025
+Maven 3-Step,Aggressive,p1_time_abandon,0.025
+Maven 3-Step,Aggressive,p1_rule_violation,0.001
+Maven 3-Step,Aggressive,p3_daily_dd,0.001
+Maven 3-Step,Lottery,p1_max_dd,0.547
+Maven 3-Step,Lottery,p1_daily_dd,0.447
+Maven 3-Step,Lottery,p1_time_abandon,0.001
+Maven 3-Step,Lottery,p1_rule_violation,0.002
+Maven 3-Step,Lottery,p2_max_dd,0.001
+Maven 3-Step,Lottery,p2_daily_dd,0.002
+Hola Direct,Pro,p1_max_dd,0.118
+Hola Direct,Pro,post_m12,0.08
+Hola Direct,Pro,post_m1,0.336
+Hola Direct,Pro,post_m3,0.124
+Hola Direct,Pro,p1_time_abandon,0.067
+Hola Direct,Pro,p1_rule_violation,0.004
+Hola Direct,Semi-skilled,p1_max_dd,0.28
+Hola Direct,Semi-skilled,post_m1,0.212
+Hola Direct,Semi-skilled,p1_rule_violation,0.007
+Hola Direct,Semi-skilled,p1_time_abandon,0.095
+Hola Direct,Semi-skilled,post_m3,0.097
+Hola Direct,Semi-skilled,post_m12,0.081
+Hola Direct,Semi-skilled,p1_daily_dd,0.001
+Hola Direct,Average,p1_max_dd,0.631
+Hola Direct,Average,p1_daily_dd,0.058
+Hola Direct,Average,p1_time_abandon,0.126
+Hola Direct,Average,post_m1,0.069
+Hola Direct,Average,post_m3,0.021
+Hola Direct,Average,p1_rule_violation,0.011
+Hola Direct,Average,post_m12,0.013
+Hola Direct,Aggressive,p1_daily_dd,0.876
+Hola Direct,Aggressive,p1_max_dd,0.121
+Hola Direct,Aggressive,p1_time_abandon,0.002
+Hola Direct,Aggressive,p1_rule_violation,0.001
+Hola Direct,Lottery,p1_daily_dd,0.555
+Hola Direct,Lottery,p1_max_dd,0.443
+Hola Direct,Lottery,p1_time_abandon,0.002
+Hola 1-Step Prime,Pro,post_m1,0.267
+Hola 1-Step Prime,Pro,funded_kyc_drop,0.114
+Hola 1-Step Prime,Pro,p1_time_abandon,0.077
+Hola 1-Step Prime,Pro,p1_max_dd,0.138
+Hola 1-Step Prime,Pro,post_m3,0.087
+Hola 1-Step Prime,Pro,funded_time_abandon,0.017
+Hola 1-Step Prime,Pro,post_m12,0.049
+Hola 1-Step Prime,Pro,p1_rule_violation,0.004
+Hola 1-Step Prime,Pro,funded_max_dd,0.035
+Hola 1-Step Prime,Pro,funded_rule_violation,0.001
+Hola 1-Step Prime,Semi-skilled,p1_time_abandon,0.141
+Hola 1-Step Prime,Semi-skilled,p1_max_dd,0.383
+Hola 1-Step Prime,Semi-skilled,funded_kyc_drop,0.057
+Hola 1-Step Prime,Semi-skilled,funded_time_abandon,0.013
+Hola 1-Step Prime,Semi-skilled,post_m3,0.067
+Hola 1-Step Prime,Semi-skilled,post_m1,0.141
+Hola 1-Step Prime,Semi-skilled,funded_max_dd,0.047
+Hola 1-Step Prime,Semi-skilled,p1_rule_violation,0.011
+Hola 1-Step Prime,Semi-skilled,p1_daily_dd,0.008
+Hola 1-Step Prime,Semi-skilled,post_m12,0.027
+Hola 1-Step Prime,Semi-skilled,funded_daily_dd,0.001
+Hola 1-Step Prime,Average,p1_max_dd,0.653
+Hola 1-Step Prime,Average,funded_kyc_drop,0.013
+Hola 1-Step Prime,Average,p1_time_abandon,0.139
+Hola 1-Step Prime,Average,post_m12,0.007
+Hola 1-Step Prime,Average,post_m3,0.006
+Hola 1-Step Prime,Average,p1_daily_dd,0.097
+Hola 1-Step Prime,Average,funded_max_dd,0.028
+Hola 1-Step Prime,Average,p1_rule_violation,0.009
+Hola 1-Step Prime,Average,funded_time_abandon,0.004
+Hola 1-Step Prime,Average,post_m1,0.025
+Hola 1-Step Prime,Aggressive,p1_daily_dd,0.946
+Hola 1-Step Prime,Aggressive,p1_max_dd,0.043
+Hola 1-Step Prime,Aggressive,funded_kyc_drop,0.003
+Hola 1-Step Prime,Aggressive,funded_daily_dd,0.007
+Hola 1-Step Prime,Aggressive,p1_rule_violation,0.001
+Hola 1-Step Prime,Lottery,p1_daily_dd,0.742
+Hola 1-Step Prime,Lottery,p1_max_dd,0.255
+Hola 1-Step Prime,Lottery,funded_daily_dd,0.002
+Hola 1-Step Prime,Lottery,funded_kyc_drop,0.001
+Hola 2-Step Prime,Pro,p1_max_dd,0.079
+Hola 2-Step Prime,Pro,post_m1,0.263
+Hola 2-Step Prime,Pro,funded_kyc_drop,0.096
+Hola 2-Step Prime,Pro,p2_max_dd,0.045
+Hola 2-Step Prime,Pro,p1_time_abandon,0.045
+Hola 2-Step Prime,Pro,p2_time_abandon,0.026
+Hola 2-Step Prime,Pro,post_m12,0.073
+Hola 2-Step Prime,Pro,funded_max_dd,0.014
+Hola 2-Step Prime,Pro,funded_time_abandon,0.003
+Hola 2-Step Prime,Pro,post_m3,0.118
+Hola 2-Step Prime,Pro,p1_rule_violation,0.005
+Hola 2-Step Prime,Pro,p2_rule_violation,0.002
+Hola 2-Step Prime,Semi-skilled,post_m12,0.033
+Hola 2-Step Prime,Semi-skilled,p1_max_dd,0.319
+Hola 2-Step Prime,Semi-skilled,p2_time_abandon,0.043
+Hola 2-Step Prime,Semi-skilled,funded_max_dd,0.032
+Hola 2-Step Prime,Semi-skilled,post_m1,0.115
+Hola 2-Step Prime,Semi-skilled,p1_rule_violation,0.014
+Hola 2-Step Prime,Semi-skilled,p1_time_abandon,0.119
+Hola 2-Step Prime,Semi-skilled,p2_max_dd,0.112
+Hola 2-Step Prime,Semi-skilled,funded_kyc_drop,0.045
+Hola 2-Step Prime,Semi-skilled,post_m3,0.044
+Hola 2-Step Prime,Semi-skilled,funded_time_abandon,0.009
+Hola 2-Step Prime,Semi-skilled,p2_rule_violation,0.001
+Hola 2-Step Prime,Semi-skilled,funded_rule_violation,0.001
+Hola 2-Step Prime,Average,p1_max_dd,0.689
+Hola 2-Step Prime,Average,p1_time_abandon,0.135
+Hola 2-Step Prime,Average,p2_max_dd,0.089
+Hola 2-Step Prime,Average,p1_rule_violation,0.01
+Hola 2-Step Prime,Average,funded_max_dd,0.015
+Hola 2-Step Prime,Average,post_m12,0.003
+Hola 2-Step Prime,Average,post_m3,0.005
+Hola 2-Step Prime,Average,p2_time_abandon,0.016
+Hola 2-Step Prime,Average,funded_kyc_drop,0.01
+Hola 2-Step Prime,Average,post_m1,0.013
+Hola 2-Step Prime,Average,p1_daily_dd,0.003
+Hola 2-Step Prime,Average,funded_time_abandon,0.001
+Hola 2-Step Prime,Aggressive,p1_daily_dd,0.958
+Hola 2-Step Prime,Aggressive,p1_max_dd,0.027
+Hola 2-Step Prime,Aggressive,p2_daily_dd,0.01
+Hola 2-Step Prime,Aggressive,p1_rule_violation,0.003
+Hola 2-Step Prime,Aggressive,p2_max_dd,0.002
+Hola 2-Step Prime,Lottery,p1_daily_dd,0.912
+Hola 2-Step Prime,Lottery,p1_max_dd,0.085
+Hola 2-Step Prime,Lottery,p1_rule_violation,0.002
+Hola 2-Step Prime,Lottery,p2_daily_dd,0.001
+FXIFY 2-Step,Pro,post_m1,0.213
+FXIFY 2-Step,Pro,funded_kyc_drop,0.069
+FXIFY 2-Step,Pro,p2_time_abandon,0.038
+FXIFY 2-Step,Pro,p1_time_abandon,0.089
+FXIFY 2-Step,Pro,p2_max_dd,0.082
+FXIFY 2-Step,Pro,post_m3,0.083
+FXIFY 2-Step,Pro,post_m12,0.053
+FXIFY 2-Step,Pro,p1_max_dd,0.165
+FXIFY 2-Step,Pro,funded_time_abandon,0.007
+FXIFY 2-Step,Pro,funded_max_dd,0.011
+FXIFY 2-Step,Pro,p2_rule_violation,0.002
+FXIFY 2-Step,Pro,p1_rule_violation,0.01
+FXIFY 2-Step,Semi-skilled,p2_max_dd,0.124
+FXIFY 2-Step,Semi-skilled,funded_kyc_drop,0.036
+FXIFY 2-Step,Semi-skilled,p1_max_dd,0.407
+FXIFY 2-Step,Semi-skilled,post_m1,0.081
+FXIFY 2-Step,Semi-skilled,p1_time_abandon,0.143
+FXIFY 2-Step,Semi-skilled,p2_time_abandon,0.039
+FXIFY 2-Step,Semi-skilled,funded_max_dd,0.012
+FXIFY 2-Step,Semi-skilled,p1_rule_violation,0.012
+FXIFY 2-Step,Semi-skilled,p2_rule_violation,0.005
+FXIFY 2-Step,Semi-skilled,post_m12,0.014
+FXIFY 2-Step,Semi-skilled,post_m3,0.045
+FXIFY 2-Step,Semi-skilled,funded_time_abandon,0.003
+FXIFY 2-Step,Average,p1_max_dd,0.707
+FXIFY 2-Step,Average,p1_time_abandon,0.157
+FXIFY 2-Step,Average,p1_rule_violation,0.01
+FXIFY 2-Step,Average,p2_rule_violation,0.002
+FXIFY 2-Step,Average,funded_time_abandon,0.004
+FXIFY 2-Step,Average,p2_time_abandon,0.016
+FXIFY 2-Step,Average,p2_max_dd,0.051
+FXIFY 2-Step,Average,p1_daily_dd,0.021
+FXIFY 2-Step,Average,p2_daily_dd,0.004
+FXIFY 2-Step,Average,funded_kyc_drop,0.006
+FXIFY 2-Step,Average,funded_max_dd,0.007
+FXIFY 2-Step,Average,post_m3,0.004
+FXIFY 2-Step,Average,post_m1,0.005
+FXIFY 2-Step,Average,post_m12,0.001
+FXIFY 2-Step,Aggressive,p1_daily_dd,0.901
+FXIFY 2-Step,Aggressive,p1_max_dd,0.083
+FXIFY 2-Step,Aggressive,p2_daily_dd,0.014
+FXIFY 2-Step,Aggressive,p2_max_dd,0.001
+FXIFY 2-Step,Aggressive,p1_time_abandon,0.001
+FXIFY 2-Step,Lottery,p1_daily_dd,0.745
+FXIFY 2-Step,Lottery,p1_max_dd,0.226
+FXIFY 2-Step,Lottery,p2_daily_dd,0.024
+FXIFY 2-Step,Lottery,p1_time_abandon,0.001
+FXIFY 2-Step,Lottery,p2_max_dd,0.003
+FXIFY 2-Step,Lottery,p1_rule_violation,0.001
+FXIFY Instant Lite,Pro,p1_time_abandon,0.146
+FXIFY Instant Lite,Pro,post_m12,0.061
+FXIFY Instant Lite,Pro,post_m1,0.261
+FXIFY Instant Lite,Pro,p1_max_dd,0.238
+FXIFY Instant Lite,Pro,post_m3,0.09
+FXIFY Instant Lite,Pro,p1_rule_violation,0.002
+FXIFY Instant Lite,Semi-skilled,p1_time_abandon,0.162
+FXIFY Instant Lite,Semi-skilled,p1_max_dd,0.418
+FXIFY Instant Lite,Semi-skilled,post_m1,0.181
+FXIFY Instant Lite,Semi-skilled,p1_rule_violation,0.009
+FXIFY Instant Lite,Semi-skilled,post_m3,0.058
+FXIFY Instant Lite,Semi-skilled,post_m12,0.036
+FXIFY Instant Lite,Average,p1_max_dd,0.706
+FXIFY Instant Lite,Average,p1_time_abandon,0.166
+FXIFY Instant Lite,Average,post_m1,0.041
+FXIFY Instant Lite,Average,p1_daily_dd,0.025
+FXIFY Instant Lite,Average,post_m3,0.013
+FXIFY Instant Lite,Average,post_m12,0.013
+FXIFY Instant Lite,Average,p1_rule_violation,0.011
+FXIFY Instant Lite,Aggressive,p1_daily_dd,0.955
+FXIFY Instant Lite,Aggressive,p1_max_dd,0.042
+FXIFY Instant Lite,Aggressive,p1_rule_violation,0.002
+FXIFY Instant Lite,Aggressive,p1_time_abandon,0.001
+FXIFY Instant Lite,Lottery,p1_daily_dd,0.637
+FXIFY Instant Lite,Lottery,p1_max_dd,0.362
+FXIFY Instant Lite,Lottery,p1_rule_violation,0.001
+FXIFY Instant,Pro,p1_time_abandon,0.012
+FXIFY Instant,Pro,post_m3,0.147
+FXIFY Instant,Pro,post_m1,0.38
+FXIFY Instant,Pro,post_m12,0.114
+FXIFY Instant,Pro,p1_max_dd,0.025
+FXIFY Instant,Pro,p1_rule_violation,0.001
+FXIFY Instant,Semi-skilled,post_m1,0.39
+FXIFY Instant,Semi-skilled,p1_max_dd,0.059
+FXIFY Instant,Semi-skilled,post_m12,0.081
+FXIFY Instant,Semi-skilled,post_m3,0.139
+FXIFY Instant,Semi-skilled,p1_time_abandon,0.018
+FXIFY Instant,Average,post_m3,0.121
+FXIFY Instant,Average,post_m1,0.323
+FXIFY Instant,Average,p1_max_dd,0.21
+FXIFY Instant,Average,p1_time_abandon,0.041
+FXIFY Instant,Average,post_m12,0.069
+FXIFY Instant,Average,p1_rule_violation,0.002
+FXIFY Instant,Aggressive,post_m12,0.018
+FXIFY Instant,Aggressive,p1_max_dd,0.755
+FXIFY Instant,Aggressive,post_m3,0.04
+FXIFY Instant,Aggressive,post_m1,0.087
+FXIFY Instant,Aggressive,p1_rule_violation,0.005
+FXIFY Instant,Aggressive,p1_time_abandon,0.016
+FXIFY Instant,Lottery,p1_max_dd,0.902
+FXIFY Instant,Lottery,post_m3,0.013
+FXIFY Instant,Lottery,post_m1,0.036
+FXIFY Instant,Lottery,p1_time_abandon,0.007
+FXIFY Instant,Lottery,post_m12,0.007
+FXIFY Instant,Lottery,p1_rule_violation,0.007
+IF Instant,Pro,post_m3,0.112
+IF Instant,Pro,post_m1,0.302
+IF Instant,Pro,p1_max_dd,0.14
+IF Instant,Pro,post_m12,0.081
+IF Instant,Pro,p1_time_abandon,0.069
+IF Instant,Pro,p1_rule_violation,0.008
+IF Instant,Semi-skilled,p1_time_abandon,0.095
+IF Instant,Semi-skilled,post_m1,0.235
+IF Instant,Semi-skilled,p1_max_dd,0.324
+IF Instant,Semi-skilled,post_m12,0.067
+IF Instant,Semi-skilled,post_m3,0.09
+IF Instant,Semi-skilled,p1_rule_violation,0.008
+IF Instant,Semi-skilled,p1_daily_dd,0.002
+IF Instant,Average,p1_time_abandon,0.145
+IF Instant,Average,p1_max_dd,0.679
+IF Instant,Average,post_m1,0.058
+IF Instant,Average,p1_daily_dd,0.042
+IF Instant,Average,post_m3,0.021
+IF Instant,Average,post_m12,0.014
+IF Instant,Average,p1_rule_violation,0.003
+IF Instant,Aggressive,p1_daily_dd,0.989
+IF Instant,Aggressive,p1_max_dd,0.01
+IF Instant,Aggressive,p1_rule_violation,0.001
+IF Instant,Lottery,p1_daily_dd,0.807
+IF Instant,Lottery,p1_max_dd,0.192
+IF Instant,Lottery,p1_rule_violation,0.001
+Fintokei ProTrader,Pro,p2_max_dd,0.071
+Fintokei ProTrader,Pro,post_m3,0.115
+Fintokei ProTrader,Pro,p1_max_dd,0.079
+Fintokei ProTrader,Pro,funded_kyc_drop,0.094
+Fintokei ProTrader,Pro,post_m12,0.072
+Fintokei ProTrader,Pro,post_m1,0.248
+Fintokei ProTrader,Pro,p1_time_abandon,0.054
+Fintokei ProTrader,Pro,p2_time_abandon,0.025
+Fintokei ProTrader,Pro,funded_max_dd,0.01
+Fintokei ProTrader,Pro,p1_rule_violation,0.008
+Fintokei ProTrader,Pro,funded_time_abandon,0.008
+Fintokei ProTrader,Pro,p2_rule_violation,0.002
+Fintokei ProTrader,Semi-skilled,p1_max_dd,0.3
+Fintokei ProTrader,Semi-skilled,funded_max_dd,0.043
+Fintokei ProTrader,Semi-skilled,p2_time_abandon,0.049
+Fintokei ProTrader,Semi-skilled,post_m3,0.054
+Fintokei ProTrader,Semi-skilled,post_m1,0.128
+Fintokei ProTrader,Semi-skilled,p1_time_abandon,0.086
+Fintokei ProTrader,Semi-skilled,p2_max_dd,0.113
+Fintokei ProTrader,Semi-skilled,funded_kyc_drop,0.059
+Fintokei ProTrader,Semi-skilled,p2_rule_violation,0.005
+Fintokei ProTrader,Semi-skilled,post_m12,0.034
+Fintokei ProTrader,Semi-skilled,funded_time_abandon,0.01
+Fintokei ProTrader,Semi-skilled,p1_rule_violation,0.011
+Fintokei ProTrader,Average,funded_rule_violation,0.001
+Fintokei ProTrader,Average,p1_max_dd,0.658
+Fintokei ProTrader,Average,p2_max_dd,0.11
+Fintokei ProTrader,Average,p1_time_abandon,0.126
+Fintokei ProTrader,Average,p2_time_abandon,0.024
+Fintokei ProTrader,Average,post_m1,0.014
+Fintokei ProTrader,Average,funded_max_dd,0.015
+Fintokei ProTrader,Average,p1_rule_violation,0.015
+Fintokei ProTrader,Average,post_m3,0.005
+Fintokei ProTrader,Average,funded_time_abandon,0.002
+Fintokei ProTrader,Average,p2_rule_violation,0.005
+Fintokei ProTrader,Average,funded_kyc_drop,0.008
+Fintokei ProTrader,Average,post_m12,0.006
+Fintokei ProTrader,Average,p1_daily_dd,0.001
+Fintokei ProTrader,Aggressive,p1_max_dd,0.033
+Fintokei ProTrader,Aggressive,p1_daily_dd,0.961
+Fintokei ProTrader,Aggressive,p2_daily_dd,0.005
+Fintokei ProTrader,Aggressive,p2_max_dd,0.001
+Fintokei ProTrader,Lottery,p1_daily_dd,0.917
+Fintokei ProTrader,Lottery,p2_daily_dd,0.001
+Fintokei ProTrader,Lottery,p1_max_dd,0.081
+Fintokei ProTrader,Lottery,p1_rule_violation,0.001
+Fintokei SwiftTrader,Pro,p1_time_abandon,0.094
+Fintokei SwiftTrader,Pro,p1_max_dd,0.199
+Fintokei SwiftTrader,Pro,post_m1,0.235
+Fintokei SwiftTrader,Pro,funded_max_dd,0.028
+Fintokei SwiftTrader,Pro,post_m3,0.1
+Fintokei SwiftTrader,Pro,funded_kyc_drop,0.081
+Fintokei SwiftTrader,Pro,funded_time_abandon,0.023
+Fintokei SwiftTrader,Pro,post_m12,0.062
+Fintokei SwiftTrader,Pro,p1_rule_violation,0.003
+Fintokei SwiftTrader,Pro,funded_rule_violation,0.001
+Fintokei SwiftTrader,Semi-skilled,p1_time_abandon,0.131
+Fintokei SwiftTrader,Semi-skilled,post_m1,0.13
+Fintokei SwiftTrader,Semi-skilled,funded_max_dd,0.054
+Fintokei SwiftTrader,Semi-skilled,post_m3,0.052
+Fintokei SwiftTrader,Semi-skilled,p1_max_dd,0.411
+Fintokei SwiftTrader,Semi-skilled,post_m12,0.034
+Fintokei SwiftTrader,Semi-skilled,p1_rule_violation,0.008
+Fintokei SwiftTrader,Semi-skilled,funded_time_abandon,0.017
+Fintokei SwiftTrader,Semi-skilled,funded_kyc_drop,0.05
+Fintokei SwiftTrader,Average,p1_max_dd,0.758
+Fintokei SwiftTrader,Average,p1_time_abandon,0.115
+Fintokei SwiftTrader,Average,post_m3,0.008
+Fintokei SwiftTrader,Average,post_m1,0.02
+Fintokei SwiftTrader,Average,funded_max_dd,0.029
+Fintokei SwiftTrader,Average,p1_rule_violation,0.009
+Fintokei SwiftTrader,Average,funded_rule_violation,0.001
+Fintokei SwiftTrader,Average,p1_daily_dd,0.015
+Fintokei SwiftTrader,Average,funded_kyc_drop,0.016
+Fintokei SwiftTrader,Average,funded_time_abandon,0.008
+Fintokei SwiftTrader,Average,post_m12,0.003
+Fintokei SwiftTrader,Aggressive,p1_daily_dd,0.746
+Fintokei SwiftTrader,Aggressive,p1_max_dd,0.194
+Fintokei SwiftTrader,Aggressive,p1_time_abandon,0.031
+Fintokei SwiftTrader,Aggressive,funded_daily_dd,0.016
+Fintokei SwiftTrader,Aggressive,p1_rule_violation,0.005
+Fintokei SwiftTrader,Aggressive,funded_kyc_drop,0.001
+Fintokei SwiftTrader,Aggressive,funded_max_dd,0.007
+Fintokei SwiftTrader,Lottery,p1_max_dd,0.551
+Fintokei SwiftTrader,Lottery,p1_daily_dd,0.447
+Fintokei SwiftTrader,Lottery,funded_max_dd,0.001
+Fintokei SwiftTrader,Lottery,funded_daily_dd,0.001
+ForTraders 2-Step,Pro,post_m3,0.103
+ForTraders 2-Step,Pro,post_m1,0.232
+ForTraders 2-Step,Pro,funded_kyc_drop,0.102
+ForTraders 2-Step,Pro,p2_max_dd,0.078
+ForTraders 2-Step,Pro,p1_max_dd,0.121
+ForTraders 2-Step,Pro,p1_time_abandon,0.05
+ForTraders 2-Step,Pro,funded_max_dd,0.02
+ForTraders 2-Step,Pro,funded_rule_violation,0.001
+ForTraders 2-Step,Pro,post_m12,0.062
+ForTraders 2-Step,Pro,p1_rule_violation,0.005
+ForTraders 2-Step,Pro,p2_time_abandon,0.03
+ForTraders 2-Step,Pro,funded_time_abandon,0.017
+ForTraders 2-Step,Pro,p2_rule_violation,0.003
+ForTraders 2-Step,Semi-skilled,post_m1,0.118
+ForTraders 2-Step,Semi-skilled,post_m3,0.037
+ForTraders 2-Step,Semi-skilled,p1_max_dd,0.342
+ForTraders 2-Step,Semi-skilled,p1_time_abandon,0.091
+ForTraders 2-Step,Semi-skilled,p2_max_dd,0.162
+ForTraders 2-Step,Semi-skilled,p2_time_abandon,0.055
+ForTraders 2-Step,Semi-skilled,funded_kyc_drop,0.045
+ForTraders 2-Step,Semi-skilled,funded_max_dd,0.026
+ForTraders 2-Step,Semi-skilled,p1_rule_violation,0.006
+ForTraders 2-Step,Semi-skilled,p2_rule_violation,0.003
+ForTraders 2-Step,Semi-skilled,funded_time_abandon,0.009
+ForTraders 2-Step,Semi-skilled,post_m12,0.023
+ForTraders 2-Step,Average,p1_max_dd,0.668
+ForTraders 2-Step,Average,p2_max_dd,0.08
+ForTraders 2-Step,Average,p1_time_abandon,0.14
+ForTraders 2-Step,Average,p1_daily_dd,0.032
+ForTraders 2-Step,Average,p2_rule_violation,0.002
+ForTraders 2-Step,Average,funded_max_dd,0.016
+ForTraders 2-Step,Average,post_m3,0.003
+ForTraders 2-Step,Average,p1_rule_violation,0.011
+ForTraders 2-Step,Average,funded_kyc_drop,0.007
+ForTraders 2-Step,Average,p2_time_abandon,0.019
+ForTraders 2-Step,Average,post_m1,0.011
+ForTraders 2-Step,Average,post_m12,0.002
+ForTraders 2-Step,Average,funded_time_abandon,0.002
+ForTraders 2-Step,Aggressive,p1_daily_dd,0.892
+ForTraders 2-Step,Aggressive,p2_daily_dd,0.008
+ForTraders 2-Step,Aggressive,p1_max_dd,0.097
+ForTraders 2-Step,Aggressive,p2_max_dd,0.001
+ForTraders 2-Step,Aggressive,p1_rule_violation,0.002
+ForTraders 2-Step,Lottery,p1_daily_dd,0.78
+ForTraders 2-Step,Lottery,p1_max_dd,0.217
+ForTraders 2-Step,Lottery,p1_rule_violation,0.001
+ForTraders 2-Step,Lottery,p2_daily_dd,0.002
+TFT Standard,Pro,p2_rule_violation,0.004
+TFT Standard,Pro,post_m1,0.288
+TFT Standard,Pro,p2_time_abandon,0.026
+TFT Standard,Pro,post_m3,0.111
+TFT Standard,Pro,post_m12,0.067
+TFT Standard,Pro,funded_time_abandon,0.007
+TFT Standard,Pro,p1_time_abandon,0.042
+TFT Standard,Pro,funded_kyc_drop,0.076
+TFT Standard,Pro,funded_max_dd,0.026
+TFT Standard,Pro,p1_max_dd,0.069
+TFT Standard,Pro,p2_max_dd,0.062
+TFT Standard,Pro,p1_rule_violation,0.005
+TFT Standard,Semi-skilled,p1_time_abandon,0.097
+TFT Standard,Semi-skilled,p2_max_dd,0.143
+TFT Standard,Semi-skilled,post_m12,0.032
+TFT Standard,Semi-skilled,post_m3,0.058
+TFT Standard,Semi-skilled,post_m1,0.141
+TFT Standard,Semi-skilled,funded_kyc_drop,0.059
+TFT Standard,Semi-skilled,p1_max_dd,0.264
+TFT Standard,Semi-skilled,funded_max_dd,0.023
+TFT Standard,Semi-skilled,p1_rule_violation,0.012
+TFT Standard,Semi-skilled,p2_time_abandon,0.057
+TFT Standard,Semi-skilled,funded_time_abandon,0.008
+TFT Standard,Semi-skilled,p2_rule_violation,0.003
+TFT Standard,Semi-skilled,funded_rule_violation,0.002
+TFT Standard,Average,p1_max_dd,0.691
+TFT Standard,Average,p1_time_abandon,0.126
+TFT Standard,Average,p2_max_dd,0.094
+TFT Standard,Average,funded_kyc_drop,0.006
+TFT Standard,Average,post_m12,0.005
+TFT Standard,Average,p1_daily_dd,0.01
+TFT Standard,Average,funded_max_dd,0.01
+TFT Standard,Average,post_m1,0.017
+TFT Standard,Average,p1_rule_violation,0.01
+TFT Standard,Average,p2_time_abandon,0.016
+TFT Standard,Average,post_m3,0.004
+TFT Standard,Average,p2_rule_violation,0.001
+TFT Standard,Average,funded_time_abandon,0.003
+TFT Standard,Aggressive,p1_daily_dd,0.955
+TFT Standard,Aggressive,p1_max_dd,0.032
+TFT Standard,Aggressive,p2_daily_dd,0.01
+TFT Standard,Aggressive,p1_rule_violation,0.002
+TFT Standard,Aggressive,p1_time_abandon,0.001
+TFT Standard,Lottery,p1_daily_dd,0.915
+TFT Standard,Lottery,p1_max_dd,0.084
+TFT Standard,Lottery,p1_rule_violation,0.001
+TFT Royal,Pro,post_m1,0.213
+TFT Royal,Pro,p1_time_abandon,0.103
+TFT Royal,Pro,funded_kyc_drop,0.091
+TFT Royal,Pro,funded_max_dd,0.043
+TFT Royal,Pro,post_m12,0.051
+TFT Royal,Pro,post_m3,0.104
+TFT Royal,Pro,p1_max_dd,0.191
+TFT Royal,Pro,funded_rule_violation,0.002
+TFT Royal,Pro,funded_time_abandon,0.014
+TFT Royal,Pro,p1_rule_violation,0.008
+TFT Royal,Semi-skilled,post_m12,0.032
+TFT Royal,Semi-skilled,p1_max_dd,0.402
+TFT Royal,Semi-skilled,funded_kyc_drop,0.055
+TFT Royal,Semi-skilled,funded_max_dd,0.051
+TFT Royal,Semi-skilled,post_m1,0.129
+TFT Royal,Semi-skilled,post_m3,0.049
+TFT Royal,Semi-skilled,p1_time_abandon,0.141
+TFT Royal,Semi-skilled,funded_time_abandon,0.01
+TFT Royal,Semi-skilled,p1_rule_violation,0.009
+TFT Royal,Average,p1_max_dd,0.691
+TFT Royal,Average,p1_time_abandon,0.148
+TFT Royal,Average,post_m1,0.032
+TFT Royal,Average,funded_max_dd,0.035
+TFT Royal,Average,funded_kyc_drop,0.009
+TFT Royal,Average,p1_daily_dd,0.029
+TFT Royal,Average,post_m12,0.007
+TFT Royal,Average,p1_rule_violation,0.012
+TFT Royal,Average,funded_time_abandon,0.01
+TFT Royal,Average,post_m3,0.009
+TFT Royal,Average,funded_rule_violation,0.002
+TFT Royal,Average,funded_daily_dd,0.001
+TFT Royal,Aggressive,p1_daily_dd,0.745
+TFT Royal,Aggressive,p1_max_dd,0.19
+TFT Royal,Aggressive,p1_time_abandon,0.036
+TFT Royal,Aggressive,funded_daily_dd,0.021
+TFT Royal,Aggressive,funded_max_dd,0.004
+TFT Royal,Aggressive,p1_rule_violation,0.003
+TFT Royal,Aggressive,funded_kyc_drop,0.001
+TFT Royal,Lottery,p1_max_dd,0.551
+TFT Royal,Lottery,p1_daily_dd,0.421
+TFT Royal,Lottery,funded_max_dd,0.008
+TFT Royal,Lottery,funded_kyc_drop,0.005
+TFT Royal,Lottery,funded_daily_dd,0.014
+TFT Royal,Lottery,p1_rule_violation,0.001
+CTI 2-Step,Pro,post_m3,0.118
+CTI 2-Step,Pro,p1_max_dd,0.091
+CTI 2-Step,Pro,post_m1,0.24
+CTI 2-Step,Pro,p1_time_abandon,0.049
+CTI 2-Step,Pro,p2_max_dd,0.072
+CTI 2-Step,Pro,post_m12,0.061
+CTI 2-Step,Pro,funded_kyc_drop,0.11
+CTI 2-Step,Pro,funded_time_abandon,0.008
+CTI 2-Step,Pro,funded_max_dd,0.02
+CTI 2-Step,Pro,p2_time_abandon,0.029
+CTI 2-Step,Pro,p2_rule_violation,0.003
+CTI 2-Step,Semi-skilled,p2_max_dd,0.131
+CTI 2-Step,Semi-skilled,p1_max_dd,0.312
+CTI 2-Step,Semi-skilled,p1_time_abandon,0.133
+CTI 2-Step,Semi-skilled,p2_time_abandon,0.046
+CTI 2-Step,Semi-skilled,post_m1,0.112
+CTI 2-Step,Semi-skilled,post_m3,0.048
+CTI 2-Step,Semi-skilled,funded_kyc_drop,0.049
+CTI 2-Step,Semi-skilled,post_m12,0.034
+CTI 2-Step,Semi-skilled,funded_time_abandon,0.005
+CTI 2-Step,Semi-skilled,p1_rule_violation,0.01
+CTI 2-Step,Semi-skilled,funded_max_dd,0.02
+CTI 2-Step,Semi-skilled,funded_rule_violation,0.002
+CTI 2-Step,Semi-skilled,p2_rule_violation,0.004
+CTI 2-Step,Average,p1_max_dd,0.733
+CTI 2-Step,Average,p1_time_abandon,0.131
+CTI 2-Step,Average,p2_max_dd,0.069
+CTI 2-Step,Average,post_m12,0.003
+CTI 2-Step,Average,funded_max_dd,0.014
+CTI 2-Step,Average,post_m3,0.009
+CTI 2-Step,Average,p2_time_abandon,0.016
+CTI 2-Step,Average,p1_rule_violation,0.004
+CTI 2-Step,Average,post_m1,0.007
+CTI 2-Step,Average,p1_daily_dd,0.004
+CTI 2-Step,Average,funded_kyc_drop,0.004
+CTI 2-Step,Aggressive,p1_daily_dd,0.961
+CTI 2-Step,Aggressive,p1_max_dd,0.033
+CTI 2-Step,Aggressive,p2_daily_dd,0.004
+CTI 2-Step,Aggressive,p1_time_abandon,0.002
+CTI 2-Step,Lottery,p1_daily_dd,0.91
+CTI 2-Step,Lottery,p1_max_dd,0.09
+FundingTraders 2-Step,Pro,post_m1,0.273
+FundingTraders 2-Step,Pro,post_m3,0.11
+FundingTraders 2-Step,Pro,funded_kyc_drop,0.076
+FundingTraders 2-Step,Pro,p1_max_dd,0.084
+FundingTraders 2-Step,Pro,p2_time_abandon,0.034
+FundingTraders 2-Step,Pro,post_m12,0.08
+FundingTraders 2-Step,Pro,p2_max_dd,0.048
+FundingTraders 2-Step,Pro,funded_max_dd,0.017
+FundingTraders 2-Step,Pro,p1_time_abandon,0.041
+FundingTraders 2-Step,Pro,funded_time_abandon,0.007
+FundingTraders 2-Step,Pro,p2_rule_violation,0.004
+FundingTraders 2-Step,Pro,p1_rule_violation,0.007
+FundingTraders 2-Step,Semi-skilled,funded_time_abandon,0.008
+FundingTraders 2-Step,Semi-skilled,post_m1,0.133
+FundingTraders 2-Step,Semi-skilled,p2_max_dd,0.139
+FundingTraders 2-Step,Semi-skilled,post_m3,0.047
+FundingTraders 2-Step,Semi-skilled,p1_max_dd,0.268
+FundingTraders 2-Step,Semi-skilled,funded_max_dd,0.021
+FundingTraders 2-Step,Semi-skilled,post_m12,0.039
+FundingTraders 2-Step,Semi-skilled,p1_time_abandon,0.1
+FundingTraders 2-Step,Semi-skilled,funded_kyc_drop,0.07
+FundingTraders 2-Step,Semi-skilled,p2_time_abandon,0.043
+FundingTraders 2-Step,Semi-skilled,p1_rule_violation,0.011
+FundingTraders 2-Step,Semi-skilled,p2_rule_violation,0.002
+FundingTraders 2-Step,Average,p1_max_dd,0.7
+FundingTraders 2-Step,Average,p2_max_dd,0.092
+FundingTraders 2-Step,Average,post_m1,0.012
+FundingTraders 2-Step,Average,funded_max_dd,0.007
+FundingTraders 2-Step,Average,p1_time_abandon,0.126
+FundingTraders 2-Step,Average,p2_time_abandon,0.025
+FundingTraders 2-Step,Average,funded_kyc_drop,0.005
+FundingTraders 2-Step,Average,p2_rule_violation,0.002
+FundingTraders 2-Step,Average,post_m3,0.005
+FundingTraders 2-Step,Average,p1_rule_violation,0.007
+FundingTraders 2-Step,Average,p1_daily_dd,0.004
+FundingTraders 2-Step,Average,funded_rule_violation,0.001
+FundingTraders 2-Step,Average,post_m12,0.003
+FundingTraders 2-Step,Aggressive,p1_daily_dd,0.959
+FundingTraders 2-Step,Aggressive,p1_max_dd,0.032
+FundingTraders 2-Step,Aggressive,p2_max_dd,0.002
+FundingTraders 2-Step,Aggressive,p2_daily_dd,0.007
+FundingTraders 2-Step,Lottery,p1_daily_dd,0.917
+FundingTraders 2-Step,Lottery,p1_max_dd,0.08
+FundingTraders 2-Step,Lottery,p2_daily_dd,0.002
+FundingTraders 2-Step,Lottery,p1_rule_violation,0.001
+BG 1-Step,Pro,post_m3,0.112
+BG 1-Step,Pro,p1_time_abandon,0.073
+BG 1-Step,Pro,funded_kyc_drop,0.097
+BG 1-Step,Pro,post_m1,0.284
+BG 1-Step,Pro,post_m12,0.071
+BG 1-Step,Pro,funded_max_dd,0.029
+BG 1-Step,Pro,p1_max_dd,0.111
+BG 1-Step,Pro,funded_time_abandon,0.006
+BG 1-Step,Pro,p1_rule_violation,0.003
+BG 1-Step,Pro,funded_rule_violation,0.001
+BG 1-Step,Semi-skilled,p1_max_dd,0.361
+BG 1-Step,Semi-skilled,funded_max_dd,0.04
+BG 1-Step,Semi-skilled,post_m1,0.154
+BG 1-Step,Semi-skilled,p1_time_abandon,0.123
+BG 1-Step,Semi-skilled,post_m3,0.076
+BG 1-Step,Semi-skilled,funded_time_abandon,0.018
+BG 1-Step,Semi-skilled,funded_kyc_drop,0.046
+BG 1-Step,Semi-skilled,post_m12,0.036
+BG 1-Step,Semi-skilled,p1_rule_violation,0.016
+BG 1-Step,Semi-skilled,funded_rule_violation,0.002
+BG 1-Step,Average,p1_time_abandon,0.15
+BG 1-Step,Average,p1_max_dd,0.712
+BG 1-Step,Average,funded_kyc_drop,0.013
+BG 1-Step,Average,p1_daily_dd,0.024
+BG 1-Step,Average,funded_time_abandon,0.007
+BG 1-Step,Average,funded_max_dd,0.02
+BG 1-Step,Average,post_m1,0.021
+BG 1-Step,Average,p1_rule_violation,0.009
+BG 1-Step,Average,post_m3,0.015
+BG 1-Step,Average,post_m12,0.006
+BG 1-Step,Average,funded_rule_violation,0.001
+BG 1-Step,Aggressive,p1_daily_dd,0.866
+BG 1-Step,Aggressive,funded_daily_dd,0.02
+BG 1-Step,Aggressive,p1_max_dd,0.109
+BG 1-Step,Aggressive,funded_kyc_drop,0.005
+BG 1-Step,Lottery,p1_daily_dd,0.743
+BG 1-Step,Lottery,p1_max_dd,0.235
+BG 1-Step,Lottery,funded_daily_dd,0.01
+BG 1-Step,Lottery,funded_max_dd,0.009
+BG 1-Step,Lottery,p1_rule_violation,0.001
+BG 1-Step,Lottery,funded_kyc_drop,0.002
+BG 2-Step,Pro,p2_max_dd,0.066
+BG 2-Step,Pro,post_m1,0.253
+BG 2-Step,Pro,post_m12,0.061
+BG 2-Step,Pro,post_m3,0.109
+BG 2-Step,Pro,p1_time_abandon,0.061
+BG 2-Step,Pro,funded_kyc_drop,0.104
+BG 2-Step,Pro,p1_max_dd,0.088
+BG 2-Step,Pro,p1_rule_violation,0.003
+BG 2-Step,Pro,funded_max_dd,0.017
+BG 2-Step,Pro,funded_time_abandon,0.007
+BG 2-Step,Pro,p2_rule_violation,0.005
+BG 2-Step,Pro,p2_time_abandon,0.029
+BG 2-Step,Semi-skilled,p1_max_dd,0.309
+BG 2-Step,Semi-skilled,p2_max_dd,0.126
+BG 2-Step,Semi-skilled,post_m12,0.039
+BG 2-Step,Semi-skilled,post_m1,0.101
+BG 2-Step,Semi-skilled,post_m3,0.051
+BG 2-Step,Semi-skilled,p1_time_abandon,0.098
+BG 2-Step,Semi-skilled,funded_kyc_drop,0.067
+BG 2-Step,Semi-skilled,funded_time_abandon,0.011
+BG 2-Step,Semi-skilled,p2_time_abandon,0.045
+BG 2-Step,Semi-skilled,funded_max_dd,0.035
+BG 2-Step,Semi-skilled,p1_rule_violation,0.01
+BG 2-Step,Semi-skilled,funded_rule_violation,0.001
+BG 2-Step,Semi-skilled,p1_daily_dd,0.001
+BG 2-Step,Semi-skilled,p2_rule_violation,0.002
+BG 2-Step,Average,p1_daily_dd,0.037
+BG 2-Step,Average,p1_time_abandon,0.141
+BG 2-Step,Average,p1_max_dd,0.649
+BG 2-Step,Average,p2_max_dd,0.092
+BG 2-Step,Average,p1_rule_violation,0.014
+BG 2-Step,Average,post_m1,0.01
+BG 2-Step,Average,funded_time_abandon,0.001
+BG 2-Step,Average,p2_time_abandon,0.018
+BG 2-Step,Average,funded_max_dd,0.013
+BG 2-Step,Average,funded_kyc_drop,0.001
+BG 2-Step,Average,post_m12,0.002
+BG 2-Step,Average,p2_daily_dd,0.003
+BG 2-Step,Average,p2_rule_violation,0.002
+BG 2-Step,Average,post_m3,0.008
+BG 2-Step,Aggressive,p1_daily_dd,0.975
+BG 2-Step,Aggressive,p1_max_dd,0.011
+BG 2-Step,Aggressive,p2_daily_dd,0.011
+BG 2-Step,Aggressive,p1_rule_violation,0.002
+BG 2-Step,Aggressive,p1_time_abandon,0.001
+BG 2-Step,Lottery,p1_daily_dd,0.982
+BG 2-Step,Lottery,p1_max_dd,0.016
+BG 2-Step,Lottery,p1_rule_violation,0.002
+BrightFunded 2-Step,Pro,p1_max_dd,0.07
+BrightFunded 2-Step,Pro,post_m1,0.27
+BrightFunded 2-Step,Pro,p2_time_abandon,0.031
+BrightFunded 2-Step,Pro,post_m3,0.125
+BrightFunded 2-Step,Pro,p1_time_abandon,0.047
+BrightFunded 2-Step,Pro,funded_kyc_drop,0.101
+BrightFunded 2-Step,Pro,p2_max_dd,0.055
+BrightFunded 2-Step,Pro,funded_max_dd,0.018
+BrightFunded 2-Step,Pro,post_m12,0.071
+BrightFunded 2-Step,Pro,p1_rule_violation,0.004
+BrightFunded 2-Step,Pro,funded_time_abandon,0.003
+BrightFunded 2-Step,Pro,p2_rule_violation,0.001
+BrightFunded 2-Step,Semi-skilled,p1_rule_violation,0.009
+BrightFunded 2-Step,Semi-skilled,p1_max_dd,0.307
+BrightFunded 2-Step,Semi-skilled,post_m1,0.146
+BrightFunded 2-Step,Semi-skilled,p1_time_abandon,0.105
+BrightFunded 2-Step,Semi-skilled,p2_max_dd,0.121
+BrightFunded 2-Step,Semi-skilled,post_m3,0.05
+BrightFunded 2-Step,Semi-skilled,post_m12,0.028
+BrightFunded 2-Step,Semi-skilled,funded_kyc_drop,0.041
+BrightFunded 2-Step,Semi-skilled,funded_max_dd,0.031
+BrightFunded 2-Step,Semi-skilled,p2_time_abandon,0.042
+BrightFunded 2-Step,Semi-skilled,funded_time_abandon,0.009
+BrightFunded 2-Step,Semi-skilled,p2_rule_violation,0.002
+BrightFunded 2-Step,Average,p1_time_abandon,0.15
+BrightFunded 2-Step,Average,post_m1,0.018
+BrightFunded 2-Step,Average,p2_time_abandon,0.02
+BrightFunded 2-Step,Average,p1_max_dd,0.657
+BrightFunded 2-Step,Average,p2_max_dd,0.101
+BrightFunded 2-Step,Average,funded_kyc_drop,0.01
+BrightFunded 2-Step,Average,funded_max_dd,0.008
+BrightFunded 2-Step,Average,p2_rule_violation,0.002
+BrightFunded 2-Step,Average,p1_rule_violation,0.012
+BrightFunded 2-Step,Average,p1_daily_dd,0.004
+BrightFunded 2-Step,Average,post_m3,0.002
+BrightFunded 2-Step,Average,post_m12,0.002
+BrightFunded 2-Step,Average,funded_time_abandon,0.001
+BrightFunded 2-Step,Aggressive,p1_daily_dd,0.955
+BrightFunded 2-Step,Aggressive,p1_time_abandon,0.002
+BrightFunded 2-Step,Aggressive,p1_max_dd,0.043
+BrightFunded 2-Step,Lottery,p1_daily_dd,0.917
+BrightFunded 2-Step,Lottery,p1_max_dd,0.083
+Ment 2-Step,Pro,post_m1,0.226
+Ment 2-Step,Pro,funded_kyc_drop,0.085
+Ment 2-Step,Pro,post_m3,0.087
+Ment 2-Step,Pro,post_m12,0.072
+Ment 2-Step,Pro,p1_max_dd,0.101
+Ment 2-Step,Pro,funded_time_abandon,0.009
+Ment 2-Step,Pro,funded_max_dd,0.025
+Ment 2-Step,Pro,p2_time_abandon,0.056
+Ment 2-Step,Pro,p2_max_dd,0.093
+Ment 2-Step,Pro,p1_time_abandon,0.052
+Ment 2-Step,Pro,p1_rule_violation,0.002
+Ment 2-Step,Pro,funded_rule_violation,0.001
+Ment 2-Step,Pro,p2_rule_violation,0.002
+Ment 2-Step,Semi-skilled,funded_kyc_drop,0.046
+Ment 2-Step,Semi-skilled,p1_max_dd,0.365
+Ment 2-Step,Semi-skilled,p2_time_abandon,0.038
+Ment 2-Step,Semi-skilled,p2_max_dd,0.138
+Ment 2-Step,Semi-skilled,post_m1,0.104
+Ment 2-Step,Semi-skilled,p1_time_abandon,0.103
+Ment 2-Step,Semi-skilled,funded_max_dd,0.03
+Ment 2-Step,Semi-skilled,funded_time_abandon,0.012
+Ment 2-Step,Semi-skilled,post_m3,0.046
+Ment 2-Step,Semi-skilled,post_m12,0.024
+Ment 2-Step,Semi-skilled,p1_rule_violation,0.008
+Ment 2-Step,Semi-skilled,funded_rule_violation,0.001
+Ment 2-Step,Semi-skilled,p2_rule_violation,0.002
+Ment 2-Step,Average,p1_time_abandon,0.13
+Ment 2-Step,Average,p1_max_dd,0.666
+Ment 2-Step,Average,p2_max_dd,0.087
+Ment 2-Step,Average,post_m1,0.012
+Ment 2-Step,Average,funded_max_dd,0.01
+Ment 2-Step,Average,p2_time_abandon,0.017
+Ment 2-Step,Average,p1_rule_violation,0.014
+Ment 2-Step,Average,p1_daily_dd,0.024
+Ment 2-Step,Average,post_m3,0.007
+Ment 2-Step,Average,funded_kyc_drop,0.008
+Ment 2-Step,Average,post_m12,0.003
+Ment 2-Step,Average,p2_daily_dd,0.003
+Ment 2-Step,Average,funded_time_abandon,0.004
+Ment 2-Step,Average,p2_rule_violation,0.004
+Ment 2-Step,Average,funded_daily_dd,0.001
+Ment 2-Step,Aggressive,p1_daily_dd,0.881
+Ment 2-Step,Aggressive,p2_daily_dd,0.01
+Ment 2-Step,Aggressive,p1_max_dd,0.108
+Ment 2-Step,Aggressive,p1_time_abandon,0.001
+Ment 2-Step,Lottery,p1_max_dd,0.241
+Ment 2-Step,Lottery,p1_daily_dd,0.757
+Ment 2-Step,Lottery,p1_rule_violation,0.001
+Ment 2-Step,Lottery,p2_daily_dd,0.001
+BG Instant,Pro,p1_max_dd,0.153
+BG Instant,Pro,post_m12,0.079
+BG Instant,Pro,post_m1,0.301
+BG Instant,Pro,post_m3,0.153
+BG Instant,Pro,p1_time_abandon,0.074
+BG Instant,Pro,p1_rule_violation,0.006
+BG Instant,Pro,p1_daily_dd,0.001
+BG Instant,Semi-skilled,p1_time_abandon,0.1
+BG Instant,Semi-skilled,post_m1,0.234
+BG Instant,Semi-skilled,p1_max_dd,0.325
+BG Instant,Semi-skilled,post_m12,0.065
+BG Instant,Semi-skilled,post_m3,0.087
+BG Instant,Semi-skilled,p1_rule_violation,0.003
+BG Instant,Semi-skilled,p1_daily_dd,0.002
+BG Instant,Average,p1_time_abandon,0.129
+BG Instant,Average,post_m12,0.022
+BG Instant,Average,p1_max_dd,0.665
+BG Instant,Average,p1_daily_dd,0.039
+BG Instant,Average,post_m1,0.065
+BG Instant,Average,post_m3,0.02
+BG Instant,Average,p1_rule_violation,0.007
+BG Instant,Aggressive,p1_daily_dd,0.8
+BG Instant,Aggressive,p1_max_dd,0.195
+BG Instant,Aggressive,p1_time_abandon,0.002
+BG Instant,Aggressive,p1_rule_violation,0.003
+BG Instant,Lottery,p1_max_dd,0.523
+BG Instant,Lottery,p1_daily_dd,0.477

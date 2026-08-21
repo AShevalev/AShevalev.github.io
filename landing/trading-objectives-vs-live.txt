@@ -1,0 +1,124 @@
+trading-objectives.html vs live verodus.com/trading-objectives.html
+Compared 17 Aug 2026. Rec page keeps live chrome (nav, footer, CSS, tabs, size buttons, phase cards) via <base href="https://www.verodus.com/"> and overlays rec rules (landing/to-rec.js).
+
+Rebuild: python3 landing/stitch_trading_objectives.py
+
+
+------------------------------------------------------------------------
+UNCHANGED
+------------------------------------------------------------------------
+
+Plan tabs: Instant, 1-Step, 2-Step Lite, 2-Step Pro.
+Size buttons $5k–$200k (Instant still has no $200k in pricingData; live already hides that button).
+Phase targets, min days, leverage, and drawdown percents still come from live pricingData:
+  Instant 3% daily / 6% trail, 20% best day, 5 days.
+  1-Step 10% target, 4% daily / 6% hybrid, 50% best day.
+  Lite P1 8% / P2 5%, 4% daily / 8% static, 5 days each.
+  Pro P1 10% / P2 5%, 5% daily / 10% static, 5 days each.
+Weekend holding is still a paid add-on (Friday 22:00 flatten).
+Challenge fee numbers on this page are still live’s pricingData (not the 17 Aug catalog). Instant $25k still shows $139 here; catalog sale is $149. Update fees separately if you want TO to match checkout.
+
+
+------------------------------------------------------------------------
+1. NEWS TRADING
+------------------------------------------------------------------------
+
+LIVE
+  Evaluation card: Allowed — “News trading is permitted during evaluation phases.”
+  Qualified Performance card: Restricted (red).
+    “Not allowed to open or close a position ±2 min around high-impact (red folder) news events.”
+    “* Unless News Trading Addon purchased.”
+  Funded guidelines card: Restricted.
+    “±2m window around high-impact news events. Profits deducted on violation.”
+
+REC
+  Evaluation, Qualified Performance, and funded guidelines: Allowed (green).
+  Copy on all three: “News trading is permitted.”
+  No ±2-minute window. No News Trading add-on footnote.
+
+
+------------------------------------------------------------------------
+2. REWARD CYCLE CARDS
+------------------------------------------------------------------------
+
+LIVE — 3 cards
+  Weekly 70%     every 7 days      min $100
+  Bi-Weekly 80%  every 14 days     min $100   (featured)
+  On Demand 90%  Anytime           min 2% and $200
+
+REC — 3 cards (same layout as live)
+  Weekly 70%     every 7 days      min $100
+  Bi-Weekly 80%  every 14 days     min $100   (featured / default)
+  On Demand 90%  Anytime           min $100
+
+LIVE On Demand min “2% and $200” is gone. Rec On Demand min is $100.
+
+
+------------------------------------------------------------------------
+3. REWARD COPY UNDER THE CARDS
+------------------------------------------------------------------------
+
+LIVE p6: (none / combo wrap on live)
+REC  p6: “Default reward is Bi-Weekly 80%. Weekly 70% and On Demand 90% are paid add-ons.”
+LIVE p7: “All reward request intervals are based on calendar days, not trading days. Add-on required for 70% Reward Split. Performance scaling required for 90% Reward Split.”
+REC  p7: “All reward request intervals are based on calendar days, not trading days. On Demand still has to meet the plan trading-day rule before the first request.”
+
+LIVE highlight: “First Payout: Minimum $100 after 3 trading days (within 48 hrs)”
+REC  Instant: “Payouts: Minimum $100 after 5 valid days (within 48 hrs)”
+REC  1-Step / Lite / Pro: “Payouts: Minimum $100 after 3 trading days (within 48 hrs)”
+
+LIVE refund highlight always visible: “100% Challenge Fee Refund on first successful payout”
+REC  Instant: refund card hidden (Instant is not refundable).
+REC  evals: refund card stays (challenge fee only — add-ons are not refunded; that extra sentence is on checkout, not this card).
+
+
+------------------------------------------------------------------------
+4. INSTANT FUNDED CARD + VALID DAYS
+------------------------------------------------------------------------
+
+LIVE Instant card
+  Profit target None.
+  “Minimum Trading Days” = 5 Days (not clickable).
+  Best Day 20%.
+  Trailing drawdown 6% / daily 3% from live pricingData.
+  Live drawdown modal already says the 6% trail does not stop at initial balance.
+
+REC Instant card
+  “Valid Days” = 5 (clickable).
+  Modal: On Demand does not skip Instant trading-day rules. 5 valid days before first request.
+  A valid day is closed-trade PnL ≥ 0.5% of that day’s start-of-day equity. Unrealized PnL does not count. Then you may request anytime. Min $100. 20% Best Day still applies.
+  Card copy: “6% trailing max from the equity high-water mark — it never locks. 3% daily from the day’s equity high.”
+
+REC eval On Demand modal: 3 funded trading days before first request, including On Demand. A trading day is a calendar day with at least one closed trade. Min $100.
+
+
+------------------------------------------------------------------------
+5. INSTANT $200k
+------------------------------------------------------------------------
+
+LIVE pricingData.instant has no $200k. Live JS already hides the $200k size button on Instant.
+REC also deletes pricingData.instant['200000'] and hides that button. Same outcome.
+
+
+------------------------------------------------------------------------
+6. TECH
+------------------------------------------------------------------------
+
+Weglot scripts stripped.
+<base href="https://www.verodus.com/"> so images/CSS/nav still load from live.
+Extra CSS: three-column reward grid (like live) and Instant refund-card hide.
+Rec overlay script: landing/to-rec.js (injected before </body>).
+
+
+------------------------------------------------------------------------
+7. WHAT TO PASTE ONTO LIVE
+------------------------------------------------------------------------
+
+News: Allowed on eval and funded. Copy: “News trading is permitted.” Drop the ±2-minute window and News add-on.
+Reward cards: Weekly 70% · Bi-Weekly 80% (featured) · On Demand 90%, min $100, no On Demand 2%/$200.
+p6: default is Bi-Weekly 80%; Weekly 70% and On Demand 90% are paid add-ons.
+p7: On Demand still needs plan min days.
+Payouts line: Instant 5 valid days (0.5% SOD); evals 3 trading days.
+Hide Instant fee-refund card.
+Instant Valid Days modal and “never locks” trail copy.
+Do not take challenge fees from this rec page — they are still live pricingData, not the 17 Aug catalog.

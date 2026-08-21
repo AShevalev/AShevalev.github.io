@@ -1,0 +1,129 @@
+# Price and margin — every firm vs Verodus
+
+Same industry-calibrated book on every row. **Sale** is the shopper price after the named discount.
+**m** is sale margin: `(sale − E[payout] − expected refund) / sale`.
+Instant **P(pay)** is first-payout eligibility (year-1 is lower).
+Verodus Instant = **live FAQ** (6% trail never locks; no 2% risk cap; no first-reward % cap).
+**Proposed Instant** raises $25k/$50k/$100k to the 20% column so every Instant size prints.
+Blue Guardian Instant = live **BG25** (3% SOD daily, 6% trail locks at +6%).
+Verodus Lite funded max DD is **8%** (was 10%). 1-Step and Pro = live FAQ.
+
+## Instant / straight-to-funded
+
+| Firm | Plan | Discount | $5k sale | m | $10k | m | $25k | m | $50k | m | $100k | m | $200k | m | P(pay) |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Verodus** | Instant | VERO35 | $72 | +39% | $121 | +28% | $242 | +10% | $389 | -13% | $676 | -29% | — | — | 22% |
+| **Verodus proposed** | Instant | VERO35 | $72 | +39% | $121 | +28% | $274 | +20% | $547 | +20% | $1,094 | +20% | — | — | 22% |
+| **Alpha Capital** | Instant | FUNDED40 | $40 | +14% | $58 | -19% | $118 | -46% | $154 | -124% | $274 | -152% | $538 | -157% | 13% |
+| **Blue Guardian** | Instant | BG25 | $54 | +16% | $75 | -22% | $156 | -46% | $243 | -88% | $467 | -95% | — | — | 22% |
+| **FXIFY** | Instant Lite | — | $39 | +13% | $79 | +14% | $149 | -14% | $249 | -36% | $399 | -70% | — | — | 16% |
+| **FXIFY** | Instant Standard | ~20% typical | $87 | +59% | $143 | +50% | $263 | +32% | $423 | +15% | $639 | -12% | — | — | 54% |
+| **FundedNext** | Stellar Instant | — | $99 | +15% | $199 | +15% | — | — | — | — | — | — | — | — | 53% |
+| **FundingPips** | Zero | HELLO 20% (not $100k) | $48 | +14% | $70 | -18% | $150 | -38% | $195 | -113% | $444 | -87% | $710 | -134% | 15% |
+| **Goat Funded** | Instant GOAT | ~20% promo | $63 | +33% | $103 | +18% | $199 | -6% | $319 | -33% | $559 | -51% | — | — | 17% |
+| **Hola Prime** | Direct | MATCH20 | $79 | +29% | $106 | +1% | $295 | +9% | $551 | +4% | $839 | -22% | — | — | 24% |
+| **Instant Funding** | Instant | ~20% typical | $87 | +52% | $143 | +41% | $263 | +20% | $423 | +1% | $639 | -32% | — | — | 21% |
+
+## One-step evaluations
+
+| Firm | Plan | Discount | $5k sale | m | $10k | m | $25k | m | $50k | m | $100k | m | $200k | m | P(pay) |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Verodus** | 1-Step | VERO35 | $36 | +76% | $60 | +73% | $120 | +69% | $193 | +63% | $335 | +59% | $654 | +58% | 9% |
+| **Alpha Capital** | One 10% | ALPHA20 | $40 | +81% | $78 | +80% | $158 | +75% | $238 | +67% | $398 | +61% | $798 | +61% | 7% |
+| **Blue Guardian** | 1-Step Standard | ~20% typical | $47 | +65% | $79 | +61% | $151 | +54% | $239 | +46% | $399 | +38% | $719 | +33% | 15% |
+| **E8 Markets** | E8 One 6% | — | $59 | +84% | $138 | +86% | $228 | +80% | $338 | +72% | $538 | +65% | $988 | +62% | 8% |
+| **E8 Markets** | Signature | — | — | — | — | — | $198 | +81% | $298 | +75% | $498 | +70% | — | — | 7% |
+| **FTMO** | 1-Step | — | — | — | $92 | +71% | $231 | +71% | $370 | +64% | $579 | +54% | $1,159 | +54% | 14% |
+| **Fintokei** | SwiftTrader | 20% OFF listed | $35 | +66% | $71 | +67% | $143 | +62% | $231 | +55% | $399 | +50% | — | — | 13% |
+| **FundedNext** | Stellar 1-Step | — | — | — | — | — | $220 | +82% | $330 | +78% | $570 | +75% | $1,100 | +74% | 14% |
+| **FundingPips** | 1-Step Flex | HELLO 20% (not $100k) | $53 | +81% | $79 | +76% | $169 | +73% | $250 | +66% | $569 | +69% | — | — | 17% |
+| **Hola Prime** | 1-Step Prime | MATCH20 | $47 | +77% | $71 | +72% | $135 | +66% | $263 | +65% | $463 | +61% | $839 | +58% | 13% |
+| **The Funded Trader** | Royal 1-Step | ~20% typical | $63 | +87% | $103 | +85% | $199 | +80% | $303 | +74% | $479 | +67% | — | — | 13% |
+| **The5ers** | Hyper Growth | — | $260 | +98% | $450 | +98% | — | — | — | — | — | — | — | — | 15% |
+
+## Two-step evaluations
+
+| Firm | Plan | Discount | $5k sale | m | $10k | m | $25k | m | $50k | m | $100k | m | $200k | m | P(pay) |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Verodus** | 2-Step Lite | VERO35 | $18 | +52% | $33 | +48% | $66 | +38% | $133 | +38% | $241 | +33% | $477 | +32% | 11% |
+| **Verodus** | 2-Step Pro | VERO35 | $20 | +55% | $36 | +51% | $85 | +49% | $163 | +47% | $296 | +43% | $577 | +42% | 12% |
+| **Alpha Capital** | Pro 10% | ALPHA20 | $26 | +76% | $62 | +80% | $142 | +78% | $214 | +70% | $358 | +65% | $718 | +65% | 12% |
+| **Alpha Capital** | Pro 6% | ALPHA20 | $22 | +76% | $38 | +72% | $94 | +72% | $174 | +69% | $318 | +66% | $638 | +67% | 9% |
+| **Blue Guardian** | 2-Step Standard | ~20% typical | $44 | +73% | $78 | +71% | $150 | +66% | $230 | +59% | $398 | +54% | — | — | 12% |
+| **BrightFunded** | 2-Step | ~20% typical | $44 | +71% | $79 | +69% | $151 | +64% | $231 | +56% | $319 | +43% | $238 | -32% | 13% |
+| **City Traders Imperium** | 2-Step | ~20% typical | — | — | $79 | +73% | $159 | +69% | $279 | +66% | $439 | +60% | — | — | 11% |
+| **FTMO** | 2-Step | — | — | — | $103 | +78% | $290 | +79% | $400 | +76% | $626 | +73% | $1,253 | +73% | 13% |
+| **FXIFY** | 2-Step | ~20% typical | $47 | +84% | $71 | +82% | $151 | +81% | $303 | +81% | $399 | +76% | $799 | +76% | 9% |
+| **Fintokei** | ProTrader | 20% OFF listed | $35 | +67% | $79 | +69% | $159 | +65% | $239 | +58% | $423 | +54% | $799 | +52% | 13% |
+| **For Traders** | 2-Step | ~20% typical | $39 | +74% | $71 | +72% | $143 | +68% | $231 | +63% | $391 | +58% | — | — | 10% |
+| **FundedNext** | Stellar 2-Step | — | — | — | — | — | $220 | +77% | $330 | +73% | $550 | +71% | $1,100 | +71% | 13% |
+| **FundedNext** | Stellar Lite | — | $33 | +74% | $59 | +73% | $149 | +73% | $249 | +70% | $449 | +68% | — | — | 12% |
+| **Funding Traders** | 2-Step | ~20% typical | $29 | +62% | $53 | +59% | $125 | +58% | $213 | +53% | $399 | +50% | — | — | 13% |
+| **FundingPips** | 2-Step Flex | HELLO 20% (not $100k) | $26 | +80% | $47 | +78% | $127 | +80% | $215 | +76% | $555 | +81% | — | — | 14% |
+| **FundingPips** | 2-Step Pro | HELLO 20% (not $100k) | $23 | +77% | $44 | +76% | $107 | +75% | $179 | +70% | $422 | +75% | $675 | +68% | 10% |
+| **FundingPips** | 2-Step Standard | HELLO 20% (not $100k) | $27 | +71% | $50 | +69% | $134 | +71% | $228 | +66% | $544 | +71% | — | — | 13% |
+| **Goat Funded** | 2-Step Standard | ~20% promo | $29 | +63% | $53 | +61% | $125 | +60% | $213 | +55% | $399 | +53% | — | — | 13% |
+| **Hola Prime** | 2-Step Prime | MATCH20 | $38 | +75% | $55 | +68% | $127 | +66% | $255 | +66% | $455 | +63% | $751 | +57% | 12% |
+| **Maven** | 2-Step | ~20% promo | $18 | +49% | $35 | +48% | $79 | +44% | $151 | +42% | $279 | +38% | — | — | 13% |
+| **Ment Funding** | 2-Step | ~20% typical | $31 | +70% | $55 | +67% | $119 | +64% | $199 | +59% | $343 | +54% | — | — | 11% |
+| **The Funded Trader** | Standard | ~20% typical | $39 | +68% | $79 | +69% | $151 | +63% | $231 | +56% | $399 | +51% | $751 | +48% | 13% |
+| **The5ers** | High Stakes | — | $35 | +67% | $60 | +62% | — | — | — | — | $395 | +42% | — | — | 11% |
+
+## Three-step evaluations
+
+| Firm | Plan | Discount | $5k sale | m | $10k | m | $25k | m | $50k | m | $100k | m | $200k | m | P(pay) |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Maven** | 3-Step | ~20% promo | $14 | +72% | $26 | +70% | $55 | +66% | $103 | +64% | $199 | +63% | — | — | 5% |
+| **The5ers** | Bootcamp | — | — | — | — | — | — | — | — | — | $95 | +74% | — | — | 5% |
+
+## $5k and $100k side-by-side (all families)
+
+| Firm | Plan | Family | $5k list | $5k sale | $5k E[cost] | $5k m | $100k list | $100k sale | $100k E[cost] | $100k m | P(pay) |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Verodus** | Instant | instant | $110 | $72 | $44 | +39% | $1,032 | $676 | $875 | -29% | 22% |
+| **Verodus** | 1-Step | 1-step | $55 | $36 | $9 | +76% | $516 | $335 | $138 | +59% | 9% |
+| **Verodus** | 2-Step Lite | 2-step | $27 | $18 | $9 | +52% | $371 | $241 | $162 | +33% | 11% |
+| **Verodus** | 2-Step Pro | 2-step | $31 | $20 | $9 | +55% | $455 | $296 | $168 | +43% | 12% |
+| FTMO | 1-Step | 1-step | — | — | — | — | $579 | $579 | $265 | +54% | 14% |
+| FTMO | 2-Step | 2-step | — | — | — | — | $626 | $626 | $172 | +73% | 13% |
+| FundedNext | Stellar 1-Step | 1-step | — | — | — | — | $570 | $570 | $142 | +75% | 14% |
+| FundedNext | Stellar 2-Step | 2-step | — | — | — | — | $550 | $550 | $161 | +71% | 13% |
+| FundedNext | Stellar Lite | 2-step | $33 | $33 | $8 | +74% | $449 | $449 | $143 | +68% | 12% |
+| FundedNext | Stellar Instant | instant | $99 | $99 | $84 | +15% | — | — | — | — | 53% |
+| The5ers | High Stakes | 2-step | $35 | $35 | $11 | +67% | $395 | $395 | $230 | +42% | 11% |
+| The5ers | Hyper Growth | 1-step | $260 | $260 | $4 | +98% | — | — | — | — | 15% |
+| The5ers | Bootcamp | 3-step | — | — | — | — | $95 | $95 | $24 | +74% | 5% |
+| FundingPips | Zero | instant | $60 | $48 | $41 | +14% | $444 | $444 | $829 | -87% | 15% |
+| FundingPips | 1-Step Flex | 1-step | $66 | $53 | $10 | +81% | $569 | $569 | $175 | +69% | 17% |
+| FundingPips | 2-Step Standard | 2-step | $34 | $27 | $8 | +71% | $544 | $544 | $158 | +71% | 13% |
+| FundingPips | 2-Step Flex | 2-step | $32 | $26 | $5 | +80% | $555 | $555 | $104 | +81% | 14% |
+| FundingPips | 2-Step Pro | 2-step | $29 | $23 | $5 | +77% | $422 | $422 | $107 | +75% | 10% |
+| E8 Markets | E8 One 6% | 1-step | $59 | $59 | $9 | +84% | $538 | $538 | $186 | +65% | 8% |
+| E8 Markets | Signature | 1-step | — | — | — | — | $498 | $498 | $152 | +70% | 7% |
+| Alpha Capital | Instant | instant | $67 | $40 | $35 | +14% | $457 | $274 | $690 | -152% | 13% |
+| Alpha Capital | One 10% | 1-step | $50 | $40 | $8 | +81% | $497 | $398 | $156 | +61% | 7% |
+| Alpha Capital | Pro 6% | 2-step | $27 | $22 | $5 | +76% | $397 | $318 | $107 | +66% | 9% |
+| Alpha Capital | Pro 10% | 2-step | $33 | $26 | $6 | +76% | $447 | $358 | $127 | +65% | 12% |
+| Goat Funded | Instant GOAT | instant | $79 | $63 | $42 | +33% | $699 | $559 | $846 | -51% | 17% |
+| Goat Funded | 2-Step Standard | 2-step | $36 | $29 | $11 | +63% | $499 | $399 | $189 | +53% | 13% |
+| Maven | 2-Step | 2-step | $22 | $18 | $9 | +49% | $349 | $279 | $172 | +38% | 13% |
+| Maven | 3-Step | 3-step | $17 | $14 | $4 | +72% | $249 | $199 | $74 | +63% | 5% |
+| Hola Prime | Direct | instant | $99 | $79 | $56 | +29% | $1,049 | $839 | $1,026 | -22% | 24% |
+| Hola Prime | 1-Step Prime | 1-step | $59 | $47 | $11 | +77% | $579 | $463 | $180 | +61% | 13% |
+| Hola Prime | 2-Step Prime | 2-step | $47 | $38 | $9 | +75% | $569 | $455 | $168 | +63% | 12% |
+| FXIFY | 2-Step | 2-step | $59 | $47 | $7 | +84% | $499 | $399 | $98 | +76% | 9% |
+| FXIFY | Instant Lite | instant | $39 | $39 | $34 | +13% | $399 | $399 | $680 | -70% | 16% |
+| FXIFY | Instant Standard | instant | $109 | $87 | $36 | +59% | $799 | $639 | $716 | -12% | 54% |
+| Instant Funding | Instant | instant | $109 | $87 | $42 | +52% | $799 | $639 | $841 | -32% | 21% |
+| Fintokei | ProTrader | 2-step | $44 | $35 | $12 | +67% | $529 | $423 | $196 | +54% | 13% |
+| Fintokei | SwiftTrader | 1-step | $44 | $35 | $12 | +66% | $499 | $399 | $198 | +50% | 13% |
+| For Traders | 2-Step | 2-step | $49 | $39 | $10 | +74% | $489 | $391 | $163 | +58% | 10% |
+| The Funded Trader | Standard | 2-step | $49 | $39 | $12 | +68% | $499 | $399 | $197 | +51% | 13% |
+| The Funded Trader | Royal 1-Step | 1-step | $79 | $63 | $8 | +87% | $599 | $479 | $158 | +67% | 13% |
+| City Traders Imperium | 2-Step | 2-step | — | — | — | — | $549 | $439 | $176 | +60% | 11% |
+| Funding Traders | 2-Step | 2-step | $36 | $29 | $11 | +62% | $499 | $399 | $199 | +50% | 13% |
+| Blue Guardian | Instant | instant | $72 | $54 | $46 | +16% | $623 | $467 | $911 | -95% | 22% |
+| Blue Guardian | 1-Step Standard | 1-step | $59 | $47 | $16 | +65% | $499 | $399 | $246 | +38% | 15% |
+| Blue Guardian | 2-Step Standard | 2-step | $55 | $44 | $12 | +73% | $497 | $398 | $183 | +54% | 12% |
+| BrightFunded | 2-Step | 2-step | $55 | $44 | $13 | +71% | $399 | $319 | $183 | +43% | 13% |
+| Ment Funding | 2-Step | 2-step | $39 | $31 | $9 | +70% | $429 | $343 | $159 | +54% | 11% |
