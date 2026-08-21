@@ -176,59 +176,55 @@ def build():
     pdf.set_y(78)
     pdf.callout(
         "Label after this pass: an unproven Instant/challenge simulated-evaluation firm "
-        "with careful FAQ and Terms, one UAE FZ name, Instant-search marketing, and "
-        "simulated accounts stated on the same screen as Funding Traders Worldwide. "
+        "with careful FAQ and Terms, one UAE FZ name, and Instant-search marketing. "
+        "The first screen already says no deposits, no client funds, no brokerage. "
         "Not a scam site. Not a licensed broker. Not live capital. Not a known payer. "
         "Hero and meta still sell Funded on day one from $49."
     )
 
     pdf.h2("The remaining pass (only this)")
     pdf.body(
-        "Light phrase swaps. No hero rewrite, no meta rewrite, no Instant pricing rewrite, "
-        "no Trustpilot rewrite, no Why Verodus rewrite, no How it works rewrite, no FAQ "
-        "rewrite except two phrases. Bios stay in Read Bio modals (fill them; do not move "
-        "them onto the page). One new line under the hero CTAs: Simulated accounts. "
-        "Cash rewards when you qualify. No deposit of trading capital."
+        "Light phrase swaps. No hero rewrite (including the existing no deposits / no "
+        "client funds / no brokerage pill). No extra line under the CTAs. No meta rewrite, "
+        "no Instant pricing rewrite, no Trustpilot rewrite, no Why Verodus rewrite, no How "
+        "it works rewrite, no FAQ rewrite except two phrases. Bios stay in Read Bio modals "
+        "(fill them; do not move them onto the page)."
     )
     add_table(
         pdf,
         ["In", "Out"],
         [
             [
-                "One line under hero CTAs: Simulated accounts. Cash rewards when you qualify. No deposit of trading capital.",
-                "Hero H1, subhead, CTAs. Title Instant from $49. Funded on Day One.",
+                "One legal name: Verodus L.L.C.-FZ. Payments: Capital Inc. affiliate.",
+                "Hero H1, subhead, no deposits / no client funds / no brokerage pill, CTAs. No extra line under CTAs.",
             ],
             [
                 "FAQ: drop discretionary. Terms: pay if rules + KYC; withhold for breaches.",
                 "Meta: Funded on day one from $49. 1-Step from $45. Lite from $39. $5k-$200k. Keep 80%. No deposit.",
             ],
             [
-                "One legal name: Verodus L.L.C.-FZ. Payments: Capital Inc. affiliate.",
+                "Instant label, FAQ Instant line, dashboard, Privacy: Instant / Qualified Performance, not Funded.",
                 "Instant table $200k row, leftover $296 / -35% line, refund sentence.",
             ],
             [
-                "Instant label, FAQ Instant line, dashboard, Privacy: Instant / Qualified Performance, not Funded.",
+                "Stat strip: 3,000+ traders; 90% reward split. Keep $1M and <24h as-is.",
                 "Trustpilot 4.5/5. Quotes. Platform 5 on Why Verodus. Trading is simulated on No Personal Capital.",
             ],
             [
-                "Stat strip: 3,000+ traders; 90% reward split. Keep $1M and <24h as-is.",
-                "How it works, calculator, bottom CTA.",
-            ],
-            [
                 "About: Leadership heading. Behavioral analysis -> risk control. Fill Read Bio modals (founder proof). Do not paste bios on the page.",
-                "About opening / mission copy. Moving bios out of modals.",
+                "How it works, calculator, bottom CTA. About opening / mission copy.",
             ],
             [
                 "Certificates: unique IDs or hide duplicates. Copy stays Real traders. Real certificates.",
-                "Any other section rewrite.",
+                "Adding Simulated accounts under the hero CTAs. Repeating no deposit there.",
             ],
             [
                 "Blog body numbers to live rules, or unpublish. Meta of that page stays.",
-                "We sell trading data on marketing pages.",
+                "Any other section rewrite. We sell trading data on marketing pages.",
             ],
             [
                 "Privacy (counsel-gated): anonymized/aggregated data license clauses. Not on homepage.",
-                "Hero H1, subhead, CTAs unchanged. Meta unchanged.",
+                "Title Instant from $49. Funded on Day One.",
             ],
         ],
         [87, 87],
@@ -242,7 +238,7 @@ def build():
             [
                 "Google / Instant buyer",
                 "Funded on day one from $49. Keep 80%. $5k-$200k.",
-                "Same search snippet. First screen now also says simulated accounts, cash rewards, no deposit.",
+                "Same. First screen already says no deposits, no client funds, no brokerage.",
             ],
             [
                 "Trader who reads FAQ / Terms",
@@ -283,7 +279,7 @@ def build():
             ["Search / Instant pitch", "Funded on day one from $49", "Unchanged"],
             ["Payout promise", "Discretionary", "Rules + KYC; clawback for breaches"],
             ["Legal identity", "LLC vs L.L.C.-FZ", "One FZ name + Capital Inc. affiliate"],
-            ["Funded vs simulation", "Funded on Instant cards next to simulated capital", "Hero/meta keep Funded; one line under CTAs says simulated; cards say Instant"],
+            ["Funded vs simulation", "Hero already: no deposits, no client funds, no brokerage. Instant cards still say Funded.", "Hero honesty stays. Instant cards say Instant."],
             ["Stat strip honesty", "Profit split + $1M max capital", "Reward split; $1M stays"],
             ["Social proof", "4.5 Trustpilot, first-name quotes, duplicate certificates", "Trustpilot and quotes stay; duplicates should go"],
             ["About polish", "Smashed heading; behavioral analysis; empty-feeling leadership", "Leadership; risk control; founder proof inside modals"],
@@ -305,9 +301,11 @@ def build():
         "L.L.C.-FZ were the same firm presented as two. A real FZ operator shows one name."
     )
     pdf.bullet(
-        "Instant as the phase label, Simulated Instant account in FAQ, and Qualified "
-        "Performance on the dashboard let the hero keep search language without repeating "
-        "Funded next to simulated on every card."
+        "The hero already carries no deposits, no client funds, no brokerage. That stays. "
+        "This pass does not add Simulated accounts under the CTAs and does not repeat "
+        "no deposit there. Instant as the phase label, Simulated Instant account in FAQ, "
+        "and Qualified Performance on the dashboard stop repeating Funded next to "
+        "simulated on every card."
     )
     pdf.bullet(
         "Reward split on the first strip matches Global reach. Profit split implied live P&L."
@@ -315,13 +313,6 @@ def build():
     pdf.bullet(
         "If duplicate certificate amounts go, the payout strip stops looking generated. "
         "If they stay, that block still costs more trust than it buys."
-    )
-    pdf.bullet(
-        "One line under the hero CTAs puts simulation on the same screen as Funding "
-        "Traders Worldwide: Simulated accounts. Cash rewards when you qualify. No "
-        "deposit of trading capital. H1, subhead, CTAs, and meta stay locked. Search "
-        "still says Funded on day one from $49. The page no longer hides simulated "
-        "until FAQ."
     )
     pdf.bullet(
         "Leadership and risk control remove two amateur tells. Founder proof is filling "
@@ -396,12 +387,13 @@ def build():
     pdf.h2("Clean verdict")
     pdf.callout(
         "Do the edits. They close the worst self-inflicted leaks: discretionary, two "
-        "names, Funded as a phase label, smashed About heading, and simulation buried "
-        "in FAQ. After they ship, Verodus is a careful Instant shop, not a new kind of "
-        "firm. Attractive to Instant buyers on Google. Less alarming to traders who read "
-        "the first screen, FAQ, and Terms. Unchanged for anyone waiting on third-party "
-        "payout proof. Reputation in this category is paid for with verifiable payouts, "
-        "a Trustpilot people can open, numbers that match checkout, and founder proof "
+        "names, Funded as a phase label, smashed About heading. After they ship, Verodus "
+        "is a careful Instant shop, not a new kind of firm. The first screen already says "
+        "no deposits, no client funds, no brokerage; do not add another line under the "
+        "CTAs. Attractive to Instant buyers on Google. Less alarming to traders who read "
+        "FAQ and Terms. Unchanged for anyone waiting on third-party payout proof. "
+        "Reputation in this category is paid for with verifiable payouts, a Trustpilot "
+        "people can open, numbers that match checkout, and founder proof "
         "(registry + LinkedIn + one filmed AMA). Those last items remain mostly outside copy."
     )
 

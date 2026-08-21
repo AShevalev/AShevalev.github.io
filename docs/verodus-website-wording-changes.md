@@ -29,23 +29,13 @@ This is a copy brief, not a legal opinion. Counsel should still review Terms, Ri
 
 ## Locked: homepage hero
 
-Do not edit H1, subhead, or CTAs. Do not change prices or “funded” inside those three lines.
+Do not edit H1, subhead, the **no deposits / no client funds / no brokerage** pill, or CTAs. Do not change prices or “funded” inside those lines.
 
 The Instant table currently starts at **$72**, not $49. Do **not** “fix” that by editing the hero or the meta.
 
 Use **funded** less **everywhere else**. The hero already carries the search term.
 
----
-
-## Add under the hero (simulation next to “Funding Traders Worldwide”)
-
-Do **not** rewrite the H1. Add **one new line** immediately under the CTAs, before the stat strip.
-
-> Simulated accounts. Cash rewards when you qualify. No deposit of trading capital.
-
-That is the whole fix. Retail still sees **Funding Traders Worldwide** and the locked meta. Experienced traders see **simulated** on the same screen, not only in FAQ and Terms.
-
-Do not put that sentence on the No Personal Capital card. Do not edit the hero subhead (it already says no deposits / no brokerage; it does not say simulated — this new line does).
+The hero already states **— no deposits, no client funds, no brokerage.** Do **not** add a second line under the CTAs repeating no deposit or adding “Simulated accounts.” That honesty is already on the first screen. Leave simulation detail in FAQ, Instant rules, and legal, as now.
 
 ---
 
@@ -73,7 +63,6 @@ Inner-page titles stay as they are even when a single on-page word changes.
 2. **“Funded”** below the hero (Instant labels, Instant rules, FAQ, dashboard) still sounds like live money. Swap the word; do not rewrite the Instant product story.
 3. **“Discretionary”** on the legitimacy FAQ tells people you might not pay even if they follow the rules. Replace that sentence only.
 4. One public legal name.
-5. Simulation honesty sits **on the same screen** as Funding Traders Worldwide (one new line under the CTAs). Not only in FAQ and legal.
 
 ---
 
@@ -286,16 +275,16 @@ Use only when a listed swap above already applies. Do not hunt the site to rewri
 
 ## 15. Homepage order
 
-Do not reorder the page. After the locked hero CTAs, add the one simulation line, then the existing stat strip. Pricing, How it works, Trustpilot, and Why Verodus stay where they are.
+Do not reorder the page. Hero (including the no-deposits pill), stat strip, pricing, How it works, Trustpilot, and Why Verodus stay where they are.
 
 ---
 
 ## 16. What not to change
 
-- **Homepage hero** (H1, subhead, CTAs). You **may** add the one simulation line **under** the CTAs.
+- **Homepage hero** (H1, subhead, **— no deposits, no client funds, no brokerage.** pill, CTAs). Do not add another line under the CTAs.
 - **Meta on every page.** Homepage description stays **Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit.**
 - Instant / pricing module (sizes, $200k row, leftover fee line, no new refund sentence).
-- Why Verodus intro and cards, including **Supported Platforms** (no US Platform 5 add) and **No Personal Capital** (do not add “Trading is simulated.” — that line goes under the hero CTAs instead).
+- Why Verodus intro and cards, including **Supported Platforms** (no US Platform 5 add) and **No Personal Capital** (do not add “Trading is simulated.”).
 - How it works steps, calculator, bottom CTA.
 - Trustpilot **Rated 4.5 / 5** (do not widget-ize or remove).
 - Existing testimonial quotes.
@@ -311,16 +300,15 @@ Do not reorder the page. After the locked hero CTAs, add the one simulation line
 
 ## 17. Implementation order
 
-1. Add the one simulation line under the hero CTAs.
-2. FAQ “Is Verodus legitimate?” — remove “discretionary” only.
-3. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3).
-4. One legal name in footer / Privacy / Terms. Counsel-gated Privacy amendment for anonymized/aggregated data sale (section 12) — do not publish until counsel signs.
-5. Stat strip: reward split (and 3,000+ traders if you still want it).
-6. About: fix “Architects of Scale,” swap “behavioral analysis.” Fill Read Bio **modals** with founder proof (section 18). Do not put bios on the page.
-7. Certificates: unique IDs or hide duplicates — no copy rewrite.
-8. Blog body numbers only, if they are wrong.
+1. FAQ “Is Verodus legitimate?” — remove “discretionary” only.
+2. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3).
+3. One legal name in footer / Privacy / Terms. Counsel-gated Privacy amendment for anonymized/aggregated data sale (section 12) — do not publish until counsel signs.
+4. Stat strip: reward split (and 3,000+ traders if you still want it).
+5. About: fix “Architects of Scale,” swap “behavioral analysis.” Fill Read Bio **modals** with founder proof (section 18). Do not put bios on the page.
+6. Certificates: unique IDs or hide duplicates — no copy rewrite.
+7. Blog body numbers only, if they are wrong.
 
-Do **not** include a hero rewrite, a meta rewrite, a pricing-module rewrite, or a Trustpilot rewrite in this pass. Do **not** put data-sale language on marketing pages.
+Do **not** include a hero rewrite, a line under the CTAs, a meta rewrite, a pricing-module rewrite, or a Trustpilot rewrite in this pass. Do **not** put data-sale language on marketing pages.
 
 ---
 
