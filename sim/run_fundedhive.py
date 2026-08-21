@@ -462,6 +462,8 @@ def main():
     try:
         from write_fundedhive_pdf import main as write_pdf
         write_pdf()
+        from write_vh_compare_pdf import main as write_compare
+        write_compare()
     except Exception as exc:
         print(f"PDF skipped: {exc}")
 

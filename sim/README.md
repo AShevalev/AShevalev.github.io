@@ -38,3 +38,4 @@ PYTHONPATH=sim python sim/run.py --n-sims 4000
 | `verodus_mc.py` | Verodus-only engine (FAQ rules) |
 | `run_fundedhive.py` | FundedHive print / BE → `results/FUNDEDHIVE.md` + CSVs |
 | `write_fundedhive_pdf.py` | FundedHive print/BE card → `results/FundedHive_Print_BE_2026-08-21.pdf` |
+| `write_vh_compare_pdf.py` | Verodus vs FundedHive side-by-side → `results/Verodus_vs_FundedHive_2026-08-21.pdf` |
