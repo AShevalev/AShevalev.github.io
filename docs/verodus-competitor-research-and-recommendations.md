@@ -242,7 +242,7 @@ Skip `/trading-objectives.html` (no model-default fix, no discretionary CTA swap
 23. **Tone:** keep measured; add **specifics**. Premium in this category is FTMO’s “demo trading since 2015,” not more synonyms for clarity.
 24. **Multilingual later; English quality first.** FundedNext’s 44 languages is a flex. Verodus still has smashed About heading “Architects of ScaleEngineering” **(brief)**.
 25. **Name the platforms the way traders search**, within licence limits.
-26. **Footer density:** legal entity, address, risk one-liner, simulation one-liner, payment processor, restricted jurisdictions link. Goat’s footer is ugly and still more “company” than a short © line.
+26. **Footer density:** legal entity, address, risk one-liner, simulation one-liner, payment processor. **No US Platform 5 / MT5 restriction in the footer.**
 
 ---
 
