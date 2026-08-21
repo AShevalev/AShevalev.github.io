@@ -7,10 +7,17 @@
 - Hero subhead: **Demonstrate consistency through structured evaluation and unlock measured performance rewards — no deposits, no client funds, no brokerage.**
 - Hero CTAs: **Start Evaluation** / **Free Trial**
 
-**Meta: do not change.** Leave document title, meta description, Open Graph, Twitter cards, and canonical tags exactly as they are, including:
+**Meta: do not change.** Leave document title, meta description, Open Graph, Twitter cards, and canonical tags as they are.
 
-- Homepage `<title>` / og:title: **Instant from $49. Funded on Day One.** (and the live `Verodus —` prefix if present)
-- All other pages’ `<title>`, meta description, og:*, twitter:*, and canonical URLs
+Homepage meta description stays exactly:
+
+```html
+<meta name="description" content="Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit.">
+```
+
+Use that same `content` on `og:description` and `twitter:description` if those tags exist. Do not rewrite prices, “Funded on day one,” “Keep 80%,” or the $5k–$200k range in meta.
+
+Homepage `<title>` / og:title stays **Instant from $49. Funded on Day One.** (and the live `Verodus —` prefix if present). Inner-page titles and meta stay as they are.
 
 **Scope:** Swap a word or one sentence where listed below. Do **not** rewrite surrounding copy.
 
@@ -24,7 +31,7 @@ This is a copy brief, not a legal opinion. Counsel should still review Terms, Ri
 
 No copy, price, or “funded” changes in the hero block.
 
-The Instant table currently starts at **$72**, not $49. Do **not** “fix” that by editing the hero or the meta title.
+The Instant table currently starts at **$72**, not $49. Do **not** “fix” that by editing the hero or the meta.
 
 Use **funded** less **everywhere else**. The hero already carries the search term.
 
@@ -40,7 +47,11 @@ Do **not** change:
 - `twitter:title`, `twitter:description`, `twitter:image`
 - canonical / hreflang
 
-Homepage search snippet stays **Instant from $49. Funded on Day One.** Inner-page titles stay as they are even when a single on-page word changes.
+**Homepage description (locked):**
+
+> Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit.
+
+Inner-page titles stay as they are even when a single on-page word changes.
 
 ---
 
@@ -90,7 +101,7 @@ Replace the word/sentence. Leave the rest of each answer as it is.
 
 ## 3. Use “funded” less (labels and one phrase, not full rewrites)
 
-The hero and meta already say “Funding Traders Worldwide” and “Funded on Day One.”
+The hero and meta already say “Funding Traders Worldwide,” “Funded on Day One,” and “Funded on day one from $49.”
 
 Swap the word. Do **not** rewrite Instant blurbs, Instant overview paragraphs, or FAQ answers around it.
 
@@ -224,7 +235,7 @@ Use only when a listed swap above already applies. Do not hunt the site to rewri
 | Discretionary (payouts) | Paid under the published rules after eligibility checks |
 | Behavioral analysis (About) | Risk control |
 
-**Exception:** hero H1 and locked meta may keep “Funding” / “Funded on Day One.”
+**Exception:** hero H1 and locked meta may keep “Funding” / “Funded on Day One” / “Funded on day one from $49.”
 
 ---
 
@@ -237,7 +248,7 @@ Do not reorder the page. Hero, meta, pricing module, How it works, Trustpilot sc
 ## 16. What not to change
 
 - **Homepage hero** (H1, subhead, CTAs).
-- **Meta on every page.**
+- **Meta on every page.** Homepage description stays **Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit.**
 - Instant / pricing module (sizes, $200k row, leftover fee line, no new refund sentence).
 - Why Verodus intro and cards, including **Supported Platforms** (no US Platform 5 add) and **No Personal Capital** (do not add “Trading is simulated.”).
 - How it works steps, calculator, bottom CTA.
