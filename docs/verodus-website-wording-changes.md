@@ -193,18 +193,12 @@ Only:
 
 ## 11. About page
 
-Do not rewrite the opening paragraph or “Helping traders prove their edge.”
+Do not rewrite the opening paragraph or “Helping traders prove their edge.” Bios stay in the existing **Read Bio** modals — do not put them on the page.
 
 | Now | Change to |
 |---|---|
 | “Architects of ScaleEngineering the high-performance…” | **Leadership** (fix the smashed heading only) |
-| Empty “Read Bio” | Put the two short bios on the page |
 | “behavioral analysis” | “risk control” |
-
-**Bios (add under existing titles; do not change the titles):**
-
-> **Kim Chen** — Co-founder and CEO. Runs the evaluation products, published rules, and the firm.  
-> **Alexander Vladimirovich** — Co-founder and COO. Runs operations, payouts, and trader support.
 
 ---
 
@@ -256,6 +250,7 @@ Do not reorder the page. Hero, meta, pricing module, How it works, Trustpilot sc
 - Existing testimonial quotes.
 - FAQ answers other than the two phrase swaps in section 10.
 - About opening / mission copy.
+- About **Read Bio** modals (already in place; do not add on-page bios).
 - Stat strip **$1M Max Capital** and **&lt;24h Reward Processing**.
 - Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages.
 - Restricted-country and US Platform 5 notes where they already live.
@@ -268,7 +263,7 @@ Do not reorder the page. Hero, meta, pricing module, How it works, Trustpilot sc
 2. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3).
 3. One legal name in footer / Privacy / Terms.
 4. Stat strip: reward split (and 3,000+ traders if you still want it).
-5. About: fix “Architects of Scale,” add bios, swap “behavioral analysis.”
+5. About: fix “Architects of Scale,” swap “behavioral analysis.” Skip bios — they are already modals.
 6. Certificates: unique IDs or hide duplicates — no copy rewrite.
 7. Blog body numbers only, if they are wrong.
 
