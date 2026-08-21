@@ -134,7 +134,7 @@ Competitors train buyers to look for a **code in the hero**. Verodus’s −35% 
 - **Rise + crypto** rails — table stakes, correctly shown.
 - **Dual interface, one account** — good operational idea. Naming “Platform 5 / TradeHub” instead of MT5 / TradingView-style is a **trust tax** (see §5).
 - **Reward-cycle math** and calculator — good. Calculator should not be the only “how much can I make” object; FundingPips uses **real first-reward averages**.
-- **Global country strip** — visually right; 3,000 traders next to 175 countries **undercuts** it (The5ers/FTMO pair countries with millions of users or $ paid).
+- **Global country strip** — visually right; **3,000+ traders is an accurate count** (operator confirmation). Keep it. Pairing it with 175 countries is fine; do not demote the stat.
 
 ### 4.2 Trust-breaking issues (fix before more copy)
 
@@ -144,7 +144,7 @@ These are more damaging than any remaining adjective.
 
 The homepage certificates are **legitimate Verodus payouts** (operator confirmation). Keep the carousel. Do not hide the section.
 
-A stranger comparing sites the same day can still see overlapping **first names and amounts** on Goat Funded Trader (e.g. Yassir $466.28, Rehman $2,925.26, Joe/Jose $9,401.23). That is a **perception** problem, not a reason to take Verodus proof down. Strengthen each tile with a unique Verodus certificate ID, date, rail, and country so the payout is obviously this firm’s. Hide only a duplicate tile **on the Verodus carousel itself**.
+A stranger comparing sites the same day can still see overlapping **first names and amounts** on Goat Funded Trader (e.g. Yassir $466.28, Rehman $2,925.26, Joe/Jose $9,401.23). That is a **perception** problem, not a reason to take Verodus proof down. Strengthen each tile with a unique Verodus certificate ID, date, and country. Do **not** add payout rail (Rise / crypto). Hide only a duplicate tile **on the Verodus carousel itself**.
 
 **B. Testimonials are generic and unpriced**
 
@@ -176,13 +176,13 @@ Kim Chen and Alexander Vladimirovich exist in Read Bio modals (brief: keep). A s
 |---|---|---|
 | Instant $200k column | Homepage Instant grid includes $200k / $699 | FAQ: Instant max $100k. Buyers screenshot this |
 | Meta $49 vs table $72 | Title/description “from $49”; 5k Instant is $72 at −35% | Looks like bait. Brief locks meta; **table/campaign must earn $49** or the title will keep lying |
-| Stat strip 3,000 users | Beside 175 countries and $1M | Reads as early-stage. Do not invent a bigger number; **change the metric** (payouts sent, avg hours, countries, accounts issued) |
+| Stat strip 3,000+ traders | Accurate (operator confirmation) | **Keep.** Pass 0 wording only: **3,000+ traders**. Do not demote |
 | “How it works” vs Instant | Step 2 “Prove consistency” then Instant has no eval | Instant buyers feel the page is for someone else |
 | Trading Objectives page | Defaults look like 2-Step Pro (10%/5%) even when Instant is selected (fetch showed mixed headings) | Observed only. **Skip** — do not change this page |
 | Sitemap 500 | `sitemap.xml` returned 500 | Unprofessional for crawlers; also a “we are not finished” signal |
 | `/about` 404 | Canonical is `about.html` | `/about` should redirect |
 | Platform names | Platform 5, TradeHub | Category search is “MT5 / cTrader / TradeLocker.” If licensing blocks names, say **“industry-standard MT5-class terminal”** once, legally reviewed — not a mysterious fifth platform |
-| No payout guarantee | “Most rewards &lt;24h” / Instant page “within 48 hours” | FundedNext/GFT/For Traders/Blue Guardian attach a **penalty**. Soft SLA vs hard guarantee is the trust gap |
+| No payout guarantee | Homepage **&lt;24h**; Instant page “within 48 hours” | Bind an SLA at **&lt;24h** with a remedy. Align Instant 48h to &lt;24h. Do not pick 48h |
 | No scaling | $1M combined cap | Career firms sell **the next account**, not a ceiling |
 | No public restricted-country list on homepage | Alpha FAQ links a list; Fintokei lists excluded countries | US Platform 5 restriction lives somewhere; homepage “175+” without asterisks creates chargebacks |
 
@@ -192,7 +192,7 @@ Kim Chen and Alexander Vladimirovich exist in Read Bio modals (brief: keep). A s
 |---|---|---|---|---|
 | Simulation | Footer | Hero + FAQ | Hero + Why + FAQ | Same (locked hero) — **good** |
 | Payout language | Guarantee + $ paid | Process + years | Discretionary | Rules-based (brief) — **good** |
-| Proof | Volume | History + people | Real certificates + 4 unpriced quotes | Certificates stay; IDs/date/rail make them easier to verify |
+| Proof | Volume | History + people | Real certificates + 4 unpriced quotes | Certificates stay; IDs/date/country; **no rail** |
 | Price | Codes | Refundable premium | −35% Instant | Unchanged |
 | Career | Scale to $2–4M | Academy + Prime | Combined $1M cap | Unchanged |
 | Company | Offices + Discord | Founders + awards | Two bios | Same bios |
@@ -207,7 +207,7 @@ Mapped to the four outcomes. Items the wording brief already covers are marked *
 
 ### Trustworthy (do this first — nothing else lands without it)
 
-1. **Keep the legitimate Verodus certificate carousel** **(brief, corrected)**. Add certificate ID, date, rail, country. Drop only internal duplicate tiles. Do not hide the section because another firm shows similar first names or amounts.
+1. **Keep the legitimate Verodus certificate carousel** **(brief, corrected)**. Add certificate ID, date, country. **Skip rail** (Rise / crypto). Drop only internal duplicate tiles. Do not hide the section because another firm shows similar first names or amounts.
 2. **Rules-based payout sentence in FAQ/Terms/About** **(brief)**.
 3. **One legal name + payment affiliate line** **(brief)**. Add company number, city, and a real postal address in the footer (FTMO/BrightFunded/Goat pattern).
 4. **Trustpilot with N, or don’t badge it.** If 4.5 is real, show “4.5 / 5 from N reviews.” If N is tiny, **do not lead with the badge**; lead with process (KYC → contract → payout clock).
@@ -220,7 +220,7 @@ Skip `/trading-objectives.html` (no model-default fix, no discretionary CTA swap
 
 8. **A founding story with a year on the About page, not “launching.”** Even “founded 2025, Dubai” is stronger than silence. CTI’s entire brand is “since 2018.”
 9. **External founder graph:** LinkedIn, one registry extract, one filmed AMA or office walkthrough. The brief correctly says this is off-site proof, not a modal rewrite — **do it off-site, then link it**.
-10. **People and place:** staff count even if small, support hours by timezone, HQ city. For Traders shows a Prague office. BrightFunded names Dubai Silicon Oasis. Empty “175 countries” with 3,000 users feels like a VPN.
+10. **People and place:** staff count even if small, support hours by timezone, HQ city. For Traders shows a Prague office. BrightFunded names Dubai Silicon Oasis. **3,000+ traders is accurate** — keep that homepage stat.
 11. **Press / awards only if real.** Do not fake Deloitte. If none: **do not leave a logo row empty** — use a short “independent reviews” row (Prop Firm Match, Trustpilot) once those profiles have volume.
 12. **Help center IA like FTMO:** How it works, Trading objectives (one URL per model), Scaling, Payout policy, Restricted countries, Symbols, Platforms. Verodus has the pages; they are not a **library**.
 
@@ -238,7 +238,7 @@ Skip `/trading-objectives.html` (no model-default fix, no discretionary CTA swap
 ### Premium (feel)
 
 21. **Photography of real operators, not only UI chrome.** Every establishment firm has faces. Verodus has certificates and dashboard shots.
-22. **Motion and documentary proof** (60–90s: rules → dashboard → Rise payout). FTMO/For Traders/Alpha run this format.
+22. **Motion and documentary proof** (60–90s: rules → dashboard → payout). Do not require showing Rise / crypto.
 23. **Tone:** keep measured; add **specifics**. Premium in this category is FTMO’s “demo trading since 2015,” not more synonyms for clarity.
 24. **Multilingual later; English quality first.** FundedNext’s 44 languages is a flex. Verodus still has smashed About heading “Architects of ScaleEngineering” **(brief)**.
 25. **Name the platforms the way traders search**, within licence limits.
@@ -252,26 +252,26 @@ Assume the brief ships as written (hero and meta **untouched**, discretionary go
 
 ### Pass A — integrity (same sprint as the brief if possible)
 
-1. **Certificates stay up.** Add missing IDs. Remove a tile only if it is duplicated **on Verodus**. Do not take the carousel down.
+1. **Certificates stay up.** Add missing IDs; date/country optional. **Skip rail.** Remove a tile only if it is duplicated **on Verodus**. Do not take the carousel down.
 2. **Remove Instant $200,000** from the homepage selector/table (brief skipped this; it is a live contradiction).
 3. **Unpublish** `best-simulated-prop-firm-2026.html` or retitle it as a product explainer with **current** Instant/1-Step/Lite numbers. Never “launching” or “best” without a method.
 4. **Redirect** `/about` → `/about.html`. Fix `sitemap.xml` 500.
 5. **FAQ liquidity line:** brief’s “retains discretion over” → “operates” still required.
-6. **Stat strip:** if 3,000 is true, keep it but **do not pair it with $1M as if they were the same scale**. Prefer: `175+ countries` · `<24h typical processing` · `Up to 90% reward split` · `Combined allocation up to $1M`. Drop or demote user count until it is 10k+.
+6. **Stat strip:** Pass 0 wording **3,000+ traders** (accurate — keep). Keep `$1M Max Capital` (combined cap) and **&lt;24h Reward Processing**. Do not demote or drop the trader count.
 
-**Skip** `/trading-objectives.html`.
+**Skip** `/trading-objectives.html`. **Skip** adding payout rail (Rise / crypto) on proof tiles.
 
 ### Pass B — proof that can be true
 
-8. **Public payouts page** (`/rewards` or `/payouts`): running list with certificate ID, date, amount, country, rail. AquaFunded and FundingPips treat this as a product. Update it when real.
+8. **Public payouts page** (`/rewards` or `/payouts`): running list with certificate ID, date, amount, country. **Skip rail.** AquaFunded and FundingPips treat this as a product. Update it when real.
 9. **Trustpilot:** display `4.5 / 5 (N reviews)` only if N is honest; otherwise a text link “See independent reviews” without a score.
 10. **One filmed founder or ops walkthrough** (office, support desk, or payout ops). Link from About. Do not paste more bio copy on the page (brief).
 11. **Registry:** UAE L.L.C.-FZ licence/number in footer; Capital Inc. jurisdiction on the payments line.
-12. **Trader stories with numbers you can defend** (even small: “first Instant cycle, $180, Rise, 11 hours”). Tie a story to a real Verodus certificate when the trader agrees.
+12. **Trader stories with numbers you can defend** (even small: “first Instant cycle, $180, 11 hours”). Tie a story to a real Verodus certificate when the trader agrees. Do **not** add payout rail.
 
 ### Pass C — commercial objects the category requires
 
-13. **24-hour (or 48-hour) reward guarantee** with a published remedy. Align Instant “48 hours” vs homepage “&lt;24h” **to one number**.
+13. **&lt;24h reward guarantee** with a published remedy. Align Instant “within 48 hours” to **&lt;24h**. Do not pick 48h as the SLA.
 14. **Scaling policy** (example, to be designed with risk): after 2 successful cycles, +25% simulated size or +10% split, hard combined cap still $1M until you can raise it. Put it on its own page and in How it works as optional step 5.
 15. **Make $49 true** or stop it: a real Instant 5k campaign price, or a Lite SKU at $39 as the meta already claims. Locked meta means **product/pricing must catch the meta**, not the other way around.
 16. **How it works variant for Instant.**

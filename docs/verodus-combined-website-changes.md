@@ -66,7 +66,8 @@ Do not put “we sell trading data” on the homepage, FAQ, About, or Privacy.
 - **$1M Max Capital** is the **combined** cap across accounts a trader can hold, not a single-account SKU.
 - Trustpilot **4.5 / 5** already **links** to the Trustpilot page. Pass 0 keeps the badge. Pass B adds review **count** or stops leading with the score.
 - Founder bios already live in **Read Bio** modals (photos + Kim Chen CEO copy + Alexander Vladimirovich COO copy). Do not paste them onto the About page. Do not rewrite those modals in Pass 0. Pass D may add **one external link each** (LinkedIn) when they exist — still not a bio rewrite.
-- Homepage payout certificates are **legitimate Verodus certificates**. Keep the carousel. Do not hide it because some first names or amounts also appear on another firm’s site. Prefer unique certificate IDs (and date / rail / country when you can show them) so a stranger can tell each payout apart. Hide only **internal duplicates** on the Verodus carousel itself — not the section.
+- Homepage payout certificates are **legitimate Verodus certificates**. Keep the carousel. Prefer unique certificate IDs (and date / country when you can show them). Do **not** add payout rail (Rise / crypto) on certificates. Hide only **internal duplicates** on the Verodus carousel itself — not the section.
+- **3,000+ traders is real.** Pass 0 wording only (`+3,000 Users Worldwide` → **3,000+ traders**). Do not demote, drop, or replace that stat.
 
 ---
 
@@ -75,9 +76,11 @@ Do not put “we sell trading data” on the homepage, FAQ, About, or Privacy.
 | Topic | Wording brief | Research rec | This spec |
 |---|---|---|---|
 | Instant $200k on homepage | Skip / leave selector | Remove — live contradiction | **Pass A: remove** Instant $200k from selector and table |
-| Certificates | Unique IDs or hide if uniqueness cannot be verified; keep headline | Hide until uniquely Verodus; amounts overlap Goat Funded Trader | **Keep the carousel.** Operator confirmation: these are legitimate Verodus certificates. Pass 0: unique IDs if available; hide only duplicate rows **on Verodus**. Do not hide the section because another firm shows similar first names or amounts |
+| Certificates | Unique IDs or hide if uniqueness cannot be verified; keep headline | Hide until uniquely Verodus; amounts overlap Goat Funded Trader | **Keep the carousel.** Operator confirmation: these are legitimate Verodus certificates. Pass 0: unique IDs if available; date/country optional; **no rail**. Hide only duplicate rows **on Verodus**. Do not hide the section because another firm shows similar first names or amounts |
 | Blog `best-simulated-prop-firm-2026.html` | Fix body numbers or unpublish; no rewrite; title/meta locked | Unpublish until it is not a launch manifesto | **Pass A: unpublish** unless the body can be corrected **and** “launching in 2026” / future tense / “best” claims are removed without a rewrite. If that needs a rewrite, unpublish |
-| Stat strip “+3,000 Users” | Change to **3,000+ traders** | Demote user count; do not pair with $1M | **Pass 0:** 3,000+ traders + reward-split wording. **Pass A:** demote or drop user count from the first strip if still ~3,000 |
+| Stat strip “+3,000 Users” | Change to **3,000+ traders**; keep $1M and &lt;24h | Demote user count; do not pair with $1M | **Pass 0:** **3,000+ traders** + reward-split wording. **Keep the trader count** — it is accurate. Do not demote or drop it. Keep **$1M Max Capital** and **&lt;24h Reward Processing** |
+| Certificate rail | Not specified | Show Rise / crypto on tiles and payouts page | **Skip.** Do not add payout rail (Rise / crypto) to certificates or the payouts page |
+| Reward-speed SLA | Keep homepage **&lt;24h Reward Processing** | Pick one number (24h vs Instant 48h) and bind a remedy | **Pass C: SLA is &lt;24h.** Bind a remedy to that clock. Align Instant “within 48 hours” to **&lt;24h**. Do not pick 48h |
 | Trustpilot badge | Keep **4.5 / 5**; no widget | Show N, or don’t lead with the score | **Pass 0:** keep. **Pass B:** `4.5 / 5 (N reviews)` if N is honest; otherwise text link without a score |
 | Testimonials | Keep existing quotes | Replace with numbered, defensible stories | **Pass 0:** keep. **Pass B:** add or replace only with stories you can defend |
 | How it works | Skip | Instant-specific path | **Pass 0:** skip. **Pass C:** Instant variant when Instant tab is selected |
@@ -174,7 +177,7 @@ Leave Instant card body copy, Instant rules body, Plan FAQ body, and “Instant 
 | +3,000 Users Worldwide | **3,000+ traders** |
 | Up to 90% Profit Split | **Up to 90% reward split** |
 
-Keep 175+ Countries, **$1M Max Capital** (combined cap), and **&lt;24h Reward Processing** in Pass 0.
+Keep 175+ Countries, **$1M Max Capital** (combined cap), and **&lt;24h Reward Processing** exactly as they are. **3,000+ traders** stays — that count is accurate.
 
 The later “Global reach” strip already says **Up to 90% Reward Split**. Make the first strip match it.
 
@@ -190,7 +193,7 @@ Keep the section headline and intro. Keep all six cards. Do **not** add the US P
 
 Keep the headline **Real traders. Real certificates.** and the existing body sentences. **Keep the carousel.** These are legitimate Verodus certificates.
 
-Operational: no placeholder names. No duplicate certificate **on this carousel** (same ID or same name+amount twice). Prefer unique certificate IDs. Optionally show date, rail, and country on each tile so the payout is easier to verify at a glance. Do not rewrite the section copy. Do not hide the section because another firm’s marketing uses similar first names or amounts.
+Operational: no placeholder names. No duplicate certificate **on this carousel** (same ID or same name+amount twice). Prefer unique certificate IDs. Optionally show date and country on each tile. Do **not** add payout rail (Rise / crypto). Do not rewrite the section copy. Do not hide the section because another firm’s marketing uses similar first names or amounts.
 
 ### 0.9 Testimonials and Trustpilot
 
@@ -254,7 +257,7 @@ What a stranger still cannot check from those modals: school names, prior employ
 
 ### 0.17 Pass 0 — do not include
 
-Hero rewrite, a line under the CTAs, meta-description rewrite, pricing-module rewrite, Trustpilot rewrite, bio rewrite, Privacy rewrite beyond the controller name and discretionary, data-sale language, Instant $200k removal (that is Pass A), How it works Instant variant (Pass C), `/trading-objectives.html` (skip all passes).
+Hero rewrite, a line under the CTAs, meta-description rewrite, pricing-module rewrite, Trustpilot rewrite, bio rewrite, Privacy rewrite beyond the controller name and discretionary, data-sale language, Instant $200k removal (that is Pass A), How it works Instant variant (Pass C), `/trading-objectives.html` (skip all passes), payout rail on certificates (skip).
 
 ---
 
@@ -267,19 +270,20 @@ Do these even if Pass 0 copy is still landing. They are live contradictions.
 3. **Unpublish** `/best-simulated-prop-firm-2026.html` until it can be a sourced explainer with **current** Instant / 1-Step / Lite numbers, present tense, and no “best” / “launching in 2026.” If you only patch numbers and leave launch language, unpublish anyway. Do not change that page’s title/meta if it stays up.
 4. **Redirect** `/about` → `/about.html`. **Fix `sitemap.xml` 500.**
 5. Confirm FAQ liquidity “retains discretion over” → **“operates”** (Pass 0.3) is live.
-6. **Stat strip (optional in this pass):** if user count is still ~3,000, demote it. Preferred first strip: `175+ countries` · `<24h typical processing` · `Up to 90% reward split` · `Combined allocation up to $1M`. Do not invent a larger user number. Keep `$1M Max Capital` meaning as combined cap.
 
 **Skip:** `/trading-objectives.html` — do not change model defaults, Instant inheritance, or the “eligible for discretionary performance rewards following internal review” line.
 
-Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages stay as they are.
+**Skip:** adding payout rail (Rise / crypto) on certificates.
+
+Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages stay as they are. Stat strip trader count stays **3,000+ traders** (Pass 0 wording only).
 
 ---
 
 ## Pass B — proof that can be true
 
-8. **Public payouts page** (`/rewards` or `/payouts`): running list with certificate ID, date, amount, country, rail (Rise / crypto). Homepage carousel stays; this page is the deeper proof layer, fed by the same legitimate Verodus certificates.
+8. **Public payouts page** (`/rewards` or `/payouts`): running list with certificate ID, date, amount, country. **Skip rail** (do not show Rise / crypto). Homepage carousel stays; this page is the deeper proof layer, fed by the same legitimate Verodus certificates.
 9. **Trustpilot:** display **4.5 / 5 (N reviews)** only if N is honest. If N is tiny, use a text link “See independent reviews” and **do not lead** with the score. Still do not widget-ize unless volume supports it. Keep the existing quotes until numbered stories exist.
-10. **Trader stories with numbers you can defend** (example shape: first Instant cycle, $180, Rise, 11 hours, country). Tie a story to a real Verodus certificate when the trader agrees. Existing generic quotes may stay until these exist; do not invent them.
+10. **Trader stories with numbers you can defend** (example shape: first Instant cycle, $180, 11 hours, country). Tie a story to a real Verodus certificate when the trader agrees. Do **not** add payout rail. Existing generic quotes may stay until these exist; do not invent them.
 11. **Footer (add, do not rewrite Pass 0 legal lines):** UAE company number / licence, city, postal address; Verodus Capital Inc. jurisdiction on the payments line; link to restricted countries. Keep the Pass 0 legal-name + affiliate lines.
 12. **Off-site founder proof, then link:** registry extract, LinkedIn, one filmed AMA or office/support/payout walkthrough. Link from About. Do **not** paste extra bio copy onto About. Do **not** rewrite the Read Bio modals.
 
@@ -289,7 +293,7 @@ Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages stay as
 
 Hero and meta stay locked. Product/pricing must earn the locked meta.
 
-13. **Reward-speed SLA — pick one number.** Homepage says &lt;24h; Instant rules say within 48 hours. Align to one published clock. Bind it: processed in that window or a published remedy (extra 10% on that cycle, a fixed credit, or 100% split on that reward). Counsel reviews the remedy. Do not claim &lt;24h without a cost to Verodus.
+13. **Reward-speed SLA: &lt;24h.** That is the clock. Bind it: processed in under 24 hours or a published remedy (extra 10% on that cycle, a fixed credit, or 100% split on that reward). Counsel reviews the remedy. Align Instant rules “within 48 hours” to **&lt;24h** so marketing and rules match. Do not adopt 48h as the SLA.
 14. **Scaling / VIP page** (risk designs the numbers): example shape — after 2 successful cycles, +25% simulated size **or** +10% split; combined cap still **$1M** until you can raise it. Own URL. Optional How it works step 5. Do not advertise $2M–$4M until operations support it.
 15. **Make meta prices true on the table.** Instant 5k at the 35% promo must actually be **$49**, and/or Lite must actually start at **$39**, and 1-Step at **$45**, matching the locked description. Do not edit the meta string. Do not “fix” $49 by changing the hero.
 16. **How it works variant when Instant is selected:** Buy → Trade simulated Instant → Hit $100 + Best Day + selected cycle → KYC if not done → Reward. Do not show “Prove consistency” as step 2 for Instant. 1-Step / 2-Step keep the current four steps.
@@ -303,7 +307,7 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 
 20. **About (additive, not a rewrite of the opening / mission):** Pass 0 heading **Leadership** and “risk control” already shipped. Add founding year and city; one line that payments affiliate is the same group as Verodus Capital Inc. Leadership stays in Read Bio modals. Add **one** external link per founder when LinkedIn (or equivalent) exists. Do not paste modal copy onto the page.
 21. Photography of real operators (office, support, payout ops) — not only dashboard chrome.
-22. 60–90s product film: rules → dashboard → Rise payout.
+22. 60–90s product film: rules → dashboard → payout. Do not require showing Rise / crypto.
 23. Help taxonomy: Objectives (one URL per model), Payouts, Scaling, Platforms, Symbols, Restricted countries. Pages exist; they are not a library yet. Do **not** edit `/trading-objectives.html` body as part of this — that page is skipped.
 24. **Discord or nothing.** If the server is real, homepage community block with an honest member count. If not, remove Discord from FAQ until it is. FAQ already promises 24/7 Discord.
 25. Platform naming: within licence limits, say what traders search for (e.g. industry-standard MT5-class terminal / TradingView-powered TradeHub). Do not invent “Platform 5” as a mystery fifth platform if the licence allows a clearer line. Do not add US Platform 5 restriction to Why Verodus cards.
@@ -318,6 +322,8 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 - Homepage **meta description** (locked string). Inner-page titles and descriptions in Pass 0.
 - Why Verodus intro and cards, including Supported Platforms (no US Platform 5 add) and No Personal Capital (do not add “Trading is simulated”).
 - Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages.
+- Stat strip **3,000+ traders** (accurate), **$1M Max Capital** (combined cap), and **&lt;24h Reward Processing**.
+- Payout **rail** (Rise / crypto) on certificates, the payouts page, or trader-story tiles. The existing “Rewards, your way” homepage block can stay; do not add rail onto proof tiles.
 - **`/trading-objectives.html`** — skip. Do not change model switching, Instant defaults, or the discretionary CTA on that page.
 - Restricted-country and US Platform 5 notes **where they already live**; Pass C only **links** them from footer/FAQ.
 - About opening / mission copy.
@@ -336,10 +342,10 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 4. One legal name in footer / Terms / Risk. Privacy controller and Contact: **Verodus LLC → Verodus L.L.C.-FZ.**
 5. Stat strip: **Up to 90% reward split** and **3,000+ traders**. Keep $1M (combined cap) and &lt;24h.
 6. About: fix “Architects of Scale,” swap “behavioral analysis.” Leave Read Bio modals.
-7. Certificates: **keep.** Unique IDs if missing; drop only duplicate tiles on this carousel. No copy rewrite.
-8. Pass A in the same sprint: Instant $200k off the Instant grid; unpublish launch blog; `/about` redirect; sitemap 500; demote 3,000 if it still sits beside $1M. Skip `/trading-objectives.html`.
-9. Pass B: payouts page, honest Trustpilot N, defensible stories, footer company details, founder links / film.
-10. Pass C: one payout clock + guarantee, scaling page, table prices that match locked meta, Instant How it works, footer/FAQ geo links, add-on table.
+7. Certificates: **keep.** Unique IDs if missing; date/country optional; **no payout rail.** Drop only duplicate tiles on this carousel. No copy rewrite.
+8. Pass A in the same sprint: Instant $200k off the Instant grid; unpublish launch blog; `/about` redirect; sitemap 500. Keep **3,000+ traders**. Skip `/trading-objectives.html`. Skip adding Rise/crypto on proof tiles.
+9. Pass B: payouts page (ID, date, amount, country — **no rail**), honest Trustpilot N, defensible stories, footer company details, founder links / film.
+10. Pass C: **&lt;24h** reward SLA + remedy; align Instant 48h to &lt;24h; scaling page; table prices that match locked meta; Instant How it works; footer/FAQ geo links; add-on table.
 11. Pass D: About year/city, photography, product film, help IA, Discord-or-nothing.
 
 ---

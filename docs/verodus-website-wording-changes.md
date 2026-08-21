@@ -34,7 +34,8 @@ Inner-page titles stay as they are.
 - **$1M Max Capital** is the **combined** cap across accounts a trader can hold, not a single-account SKU.
 - Trustpilot **4.5 / 5** already **links** to the Trustpilot page. Do not call it unclickable.
 - Founder bios already live in **Read Bio** modals (photos + Kim Chen CEO copy + Alexander Vladimirovich COO copy). Do not paste them onto the About page and do not rewrite those modals in this pass.
-- Homepage payout certificates are **legitimate Verodus certificates**. Keep the carousel. Prefer unique IDs. Hide only a duplicate tile on this carousel, not the section.
+- Homepage payout certificates are **legitimate Verodus certificates**. Keep the carousel. Prefer unique IDs. Hide only a duplicate tile on this carousel, not the section. Do not add payout rail (Rise / crypto) on certificates.
+- **3,000+ traders is real.** Stat-strip wording only (`+3,000 Users Worldwide` → **3,000+ traders**). Do not drop the count.
 
 This is a copy brief, not a legal opinion. Counsel should still review Terms, Risk Disclosure, Privacy, and any payout language.
 
@@ -220,7 +221,7 @@ Dashboard: swap “funded accounts” only (section 3). Do not rewrite the dashb
 
 Keep the headline **Real traders. Real certificates.** and the existing body sentences.
 
-Operational only: no placeholder names. Prefer unique certificate IDs. These are **legitimate Verodus certificates** — keep the carousel. Hide only a duplicate tile on this carousel (same ID or same name+amount twice). Do not rewrite the section copy.
+Operational only: no placeholder names. Prefer unique certificate IDs. These are **legitimate Verodus certificates** — keep the carousel. Hide only a duplicate tile on this carousel (same ID or same name+amount twice). Do not add payout rail (Rise / crypto). Do not rewrite the section copy.
 
 ---
 
@@ -334,7 +335,7 @@ Do not reorder the page. Hero (including the no-deposits pill), stat strip, pric
 2. FAQ / Terms / Privacy — remove “discretionary” on payouts only. Keep every Privacy ban (section 12).
 3. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3). Do not change Privacy “funded account services.”
 4. One legal name in footer / Terms / Risk. Privacy data controller and Contact line: **Verodus LLC → Verodus L.L.C.-FZ.**
-5. Stat strip: reward split (and 3,000+ traders if you still want it). Keep $1M (combined cap).
+5. Stat strip: reward split and **3,000+ traders** (accurate). Keep $1M (combined cap) and &lt;24h.
 6. About: fix “Architects of Scale,” swap “behavioral analysis.” Leave Read Bio modals as they are.
 7. Certificates: keep. Unique IDs if missing; hide only duplicate tiles on this carousel — no copy rewrite.
 8. Blog body numbers only, if they are wrong.
