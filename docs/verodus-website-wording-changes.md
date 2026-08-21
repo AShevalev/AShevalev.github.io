@@ -4,11 +4,15 @@
 **Hero: do not change.** Leave the homepage hero exactly as it is, including:
 
 - H1: **Funding Traders Worldwide.**
-- Title / meta: **Instant from $49. Funded on Day One.**
 - Hero subhead: **Demonstrate consistency through structured evaluation and unlock measured performance rewards — no deposits, no client funds, no brokerage.**
 - Hero CTAs: **Start Evaluation** / **Free Trial**
 
-All other edits below apply **below the fold**, on inner pages, FAQ, About, Terms, Privacy, footer, blog, Instant/challenge cards, and the dashboard.
+**Meta: do not change.** Leave document title, meta description, Open Graph, Twitter cards, and canonical tags exactly as they are, including:
+
+- Homepage `<title>` / og:title: **Instant from $49. Funded on Day One.** (and the live `Verodus —` prefix if present)
+- All other pages’ `<title>`, meta description, og:*, twitter:*, and canonical URLs
+
+All other edits below apply **on-page copy** below the fold: FAQ, About, Terms, Privacy, footer, blog **body**, Instant/challenge cards, and the dashboard. They do **not** apply to `<head>` metadata.
 
 **Entity note:** Verodus LLC and Verodus L.L.C.-FZ are the **same company**. Use one public legal name everywhere.
 
@@ -20,9 +24,25 @@ This is a copy brief, not a legal opinion. Counsel should still review Terms, Ri
 
 No copy, price, or “funded” changes in the hero block.
 
-The Instant table currently starts at **$72**, not $49. Do **not** “fix” that by editing the hero. Out of scope for this pass.
+The Instant table currently starts at **$72**, not $49. Do **not** “fix” that by editing the hero or the meta title. Out of scope for this pass.
 
 Use **funded** less **everywhere else**. The hero already carries the search term. Repeating it in Instant labels, FAQ, Instant rules, and dashboard copy makes the simulation disclosure feel like a contradiction.
+
+---
+
+## Locked: meta (all pages)
+
+Do **not** change:
+
+- `<title>`
+- `<meta name="description">`
+- `og:title`, `og:description`, `og:url`, `og:image`
+- `twitter:title`, `twitter:description`, `twitter:image`
+- canonical / hreflang
+
+Homepage search snippet stays **Instant from $49. Funded on Day One.** Inner-page titles (About, Instant Funding Rules, Plan FAQs, Terms, Privacy) stay as they are even when on-page H1s or body copy change.
+
+Blog **body** numbers may still be aligned to live rules. Blog `<title>` and meta stay as they are.
 
 ---
 
@@ -78,16 +98,16 @@ Keep “discretion” only for technical simulation mechanics if needed — pref
 
 ---
 
-## 3. Use “funded” less (everywhere except the hero)
+## 3. Use “funded” less (everywhere except the hero and meta)
 
-The hero already says “Funding Traders Worldwide” and “Funded on Day One.” That is enough for search and Instant positioning.
+The hero and meta already say “Funding Traders Worldwide” and “Funded on Day One.” That is enough for search and Instant positioning.
 
 | Where (not hero) | Now | Change to |
 |---|---|---|
 | Instant card / phase label | Funded | Instant / No evaluation |
 | Instant blurb | Instant access — no profit target, clear drawdown rules, simulated capital from day one. | No evaluation phase. Start trading a simulated account as soon as you pay and activate. Clear drawdown and Best Day rules. Cash rewards when you qualify. |
 | Homepage FAQ Instant line | “Funded simulated account” | “Simulated account from day one. No profit target to start.” |
-| Instant rules H1 / nav | Instant Funding Plan / Instant Funding Rules / View Instant Funding Rules | Instant Plan / Instant Rules |
+| Instant rules **on-page** H1 / in-page nav | Instant Funding Plan / View Instant Funding Rules | Instant Plan / View Instant Rules (do **not** change the page `<title>`) |
 | Instant overview | “Get instant access to a funded simulated account” / “There are no profit targets to hit before funding.” | “Start a simulated Instant account with no evaluation phase. There is no profit target to hit before you can request a payout.” |
 | Instant section 2 heading | Funded Account Rules | Instant Account Rules |
 | Instant news line | “Allowed on Instant Funding (funded from day one).” | “Allowed on Instant (simulated account from day one).” |
@@ -98,7 +118,7 @@ The hero already says “Funding Traders Worldwide” and “Funded on Day One.�
 | How much can I earn / other FAQ | “funded” if it appears | “qualified” or “Qualified Performance” |
 | About / inner pages | “get funded” | “qualify and get paid” |
 
-**Keep “funded” only in:** the locked hero, and one FAQ that answers searchers:
+**Keep “funded” only in:** the locked hero, the locked meta, and one FAQ that answers searchers:
 
 **New FAQ (optional):** “Is this a funded account?”  
 **Answer:** Instant has no evaluation phase — you trade a simulated account from day one (see the hero). If you meet the published rules and pass identity checks, we pay a cash reward. That is a prop-style evaluation, not a live brokerage account.
@@ -287,17 +307,17 @@ If Verodus later licenses **anonymized, aggregated** CRM data (for example to Mo
 
 ---
 
-## 14. Blog and SEO (not the homepage hero)
+## 14. Blog body (meta stays locked)
 
-`/best-simulated-prop-firm-2026.html` still says 10%/5% targets, 10%/5% drawdown, evaluations from $55. Live Instant/1-Step/Lite do not match.
+`/best-simulated-prop-firm-2026.html` **body** still says 10%/5% targets, 10%/5% drawdown, evaluations from $55. Live Instant/1-Step/Lite do not match.
 
-Update every number to the live rule pages, or unpublish.
+Update those **on-page** numbers to the live rule pages, or unpublish the article. Do **not** change that page’s `<title>` or meta description.
 
-Do not call Verodus “the premier simulated prop firm launching in 2026.” Use: “Verodus is a simulated evaluation firm. Here is how Instant and the challenges work.”
+Do not call Verodus “the premier simulated prop firm launching in 2026” **in the article body.** Use: “Verodus is a simulated evaluation firm. Here is how Instant and the challenges work.”
 
-Noindex content-farm reprints if you control them.
+Noindex content-farm reprints if you control them (robots/noindex is allowed; rewriting their meta titles is not part of this pass).
 
-The **homepage title** “Instant from $49. Funded on Day One.” stays locked. Blog/SEO pages should still not invent different prices or drawdowns than Instant/1-Step/Lite.
+Homepage `<title>` “Instant from $49. Funded on Day One.” stays locked. Blog body copy should still not invent different prices or drawdowns than Instant/1-Step/Lite.
 
 ---
 
@@ -314,15 +334,15 @@ The **homepage title** “Instant from $49. Funded on Day One.” stays locked. 
 | Verified certificates (no unique ID) | Certificate with unique ID / payout via Rise |
 | Proprietary trading firm (as first sentence) | Simulated trading evaluation (then you can say prop-style) |
 
-**Exception:** hero H1 and title may keep “Funding” / “Funded on Day One.”
+**Exception:** hero H1 and locked meta may keep “Funding” / “Funded on Day One.”
 
 Keep **simulated** next to **cash reward** in FAQ, Instant card, Instant rules, and About.
 
 ---
 
-## 16. Homepage order (hero frozen)
+## 16. Homepage order (hero and meta frozen)
 
-1. **Hero — no changes.**
+1. **Hero and meta — no changes.**
 2. Stat strip (reward split; drop or correct $1M).
 3. Why Verodus (tightened cards).
 4. Pricing table. Remove Instant $200k. Add Instant vs 1-Step/2-Step refund sentence under the table, not in the hero.
@@ -337,7 +357,8 @@ Keep **simulated** next to **cash reward** in FAQ, Instant card, Instant rules, 
 
 ## 17. What not to change
 
-- **Homepage hero** (H1, title, subhead, CTAs, “Funded on Day One”).
+- **Homepage hero** (H1, subhead, CTAs).
+- **Meta on every page** (`<title>`, meta description, Open Graph, Twitter cards, canonical). Homepage title stays **Instant from $49. Funded on Day One.**
 - Simulation disclaimers on Instant / 1-Step / 2-Step rule pages.
 - Hard rules (drawdown, Best Day, Friday flatten, $100 minimum payout, splits).
 - “Fees are not deposits.”
@@ -358,4 +379,4 @@ Keep **simulated** next to **cash reward** in FAQ, Instant card, Instant rules, 
 8. About bios + fix “Architects of Scale” glitch.
 9. Blog numbers aligned to live rules.
 
-Do **not** include a hero rewrite in this pass.
+Do **not** include a hero rewrite or a meta rewrite in this pass.
