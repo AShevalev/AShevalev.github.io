@@ -6,6 +6,8 @@
 
 This is an internal commercial memo, not a legal opinion and not a commitment to MoniMath.
 
+**Addendum (21 August 2026):** Joe followed up after Karma Lounge with a “strategic partnership” email. Read: `docs/joe-wong-email-analysis.md`. The letter is a **Bookmap order-flow template** with Verodus pasted in. The ask is an unpaid 2027 competition logo, not a data purchase. Posture unchanged.
+
 ---
 
 ## 1. Executive recommendation
