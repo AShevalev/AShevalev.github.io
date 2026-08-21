@@ -52,7 +52,7 @@ Experienced traders currently read Verodus as **unproven**, not as a scam. The w
 
 1. **“Funded”** below the hero (Instant cards, Instant rules page, FAQ, dashboard) still sounds like live money once the page explains simulation.
 2. **“Discretionary”** on the legitimacy FAQ tells people you might not pay even if they follow the rules. Remove it from public pages.
-3. **Trustpilot 4.5, certificate carousel, $1M max capital, Instant $200k in the homepage table** look like inflated social proof when they do not match the rest of the site.
+3. **Trustpilot 4.5, certificate carousel, Instant $200k in the homepage table** look like inflated social proof when they do not match the rest of the site.
 4. The legitimacy answer leads with **what you are not**. Attractive copy leads with **what you pay for and how payouts work**.
 
 Keep simulation honesty next to payouts, not only in legal pages.
@@ -132,8 +132,8 @@ The hero and meta already say “Funding Traders Worldwide” and “Funded on D
 | +3,000 Users Worldwide | “Users” is weak if the number is true | **3,000+ traders** |
 | 175+ Countries | Fine | Keep |
 | Up to 90% Profit Split | “Profit split” implies live P&L | **Up to 90% reward split** |
-| $1M Max Capital | Live SKUs are $100k Instant / $200k eval; household cap $400k | Drop, or **Accounts up to $200,000** |
-| &lt;24h Reward Processing | Fine if true | Keep; add “after approval” if review adds time |
+
+Leave **$1M Max Capital** and **&lt;24h Reward Processing** exactly as they are. Do not rewrite $1M as “Accounts up to $200,000.” Do not add “after approval” to the 24h line.
 
 The later “Global reach” strip already says **Up to 90% Reward Split**. Make the first strip match it.
 
@@ -225,7 +225,7 @@ These are **not** the hero. Edit them.
 |---|---|---|
 | Calculator CTA | Start Challenge (even when Instant is selected) | **Start Instant** or **Start evaluation** depending on the selected model |
 | Calculator footnote | Fine | Keep the “illustrative only / simulated” line |
-| Rewards, your way | “Most performance rewards are processed in under 24 hours” | “Most approved rewards are processed in under 24 hours via Rise or crypto.” |
+| Rewards, your way | “Most performance rewards are processed in under 24 hours” | Keep the 24h line. You may add “via Rise or crypto.” Do not add “after approval.” |
 | Dashboard intro | “every challenge and funded account” | “every challenge and Qualified Performance account” |
 | Dashboard bullet | “challenges and funded accounts side by side” | “challenges and Qualified Performance accounts side by side” |
 | Bottom CTA (not hero) | Prove it. Then get paid for it. | Keep. This line is stronger than the rest of the page. |
@@ -263,7 +263,7 @@ Keep the hard rules (3%/6%, Best Day, $100, splits). Rewrite the Instant opener:
 
 ### When and how do I get paid?
 
-**Instead:** Request weekly, bi-weekly, or on demand (add-on). After you meet the cycle rules and we confirm eligibility, we process on Rise or crypto. Target: under 24 hours after approval.
+**Instead:** Request weekly, bi-weekly, or on demand (add-on). After you meet the cycle rules and we confirm eligibility, we process on Rise or crypto. Most rewards are processed in under 24 hours.
 
 ### How much can I earn with Verodus?
 
@@ -328,7 +328,6 @@ Homepage `<title>` “Instant from $49. Funded on Day One.” stays locked. Blog
 | Funded account / get funded / Instant Funding / Instant Funded | Instant account / Instant plan / Qualified Performance / qualify and get paid |
 | Profit split | Reward split |
 | Discretionary (payouts) | Paid under the published rules after eligibility checks |
-| Max capital $1M | Account sizes up to $200,000 (challenges); Instant up to $100,000 |
 | Unlock / eligible to become | Get paid when you qualify |
 | Behavioral analysis (marketing) | Risk and program integrity |
 | Verified certificates (no unique ID) | Certificate with unique ID / payout via Rise |
@@ -343,7 +342,7 @@ Keep **simulated** next to **cash reward** in FAQ, Instant card, Instant rules, 
 ## 16. Homepage order (hero and meta frozen)
 
 1. **Hero and meta — no changes.**
-2. Stat strip (reward split; drop or correct $1M).
+2. Stat strip (reward split only; leave $1M Max Capital and &lt;24h Reward Processing).
 3. Why Verodus (tightened cards).
 4. Pricing table. Remove Instant $200k. Add Instant vs 1-Step/2-Step refund sentence under the table, not in the hero.
 5. How it works (4 tightened steps).
@@ -364,6 +363,8 @@ Keep **simulated** next to **cash reward** in FAQ, Instant card, Instant rules, 
 - “Fees are not deposits.”
 - Restricted-country and US Platform 5 notes.
 - Bottom CTA “Prove it. Then get paid for it.”
+- Stat strip **$1M Max Capital** (do not drop or rewrite as “Accounts up to $200,000”).
+- Stat strip **&lt;24h Reward Processing** (do not add “after approval”).
 
 ---
 
@@ -373,7 +374,7 @@ Keep **simulated** next to **cash reward** in FAQ, Instant card, Instant rules, 
 2. Use “funded” less below the hero (Instant label, Instant rules, Plan FAQs, dashboard, Terms “Instant Funded”).
 3. One legal name in footer / Privacy / Terms (LLC = L.L.C.-FZ).
 4. Instant homepage table: drop $200k; kill the $296 leftover line.
-5. Stat strip: reward split; fix or drop $1M.
+5. Stat strip: reward split only. Leave $1M Max Capital and &lt;24h Reward Processing.
 6. Trustpilot: link or remove.
 7. Certificate carousel: unique IDs or take it down.
 8. About bios + fix “Architects of Scale” glitch.
