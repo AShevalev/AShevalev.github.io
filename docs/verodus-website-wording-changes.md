@@ -1,37 +1,55 @@
 # Verodus website wording changes
 
-**Purpose:** Make the site more attractive to traders without sounding like a fake Instant shop or a legal disclaimer factory.  
-**Based on:** public-site review plus the perception/legitimacy analysis (21 August 2026).  
-**Entity note:** Verodus LLC and Verodus L.L.C.-FZ are the **same company**. Use one public legal name everywhere. Do not present them as two firms.
+**Purpose:** Make the rest of the site more attractive and trustworthy.  
+**Hero: do not change.** Leave the homepage hero exactly as it is, including:
 
-This is a copy brief, not a legal opinion. Counsel should still review Terms, Risk Disclosure, and any payout language.
+- H1: **Funding Traders Worldwide.**
+- Title / meta: **Instant from $49. Funded on Day One.**
+- Hero subhead: **Demonstrate consistency through structured evaluation and unlock measured performance rewards — no deposits, no client funds, no brokerage.**
+- Hero CTAs: **Start Evaluation** / **Free Trial**
+
+All other edits below apply **below the fold**, on inner pages, FAQ, About, Terms, Privacy, footer, blog, Instant/challenge cards, and the dashboard.
+
+**Entity note:** Verodus LLC and Verodus L.L.C.-FZ are the **same company**. Use one public legal name everywhere.
+
+This is a copy brief, not a legal opinion. Counsel should still review Terms, Risk Disclosure, Privacy, and any payout language.
+
+---
+
+## Locked: homepage hero
+
+No copy, price, or “funded” changes in the hero block.
+
+The Instant table currently starts at **$72**, not $49. Do **not** “fix” that by editing the hero. Out of scope for this pass.
+
+Use **funded** less **everywhere else**. The hero already carries the search term. Repeating it in Instant labels, FAQ, Instant rules, and dashboard copy makes the simulation disclosure feel like a contradiction.
 
 ---
 
 ## Principles (why these edits)
 
-Experienced traders currently read Verodus as **unproven**, not as a scam. The wording problems that create that read are:
+Experienced traders currently read Verodus as **unproven**, not as a scam. The wording problems **outside the hero** that create that read are:
 
-1. **“Funded” and “capital”** sound like live money. Then the FAQ says it is simulated. That feels like bait.
-2. **“Discretionary”** on the legitimacy FAQ tells people you might not pay even if they follow the rules. Kill that word on marketing pages.
-3. **Trustpilot 4.5, certificate carousel, $1M max capital, from $49** look like inflated social proof when they do not match the rest of the site.
+1. **“Funded”** below the hero (Instant cards, Instant rules page, FAQ, dashboard) still sounds like live money once the page explains simulation.
+2. **“Discretionary”** on the legitimacy FAQ tells people you might not pay even if they follow the rules. Remove it from public pages.
+3. **Trustpilot 4.5, certificate carousel, $1M max capital, Instant $200k in the homepage table** look like inflated social proof when they do not match the rest of the site.
 4. The legitimacy answer leads with **what you are not**. Attractive copy leads with **what you pay for and how payouts work**.
 
-Keep simulation honesty. Move it next to the promise, not three scrolls later.
+Keep simulation honesty next to payouts, not only in legal pages.
 
 ---
 
-## 1. Company name (site-wide)
+## 1. Company name (site-wide, not the hero)
 
 **Use**
 
 - Brand: **Verodus**
 - Legal (footer, Terms, Privacy, Risk, contracts): **Verodus L.L.C.-FZ** once, then “Verodus”
-- Payments line (if Capital Inc. still processes cards): **Payments are processed by Verodus Capital Inc., an affiliate of Verodus L.L.C.-FZ.**
+- Payments line: **Payments are processed by Verodus Capital Inc., an affiliate of Verodus L.L.C.-FZ.**
 
 **Stop using**
 
-- Mixing `Verodus LLC`, `Verodus L.L.C.-FZ`, and `Verodus Capital Inc.` as if they were unrelated
+- Mixing `Verodus LLC` and `Verodus L.L.C.-FZ` as if they were two firms (they are not)
 - Privacy saying one name and Terms saying another with no explanation
 
 **Suggested footer (every page)**
@@ -41,77 +59,103 @@ Keep simulation honesty. Move it next to the promise, not three scrolls later.
 
 ---
 
-## 2. Remove “discretionary” (marketing, FAQ, About)
+## 2. Remove “discretionary” (FAQ, About, Terms)
 
-Do **not** put “discretionary” on the homepage, FAQ, or About. To a trader it means “they can refuse to pay for any reason.”
+Do **not** put “discretionary” on the homepage FAQ, About, or other marketing. To a trader it means “they can refuse to pay for any reason.”
 
-Replace with **rules-based payout language**: you pay when the published rules and KYC are met; you do not pay rule-breakers.
+Replace with **rules-based payout language**: pay when the published rules and KYC are met; do not pay rule-breakers.
 
 | Location | Cut | Put |
 |---|---|---|
 | Homepage FAQ “Is Verodus legitimate?” | “Performance rewards are discretionary payments based on simulated results.” | “If you meet the published rules and complete identity checks, we pay the performance reward for that cycle. Trading itself is simulated; the payout is real money.” |
-| Terms (if counsel still wants a safety valve) | “Performance Reward Rates or incentive remuneration are discretionary and are not liabilities of Verodus L.L.C.-FZ.” | “Performance rewards are paid when you meet the published program rules, remain eligible, and complete required identity checks. Rewards may be withheld, reduced, or clawed back if trading activity breaches those rules or the prohibited-practices policy. They are not investment returns.” |
+| Terms | “Performance Reward Rates or incentive remuneration are discretionary and are not liabilities of Verodus L.L.C.-FZ.” | “Performance rewards are paid when you meet the published program rules, remain eligible, and complete required identity checks. Rewards may be withheld, reduced, or clawed back if trading activity breaches those rules or the prohibited-practices policy. They are not investment returns.” |
 | About → Performance Rewards | “eligible for contractual performance rewards based on measured execution and **internal evaluation outcomes**” | “eligible for performance rewards when they meet the published rules. Payouts are reviewed for rule compliance, then processed.” |
 
-Keep “discretion” only where it is technical and not about money, e.g. simulation mechanics / risk engine — and even there prefer “control” or “authority.”
+Keep “discretion” only for technical simulation mechanics if needed — prefer “control” or “authority.”
 
-**FAQ “Who Provides Our Liquidity?”** currently: “Verodus retains discretion over internal simulation mechanics…”  
-**Better:** “Verodus operates the simulated environment, including pricing, risk parameters, and trade validation.”
-
----
-
-## 3. Homepage hero
-
-### Title / H1
-
-| Now | Change to |
-|---|---|
-| Funding TradersWorldwide. | Prove your process. Get paid for it. |
-| Instant from $49. Funded on Day One. (title / meta) | Instant from $[live lowest Instant fee]. Trade from day one. |
-
-If Instant’s real lowest fee is $72 (or whatever is live), **the hero number must match the pricing table**. Do not advertise $49 unless checkout is $49.
-
-“Funded on Day One” is the most mistrusted phrase in this category. Instant buyers still understand **trade from day one / no evaluation phase**.
-
-### Subhead
-
-| Now | Change to |
-|---|---|
-| Demonstrate consistency through structured evaluation and unlock measured performance rewards — no deposits, no client funds, no brokerage. | Pick Instant or a challenge. Trade on simulated capital with published rules. Hit the objectives, pass KYC, get paid in cash. No deposit of trading capital. |
+**FAQ “Who Provides Our Liquidity?”** now: “Verodus retains discretion over internal simulation mechanics…”  
+**Instead:** “Verodus operates the simulated environment, including pricing, risk parameters, and trade validation.”
 
 ---
 
-## 4. Stat strip (homepage)
+## 3. Use “funded” less (everywhere except the hero)
+
+The hero already says “Funding Traders Worldwide” and “Funded on Day One.” That is enough for search and Instant positioning.
+
+| Where (not hero) | Now | Change to |
+|---|---|---|
+| Instant card / phase label | Funded | Instant / No evaluation |
+| Instant blurb | Instant access — no profit target, clear drawdown rules, simulated capital from day one. | No evaluation phase. Start trading a simulated account as soon as you pay and activate. Clear drawdown and Best Day rules. Cash rewards when you qualify. |
+| Homepage FAQ Instant line | “Funded simulated account” | “Simulated account from day one. No profit target to start.” |
+| Instant rules H1 / nav | Instant Funding Plan / Instant Funding Rules / View Instant Funding Rules | Instant Plan / Instant Rules |
+| Instant overview | “Get instant access to a funded simulated account” / “There are no profit targets to hit before funding.” | “Start a simulated Instant account with no evaluation phase. There is no profit target to hit before you can request a payout.” |
+| Instant section 2 heading | Funded Account Rules | Instant Account Rules |
+| Instant news line | “Allowed on Instant Funding (funded from day one).” | “Allowed on Instant (simulated account from day one).” |
+| Plan FAQs Instant | “You start on a funded simulated account.” | “You start on a simulated Instant account. No evaluation phase.” |
+| Terms model list | Instant Funded | Instant |
+| Dashboard bullet | “challenges and funded accounts” | “challenges and Qualified Performance accounts” |
+| Privacy legal basis | “deliver funded account services” | “deliver evaluation and Qualified Performance services” |
+| How much can I earn / other FAQ | “funded” if it appears | “qualified” or “Qualified Performance” |
+| About / inner pages | “get funded” | “qualify and get paid” |
+
+**Keep “funded” only in:** the locked hero, and one FAQ that answers searchers:
+
+**New FAQ (optional):** “Is this a funded account?”  
+**Answer:** Instant has no evaluation phase — you trade a simulated account from day one (see the hero). If you meet the published rules and pass identity checks, we pay a cash reward. That is a prop-style evaluation, not a live brokerage account.
+
+---
+
+## 4. Stat strip (below the hero)
 
 | Now | Why it hurts | Change to |
 |---|---|---|
-| +3,000 Users Worldwide | Fine if true. “Users” is weak. | **3,000+ traders** (only if the number is still true) |
+| +3,000 Users Worldwide | “Users” is weak if the number is true | **3,000+ traders** |
 | 175+ Countries | Fine | Keep |
 | Up to 90% Profit Split | “Profit split” implies live P&L | **Up to 90% reward split** |
-| $1M Max Capital | Products top out at $100k Instant / $200k eval; household cap is $400k. $1M looks invented. | Drop it, or **Accounts up to $200,000** (match live SKUs) |
-| &lt;24h Reward Processing | Fine if operationally true | Keep, add “after approval” if reviews take longer |
+| $1M Max Capital | Live SKUs are $100k Instant / $200k eval; household cap $400k | Drop, or **Accounts up to $200,000** |
+| &lt;24h Reward Processing | Fine if true | Keep; add “after approval” if review adds time |
+
+The later “Global reach” strip already says **Up to 90% Reward Split**. Make the first strip match it.
 
 ---
 
-## 5. Instant product card
+## 5. “Why Verodus” cards (below the hero)
 
-| Now | Change to |
-|---|---|
-| Instant access — no profit target, clear drawdown rules, simulated capital from day one. | No evaluation phase. Start trading a simulated account as soon as you pay and activate. Clear drawdown and Best Day rules. Cash rewards when you qualify. |
-| Funded (label on Instant) | **Instant** or **No evaluation** — not “Funded” |
-| FAQ Instant line: “Funded simulated account” | “Simulated account from day one. No profit target to start.” |
+Headline now: **Built for traders who want clarity**  
+Keep it.
 
-Add one plain sentence under Instant fees:
+Intro now: “A structured evaluation, published objectives and rewards you can predict — in a fully simulated environment.”  
+**Instead:** “Published rules, simulated trading, cash rewards when you qualify.”
+
+| Card | Now | Change to |
+|---|---|---|
+| Transparent Rules | Keep the idea | Every objective is published before you start — targets, drawdown, trading days. |
+| Measured Rewards | “Reach the qualified performance phase and receive measured rewards” | Qualify, then request a cash reward weekly, bi-weekly, or on demand. |
+| Supported Platforms | Fine | Keep. Add the US Platform 5 restriction here if it is not already on the platforms block. |
+| Global Availability | Fine | Keep. |
+| No Personal Capital | “Zero risk to your own money… pure performance evaluation only.” | You never deposit trading capital. The fee is for the evaluation. Trading is simulated. |
+| Free Trial | Fine | Keep. |
+
+---
+
+## 6. Instant / pricing module (not the hero)
+
+**SKU bug:** Homepage Instant size selector includes **$200,000**. Instant rules and Plan FAQs say Instant is **$5,000–$100,000** with **no $200,000 Instant account**. Remove $200k from the Instant homepage table.
+
+**Leftover line under the table:** “One-time fee $296 $455 −35% Instant access · Simulated capital · No evaluation target”  
+Looks like a template remnant. Replace with the live selected SKU fee, or delete it.
+
+Add under Instant fees (pricing module, not hero):
 
 > Instant fees are not refunded. 1-Step and 2-Step refund the challenge fee with the first successful payout.
 
-That is attractive to people comparing shops because it is specific, not because it is soft.
+Keep the simulation disclaimer on Instant / 1-Step / 2-Step rule pages.
 
 ---
 
-## 6. “How it works” steps
+## 7. “How it works” steps
 
-Keep four steps. Tighten step 4 so it does not sound optional.
+Keep four steps. Tighten step 4 so payout does not sound optional.
 
 | Step | Now | Change to |
 |---|---|---|
@@ -120,43 +164,56 @@ Keep four steps. Tighten step 4 so it does not sound optional.
 | 3 | Become Qualified | KYC and trader agreement |
 | 4 | Earn rewards | Request payout when you qualify |
 
-Closing line under the steps:
+Line under the steps:
 
 > Rewards are paid in cash (Rise or crypto) after you meet the rules for that cycle.
 
 ---
 
-## 7. Payout / certificate section
+## 8. Payout / certificate section
 
-This section currently **reduces** trust (first names, flags, duplicate $9,401.23).
-
-**Headline now:** Real traders. Real certificates.  
-**Headline instead:** Payouts, not promises.
-
-**Body now:** Every reward we release is issued with a verified withdrawal certificate. These are actual Verodus traders.  
-**Body instead:** When a payout is approved, we issue a certificate with a unique ID. Check a certificate: [verifier URL — build this]. Payouts go out via Rise or crypto.
-
-**Carousel:** do not show duplicate amounts or obvious placeholder names. Prefer fewer real certificates with unique IDs over a long fake-looking strip. If you cannot verify uniqueness, **hide the carousel** until you can.
-
-**Footer line now:** Certificates are issued by Verodus at the moment of withdrawal.  
-**Instead:** Certificate issued at approval. Payment follows on Rise or crypto.
-
----
-
-## 8. Testimonials and Trustpilot
+This block currently **reduces** trust (first names, flags, duplicate $9,401.23 Jose/Joe).
 
 | Now | Change to |
 |---|---|
-| Rated 4.5 / 5 on Trustpilot (no working profile found in research) | Either a **clickable** Trustpilot widget with the live score, or **remove the number**. A 4.5 you cannot open looks fake. |
-| Generic quotes (Carlos M., Amani O., Li W.) | Real first name + country **and** a payout certificate ID, or move quotes to Discord/Trustpilot embeds. Four anonymous “no moving goalposts” lines do not help. |
+| Real traders. Real certificates. | Payouts, not promises. |
+| Every reward we release is issued with a verified withdrawal certificate. These are actual Verodus traders. | When a payout is approved, we issue a certificate with a unique ID. Payouts go out via Rise or crypto. |
+| Certificates are issued by Verodus at the moment of withdrawal. | Certificate issued at approval. Payment follows on Rise or crypto. |
 
-If Trustpilot is not live yet, replacement line:
-
-> Read the rules before you pay. Talk to support or Discord if you want to see how payouts work.
+**Carousel:** no duplicate amounts, no placeholder names. Fewer real certificates with unique IDs. If uniqueness cannot be verified, **hide the carousel**.
 
 ---
 
-## 9. Homepage FAQ — rewrite the three weakest answers
+## 9. Testimonials and Trustpilot
+
+| Now | Change to |
+|---|---|
+| Rated 4.5 / 5 on Trustpilot | Clickable Trustpilot widget with the **live** score, or **remove the number** |
+| Generic quotes (Carlos M., Amani O., Li W.) | Real name + country **and** a certificate ID, or embed Discord/Trustpilot. Drop four anonymous “no moving goalposts” lines if they cannot be tied to a payout. |
+
+If Trustpilot is not live:
+
+> Read the rules before you pay. Ask support or Discord how payouts work.
+
+---
+
+## 10. Calculator, platforms, dashboard, bottom CTA
+
+These are **not** the hero. Edit them.
+
+| Block | Now | Change to |
+|---|---|---|
+| Calculator CTA | Start Challenge (even when Instant is selected) | **Start Instant** or **Start evaluation** depending on the selected model |
+| Calculator footnote | Fine | Keep the “illustrative only / simulated” line |
+| Rewards, your way | “Most performance rewards are processed in under 24 hours” | “Most approved rewards are processed in under 24 hours via Rise or crypto.” |
+| Dashboard intro | “every challenge and funded account” | “every challenge and Qualified Performance account” |
+| Dashboard bullet | “challenges and funded accounts side by side” | “challenges and Qualified Performance accounts side by side” |
+| Bottom CTA (not hero) | Prove it. Then get paid for it. | Keep. This line is stronger than the rest of the page. |
+| Bottom subline | Join the traders already evaluating with Verodus. Published objectives, measured rewards, no deposits. | Published rules. Simulated trading. Cash rewards when you qualify. |
+
+---
+
+## 11. Homepage FAQ (below the hero)
 
 ### What is Verodus?
 
@@ -170,99 +227,135 @@ If Trustpilot is not live yet, replacement line:
 
 **Instead:** Yes — as a simulated evaluation company, not as a broker. You pay for access to the evaluation. If you follow the published rules and pass identity checks, we pay the reward for that cycle in cash. We do not hold client trading deposits and we do not send your orders to the live market. Read the Terms and Risk Disclosure before you buy.
 
-(This is the single highest-impact attractiveness change on the site.)
+Highest-impact change on the site (hero unchanged).
+
+### What evaluation models does Verodus offer?
+
+Keep the hard rules (3%/6%, Best Day, $100, splits). Rewrite the Instant opener:
+
+**Now:** Instant: no evaluation. Funded simulated account. … $5k–$100k.
+
+**Instead:** Instant: no evaluation phase. Simulated account from day one. … Sizes $5,000–$100,000 (no $200,000 Instant).
 
 ### I'm not a trader — what exactly is a prop firm?
 
-**Now:** long, accurate, cold.
-
-**Instead:** In this model you are not depositing money to trade the market. You buy an evaluation, trade simulated capital under rules, and can earn a cash reward if you stay inside those rules. It is a performance test with a payout, not an investment account.
+**Instead:** In this model you are not depositing money to trade the market. You buy Instant or a challenge, trade simulated capital under rules, and can earn a cash reward if you stay inside those rules. It is a performance test with a payout, not an investment account.
 
 ### When and how do I get paid?
 
-**Now:** “Most rewards are processed in under 24 hours.”
-
 **Instead:** Request weekly, bi-weekly, or on demand (add-on). After you meet the cycle rules and we confirm eligibility, we process on Rise or crypto. Target: under 24 hours after approval.
+
+### How much can I earn with Verodus?
+
+Keep the math. Swap “profit split” for **reward split** if it appears. Keep “simulated profits” so it stays honest under the hero’s Instant claim. Cap copy at **$200,000** for challenges and **$100,000** for Instant.
 
 ---
 
-## 10. About page
+## 12. About page
 
 | Now | Change to |
 |---|---|
 | Helping traders prove their edge | A clear test. A cash payout if you pass it. |
-| “Architects of ScaleEngineering the high-performance…” (broken heading) | **Leadership** — then two short bios (who they are, what they run). Empty titles with no bio look like a shell company. |
-| “intended solely for performance evaluation and **behavioral analysis**” | “intended for evaluation, risk control, and running the program.” (“Behavioral analysis” reads as “we mine your trades.”) |
-| We don't promise outcomes | Keep this. It is attractive because it is adult. |
-| Performance rewards … internal evaluation outcomes | See section 2 — rules + compliance review, then pay. |
+| “Architects of ScaleEngineering the high-performance…” | **Leadership** |
+| Empty “Read Bio” with no text | Two short bios (who they are, what they run). Empty titles look like a shell company. |
+| “performance evaluation and **behavioral analysis**” | “evaluation, risk control, and running the program.” |
+| We don't promise outcomes | Keep. |
+| Performance rewards … internal evaluation outcomes | Rules + compliance review, then pay (section 2). |
 
-**Opening paragraph now:** simulated proprietary trading firm … pays performance rewards from its own resources…
+**Opening paragraph instead:** Verodus runs simulated evaluations. You trade virtual capital on professional platforms, under rules published before you start. When you qualify, Verodus pays a cash performance reward from its own funds. We are not a broker and we do not manage client money.
 
-**Instead:** Verodus runs simulated evaluations. You trade virtual capital on professional platforms, under rules published before you start. When you qualify, Verodus pays a cash performance reward from its own funds. We are not a broker and we do not manage client money.
+**Bios to ship (replace “Read Bio” with visible text):**
+
+> **Kim Chen** — Co-founder and CEO. Runs the evaluation products, published rules, and the firm.  
+> **Alexander Vladimirovich** — Co-founder and COO. Runs operations, payouts, and trader support.
+
+Add one real sentence of background each if you want; do not leave the section empty.
 
 ---
 
-## 11. Blog and SEO pages (must match live products)
+## 13. Privacy (entity + “funded” + data)
+
+| Now | Change to |
+|---|---|
+| Data controller / contact: **Verodus LLC** | **Verodus L.L.C.-FZ** (same company; one public name) |
+| “deliver funded account services” | “deliver evaluation and Qualified Performance services” |
+| About-page “behavioral analysis” | Drop from marketing (section 12). Privacy may still describe **internal** trade-behavior monitoring for abuse and risk. |
+
+Public Privacy currently says Verodus does **not** use trading-behavior data to replicate, commercialize, or exploit strategies **externally**, and that trader P&L / behavior is **not shared externally**.
+
+If Verodus later licenses **anonymized, aggregated** CRM data (for example to MoniMath), that is a **policy amendment + DPA**, not a homepage rewrite. Do not put “we sell trading data” on marketing pages. Do not contradict Privacy until counsel updates it.
+
+---
+
+## 14. Blog and SEO (not the homepage hero)
 
 `/best-simulated-prop-firm-2026.html` still says 10%/5% targets, 10%/5% drawdown, evaluations from $55. Live Instant/1-Step/Lite do not match.
 
-**Action:** either update every number to the live rule pages, or unpublish until it matches.
+Update every number to the live rule pages, or unpublish.
 
-Do not call Verodus “the premier simulated prop firm launching in 2026.” That dates you and sounds like an ad. Use: “Verodus is a simulated evaluation firm. Here is how Instant and the challenges work.”
+Do not call Verodus “the premier simulated prop firm launching in 2026.” Use: “Verodus is a simulated evaluation firm. Here is how Instant and the challenges work.”
 
-Kill or noindex third-party content-farm articles if you control them. They make the brand look purchased.
+Noindex content-farm reprints if you control them.
+
+The **homepage title** “Instant from $49. Funded on Day One.” stays locked. Blog/SEO pages should still not invent different prices or drawdowns than Instant/1-Step/Lite.
 
 ---
 
-## 12. Words to prefer vs avoid (quick glossary)
+## 15. Words to prefer vs avoid (not the hero)
 
-| Avoid on marketing pages | Use instead |
+| Avoid below the hero | Use instead |
 |---|---|
-| Funded on day one | Trade from day one / no evaluation phase |
-| Funded account (Instant) | Instant account / Qualified Performance account |
+| Funded account / get funded / Instant Funding / Instant Funded | Instant account / Instant plan / Qualified Performance / qualify and get paid |
 | Profit split | Reward split |
 | Discretionary (payouts) | Paid under the published rules after eligibility checks |
-| Max capital $1M | Account sizes up to $200,000 (if true) |
+| Max capital $1M | Account sizes up to $200,000 (challenges); Instant up to $100,000 |
 | Unlock / eligible to become | Get paid when you qualify |
-| Client funds | You never deposit trading capital |
+| Behavioral analysis (marketing) | Risk and program integrity |
+| Verified certificates (no unique ID) | Certificate with unique ID / payout via Rise |
 | Proprietary trading firm (as first sentence) | Simulated trading evaluation (then you can say prop-style) |
-| Behavioral analysis | Risk and program integrity |
-| Verified certificates (with no unique ID) | Certificate with unique ID / payout via Rise |
 
-Keep **simulated** next to **cash reward**. That pairing is more attractive than hiding simulation, because it is the honest version of Instant that experienced traders will not bounce from.
+**Exception:** hero H1 and title may keep “Funding” / “Funded on Day One.”
 
----
-
-## 13. Suggested homepage stack (order)
-
-1. Hero: Prove your process. Get paid for it. + Instant/challenge CTAs + true price.
-2. One sentence: Simulated trading. Cash rewards. Published rules.
-3. Live pricing table (hero fee = table fee).
-4. How it works (4 steps).
-5. Payouts via Rise/crypto + unique certificate IDs (or omit carousel).
-6. Platforms.
-7. FAQ with the new legitimacy answer.
-8. Footer with one legal name.
-
-Do not lead with “we are not a broker.” Put that in FAQ and footer. Lead with the test and the payout.
+Keep **simulated** next to **cash reward** in FAQ, Instant card, Instant rules, and About.
 
 ---
 
-## 14. What not to change
+## 16. Homepage order (hero frozen)
 
-- Simulation disclaimers on Instant / 1-Step / 2-Step pages (keep; they are a strength).
-- Hard rules (drawdown, Best Day, Friday flatten). Loosening copy here will not make you more attractive to people who last; it will attract blow-ups.
+1. **Hero — no changes.**
+2. Stat strip (reward split; drop or correct $1M).
+3. Why Verodus (tightened cards).
+4. Pricing table. Remove Instant $200k. Add Instant vs 1-Step/2-Step refund sentence under the table, not in the hero.
+5. How it works (4 tightened steps).
+6. Payouts via Rise/crypto + unique certificate IDs (or omit carousel).
+7. Platforms.
+8. Dashboard copy without “funded accounts.”
+9. FAQ with the new legitimacy answer.
+10. Footer with one legal name.
+
+---
+
+## 17. What not to change
+
+- **Homepage hero** (H1, title, subhead, CTAs, “Funded on Day One”).
+- Simulation disclaimers on Instant / 1-Step / 2-Step rule pages.
+- Hard rules (drawdown, Best Day, Friday flatten, $100 minimum payout, splits).
 - “Fees are not deposits.”
-- Restricted-country and US Platform 5 notes — keep them factual and short.
+- Restricted-country and US Platform 5 notes.
+- Bottom CTA “Prove it. Then get paid for it.”
 
 ---
 
-## 15. Implementation order
+## 18. Implementation order
 
-1. FAQ “Is Verodus legitimate?” + strip “discretionary” from all public pages.
-2. Hero: kill “Funded on Day One”; match the $ price to checkout.
-3. One legal name in footer / Privacy / Terms.
-4. Trustpilot: link or remove.
-5. Certificate carousel: unique IDs or take it down.
-6. About bios + fix “Architects of Scale” glitch.
-7. Blog numbers aligned to live rules.
+1. FAQ “Is Verodus legitimate?” + remove “discretionary” from public pages.
+2. Use “funded” less below the hero (Instant label, Instant rules, Plan FAQs, dashboard, Terms “Instant Funded”).
+3. One legal name in footer / Privacy / Terms (LLC = L.L.C.-FZ).
+4. Instant homepage table: drop $200k; kill the $296 leftover line.
+5. Stat strip: reward split; fix or drop $1M.
+6. Trustpilot: link or remove.
+7. Certificate carousel: unique IDs or take it down.
+8. About bios + fix “Architects of Scale” glitch.
+9. Blog numbers aligned to live rules.
+
+Do **not** include a hero rewrite in this pass.
