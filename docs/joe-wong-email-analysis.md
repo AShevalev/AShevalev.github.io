@@ -19,6 +19,31 @@ That is **Layer B origination / championship language** from the earlier memo, s
 
 ---
 
+## How Verodus benefits from this email
+
+The letter itself is a Bookmap template. The **opening** is still useful: Joe met you, he has a HK / Chinese-speaking network, and he is trying to fill a 2027 competition with traders who will need an evaluation product. Verodus’s model is evaluation fees + resets + tightly gated rewards. That is a **seller’s** position if you take the right slice.
+
+**What Verodus can take (in order)**
+
+1. **Paying Asia buyers on unchanged rules.** If his community, academy, or 2027 funnel actually sends people to Instant / 1-Step / Lite, Verodus gets challenge fees and fail/reset revenue. You pay him only on **tagged net fees** after refunds and chargebacks. Mix quality can be worse than organic; you do not loosen Best Day, trail, or Instant non-refundability to “help his championship.”
+2. **A cheap HK/APAC brand surface.** A competition landing page and prize *evaluation* accounts (paid or a small comped pool you cap) put Verodus in front of traders who already think in “prove it, then get paid.” That is closer to your product than Bookmap ever was. Exposure only counts if it converts to checkouts you can see in UTMs.
+3. **A customer for rails later.** He already announced PropTrade and does not have MT5/TradeHub, KYC, or payouts. If the conversation gets past the logo, the benefit is **his volume on your CRM**, not you on his fund story. 70–85% of that GMV stays with Verodus.
+4. **Optional academy GMV.** TradeMath coaching as a **paid add-on** at Verodus checkout. You do not make it required. People who want a course pay; Instant economics stay fail-heavy.
+
+**What does not benefit Verodus**
+
+- His 25%/40% funds, SFC story, OHKF, or “Saudi government” — using those names next to Verodus is reputational risk, not lift.
+- Unpaid “official long-term partner” — you give him a proof asset; he keeps the list.
+- Education as a required path — raises pass rates, hurts the fee model.
+- Data / CRM feed — Privacy bans still forbid it; even if they did not, you would sell it for cash, not for a logo.
+- Bookmap-style “order flow + adoption in Asia” — that is not your P&L.
+
+**How to know it worked**
+
+A 90-day pilot with unique codes. Benefit is real only if: tagged checkouts, net fee collected, chargeback rate acceptable, and no Verodus copy that says licensed fund / OHKF / Saudi. If he cannot name Instant vs 1-Step vs Lite in the next note, there is no benefit to capture.
+
+---
+
 ## 2. The tell: this letter was written for Bookmap
 
 He writes to you and names Verodus in the invite line. The body is a **Bookmap template**.
