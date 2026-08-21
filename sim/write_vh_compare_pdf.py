@@ -34,6 +34,8 @@ RESULTS = ROOT / "results"
 ART = Path("/opt/cursor/artifacts")
 OUT = RESULTS / "Verodus_vs_FundedHive_2026-08-21.pdf"
 OUT_SHOP = RESULTS / "verodus-vs-fundedhive.pdf"
+OUT_BOARD = RESULTS / "Verodus_vs_FundedHive_Scoreboard_2026-08-21.pdf"
+OUT_BOARD_SHOP = RESULTS / "verodus-vs-fundedhive-scoreboard.pdf"
 
 BOOK_W = {"Pro": 0.07, "Semi-skilled": 0.22, "Average": 0.26, "Aggressive": 0.28, "Lottery": 0.17}
 
@@ -605,19 +607,181 @@ def build(path: Path | None = None) -> Path:
     return path
 
 
-def copy_outputs(src: Path) -> None:
-    shutil.copy2(src, OUT_SHOP)
+def board_footer(canvas, doc):
+    canvas.saveState()
+    canvas.setFillColor(NAVY)
+    canvas.rect(0, 0, PAGE[0], 11 * mm, fill=1, stroke=0)
+    canvas.setFillColor(white)
+    canvas.setFont("Helvetica", 7.5)
+    canvas.drawString(
+        14 * mm, 4.2 * mm,
+        "Evals leftover = sale − E[X] − P(pay)×sale  ·  Instant V = sale − year-1 E[X]  ·  FH = sale − first-payout E[X]  ·  Hive Coin k = 0",
+    )
+    canvas.drawRightString(PAGE[0] - 14 * mm, 4.2 * mm, "1 page")
+    canvas.restoreState()
+
+
+def board_page(canvas, doc):
+    canvas.saveState()
+    canvas.setFillColor(NAVY)
+    canvas.rect(0, PAGE[1] - 22 * mm, PAGE[0], 22 * mm, fill=1, stroke=0)
+    canvas.setFillColor(GOLD)
+    canvas.rect(0, PAGE[1] - 22.8 * mm, PAGE[0], 1.4 * mm, fill=1, stroke=0)
+    canvas.restoreState()
+    board_footer(canvas, doc)
+
+
+def build_scoreboard(path: Path | None = None) -> Path:
+    """One-page leftover scoreboard — the table from the 21 Aug comparison."""
+    path = Path(path) if path else OUT_BOARD
+    v_px = [r for r in load_csv("verodus_be_20_40_60_margins.csv") if r["Kind"] == "challenge"]
+    fh_skus = load_csv("fundedhive_skus.csv")
+    pfp1 = load_csv("fundedhive_pfp1_funnel.csv")
+    pfp2 = load_csv("fundedhive_pfp2_funnel.csv")
+    v_by = {(r["Plan"], int(float(r["Size"]))): r for r in v_px}
+    fh_by = {(r["Plan"], int(float(r["Size"]))): r for r in fh_skus}
+    pfp1_by = {int(float(r["Size"])): r for r in pfp1}
+    pfp2_by = {int(float(r["Size"])): r for r in pfp2}
+    v_blend = {r["Plan"]: r for r in load_csv("verodus_news_included_blended.csv")}
+    v_inst_first_10k = float(v_blend["Instant"]["E_payout_100k"]) * 0.10
+
+    v10_in = v_by[("Instant", 10000)]
+    v100_in = v_by[("Instant", 100000)]
+    v100_1s = v_by[("1-Step", 100000)]
+    v100_lite = v_by[("2-Step Lite", 100000)]
+    v100_pro = v_by[("2-Step Pro", 100000)]
+    fh10 = fh_by[("Instant Growth L1", 10000)]
+    fh100_c = fh_by[("Classic 2-Step (NewBee)", 100000)]
+    fh100_p1 = fh_by[("Pay From Profits 1-Step", 100000)]
+    fh100_p2 = fh_by[("Pay From Profits 2-Step", 100000)]
+
+    def left_v_eval(r):
+        return float(r["Sale"]) - float(r["Cost"])
+
+    def left_v_inst(r):
+        return float(r["Sale"]) - float(r["E"])
+
+    def left_fh(r):
+        return float(r["Sale"]) - float(r["E_payout"])
+
+    usable = PAGE[0] - 28 * mm
+    story = []
+    story.append(Spacer(1, 6 * mm))
+    story.append(Table(
+        [[P("Verodus vs FundedHive — leftover scoreboard", 16, white, TA_LEFT, True, 20)],
+         [P("Same CFD book  ·  VERO35 vs WELCOME25  ·  operator $ per starter  ·  21 Aug 2026",
+            8.5, HexColor("#d4c4a8"), TA_LEFT, False, 12)]],
+        colWidths=[usable],
+    ))
+    story.append(Spacer(1, 6 * mm))
+    story.append(P(
+        "On the shopper door Verodus is cheaper on Instant and 1-Step. FundedHive Classic is cheaper than Verodus Pro and close to Lite. "
+        "On operator leftover, Classic $100k keeps <b>$173</b> vs Lite <b>$145</b> / Pro <b>$168</b>. "
+        "FundedHive Instant $10k @ $299 keeps <b>$261</b> on first payout (m +87%). Verodus Instant $10k @ $69 keeps <b>$41</b> on the year-1 card (m +60%). "
+        "PFP 2-Step access is a hole from $100k until the 1–3% funded fee. Verodus has no PFP analog.",
+        9, NAVY, leading=12,
+    ))
+    story.append(Spacer(1, 2.5 * mm))
+    story.append(P("$100k leftover  ·  operator $ per starter", 11, NAVY, bold=True, leading=14))
+    story.append(Spacer(1, 1.2 * mm))
+
+    fat = lambda t, c: P(t, 8, c, TA_CENTER, True)
+    rows = [
+        ["Match", "Verodus sale", "Verodus leftover", "m", "FundedHive sale", "FH leftover", "m", "Fatter leftover"],
+        ["Instant $10k (V year-1 / FH first)",
+         usd(v10_in["Sale"]), usd(left_v_inst(v10_in)), pct_signed(v10_in["Sale_m"]),
+         usd(fh10["Sale"]), usd(left_fh(fh10)), pct_signed(fh10["sale_m"]),
+         fat("FH leftover; V cheaper door", TEAL)],
+        ["Instant $100k (V year-1)",
+         usd(v100_in["Sale"]), usd(left_v_inst(v100_in)), pct_signed(v100_in["Sale_m"]),
+         "— (no $100k Instant)", "—", "—",
+         fat("Verodus only", V_HEAD)],
+        ["1-Step vs PFP 1-Step sticker",
+         usd(v100_1s["Sale"]), usd(left_v_eval(v100_1s)), pct_signed(v100_1s["Sale_m"]),
+         usd(fh100_p1["Sale"]), usd(left_fh(fh100_p1)), pct_signed(fh100_p1["sale_m"]),
+         fat("Verodus sticker", GREEN)],
+        ["1-Step vs PFP 1-Step funnel",
+         usd(v100_1s["Sale"]), usd(left_v_eval(v100_1s)), pct_signed(v100_1s["Sale_m"]),
+         usd(pfp1_by[100000]["E_revenue"]), usd(pfp1_by[100000]["Leftover"]), pct_signed(pfp1_by[100000]["m"]),
+         fat("FH funnel", TEAL)],
+        ["Lite vs Classic",
+         usd(v100_lite["Sale"]), usd(left_v_eval(v100_lite)), pct_signed(v100_lite["Sale_m"]),
+         usd(fh100_c["Sale"]), usd(left_fh(fh100_c)), pct_signed(fh100_c["sale_m"]),
+         fat("FH Classic", TEAL)],
+        ["Pro vs Classic",
+         usd(v100_pro["Sale"]), usd(left_v_eval(v100_pro)), pct_signed(v100_pro["Sale_m"]),
+         usd(fh100_c["Sale"]), usd(left_fh(fh100_c)), pct_signed(fh100_c["sale_m"]),
+         fat("about even", ORANGE)],
+        ["PFP 2-Step funnel (no V analog)",
+         "—", "—", "—",
+         usd(pfp2_by[100000]["E_revenue"]), usd(pfp2_by[100000]["Leftover"]), pct_signed(pfp2_by[100000]["m"]),
+         fat("FH only", TEAL)],
+    ]
+    story.append(grid(rows, [52 * mm] + [(usable - 52 * mm) / 7] * 7, font=8))
+    story.append(Spacer(1, 2.2 * mm))
+    story.append(P("Instant $10k callout", 11, NAVY, bold=True, leading=14))
+    story.append(Spacer(1, 1 * mm))
+    story.append(P(
+        f"Verodus first-payout E[X] at $10k is <b>{usd(v_inst_first_10k)}</b> vs a <b>$69</b> sale — the sticker does not cover the first check. "
+        f"Year-1 E[X] is <b>$28</b>, leftover <b>$41</b>. That is the right Verodus Instant BE (funded on day 1). "
+        f"FundedHive Instant first check is <b>$38</b> because of the 2% max/trade cap; leftover <b>$261</b> at $299. "
+        "Residual on FH is the doubling tower, not L1. Instant Best Day on Verodus is 20% of Positive Days’ Profit at payout request. No min days. 1-Step Best Day stays 50%.",
+        8.5, NAVY, leading=11.5,
+    ))
+    story.append(Spacer(1, 2 * mm))
+    story.append(P("Print engines", 11, NAVY, bold=True, leading=14))
+    story.append(Spacer(1, 1 * mm))
+    story.append(grid(
+        [
+            ["Firm / plan", "Main kill (share of buyers)", "What that does to leftover"],
+            ["Verodus Instant / Lite / Pro", "Daily DD 43% / 39% / 43% (3% / 4% / 5%)", "Lottery almost never pays. Leftover holds at a cheap VERO35 door."],
+            ["Verodus 1-Step", "Max DD 57%, then daily 20%", "Hybrid 6% lock + 50% Best Day. Leftover $197 at $100k after fee refund."],
+            ["FundedHive Classic / PFP evals", "Max/trade ~40% (3% cap)", "Classic $100k leftover $173 at a $262 door. PFP access is not the unit."],
+            ["FundedHive Instant L1", "Max/trade 45% (2% cap)", "First payout stays small ($38). Residual is the 6% doubling tower."],
+        ],
+        [48 * mm, 72 * mm, usable - 120 * mm],
+        font=7.5,
+    ))
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=PAGE,
+        leftMargin=14 * mm,
+        rightMargin=14 * mm,
+        topMargin=16 * mm,
+        bottomMargin=16 * mm,
+        title="Verodus vs FundedHive leftover scoreboard",
+        author="Verodus research",
+    )
+    doc.build(story, onFirstPage=board_page, onLaterPages=board_page)
+    return path
+
+
+def copy_one(src: Path, shop: Path) -> None:
+    shutil.copy2(src, shop)
     if ART.is_dir():
         shutil.copy2(src, ART / src.name)
-        shutil.copy2(OUT_SHOP, ART / OUT_SHOP.name)
+        shutil.copy2(shop, ART / shop.name)
+
+
+def copy_outputs(src: Path) -> None:
+    copy_one(src, OUT_SHOP)
+    if ART.is_dir():
         print(f"copied to {ART}")
 
 
 def main():
     out = build(OUT)
     copy_outputs(out)
+    board = build_scoreboard(OUT_BOARD)
+    copy_one(board, OUT_BOARD_SHOP)
+    if ART.is_dir():
+        print(f"copied scoreboard to {ART}")
     print(out)
     print(OUT_SHOP)
+    print(board)
+    print(OUT_BOARD_SHOP)
 
 
 if __name__ == "__main__":
