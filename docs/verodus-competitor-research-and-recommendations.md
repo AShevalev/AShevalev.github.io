@@ -55,7 +55,7 @@ Figures are what the **firm’s own site** showed on 21 August 2026 unless noted
 | 6 | **E8 Markets** | 2021 | $76M paid, 500k+ traders, SimFi™ behavior score, $216k largest payout | Challenge configurator; $100k from $299 | Real cash/crypto; “stop gambling” | Behavioral-science brand, not a generic challenge grid |
 | 7 | **For Traders** | 2023, Prague office photos | $10M+ paid, 150k customers, **48h or 100% split**, video testimonials, unique certificates | Challenge / Instant / Pay After Pass; FX, crypto, futures | Up to 90%; 48h guarantee | “Real company. Real people.” Events (Dubai, TOKEN2049, London), AI Coach, Discord |
 | 8 | **Blue Guardian** | ~2021 | 100k+ traders, $25M+ payouts, 24h or **+10% split**, Google 4.9, sports partners | CFD Instant/1-Step/2-Step Nano+Standard; Futures Standard/Reserve/Express/Direct; up to $400k, scale $4M CFD | Up to 90% (select 100%); instant payouts | “Empowering traders.” Chris Eubank Jr, Birmingham City, constant 25% codes |
-| 9 | **Goat Funded Trader** | 2023; HK + St Lucia entities | $23M paid, 250k+ active, 1M+ “trust GFT”, 24h or **$1,000** | 1-Step / 2-Step / Instant; many SKUs to $400k, scale $2M | Up to 100% on demand | Hype + BOGO/50% codes. **Certificate amounts overlap Verodus** (see §4.1) |
+| 9 | **Goat Funded Trader** | 2023; HK + St Lucia entities | $23M paid, 250k+ active, 1M+ “trust GFT”, 24h or **$1,000** | 1-Step / 2-Step / Instant; many SKUs to $400k, scale $2M | Up to 100% on demand | Hype + BOGO/50% codes. Some first-name/amount tiles resemble Verodus; **operator confirms Verodus certificates are legitimate** (see §4.2 A) |
 | 10 | **AquaFunded** | 2023, Dubai | Reward guarantee, 100% split add-on | 1 / 2 / 3-Step + Instant | 90% base, 100% add-on | Cheap + flexible; high promo intensity |
 | 11 | **Instant Funding** | 2021, UK; 8 awards | 85k+ traders, 180+ countries | IF / IF1 / One-Phase / Clarity / Micro / Crypto; scale to $1.28M–$3.84M combined | Up to 90%; hours via bank/crypto | Specialist Instant brand. “Est. 2021 in the UK” in the hero |
 | 12 | **Maven Trading** | 2022, St Lucia; named CEO | Review depth on PropFirmMatch; US-friendly MatchTrader | 1 / 2 / 3-Step, Instant, OMO, BNPL; from ~$13–$19 | 80% → 90%; ~10 business days | Price leader. Instant 20% consistency + 1% open-risk |
@@ -140,25 +140,11 @@ Competitors train buyers to look for a **code in the hero**. Verodus’s −35% 
 
 These are more damaging than any remaining adjective.
 
-**A. Certificate carousel collides with Goat Funded Trader**
+**A. Certificate tiles — keep; add IDs so they are harder to confuse with another firm’s marketing**
 
-Live Verodus homepage certificates include:
+The homepage certificates are **legitimate Verodus payouts** (operator confirmation). Keep the carousel. Do not hide the section.
 
-- Yassir **$466.28**
-- Rehman **$2,925.26**
-- Joe **$9,401.23**
-- Syed **$2,027.60**
-- Niabulo **$1,250.00**
-
-Live Goat Funded Trader homepage (same day) includes:
-
-- Yassir **$466.28** (identical)
-- Rehman **$2,925.26** (identical)
-- Jose **$9,401.23** (same amount as Verodus Joe)
-- Syed **$262.34** (Verodus also lists Tinashe **$262.34**)
-- Niabulo **$225.16** (same first name)
-
-The wording brief already says: unique IDs or **hide the carousel**. After this comparison, hiding is the only safe default until each certificate is uniquely Verodus (ID, date, method, last name or country, and not appearing on another firm). A premium firm does not share payout props.
+A stranger comparing sites the same day can still see overlapping **first names and amounts** on Goat Funded Trader (e.g. Yassir $466.28, Rehman $2,925.26, Joe/Jose $9,401.23). That is a **perception** problem, not a reason to take Verodus proof down. Strengthen each tile with a unique Verodus certificate ID, date, rail, and country so the payout is obviously this firm’s. Hide only a duplicate tile **on the Verodus carousel itself**.
 
 **B. Testimonials are generic and unpriced**
 
@@ -206,12 +192,12 @@ Kim Chen and Alexander Vladimirovich exist in Read Bio modals (brief: keep). A s
 |---|---|---|---|---|
 | Simulation | Footer | Hero + FAQ | Hero + Why + FAQ | Same (locked hero) — **good** |
 | Payout language | Guarantee + $ paid | Process + years | Discretionary | Rules-based (brief) — **good** |
-| Proof | Volume | History + people | Small certificates + 4 quotes | Certificates hidden if not unique — **empties the proof slot** |
+| Proof | Volume | History + people | Real certificates + 4 unpriced quotes | Certificates stay; IDs/date/rail make them easier to verify |
 | Price | Codes | Refundable premium | −35% Instant | Unchanged |
 | Career | Scale to $2–4M | Academy + Prime | Combined $1M cap | Unchanged |
 | Company | Offices + Discord | Founders + awards | Two bios | Same bios |
 
-After the brief, Verodus becomes **more legally consistent** and **less self-incriminating**, and **less evidenced**. That is the right trade only if proof is rebuilt for real.
+After the brief, Verodus becomes **more legally consistent** and **less self-incriminating**. Certificates stay as payout proof; unique IDs and a public payouts page make that proof harder to dismiss. Unpriced quotes are still a weaker layer than FTMO/For Traders video stories.
 
 ---
 
@@ -221,7 +207,7 @@ Mapped to the four outcomes. Items the wording brief already covers are marked *
 
 ### Trustworthy (do this first — nothing else lands without it)
 
-1. **Unique, Verodus-only payout proof** — or no carousel **(brief)**. Rebuild as: certificate ID, date, rail (Rise/crypto), country, amount, **no duplicate names/amounts vs other firms**.
+1. **Keep the legitimate Verodus certificate carousel** **(brief, corrected)**. Add certificate ID, date, rail, country. Drop only internal duplicate tiles. Do not hide the section because another firm shows similar first names or amounts.
 2. **Rules-based payout sentence in FAQ/Terms/About** **(brief)**.
 3. **One legal name + payment affiliate line** **(brief)**. Add company number, city, and a real postal address in the footer (FTMO/BrightFunded/Goat pattern).
 4. **Trustpilot with N, or don’t badge it.** If 4.5 is real, show “4.5 / 5 from N reviews.” If N is tiny, **do not lead with the badge**; lead with process (KYC → contract → payout clock).
@@ -261,11 +247,11 @@ Mapped to the four outcomes. Items the wording brief already covers are marked *
 
 ## 6. Recommended changes — additional to the wording brief
 
-Assume the brief ships as written (hero and meta **untouched**, discretionary gone, one legal name, Instant labels, certificates unique-or-hidden, About heading, Privacy controller). Then do this.
+Assume the brief ships as written (hero and meta **untouched**, discretionary gone, one legal name, Instant labels, certificates **kept** with unique IDs, About heading, Privacy controller). Then do this.
 
 ### Pass A — integrity (same sprint as the brief if possible)
 
-1. **Hide the certificate carousel** until a unique Verodus set exists. Do not replace it with more anonymous quotes.
+1. **Certificates stay up.** Add missing IDs. Remove a tile only if it is duplicated **on Verodus**. Do not take the carousel down.
 2. **Remove Instant $200,000** from the homepage selector/table (brief skipped this; it is a live contradiction).
 3. **Unpublish** `best-simulated-prop-firm-2026.html` or retitle it as a product explainer with **current** Instant/1-Step/Lite numbers. Never “launching” or “best” without a method.
 4. **Redirect** `/about` → `/about.html`. Fix `sitemap.xml` 500.
@@ -279,7 +265,7 @@ Assume the brief ships as written (hero and meta **untouched**, discretionary go
 9. **Trustpilot:** display `4.5 / 5 (N reviews)` only if N is honest; otherwise a text link “See independent reviews” without a score.
 10. **One filmed founder or ops walkthrough** (office, support desk, or payout ops). Link from About. Do not paste more bio copy on the page (brief).
 11. **Registry:** UAE L.L.C.-FZ licence/number in footer; Capital Inc. jurisdiction on the payments line.
-12. **Trader stories with numbers you can defend** (even small: “first Instant cycle, $180, Rise, 11 hours”). Never reuse another firm’s certificate math.
+12. **Trader stories with numbers you can defend** (even small: “first Instant cycle, $180, Rise, 11 hours”). Tie a story to a real Verodus certificate when the trader agrees.
 
 ### Pass C — commercial objects the category requires
 
@@ -323,7 +309,7 @@ Assume the brief ships as written (hero and meta **untouched**, discretionary go
 | Order | Work | Outcome it buys |
 |---|---|---|
 | 0 | Ship the wording brief | Stops self-owning (discretionary, two LLCs, “Funded” Instant label) |
-| 1 | Hide colliding certificates; kill Instant $200k column; unpublish launch blog; fix sitemap/about | Stops looking like a cloned Instant mill |
+| 1 | Keep certificates (add IDs); kill Instant $200k column; unpublish launch blog; fix sitemap/about | Stops SKU / URL / launch-blog contradictions |
 | 2 | Real payouts page + honest Trustpilot N + one bound SLA | Trustworthy |
 | 3 | Footer company + founder external links + Instant how-it-works | Established enough to buy |
 | 4 | Scaling + $49/$39 truth + add-on table | Desirable vs the grid |

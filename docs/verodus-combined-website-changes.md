@@ -13,7 +13,7 @@
 | Pass | What it is | Feel it buys |
 |---|---|---|
 | **0** | Wording brief — light, surgical copy | Stops self-owning (discretionary, two LLCs, “Funded” Instant label) |
-| **A** | Integrity — live contradictions the brief deferred | Stops looking unfinished or cloned |
+| **A** | Integrity — live contradictions the brief deferred | Stops SKU / blog / URL contradictions |
 | **B** | Proof that can be true | Trustworthy |
 | **C** | Commercial objects the category requires | Desirable |
 | **D** | Premium layer | Established / premium feel |
@@ -64,6 +64,7 @@ Do not put “we sell trading data” on the homepage, FAQ, About, or Privacy.
 - **$1M Max Capital** is the **combined** cap across accounts a trader can hold, not a single-account SKU.
 - Trustpilot **4.5 / 5** already **links** to the Trustpilot page. Pass 0 keeps the badge. Pass B adds review **count** or stops leading with the score.
 - Founder bios already live in **Read Bio** modals (photos + Kim Chen CEO copy + Alexander Vladimirovich COO copy). Do not paste them onto the About page. Do not rewrite those modals in Pass 0. Pass D may add **one external link each** (LinkedIn) when they exist — still not a bio rewrite.
+- Homepage payout certificates are **legitimate Verodus certificates**. Keep the carousel. Do not hide it because some first names or amounts also appear on another firm’s site. Prefer unique certificate IDs (and date / rail / country when you can show them) so a stranger can tell each payout apart. Hide only **internal duplicates** on the Verodus carousel itself — not the section.
 
 ---
 
@@ -72,7 +73,7 @@ Do not put “we sell trading data” on the homepage, FAQ, About, or Privacy.
 | Topic | Wording brief | Research rec | This spec |
 |---|---|---|---|
 | Instant $200k on homepage | Skip / leave selector | Remove — live contradiction | **Pass A: remove** Instant $200k from selector and table |
-| Certificates | Unique IDs or hide; keep headline | Hide until uniquely Verodus; amounts collide with Goat Funded Trader | **Pass 0/A: hide the carousel** until unique Verodus certificates exist. Keep headline/body copy. Do not replace with more anonymous quotes |
+| Certificates | Unique IDs or hide if uniqueness cannot be verified; keep headline | Hide until uniquely Verodus; amounts overlap Goat Funded Trader | **Keep the carousel.** Operator confirmation: these are legitimate Verodus certificates. Pass 0: unique IDs if available; hide only duplicate rows **on Verodus**. Do not hide the section because another firm shows similar first names or amounts |
 | Blog `best-simulated-prop-firm-2026.html` | Fix body numbers or unpublish; no rewrite; title/meta locked | Unpublish until it is not a launch manifesto | **Pass A: unpublish** unless the body can be corrected **and** “launching in 2026” / future tense / “best” claims are removed without a rewrite. If that needs a rewrite, unpublish |
 | Stat strip “+3,000 Users” | Change to **3,000+ traders** | Demote user count; do not pair with $1M | **Pass 0:** 3,000+ traders + reward-split wording. **Pass A:** demote or drop user count from the first strip if still ~3,000 |
 | Trustpilot badge | Keep **4.5 / 5**; no widget | Show N, or don’t lead with the score | **Pass 0:** keep. **Pass B:** `4.5 / 5 (N reviews)` if N is honest; otherwise text link without a score |
@@ -184,9 +185,9 @@ Keep the section headline and intro. Keep all six cards. Do **not** add the US P
 
 ### 0.8 Payout / certificate section
 
-Keep the headline **Real traders. Real certificates.** and the existing body sentences.
+Keep the headline **Real traders. Real certificates.** and the existing body sentences. **Keep the carousel.** These are legitimate Verodus certificates.
 
-Operational: no duplicate amounts, no placeholder names. Prefer unique certificate IDs. **If uniqueness cannot be verified, hide the carousel** (required — several live amounts/names collide with Goat Funded Trader: Yassir $466.28, Rehman $2,925.26, Joe/Jose $9,401.23). Do not rewrite the section copy. Do not fill the hole with more generic quotes.
+Operational: no placeholder names. No duplicate certificate **on this carousel** (same ID or same name+amount twice). Prefer unique certificate IDs. Optionally show date, rail, and country on each tile so the payout is easier to verify at a glance. Do not rewrite the section copy. Do not hide the section because another firm’s marketing uses similar first names or amounts.
 
 ### 0.9 Testimonials and Trustpilot
 
@@ -258,7 +259,7 @@ Hero rewrite, a line under the CTAs, meta-description rewrite, pricing-module re
 
 Do these even if Pass 0 copy is still landing. They are live contradictions.
 
-1. **Hide the certificate carousel** until each item is uniquely Verodus (certificate ID, date, rail, country, amount; no name/amount pair that appears on another firm). Keep **Real traders. Real certificates.** copy. Do not substitute anonymous quotes.
+1. **Certificates stay up.** If a certificate is missing an ID, add one. If the same name+amount appears twice **on Verodus**, remove the duplicate tile. Do not take the carousel down. Do not substitute anonymous quotes.
 2. **Remove Instant $200,000** from the homepage Instant selector and fee table. Instant sizes are **$5k–$100k**. $200k remains a 2-Step size. Leave leftover-fee line and do not add a refund sentence under Instant (Instant fees stay non-refundable).
 3. **Unpublish** `/best-simulated-prop-firm-2026.html` until it can be a sourced explainer with **current** Instant / 1-Step / Lite numbers, present tense, and no “best” / “launching in 2026.” If you only patch numbers and leave launch language, unpublish anyway. Do not change that page’s title/meta if it stays up.
 4. **Redirect** `/about` → `/about.html`. **Fix `sitemap.xml` 500.**
@@ -272,9 +273,9 @@ Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages stay as
 
 ## Pass B — proof that can be true
 
-8. **Public payouts page** (`/rewards` or `/payouts`): running list with certificate ID, date, amount, country, rail (Rise / crypto). Update when real. This replaces the hidden carousel; do not show it on the homepage until the set is unique.
+8. **Public payouts page** (`/rewards` or `/payouts`): running list with certificate ID, date, amount, country, rail (Rise / crypto). Homepage carousel stays; this page is the deeper proof layer, fed by the same legitimate Verodus certificates.
 9. **Trustpilot:** display **4.5 / 5 (N reviews)** only if N is honest. If N is tiny, use a text link “See independent reviews” and **do not lead** with the score. Still do not widget-ize unless volume supports it. Keep the existing quotes until numbered stories exist.
-10. **Trader stories with numbers you can defend** (example shape: first Instant cycle, $180, Rise, 11 hours, country). Never reuse another firm’s certificate math. Existing generic quotes may stay until these exist; do not invent them.
+10. **Trader stories with numbers you can defend** (example shape: first Instant cycle, $180, Rise, 11 hours, country). Tie a story to a real Verodus certificate when the trader agrees. Existing generic quotes may stay until these exist; do not invent them.
 11. **Footer (add, do not rewrite Pass 0 legal lines):** UAE company number / licence, city, postal address; Verodus Capital Inc. jurisdiction on the payments line; link to restricted countries. Keep the Pass 0 legal-name + affiliate lines.
 12. **Off-site founder proof, then link:** registry extract, LinkedIn, one filmed AMA or office/support/payout walkthrough. Link from About. Do **not** paste extra bio copy onto About. Do **not** rewrite the Read Bio modals.
 
@@ -330,7 +331,7 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 4. One legal name in footer / Terms / Risk. Privacy controller and Contact: **Verodus LLC → Verodus L.L.C.-FZ.**
 5. Stat strip: **Up to 90% reward split** and **3,000+ traders**. Keep $1M (combined cap) and &lt;24h.
 6. About: fix “Architects of Scale,” swap “behavioral analysis.” Leave Read Bio modals.
-7. Certificates: **hide** until unique Verodus IDs — no copy rewrite.
+7. Certificates: **keep.** Unique IDs if missing; drop only duplicate tiles on this carousel. No copy rewrite.
 8. Pass A in the same sprint: Instant $200k off the Instant grid; unpublish launch blog; `/about` redirect; sitemap 500; Trading Objectives discretionary leftover; demote 3,000 if it still sits beside $1M.
 9. Pass B: payouts page, honest Trustpilot N, defensible stories, footer company details, founder links / film.
 10. Pass C: one payout clock + guarantee, scaling page, table prices that match locked meta, Instant How it works, footer/FAQ geo links, add-on table.
