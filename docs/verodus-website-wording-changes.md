@@ -7,21 +7,33 @@
 - Hero subhead: **Demonstrate consistency through structured evaluation and unlock measured performance rewards — no deposits, no client funds, no brokerage.**
 - Hero CTAs: **Start Evaluation** / **Free Trial**
 
-**Meta: do not change.** Leave document title, meta description, Open Graph, Twitter cards, and canonical tags as they are.
-
-Homepage meta description stays exactly:
+**Meta description: do not change.** It stays exactly:
 
 ```html
 <meta name="description" content="Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit.">
 ```
 
-Use that same `content` on `og:description` and `twitter:description` if those tags exist. Do not rewrite prices, “Funded on day one,” “Keep 80%,” or the $5k–$200k range in meta.
+Use that same `content` on `og:description` and `twitter:description` if those tags exist.
 
-Homepage `<title>` / og:title stays **Instant from $49. Funded on Day One.** (and the live `Verodus —` prefix if present). Inner-page titles and meta stay as they are.
+**Homepage `<title>` / og:title / twitter:title — this pass only:**
+
+```html
+<title>Verodus | Up to $1M capital, 90% reward split</title>
+```
+
+Inner-page titles stay as they are.
 
 **Scope:** Swap a word or one sentence where listed below. Do **not** rewrite surrounding copy.
 
 **Entity note:** Verodus LLC and Verodus L.L.C.-FZ are the **same company**. Use one public legal name everywhere.
+
+**Product facts (do not treat these as errors):**
+
+- **$49** in meta is Instant at the **35% discount**, not a different SKU from the Instant table.
+- **$5k–$200k** in meta is **2-Step** account sizes. Instant does **not** offer $200k.
+- **$1M Max Capital** is the **combined** cap across accounts a trader can hold, not a single-account SKU.
+- Trustpilot **4.5 / 5** already **links** to the Trustpilot page. Do not call it unclickable.
+- Founder bios already live in **Read Bio** modals (photos + Kim Chen CEO copy + Alexander Vladimirovich COO copy). Do not paste them onto the About page and do not rewrite those modals in this pass.
 
 This is a copy brief, not a legal opinion. Counsel should still review Terms, Risk Disclosure, Privacy, and any payout language.
 
@@ -31,7 +43,7 @@ This is a copy brief, not a legal opinion. Counsel should still review Terms, Ri
 
 Do not edit H1, subhead, the **no deposits / no client funds / no brokerage** pill, or CTAs. Do not change prices or “funded” inside those lines.
 
-The Instant table currently starts at **$72**, not $49. Do **not** “fix” that by editing the hero or the meta.
+The Instant table list/discount pair is the 35% Instant promo. **$49** in meta is that discounted Instant price. Do **not** “fix” $49 by editing the hero.
 
 Use **funded** less **everywhere else**. The hero already carries the search term.
 
@@ -39,21 +51,30 @@ The hero already states **— no deposits, no client funds, no brokerage.** Do *
 
 ---
 
-## Locked: meta (all pages)
+## Locked: meta description (all pages)
 
 Do **not** change:
 
-- `<title>`
 - `<meta name="description">`
-- `og:title`, `og:description`, `og:url`, `og:image`
-- `twitter:title`, `twitter:description`, `twitter:image`
+- `og:description`, `twitter:description`
 - canonical / hreflang
+- Inner-page `<title>` tags
 
 **Homepage description (locked):**
 
 > Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit.
 
-Inner-page titles stay as they are even when a single on-page word changes.
+`$49` = Instant at 35% off. `$5k–$200k` = 2-Step sizes (not Instant). `Keep 80%` = default split.
+
+---
+
+## Homepage title (this pass)
+
+| Now | Change to |
+|---|---|
+| Instant from $49. Funded on Day One. (and any `Verodus —` prefix) | **Verodus \| Up to $1M capital, 90% reward split** |
+
+Apply to `<title>`, `og:title`, and `twitter:title` on the homepage only. `$1M` is the combined-account cap. `90%` is the top reward split (On-Demand). Description still says Keep 80% (default). That pairing is intended.
 
 ---
 
@@ -103,7 +124,7 @@ Replace the word/sentence. Leave the rest of each answer as it is.
 
 ## 3. Use “funded” less (labels and one phrase, not full rewrites)
 
-The hero and meta already say “Funding Traders Worldwide,” “Funded on Day One,” and “Funded on day one from $49.”
+The hero already says “Funding Traders Worldwide.” Meta description already says “Funded on day one from $49.”
 
 Swap the word. Do **not** rewrite Instant blurbs, Instant overview paragraphs, or FAQ answers around it.
 
@@ -129,7 +150,7 @@ Leave Instant card body copy, Instant rules body, Plan FAQ body, and “Instant 
 | +3,000 Users Worldwide | **3,000+ traders** |
 | Up to 90% Profit Split | **Up to 90% reward split** |
 
-Keep 175+ Countries, **$1M Max Capital**, and **&lt;24h Reward Processing** exactly as they are.
+Keep 175+ Countries, **$1M Max Capital** (combined cap across accounts), and **&lt;24h Reward Processing** exactly as they are.
 
 The later “Global reach” strip already says **Up to 90% Reward Split**. Make the first strip match it.
 
@@ -152,7 +173,7 @@ Keep the section headline and intro as they are.
 
 ## 6. Instant / pricing module — skip
 
-Do **not** change the Instant size selector, the $200k row, the leftover fee line, or add a refund sentence under the table.
+Do **not** change the Instant size selector, the leftover fee line, or add a refund sentence under the table. Instant **$200k is not a live SKU** (that range is 2-Step). Leave the selector as-is in this pass.
 
 Leave the simulation disclaimers on Instant / 1-Step / 2-Step rule pages as they are.
 
@@ -176,7 +197,7 @@ Operational only: no duplicate amounts, no placeholder names. Prefer unique cert
 
 ## 9. Testimonials and Trustpilot
 
-Keep **Rated 4.5 / 5 on Trustpilot** as it is. Do not replace it with a widget, and do not remove the number.
+Keep **Rated 4.5 / 5 on Trustpilot** as it is. It already **links** to Trustpilot. Do not replace it with a widget, and do not remove the number.
 
 Keep the existing quotes. Do not rewrite them.
 
@@ -195,7 +216,7 @@ Only:
 
 ## 11. About page
 
-Do not rewrite the opening paragraph or “Helping traders prove their edge.” Bios stay in the existing **Read Bio** modals — do not put them on the page.
+Do not rewrite the opening paragraph or “Helping traders prove their edge.” Bios already exist in the **Read Bio** modals (photos, Kim Chen CEO text, Alexander Vladimirovich COO text). Do not put them on the page. Do not rewrite the modal copy in this pass.
 
 | Now | Change to |
 |---|---|
@@ -252,7 +273,7 @@ Do not rewrite the rest of Privacy. Optional checkout/Terms one-liner (counsel):
 
 ---
 
-## 13. Blog body (meta stays locked)
+## 13. Blog body (homepage description stays locked)
 
 `/best-simulated-prop-firm-2026.html` **body** numbers that do not match live Instant/1-Step/Lite: update those numbers, or unpublish. Do **not** change that page’s `<title>` or meta. Do not rewrite the article.
 
@@ -269,7 +290,7 @@ Use only when a listed swap above already applies. Do not hunt the site to rewri
 | Discretionary (payouts) | Paid under the published rules after eligibility checks |
 | Behavioral analysis (About) | Risk control |
 
-**Exception:** hero H1 and locked meta may keep “Funding” / “Funded on Day One” / “Funded on day one from $49.”
+**Exception:** hero H1 may keep “Funding.” Meta description may keep “Funded on day one from $49.” Homepage `<title>` in this pass is **Verodus | Up to $1M capital, 90% reward split.**
 
 ---
 
@@ -282,16 +303,16 @@ Do not reorder the page. Hero (including the no-deposits pill), stat strip, pric
 ## 16. What not to change
 
 - **Homepage hero** (H1, subhead, **— no deposits, no client funds, no brokerage.** pill, CTAs). Do not add another line under the CTAs.
-- **Meta on every page.** Homepage description stays **Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit.**
-- Instant / pricing module (sizes, $200k row, leftover fee line, no new refund sentence).
+- **Homepage meta description** (locked string above). Inner-page titles and descriptions.
+- Instant / pricing module (selector, leftover fee line, no new refund sentence). Instant $200k is not sold; leave the module in this pass.
 - Why Verodus intro and cards, including **Supported Platforms** (no US Platform 5 add) and **No Personal Capital** (do not add “Trading is simulated.”).
 - How it works steps, calculator, bottom CTA.
-- Trustpilot **Rated 4.5 / 5** (do not widget-ize or remove).
+- Trustpilot **Rated 4.5 / 5** (already links; do not widget-ize or remove).
 - Existing testimonial quotes.
 - FAQ answers other than the two phrase swaps in section 10.
 - About opening / mission copy.
-- About **Read Bio** UI stays modal. Do not paste bios onto the About page. Fill the modals (section 18).
-- Stat strip **$1M Max Capital** and **&lt;24h Reward Processing**.
+- About **Read Bio** modals (existing Kim Chen and Alexander Vladimirovich copy and photos). Do not paste onto the page. Do not rewrite in this pass.
+- Stat strip **$1M Max Capital** (combined cap) and **&lt;24h Reward Processing**.
 - Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages.
 - Restricted-country and US Platform 5 notes where they already live.
 - Marketing pages (homepage, FAQ, About): no “we sell trading data” line. Privacy amendment only, after counsel.
@@ -300,46 +321,25 @@ Do not reorder the page. Hero (including the no-deposits pill), stat strip, pric
 
 ## 17. Implementation order
 
-1. FAQ “Is Verodus legitimate?” — remove “discretionary” only.
-2. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3).
-3. One legal name in footer / Privacy / Terms. Counsel-gated Privacy amendment for anonymized/aggregated data sale (section 12) — do not publish until counsel signs.
-4. Stat strip: reward split (and 3,000+ traders if you still want it).
-5. About: fix “Architects of Scale,” swap “behavioral analysis.” Fill Read Bio **modals** with founder proof (section 18). Do not put bios on the page.
-6. Certificates: unique IDs or hide duplicates — no copy rewrite.
-7. Blog body numbers only, if they are wrong.
+1. Homepage `<title>` / og:title / twitter:title → **Verodus | Up to $1M capital, 90% reward split.** Description unchanged.
+2. FAQ “Is Verodus legitimate?” — remove “discretionary” only.
+3. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3).
+4. One legal name in footer / Privacy / Terms. Counsel-gated Privacy amendment for anonymized/aggregated data sale (section 12) — do not publish until counsel signs.
+5. Stat strip: reward split (and 3,000+ traders if you still want it). Keep $1M (combined cap).
+6. About: fix “Architects of Scale,” swap “behavioral analysis.” Leave Read Bio modals as they are.
+7. Certificates: unique IDs or hide duplicates — no copy rewrite.
+8. Blog body numbers only, if they are wrong.
 
-Do **not** include a hero rewrite, a line under the CTAs, a meta rewrite, a pricing-module rewrite, or a Trustpilot rewrite in this pass. Do **not** put data-sale language on marketing pages.
+Do **not** include a hero rewrite, a line under the CTAs, a meta-description rewrite, a pricing-module rewrite, a Trustpilot rewrite, or a bio rewrite in this pass. Do **not** put data-sale language on marketing pages.
 
 ---
 
-## 18. How to create founder proof
+## 18. Founder bios (already in modals — keep)
 
-Founder proof is not a slogan. It is a stranger being able to confirm **two named people run Verodus**. Empty “Read Bio” chrome, smashed headings, and stock language do the opposite. Bios stay in the existing **modals**. Put the proof **inside** those modals and in a few off-site places that match.
+The live modals already have photos, names, titles, and full copy. **Keep them.** Do not paste onto About. Do not rewrite in this pass.
 
-**On Verodus (modals only)**
+**Kim Chen** — Co-Founder & Chief Executive Officer. Finance graduate; digital-asset background; CEO as strategist / roadmap / infrastructure access. Quote on world-class resources.
 
-Each modal needs all of this:
+**Alexander Vladimirovich** — Co-Founder & Chief Operating Officer. Honors finance graduate; FX / risk-managed trading; COO on UX, infrastructure, payout processing, support. Quote on a reliable ecosystem.
 
-- A real photo (same face as LinkedIn and any AMA).
-- The name as it appears on the Dubai FZ record.
-- Title: Co-founder & CEO / Co-founder & COO.
-- Two to four sentences of work they actually did, that a search can confirm. What they run at Verodus (rules and product vs operations and payouts).
-- A LinkedIn URL that opens.
-- No “Architects of Scale,” no invented banks, no MIT/Jane Street unless it is true and checkable.
-
-Template (replace with real facts only):
-
-> **Kim Chen** — Co-founder and CEO. Runs evaluation products and published rules. [One true prior role, years, firm.]  
-> **Alexander Vladimirovich** — Co-founder and COO. Runs operations, payouts, and trader support. [One true prior role, years, firm.]
-
-**Off-site (this is what actually creates proof)**
-
-1. **Registry.** Verodus L.L.C.-FZ on the Dubai FZ public search with the same two names. If you publish a license number, it must match that record.
-2. **LinkedIn.** Company page lists both as founders. Personal profiles name Verodus, are not empty, and use the same photos.
-3. **One filmed appearance.** Discord AMA or short video with both (or the CEO) on camera. Same faces as the modals. Record it; leave it up.
-4. **Same names on paper.** Support signatures, trader agreement, and any PropFirmMatch / press listing use Kim Chen and Alexander Vladimirovich, not “the team.”
-5. **Do not buy** interviews, fake employee counts, or stock-photo leadership. That is anti-proof.
-
-**What this does not do**
-
-Founder proof is not payout proof. It answers “are these people real?” It does not answer “do they pay?” That still needs unique certificate IDs, a Trustpilot people can open, and third-party talk.
+What a stranger still cannot check from those modals: school names, prior employers, years, LinkedIn. That is off-site founder proof (registry, LinkedIn, one filmed AMA), not a copy rewrite this pass. Founder proof is not payout proof.

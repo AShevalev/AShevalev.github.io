@@ -176,58 +176,75 @@ def build():
     pdf.set_y(78)
     pdf.callout(
         "Label after this pass: an unproven Instant/challenge simulated-evaluation firm "
-        "with careful FAQ and Terms, one UAE FZ name, and Instant-search marketing. "
-        "The first screen already says no deposits, no client funds, no brokerage. "
-        "Not a scam site. Not a licensed broker. Not live capital. Not a known payer. "
-        "Hero and meta still sell Funded on day one from $49."
+        "with careful FAQ and Terms, one UAE FZ name, and a search title of Up to $1M "
+        "capital, 90% reward split. The first screen already says no deposits, no client "
+        "funds, no brokerage. $49 is Instant at 35% off. $1M is combined account cap. "
+        "Trustpilot already links. Bios already sit in modals. Not a scam site. Not a "
+        "licensed broker. Not live capital. Not a known payer."
     )
 
     pdf.h2("The remaining pass (only this)")
     pdf.body(
-        "Light phrase swaps. No hero rewrite (including the existing no deposits / no "
-        "client funds / no brokerage pill). No extra line under the CTAs. No meta rewrite, "
-        "no Instant pricing rewrite, no Trustpilot rewrite, no Why Verodus rewrite, no How "
-        "it works rewrite, no FAQ rewrite except two phrases. Bios stay in Read Bio modals "
-        "(fill them; do not move them onto the page)."
+        "Light phrase swaps plus one homepage title change. No hero rewrite. No extra "
+        "line under the CTAs. No meta-description rewrite. No Instant pricing rewrite. "
+        "No Trustpilot rewrite. No Why Verodus rewrite. No How it works rewrite. No FAQ "
+        "rewrite except two phrases. Bios stay in the existing Read Bio modals as written."
     )
     add_table(
         pdf,
         ["In", "Out"],
         [
             [
-                "One legal name: Verodus L.L.C.-FZ. Payments: Capital Inc. affiliate.",
+                "Homepage title / og:title / twitter:title: Verodus | Up to $1M capital, 90% reward split.",
                 "Hero H1, subhead, no deposits / no client funds / no brokerage pill, CTAs. No extra line under CTAs.",
             ],
             [
                 "FAQ: drop discretionary. Terms: pay if rules + KYC; withhold for breaches.",
-                "Meta: Funded on day one from $49. 1-Step from $45. Lite from $39. $5k-$200k. Keep 80%. No deposit.",
+                "Meta description (locked): Funded on day one from $49. 1-Step from $45. Lite from $39. $5k-$200k. Keep 80%. No deposit.",
+            ],
+            [
+                "One legal name: Verodus L.L.C.-FZ. Payments: Capital Inc. affiliate.",
+                "Instant pricing module. Instant $200k is not sold; $5k-$200k is 2-Step.",
             ],
             [
                 "Instant label, FAQ Instant line, dashboard, Privacy: Instant / Qualified Performance, not Funded.",
-                "Instant table $200k row, leftover $296 / -35% line, refund sentence.",
+                "Trustpilot 4.5/5 (already links). Quotes. Why Verodus cards. Bio modal copy.",
             ],
             [
-                "Stat strip: 3,000+ traders; 90% reward split. Keep $1M and <24h as-is.",
-                "Trustpilot 4.5/5. Quotes. Platform 5 on Why Verodus. Trading is simulated on No Personal Capital.",
-            ],
-            [
-                "About: Leadership heading. Behavioral analysis -> risk control. Fill Read Bio modals (founder proof). Do not paste bios on the page.",
+                "Stat strip: 3,000+ traders; 90% reward split. Keep $1M (combined cap) and <24h.",
                 "How it works, calculator, bottom CTA. About opening / mission copy.",
             ],
             [
-                "Certificates: unique IDs or hide duplicates. Copy stays Real traders. Real certificates.",
-                "Adding Simulated accounts under the hero CTAs. Repeating no deposit there.",
+                "About: Leadership heading. Behavioral analysis -> risk control. Leave Read Bio modals.",
+                "Adding Simulated accounts under the hero CTAs. Rewriting founder bios.",
             ],
             [
-                "Blog body numbers to live rules, or unpublish. Meta of that page stays.",
-                "Any other section rewrite. We sell trading data on marketing pages.",
+                "Certificates: unique IDs or hide duplicates. Copy stays Real traders. Real certificates.",
+                "We sell trading data on marketing pages.",
             ],
             [
                 "Privacy (counsel-gated): anonymized/aggregated data license clauses. Not on homepage.",
-                "Title Instant from $49. Funded on Day One.",
+                "Any other section rewrite.",
             ],
         ],
         [87, 87],
+    )
+
+    pdf.h2("Product facts (stop treating these as leaks)")
+    pdf.bullet(
+        "$49 in the meta description is Instant at the 35% discount, not a rogue price versus the Instant table."
+    )
+    pdf.bullet(
+        "$5k-$200k in the meta description is 2-Step account sizes. Instant does not offer $200k."
+    )
+    pdf.bullet(
+        "$1M Max Capital is the combined cap across accounts a trader can hold, not a single Instant SKU. The new title uses that number on purpose."
+    )
+    pdf.bullet(
+        "Trustpilot 4.5 / 5 already links to the Trustpilot site. Do not call it unclickable."
+    )
+    pdf.bullet(
+        "Kim Chen and Alexander Vladimirovich already have photos and full bios in Read Bio modals. Keep that UI and that copy this pass."
     )
 
     pdf.h2("Where it puts Verodus")
@@ -237,8 +254,13 @@ def build():
         [
             [
                 "Google / Instant buyer",
-                "Funded on day one from $49. Keep 80%. $5k-$200k.",
-                "Same. First screen already says no deposits, no client funds, no brokerage.",
+                "Title: Instant from $49. Funded on Day One. Description: Funded on day one from $49.",
+                "Title: Verodus | Up to $1M capital, 90% reward split. Description unchanged ($49 Instant at 35% off; $5k-$200k = 2-Step).",
+            ],
+            [
+                "First screen",
+                "Funding Traders Worldwide. No deposits, no client funds, no brokerage.",
+                "Same. No extra line under the CTAs.",
             ],
             [
                 "Trader who reads FAQ / Terms",
@@ -267,8 +289,8 @@ def build():
         "Sector ladder: 1 clone scam  2 unproven Instant shop with sloppy copy  "
         "3 unproven Instant shop with careful copy  4 known payer with a public track record  "
         "5 licensed or live-capital firm. This pass moves Verodus from 2 toward 3. "
-        "It does not reach 4. Copy cannot buy 4. Verifiable payouts and independent talk can. "
-        "It never reaches 5 unless the product itself changes."
+        "The new title sells combined cap and top split in search. It does not reach 4. "
+        "Copy cannot buy 4. Verifiable payouts and independent talk can."
     )
 
     pdf.h2("Scorecard")
@@ -276,97 +298,83 @@ def build():
         pdf,
         ["Dimension", "Before", "After"],
         [
-            ["Search / Instant pitch", "Funded on day one from $49", "Unchanged"],
+            ["Search title", "Instant from $49. Funded on Day One.", "Verodus | Up to $1M capital, 90% reward split"],
+            ["Search description", "Funded on day one from $49 ... $5k-$200k. Keep 80%.", "Unchanged (correct: $49 = 35% Instant; range = 2-Step)"],
             ["Payout promise", "Discretionary", "Rules + KYC; clawback for breaches"],
             ["Legal identity", "LLC vs L.L.C.-FZ", "One FZ name + Capital Inc. affiliate"],
             ["Funded vs simulation", "Hero already: no deposits, no client funds, no brokerage. Instant cards still say Funded.", "Hero honesty stays. Instant cards say Instant."],
-            ["Stat strip honesty", "Profit split + $1M max capital", "Reward split; $1M stays"],
-            ["Social proof", "4.5 Trustpilot, first-name quotes, duplicate certificates", "Trustpilot and quotes stay; duplicates should go"],
-            ["About polish", "Smashed heading; behavioral analysis; empty-feeling leadership", "Leadership; risk control; founder proof inside modals"],
-            ["Price / SKU match", "$49 meta vs $72 Instant; $200k Instant in table", "Unchanged (pricing skipped)"],
+            ["Stat strip", "Profit split + $1M combined cap", "Reward split; $1M combined cap stays"],
+            ["Social proof", "4.5 Trustpilot (linked), first-name quotes, duplicate certificates", "Trustpilot stays linked; quotes stay; duplicates should go"],
+            ["About / bios", "Smashed heading; behavioral analysis; bios already in modals with photos", "Leadership; risk control; modal bios unchanged"],
             ["Public payout proof", "None independent", "Unchanged"],
         ],
-        [48, 63, 63],
+        [40, 67, 67],
     )
 
     pdf.h2("What gets better")
     pdf.bullet(
         "Discretionary was the worst leak. Is Verodus legitimate? currently tells a careful "
         "reader you might not pay even if they followed the rules. After the swap, the same "
-        "answer says you pay when rules and identity checks are met. That is the one line "
-        "that changes how a serious trader buckets the firm."
+        "answer says you pay when rules and identity checks are met."
     )
     pdf.bullet(
-        "One legal name kills the two-company / shell-stack read. Privacy LLC and Terms "
-        "L.L.C.-FZ were the same firm presented as two. A real FZ operator shows one name."
+        "One legal name kills the two-company / shell-stack read. Same FZ firm, one public name."
     )
     pdf.bullet(
-        "The hero already carries no deposits, no client funds, no brokerage. That stays. "
-        "This pass does not add Simulated accounts under the CTAs and does not repeat "
-        "no deposit there. Instant as the phase label, Simulated Instant account in FAQ, "
-        "and Qualified Performance on the dashboard stop repeating Funded next to "
-        "simulated on every card."
+        "Search title now matches the stat strip: combined $1M cap and 90% top split, instead of "
+        "only Instant from $49. Description still sells the 35% Instant fee and 2-Step sizes."
     )
     pdf.bullet(
-        "Reward split on the first strip matches Global reach. Profit split implied live P&L."
+        "Instant as the phase label, Simulated Instant account in FAQ, and Qualified "
+        "Performance on the dashboard stop repeating Funded next to simulated on every card. "
+        "Hero keeps no deposits, no client funds, no brokerage."
     )
     pdf.bullet(
-        "If duplicate certificate amounts go, the payout strip stops looking generated. "
-        "If they stay, that block still costs more trust than it buys."
+        "Reward split on the first strip matches Global reach and the new title."
     )
     pdf.bullet(
-        "Leadership and risk control remove two amateur tells. Founder proof is filling "
-        "the Read Bio modals with photos, LinkedIn, and checkable work history, plus "
-        "registry and one filmed AMA. That is off-copy work, not a heading change."
+        "If duplicate certificate amounts go, the payout strip stops looking generated."
+    )
+    pdf.bullet(
+        "Leadership and risk control remove two amateur tells. Bios already have faces and "
+        "titles in modals. Leave that copy this pass."
     )
 
     pdf.h2("What still hurts")
     pdf.bullet(
-        "$49 in hero and meta versus Instant table from $72. Screenshotters will still "
-        "post the gap. This pass leaves it."
+        "The homepage Instant selector can still show $200k even though Instant does not "
+        "sell $200k. Pricing module was skipped this pass. Meta $5k-$200k is 2-Step and is fine."
     )
     pdf.bullet(
-        "Meta says $5k-$200k and Keep 80%. Instant FAQ still says no $200k Instant and "
-        "default 80% / 90% with On-Demand. Homepage Instant can still show $200k. "
-        "Pricing module was skipped."
+        "Founder modals have photos and titles but no school names, prior employers, years, "
+        "or LinkedIn. A stranger still cannot confirm the people from the copy alone. That "
+        "is registry / LinkedIn / one filmed AMA, not a bio rewrite this pass."
     )
     pdf.bullet(
-        "$1M Max Capital stays while live SKUs top out at $100k Instant / $200k evaluation. "
-        "That number still looks invented."
-    )
-    pdf.bullet(
-        "Rated 4.5 / 5 on Trustpilot stays without a confirmed clickable profile. "
-        "First-name testimonials stay. Social proof is still self-issued."
+        "First-name testimonials stay. Duplicate certificates, if they remain, still cost trust."
     )
     pdf.bullet(
         "No Reddit, PropFirmMatch, or independent payout corpus. Wording does not create "
         "that. Until it exists the honest public label is unproven, not scam, not FTMO-grade."
     )
 
-    pdf.h2("How to create founder proof")
+    pdf.h2("Founder bios (as they already are)")
     pdf.body(
-        "A stranger must be able to confirm two named people run Verodus. Keep bios in "
-        "the existing Read Bio modals. Do not paste them onto the About page."
+        "Keep the existing Read Bio modals. Do not paste them onto About. Do not rewrite "
+        "the paragraphs this pass."
     )
     pdf.bullet(
-        "Each modal: real photo (same as LinkedIn), name as on the Dubai FZ record, "
-        "CEO/COO title, two to four checkable sentences of prior work plus what they "
-        "run at Verodus, and a LinkedIn URL that opens. No invented banks or degrees."
+        "Kim Chen, Co-Founder and CEO. Photo. Finance graduate; digital-asset background; "
+        "strategist and roadmap; infrastructure access. Closing quote on world-class resources."
     )
     pdf.bullet(
-        "Registry: Verodus L.L.C.-FZ public search with the same two names. Only publish "
-        "a license number if it matches."
+        "Alexander Vladimirovich, Co-Founder and COO. Photo. Honors finance graduate; "
+        "FX and risk-managed trading; UX, infrastructure, processing, support. Closing quote "
+        "on a reliable ecosystem."
     )
     pdf.bullet(
-        "LinkedIn company page lists both as founders. Personal profiles name Verodus "
-        "and are not empty."
-    )
-    pdf.bullet(
-        "One filmed appearance (Discord AMA or short video) with the same faces. Leave it up."
-    )
-    pdf.bullet(
-        "Same names on the trader agreement and any PropFirmMatch or press listing. "
-        "Do not buy interviews or use stock photos. Founder proof answers are these "
+        "What is still missing for founder proof is off-site: same names on the FZ record, "
+        "LinkedIn that opens with the same faces, one filmed AMA. That answers are these "
         "people real. It does not answer do they pay."
     )
 
@@ -379,22 +387,19 @@ def build():
     pdf.body(
         "If counsel signs and the extract is aggregated or irreversibly anonymized, "
         "Verodus can license feature tables and research labels. That does not change "
-        "the homepage. Retail still sees Instant funding. A partner who reads Privacy "
-        "sees a simulated-evaluation firm that may license anonymized telemetry. Still "
-        "never: PII, KYC, wallets, IPs, raw tickets that reconstruct a named trader's edge."
+        "the homepage. Still never: PII, KYC, wallets, IPs, raw tickets that reconstruct "
+        "a named trader's edge."
     )
 
     pdf.h2("Clean verdict")
     pdf.callout(
-        "Do the edits. They close the worst self-inflicted leaks: discretionary, two "
-        "names, Funded as a phase label, smashed About heading. After they ship, Verodus "
-        "is a careful Instant shop, not a new kind of firm. The first screen already says "
-        "no deposits, no client funds, no brokerage; do not add another line under the "
-        "CTAs. Attractive to Instant buyers on Google. Less alarming to traders who read "
-        "FAQ and Terms. Unchanged for anyone waiting on third-party payout proof. "
-        "Reputation in this category is paid for with verifiable payouts, a Trustpilot "
-        "people can open, numbers that match checkout, and founder proof "
-        "(registry + LinkedIn + one filmed AMA). Those last items remain mostly outside copy."
+        "Do the edits. They close discretionary, two names, Funded as a phase label, and "
+        "the smashed About heading, and they put combined $1M and 90% in the search title. "
+        "After they ship, Verodus is a careful Instant shop, not a new kind of firm. "
+        "Google sees $1M / 90%. The description still sells Instant from $49 at 35% off. "
+        "The first screen already says no deposits, no client funds, no brokerage. "
+        "Trustpilot already links. Bios already have faces. Unchanged for anyone waiting "
+        "on third-party payout proof."
     )
 
     pdf.ln(2)
@@ -404,8 +409,8 @@ def build():
         0,
         4.6,
         "Scope: remaining items in docs/verodus-website-wording-changes.md as of 21 August "
-        "2026 only. Compared with live verodus.com. Not an audit and not legal advice. "
-        "Privacy data-license text is not public until counsel signs.",
+        "2026 only. Facts from Verodus on $49 (35% Instant), $5k-$200k (2-Step), $1M "
+        "(combined cap), Trustpilot link, and founder modals. Not an audit and not legal advice.",
     )
 
     for path in (OUT, REPO_OUT, ROOT_OUT):
