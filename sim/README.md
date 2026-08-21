@@ -36,4 +36,5 @@ PYTHONPATH=sim python sim/run.py --n-sims 4000
 | `write_new_pack.py` | Margins PDF + catalog (prices, rules, add-on %) on the 17 Aug card |
 | `write_book_310.py` | 310-account monthly P&L (wages CAD 10k, leftover after opex) |
 | `verodus_mc.py` | Verodus-only engine (FAQ rules) |
-| `run_fundedhive.py` | FundedHive print / BE → `results/FUNDEDHIVE.md` |
+| `run_fundedhive.py` | FundedHive print / BE → `results/FUNDEDHIVE.md` + CSVs |
+| `write_fundedhive_pdf.py` | FundedHive print/BE card → `results/FundedHive_Print_BE_2026-08-21.pdf` |

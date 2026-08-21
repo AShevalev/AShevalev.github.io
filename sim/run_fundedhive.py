@@ -459,6 +459,11 @@ def main():
     print("PFP2 funnel")
     print(pfp2.to_string(index=False))
     print(f"\nWrote {path}")
+    try:
+        from write_fundedhive_pdf import main as write_pdf
+        write_pdf()
+    except Exception as exc:
+        print(f"PDF skipped: {exc}")
 
 
 if __name__ == "__main__":
