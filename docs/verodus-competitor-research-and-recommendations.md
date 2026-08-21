@@ -177,14 +177,14 @@ Kim Chen and Alexander Vladimirovich exist in Read Bio modals (brief: keep). A s
 | Instant $200k column | Homepage Instant grid includes $200k / $699 | FAQ: Instant max $100k. Buyers screenshot this |
 | Meta $49 vs table $72 | Title/description “from $49”; 5k Instant is $72 at −35% | Looks like bait. Brief locks meta; **table/campaign must earn $49** or the title will keep lying |
 | Stat strip 3,000+ traders | Accurate (operator confirmation) | **Keep.** Pass 0 wording only: **3,000+ traders**. Do not demote |
-| “How it works” vs Instant | Step 2 “Prove consistency” then Instant has no eval | Instant buyers feel the page is for someone else |
+| “How it works” vs Instant | Step 2 “Prove consistency” then Instant has no eval | Observed only. **Skip** — keep the current four steps |
 | Trading Objectives page | Defaults look like 2-Step Pro (10%/5%) even when Instant is selected (fetch showed mixed headings) | Observed only. **Skip** — do not change this page |
 | Sitemap 500 | `sitemap.xml` returned 500 | Unprofessional for crawlers; also a “we are not finished” signal |
 | `/about` 404 | Canonical is `about.html` | `/about` should redirect |
 | Platform names | Platform 5, TradeHub | Category search is “MT5 / cTrader / TradeLocker.” If licensing blocks names, say **“industry-standard MT5-class terminal”** once, legally reviewed — not a mysterious fifth platform |
 | No payout guarantee | Homepage **&lt;24h**; Instant page “within 48 hours” | Bind an SLA at **&lt;24h** with a remedy. Align Instant 48h to &lt;24h. Do not pick 48h |
 | No scaling | $1M combined cap | Career firms sell **the next account**, not a ceiling |
-| No public restricted-country list on homepage | Alpha FAQ links a list; Fintokei lists excluded countries | US Platform 5 restriction lives somewhere; homepage “175+” without asterisks creates chargebacks |
+| No public restricted-country list on homepage | Alpha FAQ links a list; Fintokei lists excluded countries | Do **not** add a US Platform 5 / MT5 restriction to the footer. Notes stay where they already live |
 
 ### 4.4 Stance vs the two tribes
 
@@ -226,10 +226,10 @@ Skip `/trading-objectives.html` (no model-default fix, no discretionary CTA swap
 
 ### Desirable (why pick Verodus this week)
 
-13. **A scaling or VIP story.** Does not need $4M on day one. Needs: after N successful cycles, size +X% or split +10%, published. CTI Silver/Gold and FundingPips Hot Seat exist because traders need a **next level**.
-14. **Payout guarantee with a cost to Verodus.** “Under 24h or we add 10% to that cycle / $250 / 100% split on that reward.” For Traders and FundedNext made this the category standard. Verodus already claims speed — **bind it**.
+13. **A scaling or VIP story.** After N successful cycles, size +X% or split +10%, published. Combined cap still $1M until raised. **Skip:** own URL, How it works step 5, $2M–$4M advertising.
+14. **Payout guarantee with a cost to Verodus.** “Under 24h or we add 10% to that cycle / $250 / 100% split on that reward.” Bind it at **&lt;24h**.
 15. **Publish average first reward and median hours** by model (FundingPips). Calculator is hypothetical; averages are social proof.
-16. **Instant-specific homepage path.** When Instant is selected, How it works should be: Buy → Trade simulated Instant → Hit $100 + Best Day + cycle → KYC if not done → Reward. Do not show “prove consistency” as step 2.
+16. **Skip Instant-specific How it works.** Keep the current four steps for every model.
 17. **Competitive $100k 2-Step presentation** equal to Instant (phases vs amounts toggle is good; default tab should match the paid media keyword).
 18. **Community that is visible:** Discord member count, payout-proof channel, or “don’t show Discord until it is real.” FAQ already promises Discord 24/7.
 19. **Add-on merchandising at checkout like Alpha/FXIFY** (already have weekend, weekly, on-demand). Show them as **choices with consequences**, not FAQ trivia.
@@ -272,10 +272,10 @@ Assume the brief ships as written (hero and meta **untouched**, discretionary go
 ### Pass C — commercial objects the category requires
 
 13. **&lt;24h reward guarantee** with a published remedy. Align Instant “within 48 hours” to **&lt;24h**. Do not pick 48h as the SLA.
-14. **Scaling policy** (example, to be designed with risk): after 2 successful cycles, +25% simulated size or +10% split, hard combined cap still $1M until you can raise it. Put it on its own page and in How it works as optional step 5.
+14. **Scaling policy** (example, to be designed with risk): after 2 successful cycles, +25% simulated size or +10% split; combined cap still $1M until you can raise it. **Skip:** own URL, How it works step 5, $2M–$4M advertising.
 15. **Make $49 true** or stop it: a real Instant 5k campaign price, or a Lite SKU at $39 as the meta already claims. Locked meta means **product/pricing must catch the meta**, not the other way around.
-16. **How it works variant for Instant.**
-17. **Restricted countries + US Platform 5** linked from footer and FAQ (already exist in the brief’s “do not add to Why Verodus cards” — put them in **legal/FAQ/footer**, not the marketing cards).
+16. **Skip Instant How it works variant.** Keep the current four steps.
+17. **Do not add a US Platform 5 / MT5 restriction to the footer.** Leave that note where it already lives. Do not add it to Why Verodus cards.
 18. **Checkout add-on sheet** on Instant/1-Step pages: Weekend / Weekly 70% / On-Demand 90%, in one comparison table.
 
 ### Pass D — premium layer (after A–C)
@@ -289,23 +289,6 @@ Assume the brief ships as written (hero and meta **untouched**, discretionary go
 
 ---
 
-## 7. Competitive positioning (recommended)
-
-**Do not try to win FundedNext’s volume game or FTMO’s decade.** Win the **Alpha Capital / Fintokei / For Traders** intersection:
-
-> A simulated evaluation firm that pays under published rules, shows every payout, and treats Instant as a risk product with honest drawdown — not as a lottery ticket.
-
-**Category line (internal — do not put in the locked hero):**  
-*Prove a process. Get paid on the rules. Nothing discretionary about meeting them.*
-
-**Against FTMO:** cheaper Instant + 1-Step, faster cycles, more honest Instant. Lose on history, tools, academy, $650M.
-
-**Against FundingPips / Goat:** more adult rules language, no 100% theatre until you can pay it. Lose on price theatre and Discord.
-
-**Against Alpha:** similar honesty. Lose on UK brand, broker group, 1.2M traders. Differentiate with Instant quality, &lt;24h bound guarantee, and cleaner Instant rules explanation (diagrams).
-
----
-
 ## 8. Priority order
 
 | Order | Work | Outcome it buys |
@@ -313,11 +296,11 @@ Assume the brief ships as written (hero and meta **untouched**, discretionary go
 | 0 | Ship the wording brief | Stops self-owning (discretionary, two LLCs, “Funded” Instant label) |
 | 1 | Keep certificates (add IDs); kill Instant $200k column; unpublish launch blog; fix sitemap/about | Stops SKU / URL / launch-blog contradictions |
 | 2 | Real payouts page + honest Trustpilot N + one bound SLA | Trustworthy |
-| 3 | Footer company + founder external links + Instant how-it-works | Established enough to buy |
+| 3 | Footer company (no MT5 restriction in footer) + founder external links | Established enough to buy |
 | 4 | Scaling + $49/$39 truth + add-on table | Desirable vs the grid |
 | 5 | Film, photography, academy/community | Premium feel |
 
-Until row 1 is done, more marketing spend will buy **comparison-site skepticism**, not prestige.
+Until row 1 is done, SKU / URL / launch-blog contradictions still sit on the live site.
 
 ---
 

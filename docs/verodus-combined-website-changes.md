@@ -83,9 +83,12 @@ Do not put “we sell trading data” on the homepage, FAQ, About, or Privacy.
 | Reward-speed SLA | Keep homepage **&lt;24h Reward Processing** | Pick one number (24h vs Instant 48h) and bind a remedy | **Pass C: SLA is &lt;24h.** Bind a remedy to that clock. Align Instant “within 48 hours” to **&lt;24h**. Do not pick 48h |
 | Trustpilot badge | Keep **4.5 / 5**; no widget | Show N, or don’t lead with the score | **Pass 0:** keep. **Pass B:** `4.5 / 5 (N reviews)` if N is honest; otherwise text link without a score |
 | Testimonials | Keep existing quotes | Replace with numbered, defensible stories | **Pass 0:** keep. **Pass B:** add or replace only with stories you can defend |
-| How it works | Skip | Instant-specific path | **Pass 0:** skip. **Pass C:** Instant variant when Instant tab is selected |
+| How it works | Skip | Instant-specific path | **Skip all passes.** Keep the current four steps for Instant, 1-Step, and 2-Step. Do not add a fifth step |
+| Instant How it works variant | Skip | Buy → Instant trade → $100 + Best Day → KYC → Reward | **Skip.** |
 | Pricing module | Skip leftover fee, no refund sentence | Later: $49 must be true on the table | **Pass 0:** skip leftover fee / refund line. **Pass A:** $200k Instant off. **Pass C:** table price earns the locked meta $49 |
-| Footer | Legal-name line only | Company number, city, address | **Pass 0:** legal-name + payments affiliate line. **Pass B:** number, city, address, restricted-countries link |
+| Footer | Legal-name line only | Company number, city, address; geo/Platform 5 links | **Pass 0:** legal-name + payments affiliate line. **Pass B:** number, city, address. **Do not put a US Platform 5 / MT5 restriction in the footer.** Restricted-country and Platform 5 notes stay where they already live |
+| Scaling own URL / How it works step 5 / $2M–$4M line | Not in brief | Own URL; optional step 5; don’t advertise $2M–$4M | **Skip those three.** Scaling/VIP numbers may still be designed; do not add a new URL, a fifth How it works step, or $2M–$4M copy |
+| Internal positioning | Not in brief | Alpha Capital / Fintokei / For Traders positioning blurb | **Skip.** Do not add that copy anywhere |
 | About | Heading + “behavioral analysis” only | Year, city, LinkedIn | **Pass 0:** heading + risk control. **Pass D:** year, city, one external link per founder |
 | Discretionary | FAQ / Terms / About / Privacy if present | Also Trading Objectives leftover | **Pass 0:** listed FAQ / Terms / About / Privacy swaps only. **Skip** `/trading-objectives.html` — do not change that page |
 | Trading Objectives page | Not in the wording brief | One model at a time; Instant must not inherit 2-Step 10%/5%; replace discretionary CTA | **Skip.** Leave `/trading-objectives.html` as it is |
@@ -257,7 +260,7 @@ What a stranger still cannot check from those modals: school names, prior employ
 
 ### 0.17 Pass 0 — do not include
 
-Hero rewrite, a line under the CTAs, meta-description rewrite, pricing-module rewrite, Trustpilot rewrite, bio rewrite, Privacy rewrite beyond the controller name and discretionary, data-sale language, Instant $200k removal (that is Pass A), How it works Instant variant (Pass C), `/trading-objectives.html` (skip all passes), payout rail on certificates (skip).
+Hero rewrite, a line under the CTAs, meta-description rewrite, pricing-module rewrite, Trustpilot rewrite, bio rewrite, Privacy rewrite beyond the controller name and discretionary, data-sale language, Instant $200k removal (that is Pass A), Instant How it works variant (skip all passes), `/trading-objectives.html` (skip all passes), payout rail on certificates (skip), US Platform 5 / MT5 restriction in the footer (skip).
 
 ---
 
@@ -265,7 +268,7 @@ Hero rewrite, a line under the CTAs, meta-description rewrite, pricing-module re
 
 Do these even if Pass 0 copy is still landing. They are live contradictions.
 
-1. **Certificates stay up.** If a certificate is missing an ID, add one. If the same name+amount appears twice **on Verodus**, remove the duplicate tile. Do not take the carousel down. Do not substitute anonymous quotes.
+1. **Certificates stay up.** If a certificate is missing an ID, add one. Date and country optional. Do **not** add payout rail. If the same name+amount appears twice **on Verodus**, remove the duplicate tile. Do not take the carousel down. Do not substitute anonymous quotes.
 2. **Remove Instant $200,000** from the homepage Instant selector and fee table. Instant sizes are **$5k–$100k**. $200k remains a 2-Step size. Leave leftover-fee line and do not add a refund sentence under Instant (Instant fees stay non-refundable).
 3. **Unpublish** `/best-simulated-prop-firm-2026.html` until it can be a sourced explainer with **current** Instant / 1-Step / Lite numbers, present tense, and no “best” / “launching in 2026.” If you only patch numbers and leave launch language, unpublish anyway. Do not change that page’s title/meta if it stays up.
 4. **Redirect** `/about` → `/about.html`. **Fix `sitemap.xml` 500.**
@@ -284,7 +287,7 @@ Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages stay as
 8. **Public payouts page** (`/rewards` or `/payouts`): running list with certificate ID, date, amount, country. **Skip rail** (do not show Rise / crypto). Homepage carousel stays; this page is the deeper proof layer, fed by the same legitimate Verodus certificates.
 9. **Trustpilot:** display **4.5 / 5 (N reviews)** only if N is honest. If N is tiny, use a text link “See independent reviews” and **do not lead** with the score. Still do not widget-ize unless volume supports it. Keep the existing quotes until numbered stories exist.
 10. **Trader stories with numbers you can defend** (example shape: first Instant cycle, $180, 11 hours, country). Tie a story to a real Verodus certificate when the trader agrees. Do **not** add payout rail. Existing generic quotes may stay until these exist; do not invent them.
-11. **Footer (add, do not rewrite Pass 0 legal lines):** UAE company number / licence, city, postal address; Verodus Capital Inc. jurisdiction on the payments line; link to restricted countries. Keep the Pass 0 legal-name + affiliate lines.
+11. **Footer (add, do not rewrite Pass 0 legal lines):** UAE company number / licence, city, postal address; Verodus Capital Inc. jurisdiction on the payments line. Keep the Pass 0 legal-name + affiliate lines. **Do not add a US Platform 5 / MT5 restriction to the footer.**
 12. **Off-site founder proof, then link:** registry extract, LinkedIn, one filmed AMA or office/support/payout walkthrough. Link from About. Do **not** paste extra bio copy onto About. Do **not** rewrite the Read Bio modals.
 
 ---
@@ -294,12 +297,14 @@ Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages stay as
 Hero and meta stay locked. Product/pricing must earn the locked meta.
 
 13. **Reward-speed SLA: &lt;24h.** That is the clock. Bind it: processed in under 24 hours or a published remedy (extra 10% on that cycle, a fixed credit, or 100% split on that reward). Counsel reviews the remedy. Align Instant rules “within 48 hours” to **&lt;24h** so marketing and rules match. Do not adopt 48h as the SLA.
-14. **Scaling / VIP page** (risk designs the numbers): example shape — after 2 successful cycles, +25% simulated size **or** +10% split; combined cap still **$1M** until you can raise it. Own URL. Optional How it works step 5. Do not advertise $2M–$4M until operations support it.
+14. **Scaling / VIP** (risk designs the numbers): example shape — after 2 successful cycles, +25% simulated size **or** +10% split; combined cap still **$1M** until you can raise it. **Skip:** own URL, How it works step 5, and any $2M–$4M advertising line.
 15. **Make meta prices true on the table.** Instant 5k at the 35% promo must actually be **$49**, and/or Lite must actually start at **$39**, and 1-Step at **$45**, matching the locked description. Do not edit the meta string. Do not “fix” $49 by changing the hero.
-16. **How it works variant when Instant is selected:** Buy → Trade simulated Instant → Hit $100 + Best Day + selected cycle → KYC if not done → Reward. Do not show “Prove consistency” as step 2 for Instant. 1-Step / 2-Step keep the current four steps.
-17. **Restricted countries + US Platform 5** linked from footer and FAQ. Do **not** add them to Why Verodus cards (Pass 0.6 still holds).
-18. **Add-on comparison table** on Instant / 1-Step pages and checkout: Weekend Holding / Weekly 70% / On-Demand 90% — what each costs, what it changes. Existing add-ons, merchandised.
-19. **$100k 2-Step presentation** equal in scan-ability to Instant (phases vs amounts toggle is good; default tab should match the paid-media keyword).
+16. **Add-on comparison table** on Instant / 1-Step pages and checkout: Weekend Holding / Weekly 70% / On-Demand 90% — what each costs, what it changes. Existing add-ons, merchandised.
+17. **$100k 2-Step presentation** equal in scan-ability to Instant (phases vs amounts toggle is good; default tab should match the paid-media keyword).
+
+**Skip:** Instant How it works variant. Keep the current four steps for every model.
+
+**Skip:** US Platform 5 / MT5 restriction in the footer. Do not add that note to Why Verodus cards either (Pass 0.6). Leave Platform 5 restriction only where it already lives.
 
 ---
 
@@ -310,7 +315,7 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 22. 60–90s product film: rules → dashboard → payout. Do not require showing Rise / crypto.
 23. Help taxonomy: Objectives (one URL per model), Payouts, Scaling, Platforms, Symbols, Restricted countries. Pages exist; they are not a library yet. Do **not** edit `/trading-objectives.html` body as part of this — that page is skipped.
 24. **Discord or nothing.** If the server is real, homepage community block with an honest member count. If not, remove Discord from FAQ until it is. FAQ already promises 24/7 Discord.
-25. Platform naming: within licence limits, say what traders search for (e.g. industry-standard MT5-class terminal / TradingView-powered TradeHub). Do not invent “Platform 5” as a mystery fifth platform if the licence allows a clearer line. Do not add US Platform 5 restriction to Why Verodus cards.
+25. Platform naming: within licence limits, say what traders search for (e.g. industry-standard MT5-class terminal / TradingView-powered TradeHub). Do not invent “Platform 5” as a mystery fifth platform if the licence allows a clearer line. Do not add US Platform 5 restriction to Why Verodus cards **or the footer**.
 26. English quality first. Multilingual later. Do not chase FundedNext’s 44-language flex.
 27. Optional loop after Free Trial exists: loyalty, competition, or a free micro challenge — only after payout proof and the SLA are live.
 
@@ -325,7 +330,8 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 - Stat strip **3,000+ traders** (accurate), **$1M Max Capital** (combined cap), and **&lt;24h Reward Processing**.
 - Payout **rail** (Rise / crypto) on certificates, the payouts page, or trader-story tiles. The existing “Rewards, your way” homepage block can stay; do not add rail onto proof tiles.
 - **`/trading-objectives.html`** — skip. Do not change model switching, Instant defaults, or the discretionary CTA on that page.
-- Restricted-country and US Platform 5 notes **where they already live**; Pass C only **links** them from footer/FAQ.
+- Homepage **How it works** four steps — skip Instant variant and skip a fifth scaling step.
+- US Platform 5 / MT5 restriction in the **footer**. Restricted-country and Platform 5 notes stay **where they already live**; do not add them to the footer or to Why Verodus cards.
 - About opening / mission copy.
 - About **Read Bio** modal copy and photos (Pass D may add an external URL, not new prose).
 - **Privacy Policy bans** (listed at the top). Privacy Pass 0: controller name + discretionary if present. No other Privacy rewrite.
@@ -345,18 +351,8 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 7. Certificates: **keep.** Unique IDs if missing; date/country optional; **no payout rail.** Drop only duplicate tiles on this carousel. No copy rewrite.
 8. Pass A in the same sprint: Instant $200k off the Instant grid; unpublish launch blog; `/about` redirect; sitemap 500. Keep **3,000+ traders**. Skip `/trading-objectives.html`. Skip adding Rise/crypto on proof tiles.
 9. Pass B: payouts page (ID, date, amount, country — **no rail**), honest Trustpilot N, defensible stories, footer company details, founder links / film.
-10. Pass C: **&lt;24h** reward SLA + remedy; align Instant 48h to &lt;24h; scaling page; table prices that match locked meta; Instant How it works; footer/FAQ geo links; add-on table.
+10. Pass C: **&lt;24h** reward SLA + remedy; align Instant 48h to &lt;24h; scaling numbers without a new URL or How it works step 5; table prices that match locked meta; add-on table. Skip Instant How it works variant. No MT5 restriction in the footer.
 11. Pass D: About year/city, photography, product film, help IA, Discord-or-nothing.
-
----
-
-## Internal positioning (do not put in the locked hero)
-
-Win the Alpha Capital / Fintokei / For Traders intersection — not FundedNext volume or FTMO’s decade:
-
-> A simulated evaluation firm that pays under published rules, shows every payout, and treats Instant as a risk product with honest drawdown — not as a lottery ticket.
-
-Until Pass A is done, more marketing spend buys comparison-site skepticism, not prestige.
 
 ---
 

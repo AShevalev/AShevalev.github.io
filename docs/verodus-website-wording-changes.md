@@ -323,7 +323,7 @@ Do not reorder the page. Hero (including the no-deposits pill), stat strip, pric
 - About **Read Bio** modals (existing Kim Chen and Alexander Vladimirovich copy and photos). Do not paste onto the page. Do not rewrite in this pass.
 - Stat strip **$1M Max Capital** (combined cap) and **&lt;24h Reward Processing**.
 - Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages.
-- Restricted-country and US Platform 5 notes where they already live.
+- Restricted-country and US Platform 5 notes where they already live. Do **not** add a US Platform 5 / MT5 restriction to the footer.
 - Marketing pages (homepage, FAQ, About): no “we sell trading data” line.
 - **Privacy Policy bans** (no external commercialization of trading behavior; P&L/strategy/behavior not shared externally; no sale of personal information). Do not replace them. Privacy this pass: data controller **Verodus L.L.C.-FZ**, plus a discretionary-payout sentence if one exists.
 
