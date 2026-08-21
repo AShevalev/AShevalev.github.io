@@ -39,6 +39,28 @@ This is a copy brief, not a legal opinion. Counsel should still review Terms, Ri
 
 ---
 
+## Needed change: homepage title (description locked)
+
+Ship these three tags on the homepage. Do not touch the description.
+
+**Change**
+
+```html
+<title>Verodus | Up to $1M capital, 90% reward split</title>
+<meta property="og:title" content="Verodus | Up to $1M capital, 90% reward split">
+<meta name="twitter:title" content="Verodus | Up to $1M capital, 90% reward split">
+```
+
+**Keep**
+
+```html
+<meta name="description" content="Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit.">
+```
+
+If `og:description` and `twitter:description` exist, they keep that same `content`. Inner-page titles stay as they are.
+
+---
+
 ## Locked: homepage hero
 
 Do not edit H1, subhead, the **no deposits / no client funds / no brokerage** pill, or CTAs. Do not change prices or “funded” inside those lines.
@@ -70,11 +92,14 @@ Do **not** change:
 
 ## Homepage title (this pass)
 
-| Now | Change to |
-|---|---|
-| Instant from $49. Funded on Day One. (and any `Verodus —` prefix) | **Verodus \| Up to $1M capital, 90% reward split** |
+| Tag | Now | Change to |
+|---|---|---|
+| `<title>` | Instant from $49. Funded on Day One. (and any `Verodus —` prefix) | **Verodus \| Up to $1M capital, 90% reward split** |
+| `og:title` | same as current title | **Verodus \| Up to $1M capital, 90% reward split** |
+| `twitter:title` | same as current title | **Verodus \| Up to $1M capital, 90% reward split** |
+| `name="description"` | Funded on day one from $49. Pass a 1-Step from $45 or Lite from $39. Trade Forex, indices and crypto on $5k–$200k. Keep 80%. No deposit. | **Keep. Do not change.** |
 
-Apply to `<title>`, `og:title`, and `twitter:title` on the homepage only. `$1M` is the combined-account cap. `90%` is the top reward split (On-Demand). Description still says Keep 80% (default). That pairing is intended.
+Homepage only. `$1M` is the combined-account cap. `90%` is the top reward split (On-Demand). Description still says Keep 80% (default). That pairing is intended.
 
 ---
 
