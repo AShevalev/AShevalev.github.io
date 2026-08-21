@@ -41,6 +41,8 @@ Pass 0 keeps surrounding copy. Later passes may add pages, product rules, and pr
 
 Do not change inner-page `<title>` tags, canonical, or hreflang in Pass 0. Later passes may add new pages with their own titles.
 
+**`/trading-objectives.html` — skip all passes.** Do not change model switching, Instant inheriting 2-Step 10%/5% defaults, or the “eligible for discretionary performance rewards following internal review” line.
+
 **Privacy bans — keep exactly. Do not replace, soften, or add sale/license language.**
 
 > Verodus does not use trading behavior data to replicate, commercialize, or exploit user trading strategies externally.
@@ -82,7 +84,8 @@ Do not put “we sell trading data” on the homepage, FAQ, About, or Privacy.
 | Pricing module | Skip leftover fee, no refund sentence | Later: $49 must be true on the table | **Pass 0:** skip leftover fee / refund line. **Pass A:** $200k Instant off. **Pass C:** table price earns the locked meta $49 |
 | Footer | Legal-name line only | Company number, city, address | **Pass 0:** legal-name + payments affiliate line. **Pass B:** number, city, address, restricted-countries link |
 | About | Heading + “behavioral analysis” only | Year, city, LinkedIn | **Pass 0:** heading + risk control. **Pass D:** year, city, one external link per founder |
-| Discretionary | FAQ / Terms / About / Privacy if present | Also Trading Objectives leftover | **Pass 0:** listed swaps. **Pass A:** Trading Objectives CTA |
+| Discretionary | FAQ / Terms / About / Privacy if present | Also Trading Objectives leftover | **Pass 0:** listed FAQ / Terms / About / Privacy swaps only. **Skip** `/trading-objectives.html` — do not change that page |
+| Trading Objectives page | Not in the wording brief | One model at a time; Instant must not inherit 2-Step 10%/5%; replace discretionary CTA | **Skip.** Leave `/trading-objectives.html` as it is |
 
 ---
 
@@ -251,7 +254,7 @@ What a stranger still cannot check from those modals: school names, prior employ
 
 ### 0.17 Pass 0 — do not include
 
-Hero rewrite, a line under the CTAs, meta-description rewrite, pricing-module rewrite, Trustpilot rewrite, bio rewrite, Privacy rewrite beyond the controller name and discretionary, data-sale language, Instant $200k removal (that is Pass A), How it works Instant variant (Pass C).
+Hero rewrite, a line under the CTAs, meta-description rewrite, pricing-module rewrite, Trustpilot rewrite, bio rewrite, Privacy rewrite beyond the controller name and discretionary, data-sale language, Instant $200k removal (that is Pass A), How it works Instant variant (Pass C), `/trading-objectives.html` (skip all passes).
 
 ---
 
@@ -263,11 +266,12 @@ Do these even if Pass 0 copy is still landing. They are live contradictions.
 2. **Remove Instant $200,000** from the homepage Instant selector and fee table. Instant sizes are **$5k–$100k**. $200k remains a 2-Step size. Leave leftover-fee line and do not add a refund sentence under Instant (Instant fees stay non-refundable).
 3. **Unpublish** `/best-simulated-prop-firm-2026.html` until it can be a sourced explainer with **current** Instant / 1-Step / Lite numbers, present tense, and no “best” / “launching in 2026.” If you only patch numbers and leave launch language, unpublish anyway. Do not change that page’s title/meta if it stays up.
 4. **Redirect** `/about` → `/about.html`. **Fix `sitemap.xml` 500.**
-5. **Trading Objectives** (`/trading-objectives.html`): one model at a time; Instant must not inherit 2-Step 10%/5% defaults. Replace leftover “eligible for discretionary performance rewards following internal review” with the same rules-based payout idea as Pass 0.3 (short: paid when published rules and identity checks are met; withheld on breach).
-6. Confirm FAQ liquidity “retains discretion over” → **“operates”** (Pass 0.3) is live.
-7. **Stat strip (optional in this pass):** if user count is still ~3,000, demote it. Preferred first strip: `175+ countries` · `<24h typical processing` · `Up to 90% reward split` · `Combined allocation up to $1M`. Do not invent a larger user number. Keep `$1M Max Capital` meaning as combined cap.
+5. Confirm FAQ liquidity “retains discretion over” → **“operates”** (Pass 0.3) is live.
+6. **Stat strip (optional in this pass):** if user count is still ~3,000, demote it. Preferred first strip: `175+ countries` · `<24h typical processing` · `Up to 90% reward split` · `Combined allocation up to $1M`. Do not invent a larger user number. Keep `$1M Max Capital` meaning as combined cap.
 
-Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages stay as they are except the discretionary leftover on Trading Objectives.
+**Skip:** `/trading-objectives.html` — do not change model defaults, Instant inheritance, or the “eligible for discretionary performance rewards following internal review” line.
+
+Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages stay as they are.
 
 ---
 
@@ -300,7 +304,7 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 20. **About (additive, not a rewrite of the opening / mission):** Pass 0 heading **Leadership** and “risk control” already shipped. Add founding year and city; one line that payments affiliate is the same group as Verodus Capital Inc. Leadership stays in Read Bio modals. Add **one** external link per founder when LinkedIn (or equivalent) exists. Do not paste modal copy onto the page.
 21. Photography of real operators (office, support, payout ops) — not only dashboard chrome.
 22. 60–90s product film: rules → dashboard → Rise payout.
-23. Help taxonomy: Objectives (one URL per model), Payouts, Scaling, Platforms, Symbols, Restricted countries. Pages exist; they are not a library yet.
+23. Help taxonomy: Objectives (one URL per model), Payouts, Scaling, Platforms, Symbols, Restricted countries. Pages exist; they are not a library yet. Do **not** edit `/trading-objectives.html` body as part of this — that page is skipped.
 24. **Discord or nothing.** If the server is real, homepage community block with an honest member count. If not, remove Discord from FAQ until it is. FAQ already promises 24/7 Discord.
 25. Platform naming: within licence limits, say what traders search for (e.g. industry-standard MT5-class terminal / TradingView-powered TradeHub). Do not invent “Platform 5” as a mystery fifth platform if the licence allows a clearer line. Do not add US Platform 5 restriction to Why Verodus cards.
 26. English quality first. Multilingual later. Do not chase FundedNext’s 44-language flex.
@@ -313,7 +317,8 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 - Homepage **hero** (H1, subhead, no-deposits pill, CTAs). No second honesty line under the CTAs.
 - Homepage **meta description** (locked string). Inner-page titles and descriptions in Pass 0.
 - Why Verodus intro and cards, including Supported Platforms (no US Platform 5 add) and No Personal Capital (do not add “Trading is simulated”).
-- Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages (except Pass A Trading Objectives discretionary leftover).
+- Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages.
+- **`/trading-objectives.html`** — skip. Do not change model switching, Instant defaults, or the discretionary CTA on that page.
 - Restricted-country and US Platform 5 notes **where they already live**; Pass C only **links** them from footer/FAQ.
 - About opening / mission copy.
 - About **Read Bio** modal copy and photos (Pass D may add an external URL, not new prose).
@@ -332,7 +337,7 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 5. Stat strip: **Up to 90% reward split** and **3,000+ traders**. Keep $1M (combined cap) and &lt;24h.
 6. About: fix “Architects of Scale,” swap “behavioral analysis.” Leave Read Bio modals.
 7. Certificates: **keep.** Unique IDs if missing; drop only duplicate tiles on this carousel. No copy rewrite.
-8. Pass A in the same sprint: Instant $200k off the Instant grid; unpublish launch blog; `/about` redirect; sitemap 500; Trading Objectives discretionary leftover; demote 3,000 if it still sits beside $1M.
+8. Pass A in the same sprint: Instant $200k off the Instant grid; unpublish launch blog; `/about` redirect; sitemap 500; demote 3,000 if it still sits beside $1M. Skip `/trading-objectives.html`.
 9. Pass B: payouts page, honest Trustpilot N, defensible stories, footer company details, founder links / film.
 10. Pass C: one payout clock + guarantee, scaling page, table prices that match locked meta, Instant How it works, footer/FAQ geo links, add-on table.
 11. Pass D: About year/city, photography, product film, help IA, Discord-or-nothing.

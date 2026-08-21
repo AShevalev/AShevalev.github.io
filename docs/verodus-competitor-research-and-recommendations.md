@@ -178,7 +178,7 @@ Kim Chen and Alexander Vladimirovich exist in Read Bio modals (brief: keep). A s
 | Meta $49 vs table $72 | Title/description “from $49”; 5k Instant is $72 at −35% | Looks like bait. Brief locks meta; **table/campaign must earn $49** or the title will keep lying |
 | Stat strip 3,000 users | Beside 175 countries and $1M | Reads as early-stage. Do not invent a bigger number; **change the metric** (payouts sent, avg hours, countries, accounts issued) |
 | “How it works” vs Instant | Step 2 “Prove consistency” then Instant has no eval | Instant buyers feel the page is for someone else |
-| Trading Objectives page | Defaults look like 2-Step Pro (10%/5%) even when Instant is selected (fetch showed mixed headings) | Objectives page must be **one source of truth** per model |
+| Trading Objectives page | Defaults look like 2-Step Pro (10%/5%) even when Instant is selected (fetch showed mixed headings) | Observed only. **Skip** — do not change this page |
 | Sitemap 500 | `sitemap.xml` returned 500 | Unprofessional for crawlers; also a “we are not finished” signal |
 | `/about` 404 | Canonical is `about.html` | `/about` should redirect |
 | Platform names | Platform 5, TradeHub | Category search is “MT5 / cTrader / TradeLocker.” If licensing blocks names, say **“industry-standard MT5-class terminal”** once, legally reviewed — not a mysterious fifth platform |
@@ -211,9 +211,10 @@ Mapped to the four outcomes. Items the wording brief already covers are marked *
 2. **Rules-based payout sentence in FAQ/Terms/About** **(brief)**.
 3. **One legal name + payment affiliate line** **(brief)**. Add company number, city, and a real postal address in the footer (FTMO/BrightFunded/Goat pattern).
 4. **Trustpilot with N, or don’t badge it.** If 4.5 is real, show “4.5 / 5 from N reviews.” If N is tiny, **do not lead with the badge**; lead with process (KYC → contract → payout clock).
-5. **Stop discretionary-sounding leftovers** on Trading Objectives (“eligible for discretionary performance rewards”) — not in the brief’s homepage FAQ list; still live.
-6. **Align Instant SKUs, prices, and meta.** Brief locks meta and defers the table. A later pass **must** make $49 true or stop advertising it. Remove Instant $200k.
-7. **Unpublish or rebuild the 2026 “best firm” blog** until numbers match live Instant/1-Step/Lite and the page is not a launch announcement.
+5. **Align Instant SKUs, prices, and meta.** Brief locks meta and defers the table. A later pass **must** make $49 true or stop advertising it. Remove Instant $200k.
+6. **Unpublish or rebuild the 2026 “best firm” blog** until numbers match live Instant/1-Step/Lite and the page is not a launch announcement.
+
+Skip `/trading-objectives.html` (no model-default fix, no discretionary CTA swap on that page).
 
 ### Established (company, not template)
 
@@ -255,9 +256,10 @@ Assume the brief ships as written (hero and meta **untouched**, discretionary go
 2. **Remove Instant $200,000** from the homepage selector/table (brief skipped this; it is a live contradiction).
 3. **Unpublish** `best-simulated-prop-firm-2026.html` or retitle it as a product explainer with **current** Instant/1-Step/Lite numbers. Never “launching” or “best” without a method.
 4. **Redirect** `/about` → `/about.html`. Fix `sitemap.xml` 500.
-5. **Trading Objectives:** one model at a time; kill leftover “discretionary” CTA; Instant must not inherit 2-Step 10%/5% defaults.
-6. **FAQ liquidity line:** brief’s “retains discretion over” → “operates” still required.
-7. **Stat strip:** if 3,000 is true, keep it but **do not pair it with $1M as if they were the same scale**. Prefer: `175+ countries` · `<24h typical processing` · `Up to 90% reward split` · `Combined allocation up to $1M`. Drop or demote user count until it is 10k+.
+5. **FAQ liquidity line:** brief’s “retains discretion over” → “operates” still required.
+6. **Stat strip:** if 3,000 is true, keep it but **do not pair it with $1M as if they were the same scale**. Prefer: `175+ countries` · `<24h typical processing` · `Up to 90% reward split` · `Combined allocation up to $1M`. Drop or demote user count until it is 10k+.
+
+**Skip** `/trading-objectives.html`.
 
 ### Pass B — proof that can be true
 
