@@ -6,6 +6,8 @@ Hero and homepage meta description stay locked. Counsel still reviews Terms, Ris
 
 **Facts:** `$49` in meta = Instant at 35% off. `$5k–$200k` in meta = 2-Step sizes. `$1M` = combined cap. **3,000+ traders** is accurate. Verodus LLC and Verodus L.L.C.-FZ are the **same company**. Public legal name: **Verodus L.L.C.-FZ**. Payments: Verodus Capital Inc., an affiliate.
 
+**Formatting:** Keep the same HTML as the string you replace — same tag, classes, inline styles, `data-i18n` / `data-i18n-html`, `<br>`, `<strong>`, lists, and Title Case. Swap words inside the existing node. Do not collapse a value + label into one string, do not drop a `<br>`, and do not restyle the footer, FAQ answers, or rules lists.
+
 **i18n:** Many strings use `data-i18n` / `data-i18n-html`. Change the English source **and** the matching catalog key so Weglot / VerodusI18n does not revert the line. Footer copy lives in `footer.js` (`footer.copyright` and the new payments line).
 
 ---
@@ -41,6 +43,8 @@ Hero and homepage meta description stay locked. Counsel still reviews Terms, Ris
 
 **File:** homepage (`index.html` / `/`)
 
+Keep the same `<title>` and meta tags. Change `content` / text only.
+
 | Tag | Find | Put |
 |---|---|---|
 | `<title>` | `Verodus — Instant from $49. Funded on Day One.` | `Verodus \| Up to $1M capital, 90% reward split` |
@@ -69,17 +73,19 @@ Ship:
 
 ### Footer (`footer.js` only — do not rewrite the rest)
 
-Live copyright: `© 2026 Verodus. All Rights Reserved.` (`footer.copyright`)
+Live copyright is one `<p style="margin-bottom:1rem" data-i18n="footer.copyright">`. Keep that tag and style. Keep **All Rights Reserved.**
 
 | Find | Put |
 |---|---|
-| `© 2026 Verodus. All Rights Reserved.` | `© 2026 Verodus L.L.C.-FZ.` |
+| `© 2026 Verodus. All Rights Reserved.` | `© 2026 Verodus L.L.C.-FZ. All Rights Reserved.` |
 
-Add immediately under that line:
+Add a **sibling** `<p>` immediately under it, same `style="margin-bottom:1rem"`:
 
-> Payments processed by Verodus Capital Inc., an affiliate.
+```html
+<p style="margin-bottom:1rem" data-i18n="footer.payments">Payments processed by Verodus Capital Inc., an affiliate.</p>
+```
 
-Keep the tagline, simulated-trading disclaimer, corporate address, and **Related Entities … Verodus Capital Inc., Canada**. Do **not** add Platform 5 / MT5 to the footer.
+Do not put both sentences in one paragraph if that would change wrapping. Do not restyle. Keep the tagline, simulated-trading disclaimer, corporate address, and **Related Entities … Verodus Capital Inc., Canada**. Do **not** add Platform 5 / MT5 to the footer.
 
 ### Payments line (wherever that exact idea already exists)
 
@@ -130,23 +136,29 @@ After the rows above, search the public site for remaining `Verodus LLC` (not `V
 
 Replace the sentence only.
 
+Same `<p>` (and `data-i18n`) in every row. Replace the flagged phrase. Leave surrounding sentences.
+
 | # | Page | Find | Put |
 |---|---|---|---|
-| 3a | Homepage FAQ **Is Verodus legitimate?** | `Performance rewards are discretionary payments based on simulated results.` | `If you meet the published rules and complete identity checks, we pay the performance reward for that cycle.` |
-| 3b | Terms §(15) | `Performance Reward Rates or incentive remuneration are discretionary and are not liabilities of Verodus L.L.C.-FZ. They do not constitute financial returns, investment profits, or guaranteed compensation.` | `Performance rewards are paid when you meet the published program rules, remain eligible, and complete required identity checks. Rewards may be withheld, reduced, or clawed back if trading activity breaches those rules or the prohibited-practices policy. They are not investment returns.` |
-| 3c | Privacy | Any payout sentence that says **discretionary** | Same Put as 3b. Live 21 Feb 2026 Privacy does **not** use the word — skip. |
+| 3a | Homepage FAQ **Is Verodus legitimate?** (`<p class="_answer">`) | `Performance rewards are discretionary payments based on simulated results.` | `If you meet the published rules and complete identity checks, we pay the performance reward for that cycle.` |
+| 3b | Terms §(15) (`<p data-i18n="content.p89" style="margin-bottom: 1.5rem;">`) | `are discretionary and are not liabilities of Verodus L.L.C.-FZ.` | `are paid when you meet the published program rules, remain eligible, and complete required identity checks, and may be withheld, reduced, or clawed back if trading activity breaches those rules or the prohibited-practices policy.` |
+| 3c | Privacy | Any payout sentence that says **discretionary** | Same clause swap as 3b, inside that existing sentence. Live 21 Feb 2026 Privacy does **not** use the word — skip. |
 | 3d | About → Performance Rewards | `internal evaluation outcomes` | `the published rules, then a compliance review` |
 | 3e | FAQ **Who Provides Our Liquidity?** (`/faq-general.html`) | `retains discretion over` | `operates` |
 
-**3a full answer after the swap** (rest unchanged):
+**3a full `<p>` after the swap** (same answer class; rest unchanged):
 
 > Verodus is not a brokerage or investment firm. Trading is simulated. Evaluation fees are service fees. If you meet the published rules and complete identity checks, we pay the performance reward for that cycle. Review the Terms, Risk Disclosure, and Trustpilot feedback, and only participate if you understand the model.
+
+**3b full `<p>` after the swap** (same two-sentence paragraph; keep the defined-term subject and the closing sentence):
+
+> Performance Reward Rates or incentive remuneration are paid when you meet the published program rules, remain eligible, and complete required identity checks, and may be withheld, reduced, or clawed back if trading activity breaches those rules or the prohibited-practices policy. They do not constitute financial returns, investment profits, or guaranteed compensation.
 
 **3d full sentence after the swap:**
 
 > Participants can become eligible for contractual performance rewards based on measured execution and the published rules, then a compliance review.
 
-**3e full sentence after the swap:**
+**3e full sentence after the swap** (only those three words change):
 
 > All trading activity on the Verodus platform remains simulated. No trades are transmitted to external liquidity venues or exchanges. Verodus operates internal simulation mechanics, order handling logic, risk parameters, and trade validation in order to protect firm capital and maintain operational integrity.
 
@@ -158,14 +170,17 @@ Do **not** edit `/trading-objectives.html` (it still contains a discretionary CT
 
 Do **not** hunt every “funded” on the site. Only these rows. Hero may keep “Funding.” Meta may keep “Funded on day one from $49.”
 
+Same node, same casing pattern. Instant phase label is a single Title Case word. Instant heading keeps `2.` / `2 &ndash;`. Dashboard lines stay lowercase except the product name **Qualified Performance** (already used that way on Instant/FAQ).
+
 | # | Where | Find | Put |
 |---|---|---|---|
-| 4a | Instant phase card label (`/instant.html` `.phase-card-label`, and homepage Instant **Show Phases** if it prints the same label) | `Funded` | `Instant` |
-| 4b | Homepage FAQ **What evaluation models does Verodus offer?** | `Funded simulated account` | `Simulated Instant account` |
-| 4c | Instant section 2 heading + on-this-page link (`/instant.html`) | `2. Funded Account Rules` / `2 – Funded Account Rules` | `2. Instant Account Rules` / `2 – Instant Account Rules` |
-| 4d | Terms model list link text | `Instant Funded` | `Instant` |
-| 4e | Homepage dashboard lead | `every challenge and funded account` | `every challenge and Qualified Performance account` |
-| 4f | Homepage dashboard bullet | `challenges and funded accounts side by side` | `challenges and Qualified Performance accounts side by side` |
+| 4a | Instant phase card (`/instant.html` `<div class="phase-card-label">`, and homepage Instant **Show Phases** if it prints the same label) | `Funded` | `Instant` |
+| 4b | Homepage FAQ **What evaluation models…?** (`<p class="_answer">`) | `Funded simulated account` | `Simulated Instant account` |
+| 4c | Instant TOC (`<a href="#s1">`) | `2 &ndash; Funded Account Rules` | `2 &ndash; Instant Account Rules` |
+| 4c | Instant h2 (`<h2 data-i18n="content.h22">`) | `2. Funded Account Rules` | `2. Instant Account Rules` |
+| 4d | Terms model list (`<a href="instant.html">`) | `Instant Funded` | `Instant` |
+| 4e | Homepage dashboard lead (`<p class="_lead">`) | `every challenge and funded account` | `every challenge and Qualified Performance account` |
+| 4f | Homepage dashboard bullet (`<li>`) | `challenges and funded accounts side by side` | `challenges and Qualified Performance accounts side by side` |
 | 4g | `dashboard.verodus.com` UI copy | `funded accounts` (same sense) | `Qualified Performance accounts` |
 
 **4b full Instant clause after the swap** (hard rules stay):
@@ -180,33 +195,42 @@ Do **not** hunt every “funded” on the site. Only these rows. Hero may keep �
 
 ## CHG-05 — Stat strip
 
-**Homepage hero stats** (below CTAs / Trustpilot):
+Keep the **value / label split**. Do not merge into one string. Labels stay Title Case like the ones they replace (`Profit Split` → `Reward Split`, `Users Worldwide` → `Traders`).
 
-| Find | Put |
-|---|---|
-| `+3,000` + label `Users Worldwide` | `3,000+` + label `traders` (display **3,000+ traders**) |
-| Value `Up to 90%` + label `Profit Split` | Value `Up to 90%` + label `reward split` (display **Up to 90% reward split**) |
+**Homepage hero stats** (laurel count + three `_stat` cells):
 
-Keep **175+ Countries** and **$1M Max Capital**.
+| Node | Find | Put |
+|---|---|---|
+| `div._usersCount` | `+3,000` | `3,000+` |
+| `div._usersLabel` (`content.usersWorldwide`) | `Users Worldwide` | `Traders` |
+| `span._statValue` (keep) | `Up to 90%` | `Up to 90%` |
+| `span._statLabel` (`content.span5`) | `Profit Split` | `Reward Split` |
 
-**Homepage Global reach strip** (later on the page):
+Keep **175+** / **Countries** and **$1M** / **Max Capital** as they are.
 
-| Live | Action |
-|---|---|
-| `+3,000` / `Traders` | Make the visible line **3,000+ traders** (same wording as the first strip) |
-| `Up to 90%` / `Reward Split` | Keep. First strip should match this: **Up to 90% reward split** |
-| `<24h` / `Reward Processing` | **Keep.** |
+**Homepage Global reach strip** (later `_stat` cells):
 
-Do not drop or demote the trader count.
+| Node | Find | Put |
+|---|---|---|
+| value | `+3,000` | `3,000+` |
+| label | `Traders` | `Traders` (keep) |
+| value | `Up to 90%` | keep |
+| label | `Reward Split` | keep (Title Case — this is what the first strip must match) |
+| value | `&lt;24h` | keep |
+| label | `Reward Processing` | keep |
+
+Visible result: **3,000+** / **Traders**, **Up to 90%** / **Reward Split**, **&lt;24h** / **Reward Processing**. Do not drop or demote the trader count.
 
 ---
 
 ## CHG-06 — About (`/about.html`)
 
-| Find | Put |
-|---|---|
-| `The Architects of ScaleEngineering the high-performance technology that supports modern market participants.` | `Leadership` |
-| `behavioral analysis` | `risk control` |
+Same `<h3 class="text-h3 leaders-subtitle">`. Keep the `<br>` and the second line. Same `<p>` for the analysis sentence.
+
+| Node | Find | Put |
+|---|---|---|
+| `h3.leaders-subtitle` (`content.h310`) | `The Architects of Scale<br>Engineering the high-performance technology that supports modern market participants.` | `Leadership<br>Engineering the high-performance technology that supports modern market participants.` |
+| About “What We Do” `<p>` | `behavioral analysis` | `risk control` |
 
 **Second row full sentence after the swap:**
 
@@ -218,13 +242,13 @@ Do not paste bios onto the page. Do not rewrite Kim Chen / Alexander Vladimirovi
 
 ## CHG-07 — Instant reward speed: under 24 hours
 
-Homepage **&lt;24h Reward Processing** stays.
+Homepage **&lt;24h Reward Processing** stays. Keep the Instant list item, the bullet span, and `<strong>Minimum Reward:</strong>`. Change only the parenthetical clock.
 
-**`/instant.html` §4 Rewards & Payouts:**
+**`/instant.html` §4 Rewards & Payouts** (`content.li22`):
 
 | Find | Put |
 |---|---|
-| `Minimum Reward: $100 (processed within 48 hours)` | `Minimum Reward: $100 (processed under 24 hours)` |
+| `<strong>Minimum Reward:</strong> $100 (processed within 48 hours)` | `<strong>Minimum Reward:</strong> $100 (processed in under 24 hours)` |
 
 Do not use 48h as the SLA. Do not add a penalty/remedy line unless counsel already has approved copy.
 
@@ -262,7 +286,7 @@ This pass on Privacy: controller name (CHG-02) + discretionary payout sentence *
 | Avoid below the hero | Use |
 |---|---|
 | Funded (Instant phase label) | Instant |
-| Profit split (stat strip) | Reward split |
+| Profit Split (stat label) | Reward Split |
 | Discretionary (payouts) | Paid under the published rules after eligibility checks |
 | Behavioral analysis (About) | Risk control |
 
@@ -304,14 +328,15 @@ This pass on Privacy: controller name (CHG-02) + discretionary payout sentence *
 - [ ] Hero H1, subhead, pill, CTAs unchanged
 - [ ] Instant table still has **$200k**
 - [ ] Certificates still on the homepage, same tiles
-- [ ] Footer copyright is L.L.C.-FZ + payments affiliate line; rest of footer unchanged; no MT5
+- [ ] Footer copyright is still one `margin-bottom:1rem` line: `© 2026 Verodus L.L.C.-FZ. All Rights Reserved.` plus a sibling payments `<p>` in the same style; rest of footer unchanged; no MT5
 - [ ] No remaining public **Verodus LLC** (without L.L.C.-FZ) on Privacy, Risk, AML
-- [ ] Terms still Verodus L.L.C.-FZ; discretionary sentence replaced; Instant link text is Instant
+- [ ] Terms still Verodus L.L.C.-FZ; same two-sentence `<p>`; Performance Reward Rates subject kept; closing “They do not constitute…” kept; Instant link text is Instant
 - [ ] Homepage FAQ legitimate + models answers swapped; other FAQ answers untouched
 - [ ] `/faq-general.html` liquidity line says **operates**
-- [ ] Instant phase label Instant; heading Instant Account Rules; 48h gone
-- [ ] Stat strips: **3,000+ traders**, **Up to 90% reward split**, **&lt;24h Reward Processing**
-- [ ] About heading **Leadership**; “risk control”; modals unchanged
+- [ ] Instant phase label Instant; TOC `2 &ndash; Instant Account Rules`; h2 `2. Instant Account Rules`; payout line still `<strong>Minimum Reward:</strong> $100 (processed in under 24 hours)`
+- [ ] Stat strips still value + Title Case label: **3,000+** / **Traders**, **Up to 90%** / **Reward Split**, **&lt;24h** / **Reward Processing**
+- [ ] About h3 still two lines: **Leadership** then `<br>` then the Engineering sentence; “risk control”; modals unchanged
 - [ ] `/trading-objectives.html` byte-identical
 - [ ] Privacy bans still exact
 - [ ] i18n catalogs updated for every `data-i18n` string you changed
+- [ ] No new font, color, heading level, or layout on any swapped line

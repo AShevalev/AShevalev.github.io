@@ -2,7 +2,7 @@
 
 **This is the only list to implement now.** Surgical copy plus the operator decisions already made. Do not start Pass B–D, Instant $200k work, certificate IDs, How it works variants, or positioning copy.
 
-**Complete changelog (use this to ship):** [`docs/verodus-website-changelog.md`](verodus-website-changelog.md) — live Find/Put strings, files, order, QA.
+**Complete changelog (use this to ship):** [`docs/verodus-website-changelog.md`](verodus-website-changelog.md) — live Find/Put strings, files, order, QA. **Keep the same HTML, Title Case, and sentence shape as the live string.**
 
 Hero and homepage meta description stay locked. Counsel still reviews Terms, Risk, Privacy, and any payout-SLA wording.
 
@@ -55,9 +55,12 @@ Source: [`docs/verodus-website-wording-changes.md`](verodus-website-wording-chan
 
 **Use:** brand **Verodus**. Legal **Verodus L.L.C.-FZ** once, then “Verodus.”
 
-Footer legal line only (do not rewrite the rest of the footer; do not add Platform 5 / MT5 there):
+Footer legal line only — same `<p style="margin-bottom:1rem">`. Keep **All Rights Reserved.** Do not rewrite the rest of the footer; do not add Platform 5 / MT5 there:
 
-> © 2026 Verodus L.L.C.-FZ.  
+> © 2026 Verodus L.L.C.-FZ. All Rights Reserved.
+
+Add a sibling `<p>` in that same style:
+
 > Payments processed by Verodus Capital Inc., an affiliate.
 
 Payments line wherever it exists: **Payments are processed by Verodus Capital Inc., an affiliate of Verodus L.L.C.-FZ.**
@@ -73,7 +76,7 @@ Replace the sentence only. Leave the rest of each block.
 | Location | Cut | Put |
 |---|---|---|
 | Homepage FAQ “Is Verodus legitimate?” | “Performance rewards are discretionary payments based on simulated results.” | “If you meet the published rules and complete identity checks, we pay the performance reward for that cycle.” |
-| Terms | “Performance Reward Rates or incentive remuneration are discretionary and are not liabilities of Verodus L.L.C.-FZ.” | “Performance rewards are paid when you meet the published program rules, remain eligible, and complete required identity checks. Rewards may be withheld, reduced, or clawed back if trading activity breaches those rules or the prohibited-practices policy. They are not investment returns.” |
+| Terms | “are discretionary and are not liabilities of Verodus L.L.C.-FZ.” | “are paid when you meet the published program rules, remain eligible, and complete required identity checks, and may be withheld, reduced, or clawed back if trading activity breaches those rules or the prohibited-practices policy.” Keep the subject **Performance Reward Rates or incentive remuneration** and the next sentence **They do not constitute financial returns, investment profits, or guaranteed compensation.** |
 | Privacy | Any payout sentence that says **discretionary** | Same as Terms. Live Privacy (21 Feb 2026) may not use the word — then skip. |
 | About → Performance Rewards | “internal evaluation outcomes” | “the published rules, then a compliance review” |
 
@@ -101,10 +104,10 @@ Do not rewrite Instant body copy, Plan FAQ bodies, Instant page `<title>`, or Pr
 
 | Now | Change to |
 |---|---|
-| +3,000 Users Worldwide | **3,000+ traders** |
-| Up to 90% Profit Split | **Up to 90% reward split** |
+| `+3,000` / `Users Worldwide` | `3,000+` / `Traders` (keep value + Title Case label; do not merge) |
+| `Up to 90%` / `Profit Split` | `Up to 90%` / `Reward Split` (same Title Case as Global reach) |
 
-Keep **175+ Countries**, **$1M Max Capital**, **&lt;24h Reward Processing**. Match the later Global reach strip to **Up to 90% Reward Split**.
+Keep **175+** / **Countries**, **$1M** / **Max Capital**, **&lt;24h** / **Reward Processing**. Global reach already says **Reward Split** — match that casing. Change its `+3,000` to `3,000+`; leave **Traders**.
 
 ---
 
@@ -112,7 +115,7 @@ Keep **175+ Countries**, **$1M Max Capital**, **&lt;24h Reward Processing**. Mat
 
 | Now | Change to |
 |---|---|
-| “Architects of ScaleEngineering the high-performance…” | **Leadership** |
+| `The Architects of Scale<br>Engineering the high-performance…` | `Leadership<br>Engineering the high-performance…` (keep the `<h3>` and `<br>`) |
 | “behavioral analysis” | “risk control” |
 
 Do not paste bios onto the page. Do not rewrite modals.
@@ -123,7 +126,7 @@ Do not paste bios onto the page. Do not rewrite modals.
 
 Homepage **&lt;24h Reward Processing** stays.
 
-On Instant rules, change **“within 48 hours”** to **under 24 hours** so it matches the homepage. Do not use 48h as the SLA.
+On Instant rules, keep `<strong>Minimum Reward:</strong> $100 (` and change **within 48 hours** to **in under 24 hours**. Do not use 48h as the SLA.
 
 Do not add a penalty/remedy line in this pass unless counsel already has approved copy.
 
@@ -155,7 +158,7 @@ This pass: controller name + discretionary payout sentence if one exists. Nothin
 | Avoid below the hero | Use |
 |---|---|
 | Funded (Instant phase label) | Instant |
-| Profit split (stat strip) | Reward split |
+| Profit Split (stat label) | Reward Split |
 | Discretionary (payouts) | Paid under the published rules after eligibility checks |
 | Behavioral analysis (About) | Risk control |
 
