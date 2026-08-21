@@ -117,8 +117,8 @@ Homepage only. `$1M` is the combined-account cap. `90%` is the top reward split 
 **Use**
 
 - Brand: **Verodus**
-- Legal (footer, Terms, Risk, contracts): **Verodus L.L.C.-FZ** once, then “Verodus”
-- Privacy: **leave as written** except a discretionary-payout sentence if one exists (section 12). Do not rename the controller in Privacy in this pass.
+- Legal (footer, Terms, Privacy data controller, Risk, contracts): **Verodus L.L.C.-FZ** once, then “Verodus”
+- Privacy: rename the **data controller** (and the matching Contact line) from Verodus LLC to **Verodus L.L.C.-FZ**. Keep every ban. Discretionary-payout sentence only if one exists (section 12).
 - Payments line: **Payments are processed by Verodus Capital Inc., an affiliate of Verodus L.L.C.-FZ.**
 
 **Stop using**
@@ -142,7 +142,7 @@ Replace the word/sentence. Leave the rest of each answer as it is.
 |---|---|---|
 | Homepage FAQ “Is Verodus legitimate?” | “Performance rewards are discretionary payments based on simulated results.” | “If you meet the published rules and complete identity checks, we pay the performance reward for that cycle.” |
 | Terms | “Performance Reward Rates or incentive remuneration are discretionary and are not liabilities of Verodus L.L.C.-FZ.” | “Performance rewards are paid when you meet the published program rules, remain eligible, and complete required identity checks. Rewards may be withheld, reduced, or clawed back if trading activity breaches those rules or the prohibited-practices policy. They are not investment returns.” |
-| Privacy | Any sentence that calls performance rewards or incentive pay **discretionary** (same idea as Terms). | Same replacement as Terms. **Do not change any other Privacy sentence.** |
+| Privacy | Any sentence that calls performance rewards or incentive pay **discretionary** (same idea as Terms). | Same replacement as Terms. **Do not change any other Privacy sentence except the data-controller name (section 12).** |
 | About → Performance Rewards | “internal evaluation outcomes” | “the published rules, then a compliance review” |
 
 **FAQ “Who Provides Our Liquidity?”** — replace only “retains discretion over” with “operates.” Keep the rest of the sentence.
@@ -253,7 +253,16 @@ Do not rewrite the opening paragraph or “Helping traders prove their edge.” 
 
 ---
 
-## 12. Privacy — keep the bans; discretionary only
+## 12. Privacy — controller name + keep the bans
+
+**Change the data controller name only** (same company; one public legal name):
+
+| Location | Now | Change to |
+|---|---|---|
+| Data Controller | Verodus LLC, a company registered in the United Arab Emirates | **Verodus L.L.C.-FZ**, a company registered in the United Arab Emirates |
+| Contact Information | Verodus LLC | **Verodus L.L.C.-FZ** |
+
+Do not rewrite the rest of those paragraphs.
 
 **Keep these bans exactly. Do not replace, soften, or add sale/license language.**
 
@@ -263,11 +272,11 @@ Do not rewrite the opening paragraph or “Helping traders prove their edge.” 
 
 > Verodus does not sell personal information in exchange for monetary compensation and does not share personal data for independent third-party marketing without explicit user consent.
 
-**Do not change in Privacy this pass:** data controller name (Verodus LLC), contact block, “deliver funded account services,” sharing list, subprocessors, cookies, CCPA, or any other clause.
+**Do not change in Privacy this pass:** “deliver funded account services,” sharing list, subprocessors, cookies, CCPA, or any other clause.
 
-**The only Privacy edit:** if Privacy calls performance rewards or incentive pay **discretionary**, replace that sentence with the same rules-based payout line as Terms (section 2). Nothing else.
+**Also:** if Privacy calls performance rewards or incentive pay **discretionary**, replace that sentence with the same rules-based payout line as Terms (section 2). Live Privacy (21 February 2026) does not currently use that word.
 
-Do not put “we sell trading data” on the homepage, FAQ, About, or Privacy. A MoniMath (or any) data license against the current bans is a policy breach until counsel writes a separate amendment later — **not this pass**.
+Do not put “we sell trading data” on the homepage, FAQ, About, or Privacy.
 
 ---
 
@@ -314,7 +323,7 @@ Do not reorder the page. Hero (including the no-deposits pill), stat strip, pric
 - Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages.
 - Restricted-country and US Platform 5 notes where they already live.
 - Marketing pages (homepage, FAQ, About): no “we sell trading data” line.
-- **Privacy Policy bans** (no external commercialization of trading behavior; P&L/strategy/behavior not shared externally; no sale of personal information). Do not replace them. Privacy this pass: discretionary-payout sentence only, if one exists.
+- **Privacy Policy bans** (no external commercialization of trading behavior; P&L/strategy/behavior not shared externally; no sale of personal information). Do not replace them. Privacy this pass: data controller **Verodus L.L.C.-FZ**, plus a discretionary-payout sentence if one exists.
 
 ---
 
@@ -323,13 +332,13 @@ Do not reorder the page. Hero (including the no-deposits pill), stat strip, pric
 1. Homepage `<title>` / og:title / twitter:title → **Verodus | Up to $1M capital, 90% reward split.** Description unchanged.
 2. FAQ / Terms / Privacy — remove “discretionary” on payouts only. Keep every Privacy ban (section 12).
 3. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3). Do not change Privacy “funded account services.”
-4. One legal name in footer / Terms / Risk. **Do not rename the Privacy controller.**
+4. One legal name in footer / Terms / Risk. Privacy data controller and Contact line: **Verodus LLC → Verodus L.L.C.-FZ.**
 5. Stat strip: reward split (and 3,000+ traders if you still want it). Keep $1M (combined cap).
 6. About: fix “Architects of Scale,” swap “behavioral analysis.” Leave Read Bio modals as they are.
 7. Certificates: unique IDs or hide duplicates — no copy rewrite.
 8. Blog body numbers only, if they are wrong.
 
-Do **not** include a hero rewrite, a line under the CTAs, a meta-description rewrite, a pricing-module rewrite, a Trustpilot rewrite, a bio rewrite, or a Privacy rewrite beyond discretionary in this pass. Do **not** put data-sale language on marketing pages or in Privacy.
+Do **not** include a hero rewrite, a line under the CTAs, a meta-description rewrite, a pricing-module rewrite, a Trustpilot rewrite, a bio rewrite, or a Privacy rewrite beyond the controller name and discretionary in this pass. Do **not** put data-sale language on marketing pages or in Privacy.
 
 ---
 

@@ -203,7 +203,7 @@ def build():
                 "Meta description (locked): Funded on day one from $49. 1-Step from $45. Lite from $39. $5k-$200k. Keep 80%. No deposit.",
             ],
             [
-                "One legal name: Verodus L.L.C.-FZ. Payments: Capital Inc. affiliate.",
+                "One legal name: Verodus L.L.C.-FZ in footer, Terms, Risk, and Privacy data controller / Contact.",
                 "Instant pricing module. Instant $200k is not sold; $5k-$200k is 2-Step.",
             ],
             [
@@ -220,11 +220,11 @@ def build():
             ],
             [
                 "Certificates: unique IDs or hide duplicates. Copy stays Real traders. Real certificates.",
-                "Privacy data-sale / anonymized-license clauses. Keep the Privacy bans. Discretionary in Privacy only, if it appears.",
+                "Privacy data-sale / anonymized-license clauses. Keep the Privacy bans. Controller becomes L.L.C.-FZ.",
             ],
             [
                 "Blog body numbers to live rules, or unpublish. Meta of that page stays.",
-                "We sell trading data on marketing pages. Renaming the Privacy controller.",
+                "We sell trading data on marketing pages. Changing Privacy beyond the controller name and discretionary.",
             ],
         ],
         [87, 87],
@@ -275,7 +275,7 @@ def build():
             [
                 "Partner / bank / counsel",
                 "Simulated service; entity fog; discretionary bonuses.",
-                "Simulated service; one FZ entity + payment affiliate; rules-based bonuses.",
+                "Simulated service; one FZ entity in Terms and Privacy controller + payment affiliate; rules-based bonuses.",
             ],
             [
                 "Data buyer",
@@ -301,7 +301,7 @@ def build():
             ["Search title", "Instant from $49. Funded on Day One.", "Verodus | Up to $1M capital, 90% reward split"],
             ["Search description", "Funded on day one from $49 ... $5k-$200k. Keep 80%.", "Unchanged (correct: $49 = 35% Instant; range = 2-Step)"],
             ["Payout promise", "Discretionary", "Rules + KYC; clawback for breaches"],
-            ["Legal identity", "LLC vs L.L.C.-FZ", "One FZ name + Capital Inc. affiliate"],
+            ["Legal identity", "Privacy controller Verodus LLC; Terms L.L.C.-FZ", "Privacy controller Verodus L.L.C.-FZ; same FZ name in footer/Terms"],
             ["Funded vs simulation", "Hero already: no deposits, no client funds, no brokerage. Instant cards still say Funded.", "Hero honesty stays. Instant cards say Instant."],
             ["Stat strip", "Profit split + $1M combined cap", "Reward split; $1M combined cap stays"],
             ["Social proof", "4.5 Trustpilot (linked), first-name quotes, duplicate certificates", "Trustpilot stays linked; quotes stay; duplicates should go"],
@@ -378,10 +378,11 @@ def build():
         "people real. It does not answer do they pay."
     )
 
-    pdf.h2("Privacy (bans stay; discretionary only)")
+    pdf.h2("Privacy (controller name; bans stay)")
     pdf.body(
-        "Keep the current Privacy bans. Do not replace them with sale or license language. "
-        "Do not rename Verodus LLC in Privacy. Do not change funded account services in Privacy."
+        "Rename the data controller (and matching Contact line) from Verodus LLC to "
+        "Verodus L.L.C.-FZ. Keep the current Privacy bans. Do not add sale or license "
+        "language. Do not change funded account services in Privacy."
     )
     pdf.bullet(
         "Keep: Verodus does not use trading behavior data to replicate, commercialize, or exploit user trading strategies externally."
@@ -393,9 +394,10 @@ def build():
         "Keep: Verodus does not sell personal information for monetary compensation."
     )
     pdf.bullet(
-        "The only Privacy edit this pass: if Privacy calls performance rewards discretionary, "
-        "swap that sentence to the same rules-based payout line as Terms. Live Privacy "
-        "(21 February 2026) does not currently use that word."
+        "Privacy edits this pass: (1) data controller and Contact: Verodus L.L.C.-FZ; "
+        "(2) if Privacy calls performance rewards discretionary, swap that sentence to "
+        "the same rules-based payout line as Terms. Live Privacy (21 February 2026) does "
+        "not currently use that word."
     )
 
     pdf.h2("Clean verdict")
