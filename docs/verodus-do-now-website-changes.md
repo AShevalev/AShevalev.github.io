@@ -2,6 +2,8 @@
 
 **This is the only list to implement now.** Surgical copy plus the operator decisions already made. Do not start Pass B–D, Instant $200k work, certificate IDs, How it works variants, or positioning copy.
 
+**Complete changelog (use this to ship):** [`docs/verodus-website-changelog.md`](verodus-website-changelog.md) — live Find/Put strings, files, order, QA.
+
 Hero and homepage meta description stay locked. Counsel still reviews Terms, Risk, Privacy, and any payout-SLA wording.
 
 Source: [`docs/verodus-website-wording-changes.md`](verodus-website-wording-changes.md) plus operator confirmations recorded in [`docs/verodus-combined-website-changes.md`](verodus-combined-website-changes.md).

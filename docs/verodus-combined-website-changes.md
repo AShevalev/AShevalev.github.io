@@ -1,8 +1,10 @@
 # Verodus website — combined change spec
 
-**Purpose:** One implementation list. Merges the surgical copy brief (`docs/verodus-website-wording-changes.md`) with the competitive-research recommendations (`docs/verodus-competitor-research-and-recommendations.md`).
+**Purpose:** Archive of wording + research in pass order. **Do not ship this file as the current build list.**
 
-**Not live yet.** Ship in the pass order below. Do not skip Pass 0 to jump to film, scaling, or Discord.
+**Ship now:** [`docs/verodus-website-changelog.md`](verodus-website-changelog.md) (complete Find/Put changelog). Summary: [`docs/verodus-do-now-website-changes.md`](verodus-do-now-website-changes.md).
+
+**Not live yet.** Do not skip to film, scaling, or Discord.
 
 **This is a copy / product / proof spec, not a legal opinion.** Counsel should still review Terms, Risk Disclosure, Privacy, and any payout-guarantee or scaling language.
 
@@ -331,6 +333,7 @@ Hero and meta stay locked. Product/pricing must earn the locked meta.
 - Payout **rail** (Rise / crypto) on certificates, the payouts page, or trader-story tiles. The existing “Rewards, your way” homepage block can stay; do not add rail onto proof tiles.
 - **`/trading-objectives.html`** — skip. Do not change model switching, Instant defaults, or the discretionary CTA on that page.
 - Homepage **How it works** four steps — skip Instant variant and skip a fifth scaling step.
+- Internal positioning copy (Alpha Capital / Fintokei / For Traders intersection, or “comparison-site skepticism”). Do not add it anywhere.
 - US Platform 5 / MT5 restriction in the **footer**. Restricted-country and Platform 5 notes stay **where they already live**; do not add them to the footer or to Why Verodus cards.
 - About opening / mission copy.
 - About **Read Bio** modal copy and photos (Pass D may add an external URL, not new prose).
