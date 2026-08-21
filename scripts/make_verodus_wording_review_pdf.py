@@ -175,148 +175,158 @@ def build():
 
     pdf.set_y(78)
     pdf.callout(
-        "These edits move Verodus one step up inside the Instant/challenge category: "
-        "from an unproven shop that sounds like it might not pay, to an unproven shop "
-        "that says it pays when you follow the rules. They do not move it out of that "
-        "category. Hero and meta still sell Instant funding. Public payout proof, "
-        "Trustpilot, $1M max capital, and the $49 vs $72 price gap are unchanged."
+        "Label after this pass: an unproven Instant/challenge simulated-evaluation firm "
+        "with careful FAQ and Terms, one UAE FZ name, and Instant-search marketing. "
+        "Not a scam site. Not a licensed broker. Not live capital. Not a known payer. "
+        "Hero and meta still sell Funded on day one from $49."
     )
 
-    pdf.h2("What actually ships")
+    pdf.h2("The remaining pass (only this)")
     pdf.body(
-        "The brief is now light phrase swaps, not a site rewrite. If implemented as written:"
+        "Light phrase swaps. No hero rewrite, no meta rewrite, no Instant pricing rewrite, "
+        "no Trustpilot rewrite, no Why Verodus rewrite, no How it works rewrite, no FAQ "
+        "rewrite except two phrases, no About bios (already modals)."
     )
-    pdf.bullet(
-        "One legal name. Footer, Privacy, and Terms say Verodus L.L.C.-FZ. Payments stay "
-        "with Verodus Capital Inc. as an affiliate. LLC and L.L.C.-FZ are no longer "
-        "presented as two firms."
-    )
-    pdf.bullet(
-        "Payouts are rules-based. The legitimacy FAQ no longer says rewards are "
-        "discretionary. Terms say you pay when published rules, eligibility, and KYC "
-        "are met, and you withhold or claw back for breaches."
-    )
-    pdf.bullet(
-        "Funded is used less below the fold. Instant phase label becomes Instant. FAQ "
-        "says Simulated Instant account. Dashboard and Privacy say Qualified Performance "
-        "instead of funded accounts. Hero and meta still say Funded on Day One."
-    )
-    pdf.bullet(
-        "Stat strip: 3,000+ traders and up to 90% reward split. $1M Max Capital and "
-        "<24h Reward Processing stay."
-    )
-    pdf.bullet(
-        "About: smashed Architects of Scale heading becomes Leadership. Behavioral "
-        "analysis becomes risk control. Bios stay in Read Bio modals."
-    )
-    pdf.bullet(
-        "Certificates: unique IDs or hide duplicates. Headline and body copy stay "
-        "Real traders. Real certificates."
-    )
-    pdf.bullet(
-        "Blog body numbers aligned to live Instant/1-Step/Lite, or the article is unpublished."
-    )
-
-    pdf.h2("What does not change")
-    pdf.bullet(
-        "Hero: Funding Traders Worldwide. Instant from $49. Funded on Day One. Same "
-        "subhead and CTAs."
-    )
-    pdf.bullet(
-        "Meta description stays: Funded on day one from $49. Pass a 1-Step from $45 or "
-        "Lite from $39. Trade Forex, indices and crypto on $5k-$200k. Keep 80%. No deposit."
-    )
-    pdf.bullet(
-        "Instant pricing module: $200k Instant still in the homepage table, leftover "
-        "$296 / -35% line, no new refund sentence."
-    )
-    pdf.bullet(
-        "Trustpilot 4.5/5 stays. Generic testimonials stay. Why Verodus cards stay. "
-        "How it works stays. FAQ What is Verodus stays a proprietary trading evaluation "
-        "firm. No Personal Capital does not add Trading is simulated."
+    add_table(
+        pdf,
+        ["In", "Out"],
+        [
+            [
+                "One legal name: Verodus L.L.C.-FZ. Payments: Capital Inc. affiliate.",
+                "Hero H1, subhead, CTAs. Title Instant from $49. Funded on Day One.",
+            ],
+            [
+                "FAQ: drop discretionary. Terms: pay if rules + KYC; withhold for breaches.",
+                "Meta: Funded on day one from $49. 1-Step from $45. Lite from $39. $5k-$200k. Keep 80%. No deposit.",
+            ],
+            [
+                "Instant label, FAQ Instant line, dashboard, Privacy: Instant / Qualified Performance, not Funded.",
+                "Instant table $200k row, leftover $296 / -35% line, refund sentence.",
+            ],
+            [
+                "Stat strip: 3,000+ traders; 90% reward split. Keep $1M and <24h as-is.",
+                "Trustpilot 4.5/5. Quotes. Platform 5 on Why Verodus. Trading is simulated on No Personal Capital.",
+            ],
+            [
+                "About: Leadership heading. Behavioral analysis -> risk control. Bios stay in modals.",
+                "About opening, mission, Read Bio content.",
+            ],
+            [
+                "Certificates: unique IDs or hide duplicates. Copy stays Real traders. Real certificates.",
+                "How it works, calculator, bottom CTA.",
+            ],
+            [
+                "Blog body numbers to live rules, or unpublish. Meta of that page stays.",
+                "Any other section rewrite.",
+            ],
+            [
+                "Privacy (counsel-gated): anonymized/aggregated data license clauses. Not on homepage.",
+                "We sell trading data on marketing pages.",
+            ],
+        ],
+        [87, 87],
     )
 
     pdf.h2("Where it puts Verodus")
     add_table(
         pdf,
-        ["Audience", "Before", "After these edits"],
+        ["Audience", "Before this pass", "After this pass"],
         [
             [
                 "Google / Instant buyer",
                 "Funded on day one from $49. Keep 80%. $5k-$200k.",
-                "Unchanged. First impression is still Instant funding at a cheap fee.",
+                "Same. First screen is still cheap Instant funding.",
             ],
             [
                 "Trader who reads FAQ / Terms",
                 "Rewards are discretionary. Two legal names. Instant labeled Funded.",
-                "Pays if you meet the rules and KYC. One company name. Instant labeled Instant.",
+                "Pays if you meet the rules and KYC. One company. Instant labeled Instant.",
             ],
             [
                 "Experienced prop trader",
                 "Unproven Instant shop with sloppy contradictions.",
-                "Unproven Instant shop with fewer contradictions. Still waits for payout proof.",
+                "Unproven Instant shop with fewer self-inflicted leaks. Still waits on payout proof.",
             ],
             [
                 "Partner / bank / counsel",
                 "Simulated service; entity fog; discretionary bonuses.",
                 "Simulated service; one FZ entity + payment affiliate; rules-based bonuses.",
             ],
+            [
+                "Data buyer (if Privacy ships)",
+                "Public Privacy forbids external commercialization of trading behavior.",
+                "Still no PII sale. Counsel-gated anonymized feature tables only. Invisible on the homepage.",
+            ],
         ],
-        [42, 66, 66],
+        [40, 67, 67],
     )
     pdf.body(
-        "On the sector ladder this is a move from step 2 toward step 3, not a jump to "
-        "step 4. 1) clone scam  2) unproven Instant shop with sloppy copy  3) unproven "
-        "Instant shop with careful copy  4) known payer with public track record  "
-        "5) licensed / live-capital firm. Copy cannot buy step 4. Payouts and independent "
-        "talk can."
+        "Sector ladder: 1 clone scam  2 unproven Instant shop with sloppy copy  "
+        "3 unproven Instant shop with careful copy  4 known payer with a public track record  "
+        "5 licensed or live-capital firm. This pass moves Verodus from 2 toward 3. "
+        "It does not reach 4. Copy cannot buy 4. Verifiable payouts and independent talk can. "
+        "It never reaches 5 unless the product itself changes."
+    )
+
+    pdf.h2("Scorecard")
+    add_table(
+        pdf,
+        ["Dimension", "Before", "After"],
+        [
+            ["Search / Instant pitch", "Funded on day one from $49", "Unchanged"],
+            ["Payout promise", "Discretionary", "Rules + KYC; clawback for breaches"],
+            ["Legal identity", "LLC vs L.L.C.-FZ", "One FZ name + Capital Inc. affiliate"],
+            ["Funded vs simulation", "Funded on Instant cards next to simulated capital", "Hero/meta keep Funded; cards say Instant"],
+            ["Stat strip honesty", "Profit split + $1M max capital", "Reward split; $1M stays"],
+            ["Social proof", "4.5 Trustpilot, first-name quotes, duplicate certificates", "Trustpilot and quotes stay; duplicates should go"],
+            ["About polish", "Smashed heading; behavioral analysis", "Leadership; risk control; bios still modals"],
+            ["Price / SKU match", "$49 meta vs $72 Instant; $200k Instant in table", "Unchanged (pricing skipped)"],
+            ["Public payout proof", "None independent", "Unchanged"],
+        ],
+        [48, 63, 63],
     )
 
     pdf.h2("What gets better")
     pdf.bullet(
-        "The highest-trust leak on the site was discretionary. A trader who asked Is "
-        "Verodus legitimate? was told you might not pay even if they followed the rules. "
-        "After the swap, the same answer says you pay when rules and identity checks "
-        "are met. That is the one line that actually changes how a careful reader buckets "
-        "the firm."
+        "Discretionary was the worst leak. Is Verodus legitimate? currently tells a careful "
+        "reader you might not pay even if they followed the rules. After the swap, the same "
+        "answer says you pay when rules and identity checks are met. That is the one line "
+        "that changes how a serious trader buckets the firm."
     )
     pdf.bullet(
-        "One legal name removes the two-company read. Privacy saying Verodus LLC and "
-        "Terms saying Verodus L.L.C.-FZ looked like a shell stack. Same company, one "
-        "public name, is what a real FZ operator should show."
+        "One legal name kills the two-company / shell-stack read. Privacy LLC and Terms "
+        "L.L.C.-FZ were the same firm presented as two. A real FZ operator shows one name."
     )
     pdf.bullet(
-        "Funded as an Instant phase label next to simulated capital was the bait-and-switch "
-        "feel below the fold. Instant / Simulated Instant account / Qualified Performance "
-        "lets the hero keep search language without repeating it on every card."
+        "Instant as the phase label, Simulated Instant account in FAQ, and Qualified "
+        "Performance on the dashboard let the hero keep search language without repeating "
+        "Funded next to simulated on every card."
     )
     pdf.bullet(
-        "Reward split on the first stat strip matches the later Global reach strip. "
-        "Profit split implied live P&L."
+        "Reward split on the first strip matches Global reach. Profit split implied live P&L."
     )
     pdf.bullet(
-        "If duplicate certificate amounts disappear, the payout block stops looking generated. "
-        "If they do not, that block still costs more trust than it buys."
+        "If duplicate certificate amounts go, the payout strip stops looking generated. "
+        "If they stay, that block still costs more trust than it buys."
     )
     pdf.bullet(
-        "Leadership instead of Architects of ScaleEngineering, and risk control instead of "
-        "behavioral analysis, remove two amateur tells. They do not create founder proof; "
-        "bios stay in modals."
+        "Leadership and risk control remove two amateur tells. They do not create founder "
+        "proof. Bios stay in modals."
     )
 
     pdf.h2("What still hurts")
     pdf.bullet(
-        "$49 in hero and meta vs Instant table from $72. You chose not to touch this. "
-        "Screenshotters still will."
+        "$49 in hero and meta versus Instant table from $72. Screenshotters will still "
+        "post the gap. This pass leaves it."
     )
     pdf.bullet(
         "Meta says $5k-$200k and Keep 80%. Instant FAQ still says no $200k Instant and "
-        "default 80% / 90% with On-Demand. Homepage Instant selector can still show $200k. "
-        "Pricing module was skipped, so that SKU mismatch stays live."
+        "default 80% / 90% with On-Demand. Homepage Instant can still show $200k. "
+        "Pricing module was skipped."
     )
     pdf.bullet(
-        "$1M Max Capital stays on the first strip while live SKUs top out at $100k Instant "
-        "/ $200k evaluation. That number still looks invented."
+        "$1M Max Capital stays while live SKUs top out at $100k Instant / $200k evaluation. "
+        "That number still looks invented."
     )
     pdf.bullet(
         "Rated 4.5 / 5 on Trustpilot stays without a confirmed clickable profile. "
@@ -324,30 +334,37 @@ def build():
     )
     pdf.bullet(
         "Simulation honesty still lives in FAQ, Instant rules, and legal pages, not next "
-        "to Funding Traders Worldwide. Retail Instant buyers will still hear funded. "
-        "Experienced traders will still hear demo."
+        "to Funding Traders Worldwide. Retail Instant buyers still hear funded. "
+        "Experienced traders still hear demo."
     )
     pdf.bullet(
         "No Reddit, PropFirmMatch, or independent payout corpus. Wording does not create "
-        "that. Until it exists, the honest public label remains unproven, not scam and "
-        "not FTMO-grade."
+        "that. Until it exists the honest public label is unproven, not scam, not FTMO-grade."
+    )
+
+    pdf.h2("Privacy amendment (counsel-gated, not marketing)")
+    pdf.body(
+        "If counsel does not sign, skip the data-sale clauses. Current Privacy still "
+        "bans external commercialization of trading behavior. Shipping a MoniMath license "
+        "against that text is a policy breach."
+    )
+    pdf.body(
+        "If counsel signs and the extract is aggregated or irreversibly anonymized, "
+        "Verodus can license feature tables and research labels. That does not change "
+        "the homepage. Retail still sees Instant funding. A partner who reads Privacy "
+        "sees a simulated-evaluation firm that may license anonymized telemetry. Still "
+        "never: PII, KYC, wallets, IPs, raw tickets that reconstruct a named trader's edge."
     )
 
     pdf.h2("Clean verdict")
     pdf.callout(
-        "After these changes Verodus is a careful Instant/challenge simulated-evaluation "
-        "firm with one UAE FZ name and a rules-based payout promise. It is still not a "
-        "broker, still not live capital, still not publicly proven to pay at scale, and "
-        "still marketed in search as Funded on day one from $49. Attractive to Instant "
-        "buyers on Google. Less alarming to traders who read FAQ and Terms. Unchanged "
-        "for anyone waiting on third-party payout proof."
-    )
-    pdf.body(
-        "Do these edits. They are cheap and they close the worst self-inflicted leaks "
-        "(discretionary, two names, Funded as a phase label, smashed About heading). "
-        "Do not expect them to reposition the brand. Reputation in this category is paid "
-        "for with verifiable payouts, a Trustpilot people can open, and numbers that match "
-        "checkout. Those are still outside this pass."
+        "Do the edits. They close the worst self-inflicted leaks: discretionary, two "
+        "names, Funded as a phase label, smashed About heading. After they ship, Verodus "
+        "is a careful Instant shop, not a new kind of firm. Attractive to Instant buyers "
+        "on Google. Less alarming to traders who read FAQ and Terms. Unchanged for anyone "
+        "waiting on third-party payout proof. Reputation in this category is paid for with "
+        "verifiable payouts, a Trustpilot people can open, and numbers that match checkout. "
+        "Those remain outside this pass."
     )
 
     pdf.ln(2)
@@ -357,8 +374,8 @@ def build():
         0,
         4.6,
         "Scope: remaining items in docs/verodus-website-wording-changes.md as of 21 August "
-        "2026. Compared with live verodus.com (hero, meta, Instant table, FAQ, About, "
-        "Terms, Privacy). Not an audit and not legal advice.",
+        "2026 only. Compared with live verodus.com. Not an audit and not legal advice. "
+        "Privacy data-license text is not public until counsel signs.",
     )
 
     for path in (OUT, REPO_OUT, ROOT_OUT):
