@@ -207,7 +207,7 @@ def build():
                 "Instant pricing module. Instant $200k is not sold; $5k-$200k is 2-Step.",
             ],
             [
-                "Instant label, FAQ Instant line, dashboard, Privacy: Instant / Qualified Performance, not Funded.",
+                "Instant label, FAQ Instant line, dashboard: Instant / Qualified Performance, not Funded.",
                 "Trustpilot 4.5/5 (already links). Quotes. Why Verodus cards. Bio modal copy.",
             ],
             [
@@ -220,11 +220,11 @@ def build():
             ],
             [
                 "Certificates: unique IDs or hide duplicates. Copy stays Real traders. Real certificates.",
-                "We sell trading data on marketing pages.",
+                "Privacy data-sale / anonymized-license clauses. Keep the Privacy bans. Discretionary in Privacy only, if it appears.",
             ],
             [
-                "Privacy (counsel-gated): anonymized/aggregated data license clauses. Not on homepage.",
-                "Any other section rewrite.",
+                "Blog body numbers to live rules, or unpublish. Meta of that page stays.",
+                "We sell trading data on marketing pages. Renaming the Privacy controller.",
             ],
         ],
         [87, 87],
@@ -278,9 +278,9 @@ def build():
                 "Simulated service; one FZ entity + payment affiliate; rules-based bonuses.",
             ],
             [
-                "Data buyer (if Privacy ships)",
+                "Data buyer",
                 "Public Privacy forbids external commercialization of trading behavior.",
-                "Still no PII sale. Counsel-gated anonymized feature tables only. Invisible on the homepage.",
+                "Unchanged. Bans stay. No data-license amendment this pass.",
             ],
         ],
         [40, 67, 67],
@@ -378,17 +378,24 @@ def build():
         "people real. It does not answer do they pay."
     )
 
-    pdf.h2("Privacy amendment (counsel-gated, not marketing)")
+    pdf.h2("Privacy (bans stay; discretionary only)")
     pdf.body(
-        "If counsel does not sign, skip the data-sale clauses. Current Privacy still "
-        "bans external commercialization of trading behavior. Shipping a MoniMath license "
-        "against that text is a policy breach."
+        "Keep the current Privacy bans. Do not replace them with sale or license language. "
+        "Do not rename Verodus LLC in Privacy. Do not change funded account services in Privacy."
     )
-    pdf.body(
-        "If counsel signs and the extract is aggregated or irreversibly anonymized, "
-        "Verodus can license feature tables and research labels. That does not change "
-        "the homepage. Still never: PII, KYC, wallets, IPs, raw tickets that reconstruct "
-        "a named trader's edge."
+    pdf.bullet(
+        "Keep: Verodus does not use trading behavior data to replicate, commercialize, or exploit user trading strategies externally."
+    )
+    pdf.bullet(
+        "Keep: Trader P&L, strategies, and behavior data are not shared externally."
+    )
+    pdf.bullet(
+        "Keep: Verodus does not sell personal information for monetary compensation."
+    )
+    pdf.bullet(
+        "The only Privacy edit this pass: if Privacy calls performance rewards discretionary, "
+        "swap that sentence to the same rules-based payout line as Terms. Live Privacy "
+        "(21 February 2026) does not currently use that word."
     )
 
     pdf.h2("Clean verdict")

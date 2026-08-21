@@ -117,7 +117,8 @@ Homepage only. `$1M` is the combined-account cap. `90%` is the top reward split 
 **Use**
 
 - Brand: **Verodus**
-- Legal (footer, Terms, Privacy, Risk, contracts): **Verodus L.L.C.-FZ** once, then “Verodus”
+- Legal (footer, Terms, Risk, contracts): **Verodus L.L.C.-FZ** once, then “Verodus”
+- Privacy: **leave as written** except a discretionary-payout sentence if one exists (section 12). Do not rename the controller in Privacy in this pass.
 - Payments line: **Payments are processed by Verodus Capital Inc., an affiliate of Verodus L.L.C.-FZ.**
 
 **Stop using**
@@ -133,7 +134,7 @@ Do not rewrite the rest of the footer.
 
 ---
 
-## 2. Remove “discretionary” (FAQ, About, Terms)
+## 2. Remove “discretionary” (FAQ, About, Terms, Privacy)
 
 Replace the word/sentence. Leave the rest of each answer as it is.
 
@@ -141,9 +142,12 @@ Replace the word/sentence. Leave the rest of each answer as it is.
 |---|---|---|
 | Homepage FAQ “Is Verodus legitimate?” | “Performance rewards are discretionary payments based on simulated results.” | “If you meet the published rules and complete identity checks, we pay the performance reward for that cycle.” |
 | Terms | “Performance Reward Rates or incentive remuneration are discretionary and are not liabilities of Verodus L.L.C.-FZ.” | “Performance rewards are paid when you meet the published program rules, remain eligible, and complete required identity checks. Rewards may be withheld, reduced, or clawed back if trading activity breaches those rules or the prohibited-practices policy. They are not investment returns.” |
+| Privacy | Any sentence that calls performance rewards or incentive pay **discretionary** (same idea as Terms). | Same replacement as Terms. **Do not change any other Privacy sentence.** |
 | About → Performance Rewards | “internal evaluation outcomes” | “the published rules, then a compliance review” |
 
 **FAQ “Who Provides Our Liquidity?”** — replace only “retains discretion over” with “operates.” Keep the rest of the sentence.
+
+Live Privacy (effective 21 February 2026) does not currently use the word “discretionary.” If a later Privacy draft adds it on payouts, swap that sentence only. Keep every Privacy **ban** (section 12).
 
 ---
 
@@ -160,7 +164,6 @@ Swap the word. Do **not** rewrite Instant blurbs, Instant overview paragraphs, o
 | Instant section 2 heading | Funded Account Rules | Instant Account Rules |
 | Terms model list | Instant Funded | Instant |
 | Dashboard | “funded accounts” | “Qualified Performance accounts” |
-| Privacy legal basis | “deliver funded account services” | “deliver evaluation and Qualified Performance services” |
 
 Leave Instant card body copy, Instant rules body, Plan FAQ body, and “Instant Funding” in-page titles as they are except the rows above. Do **not** change Instant page `<title>`.
 
@@ -250,51 +253,21 @@ Do not rewrite the opening paragraph or “Helping traders prove their edge.” 
 
 ---
 
-## 12. Privacy (entity name + anonymized-data sale, counsel-gated)
+## 12. Privacy — keep the bans; discretionary only
 
-Do this in **Privacy Policy only**. Do not put “we sell trading data” on the homepage, FAQ, or About.
-
-| Now | Change to |
-|---|---|
-| Data controller / contact: **Verodus LLC** | **Verodus L.L.C.-FZ** |
-
-Also the “funded account services” phrase in section 3.
-
-**Do not publish the sale language until counsel signs the amendment.** Current Privacy (effective 21 February 2026) still says trading-behavior data is **not commercialized externally** and is **not shared externally**. Shipping a MoniMath (or any) data license against that text is a policy breach.
-
-If counsel amends the policy **and** the dataset is properly anonymized, Verodus may license or sell only:
-
-- Aggregated statistics.
-- Irreversibly anonymized, non-reidentifiable feature tables (account hashed, no names, no KYC, no wallet, no IP, k-anonymity / suppression of rare strategy fingerprints).
-- Research labels: pass/fail, breach type, holding-time buckets, sizing-volatility scores, regime tags.
-
-Still never sold: PII, KYC, biometrics, payment data, device IDs, IPs, raw tickets that reconstruct a named trader’s edge, or anything that enables copy-trading of individual accounts.
-
-### Drop-in clauses (replace the current bans)
-
-**Replace** (Collection / use of trading behavior):
+**Keep these bans exactly. Do not replace, soften, or add sale/license language.**
 
 > Verodus does not use trading behavior data to replicate, commercialize, or exploit user trading strategies externally.
 
-**With:**
-
-> Verodus does not sell personal information and does not license identifiable trading strategies, names, KYC files, wallet addresses, IP addresses, or raw order-by-order tapes. Verodus may license or sell **aggregated statistics** and **irreversibly anonymized, non-reidentifiable feature tables** (account identifiers hashed; no names, no KYC, no wallet, no IP; k-anonymity and suppression of rare strategy fingerprints) together with **research labels** limited to pass/fail, breach type, holding-time buckets, sizing-volatility scores, and regime tags. Recipients are contractually prohibited from re-identifying individuals or using the data to copy-trade specific accounts.
-
-**Replace** (Sharing / “not shared externally”):
-
 > Trader P&L, trading strategies, and behavior data may be shared internally only with risk management and compliance personnel to assess platform risk exposure, determine margin adjustments, and prevent prohibited trading activity. This information is not shared externally.
 
-**With:**
-
-> Identifiable trader P&L, trading strategies, and behavior data are shared internally only with risk management and compliance personnel to assess platform risk, determine margin adjustments, and prevent prohibited trading activity. Those identifiable records are not sold and are not shared externally except with processors who support Verodus (KYC, hosting, payments, fraud) under contract. Separately, Verodus may disclose to trusted research or commercial partners **only** (a) aggregated statistics, (b) irreversibly anonymized, non-reidentifiable feature tables as described above, and (c) the research labels listed above, and only under a data-license or DPA that forbids re-identification, sublicense without approval, and copy-trading of individual accounts.
-
-**Keep and clarify** (sale of personal information):
-
 > Verodus does not sell personal information in exchange for monetary compensation and does not share personal data for independent third-party marketing without explicit user consent.
->
-> Licensing of aggregated statistics or irreversibly anonymized, non-reidentifiable trading-feature tables is not a sale of personal information. If a regulator treats a given extract as a “sale” or “share” of personal data, Verodus will not include that extract until it meets applicable opt-out and notice rules (including CCPA/CPRA where they apply).
 
-Do not rewrite the rest of Privacy. Optional checkout/Terms one-liner (counsel): “Anonymized, non-identifiable trading telemetry may be used for research and licensed to partners.” Not a homepage line.
+**Do not change in Privacy this pass:** data controller name (Verodus LLC), contact block, “deliver funded account services,” sharing list, subprocessors, cookies, CCPA, or any other clause.
+
+**The only Privacy edit:** if Privacy calls performance rewards or incentive pay **discretionary**, replace that sentence with the same rules-based payout line as Terms (section 2). Nothing else.
+
+Do not put “we sell trading data” on the homepage, FAQ, About, or Privacy. A MoniMath (or any) data license against the current bans is a policy breach until counsel writes a separate amendment later — **not this pass**.
 
 ---
 
@@ -340,22 +313,23 @@ Do not reorder the page. Hero (including the no-deposits pill), stat strip, pric
 - Stat strip **$1M Max Capital** (combined cap) and **&lt;24h Reward Processing**.
 - Simulation disclaimers and hard rules on Instant / 1-Step / 2-Step pages.
 - Restricted-country and US Platform 5 notes where they already live.
-- Marketing pages (homepage, FAQ, About): no “we sell trading data” line. Privacy amendment only, after counsel.
+- Marketing pages (homepage, FAQ, About): no “we sell trading data” line.
+- **Privacy Policy bans** (no external commercialization of trading behavior; P&L/strategy/behavior not shared externally; no sale of personal information). Do not replace them. Privacy this pass: discretionary-payout sentence only, if one exists.
 
 ---
 
 ## 17. Implementation order
 
 1. Homepage `<title>` / og:title / twitter:title → **Verodus | Up to $1M capital, 90% reward split.** Description unchanged.
-2. FAQ “Is Verodus legitimate?” — remove “discretionary” only.
-3. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3).
-4. One legal name in footer / Privacy / Terms. Counsel-gated Privacy amendment for anonymized/aggregated data sale (section 12) — do not publish until counsel signs.
+2. FAQ / Terms / Privacy — remove “discretionary” on payouts only. Keep every Privacy ban (section 12).
+3. Instant label + FAQ/dashboard/Terms “funded” word swaps (section 3). Do not change Privacy “funded account services.”
+4. One legal name in footer / Terms / Risk. **Do not rename the Privacy controller.**
 5. Stat strip: reward split (and 3,000+ traders if you still want it). Keep $1M (combined cap).
 6. About: fix “Architects of Scale,” swap “behavioral analysis.” Leave Read Bio modals as they are.
 7. Certificates: unique IDs or hide duplicates — no copy rewrite.
 8. Blog body numbers only, if they are wrong.
 
-Do **not** include a hero rewrite, a line under the CTAs, a meta-description rewrite, a pricing-module rewrite, a Trustpilot rewrite, or a bio rewrite in this pass. Do **not** put data-sale language on marketing pages.
+Do **not** include a hero rewrite, a line under the CTAs, a meta-description rewrite, a pricing-module rewrite, a Trustpilot rewrite, a bio rewrite, or a Privacy rewrite beyond discretionary in this pass. Do **not** put data-sale language on marketing pages or in Privacy.
 
 ---
 
