@@ -8,7 +8,7 @@ This is an internal commercial memo, not a legal opinion and not a commitment to
 
 **Addendum (21 August 2026):** Joe followed up after Karma Lounge with a “strategic partnership” email. Read: `docs/joe-wong-email-analysis.md`. The letter is a **Bookmap order-flow template** with Verodus pasted in. The ask on paper is an unpaid 2027 competition logo, not a data purchase.
 
-**Addendum (22 August 2026):** Kim’s 21 Aug 18:03–18:05 messages (what Joe said in the room): cut of referred customers, no competition engine, he needs Verodus’s stack, he wants the data. Alignment: `docs/kim-karma-lounge-read.md`. Take origination on **net eval fees**. Do not share data under current Privacy. Engine stays Verodus.
+**Addendum (22 August 2026):** Kim’s 21 Aug 18:03–18:05 messages (what Joe said in the room): cut of referred customers, no competition engine, he needs Verodus’s stack, he wants the data. Alignment: `docs/kim-karma-lounge-read.md`. Take origination on **net eval fees**. Do not share data under current Privacy. Engine stays Verodus. Complete briefing PDF (all of the above in one file): `docs/joe-wong-complete-briefing.pdf`.
 
 ---
 
