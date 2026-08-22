@@ -18,4 +18,6 @@ This PDF is the single file. It folds in:
 - Three asks: referral % (yes, net eval fees) / engine (later, Verodus keeps it) / data (no)
 - Kill line, refuse list, walk-away
 
+Revised suggestions after the Bookmap pairing file: `docs/joe-wong-revised-suggestions.md`.
+
 Does not change website copy. Privacy bans stay.
