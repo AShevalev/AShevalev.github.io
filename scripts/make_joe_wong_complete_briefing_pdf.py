@@ -5,7 +5,7 @@ from pathlib import Path
 
 from fpdf import FPDF
 
-OUT = Path("/opt/cursor/artifacts/Verodus_Joe_Wong_Full_Briefing_22_Aug.pdf")
+OUT = Path("/opt/cursor/artifacts/Joe_Wong_Briefing_Download.pdf")
 REPO_OUT = Path("/workspace/docs/joe-wong-complete-briefing.pdf")
 ROOT_OUT = Path("/workspace/joe-wong-complete-briefing.pdf")
 EXTRA_OUT = Path("/workspace/Verodus_Joe_Wong_Full_Briefing.pdf")
