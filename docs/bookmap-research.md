@@ -123,4 +123,4 @@ So: they are not sitting on a sellable tape of “how this trader traded.” The
 
 ---
 
-Companion: `docs/joe-wong-email-analysis.md`, `docs/joe-wong-fresh-analysis.md`.
+Companion: `docs/joe-wong-email-analysis.md`, `docs/joe-wong-fresh-analysis.md`. Named prop pairings (10FOUR, TickTickTrader, Trade The Pool, EdgeProp): `docs/bookmap-prop-firm-partners.md`.
