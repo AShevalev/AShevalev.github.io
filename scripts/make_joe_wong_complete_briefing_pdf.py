@@ -5,9 +5,10 @@ from pathlib import Path
 
 from fpdf import FPDF
 
-OUT = Path("/opt/cursor/artifacts/Verodus_Joe_Wong_Complete_Briefing.pdf")
+OUT = Path("/opt/cursor/artifacts/Verodus_Joe_Wong_Full_Briefing_22_Aug.pdf")
 REPO_OUT = Path("/workspace/docs/joe-wong-complete-briefing.pdf")
 ROOT_OUT = Path("/workspace/joe-wong-complete-briefing.pdf")
+EXTRA_OUT = Path("/workspace/Verodus_Joe_Wong_Full_Briefing.pdf")
 
 FONT_DIR = Path("/usr/share/fonts/truetype/macos")
 GREEN = (15, 118, 110)
@@ -36,7 +37,7 @@ class BriefingPDF(FPDF):
         self.set_y(10)
         self.set_font("Inter", "", 8)
         self.set_text_color(*MUTED)
-        self.cell(0, 5, "Verodus  |  Joe Wong complete briefing", align="L")
+        self.cell(0, 5, "Verodus  |  Joe Wong full briefing", align="L")
         self.set_xy(18, 10)
         self.cell(0, 5, "Internal  ·  22 August 2026", align="R")
         self.set_draw_color(*RULE)
@@ -191,12 +192,12 @@ def build():
     pdf.set_y(16)
     pdf.set_font("Inter", "", 9)
     pdf.set_text_color(*GREEN)
-    pdf.cell(0, 5, "VERODUS INTERNAL BRIEFING  ·  COMPLETE FILE", align="L", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(0, 5, "VERODUS INTERNAL BRIEFING  ·  UPDATED COMPLETE FILE", align="L", new_x="LMARGIN", new_y="NEXT")
     pdf.ln(3)
     pdf.set_x(18)
     pdf.set_font("Inter", "B", 20)
     pdf.set_text_color(*INK)
-    pdf.multi_cell(0, 8.2, "Joe Wong, Bookmap, and what Verodus should take")
+    pdf.multi_cell(0, 8.2, "Joe Wong — full briefing (meeting, email, Bookmap, terms)")
     pdf.set_x(18)
     pdf.set_font("Inter", "", 10.5)
     pdf.set_text_color(*MUTED)
@@ -220,6 +221,13 @@ def build():
         "Lite fees, rules unchanged, 90 days. Engine / PropTrade: later, white-label, Verodus "
         "keeps the stack. Data: no under current Privacy. Mixing them into one yes trains "
         "TAMS and helps him clone PropTrade off your tape."
+    )
+    pdf.body(
+        "This file replaces the shorter 21–22 August notes as the single download. "
+        "Inside: Kim’s four lines; what Joe seeks vs what each side gets; who he is; "
+        "the four brand names; the claim table; the Bookmap leftover and the 10FOUR "
+        "analogue; Bookmap data collection; the generic HK-credibility memo; Verodus "
+        "terms and kill line; the reply Alexander can send; walk-away."
     )
 
     # --- 1 ---
@@ -255,6 +263,39 @@ def build():
         "He is not buying evaluations. He is not paying a sponsorship. He is shopping machinery "
         "for a competition and a PropTrade announcement he cannot run, plus a tape Bookmap "
         "does not even collect."
+    )
+
+    pdf.h2("1a. The email leftover — he did not stack Bookmap with Verodus")
+    pdf.body(
+        "Subject: Strategic Partnership Proposal: Expanding Verodus’s Global Footprint via "
+        "World Traders Hub HK. Ask on paper: unpaid official long-term partner of a 2026/2027 "
+        "global competition with a Hong Kong final. No cash, no SKU, no tracking code, no data "
+        "license. The body is a Bookmap partnership template:"
+    )
+    add_table(
+        pdf,
+        ["His words", "What that is"],
+        [
+            [
+                "Given Bookmap’s status as a premier institutional-grade order flow platform",
+                "Bookmap is a heatmap / order-flow terminal. Verodus is not.",
+            ],
+            [
+                "Proposed Partnership with Bookmap",
+                "Section heading never swapped. You are still in the Bookmap slot.",
+            ],
+            [
+                "Combining Verodus’s advanced order flow visualization and infrastructure",
+                "Verodus name pasted onto Bookmap product copy.",
+            ],
+        ],
+        [82, 92],
+    )
+    pdf.body(
+        "If he wanted both vendors he would say Bookmap on the tape, Verodus for Instant / "
+        "1-Step / Lite. He assigned Bookmap’s product to you. Same class of error as "
+        "TradeMath’s old Linear.app leftovers. He is shopping a platform partner. Last draft "
+        "that partner was Bookmap. This send, it was supposed to be you."
     )
 
     # --- 2 ---
@@ -575,6 +616,31 @@ def build():
         "Do not follow up twice."
     )
 
+    pdf.h2("11. Reply Alexander can send")
+    pdf.body(
+        "Tone: you met him; you are not hostile; you will not sign a blank partnership. "
+        "Do not attach a term sheet on the first reply. Make him describe Verodus correctly first."
+    )
+    pdf.callout(
+        "Hi Joe, Good to hear from you after Karma Lounge. Quick clarification so we don’t "
+        "waste a cycle: Verodus is a simulated evaluation firm (Instant and challenge programs, "
+        "published rules, cash performance rewards). We are not an order-flow visualization "
+        "platform, and we don’t run client brokerage books. If the collaboration you have in "
+        "mind is challenges / Asia origination / a 2027 competition funnel onto those products, "
+        "we can talk. If it was scoped for a terminal like Bookmap, that’s a different company. "
+        "For a first discussion I need a short Verodus-specific note covering: (1) which Verodus "
+        "products you want (Instant, 1-Step, 2-Step Lite/Pro) and whether prize accounts are "
+        "paid or comped; (2) how you would send buyers (tracked links / codes) — we only share "
+        "net evaluation fees on tagged checkouts, after refunds and chargebacks, on unchanged "
+        "public rules; (3) contracting entity, and the SFC CE number for any licensed fund you "
+        "want associated with this — if there isn’t one, we can’t be named next to SFC approval; "
+        "(4) a contact at Our Hong Kong Foundation if you want that name in any joint material, "
+        "and the same for the Saudi 2025 event (organizer, participant-count source, TradeMath’s "
+        "role). We don’t do unpaid exclusive official long-term partner appointments, and we "
+        "don’t license trader data under the current Privacy Policy. Happy to do 30 minutes "
+        "once that note is in. Alexander"
+    )
+
     pdf.h2("Walk-away")
     pdf.bullet("Free partnership with no unique code and no net-fee share")
     pdf.bullet("Unnamed SFC partner in joint copy")
@@ -608,7 +674,7 @@ def build():
         "in docs/. Not an audit and not legal advice. Does not change website copy.",
     )
 
-    for path in (OUT, REPO_OUT, ROOT_OUT):
+    for path in (OUT, REPO_OUT, ROOT_OUT, EXTRA_OUT):
         path.parent.mkdir(parents=True, exist_ok=True)
         pdf.output(str(path))
         print(f"Wrote {path} pages={pdf.pages_count} bytes={path.stat().st_size}")

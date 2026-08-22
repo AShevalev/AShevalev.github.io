@@ -2,7 +2,10 @@
 
 **Date:** 22 August 2026  
 **For:** Alexander and Kim  
-**Download:** `joe-wong-complete-briefing.pdf` (also `/opt/cursor/artifacts/Verodus_Joe_Wong_Complete_Briefing.pdf`)
+**Download:** `joe-wong-complete-briefing.pdf` / `Verodus_Joe_Wong_Full_Briefing.pdf`  
+**Artifact:** `/opt/cursor/artifacts/Verodus_Joe_Wong_Full_Briefing_22_Aug.pdf`
+
+Updated 22 August 2026 to include Kim’s meeting, email leftover quotes, Bookmap/10FOUR, data collection, terms, kill line, and the reply Alexander can send.
 
 This PDF is the single file. It folds in:
 
