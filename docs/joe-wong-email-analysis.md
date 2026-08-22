@@ -5,7 +5,7 @@
 **Source:** Joe M.Y. Wong email after meeting at Karma Lounge  
 **Subject he used:** Strategic Partnership Proposal: Expanding Verodus's Global Footprint via World Traders Hub HK
 
-This is an internal read of **this letter**, not a new company file. Prior memo: `docs/verodus-monimath-collaboration-proposal.md`. Full stack + benefit map (21 Aug 2026): `docs/joe-wong-fresh-analysis.md`. Generic “lead-gen + HK credibility” mark-up: `docs/joe-wong-generic-benefits-rebuttal.md`. Prior commercial posture still holds: **do the deal, not his deal.**
+This is an internal read of **this letter**, not a new company file. Prior memo: `docs/verodus-monimath-collaboration-proposal.md`. Full stack + benefit map (21 Aug 2026): `docs/joe-wong-fresh-analysis.md`. Generic “lead-gen + HK credibility” mark-up: `docs/joe-wong-generic-benefits-rebuttal.md`. Bookmap company file: `docs/bookmap-research.md`. Prior commercial posture still holds: **do the deal, not his deal.**
 
 ---
 
