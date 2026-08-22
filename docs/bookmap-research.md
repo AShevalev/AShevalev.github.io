@@ -109,4 +109,18 @@ Nothing in the commercial posture. It **explains the email**.
 - “Partner with Bookmap and then use our system” is what a competent BD would write. Joe did not write that.
 - If he ever does write that two-vendor stack, Verodus’s slice is still **tagged evaluation fees**, not heatmap revenue and not OHKF/SFC halo.
 
+## Does Bookmap collect trader data?
+
+**Two different things.**
+
+**Their ticks / P&L / strategy:** Bookmap’s own FAQ says no. The app runs **locally**. It talks to the user’s broker/data vendor (Rithmic, CQG, etc.). “We do not have any access to any of your personal account information or your trading activity.” License activation sends **OS version and screen resolution** only. API docs: orders and real-time market data are **not** routed through Bookmap servers, except **Bookmap Data** connections (their own feed). Replay files stay on the PC unless the user uploads them.
+
+**The public order book:** the heatmap is **exchange** liquidity (everyone’s resting orders and prints), not a dossier on that user. That is market data they subscribe to, not Verodus-style behavioral CRM.
+
+**Account and website:** yes, they collect a lot. Privacy Policy (`bookmap.com/privacy-policy/`, controller Bookmap Limited, Nicosia): name, email, phone, VAT, profession, country, address, payment; cookies and usage data; unique device ID; Google Analytics; Hotjar session recording; Facebook/Twitter remarketing; Zoho CRM; PayPal/EPG. Standard SaaS billing + ads stack. They do **not** support Do Not Track.
+
+So: they are not sitting on a sellable tape of “how this trader traded.” They are sitting on a **subscriber CRM** plus website analytics. That is not a substitute for Verodus tickets, and it is not a reason to feed Verodus data to Joe or to Bookmap.
+
+---
+
 Companion: `docs/joe-wong-email-analysis.md`, `docs/joe-wong-fresh-analysis.md`.
