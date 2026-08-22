@@ -612,18 +612,30 @@ def build():
         "do not follow up twice."
     )
 
+    pdf.h2("If someone frames this as lead-gen + HK credibility")
+    pdf.body(
+        "A generic prop-firm read of the same email will say: lower CAC off 10k traders, "
+        "Asia credibility via OHKF/SFC, education synergy, competition branding, fund "
+        "adjacency; start with a clarifying call. Keep from that read: Bookmap is a tell; "
+        "official-partner language is not a deal; start with a pilot. Kill the value thesis. "
+        "Verodus is already Dubai FZ selling worldwide. 10k / 1,700 are marketing, not TAM. "
+        "OHKF/SFC next to Verodus is the liability. Education as a pathway kills Instant. "
+        "The missed secondary is PropTrade on Verodus rails, not order-flow integration. "
+        "Full mark-up: docs/joe-wong-generic-benefits-rebuttal.md."
+    )
+
     pdf.ln(2)
     pdf.set_font("Inter", "I", 8.2)
     pdf.set_text_color(*MUTED)
     pdf.multi_cell(
         0,
         4.6,
-        "Sources checked 21 August 2026: trademath.ai, trademath.ai/monimath/, lisg.ai/about-us, "
+        "Sources checked 21–22 August 2026: trademath.ai, trademath.ai/monimath/, lisg.ai/about-us, "
         "Joe’s LinkedIn (MoniMath PropTrade 18 Nov 2025; SFC approval 20 Nov 2025), Karma Lounge "
         "follow-up email as pasted, Our Hong Kong Foundation public site, Money20/20 / Algo "
         "Challenge Association public listings. Companion notes: docs/joe-wong-fresh-analysis.md, "
-        "docs/joe-wong-email-analysis.md. Not an audit and not legal advice. Does not change "
-        "website copy.",
+        "docs/joe-wong-email-analysis.md, docs/joe-wong-generic-benefits-rebuttal.md. Not an "
+        "audit and not legal advice. Does not change website copy.",
     )
 
     for path in (OUT, REPO_OUT, ROOT_OUT):

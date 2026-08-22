@@ -311,3 +311,15 @@ Joe is involved in **four names**: a real smoking-cessation company he chairs, a
 Verodus’s benefit is **Asia origination on Instant / 1-Step / Lite**, paid on **net fees**, rules unchanged, then maybe **PropTrade on Verodus rails**. Everything else in the email is either unverified or actively harmful to repeat.
 
 The meeting was useful as a filter. The email is not a proposal. Wait for a one-pager that could only have been written for Verodus. If it does not arrive, do not follow up twice.
+
+---
+
+## 12. If someone frames this as “lead-gen + HK credibility”
+
+A generic prop-firm read of the same email will say: lower CAC off 10k traders, Asia credibility via OHKF/SFC, education synergy, competition branding, fund adjacency; start with a clarifying call.
+
+Keep from that read: Bookmap is a tell; official-partner language is not a deal; start with a pilot.
+
+Kill the value thesis. Verodus is already Dubai FZ selling worldwide; Joe cannot add a geography. 10k / 1,700 are marketing, not TAM. OHKF/SFC next to Verodus is the liability, not the prize. Education as a pathway kills Instant. The missed secondary is PropTrade on Verodus rails, not order-flow integration.
+
+Full mark-up: `docs/joe-wong-generic-benefits-rebuttal.md`.
