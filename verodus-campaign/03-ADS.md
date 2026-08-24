@@ -17,9 +17,9 @@ URL: `https://www.verodus.com/<bridge>?utm_source=meta&utm_medium=paid&utm_campa
 | Week 1 — trial | **Sign Up** | Bridge → free trial |
 | Week 2 — rules | **Learn More** | Bridge → objectives page |
 | Week 3 — product | **Learn More** | Bridge → model card |
-| Week 4 — offer, warm | **Shop Now** | Bridge → checkout |
+| Week 4 — offer, warm | **Learn More** | Bridge → checkout |
 
-**Learn More on all cold traffic.** "Shop Now" against a bridge page is a mismatch Meta reads as misleading, and it suppresses CTR with people who don't know the brand. Never **Get Offer** — it implies a coupon entitlement against a standing discount.
+**Learn More whenever the destination is the bridge — cold and warm, including week 4.** Shop Now against a bridge page is a mismatch Meta reads as misleading: the button promises a purchase, the page is still an explainer. Never **Get Offer** — it implies a coupon entitlement against a standing discount. Do not test Shop Now until the destination is a real checkout URL and the account has survived review.
 
 ---
 
@@ -32,7 +32,7 @@ Three ads per week, one hook each. Don't add a new ad until something has 2,000 
 | 1 | `W1_WHY`, `W1_TRIAL`, `W1_HERO` | Sign Up |
 | 2 | `W2_FLOOR`, `W2_RULES`, `W2_TWOSTEP` | Learn More |
 | 3 | `W3_INSTANT`, `W3_ONESTEP`, `W3_PROMO` | Learn More |
-| 4 | `W4_OFFER`, `W4_ONESTEP`, `W4_LASTCALL` (only if pricing ends) | Shop Now |
+| 4 | `W4_OFFER`, `W4_ONESTEP`, `W4_LASTCALL` (only if pricing ends) | Learn More |
 
 | Ad name | Video / creative | Primary text |
 |---|---|---|

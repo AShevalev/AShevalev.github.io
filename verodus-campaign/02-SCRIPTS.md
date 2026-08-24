@@ -10,14 +10,17 @@ Founder-led, phone-shot, anti-hype. Each script carries its hook, VO, on-screen 
 
 **Hook rule:** first three seconds are a problem or a rule. Never a logo, a price, or "since May."
 
-| On camera | Never on camera |
-|---|---|
-| Rules published before you pay | Any fee, size, or discount % |
-| No time limit | "Up to 90%" as the default split |
-| 80% on the bi-weekly cycle; 90% on demand (add-on) | Instant + static, or Instant + fee refund |
-| Static max loss on **2-Step** | "We're new / launching / day one" |
-| Fee back on first reward — **evaluations only** | Income promises, payout figures, "guaranteed" |
-| Free trial, Discord, founders answer | "CFD trading" |
+
+| On camera                                          | Never on camera                               |
+| -------------------------------------------------- | --------------------------------------------- |
+| Rules published before you pay                     | Any fee, size, or discount %                  |
+| No time limit                                      | "Up to 90%" as the default split              |
+| 80% on the bi-weekly cycle; 90% on demand (add-on) | Instant + static, or Instant + fee refund     |
+| Static max loss on **2-Step**                      | "We're new / launching / day one"             |
+| Fee back on first reward — **evaluations only**    | Income promises, payout figures, "guaranteed" |
+| Free trial, Discord, founders answer               | "CFD trading"                                 |
+| Every objective is on the site before you pay      | Any "paywall" claim — rules are free; the evaluation is not |
+
 
 Burn-in on every final frame — full spec in [05-DISCLAIMERS.md](05-DISCLAIMERS.md):
 
@@ -41,6 +44,8 @@ Eligibility is set by content risk, not by how good the clip is.
 
 ---
 
+
+
 # 1 · Founders intro — hero
 
 **30–45s · 80 words · Ad + organic · CTA: Sign Up**
@@ -53,7 +58,9 @@ Open on the face. No logo sting first.
 >
 > So we built Verodus to be the opposite of clever. Every objective is published before you pay. No time limit. The rules you start under are the rules you keep.
 >
-> Don't take my word for it. Start the free trial, read every rule, and come argue with us in Discord. We're in there daily.
+> ```
+> Don't take my word for it. Start the free trial, read every rule, and come ask us in Discord. We're in there daily.
+> ```
 
 **On-screen:** `TRAPPED?` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `TRY IT FREE`
 **Cover:** founder mid-sentence, eyes to camera — `PUBLISHED BEFORE YOU PAY`
@@ -64,17 +71,19 @@ Open on the face. No logo sting first.
 >
 > Ours are published before you pay. No time limit. The rules you start under are the rules you keep.
 >
-> Free trial's on the site. Founders are in Discord daily — come argue with us.
+> Free trial's on the site. Founders are in Discord daily — come ask us.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 ---
 
+
+
 # 2 · Why we built this
 
 **20–25s · 50 words · Ad — top pick · CTA: Sign Up**
 
-One candid take. Rawest clip of the series. Makes no drawdown claim, so it needs no plan label — the most portable clip in the set.
+One candid take. Keep it raw — if this gets polished into a manifesto, it stops being the best cold ad. Makes no drawdown claim, so it needs no plan label — the most portable clip in the set.
 
 **Hook:** "Some firms sell one rulebook and enforce another."
 
@@ -94,6 +103,8 @@ One candid take. Rawest clip of the series. Makes no drawdown claim, so it needs
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 ---
+
+
 
 # 3 · Discord
 
@@ -124,23 +135,25 @@ Destination is off-platform and the hook is a discount code — weak paid intent
 
 ---
 
+
+
 # 4 · Static vs trailing — 2-Step
 
-**40–60s · Ad · CTA: Learn More**
+**~20s · ~50 words · Ad · CTA: Learn More**
 
-Motion build from `w2-static-diagram.png` — no shoot required. Plan chip on screen the whole time.
+Motion build from `w2-static-diagram.png` — no shoot required. Three beats, not a 40–60s essay: trailing panel → static panel → Instant. Plan chip on screen the whole time.
 
 **Hook:** "Most challenges don't die on the profit target. They die on the floor."
 
 > Most challenges don't die on the profit target. They die on the floor.
 >
-> A trailing drawdown follows your equity high. Every new high pulls that floor up. You're green, you take a normal pullback, and you're out — still in profit. Technically fair. Practically brutal.
+> A trailing drawdown follows your equity high, so a normal pullback can close a green account.
 >
-> On Verodus 2-Step, max loss is static. Fixed from your starting balance on day one. It does not move because you had a good week.
+> On Verodus 2-Step, max loss is static — fixed from your starting balance on day one.
 >
-> Instant is different. That one trails, and the card says so. We won't sell you two products as if they were one.
+> Instant trails, and the card says so.
 
-**On-screen:** persistent `2-STEP LITE & PRO` · `TRAILING: FLOOR FOLLOWS YOU` · `STATIC: FIXED DAY ONE` · `INSTANT TRAILS — PUBLISHED`
+**On-screen:** persistent `2-STEP LITE & PRO` · `TRAILING: FLOOR FOLLOWS YOU` → `STATIC: FIXED DAY ONE` → `INSTANT TRAILS — THE CARD SAYS SO`
 **Cover:** two-panel diagram, both floors visible — `ONE FLOOR CHASES YOU`
 
 **Caption** (Set A)
@@ -154,6 +167,8 @@ Motion build from `w2-static-diagram.png` — no shoot required. Plan chip on sc
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 ---
+
+
 
 # 5 · Read the rules with me
 
@@ -180,6 +195,8 @@ Screen-record the live objectives page. Chips `w2-chip-1…3.png`. The most comp
 
 ---
 
+
+
 # 6 · AMA
 
 **60–90s master, cut to shorts · Organic only**
@@ -187,18 +204,23 @@ Screen-record the live objectives page. Chips `w2-chip-1…3.png`. The most comp
 Long, carries tenure claims, and opens with "don't believe us yet." Cut-downs can run as ads if they drop the tenure beat. Cut a question card between answers.
 
 **Are the rules public?**
+
 > All of them. Before you pay. The set you start under is the set you finish under. No retroactive edits.
 
 **How do rewards work?**
+
 > Base cycle is every two weeks, at 80%. Weekly and on demand are add-ons — weekly runs at 70%, on demand at 90% once you're eligible. Most rewards process in under 24 hours, and you get a certificate at withdrawal.
 
 **Why is Instant priced differently?**
+
 > Evaluations refund your fee on the first reward. Instant does not. Different product, different card. If a firm prices Instant like an evaluation, ask who is covering the refund.
 
 **Why should I believe you?**
+
 > Don't. Not yet. The rules are public, and I'm in Discord every day. Judge the operation, not the edit.
 
 Only if asked how long you've been live:
+
 > Since May. The rulebook didn't change for this video. Come read it and stay in the Discord.
 
 **On-screen:** `ASK US ANYTHING`. No dollar figures.
@@ -214,6 +236,8 @@ Only if asked how long you've been live:
 
 ---
 
+
+
 # 7 · Trial → walkthrough
 
 **30–45s · Ad — trial campaign · CTA: Sign Up**
@@ -222,7 +246,7 @@ Screen-record the product. Step chips `w3-step-strip.png`.
 
 **Hook:** "You shouldn't have to pay to see how a firm works."
 
-> Start the free trial. Same rules engine. Same platforms. None of the rules sit behind a paywall.
+> Start the free trial. Same rules engine. Same platforms. Every objective is on the site before you pay.
 >
 > Objectives track live on the dashboard: target, drawdown headroom, trading days. You always know where you stand.
 >
@@ -241,9 +265,11 @@ Screen-record the product. Step chips `w3-step-strip.png`.
 
 ---
 
+
+
 # 8 · Intro offer
 
-**30s · Ad — warm audiences only · CTA: Shop Now**
+**30s · Ad — warm audiences only · CTA: Learn More**
 
 Overlay carries the price. VO does not.
 
@@ -272,6 +298,8 @@ Overlay carries the price. VO does not.
 
 ---
 
+
+
 # 9 · Community in motion
 
 **20–30s · Organic only**
@@ -296,9 +324,11 @@ Montage implies social proof we can't substantiate ad-side. Frames `w4-montage-o
 
 ---
 
+
+
 # 10 · Last call
 
-**10–15s · Conditional ad — warm only · CTA: Shop Now**
+**10–15s · Conditional ad — warm only · CTA: Learn More**
 
 Runs **only if intro pricing genuinely ends.** Deceptive countdowns on a standing product are a named Meta prohibition.
 
@@ -316,9 +346,11 @@ If pricing isn't changing: `THE RULES AREN'T CHANGING. NEITHER IS THE TRIAL.`
 
 ---
 
+
+
 # Product explainers — 20s each
 
-45–52 spoken words. No preamble. Shoot all three in one sitting, same shirt, same frame, so they cut together as a series.
+45–52 spoken words. No preamble. Do not pad with founders lore — if a take runs long, cut the lore, not the numbers. Shoot all three in one sitting, same shirt, same frame, so they cut together as a series.
 
 ## 11 · Instant
 
@@ -349,6 +381,8 @@ Never pair with static-drawdown or fee-refund copy.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
+
+
 ## 12 · 1-Step
 
 **20s · 48 words · Ad · CTA: Learn More**
@@ -373,6 +407,8 @@ Never pair with static-drawdown or fee-refund copy.
 > No time limit, so you pass on your schedule, not a thirty-day clock. Fee back on your first reward.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
+
+
 
 ## 13 · 2-Step
 
@@ -401,6 +437,8 @@ Never pair with static-drawdown or fee-refund copy.
 
 ---
 
+
+
 # C · Challenge promo — one-step
 
 **20–25s · Ad · CTA: Learn More**
@@ -428,6 +466,8 @@ Never pair with static-drawdown or fee-refund copy.
 
 ---
 
+
+
 # Cut on purpose — don't put back
 
 - "This isn't a launch — it's the first time we've put our faces to it."
@@ -436,19 +476,24 @@ Never pair with static-drawdown or fee-refund copy.
 - "You get paid in 24 hours."
 - "You pick the cycle" — weekly and on-demand are both paid add-ons
 - "Rule-based, not a judgement call" — the site's terms say discretionary
-- "Nothing sits behind a paywall" — the rules are free; the evaluation is not
+- "Nothing sits behind a paywall" / "None of the rules sit behind a paywall" — the rules are free; the evaluation is not. Say: every objective is on the site before you pay.
 - "Fairest in the industry", blanket news/weekend permissions, no minimum days, stacked fake sale
 - "Up to 90%" as the standard split
 
 ---
 
+
+
 # Production
 
-| Session | Records |
-|---|---|
-| A | 1, 2, 5 (+ pickups for 3) |
-| B | 6, 7, 8, footage for 9 |
-| C | 11, 12, 13, C — one sitting, same shirt, same frame |
-| No shoot | 4 (motion build), 10 (cut from 8 plus a card) |
+
+Session A (1, 2, 5) and Session C (11–13) are the whole paid series. Session B is optional.
+
+| Session | Records | Note |
+|---|---|---|
+| A | 1, 2, 5 | Paid series. Keep 2 raw. Pickups for 3 if time. |
+| C | 11, 12, 13 | Paid series. One sitting, same shirt, same frame. 20s / ~46 words — do not pad with founders lore. |
+| B | 6, 8, footage for 9 | Optional. Not required to run the paid series. |
+| No shoot | 4 (~20s motion), 7 (screen-record), 10 (cut from 8 plus a card), C | C is a second 1-Step — skip unless 12 isn't usable. |
 
 Vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real desk. Burned-in captions with gold keyword highlights, logo bug top-left, legal line held on the final frame for at least 3 seconds.

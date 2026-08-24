@@ -19,7 +19,7 @@ Tied to the Meta risks in [01-CAMPAIGN.md](01-CAMPAIGN.md). If an answer is wron
 **Destination and structure**
 
 - [ ] Destination is the **bridge page**, not a checkout or affiliate redirect
-- [ ] CTA button matches the destination — **Learn More** on all cold traffic
+- [ ] CTA button matches the destination — **Learn More** whenever the destination is the bridge, including week 4 warm. Never **Shop Now** against a bridge page.
 - [ ] UTM set, ad name matches `utm_content`
 
 **Claims**
