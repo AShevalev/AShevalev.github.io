@@ -1,6 +1,6 @@
 # Verodus reels — timed cuts
 
-Thirteen shootable reels: **7 × 20s** and **6 × 45s**. Founder-led, price-free, "since May."
+Sixteen shootable reels: **7 × 20s**, **6 × 45s**, and **3 × 30s product explainers**. Founder-led, price-free, "since May."
 
 **Pacing.** Conversational VO runs ~150 words/minute. Every script below is word-counted to fit without rushing.
 
@@ -17,7 +17,9 @@ Thirteen shootable reels: **7 × 20s** and **6 × 45s**. Founder-led, price-free
 - 80% standard split, 90% on demand. Never "up to 90%."
 - Fee refund is **evaluations only**.
 - Never "we're new," "launching," "day one" (as a launch phrase), "guaranteed."
-- Rewards are **rule-based** — paid on the published objectives. Never call them discretionary.
+- Rewards: say **"hit the published objectives and you're eligible to request a reward."** Do not say "rule-based, not a judgement call" — the site's own terms read *discretionary … following internal review*.
+- Reward cycles: **bi-weekly 80% is the only cycle without an add-on.** Weekly is 70% + add-on; on-demand is 90% + add-on. Never "you pick the cycle."
+- No payout-speed claims. The page states a $100 minimum and 3 trading days, within 48 hrs — not "under a day."
 - Burn in: *Simulated evaluation. Rewards paid on the published objectives. 18+.*
 - Logo bug `w1-logo-bug.png` top-left. Captions always on — most views are muted.
 
@@ -88,14 +90,14 @@ Shoot vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real d
 
 > Let's talk rewards without the marketing voice.
 >
-> You pick the cycle: weekly, every two weeks, or on demand. Standard split is eighty percent. On demand is ninety.
+> Bi-weekly is the standard cycle — eighty percent, no add-on.
 >
-> Most requests process in under a day, and you get a certificate at withdrawal.
+> Weekly and on-demand are add-ons. Weekly runs at seventy, on-demand at ninety once you meet the eligibility.
 >
-> It's rule-based. Hit the published objectives and the reward is yours. No committee, no mood.
+> Hit the published objectives, request the reward, get a certificate at withdrawal. It's all on the page.
 
-**On-screen:** `WEEKLY · BI-WEEKLY · ON DEMAND` → `80% STANDARD · 90% ON DEMAND` → `RULE-BASED, NOT A JUDGEMENT CALL`
-No dollar amounts on screen. Rails only.
+**On-screen:** `BI-WEEKLY 80% — STANDARD` → `WEEKLY 70% · ON DEMAND 90% — ADD-ONS` → `ALL ON THE PAGE`
+No dollar amounts on screen. Rails only. Do not imply the cycles are free to switch.
 
 ## 20-F · Read it yourself
 **Hook:** "I'm not going to tell you we're trustworthy. Watch this instead."
@@ -129,15 +131,13 @@ The most trust-positive Instant clip in the set. Do not add refund copy.
 ## 45-A · Founders intro (hero)
 **Hook:** "Most prop firms make traders feel trapped."
 
-> Most prop firms make traders feel trapped. Rules you only understand after you fail. Payouts that drag. Fine print that appears the moment you win.
+> Most prop firms make traders feel trapped. Rules you only understand after you fail. Rewards that drag. Fine print that appears the moment you win.
 >
-> I've watched that from the inside.
+> So we built Verodus to be the opposite of clever. Every objective is published before you pay. No time limit. On 2-Step, your max loss is static — fixed from day one. And the rules you start under are the rules you keep.
 >
-> So Verodus works the other way. Every objective is published before you pay. No time limit. On 2-Step, your max loss is static — fixed from day one. The rules you start under are the rules you keep.
+> We've been running since May.
 >
-> We've been running since May. This isn't a launch. It's the first time we've put our faces to it.
->
-> Don't take my word for any of it. Start the free trial, read every rule, and come argue with us in Discord. We're in there daily.
+> Don't take my word for any of it. Start the free trial, read every rule yourself, and come argue with us in Discord. We're in there daily.
 
 **On-screen:** `TRAPPED?` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `SINCE MAY` → `TRY IT FREE`
 **Frames:** open on face · close on `w1-manifesto-end.png`
@@ -164,7 +164,7 @@ The most trust-positive Instant clip in the set. Do not add refund copy.
 >
 > Are the rules public? All of them, before you pay, on the objectives page. And the set you start under is the set you finish under. No retroactive edits.
 >
-> How do rewards work? It's rule-based. You pick the cycle — weekly, every two weeks, or on demand. Standard split is eighty percent, on demand is ninety, and most requests process in under a day.
+> How do rewards work? Hit the published objectives and you're eligible to request one. Bi-weekly is the standard at eighty percent. Weekly and on-demand are add-ons — seventy and ninety.
 >
 > Why should I believe you? Don't, yet. We've been running since May, the rules are public, and I'm in the Discord every day answering exactly this.
 >
@@ -209,13 +209,11 @@ The most trust-positive Instant clip in the set. Do not add refund copy.
 ## 45-F · Trapped (competitor recast)
 **Hook:** "Most prop firms make traders feel trapped."
 
-> Most prop firms make traders feel trapped. Confusing rules, slow payouts, no transparency.
->
-> I've seen how that works from the inside, managing accounts in CFDs. And the pattern is always the same — the rules get clear right after they cost you.
+> Most prop firms make traders feel trapped. Confusing rules, slow rewards, no transparency. And the pattern is always the same — the rules get clear right after they cost you.
 >
 > So we built Verodus to be readable. Objectives published before you pay. No time limit. Static max loss on 2-Step. Fee back on your first reward on the evaluations. Instant runs on a different card and we say so out loud.
 >
-> We've been running since May. This is just the first time you're hearing it from us.
+> We've been running since May.
 >
 > Trial's free. Discord's open. Links in the bio.
 
@@ -223,16 +221,64 @@ This is the direct answer to the competitor script. Same shape, no "launching so
 
 ---
 
+# Product explainers — 30s
+
+One per model, so a shopper can self-select. Each names its own trade-off out loud. Long-form versions: [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §11–13.
+
+## 30-INS · Instant
+**Hook:** "Instant skips the evaluation. Here's what it costs you."
+
+> Instant skips the evaluation. No profit target — you're trading the simulated account from day one.
+>
+> The trade-off, said out loud: the max loss trails. It follows your equity high, so your floor comes up with you. There are minimum valid trading days and a best-day rule too.
+>
+> And Instant doesn't refund the fee. The evaluations do.
+>
+> Full card's on the objectives page. If that's not your temperament, take an evaluation instead.
+
+**On-screen:** `NO PROFIT TARGET` → `TRAILING MAX LOSS` → `NO FEE REFUND` → `READ THE CARD`
+Never add static-drawdown or fee-refund copy to this one.
+
+## 30-ONE · 1-Step
+**Hook:** "One phase. One set of numbers."
+
+> One phase. One set of numbers. Pass it and you're through.
+>
+> Published profit target, published daily loss, published max loss — all before you pay. No time limit, so you pass on your schedule, not a thirty-day countdown.
+>
+> And your fee comes back on your first reward.
+>
+> If you know your edge works and you want the shortest honest route — this is the one. Trial first.
+
+**On-screen:** `ONE PHASE` → `NO TIME LIMIT` → `FEE BACK ON FIRST REWARD`
+
+## 30-TWO · 2-Step
+**Hook:** "This is the one people pick after they've been stopped out in profit."
+
+> This is the one people pick after they've been stopped out in profit.
+>
+> On 2-Step, your max loss is static. Fixed from your starting balance on day one. It does not follow you up when you're winning.
+>
+> That's the difference between a floor and a leash.
+>
+> Two published phases, no time limit, fee back on your first reward. Lite and Pro are the same idea with different numbers — both on the objectives page.
+
+**On-screen:** `STATIC MAX LOSS` → `FIXED DAY ONE` → `LITE & PRO ON THE PAGE`
+
+---
+
 ## Schedule
 
-| Week | 45s hero | 20s support |
-|---|---|---|
-| 1 | 45-A Founders intro | 20-D Don't pay · 20-C Discord |
-| 2 | 45-B Static vs trailing | 20-A Stopped out · 20-B No time limit |
-| 3 | 45-C Three questions · 45-D Platform | 20-F Read it yourself · 20-E Rewards |
-| 4 | 45-E The ask · 45-F Trapped | 20-G The catch |
+| Week | 45s hero | 20s support | Product |
+|---|---|---|---|
+| 1 | 45-A Founders intro | 20-D Don't pay · 20-C Discord | — |
+| 2 | 45-B Static vs trailing | 20-A Stopped out · 20-B No time limit | 30-TWO 2-Step |
+| 3 | 45-C Three questions · 45-D Platform | 20-F Read it yourself · 20-E Rewards | 30-ONE 1-Step |
+| 4 | 45-E The ask · 45-F Trapped | 20-G The catch | 30-INS Instant |
 
-Post a 45 every third day, a 20 on the days between. Same file to Reels, TikTok, Shorts, X.
+Post a 45 every third day, a 20 or a product explainer on the days between. Same file to Reels, TikTok, Shorts, X.
+
+Pin the three product explainers to a **"Which one?"** Instagram highlight — they answer the top pre-sale DM without a human.
 
 ## Shoot plan
 
@@ -240,8 +286,11 @@ Post a 45 every third day, a 20 on the days between. Same file to Reels, TikTok,
 |---|---|
 | A — week 1 | 45-A, 45-F, 20-B, 20-C, 20-D, 20-G, plus 20-F screen capture |
 | B — week 3 | 45-C, 45-D, 45-E, 20-A, 20-E |
+| C — product | 30-INS, 30-ONE, 30-TWO — one sitting, same shirt, same frame |
 
-Both sessions are one sitting each. Shoot the 45s first while energy is high, then the 20s — several 20s are lifted verbatim from 45-A, 45-B, and 45-C, so record them as clean standalone takes rather than trimming in post.
+Sessions are one sitting each. Shoot the 45s first while energy is high, then the 20s — several 20s are lifted verbatim from 45-A, 45-B, and 45-C, so record them as clean standalone takes rather than trimming in post.
+
+Session C films as a set so the three cut together as a series. Say the trade-off line in each without flinching; that contrast is the reason the trio converts.
 
 ## Boosting
 

@@ -129,7 +129,7 @@ Two shoot sessions. Session A = Day 1. Session B = start of Week 3. Each session
 
 Video carries **no prices**. Rules, free trial, Discord, "since May." Fees live on the statics and the landing page.
 
-> Most prop firms make traders feel trapped… Every objective is published before you pay. No time limit. The rules you start under are the rules you keep. We've been running since May — this isn't a launch, it's the first time we've put our faces to it. Start the free trial and come argue with us in Discord.
+> Most prop firms make traders feel trapped… So we built Verodus to be the opposite of clever. Every objective is published before you pay. No time limit. The rules you start under are the rules you keep. We've been running since May. Start the free trial, read every rule yourself, and come argue with us in Discord.
 
 **Why we built this (15–20s)**
 

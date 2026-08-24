@@ -114,4 +114,6 @@ If Meta’s algorithm starts converting Instant $50k/$100k from the homepage pic
 - Hiding that trading is **simulated**
 - Before/after income graphics
 
-Allowed: published rules, one-time fee, VERO35, free trial, “rewards are rule-based and paid on the published objectives,” payout rails (Rise / crypto), under-24h processing **as an operations claim**, not an earnings claim.
+Allowed: published rules, one-time fee, VERO35, free trial, “rewards are rule-based and paid on the published objectives,” payout rails (Rise / crypto).
+
+No payout-speed claims. The objectives page states a **$100 minimum, 3 trading days, within 48 hrs** — do not write “under a day” or “under 24h” anywhere in ads or video.
