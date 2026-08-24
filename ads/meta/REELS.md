@@ -309,4 +309,6 @@ Session C films as a set so the three cut together as a series. Say the trade-of
 
 Only promote a reel that clears **45% three-second hook rate** organically, and duplicate it into Ads Manager as a conversion ad — never the Page Boost button. Kill anything under 25%.
 
+**Which reels are even eligible as ads** is decided in [`PUBLISH.md`](PUBLISH.md) — hook A/B variants, CTA buttons, and the per-ad compliance checklist live there. Reels tied to Discord, the AMA, or the community montage stay organic.
+
 Expected best cold performers: **20-D** (don't pay to find out) and **20-A** (stopped out in profit). Best warm closer: **45-E**.

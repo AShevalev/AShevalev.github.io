@@ -4,7 +4,8 @@
 
 | File | What |
 |---|---|
-| [meta/REELS.md](meta/REELS.md) | **7 × 20s + 6 × 45s reels**, timed to runtime |
+| [meta/PUBLISH.md](meta/PUBLISH.md) | **Start here to ship:** ads vs organic per script, hook A/B, captions, hashtags, covers, CTA buttons, compliance checklist |
+| [meta/REELS.md](meta/REELS.md) | **11 × 20s + 6 × 45s reels**, timed to runtime |
 | [meta/VIDEO-SCRIPTS.md](meta/VIDEO-SCRIPTS.md) | Long-form masters (AMA, walkthrough) |
 | [meta/LAUNCH-PLAN.md](meta/LAUNCH-PLAN.md) | Master 4-week plan, budget |
 | [meta/ASSETS.md](meta/ASSETS.md) | 33 launch PNGs, video shot lists, verbatim copy |
@@ -17,3 +18,5 @@
 | [brand/](brand/) | Official logos from verodus.com/brand-kit.html |
 
 Founding offer = **VERO35**. Instant $5k **$72** (no refund). 1-Step $5k **$36** (refund). No Instant $25k+. No second coupon. No fake payouts.
+
+**Before any spend:** clear the policy gate in [meta/CAMPAIGN.md](meta/CAMPAIGN.md) — financial-services authorisation per country, the Financial products and services Special Ad Category, a bridge page instead of a direct checkout link, and no earnings content on the ad destination.
