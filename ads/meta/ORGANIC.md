@@ -89,7 +89,7 @@ No second coupon. Simulated evaluation. Rewards paid on the published objectives
 
 ### Week 1 — founders intro caption
 
-We’ve been running since May. This is the founders intro, not a launch.
+Most firms sell one rulebook and enforce another. We publish ours before you pay.
 
 Instant $5k: no profit target, 3% daily, 6% trail, $72 with VERO35. No fee refund.
 1-Step $5k: one phase, fee back on first reward, $36.
@@ -145,8 +145,11 @@ Simulated evaluation. Rewards paid on the published objectives. 18+.
 4-week posting schedule. [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) holds the longer-form AMA and
 walkthrough masters those cuts come from.
 
-**No prices spoken in any video.** Rules, free trial, Discord, "since May." Fees stay on the
-statics and the landing page, so a price change never invalidates a clip.
+**No prices spoken in any video.** Rules, free trial, Discord. Fees stay on the statics and the
+landing page, so a price change never invalidates a clip.
+
+**"Since May" is team background, not a slogan.** On camera it belongs only on the objectives
+screen-record or in an AMA answer if asked — never a hook, caption lead, or end card.
 
 | # | Reel | Length |
 |---|---|---|

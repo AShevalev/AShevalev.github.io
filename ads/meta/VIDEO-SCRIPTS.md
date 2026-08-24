@@ -1,27 +1,28 @@
 # Verodus video scripts — founders series
 
-Thirteen scripts. Founder-led, phone-shot, anti-hype. Verodus has been **operating since May**.
+Thirteen scripts plus a promo cut. Founder-led, phone-shot, anti-hype. Operating since May is **team background**, not a line to repeat on camera.
 
-**Shooting reels?** Use [`REELS.md`](REELS.md) — timed 20s and 45s cuts with hooks and a posting schedule. This file is the long-form master those cuts are lifted from.
+**Shooting reels?** [`REELS.md`](REELS.md) holds the timed 20s and 45s cuts. This file is the master.
 
-**No prices on camera.** No fees, no discount amounts, no account sizes, no "X% off". Video sells the *standard* and the *free trial*. Numbers live on the statics, the checkout, and the link in bio. A price change never invalidates a clip.
+**No prices on camera.** No fees, no discount amounts, no account sizes, no “X% off.” Video sells the standard and the free trial. Numbers live on statics, checkout, and the link in bio.
 
 | On camera | Never on camera |
 |---|---|
 | Rules published before you pay | Any fee, sticker, or discount % |
 | No time limit | Account sizes ($5k … $200k) |
-| 80% standard split; 90% on demand | "Up to 90%" as the default |
+| 80% on the bi-weekly cycle; 90% on demand | “Up to 90%” as the default |
 | Static max loss on **2-Step** | Instant + static, or Instant + fee refund |
-| Fee back on first reward — **evaluations only** | "We're new / launching / day one" as launch phrases |
-| Free trial, Discord, founders answer | Income promises, payout figures, "guaranteed" |
+| Fee back on first reward — **evaluations only** | “We’re new / launching / day one” |
+| Free trial, Discord, founders answer | Income promises, payout figures, “guaranteed” |
+| “Since May” only on the live objectives screen-record, or in the AMA if asked | “Since May” as a slogan, caption lead, or hero close |
 
-Consistency line — say the same thing everywhere: **running since May · intro code / founders series · reward · evaluations refund the fee, Instant does not · 2-Step static, Instant trails.**
+Consistency line: **intro code / founders series · reward · evaluations refund the fee, Instant does not · 2-Step static, Instant trails · bi-weekly 80% is the base cycle.**
 
-Every video ends on the same burned-in legal line:
+Legal line on every final frame:
 
 > Simulated evaluation. Rewards paid on the published objectives. 18+.
 
-Standing end card: `w1-manifesto-end.png` then *Free trial — verodus.com*. Logo bug `w1-logo-bug.png` top-left.
+End card: `w1-manifesto-end.png` then *Free trial — verodus.com*. Logo bug `w1-logo-bug.png` top-left.
 
 ---
 
@@ -29,62 +30,61 @@ Standing end card: `w1-manifesto-end.png` then *Free trial — verodus.com*. Log
 
 Checked against the live objectives page on **24 Aug 2026**.
 
-| Claim | Live page says | Verdict |
+| Claim | Live page | Verdict |
 |---|---|---|
-| Instant trails | Instant: trailing max drawdown + daily, both from the equity high | ✅ confirmed |
-| Evaluations refund the fee | "100% Challenge Fee Refund on first successful payout" | ✅ confirmed |
-| 2-Step static max loss | Funded phase: 10% max drawdown, 5% daily, static | ✅ confirmed |
-| Splits 80% standard / 90% on demand | Bi-Weekly 80%, On Demand 90% | ✅ confirmed |
-| Reward cycles weekly / two weeks / on demand | All three listed | ✅ confirmed |
+| Instant trails | Trailing max drawdown + daily, both from the equity high | ✅ |
+| Evaluations refund the fee | 100% challenge fee refund on first successful payout | ✅ |
+| 2-Step static max loss | Funded phase: 10% max DD, 5% daily, static | ✅ |
+| Bi-weekly 80% is the base cycle | Bi-weekly 80%, no add-on | ✅ |
+| Weekly | **70%, add-on required** | ⚠️ pays *less*, and costs extra |
+| On demand | **90%, add-on required**, available when eligibility is met | ⚠️ not free — say so |
 
-**Payout speed — approved.** Say **"most rewards process in under 24 hours"**, matching the homepage. Keep the qualifier: it is a processing-time claim about most requests, not a guarantee, and not an earnings claim. Two things it is not — the first payout also has a **$100 minimum and 3 trading days** gate, and the objectives page quotes a **48-hour** window for that first one. So don't say "you get paid in 24 hours"; say the processing is usually under a day once you request.
+**Payout speed — approved.** Say **“most rewards process in under 24 hours.”** Not “you get paid in 24 hours.” First reward also has a **$100 minimum and 3 trading days** gate; objectives page quotes **48 hours** for that first one.
 
-Re-check these before every shoot. If a rule has moved on the site, change the line — don't keep the rhythm.
+Re-check before every shoot. If a rule moved, change the line.
 
 ---
 
-## 1 · Founders intro — hero (30–45s)
+## 1 · Founders intro — hero (30–45s · 80 words)
 
 Open on the face. No logo sting first.
 
-> Most prop firms make traders feel trapped. Rules you only understand after you fail. Rewards that drag. Fine print that appears the moment you win.
+> Most prop firms make traders feel trapped. Rules you only understand after you fail. Rewards that stall. Fine print that shows up the moment you win.
 >
-> So we built Verodus to be the opposite of clever. Every objective is published before you pay. No time limit. And the rules you start under are the rules you keep.
+> So we built Verodus to be the opposite of clever. Every objective is published before you pay. No time limit. The rules you start under are the rules you keep.
 >
-> We've been running since May. Don't take my word for any of it. Start the free trial, read every rule yourself, and come argue with us in Discord. We're in there daily.
+> Don’t take my word for it. Start the free trial, read every rule, and come argue with us in Discord. We’re in there daily.
 
-**On-screen:** `TRAPPED?` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `SINCE MAY` → `TRY IT FREE`
+**On-screen:** `TRAPPED?` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `TRY IT FREE`
 
 **Caption**
 
-We've been running since May.
-
-Rules published before you pay. No time limit. Founders in Discord daily.
+Rules published before you pay. No time limit. Founders in Discord daily.  
 Start free — link in bio.
 
 Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 ---
 
-## 2 · Why we built this (20–25s)
+## 2 · Why we built this (20–25s · 50 words)
 
 One candid take. Rawest clip of the series.
 
-> I got tired of firms that sell you one set of rules and enforce another. You pay, you pass, and suddenly there's a clause that wasn't there on signup day.
+> I got tired of firms that sell one rulebook and enforce another. You pay. You pass. Then a clause appears that wasn’t there on signup day.
 >
-> So every Verodus objective is public before you put money down. The rules you start under are the rules you keep. We don't do retroactive edits.
+> So every Verodus objective is public before you put money down. The rules you start under are the rules you keep. No retroactive edits.
 
-**On-screen:** `ONE SET OF RULES. SOLD AND ENFORCED.` → `PUBLIC BEFORE YOU PAY` → `NO RETROACTIVE EDITS` → `SINCE MAY`
+**On-screen:** `SOLD ONE RULEBOOK. ENFORCED ANOTHER.` → `PUBLIC BEFORE YOU PAY` → `NO RETROACTIVE EDITS`
 
-56 spoken words, so this runs ~22s — don't try to force it to 20. Two notes: the VO no longer says "since May," so carry it on the end chip; and it makes no drawdown claim, which means it needs no plan label. That is why it travels further than the rest of the set.
+Makes no drawdown claim, so it needs no plan label — the most portable clip in the set.
 
 ---
 
 ## 3 · Discord (12–18s)
 
-> The Verodus Discord is already open. Rules channel, support, founders in the chat — not a bot, not a ticket queue.
+> Verodus Discord is open. Rules, support, founders in the chat — not a bot. Not a ticket queue.
 >
-> Intro details and the code live in there. Come say hi before you pay for anything.
+> The intro details and the code are in there. Ask us anything before you pay.
 
 **On-screen:** `DISCORD IS OPEN` → `#rules · #founders-chat · #support` → `FOUNDERS ANSWER DAILY`
 
@@ -92,63 +92,58 @@ One candid take. Rawest clip of the series.
 
 ## 4 · Static vs trailing — 2-Step (40–60s)
 
-Motion build from `w2-static-diagram.png`. Plan chip on screen the whole time.
+Motion build from `w2-static-diagram.png` — no shoot required. Plan chip on screen the whole time.
 
-> Here's the rule that quietly ends most challenges.
+> Most challenges don’t die on the profit target. They die on the floor.
 >
-> A trailing drawdown follows your equity high. Every new high pulls your floor up behind you. So you can be green, take a normal pullback, and get stopped out in profit. Technically fair. Practically brutal.
+> A trailing drawdown follows your equity high. Every new high pulls that floor up. You’re green, you take a normal pullback, and you’re out — still in profit. Technically fair. Practically brutal.
 >
-> On Verodus 2-Step, your max loss is static. Fixed from your starting balance on day one. It does not move because you had a good week.
+> On Verodus 2-Step, max loss is static. Fixed from your starting balance on day one. It does not move because you had a good week.
 >
-> Instant is different — that one trails, and it says so on the card. We're not going to sell you two products as if they were one.
+> Instant is different. That one trails, and the card says so. We won’t sell you two products as if they were one.
 
-**On-screen:** persistent chip `2-STEP LITE & PRO` · `TRAILING: FLOOR FOLLOWS YOU` · `STATIC: FIXED DAY ONE` · `INSTANT TRAILS — PUBLISHED`
+**On-screen:** `2-STEP LITE & PRO` · `TRAILING: FLOOR FOLLOWS YOU` · `STATIC: FIXED DAY ONE` · `INSTANT TRAILS — PUBLISHED`
 
 ---
 
 ## 5 · Read the rules with me (20–30s)
 
-Screen-record the live objectives page. Chips: `w2-chip-1…3.png`.
+Screen-record the live objectives page. **Only script that says “since May” on purpose** — the date proves the page predates the video.
 
-> Same page that's been on the site since May. No time limit — right here. Static max drawdown on 2-Step — right here. Fee back on your first reward — evaluations only — right here.
+> Same page that’s been on the site since May. No time limit — here. Static max drawdown on 2-Step — here. Fee back on your first reward — evaluations only — here.
 >
-> No PDF, no support ticket, no "message us for details." Read it yourself. That's the whole pitch.
+> No PDF. No ticket. No “message us for details.” Read it yourself. That’s the pitch.
 
 ---
 
 ## 6 · AMA (60–90s, cut to shorts)
 
-Cut a question card between answers.
-
 **Are the rules public?**
-
-> All of them, before you pay. And the set you start under is the set you finish under. We don't do retroactive edits.
+> All of them. Before you pay. The set you start under is the set you finish under. No retroactive edits.
 
 **How do rewards work?**
-
-> You pick the cycle — weekly, every two weeks, or on demand. Standard split is 80%. On demand is 90%. Most rewards process in under 24 hours, and you get a certificate at withdrawal.
+> Base cycle is every two weeks, at 80%. Weekly and on demand are add-ons — weekly runs at 70%, on demand at 90% once you’re eligible. Most rewards process in under 24 hours, and you get a certificate at withdrawal.
 
 **Why is Instant priced differently?**
-
-> Because evaluations refund your fee on the first reward and Instant doesn't. Different product, different card. If a firm charges Instant like an evaluation, ask who's paying for that.
+> Evaluations refund your fee on the first reward. Instant does not. Different product, different card. If a firm prices Instant like an evaluation, ask who is covering the refund.
 
 **Why should I believe you?**
+> Don’t. Not yet. The rules are public, and I’m in Discord every day. Judge the operation, not the edit.
 
-> Don't, yet. We've been running since May, the rules are public, and I'm in Discord every day. Judge the operation, not the edit.
+If someone asks how long you’ve been live, then — and only then:
+> Since May. The rulebook didn’t change for this video. Come read it and stay in the Discord.
 
-**On-screen:** `ASK US ANYTHING` on each card. No dollar figures.
+**On-screen:** `ASK US ANYTHING`. No dollar figures.
 
 ---
 
 ## 7 · Trial → walkthrough (30–45s)
 
-Screen-record the product. Step chips: `w3-step-strip.png`.
-
-> Here's the whole thing, nothing hidden. Start the free trial — same rules engine, same platforms.
+> Start the free trial. Same rules engine. Same platforms. None of the rules sit behind a paywall.
 >
-> Your objectives track live on the dashboard: target, drawdown headroom, trading days. You always know exactly where you stand.
+> Objectives track live on the dashboard: target, drawdown headroom, trading days. You always know where you stand.
 >
-> When you're ready, pick the model that matches how you actually trade. Trial first. Always.
+> When you’re ready, pick the model that matches how you trade. Trial first. Always.
 
 **On-screen:** `1 START FREE` → `2 DASHBOARD` → `3 RULES IN-APP` → `4 PICK YOUR MODEL`
 
@@ -156,31 +151,27 @@ Screen-record the product. Step chips: `w3-step-strip.png`.
 
 ## 8 · Intro offer (30s)
 
-The overlay card carries the price. The VO does not.
+Overlay carries the price. VO does not.
 
-> Quick one, because this is the part where most firms start shouting.
+> This is the part where most firms start shouting.
 >
-> There's an intro code running while we do this founders series. It's in the bio, and it's the only one — we don't stack a second discount on top and call it a sale.
+> There is one intro code while we run this founders series. It’s in the bio. We don’t stack a second discount and call it a sale.
 >
-> What you're actually buying: objectives published up front, no time limit, static max loss on 2-Step, and your fee back on your first reward on the evaluations.
+> What you’re buying: objectives published up front, no time limit, static max loss on 2-Step, and fee back on the first reward — evaluations only.
 >
-> Start with the free trial. If the rules suit you, the code is there. If they don't, don't buy.
+> Start with the free trial. If the rules fit, use the code. If they don’t, don’t buy.
 
-**On-screen:** `INTRO CODE IN BIO` → `ONE CODE. NO STACKING.` → overlay `w4-offer-card.png` → `START FREE`
+**On-screen:** `INTRO CODE IN BIO` → `ONE CODE. NO STACKING.` → `w4-offer-card.png` → `START FREE`
 
 ---
 
 ## 9 · Community in motion (20–30s)
 
-Montage: AMA clips, platform, Discord, objectives page. No payout figures.
-
-> Since May: published rules, traders on the platform, a Discord that answers, and founders who put their names on it.
+> Public rules. Traders on the platform. A Discord that answers. Founders with their names on it.
 >
-> No rented testimonials. No screenshots we can't stand behind.
+> No rented testimonials. No screenshots we can’t stand behind.
 >
-> If that's the kind of firm you've been looking for — the free trial costs you nothing but an afternoon.
-
-**Frames:** `w4-montage-open.png` → footage → `w4-montage-end.png`
+> If that’s the firm you’ve been looking for, the trial costs you an afternoon.
 
 ---
 
@@ -188,118 +179,90 @@ Montage: AMA clips, platform, Discord, objectives page. No payout figures.
 
 Warm audiences only.
 
-> Intro series wraps this week. The code is in the bio, the rules are on the site, and the trial is still free. Nothing to lose but the afternoon.
+> Intro series wraps this week. Code in the bio. Rules on the site. Trial still free. The only thing you spend is the afternoon.
 
 **On-screen:** `INTRO SERIES ENDS THIS WEEK` → `CODE IN BIO` → `START FREE`
 
-Only imply an ending if the intro pricing actually ends. Otherwise: `THE RULES AREN'T CHANGING. NEITHER IS THE TRIAL.`
+Only imply an ending if intro pricing actually ends. Otherwise: `THE RULES AREN'T CHANGING. NEITHER IS THE TRIAL.`
 
 ---
 
-# Product explainers — 20s each
+## Product explainers — 20s each
 
-One per model. The "which one am I buying" set. Same rules: no fees, no sizes, no codes spoken. Each one names its own trade-off out loud — that is the whole differentiator.
+45–52 spoken words. No preamble. Same shirt, same frame, one sitting.
 
-**20s = 45–52 spoken words.** Each script below is inside that. Do not add a sentence; if something has to go in, cut something out. No preamble — the first word is the point.
+### 11 · Instant (20s · 46 words)
 
-Shoot all three in one sitting, same shirt, same frame, so they cut together as a series.
-
-## 11 · Instant (20s · 50 words)
-
-Never pair this with static-drawdown or fee-refund copy.
+Never pair with static-drawdown or fee-refund copy.
 
 > Instant skips the evaluation. No profit target — you trade from day one.
 >
-> Here's the honest part: the max loss trails. It follows your equity high, so your floor comes up with you.
+> The honest part: max loss trails. It follows your equity high, so the floor comes up with you.
 >
-> And Instant doesn't refund the fee — the evaluations do. That's the trade.
+> Instant doesn’t refund the fee. Evaluations do. That’s the trade.
 >
-> Full card's on the objectives page.
+> Full card’s on the objectives page.
 
 **On-screen:** `NO PROFIT TARGET` → `TRAILING MAX LOSS` → `NO FEE REFUND` → `READ THE CARD`
 
-**Caption**
+### 12 · 1-Step (20s · 48 words)
 
-Instant: no evaluation, no profit target, trading from day one.
-
-The trade-off, said out loud — the max loss trails, and Instant doesn't refund the fee. Evaluations do.
-Full card on the objectives page. Trial's free.
-
-Simulated evaluation. Rewards paid on the published objectives. 18+.
-
-## 12 · 1-Step (20s · 49 words)
-
-> One phase. One set of published numbers — target, daily loss, max loss. All of it before you pay.
+> One phase. One set of numbers — target, daily loss, max loss — all published before you pay. Pass it and you’re through.
 >
-> No time limit, so you pass on your schedule, not a thirty-day countdown.
+> No time limit. You pass on your schedule, not a thirty-day clock.
 >
-> And your fee comes back on your first reward. That's the evaluation trade.
+> Fee back on your first reward. That’s the evaluation trade.
 >
 > Start with the free trial.
 
 **On-screen:** `ONE PHASE` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `FEE BACK ON FIRST REWARD`
 
-**Caption**
+### 13 · 2-Step (20s · 47 words)
 
-One phase. One set of published numbers. No time limit.
-
-Fee back on your first reward. Rules on the objectives page before you pay.
-Start with the free trial.
-
-Simulated evaluation. Rewards paid on the published objectives. 18+.
-
-## 13 · 2-Step (20s · 47 words)
-
-> Two phases. On 2-Step your max loss is static — fixed day one. It doesn't follow you up when you're winning.
+> Two phases. On 2-Step, max loss is static — fixed from your starting balance on day one. It doesn’t follow you up when you’re winning.
 >
-> That's the difference between a floor and a leash.
+> That’s a floor, not a leash.
 >
-> No time limit. Fee back on your first reward. Lite and Pro are both on the objectives page.
+> No time limit. Fee back on your first reward. Lite and Pro are on the objectives page.
 
 **On-screen:** `STATIC MAX LOSS` → `FIXED DAY ONE` → `A FLOOR, NOT A LEASH` → `LITE & PRO ON THE PAGE`
-
-**Caption**
-
-2-Step: static max loss, fixed from day one. It doesn't chase your equity high.
-
-Two published phases. No time limit. Fee back on your first reward.
-Lite and Pro side by side on the objectives page.
-
-Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 ---
 
 ## C · Challenge promo — one-step
 
-> A one-step with the target, daily loss, and max loss published before you pay. No time limit — you pass on your schedule. Fee back on your first reward.
+> One phase. Target, daily loss, and max loss — published before you pay. No time limit. Fee back on your first reward.
 >
-> News and weekend rules are on the objectives page exactly as they apply. Not a vague "everything's allowed."
+> News and weekend rules are on the objectives page as they actually apply. Not “everything is allowed.”
 >
 > Intro code in the bio. Trial first.
 
 ---
 
-## Cut on purpose — don't put back
+## Cut on purpose — don’t put back
 
-- "This isn't a launch — it's the first time we've put our faces to it."
-- "I've watched that from the inside."
-- ~~"Most requests process in under a day."~~ — reinstated as **"most rewards process in under 24 hours"** (see the fact-check note).
-- "You pick the cycle" (weekly and on-demand are paid add-ons).
-- "Rule-based, not a judgement call" (site says discretionary).
-- "Fairest in the industry", blanket news/weekend permissions, no minimum days, stacked fake sale.
+- “This isn’t a launch — it’s the first time we’ve put our faces to it.”
+- “I’ve watched that from the inside.”
+- “We’ve been running since May” as a hero line, caption lead, or end card
+- “You get paid in 24 hours.”
+- “You pick the cycle.”
+- “Weekly is the only add-on” — on demand is an add-on too.
+- “Rule-based, not a judgement call.”
+- “Nothing sits behind a paywall” — the rules are free; the evaluation is not.
+- “Fairest in the industry,” blanket news/weekend, no minimum days, stacked fake sale
+- “Up to 90%” as the standard split
 
 ---
 
 ## Production
 
-Three sessions now that the product explainers are in.
-
 | Session | Records |
 |---|---|
 | A | 1, 2, 5 (+ pickups for 3) |
-| B | 6, 7, footage for 9 |
-| C | 11, 12, 13 — one sitting, same shirt, same frame |
+| B | 6, 7, 8, footage for 9 |
+| C | 11, 12, 13, C — one sitting, same shirt, same frame |
+| No shoot | 4 (motion build), 10 (cut from 8 + a card) |
 
 Vertical 1080×1920, H.264, 30fps, burned-in captions, gold keyword highlights, logo bug top-left, legal line on the final frame.
 
-Hook rule: the first three seconds must contain a problem or a rule — never a logo, never a price.
+Hook rule: first three seconds = a problem or a rule. Never a logo, a price, or “since May.”

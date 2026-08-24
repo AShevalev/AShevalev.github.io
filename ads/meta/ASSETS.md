@@ -75,9 +75,9 @@ Verified prices used: **Instant $5,000 = $72** (list $110) and **1-Step $5,000 =
 
 Video VO carries **no prices**. The statics carry them.
 
-> Most prop firms make traders feel trapped… Every objective is published before you pay. No time
-> limit. We've been running since May — this isn't a launch, it's the first time we've put our
-> faces to it. Start the free trial and come argue with us in Discord.
+> Most prop firms make traders feel trapped… So we built Verodus to be the opposite of clever.
+> Every objective is published before you pay. No time limit. The rules you start under are the
+> rules you keep. Start the free trial, read every rule, and come argue with us in Discord.
 
 Shoot: founder at a real desk, phone on a tripod, window light, chest-up, one take,
 burned-in captions with gold keyword highlights.

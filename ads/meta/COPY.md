@@ -347,8 +347,8 @@ Full VO: [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md). Short primary text if you boost
 
 **Hook:** Most prop firms make traders feel trapped.
 
-**Body:** We’ve been running since May. Published rules, no time limit, 80% split (90% on demand). Instant $5k $72 — no refund. 1-Step $5k $36 — fee back. Try free. Discord is open.
+**Body:** Published rules before you pay, no time limit, 80% on the bi-weekly cycle (90% on demand, add-on). Instant $5k $72 — no refund. 1-Step $5k $36 — fee back. Try free. Discord is open.
 
-**Headline:** Founders intro · since May
+**Headline:** Rules published before you pay
 
 Do not use “launching soon,” “from day one,” “19% off,” or “$100k Instant.”
