@@ -10,7 +10,7 @@ All files are in `ads/meta/creatives/`. Upload the PNG as-is. Do not add extra t
 | `onestep-5k-story.png` | 9:16 | Stories/Reels · 1-Step |
 | `vero35-feed.png` | 1:1 | Feed · founding code |
 | `clarity-feed.png` | 1:1 | Week 1 trial + rules |
-| `payouts-feed.png` | 1:1 | Week 3 **rails only** (not dollar flex) |
+| `payouts-feed.png` | 1:1 | Week 3 **rails only** (not dollar flex). Shows a crypto rail — **organic only**, or rebuild crypto-free before it runs in paid. See the crypto note in `CAMPAIGN.md`. |
 | `freetrial-story.png` | 9:16 | Week 1 + week 3 trial top-up |
 | `tryfree-feed.png` | 1:1 | Week 1 hero still |
 | `founding-feed.png` | 1:1 | Week 4 offer |

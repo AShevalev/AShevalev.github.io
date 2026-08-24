@@ -32,11 +32,11 @@ Shoot vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real d
 # 20-second reels
 
 ## 20-A · Stopped out in profit
-**Hook:** "You did everything right. You were up. Then the floor moved."
+**Hook:** "A trailing floor ends green accounts."
 
-> You did everything right. You were up. Then the floor moved.
+> A trailing floor ends green accounts. Everything goes right, the account is up, and then the floor moves.
 >
-> That's a trailing drawdown — it follows your equity high, so a normal pullback ends a green account.
+> That's a trailing drawdown — it follows the equity high, so a normal pullback closes a profitable account.
 >
 > On Verodus 2-Step, max loss is static. Fixed day one.
 >
@@ -46,6 +46,7 @@ Shoot vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real d
 
 **On-screen:** `THE FLOOR MOVED` → `2-STEP: STATIC` → `INSTANT: PUBLISHED TRAIL` → `TRY IT FREE`
 **Use:** organic + week-2 rules ad. Pair with `w2-static-diagram.png` cutaway.
+Stated in the third person on purpose — a *you* statement about the viewer's losses trips Meta's personal-attributes rule.
 
 ## 20-H · Sold one way, enforced another
 **Hook:** "I got tired of firms that sell you one set of rules and enforce another."

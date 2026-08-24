@@ -4,7 +4,9 @@ Character notes: first **125 characters** of primary text show before “See mor
 
 CTA button: **Shop Now** on Instant / 1-Step. **Learn more** on trial / clarity. **Sign up** on trial Stories.
 
-Every ad ends with the same legal line. Do not delete it. Do not say “just launched” or “we’re new.” Verodus has been operating since May; this campaign is the **founders intro**.
+Every ad ends with the same legal line. Do not delete it. Do not say “just launched” or “we’re new.”
+
+**No crypto in paid copy.** Crypto payout rails are true but promoting them can pull the ad into Meta's cryptocurrency policy, which needs separate written permission. Say “Rise — bank transfer or local methods.” Crypto is fine on the site and in Discord.
 
 > Simulated evaluation. The fee is not trading capital. Rewards are rule-based and paid on the published objectives. Trading outcomes are not guaranteed. 18+.
 
@@ -57,7 +59,7 @@ Simulated. Not guaranteed. 18+.
 1. Pay $72 (VERO35).
 2. Trade Instant $5k on TradeHub or Platform 5.
 3. Hit 5 valid days. Stay inside 3% daily / 6% trail.
-4. Request a reward — most process in under 24h via Rise or crypto.
+4. Request a reward — most process in under 24h via Rise (bank transfer or local methods).
 
 No profit target. Simulated evaluation. Rewards paid on the published objectives. 18+.
 
@@ -217,7 +219,7 @@ Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 **R-P2**
 
-Rewards request weekly, bi-weekly, or on demand. Most process in under 24 hours. Rise (bank / local / crypto) or wallet.
+Rewards request weekly, bi-weekly, or on demand. Most process in under 24 hours via Rise — bank transfer or local methods.
 
 Finish checkout with VERO35.
 

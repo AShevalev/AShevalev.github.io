@@ -59,7 +59,7 @@ Highlights: Free trial · Instant $5k · 1-Step · Rules · Discord · FAQ
 | 16 | “Rules will not change on you” dated FAQ screenshot | — | Screenshot this |
 | 17 | Trial → buy walkthrough stills | Walkthrough 30–45s | Dashboard screens |
 | 18 | Founding traders: N started / N passed (**no payout $**) | — | Discord activity |
-| 19 | Rise / crypto / <24h **rails** | Community in motion | Rails only |
+| 19 | Reward rails + under-24h processing | Community in motion | Rails only |
 | 20 | Founder in Discord daily | AMA Q: will you pay? | AMA clip |
 | 21 | Optional: **one real** certificate if it exists | — | Else skip |
 
