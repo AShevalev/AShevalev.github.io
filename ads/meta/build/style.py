@@ -20,12 +20,12 @@ BODY = "#cbd5e1"
 CHIP_BLUE = "#3b6fe0"
 
 DISCLAIMER = (
-    "Simulated evaluation. The fee is not trading capital. "
-    "Rewards are rule-based and paid on the published objectives. "
-    "Trading outcomes are not guaranteed. 18+."
+    "Simulated trading. Demo accounts with fictitious funds; the fee is not "
+    "trading capital. Not investment advice. We are not a broker and do not "
+    "accept deposits. 18+."
 )
 DISCLAIMER_SHORT = (
-    "Simulated evaluation. Rewards paid on the published objectives. 18+."
+    "Simulated trading. Demo account, fictitious funds. Not investment advice. 18+."
 )
 
 

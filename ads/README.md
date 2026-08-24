@@ -5,6 +5,7 @@
 | File | What |
 |---|---|
 | [meta/PUBLISH.md](meta/PUBLISH.md) | **Start here to ship:** ads vs organic per script, hook A/B, captions, hashtags, covers, CTA buttons, compliance checklist |
+| [meta/DISCLAIMERS.md](meta/DISCLAIMERS.md) | Burn-in, caption, and full-page disclosure + legibility spec |
 | [meta/REELS.md](meta/REELS.md) | **11 × 20s + 6 × 45s reels**, timed to runtime |
 | [meta/VIDEO-SCRIPTS.md](meta/VIDEO-SCRIPTS.md) | Long-form masters (AMA, walkthrough) |
 | [meta/LAUNCH-PLAN.md](meta/LAUNCH-PLAN.md) | Master 4-week plan, budget |

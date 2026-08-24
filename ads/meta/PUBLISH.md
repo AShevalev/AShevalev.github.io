@@ -111,7 +111,7 @@ Organic captions. Paid primary text stays in `COPY.md`. First line is the whole 
 
 Legal line on every caption that mentions buying, price, or rewards:
 
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 ### 1 · Founders intro
 > Rules you only understand after you fail — that's the industry default.
@@ -120,7 +120,7 @@ Legal line on every caption that mentions buying, price, or rewards:
 >
 > Free trial's on the site. Founders are in Discord daily — come argue with us.
 >
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 Set C.
 
@@ -129,7 +129,7 @@ Set C.
 >
 > Every Verodus objective is public before you put money down. No retroactive edits.
 >
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 Set C.
 
@@ -147,7 +147,7 @@ Set C.
 >
 > Instant is a different product. That one trails, and the card says so.
 >
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 Set A.
 
@@ -165,7 +165,7 @@ Set A.
 >
 > Short answer on the last one: don't, yet. The rules are public and we're in Discord daily. Judge the operation.
 >
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 Set C.
 
@@ -185,7 +185,7 @@ Set B.
 >
 > Start free. If the rules fit, the code's in bio. If they don't, don't buy.
 >
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 Set B.
 
@@ -201,7 +201,7 @@ Set C.
 ### 10 · Last call
 > Intro series wraps this week. Code in bio, rules on the site, trial still free.
 >
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 Set B. Only post if the pricing genuinely ends.
 
@@ -212,7 +212,7 @@ Set B. Only post if the pricing genuinely ends.
 >
 > Full card's on the objectives page. If that's not your temperament, take an evaluation instead.
 >
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 Set B.
 
@@ -221,7 +221,7 @@ Set B.
 >
 > No time limit, so you pass on your schedule, not a thirty-day clock. Fee back on your first reward.
 >
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 Set B.
 
@@ -232,7 +232,7 @@ Set B.
 >
 > Lite and Pro side by side on the objectives page.
 >
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 Set A.
 
@@ -243,7 +243,7 @@ Set A.
 >
 > Trial first — link in bio.
 >
-> Simulated evaluation. Rewards paid on the published objectives. 18+.
+> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
 
 Set A.
 

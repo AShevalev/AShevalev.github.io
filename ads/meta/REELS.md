@@ -22,7 +22,7 @@ Seventeen shootable reels: **11 × 20s** (8 hooks + 3 product explainers) and **
 - Cycles: **bi-weekly 80% is the base cycle.** Weekly and on demand are both add-ons — weekly 70%, on demand 90%. Never "you pick the cycle," never imply on demand is free.
 - "Since May" is team background, not a slogan. It belongs only on the objectives screen-record (20-F) or in an AMA answer if asked. Never a hook, caption lead, or end card.
 - Payout speed is allowed: **"most rewards process in under 24 hours."** Keep "most" — it is a processing claim, not a guarantee. Never imply you get paid within 24 hours of buying; the first reward also needs $100 and 3 trading days.
-- Burn in: *Simulated evaluation. Rewards paid on the published objectives. 18+.*
+- Burn in: *Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.*
 - Logo bug `w1-logo-bug.png` top-left. Captions always on — most views are muted.
 
 Shoot vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real desk.
