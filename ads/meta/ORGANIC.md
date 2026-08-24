@@ -139,7 +139,11 @@ Simulated evaluation. Rewards not guaranteed. 18+.
 
 ---
 
-## Reels — scripts in [VIDEO-SCRIPTS.md](VIDEO-SCRIPTS.md)
+## Reels — timed cuts in [REELS.md](REELS.md)
+
+**Shoot these:** 7 × 20s and 6 × 45s, word-counted to pace, with hooks, on-screen text, and a
+4-week posting schedule. [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) holds the longer-form AMA and
+walkthrough masters those cuts come from.
 
 **No prices spoken in any video.** Rules, free trial, Discord, "since May." Fees stay on the
 statics and the landing page, so a price change never invalidates a clip.

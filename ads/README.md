@@ -4,7 +4,8 @@
 
 | File | What |
 |---|---|
-| [meta/VIDEO-SCRIPTS.md](meta/VIDEO-SCRIPTS.md) | Camera scripts — not launch language |
+| [meta/REELS.md](meta/REELS.md) | **7 × 20s + 6 × 45s reels**, timed to runtime |
+| [meta/VIDEO-SCRIPTS.md](meta/VIDEO-SCRIPTS.md) | Long-form masters (AMA, walkthrough) |
 | [meta/LAUNCH-PLAN.md](meta/LAUNCH-PLAN.md) | Master 4-week plan, budget |
 | [meta/ASSETS.md](meta/ASSETS.md) | 33 launch PNGs, video shot lists, verbatim copy |
 | [meta/CAMPAIGN.md](meta/CAMPAIGN.md) | Ads Manager setup, weekly spend, pixel |

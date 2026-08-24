@@ -2,6 +2,8 @@
 
 Ten scripts. Founder-led, phone-shot, anti-hype. Verodus has been **operating since May**; this is the founders intro, not a launch.
 
+**Shooting reels?** Use [`REELS.md`](REELS.md) — 7 × 20s and 6 × 45s, word-counted to runtime with hooks and a posting schedule. This file is the long-form master (full AMA, full walkthrough) those cuts are lifted from.
+
 **No prices on camera.** No fees, no discount amounts, no account sizes, no "X% off". Video sells the *standard* and the *free trial*. Numbers live on the statics, the checkout, and the link in bio. This keeps every clip evergreen — a price change never invalidates a video.
 
 | On camera | Never on camera |
