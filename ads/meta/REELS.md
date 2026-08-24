@@ -1,11 +1,12 @@
 # Verodus reels — timed cuts
 
-Sixteen shootable reels: **7 × 20s**, **6 × 45s**, and **3 × 30s product explainers**. Founder-led, price-free, "since May."
+Sixteen shootable reels: **3 × 15s product explainers**, **7 × 20s**, and **6 × 45s**. Founder-led, price-free, "since May."
 
 **Pacing.** Conversational VO runs ~150 words/minute. Every script below is word-counted to fit without rushing.
 
 | Length | Word budget | Beats |
 |---|---|---|
+| 15s | 35–40 | Point (0–4s) · Trade-off (4–11s) · CTA (11–15s) |
 | 20s | 45–52 | Hook (0–3s) · Point (3–15s) · CTA (15–20s) |
 | 45s | 105–118 | Hook (0–3s) · Problem (3–12s) · Our standard (12–33s) · Since May (33–38s) · CTA (38–45s) |
 
@@ -221,64 +222,60 @@ This is the direct answer to the competitor script. Same shape, no "launching so
 
 ---
 
-# Product explainers — 30s
+# Product explainers — 15s
 
-One per model, so a shopper can self-select. Each names its own trade-off out loud. Long-form versions: [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §11–13.
+One per model, so a shopper can self-select. Each names its own trade-off out loud.
 
-## 30-INS · Instant
-**Hook:** "Instant skips the evaluation. Here's what it costs you."
+**Word budget 35–40.** These are the tightest scripts in the pack — no preamble, first word is the point. Same copy in [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §11–13.
 
-> Instant skips the evaluation. No profit target — you're trading the simulated account from day one.
+## 15-INS · Instant · 34 words
+**Hook:** "Instant skips the evaluation."
+
+> Instant skips the evaluation. No profit target — you trade from day one.
 >
-> The trade-off, said out loud: the max loss trails. It follows your equity high, so your floor comes up with you. There are minimum valid trading days and a best-day rule too.
+> The trade-off: the max loss trails, and Instant doesn't refund the fee. Evaluations do.
 >
-> And Instant doesn't refund the fee. The evaluations do.
->
-> Full card's on the objectives page. If that's not your temperament, take an evaluation instead.
+> Full card's on the objectives page. Trial's free.
 
 **On-screen:** `NO PROFIT TARGET` → `TRAILING MAX LOSS` → `NO FEE REFUND` → `READ THE CARD`
 Never add static-drawdown or fee-refund copy to this one.
 
-## 30-ONE · 1-Step
-**Hook:** "One phase. One set of numbers."
+## 15-ONE · 1-Step · 32 words
+**Hook:** "One phase. One set of published numbers."
 
-> One phase. One set of numbers. Pass it and you're through.
+> One phase. One set of published numbers — target, daily loss, max loss.
 >
-> Published profit target, published daily loss, published max loss — all before you pay. No time limit, so you pass on your schedule, not a thirty-day countdown.
+> No time limit, so you pass on your schedule.
 >
-> And your fee comes back on your first reward.
->
-> If you know your edge works and you want the shortest honest route — this is the one. Trial first.
+> And your fee comes back on your first reward. Trial first.
 
 **On-screen:** `ONE PHASE` → `NO TIME LIMIT` → `FEE BACK ON FIRST REWARD`
 
-## 30-TWO · 2-Step
-**Hook:** "This is the one people pick after they've been stopped out in profit."
+## 15-TWO · 2-Step · 38 words
+**Hook:** "Two phases. And a floor that doesn't move."
 
-> This is the one people pick after they've been stopped out in profit.
->
-> On 2-Step, your max loss is static. Fixed from your starting balance on day one. It does not follow you up when you're winning.
+> Two phases. On 2-Step your max loss is static — fixed day one. It doesn't follow you up when you're winning.
 >
 > That's the difference between a floor and a leash.
 >
-> Two published phases, no time limit, fee back on your first reward. Lite and Pro are the same idea with different numbers — both on the objectives page.
+> No time limit. Fee back on your first reward.
 
-**On-screen:** `STATIC MAX LOSS` → `FIXED DAY ONE` → `LITE & PRO ON THE PAGE`
+**On-screen:** `STATIC MAX LOSS` → `FIXED DAY ONE` → `A FLOOR, NOT A LEASH`
 
 ---
 
 ## Schedule
 
-| Week | 45s hero | 20s support | Product |
+| Week | 45s hero | 20s support | 15s product |
 |---|---|---|---|
 | 1 | 45-A Founders intro | 20-D Don't pay · 20-C Discord | — |
-| 2 | 45-B Static vs trailing | 20-A Stopped out · 20-B No time limit | 30-TWO 2-Step |
-| 3 | 45-C Three questions · 45-D Platform | 20-F Read it yourself · 20-E Rewards | 30-ONE 1-Step |
-| 4 | 45-E The ask · 45-F Trapped | 20-G The catch | 30-INS Instant |
+| 2 | 45-B Static vs trailing | 20-A Stopped out · 20-B No time limit | 15-TWO 2-Step |
+| 3 | 45-C Three questions · 45-D Platform | 20-F Read it yourself · 20-E Rewards | 15-ONE 1-Step |
+| 4 | 45-E The ask · 45-F Trapped | 20-G The catch | 15-INS Instant |
 
 Post a 45 every third day, a 20 or a product explainer on the days between. Same file to Reels, TikTok, Shorts, X.
 
-Pin the three product explainers to a **"Which one?"** Instagram highlight — they answer the top pre-sale DM without a human.
+At 15s these also work as **Stories** and as a three-frame carousel of Reels. Pin all three to a **"Which one?"** Instagram highlight — they answer the top pre-sale DM without a human.
 
 ## Shoot plan
 
@@ -286,7 +283,7 @@ Pin the three product explainers to a **"Which one?"** Instagram highlight — t
 |---|---|
 | A — week 1 | 45-A, 45-F, 20-B, 20-C, 20-D, 20-G, plus 20-F screen capture |
 | B — week 3 | 45-C, 45-D, 45-E, 20-A, 20-E |
-| C — product | 30-INS, 30-ONE, 30-TWO — one sitting, same shirt, same frame |
+| C — product | 15-INS, 15-ONE, 15-TWO — one sitting, same shirt, same frame |
 
 Sessions are one sitting each. Shoot the 45s first while energy is high, then the 20s — several 20s are lifted verbatim from 45-A, 45-B, and 45-C, so record them as clean standalone takes rather than trimming in post.
 

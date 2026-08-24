@@ -198,44 +198,44 @@ Only imply an ending if the intro pricing actually ends. Otherwise: `THE RULES A
 
 ---
 
-# Product explainers
+# Product explainers — 15s each
 
-One per model. These are the "which one am I buying" videos. Same rules: no fees, no sizes, no codes spoken. Each one names its own trade-off out loud — that is the whole differentiator.
+One per model. The "which one am I buying" set. Same rules: no fees, no sizes, no codes spoken. Each one names its own trade-off out loud — that is the whole differentiator.
 
-## 11 · Instant — no evaluation (25–35s)
+**15s = 35–40 spoken words.** Each script below is inside that. Do not add a sentence; if something has to go in, cut something out. No preamble — the first word is the point.
 
-Never pair this with static drawdown or fee-refund copy.
+Shoot all three in one sitting, same shirt, same frame, so they cut together as a series.
 
-> Instant skips the evaluation. No profit target — you're trading the simulated account from day one.
+## 11 · Instant (15s · 34 words)
+
+Never pair this with static-drawdown or fee-refund copy.
+
+> Instant skips the evaluation. No profit target — you trade from day one.
 >
-> Here's the honest part, because nobody else leads with it: Instant uses a trailing max loss. It follows your equity high, so as you make new highs, your floor comes with you. There are minimum valid trading days too, and a best-day rule.
+> The trade-off: the max loss trails, and Instant doesn't refund the fee. Evaluations do.
 >
-> And Instant doesn't refund the fee. The evaluations do. That's the trade — you skip the phases, you don't get the refund.
->
-> If that sounds like your temperament, the full card is on the objectives page. If it doesn't, take an evaluation instead. We'd rather you picked right than picked fast.
+> Full card's on the objectives page. Trial's free.
 
-**On-screen:** `INSTANT` → `NO PROFIT TARGET` → `TRAILING MAX LOSS` → `NO FEE REFUND` → `READ THE CARD`
+**On-screen:** `NO PROFIT TARGET` → `TRAILING MAX LOSS` → `NO FEE REFUND` → `READ THE CARD`
 
 **Caption**
 
 Instant: no evaluation, no profit target, trading from day one.
 
-The trade-off, said out loud: the max loss trails, and Instant doesn't refund the fee. Evaluations do.
+The trade-off, said out loud — the max loss trails, and Instant doesn't refund the fee. Evaluations do.
 Full card on the objectives page. Trial's free.
 
 Simulated evaluation. Rewards paid on the published objectives. 18+.
 
-## 12 · 1-Step — one phase (25–35s)
+## 12 · 1-Step (15s · 32 words)
 
-> One phase. One set of numbers. Pass it and you're through.
+> One phase. One set of published numbers — target, daily loss, max loss.
 >
-> Published profit target, published daily loss, published max loss — all of it before you pay. No time limit, so you pass on your schedule, not a thirty-day countdown.
+> No time limit, so you pass on your schedule.
 >
-> And your fee comes back on your first reward. That's the evaluation trade: you do a phase, you get the fee back.
->
-> If you know your edge works and you just want the shortest honest route to a funded simulated account — this is the one. Trial first.
+> And your fee comes back on your first reward. Trial first.
 
-**On-screen:** `1-STEP` → `ONE PHASE` → `NO TIME LIMIT` → `FEE BACK ON FIRST REWARD`
+**On-screen:** `ONE PHASE` → `NO TIME LIMIT` → `FEE BACK ON FIRST REWARD`
 
 **Caption**
 
@@ -246,17 +246,15 @@ Start with the free trial.
 
 Simulated evaluation. Rewards paid on the published objectives. 18+.
 
-## 13 · 2-Step — the static floor (30–40s)
+## 13 · 2-Step (15s · 38 words)
 
-> Two phases, and the reason people choose it: on 2-Step, your max loss is static. Fixed from your starting balance on day one. It does not follow you up when you're winning.
+> Two phases. On 2-Step your max loss is static — fixed day one. It doesn't follow you up when you're winning.
 >
-> That's the difference between a floor and a leash. You can take a normal pullback after a good week without the account closing behind you.
+> That's the difference between a floor and a leash.
 >
-> Phase one, phase two, published targets on both. No time limit. Fee back on your first reward.
->
-> Lite and Pro are the same idea with different numbers — both on the objectives page. If you've been stopped out in profit before, read those two cards before you buy anything else.
+> No time limit. Fee back on your first reward.
 
-**On-screen:** `2-STEP` → `STATIC MAX LOSS` → `FIXED DAY ONE` → `LITE & PRO ON THE PAGE`
+**On-screen:** `STATIC MAX LOSS` → `FIXED DAY ONE` → `A FLOOR, NOT A LEASH`
 
 **Caption**
 
