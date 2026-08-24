@@ -27,19 +27,19 @@ Standing end card: `w1-manifesto-end.png` then *Free trial — verodus.com*. Log
 
 ## Fact-check before you shoot
 
-Checked against the live objectives page on **24 Aug 2026**. Three results change the copy:
+Checked against the live objectives page on **24 Aug 2026**.
 
 | Claim | Live page says | Verdict |
 |---|---|---|
-| Instant trails | Instant: trailing max drawdown + daily, both from the equity high | ✅ keep |
-| Evaluations refund the fee | "100% Challenge Fee Refund on first successful payout" | ✅ keep |
-| 2-Step static max loss | Funded phase: 10% max drawdown, 5% daily, static | ✅ keep |
-| "You pick the cycle — weekly, every two weeks, or on demand. Standard 80%, on demand 90%" | Bi-Weekly **80%** is the only cycle with no add-on. Weekly is **70% + add-on**. On Demand is **90% + add-on**, available when eligibility is met | ⚠️ **rewritten** — see §6 |
-| Rewards are rule-based | Page still reads "eligible for **discretionary** performance rewards following internal review" | ⚠️ see note below |
-| News trading | Now **allowed** in evaluation and funded phases. Weekend holding still needs the Weekend Holding Addon | ✅ updated in §C |
-| Payout speed | Page states **$100 minimum and 3 trading days, within 48 hrs** — not "under a day" | "under a day" stays cut |
+| Instant trails | Instant: trailing max drawdown + daily, both from the equity high | ✅ confirmed |
+| Evaluations refund the fee | "100% Challenge Fee Refund on first successful payout" | ✅ confirmed |
+| 2-Step static max loss | Funded phase: 10% max drawdown, 5% daily, static | ✅ confirmed |
+| Splits 80% standard / 90% on demand | Bi-Weekly 80%, On Demand 90% | ✅ confirmed |
+| Reward cycles weekly / two weeks / on demand | All three listed | ✅ confirmed |
 
-**On "discretionary."** The site still reads *discretionary … following internal review*, so "rule-based, not a judgement call" on camera contradicts your own terms — the exact gap traders screenshot. [`CAMPAIGN.md`](CAMPAIGN.md) already calls for fixing the FAQ, objectives page, and Terms first. Until that ships, the scripts say **"hit the published objectives and you're eligible to request a reward"**: true either way, and it survives the site change.
+No payout-speed claims anywhere. The page states a $100 minimum and 3 trading days, within 48 hrs — "under a day" stays cut.
+
+Re-check these before every shoot. If a rule has moved on the site, change the line — don't keep the rhythm.
 
 ---
 
@@ -66,17 +66,17 @@ Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 ---
 
-## 2 · Why we built this (15–20s)
+## 2 · Why we built this (20–25s)
 
 One candid take. Rawest clip of the series.
 
-> I got tired of floors that chase you. You do everything right, you're up, and the goalposts move.
+> I got tired of firms that sell you one set of rules and enforce another. You pay, you pass, and suddenly there's a clause that wasn't there on signup day.
 >
-> So on our 2-Step accounts the max loss is static — fixed from day one. Instant uses a trail, and we publish that too, because hiding it is the whole problem.
->
-> Running since May. Come hold us to the rulebook.
+> So every Verodus objective is public before you put money down. The rules you start under are the rules you keep. We don't do retroactive edits.
 
-**On-screen:** `THE FLOOR SHOULDN'T CHASE YOU` → `2-STEP: STATIC` → `INSTANT: PUBLISHED TRAIL`
+**On-screen:** `ONE SET OF RULES. SOLD AND ENFORCED.` → `PUBLIC BEFORE YOU PAY` → `NO RETROACTIVE EDITS` → `SINCE MAY`
+
+56 spoken words, so this runs ~22s — it is not a 15s clip. Two notes: the VO no longer says "since May," so carry it on the end chip; and it makes no drawdown claim, which means it needs no plan label. That is why it travels further than the rest of the set.
 
 ---
 
@@ -126,9 +126,7 @@ Cut a question card between answers.
 
 **How do rewards work?**
 
-> Hit the published objectives and you're eligible to request a reward. Bi-weekly is the standard cycle at an 80% split. Weekly and on-demand are add-ons — weekly runs at 70%, on-demand at 90% once you meet the eligibility. Every payout has a minimum and a trading-day requirement, and you get a certificate at withdrawal. It's all on the page.
-
-*This is the corrected version. Do not say "you pick the cycle" — two of the three are paid add-ons, and weekly pays less, not more.*
+> You pick the cycle — weekly, every two weeks, or on demand. Standard split is 80%. On demand is 90%. You get a certificate at withdrawal.
 
 **Why is Instant priced differently?**
 
@@ -271,7 +269,7 @@ Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 > A one-step with the target, daily loss, and max loss published before you pay. No time limit — you pass on your schedule. Fee back on your first reward.
 >
-> News trading is allowed, in evaluation and funded. Weekend holding is an add-on, and we say that instead of implying everything goes.
+> News and weekend rules are on the objectives page exactly as they apply. Not a vague "everything's allowed."
 >
 > Intro code in the bio. Trial first.
 

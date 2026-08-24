@@ -1,6 +1,6 @@
 # Verodus reels — timed cuts
 
-Sixteen shootable reels: **3 × 15s product explainers**, **7 × 20s**, and **6 × 45s**. Founder-led, price-free, "since May."
+Seventeen shootable reels: **3 × 15s product explainers**, **8 × 20s**, and **6 × 45s**. Founder-led, price-free, "since May."
 
 **Pacing.** Conversational VO runs ~150 words/minute. Every script below is word-counted to fit without rushing.
 
@@ -18,9 +18,9 @@ Sixteen shootable reels: **3 × 15s product explainers**, **7 × 20s**, and **6 
 - 80% standard split, 90% on demand. Never "up to 90%."
 - Fee refund is **evaluations only**.
 - Never "we're new," "launching," "day one" (as a launch phrase), "guaranteed."
-- Rewards: say **"hit the published objectives and you're eligible to request a reward."** Do not say "rule-based, not a judgement call" — the site's own terms read *discretionary … following internal review*.
-- Reward cycles: **bi-weekly 80% is the only cycle without an add-on.** Weekly is 70% + add-on; on-demand is 90% + add-on. Never "you pick the cycle."
-- No payout-speed claims. The page states a $100 minimum and 3 trading days, within 48 hrs — not "under a day."
+- Rewards are **rule-based** — paid on the published objectives. Never call them discretionary.
+- Cycles: weekly, every two weeks, or on demand. 80% standard, 90% on demand.
+- No payout-speed claims. "Most requests process in under a day" stays cut.
 - Burn in: *Simulated evaluation. Rewards paid on the published objectives. 18+.*
 - Logo bug `w1-logo-bug.png` top-left. Captions always on — most views are muted.
 
@@ -45,6 +45,18 @@ Shoot vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real d
 
 **On-screen:** `THE FLOOR MOVED` → `2-STEP: STATIC` → `INSTANT: PUBLISHED TRAIL` → `TRY IT FREE`
 **Use:** organic + week-2 rules ad. Pair with `w2-static-diagram.png` cutaway.
+
+## 20-H · Sold one way, enforced another
+**Hook:** "I got tired of firms that sell you one set of rules and enforce another."
+
+> I got tired of firms that sell you one set of rules and enforce another. You pay, you pass, and suddenly there's a clause that wasn't there on signup day.
+>
+> So every Verodus objective is public before you put money down. The rules you start under are the rules you keep.
+>
+> No retroactive edits.
+
+**On-screen:** `SOLD ONE WAY. ENFORCED ANOTHER.` → `PUBLIC BEFORE YOU PAY` → `NO RETROACTIVE EDITS` → `SINCE MAY`
+The 20s trim of [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §2 (full take runs ~22s — shoot both, they cut from one performance). Makes no drawdown claim, so it needs no plan label and can run against any audience.
 
 ## 20-B · No time limit
 **Hook:** "Most challenges put a clock on you."
@@ -91,14 +103,14 @@ Shoot vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real d
 
 > Let's talk rewards without the marketing voice.
 >
-> Bi-weekly is the standard cycle — eighty percent, no add-on.
+> You pick the cycle: weekly, every two weeks, or on demand. Standard split is eighty percent. On demand is ninety.
 >
-> Weekly and on-demand are add-ons. Weekly runs at seventy, on-demand at ninety once you meet the eligibility.
+> Hit the published objectives and the reward is yours. You get a certificate at withdrawal.
 >
-> Hit the published objectives, request the reward, get a certificate at withdrawal. It's all on the page.
+> It's rule-based. No committee, no mood.
 
-**On-screen:** `BI-WEEKLY 80% — STANDARD` → `WEEKLY 70% · ON DEMAND 90% — ADD-ONS` → `ALL ON THE PAGE`
-No dollar amounts on screen. Rails only. Do not imply the cycles are free to switch.
+**On-screen:** `WEEKLY · BI-WEEKLY · ON DEMAND` → `80% STANDARD · 90% ON DEMAND` → `CERTIFICATE AT WITHDRAWAL`
+No dollar amounts on screen. Rails only.
 
 ## 20-F · Read it yourself
 **Hook:** "I'm not going to tell you we're trustworthy. Watch this instead."
@@ -165,7 +177,7 @@ The most trust-positive Instant clip in the set. Do not add refund copy.
 >
 > Are the rules public? All of them, before you pay, on the objectives page. And the set you start under is the set you finish under. No retroactive edits.
 >
-> How do rewards work? Hit the published objectives and you're eligible to request one. Bi-weekly is the standard at eighty percent. Weekly and on-demand are add-ons — seventy and ninety.
+> How do rewards work? It's rule-based. You pick the cycle — weekly, every two weeks, or on demand. Standard split is eighty percent, on demand is ninety, and you get a certificate at withdrawal.
 >
 > Why should I believe you? Don't, yet. We've been running since May, the rules are public, and I'm in the Discord every day answering exactly this.
 >
@@ -268,7 +280,7 @@ Never add static-drawdown or fee-refund copy to this one.
 
 | Week | 45s hero | 20s support | 15s product |
 |---|---|---|---|
-| 1 | 45-A Founders intro | 20-D Don't pay · 20-C Discord | — |
+| 1 | 45-A Founders intro | 20-D Don't pay · 20-C Discord · 20-H Sold one way | — |
 | 2 | 45-B Static vs trailing | 20-A Stopped out · 20-B No time limit | 15-TWO 2-Step |
 | 3 | 45-C Three questions · 45-D Platform | 20-F Read it yourself · 20-E Rewards | 15-ONE 1-Step |
 | 4 | 45-E The ask · 45-F Trapped | 20-G The catch | 15-INS Instant |
@@ -281,7 +293,7 @@ At 15s these also work as **Stories** and as a three-frame carousel of Reels. Pi
 
 | Session | Records |
 |---|---|
-| A — week 1 | 45-A, 45-F, 20-B, 20-C, 20-D, 20-G, plus 20-F screen capture |
+| A — week 1 | 45-A, 45-F, 20-B, 20-C, 20-D, 20-G, 20-H (+ the full ~22s §2 take), plus 20-F screen capture |
 | B — week 3 | 45-C, 45-D, 45-E, 20-A, 20-E |
 | C — product | 15-INS, 15-ONE, 15-TWO — one sitting, same shirt, same frame |
 

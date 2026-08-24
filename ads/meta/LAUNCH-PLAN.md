@@ -131,9 +131,9 @@ Video carries **no prices**. Rules, free trial, Discord, "since May." Fees live 
 
 > Most prop firms make traders feel trapped… So we built Verodus to be the opposite of clever. Every objective is published before you pay. No time limit. The rules you start under are the rules you keep. We've been running since May. Start the free trial, read every rule yourself, and come argue with us in Discord.
 
-**Why we built this (15–20s)**
+**Why we built this (20–25s)**
 
-> I got tired of floors that chase you… On 2-Step the max loss is static, fixed day one. Instant uses a trail, and we publish that too. Running since May.
+> I got tired of firms that sell you one set of rules and enforce another. You pay, you pass, and suddenly there's a clause that wasn't there on signup day. So every Verodus objective is public before you put money down. The rules you start under are the rules you keep. We don't do retroactive edits.
 
 **Discord pin**
 

@@ -82,10 +82,12 @@ Video VO carries **no prices**. The statics carry them.
 Shoot: founder at a real desk, phone on a tripod, window light, chest-up, one take,
 burned-in captions with gold keyword highlights.
 
-**"Why we built this" VO (15–20s)**
+**"Why we built this" VO (20–25s)**
 
-> I got tired of floors that chase you. On 2-Step the max loss is static, fixed day one.
-> Instant uses a trail, and we publish that too. Running since May.
+> I got tired of firms that sell you one set of rules and enforce another. You pay, you pass,
+> and suddenly there's a clause that wasn't there on signup day. So every Verodus objective is
+> public before you put money down. The rules you start under are the rules you keep. We don't
+> do retroactive edits.
 
 **Discord pinned welcome**
 
