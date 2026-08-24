@@ -10,7 +10,7 @@ import subprocess
 import tempfile
 import time
 
-OUT = pathlib.Path(__file__).resolve().parents[1] / "creatives" / "launch"
+OUT = pathlib.Path(__file__).resolve().parents[1] / "creatives"
 CHROME = "google-chrome"
 FLAGS = [
     "--headless=new", "--disable-gpu", "--no-sandbox", "--no-first-run",

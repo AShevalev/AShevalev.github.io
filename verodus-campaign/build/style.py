@@ -7,7 +7,7 @@ gold #d4af37, page gradient #07003B -> #1B2B8E, Inter, official logo PNGs.
 import base64
 import pathlib
 
-BRAND_DIR = pathlib.Path(__file__).resolve().parents[2] / "brand"
+BRAND_DIR = pathlib.Path(__file__).resolve().parents[1] / "brand"
 
 GOLD = "#d4af37"
 GOLD_LIGHT = "#f0dc9a"

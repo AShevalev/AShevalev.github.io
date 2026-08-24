@@ -1,8 +1,8 @@
 # Disclaimers — on-screen, caption, and page
 
-Short answer to "can we use FTMO-style on-screen text": **yes, and you should — but not their words, and not as a replacement for the burn-in line.**
+We use **FTMO's disclosure language** with the Verodus name. It's the industry-standard formulation, it has survived years of platform review, and matching the category's phrasing means nothing about our disclosure looks improvised.
 
-FTMO's disclaimer is a **~90-word website disclosure** that appears as an accept-to-continue overlay. It is unreadable burned into a 9:16 Reel. So this is not one line swapped for another; it's three layers doing different jobs.
+FTMO's full disclosure runs **~90 words** as an accept-to-continue overlay. That's unreadable burned into a 9:16 Reel, so it isn't one line — it's three layers doing different jobs.
 
 | Layer | Length | Where |
 |---|---|---|
@@ -26,7 +26,7 @@ Their terms go further: *"We are not regulated by the Czech National Bank… you
 
 Their Australian page adds a jurisdiction line: *"General advice only. Please read the PDS and TMD on our website."*
 
-**Four pillars worth borrowing** — the structure, not the text:
+**The four pillars it rests on:**
 
 1. Educational purpose / performance evaluation
 2. Demo accounts, fictitious funds, simulated environment
@@ -45,17 +45,15 @@ Two secondary notes. FTMO is Czech and their terms reference the Czech National 
 
 ---
 
-## Also: the current line is not a disclaimer
+## What this replaced, and why
 
-> ~~Simulated evaluation. Rewards paid on the published objectives. 18+.~~
-
-"Rewards paid on the published objectives" is a **claim**, not a disclaimer — and the site's own terms say rewards are *discretionary, following internal review*. A disclaimer that asserts a stronger promise than the terms is the worst of both worlds. Replaced below.
+The earlier burn-in read *"Simulated evaluation. Rewards paid on the published objectives. 18+."* That second sentence is a **claim, not a disclaimer** — and it promises more than the site's own terms, which say rewards are *discretionary, following internal review*. A disclaimer that asserts a stronger promise than the terms it sits under is the worst of both worlds.
 
 ---
 
 ## Use these — FTMO wording, Verodus name
 
-Decision: run FTMO's language rather than a bespoke line. Their sentences are the industry-standard formulation, they've survived years of platform review, and matching the category's phrasing means nothing about our disclosure looks improvised. Below is their text with the entity name swapped and nothing else loosened.
+Their text with the entity name swapped and nothing else loosened.
 
 ### Burn-in — final frame of every video
 
