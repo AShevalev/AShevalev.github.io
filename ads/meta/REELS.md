@@ -22,7 +22,7 @@ Seventeen shootable reels: **11 × 20s** (8 hooks + 3 product explainers) and **
 - Cycles: **bi-weekly 80% is the base cycle.** Weekly and on demand are both add-ons — weekly 70%, on demand 90%. Never "you pick the cycle," never imply on demand is free.
 - "Since May" is team background, not a slogan. It belongs only on the objectives screen-record (20-F) or in an AMA answer if asked. Never a hook, caption lead, or end card.
 - Payout speed is allowed: **"most rewards process in under 24 hours."** Keep "most" — it is a processing claim, not a guarantee. Never imply you get paid within 24 hours of buying; the first reward also needs $100 and 3 trading days.
-- Burn in: *Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.*
+- Burn in: *Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.*
 - Logo bug `w1-logo-bug.png` top-left. Captions always on — most views are muted.
 
 Shoot vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real desk.
@@ -309,6 +309,6 @@ Session C films as a set so the three cut together as a series. Say the trade-of
 
 Only promote a reel that clears **45% three-second hook rate** organically, and duplicate it into Ads Manager as a conversion ad — never the Page Boost button. Kill anything under 25%.
 
-**Which reels are even eligible as ads** is decided in [`PUBLISH.md`](PUBLISH.md) — hook A/B variants, CTA buttons, and the per-ad compliance checklist live there. Reels tied to Discord, the AMA, or the community montage stay organic.
+**Which reels are even eligible as ads** is decided in [`PUBLISH.md`](PUBLISH.md) — chosen hooks, CTA buttons, and the per-ad compliance checklist live there. Reels tied to Discord, the AMA, or the community montage stay organic.
 
 Expected best cold performers: **20-D** (don't pay to find out) and **20-A** (stopped out in profit). Best warm closer: **45-E**.

@@ -34,24 +34,24 @@ Eligibility is decided by content risk, not by how good the clip is. A great vid
 
 ---
 
-## Hook A/B bank — ad candidates only
+## Hooks — one per ad candidate
 
-First three seconds decide the spend. Shoot **two hooks per ad candidate as separate takes**, run them as separate ads, keep the winner. Same body either way, so it's one performance and two openers.
+First three seconds decide the spend. One hook each, chosen — shoot it as a clean take at the top of the script.
 
 Kill under **25%** three-second hook rate. Scale over **45%**.
 
-| # | Hook A — problem | Hook B — rule | Note |
-|---|---|---|---|
-| 1 | "Most prop firms make traders feel trapped." | "Every objective is published before you pay. All of them." | A is emotional, B is proof-led. Expect A to win cold, B to win retarget. |
-| 2 | "Some firms sell one rulebook and enforce another." | "The rules you start under are the rules you keep." | Third person in A — no *you* claim. |
-| 4 | "Most challenges don't die on the profit target. They die on the floor." | "There are two kinds of drawdown, and one of them chases you." | A is the strongest hook in the pack. B is the safer educational read. |
-| 5 | "Read the rules with me. Live page, no edits." | "Don't trust a firm's ad. Trust its objectives page." | B is sharper but implies competitor deception — keep it generic. |
-| 7 | "This is the whole platform. Nothing edited out." | "You shouldn't have to pay to see how a firm works." | B is the best cold trial hook we have. |
-| 8 | "This is the part where most firms start shouting." | "One code. We don't stack a second discount and call it a sale." | Warm only. |
-| 11 | "Instant skips the evaluation. Here's the catch." | "No profit target. That's true — and it isn't the whole card." | Both lead with disclosure, which is why this one survives review. |
-| 12 | "One phase. One set of numbers." | "No thirty-day clock. You pass on your schedule." | B tests better against FTMO-style time limits. |
-| 13 | "Two kinds of floor. Only one stays put." | "Stopped out while you were still in profit? That's a trailing floor." | B is a question, not an assertion — keeps it clear of personal attributes. |
-| C | "A one-step with every number published before you pay." | "Target, daily loss, max loss. Read them before you spend anything." | Straight rules read. |
+| # | Hook | Why this one |
+|---|---|---|
+| 1 | "Most prop firms make traders feel trapped." | Names the feeling before it names the firm. Emotional openers beat proof-led ones on cold traffic; proof is what the body is for. |
+| 2 | "Some firms sell one rulebook and enforce another." | The actual differentiator, stated in third person so it makes no claim about the viewer. |
+| 4 | "Most challenges don't die on the profit target. They die on the floor." | Strongest hook in the pack. Reframes a thing every trader has lived through as a *rule* problem, not a skill problem. |
+| 5 | "Don't trust a firm's ad. Trust its objectives page." | Disarming because it's aimed at the ad you're currently watching. Buys more credibility in six words than the rest of the script. |
+| 7 | "You shouldn't have to pay to see how a firm works." | Best cold trial hook we have — it makes the free trial feel like a right rather than a promo. |
+| 8 | "This is the part where most firms start shouting." | Warm only. Pre-empts the pitch reflex, so the ask lands quieter than the competition's. |
+| 11 | "Instant skips the evaluation. Here's the catch." | Curiosity plus disclosure in one line. Volunteering the catch is why this clip survives review and converts. |
+| 12 | "No thirty-day clock. You pass on your schedule." | The sharpest edge against every time-limited competitor challenge. |
+| 13 | "Stopped out while you were still in profit? That's a trailing floor." | Highest-resonance line in the set, and a question rather than an assertion — which keeps it clear of the personal-attributes rule. |
+| C | "A one-step with every number published before you pay." | Straight rules read. No superlative to defend. |
 
 **Never** open with a logo, a price, or "since May."
 
@@ -111,7 +111,7 @@ Organic captions. Paid primary text stays in `COPY.md`. First line is the whole 
 
 Legal line on every caption that mentions buying, price, or rewards:
 
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 ### 1 · Founders intro
 > Rules you only understand after you fail — that's the industry default.
@@ -120,7 +120,7 @@ Legal line on every caption that mentions buying, price, or rewards:
 >
 > Free trial's on the site. Founders are in Discord daily — come argue with us.
 >
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 Set C.
 
@@ -129,7 +129,7 @@ Set C.
 >
 > Every Verodus objective is public before you put money down. No retroactive edits.
 >
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 Set C.
 
@@ -147,7 +147,7 @@ Set C.
 >
 > Instant is a different product. That one trails, and the card says so.
 >
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 Set A.
 
@@ -165,7 +165,7 @@ Set A.
 >
 > Short answer on the last one: don't, yet. The rules are public and we're in Discord daily. Judge the operation.
 >
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 Set C.
 
@@ -185,7 +185,7 @@ Set B.
 >
 > Start free. If the rules fit, the code's in bio. If they don't, don't buy.
 >
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 Set B.
 
@@ -201,7 +201,7 @@ Set C.
 ### 10 · Last call
 > Intro series wraps this week. Code in bio, rules on the site, trial still free.
 >
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 Set B. Only post if the pricing genuinely ends.
 
@@ -212,7 +212,7 @@ Set B. Only post if the pricing genuinely ends.
 >
 > Full card's on the objectives page. If that's not your temperament, take an evaluation instead.
 >
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 Set B.
 
@@ -221,7 +221,7 @@ Set B.
 >
 > No time limit, so you pass on your schedule, not a thirty-day clock. Fee back on your first reward.
 >
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 Set B.
 
@@ -232,7 +232,7 @@ Set B.
 >
 > Lite and Pro side by side on the objectives page.
 >
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 Set A.
 
@@ -243,7 +243,7 @@ Set A.
 >
 > Trial first — link in bio.
 >
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 Set A.
 
@@ -290,9 +290,9 @@ Tied to the risks in `CAMPAIGN.md`. If any answer is wrong, the ad doesn't ship.
 
 | Week | Ads live | Organic |
 |---|---|---|
-| 1 | 2 (A/B), 7 (A/B), 1 (A) — **Sign Up** | 3 Discord, 1 hero |
-| 2 | 4 (A/B), 5 (A), 13 (B) — **Learn More** | 6 AMA, 4 |
-| 3 | 11 (A/B), 12 (A/B), C — **Learn More** | 9 Community, AMA cuts |
-| 4 | 8 (A/B), 12 (B), 10 if pricing moves — **Shop Now**, warm only | 10 no-deadline variant |
+| 1 | 2, 7, 1 — **Sign Up** | 3 Discord, 1 hero |
+| 2 | 4, 5, 13 — **Learn More** | 6 AMA, 4 |
+| 3 | 11, 12, C — **Learn More** | 9 Community, AMA cuts |
+| 4 | 8, 12, 10 if pricing moves — **Shop Now**, warm only | 10 no-deadline variant |
 
-Two hooks per candidate, one winner carried forward. Don't add a new ad until something has 2,000 impressions.
+Three ads per week, one hook each. Don't add a new ad until something has 2,000 impressions — with this budget, testing two openers per script would starve every cell before either reached significance.

@@ -8,7 +8,7 @@ Every ad ends with the same legal line. Do not delete it. Do not say “just lau
 
 **No crypto in paid copy.** Crypto payout rails are true but promoting them can pull the ad into Meta's cryptocurrency policy, which needs separate written permission. Say “Rise — bank transfer or local methods.” Crypto is fine on the site and in Discord.
 
-> Simulated trading. Demo accounts with fictitious funds; the fee is not trading capital. Not investment advice. We are not a broker and do not accept deposits. 18+.
+> Verodus only provides services of simulated trading and educational tools for traders. Verodus does not act as a broker and does not accept any deposits. All accounts we provide to our clients are demo accounts with fictitious funds and any trading is in a simulated environment only. 18+.
 
 URL: `https://www.verodus.com/?utm_source=meta&utm_medium=paid&utm_campaign=launch4w&utm_content=ADNAME`
 
@@ -28,7 +28,7 @@ Instant $5k. No profit target. Simulated capital from day one.
 
 $72 with code VERO35. 3% daily · 6% trail · 5 valid days.
 
-Simulated trading. Demo accounts with fictitious funds; the fee is not trading capital. Not investment advice. We are not a broker and do not accept deposits. 18+.
+Verodus only provides services of simulated trading and educational tools for traders. Verodus does not act as a broker and does not accept any deposits. All accounts we provide to our clients are demo accounts with fictitious funds and any trading is in a simulated environment only. 18+.
 
 **I-P2 — rules, not hype**
 
@@ -36,7 +36,7 @@ Most Instant accounts die on daily drawdown in week one. Ours is published befor
 
 Instant $5,000 — $72 with VERO35. No profit target.
 
-Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 **I-P3 — vs the cheap Instant**
 
@@ -44,7 +44,7 @@ A cheaper Instant is not a better Instant. $5,000 Instant at Verodus is $72 with
 
 No profit target. Day-one simulated capital. Rules on the page before checkout.
 
-Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 **I-P4 — short (Stories overlay + Reels)**
 
@@ -61,7 +61,7 @@ Simulated. Not guaranteed. 18+.
 3. Hit 5 valid days. Stay inside 3% daily / 6% trail.
 4. Request a reward — most process in under 24h via Rise (bank transfer or local methods).
 
-No profit target. Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+No profit target. Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 ### Headlines
 
@@ -106,7 +106,7 @@ One phase. $5,000. $36 with VERO35.
 
 10% target. 4% daily. 6% hybrid max DD. Fee refunded on your first reward.
 
-Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 **O-P2 — refund**
 
@@ -122,7 +122,7 @@ Skip phase two. 1-Step $5k: 10% target, 4% daily, 6% hybrid, 50% best-day on the
 
 $36 with VERO35. 100% fee refund on first successful payout.
 
-Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 **O-P4 — short**
 
@@ -136,7 +136,7 @@ Published before you start: 10% · 4% SOD daily · 6% hybrid · no time limit.
 
 1-Step $5,000 — $36 with VERO35. TradeHub or Platform 5.
 
-Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 ### Headlines
 
@@ -215,7 +215,7 @@ You already opened Verodus. The street price is VERO35 — 35% off every plan.
 
 Instant $5k is $72. 1-Step $5k is $36. Fee refunded on first 1-Step reward.
 
-Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 **R-P2**
 
@@ -290,7 +290,7 @@ VERO35 is the founders-intro price. Instant $5k is $72. 1-Step $5k is $36, fee b
 
 Try the platform free first. 80% split; 90% on demand. Instant has no fee refund — that is why it is $72, not $40.
 
-We’ve been running since May. Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+We’ve been running since May. Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 **S-P1 — static vs trailing (week 2, 2-Step)**
 

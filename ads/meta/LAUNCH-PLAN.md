@@ -146,7 +146,7 @@ Video carries **no prices**. Rules, free trial, Discord, "since May." Fees live 
 
 > Trade the platform free. No card required for the trial.  
 > Then Instant $5k at $72 or 1-Step at $36 with VERO35.  
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 ### Week 2 — Rules · Transparency
 

@@ -35,15 +35,13 @@ Their Australian page adds a jurisdiction line: *"General advice only. Please re
 
 ---
 
-## Why not copy it verbatim
+## The one condition attached to using it
 
-**It's drafted for a different company in a different jurisdiction.** FTMO is Czech; the disclosure is tuned to EU law and their terms reference the Czech National Bank. Verodus operates as `Verodus L.L.C.-FZ` and `Verodus Capital Inc.` Citing an EU framework you aren't authorised under buys no protection and reads as copy-paste if anyone looks.
+FTMO's disclaimer holds because **their marketing agrees with it.** Their homepage says "Your Demo Trading," "Up to $200K **simulated** capital," "**demo** FTMO Account," "Trade in a **simulated** environment." The disclosure only repeats what the product copy already said.
 
-**It's a competitor's counsel's work product.** Lifting legal text wholesale is both a legal-risk and a credibility problem for a brand whose entire pitch is "we don't hide things."
+Verodus's homepage says **"Get Funded & Trade — Up to $1M Capital, 90% Profit Split."** Publishing "demo accounts with fictitious funds, educational purposes only" underneath that headline is a contradiction — and a disclaimer that fights the marketing is worse than no disclaimer, because it documents the gap. See the copy changes at the bottom of this file; they are not optional if we adopt this language.
 
-**And the real catch:** FTMO's disclaimer works because **their marketing agrees with it.** Their homepage says "Your Demo Trading," "Up to $200K **simulated** capital," "**demo** FTMO Account," "Trade in a **simulated** environment." The disclosure repeats what the product copy already said.
-
-Verodus's homepage says **"Get Funded & Trade — Up to $1M Capital, 90% Profit Split."** Bolt "demo accounts with fictitious funds, educational purposes only" onto that and the disclaimer *contradicts the headline* — which is worse than a short honest line, and is exactly the mismatch Meta and regulators flag. Fix the marketing language first, or the disclaimer works against you.
+Two secondary notes. FTMO is Czech and their terms reference the Czech National Bank, so keep jurisdiction-specific regulator references out of ours — the three paragraphs below are clean of them. And FTMO runs per-market variants; if we target Australia we likely need one too.
 
 ---
 
@@ -55,19 +53,19 @@ Verodus's homepage says **"Get Funded & Trade — Up to $1M Capital, 90% Profit 
 
 ---
 
-## Use these
+## Use these — FTMO wording, Verodus name
+
+Decision: run FTMO's language rather than a bespoke line. Their sentences are the industry-standard formulation, they've survived years of platform review, and matching the category's phrasing means nothing about our disclosure looks improvised. Below is their text with the entity name swapped and nothing else loosened.
 
 ### Burn-in — final frame of every video
 
-**Recommended:**
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+That is FTMO's own sentence — *"all accounts we provide to our clients are demo accounts with fictitious funds and any trading is in a simulated environment only"* — compressed to fit a 9:16 frame at legible size. It is the single most load-bearing clause they publish, and the one Meta's review cares about.
 
-Alternates, same compliance value, pick for rhythm:
+Shortest version for 15s cuts and Stories:
 
-- `Simulated trading only. Not investment advice. 18+.` (shortest — use on 15s cuts)
-- `Demo accounts, fictitious funds. Simulated environment. Not investment advice. 18+.`
-- `Skill evaluation in a simulated environment. Not investment advice. Not a broker. 18+.`
+> Demo accounts. Simulated environment only. 18+.
 
 **Legibility spec.** Meta and regulators both treat unreadable disclosure as no disclosure:
 
@@ -78,19 +76,25 @@ Alternates, same compliance value, pick for rhythm:
 
 ### Caption block — any caption that mentions price, rewards, or buying
 
-> Verodus provides simulated trading and performance evaluation. Accounts are demo accounts with fictitious funds; all trading is in a simulated environment. Nothing here is investment, legal, or tax advice. We are not a broker and do not accept deposits. 18+.
+FTMO's paragraphs two and three, name swapped:
+
+> Verodus only provides services of simulated trading and educational tools for traders. Verodus does not act as a broker and does not accept any deposits. All accounts we provide to our clients are demo accounts with fictitious funds and any trading is in a simulated environment only. 18+.
 
 ### Full disclosure — bridge page, footer, checkout
 
-Draft. **Send to counsel before publishing** — I can structure it, not sign off on it.
+FTMO's full general disclosure, name swapped. **Send to counsel before publishing** — this is their counsel's drafting, and adopting it is a decision only yours can sign off.
 
-> Verodus provides services of simulated trading and performance evaluation for traders. All accounts we provide are demo accounts with fictitious funds, and all trading takes place in a simulated environment. Fees are paid for access to the Verodus platform, evaluation systems, and data services — they are not deposits of trading capital, and they are not investments.
+> All information provided in the material is intended solely for educational purposes related to trading on financial markets. It is not designed to meet your personal situation and does not constitute investment, legal, accounting, or tax advice or serve in any way as a specific investment recommendation, business recommendation, investment opportunity analysis, or similar general recommendation regarding the trading of investment instruments.
 >
-> Nothing on this site is designed to meet your personal situation and nothing here constitutes investment, legal, accounting, or tax advice, an investment recommendation, or an analysis of an investment opportunity. Verodus does not act as a broker and does not accept deposits.
+> Verodus only provides services of simulated trading and educational tools for traders. The information on this site is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local laws or regulations. Verodus does not act as a broker and does not accept any deposits.
 >
-> Performance rewards are based on measured results in a simulated environment against published objectives and are subject to our Terms. Past simulated performance does not indicate future results. This information is not directed at residents of any jurisdiction where its distribution or use would be contrary to local law.
+> All accounts we provide to our clients are demo accounts with fictitious funds and any trading is in a simulated environment only.
 
-Two things counsel must decide: whether to add FTMO's "you will not receive regulatory protection associated with the financial sector" line, and whether any target market needs its own variant the way FTMO does for Australia.
+Three things counsel should rule on:
+
+1. Whether to add FTMO's terms-level line — *"you will not receive regulatory protection associated with the financial sector"* — which is the strongest protective sentence they publish.
+2. Whether any target market needs its own variant. FTMO runs a separate Australian version adding *"General advice only. Please read the PDS and TMD on our website."*
+3. Whether adopting a competitor's drafting verbatim is acceptable to them. It is common in this category, but it is their call, not a marketing one.
 
 ---
 

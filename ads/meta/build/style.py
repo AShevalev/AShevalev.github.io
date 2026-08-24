@@ -20,12 +20,13 @@ BODY = "#cbd5e1"
 CHIP_BLUE = "#3b6fe0"
 
 DISCLAIMER = (
-    "Simulated trading. Demo accounts with fictitious funds; the fee is not "
-    "trading capital. Not investment advice. We are not a broker and do not "
-    "accept deposits. 18+."
+    "Verodus only provides services of simulated trading and educational tools "
+    "for traders. Verodus does not act as a broker and does not accept any "
+    "deposits. All accounts we provide to our clients are demo accounts with "
+    "fictitious funds and any trading is in a simulated environment only. 18+."
 )
 DISCLAIMER_SHORT = (
-    "Simulated trading. Demo account, fictitious funds. Not investment advice. 18+."
+    "Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+."
 )
 
 

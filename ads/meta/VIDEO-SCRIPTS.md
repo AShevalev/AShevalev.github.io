@@ -20,7 +20,7 @@ Consistency line: **intro code / founders series · reward · evaluations refund
 
 Legal line on every final frame:
 
-> Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 End card: `w1-manifesto-end.png` then *Free trial — verodus.com*. Logo bug `w1-logo-bug.png` top-left.
 
@@ -62,7 +62,7 @@ Open on the face. No logo sting first.
 Rules published before you pay. No time limit. Founders in Discord daily.  
 Start free — link in bio.
 
-Simulated trading. Demo account, fictitious funds. Not investment advice. 18+.
+Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 ---
 
