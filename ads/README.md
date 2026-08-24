@@ -1,10 +1,11 @@
 # Verodus Meta campaign pack
 
-**Run this:** [meta/LAUNCH-PLAN.md](meta/LAUNCH-PLAN.md) — 4-week launch ($1,000 CAD). Atria funnel (free trial → founding offer → retarget) with operator-book SKU rules.
+**Run this:** [meta/LAUNCH-PLAN.md](meta/LAUNCH-PLAN.md) — 4-week **founders intro** ($1,000 CAD). Firm live since May. Atria funnel (free trial → VERO35 → retarget) with operator-book SKU rules.
 
 | File | What |
 |---|---|
-| [meta/LAUNCH-PLAN.md](meta/LAUNCH-PLAN.md) | Master 4-week plan, founder scripts, budget |
+| [meta/VIDEO-SCRIPTS.md](meta/VIDEO-SCRIPTS.md) | Camera scripts — not launch language |
+| [meta/LAUNCH-PLAN.md](meta/LAUNCH-PLAN.md) | Master 4-week plan, budget |
 | [meta/ASSETS.md](meta/ASSETS.md) | 33 launch PNGs, video shot lists, verbatim copy |
 | [meta/CAMPAIGN.md](meta/CAMPAIGN.md) | Ads Manager setup, weekly spend, pixel |
 | [meta/COPY.md](meta/COPY.md) | Primary text, headlines, weekly ad names |

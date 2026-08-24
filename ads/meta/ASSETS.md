@@ -59,39 +59,38 @@ Verified prices used: **Instant $5,000 = $72** (list $110) and **1-Step $5,000 =
 
 ---
 
-## Week 1 — Launch & free trial
+## Week 1 — Founders intro & free trial
 
 | Asset | File | Size | Use |
 |---|---|---|---|
-| 1.1 Manifesto open card | `w1-manifesto-open.png` | 9:16 | First frame of the manifesto Reel |
-| 1.1 Manifesto end card | `w1-manifesto-end.png` | 9:16 | Last frame + standalone Story |
+| 1.1 Founders-intro open card | `w1-manifesto-open.png` | 9:16 | First frame of the intro Reel |
+| 1.1 Founders-intro end card | `w1-manifesto-end.png` | 9:16 | Last frame + standalone Story |
 | 1.2 Try-free tile 1 | `w1-tryfree-1.png` | 4:5 | Carousel card 1 / W1 paid hero |
 | 1.2 Try-free tile 2 | `w1-tryfree-2.png` | 4:5 | Carousel card 2 |
 | 1.2 Try-free tile 3 | `w1-tryfree-3.png` | 4:5 | Carousel card 3 |
-| 1.3 Discord launch | `w1-discord.png` | 1:1 | Feed + Discord announcement |
+| 1.3 Discord welcome | `w1-discord.png` | 1:1 | Feed + Discord (server already open) |
 | 1.4 Logo bug | `w1-logo-bug.png` | 520×150, transparent | Corner bug for every founder video |
 
-**Manifesto VO (corrected, 30–45s)**
+**Founders intro VO (30–45s)** — full script in [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md)
 
-> Most firms sell a dream and bury the rules. Verodus publishes them first.
-> Instant $5k is $72 with VERO35 — no profit target, 3% daily, 6% trailing max.
-> 1-Step $5k is $36 — one phase, fee back on the first reward.
-> 2-Step Pro is static max drawdown. Instant is not. We will not pretend they are the same.
-> We're founder-run. Try the platform free, read every rule, and talk to us in Discord.
+> Most prop firms make you feel trapped. We’ve been running since May. This is the founders intro, not a launch.
+> Instant $5k $72 VERO35 — no target, 3% daily, 6% trail, no refund.
+> 1-Step $5k $36 — fee back on first reward.
+> 2-Step Pro is static. Instant is not. Try free. We’re in Discord.
 
 Shoot: founder at a real desk, phone on a tripod, window light, chest-up, one take,
 burned-in captions with gold keyword highlights.
 
 **"Why we built this" VO (15–20s)**
 
-> I was tired of rules that move after you win. 2-Step max loss is static from day one.
-> Instant uses a trailing 6% — that's published, not hidden. Come hold us to the FAQ.
+> I got tired of trailing floors and rules that move after you win.
+> 2-Step max loss is static. Instant trails 6% — published. We’ve been running since May. Hold us to the FAQ.
 
 **Discord pinned welcome**
 
-> Founding community. Instant, 1-Step, Lite, Pro — rules in #rules, same as the site.
-> Founders are in here daily. Free trial: verodus.com. Code VERO35 when you buy.
-> We will not post fake payouts. Real certificates go in #payout-proof when they exist.
+> Verodus has been operating since May. This is the founding community for the public intro.
+> Instant, 1-Step, Lite, Pro — rules in #rules, same as the site. Founders are in here daily.
+> Free trial: verodus.com. Code VERO35. No fake payouts. Certificates go in #payout-proof.
 
 ---
 
@@ -115,7 +114,7 @@ Rule tiles as rendered:
 
 **Explainer VO (40–60s)**
 
-> This is why 2-step accounts die on a trailing floor. On Verodus Pro, max drawdown is
+> This is how 2-Step already works at Verodus. On Pro, max drawdown is
 > static from the start. A $10k account: $1,000 of room, and it does not creep up when you
 > are in profit. Instant is different — 6% trailing, never locks. If you want static, buy
 > Lite or Pro, not Instant.
@@ -139,11 +138,13 @@ Rule tiles as rendered:
 | 3.4 Promise card | `w3-promise-1.png` | 4:5 | Statement, add the date |
 | 3.4 Receipts card | `w3-promise-2.png` | 4:5 | The four rule cards as receipts |
 
-Questions rendered: *Are you a scam? · How do I know you'll pay? · Why trust a new firm?*
+Questions rendered: *Are the rules public? · How do rewards work? · Why is Instant priced differently?*
+Do not use “why trust a new firm.”
 
 **AMA answer to "will you pay?"**
 
-> Fair. Judge the FAQ and how we operate. Evaluations refund the fee on the first reward.
+> Fair. We’ve been operating since May. Judge the FAQ and how we run.
+> Evaluations refund the fee on the first reward.
 > Instant does not — that is why Instant $5k is $72, not $40. Rewards go out on Rise or
 > crypto, most under 24 hours, and certificates go in #payout-proof. I'm in Discord daily.
 
@@ -187,7 +188,7 @@ Two shoots cover all nine videos.
 
 | Session | Records | Feeds |
 |---|---|---|
-| A — week 1 | Manifesto, "why we built this", rules read-through | 1.1, 1.4, 2.4 |
+| A — week 1 | Founders intro, "why we built this", rules read-through | 1.1, 1.4, 2.4 |
 | B — week 3 | AMA, product walkthrough, first-cohort clips | 3.1, 3.2, and the 4.3 montage |
 
 Export H.264 MP4, 1080×1920, 30 fps, burned-in captions, logo bug top-left.

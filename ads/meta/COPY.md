@@ -4,7 +4,7 @@ Character notes: first **125 characters** of primary text show before “See mor
 
 CTA button: **Shop Now** on Instant / 1-Step. **Learn more** on trial / clarity. **Sign up** on trial Stories.
 
-Every ad ends with the same legal line. Do not delete it.
+Every ad ends with the same legal line. Do not delete it. Do not say “just launched” or “we’re new.” Verodus has been operating since May; this campaign is the **founders intro**.
 
 > Simulated evaluation. The fee is not trading capital. Performance rewards are discretionary and not guaranteed. 18+.
 
@@ -284,11 +284,11 @@ Scripts and claims: [`LAUNCH-PLAN.md`](LAUNCH-PLAN.md). Static-DD ads are **2-St
 
 **F-P1 — founding (week 4)**
 
-Founding prices are VERO35. Instant $5k is $72. 1-Step $5k is $36, fee back on first reward.
+VERO35 is the founders-intro price. Instant $5k is $72. 1-Step $5k is $36, fee back on first reward.
 
 Try the platform free first. 80% split; 90% on demand. Instant has no fee refund — that is why it is $72, not $40.
 
-Simulated evaluation. Rewards not guaranteed. 18+.
+We’ve been running since May. Simulated evaluation. Rewards not guaranteed. 18+.
 
 **S-P1 — static vs trailing (week 2, 2-Step)**
 
@@ -338,3 +338,17 @@ Small matrix. Kill bottom 50% by CPA after 2,000 impressions. Do not mix Instant
 | 4 | W4_LASTCALL | lastchance-story.png | L-P1 | L-H1 |
 | 4 | W4_INSTANT | instant-5k-story.png | I-P4 | I-H2 |
 | 4 | W4_ONE | onestep-5k-story.png | O-P4 | O-H3 |
+
+---
+
+## Founder / competitor-style (organic Reels)
+
+Full VO: [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md). Short primary text if you boost a Reel:
+
+**Hook:** Most prop firms make traders feel trapped.
+
+**Body:** We’ve been running since May. Published rules, no time limit, 80% split (90% on demand). Instant $5k $72 — no refund. 1-Step $5k $36 — fee back. Try free. Discord is open.
+
+**Headline:** Founders intro · since May
+
+Do not use “launching soon,” “from day one,” “19% off,” or “$100k Instant.”

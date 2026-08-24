@@ -1,8 +1,10 @@
-# Verodus — 4-week launch plan ($1,000 CAD)
+# Verodus — 4-week founders-intro plan ($1,000 CAD)
 
-This is the plan to run. It keeps **Atria’s** funnel, calendar, founder-led production, and “no fake payouts” rule. It corrects the claims that conflict with the **16 Aug 2026 operator book** and with the live FAQ.
+Verodus has been **operating since May**. This month is a **founders intro** (founders on camera + VERO35 window), not a launch. Video copy: [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md).
 
-Atria was written **3 Aug** as a no-track-record launch. The operator book and `verodus.com` are **16 Aug** and already live (VERO35, Instant, certificates on the homepage). Do not run “we have never paid anyone” if the site shows certificates. Do not run payout-flex ads either. Month one still leads with **free trial → founding price → retarget**.
+This plan keeps **Atria’s** funnel, calendar, founder-led production, and “no fake payouts” rule. It corrects claims that conflict with the **16 Aug 2026 operator book** and the live FAQ.
+
+Atria was written **3 Aug** as if the firm had just opened. Do not say “we’re new,” “we’re live today,” or “launching soon.” Do not run “we have never paid anyone” if the site shows certificates. Do not run payout-flex ads. Month one still leads with **free trial → founding price → retarget**.
 
 ---
 
@@ -14,7 +16,7 @@ Atria was written **3 Aug** as a no-track-record launch. The operator book and `
 | Organic-first, paid-amplified | $760 CAD cannot win the FTMO auction. |
 | Founder on phone, anti-hype | Matches the site voice and Meta policy. |
 | Discord as the trust engine | Founder access is the substitute for a long payout history. |
-| Four-week arc: Position → Rules → Trust → Offer | Right sequence for a first cohort. |
+| Four-week arc: Position → Rules → Trust → Offer | Right sequence for a public founders intro. |
 | Seed proof in the background | `#payout-proof` + real certificates the moment they exist. |
 | Win condition | First paying cohort + warm audience + proof pipeline. Not mass sales. |
 
@@ -103,7 +105,7 @@ Boost **only** if a Reel already has organic hook rate >45% **and** you duplicat
 
 ## Four pillars (Atria, corrected)
 
-1. **Position** — Clear rules. Founder-run. No hype. Simulated. Free trial.
+1. **Position** — Clear rules. Founder-run. Operating since May. No hype. Simulated. Free trial.
 2. **Rules & transparency** — Instant, 1-Step, Lite, Pro are **different cards**. Never one slogan for all four.
 3. **Trust & momentum** — Trial, Discord, AMA, challenges started/passed. Certificates only if they are real and already on-site; even then, organic not paid income claims.
 4. **Offer** — VERO35. Instant $5k $72 (no refund). 1-Step $5k $36 (refund on first reward). Deadline only if prices actually rise week 5.
@@ -114,36 +116,37 @@ Boost **only** if a Reel already has organic hook rate >45% **and** you duplicat
 
 Two shoot sessions. Session A = Day 1. Session B = start of Week 3. Each session → 1 long + 3–5 shorts + stills.
 
-### Week 1 — Launch & free trial · Position
+### Week 1 — Founders intro & free trial · Position
 
 | # | Asset | Where | Paid? |
 |---|---|---|---|
-| 1 | Launch manifesto 30–45s (script below) | Reels, TikTok, X, Shorts, Discord | Yes — trial campaign |
+| 1 | Founders intro 30–45s ([VIDEO-SCRIPTS.md](VIDEO-SCRIPTS.md)) | Reels, TikTok, X, Shorts, Discord | Yes — trial campaign |
 | 2 | “Try it free” 3-tile | IG, X, Discord | Yes |
-| 3 | Discord launch + pinned welcome | Discord | No |
+| 3 | Discord welcome + pinned (server already open) | Discord | No |
 | 4 | “Why we built this” 15–20s | TikTok, Reels, X | No |
 
-**Manifesto — say this, not Atria’s original**
+**Founders intro — not Atria’s “we’re new / we’re live today”**
 
-> Most firms sell a dream and bury the rules. Verodus publishes them first.  
-> Instant $5k is $72 with VERO35 — no profit target, 3% daily, 6% trailing max.  
+> Most prop firms make you feel trapped. Rules you only understand after you fail. Payouts that drag. Fine print that shows up when you win.  
+> I’ve seen that from the inside. Verodus publishes the rules before you pay. No time limit. 80% split, 90% on demand. Evaluation fee back on first reward — Instant excluded.  
+> We’ve been running since May. This is the founders intro, not a launch.  
+> Instant $5k is $72 with VERO35 — no profit target, 3% daily, 6% trailing max. No fee refund on Instant.  
 > 1-Step $5k is $36 — one phase, fee back on the first reward.  
 > 2-Step Pro is static max drawdown. Instant is not. We will not pretend they are the same.  
-> We’re founder-run. Try the platform free, read every rule, and talk to us in Discord. We’re live.
+> Try the platform free, read every rule, and talk to us in Discord.
 
 **Why we built this (15–20s)**
 
-> I was tired of rules that move after you win.  
-> 2-Step max loss is static from day one. Instant uses a trailing 6% — that’s published, not hidden.  
-> Payouts are set up to be documented in public as they happen.  
-> Come hold us to the FAQ. Free trial is on the site.
+> I got tired of trailing floors and rules that move after you win.  
+> 2-Step max loss is static from day one. Instant uses a trailing 6% — published, not hidden.  
+> We’ve been running since May. Come hold us to the FAQ. Free trial is on the site.
 
 **Discord pin**
 
-> Founding community. Instant, 1-Step, Lite, Pro — rules in #rules, same as the site.  
-> Founders are in here daily. Ask anything.  
+> Verodus has been operating since May. This is the founding community around the public intro.  
+> Instant, 1-Step, Lite, Pro — rules in #rules, same as the site. Founders are in here daily.  
 > Free trial: verodus.com. Code VERO35 when you buy.  
-> We will not post fake payouts. Real certificates go in #payout-proof when they exist.
+> We will not post fake payouts. Real certificates go in #payout-proof.
 
 **Try-free copy**
 
@@ -170,8 +173,8 @@ Two shoot sessions. Session A = Day 1. Session B = start of Week 3. Each session
 
 **Static vs trailing VO**
 
-> This is why 2-step accounts die on a trailing floor.  
-> On Verodus Pro, max drawdown is static from the start. A $10k account: $1,000 room. It does not creep up when you are in profit.  
+> This is how 2-Step already works at Verodus — not a launch special.  
+> On Pro, max drawdown is static from the start. A $10k account: $1,000 room. It does not creep up when you are in profit.  
 > Instant is different — 6% trailing, never locks. If you want static, buy Lite or Pro, not Instant.
 
 ### Week 3 — Trust & first cohort
@@ -185,15 +188,15 @@ Two shoot sessions. Session A = Day 1. Session B = start of Week 3. Each session
 
 **AMA answer to “will you pay?”**
 
-> Fair. Judge the FAQ and how we operate, not a marketing number.  
+> Fair. We’ve been operating since May. Judge the FAQ and how we run, not a trailer.  
 > Evals refund the fee on the first reward. Instant does not — that is why Instant $5k is priced at $72, not $40.  
-> Rewards go out on Rise or crypto, most under 24 hours, and we will put certificates in #payout-proof.  
+> Rewards go out on Rise or crypto, most under 24 hours, and certificates go in #payout-proof.  
 > I’m in this Discord every day.
 
 **Walkthrough VO**
 
-> Start free. Same drawdown engine. Same TradeHub / Platform 5.  
-> When you buy, pick Instant $5k or 1-Step $5k. That is the founding pair. VERO35.
+> Here’s the whole thing. Start free — same engine, same TradeHub or Platform 5.  
+> When you buy: Instant $5k at $72 or 1-Step $5k at $36 with VERO35. That is the intro pair.
 
 **Behind the scenes (not content):** on-chain or public certificate rail + `#payout-proof`. Invite first qualified traders to record the journey. No payout footage until it is real.
 
@@ -210,10 +213,10 @@ If homepage certificates are already real, you may post **one** organic certific
 
 **Founding 30s — say this**
 
-> Founding prices are VERO35. Instant $5k is $72. 1-Step $5k is $36, fee back on first reward.  
+> VERO35 is the founders-intro price. Instant $5k is $72. 1-Step $5k is $36, fee back on first reward.  
 > Try free first. No time limit. 2-Step max DD is static. Instant trail is published.  
 > 80% split; 90% on demand.  
-> Founding sale on these stickers ends [date]. After that we raise. Be in the first cohort.
+> These stickers end [date] if we raise list. If we don’t, VERO35 stays and there is still no second code.
 
 If you will not raise prices, last line becomes: *“VERO35 is the code. There isn’t a second one.”*
 
@@ -245,7 +248,7 @@ Full captions: `ORGANIC.md` (aligned to these four weeks).
 
 ## Production
 
-- **Session A (week 1):** manifesto, why we built this, rules read-through, try-free stills.  
+- **Session A (week 1):** founders intro, why we built this, rules read-through, try-free stills.  
 - **Session B (week 3):** AMA, walkthrough, first-cohort clips (no fake payouts).  
 - CapCut captions. Canva/static ads already in `creatives/`.  
 - $140 edit budget on AMA + walkthrough only.
@@ -254,9 +257,9 @@ Full captions: `ORGANIC.md` (aligned to these four weeks).
 
 ## Bottom line
 
-Month one buys **traders on the platform**, not a payout montage.  
+This month puts **founders on camera** for a firm that has been live since May.  
 Lead with the **free trial**.  
 Sell **Instant $5k at $72** and **1-Step $5k at $36**.  
 Use **static DD** only for 2-Step.  
-**VERO35 is the founding offer.** Do not stack.  
-Seed real proof in Discord so month two can finally lead with certificates.
+**VERO35 is the intro offer.** Do not stack.  
+Do not talk like the shop just opened.

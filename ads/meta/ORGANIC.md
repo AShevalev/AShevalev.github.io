@@ -31,7 +31,7 @@ Highlights: Free trial · Instant $5k · 1-Step · Rules · Discord · FAQ
 
 | Day | Feed | Reel | Stories |
 |---|---|---|---|
-| 1 | Try-free 3-tile | Manifesto 30–45s (LAUNCH-PLAN) | Trial / rules / Discord |
+| 1 | Try-free 3-tile | Founders intro 30–45s (VIDEO-SCRIPTS) | Trial / rules / Discord |
 | 2 | “Clear rules. Founder-run. No hype.” | — | Why we built this stills |
 | 3 | Instant $5k $72 (no refund) | Why we built this 15–20s | $72 / 3% / 6% trail |
 | 4 | Discord welcome card | — | Server tour |
@@ -87,16 +87,16 @@ Then Instant $5k at $72 or 1-Step at $36 with VERO35.
 
 No second coupon. Simulated evaluation. Rewards not guaranteed. 18+.
 
-### Week 1 — manifesto caption
+### Week 1 — founders intro caption
 
-Most firms sell a dream and bury the rules. We publish them first.
+We’ve been running since May. This is the founders intro, not a launch.
 
-Instant $5k: no profit target, 3% daily, 6% trail, $72 with VERO35.
+Instant $5k: no profit target, 3% daily, 6% trail, $72 with VERO35. No fee refund.
 1-Step $5k: one phase, fee back on first reward, $36.
 
 2-Step Pro is static max DD. Instant is not. We will not pretend they are the same.
 
-Try free. Ask us in Discord. Simulated. 18+.
+Try free. We’re in Discord. Simulated. 18+.
 
 ### Week 2 — static vs trailing
 
@@ -109,7 +109,7 @@ If you want static, buy Lite or Pro. Simulated. 18+.
 
 ### Week 3 — AMA / will you pay
 
-Fair question. Judge the FAQ and how we operate.
+Fair question. We’ve been operating since May. Judge the FAQ and how we run.
 
 Evals refund the fee on the first reward. Instant does not — that is why Instant $5k is $72, not $40.
 Rewards: Rise or crypto, most under 24 hours. Certificates go in Discord when they exist.
@@ -141,7 +141,7 @@ Simulated evaluation. Rewards not guaranteed. 18+.
 
 ## Reels (use LAUNCH-PLAN scripts)
 
-1. Manifesto 30–45s  
+1. Founders intro 30–45s ([VIDEO-SCRIPTS.md](VIDEO-SCRIPTS.md))  
 2. Why we built this 15–20s  
 3. Instant $5k in 20s  
 4. Static vs trailing (2-Step) 40–60s  
