@@ -21,9 +21,12 @@ CHIP_BLUE = "#3b6fe0"
 
 DISCLAIMER = (
     "Simulated evaluation. The fee is not trading capital. "
-    "Performance rewards are discretionary and not guaranteed. 18+."
+    "Rewards are rule-based and paid on the published objectives. "
+    "Trading outcomes are not guaranteed. 18+."
 )
-DISCLAIMER_SHORT = "Simulated evaluation. Rewards not guaranteed. 18+."
+DISCLAIMER_SHORT = (
+    "Simulated evaluation. Rewards paid on the published objectives. 18+."
+)
 
 
 def _data_uri(name: str) -> str:

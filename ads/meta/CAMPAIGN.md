@@ -36,7 +36,9 @@ Landing pages
 3. Verify domain in Business Manager.
 4. Business + Page: use **Verodus**. Turn on **Advantage+ placements** (Feed, Stories, Reels, Explore).
 5. Special Ad Categories: leave **off** unless Meta flags it. This is a simulated evaluation fee, not housing/credit/employment. If Meta forces **Financial products**, accept it and keep claims conservative (copy below already is).
-6. Landing page must say **simulated**, fee ≠ trading capital, rewards **discretionary / not guaranteed**. Homepage already does this — do not send ads to a hype page that strips the disclaimer.
+6. Landing page must say **simulated** and fee ≠ trading capital. Homepage already does this — do not send ads to a hype page that strips the disclaimer.
+
+**Fix the site wording first.** Our copy says rewards are **rule-based** — you meet the published objectives, the reward is due. The live site currently says the opposite in two places: the FAQ ("performance rewards are **discretionary** payments") and the objectives page ("eligible for **discretionary** performance rewards following internal review"). Ads that promise rule-based rewards while the linked page says discretionary is the exact inconsistency traders screenshot and chargeback teams flag. Update the FAQ, objectives page, and Terms to rule-based language before this campaign goes live, or the ads will contradict the landing page.
 
 Week 1 has no Purchase objective. Weeks 2–4 optimize Purchase only on **warm** traffic. If Purchase events stay under ~20 by week 3, keep optimizing W2/W3 Purchase sets for `InitiateCheckout` until they do.
 
@@ -112,4 +114,4 @@ If Meta’s algorithm starts converting Instant $50k/$100k from the homepage pic
 - Hiding that trading is **simulated**
 - Before/after income graphics
 
-Allowed: published rules, one-time fee, VERO35, free trial, “performance rewards are discretionary,” payout rails (Rise / crypto), under-24h processing **as an operations claim**, not an earnings claim.
+Allowed: published rules, one-time fee, VERO35, free trial, “rewards are rule-based and paid on the published objectives,” payout rails (Rise / crypto), under-24h processing **as an operations claim**, not an earnings claim.

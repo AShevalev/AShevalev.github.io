@@ -4,7 +4,7 @@ Aligns with [`LAUNCH-PLAN.md`](LAUNCH-PLAN.md). Founder scripts live there. This
 
 Cadence: **1 feed/day**, **1 Reel every other day**, **3–5 Stories/day**, founder in **Discord daily**.
 
-Legal one-liner on every buy post: `Simulated evaluation. Rewards not guaranteed. 18+.`
+Legal one-liner on every buy post: `Simulated evaluation. Rewards paid on the published objectives. 18+.`
 
 Do not sell Instant $25k+. Do not say Instant has a fee refund or static max DD. Do not promise 90% as the default split.
 
@@ -85,7 +85,7 @@ Trade the platform free. Same rules. Same TradeHub / Platform 5. $0.
 
 Then Instant $5k at $72 or 1-Step at $36 with VERO35.
 
-No second coupon. Simulated evaluation. Rewards not guaranteed. 18+.
+No second coupon. Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 ### Week 1 — founders intro caption
 
@@ -114,7 +114,7 @@ Fair question. We’ve been operating since May. Judge the FAQ and how we run.
 Evals refund the fee on the first reward. Instant does not — that is why Instant $5k is $72, not $40.
 Rewards: Rise or crypto, most under 24 hours. Certificates go in Discord when they exist.
 
-I’m in Discord every day. Simulated. Discretionary. 18+.
+I’m in Discord every day. Simulated. Rewards follow the published objectives. 18+.
 
 ### Week 3 — activity (fill N)
 
@@ -135,7 +135,7 @@ Try free first. 80% split; 90% on demand.
 
 If we raise stickers after [date], these are the founding numbers. If we don’t raise, VERO35 stays and there is still no second code.
 
-Simulated evaluation. Rewards not guaranteed. 18+.
+Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 ---
 

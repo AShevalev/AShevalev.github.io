@@ -146,7 +146,7 @@ Video carries **no prices**. Rules, free trial, Discord, "since May." Fees live 
 
 > Trade the platform free. No card required for the trial.  
 > Then Instant $5k at $72 or 1-Step at $36 with VERO35.  
-> Simulated evaluation. Rewards not guaranteed. 18+.
+> Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 ### Week 2 — Rules · Transparency
 

@@ -17,7 +17,8 @@ Thirteen shootable reels: **7 × 20s** and **6 × 45s**. Founder-led, price-free
 - 80% standard split, 90% on demand. Never "up to 90%."
 - Fee refund is **evaluations only**.
 - Never "we're new," "launching," "day one" (as a launch phrase), "guaranteed."
-- Burn in: *Simulated evaluation. Rewards not guaranteed. 18+.*
+- Rewards are **rule-based** — paid on the published objectives. Never call them discretionary.
+- Burn in: *Simulated evaluation. Rewards paid on the published objectives. 18+.*
 - Logo bug `w1-logo-bug.png` top-left. Captions always on — most views are muted.
 
 Shoot vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real desk.
@@ -91,9 +92,9 @@ Shoot vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real d
 >
 > Most requests process in under a day, and you get a certificate at withdrawal.
 >
-> Rewards are discretionary — that's on the page too. Published, not promised.
+> It's rule-based. Hit the published objectives and the reward is yours. No committee, no mood.
 
-**On-screen:** `WEEKLY · BI-WEEKLY · ON DEMAND` → `80% STANDARD · 90% ON DEMAND` → `PUBLISHED, NOT PROMISED`
+**On-screen:** `WEEKLY · BI-WEEKLY · ON DEMAND` → `80% STANDARD · 90% ON DEMAND` → `RULE-BASED, NOT A JUDGEMENT CALL`
 No dollar amounts on screen. Rails only.
 
 ## 20-F · Read it yourself
@@ -163,7 +164,7 @@ The most trust-positive Instant clip in the set. Do not add refund copy.
 >
 > Are the rules public? All of them, before you pay, on the objectives page. And the set you start under is the set you finish under. No retroactive edits.
 >
-> How do rewards work? You pick the cycle — weekly, every two weeks, or on demand. Standard split is eighty percent, on demand is ninety, and most requests process in under a day.
+> How do rewards work? It's rule-based. You pick the cycle — weekly, every two weeks, or on demand. Standard split is eighty percent, on demand is ninety, and most requests process in under a day.
 >
 > Why should I believe you? Don't, yet. We've been running since May, the rules are public, and I'm in the Discord every day answering exactly this.
 >

@@ -6,7 +6,7 @@ CTA button: **Shop Now** on Instant / 1-Step. **Learn more** on trial / clarity.
 
 Every ad ends with the same legal line. Do not delete it. Do not say “just launched” or “we’re new.” Verodus has been operating since May; this campaign is the **founders intro**.
 
-> Simulated evaluation. The fee is not trading capital. Performance rewards are discretionary and not guaranteed. 18+.
+> Simulated evaluation. The fee is not trading capital. Rewards are rule-based and paid on the published objectives. Trading outcomes are not guaranteed. 18+.
 
 URL: `https://www.verodus.com/?utm_source=meta&utm_medium=paid&utm_campaign=launch4w&utm_content=ADNAME`
 
@@ -26,7 +26,7 @@ Instant $5k. No profit target. Simulated capital from day one.
 
 $72 with code VERO35. 3% daily · 6% trail · 5 valid days.
 
-Simulated evaluation. The fee is not trading capital. Performance rewards are discretionary and not guaranteed. 18+.
+Simulated evaluation. The fee is not trading capital. Rewards are rule-based and paid on the published objectives. Trading outcomes are not guaranteed. 18+.
 
 **I-P2 — rules, not hype**
 
@@ -34,7 +34,7 @@ Most Instant accounts die on daily drawdown in week one. Ours is published befor
 
 Instant $5,000 — $72 with VERO35. No profit target.
 
-Simulated evaluation. Rewards not guaranteed. 18+.
+Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 **I-P3 — vs the cheap Instant**
 
@@ -42,7 +42,7 @@ A cheaper Instant is not a better Instant. $5,000 Instant at Verodus is $72 with
 
 No profit target. Day-one simulated capital. Rules on the page before checkout.
 
-Simulated evaluation. Rewards not guaranteed. 18+.
+Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 **I-P4 — short (Stories overlay + Reels)**
 
@@ -59,7 +59,7 @@ Simulated. Not guaranteed. 18+.
 3. Hit 5 valid days. Stay inside 3% daily / 6% trail.
 4. Request a reward — most process in under 24h via Rise or crypto.
 
-No profit target. Simulated evaluation. Rewards discretionary. 18+.
+No profit target. Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 ### Headlines
 
@@ -104,7 +104,7 @@ One phase. $5,000. $36 with VERO35.
 
 10% target. 4% daily. 6% hybrid max DD. Fee refunded on your first reward.
 
-Simulated evaluation. Rewards not guaranteed. 18+.
+Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 **O-P2 — refund**
 
@@ -120,7 +120,7 @@ Skip phase two. 1-Step $5k: 10% target, 4% daily, 6% hybrid, 50% best-day on the
 
 $36 with VERO35. 100% fee refund on first successful payout.
 
-Simulated. Discretionary rewards. 18+.
+Simulated. Rewards paid on the published objectives. 18+.
 
 **O-P4 — short**
 
@@ -134,7 +134,7 @@ Published before you start: 10% · 4% SOD daily · 6% hybrid · no time limit.
 
 1-Step $5,000 — $36 with VERO35. TradeHub or Platform 5.
 
-Simulated evaluation. Rewards not guaranteed. 18+.
+Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 ### Headlines
 
@@ -213,7 +213,7 @@ You already opened Verodus. The street price is VERO35 — 35% off every plan.
 
 Instant $5k is $72. 1-Step $5k is $36. Fee refunded on first 1-Step reward.
 
-Simulated evaluation. Rewards not guaranteed. 18+.
+Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 **R-P2**
 
@@ -221,7 +221,7 @@ Rewards request weekly, bi-weekly, or on demand. Most process in under 24 hours.
 
 Finish checkout with VERO35.
 
-Simulated. Discretionary. 18+.
+Simulated. Rewards follow the published objectives. 18+.
 
 **R-P3**
 
@@ -255,7 +255,7 @@ Four facts, then the fee.
 
 Code VERO35. verodus.com
 
-Rewards discretionary. 18+.
+Rewards follow the published objectives. 18+.
 
 ### Carousel card headlines (Ads Manager card fields)
 
@@ -272,7 +272,7 @@ Rewards discretionary. 18+.
 
 Pin on the Page and use as the first reply to “is this legit / what’s the catch”:
 
-> Verodus is a simulated evaluation firm — not a broker. You pay a one-time fee, trade against published rules, and become eligible for discretionary performance rewards. Instant $5k is $72 with VERO35 (no profit target). 1-Step $5k is $36, fee refunded on first reward. Free trial is on the site. 18+. Full rules: verodus.com/trading-objectives.html
+> Verodus is a simulated evaluation firm — not a broker. You pay a one-time fee, trade against published rules, and earn rule-based rewards on those objectives. Instant $5k is $72 with VERO35 (no profit target). 1-Step $5k is $36, fee refunded on first reward. Free trial is on the site. 18+. Full rules: verodus.com/trading-objectives.html
 
 Never argue pass rates in comments. Link the FAQ.
 
@@ -288,7 +288,7 @@ VERO35 is the founders-intro price. Instant $5k is $72. 1-Step $5k is $36, fee b
 
 Try the platform free first. 80% split; 90% on demand. Instant has no fee refund — that is why it is $72, not $40.
 
-We’ve been running since May. Simulated evaluation. Rewards not guaranteed. 18+.
+We’ve been running since May. Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 **S-P1 — static vs trailing (week 2, 2-Step)**
 

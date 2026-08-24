@@ -14,12 +14,13 @@ Ten scripts. Founder-led, phone-shot, anti-hype. Verodus has been **operating si
 | Static max drawdown on **2-Step** | Instant + static, or Instant + fee refund |
 | Fee back on first reward, **evaluations** | "We're new / live today / launching soon / from day one" |
 | Free trial, Discord, founders answer | Income promises, payout figures, "guaranteed" |
+| Rewards are **rule-based** — paid on published objectives | "Discretionary," "at our discretion," "subject to review" |
 
 Say **"since May"** in the first two lines of any founder-to-camera piece.
 
 Every video ends on the same legal line, burned in:
 
-> Simulated evaluation. Rewards not guaranteed. 18+.
+> Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 Standing end card: `w1-manifesto-end.png` (logo + *Clear rules. Founder-run. No hype.*) then *Free trial — verodus.com*. Logo bug `w1-logo-bug.png` top-left throughout.
 
@@ -50,7 +51,7 @@ We've been running since May. This is the founders intro.
 Rules published before you pay. No time limit. Founders in Discord daily.
 Start free — link in bio.
 
-Simulated evaluation. Rewards not guaranteed. 18+.
+Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 ---
 
@@ -130,7 +131,7 @@ Cut question cards between answers. Ask what traders actually ask.
 
 **Q — "How do rewards work?"**
 
-> You pick the cycle — weekly, every two weeks, or on demand. Standard split is 80%; on demand is 90%. Most requests process in under a day, and you get a certificate at withdrawal.
+> It's rule-based, not a judgement call. Hit the published objectives and the reward is yours. You pick the cycle — weekly, every two weeks, or on demand. Standard split is 80%; on demand is 90%. Most requests process in under a day, and you get a certificate at withdrawal.
 
 **Q — "Why is Instant priced differently from the evaluations?"**
 
