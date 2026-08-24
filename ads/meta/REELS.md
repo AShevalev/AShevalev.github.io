@@ -20,7 +20,7 @@ Seventeen shootable reels: **11 × 20s** (8 hooks + 3 product explainers) and **
 - Never "we're new," "launching," "day one" (as a launch phrase), "guaranteed."
 - Rewards are **rule-based** — paid on the published objectives. Never call them discretionary.
 - Cycles: weekly, every two weeks, or on demand. 80% standard, 90% on demand.
-- No payout-speed claims. "Most requests process in under a day" stays cut.
+- Payout speed is allowed: **"most rewards process in under 24 hours."** Keep "most" — it is a processing claim, not a guarantee. Never imply you get paid within 24 hours of buying; the first reward also needs $100 and 3 trading days.
 - Burn in: *Simulated evaluation. Rewards paid on the published objectives. 18+.*
 - Logo bug `w1-logo-bug.png` top-left. Captions always on — most views are muted.
 
@@ -103,14 +103,14 @@ The 20s trim of [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §2 (full take runs ~22s 
 
 > Let's talk rewards without the marketing voice.
 >
-> You pick the cycle: weekly, every two weeks, or on demand. Standard split is eighty percent. On demand is ninety.
+> You pick the cycle: weekly, every two weeks, or on demand. Standard split is eighty percent, on demand is ninety.
 >
-> Hit the published objectives and the reward is yours. You get a certificate at withdrawal.
+> Most process in under twenty-four hours, with a certificate at withdrawal.
 >
-> It's rule-based. No committee, no mood.
+> Hit the objectives, the reward is yours.
 
-**On-screen:** `WEEKLY · BI-WEEKLY · ON DEMAND` → `80% STANDARD · 90% ON DEMAND` → `CERTIFICATE AT WITHDRAWAL`
-No dollar amounts on screen. Rails only.
+**On-screen:** `WEEKLY · BI-WEEKLY · ON DEMAND` → `80% STANDARD · 90% ON DEMAND` → `MOST UNDER 24H` → `CERTIFICATE AT WITHDRAWAL`
+45 words. No dollar amounts on screen. Rails only — "most," never "guaranteed."
 
 ## 20-F · Read it yourself
 **Hook:** "I'm not going to tell you we're trustworthy. Watch this instead."
@@ -177,7 +177,7 @@ The most trust-positive Instant clip in the set. Do not add refund copy.
 >
 > Are the rules public? All of them, before you pay, on the objectives page. And the set you start under is the set you finish under. No retroactive edits.
 >
-> How do rewards work? It's rule-based. You pick the cycle — weekly, every two weeks, or on demand. Standard split is eighty percent, on demand is ninety, and you get a certificate at withdrawal.
+> How do rewards work? It's rule-based. You pick the cycle — weekly, every two weeks, or on demand. Standard split is eighty percent, on demand is ninety. Most process in under twenty-four hours, with a certificate at withdrawal.
 >
 > Why should I believe you? Don't, yet. We've been running since May, the rules are public, and I'm in the Discord every day answering exactly this.
 >

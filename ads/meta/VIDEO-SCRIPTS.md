@@ -37,7 +37,7 @@ Checked against the live objectives page on **24 Aug 2026**.
 | Splits 80% standard / 90% on demand | Bi-Weekly 80%, On Demand 90% | ✅ confirmed |
 | Reward cycles weekly / two weeks / on demand | All three listed | ✅ confirmed |
 
-No payout-speed claims anywhere. The page states a $100 minimum and 3 trading days, within 48 hrs — "under a day" stays cut.
+**Payout speed — approved.** Say **"most rewards process in under 24 hours"**, matching the homepage. Keep the qualifier: it is a processing-time claim about most requests, not a guarantee, and not an earnings claim. Two things it is not — the first payout also has a **$100 minimum and 3 trading days** gate, and the objectives page quotes a **48-hour** window for that first one. So don't say "you get paid in 24 hours"; say the processing is usually under a day once you request.
 
 Re-check these before every shoot. If a rule has moved on the site, change the line — don't keep the rhythm.
 
@@ -126,7 +126,7 @@ Cut a question card between answers.
 
 **How do rewards work?**
 
-> You pick the cycle — weekly, every two weeks, or on demand. Standard split is 80%. On demand is 90%. You get a certificate at withdrawal.
+> You pick the cycle — weekly, every two weeks, or on demand. Standard split is 80%. On demand is 90%. Most rewards process in under 24 hours, and you get a certificate at withdrawal.
 
 **Why is Instant priced differently?**
 
@@ -283,7 +283,7 @@ Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 - "This isn't a launch — it's the first time we've put our faces to it."
 - "I've watched that from the inside."
-- "Most requests process in under a day."
+- ~~"Most requests process in under a day."~~ — reinstated as **"most rewards process in under 24 hours"** (see the fact-check note).
 - "You pick the cycle" (weekly and on-demand are paid add-ons).
 - "Rule-based, not a judgement call" (site says discretionary).
 - "Fairest in the industry", blanket news/weekend permissions, no minimum days, stacked fake sale.

@@ -116,4 +116,4 @@ If Meta’s algorithm starts converting Instant $50k/$100k from the homepage pic
 
 Allowed: published rules, one-time fee, VERO35, free trial, “rewards are rule-based and paid on the published objectives,” payout rails (Rise / crypto).
 
-No payout-speed claims. The objectives page states a **$100 minimum, 3 trading days, within 48 hrs** — do not write “under a day” or “under 24h” anywhere in ads or video.
+**Payout speed is allowed** as an operations claim: “most rewards process in under 24 hours,” matching the homepage. Keep “most” and never present it as guaranteed or as an earnings claim. Do not imply a trader is paid within 24 hours of purchase — the first reward also requires a **$100 minimum and 3 trading days**, and the objectives page quotes a **48-hour** window for that first payout.
