@@ -73,18 +73,19 @@ Verified prices used: **Instant $5,000 = $72** (list $110) and **1-Step $5,000 =
 
 **Founders intro VO (30–45s)** — full script in [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md)
 
-> Most prop firms make you feel trapped. We’ve been running since May. This is the founders intro, not a launch.
-> Instant $5k $72 VERO35 — no target, 3% daily, 6% trail, no refund.
-> 1-Step $5k $36 — fee back on first reward.
-> 2-Step Pro is static. Instant is not. Try free. We’re in Discord.
+Video VO carries **no prices**. The statics carry them.
+
+> Most prop firms make traders feel trapped… Every objective is published before you pay. No time
+> limit. We've been running since May — this isn't a launch, it's the first time we've put our
+> faces to it. Start the free trial and come argue with us in Discord.
 
 Shoot: founder at a real desk, phone on a tripod, window light, chest-up, one take,
 burned-in captions with gold keyword highlights.
 
 **"Why we built this" VO (15–20s)**
 
-> I got tired of trailing floors and rules that move after you win.
-> 2-Step max loss is static. Instant trails 6% — published. We’ve been running since May. Hold us to the FAQ.
+> I got tired of floors that chase you. On 2-Step the max loss is static, fixed day one.
+> Instant uses a trail, and we publish that too. Running since May.
 
 **Discord pinned welcome**
 
@@ -112,17 +113,20 @@ Rule tiles as rendered:
 4. **Fee back on first reward** — 100% refund on evaluations. Instant excluded.
 5. **Scale to $1,000,000** — Grow with measured performance.
 
-**Explainer VO (40–60s)**
+**Explainer VO (40–60s)** — [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §4
 
-> This is how 2-Step already works at Verodus. On Pro, max drawdown is
-> static from the start. A $10k account: $1,000 of room, and it does not creep up when you
-> are in profit. Instant is different — 6% trailing, never locks. If you want static, buy
-> Lite or Pro, not Instant.
+> A trailing drawdown follows your equity high, so you can be green, take a normal pullback,
+> and get stopped out in profit. On Verodus 2-Step your max loss is static — fixed from your
+> starting balance. Instant trails, and it says so on the card.
+
+The `w2-static-key.png` frame does carry a `$10,000 / $1,000` illustration. That is a
+drawdown example, not a fee — fine on a static, and the VO does not read a price.
 
 **Screen-share VO (20–30s)** — scroll the real objectives page, drop a chip on each rule.
 
-> No time limit — right here. Static drawdown on 2-Step — right here. Fee refund on the
-> first reward — right here. Go read it yourself before you trust anyone with a fee.
+> Same page that's been on the site since May. No time limit — right here. Static max
+> drawdown on 2-Step — right here. Fee back on your first reward, evaluations — right here.
+> Read it yourself. That's the whole pitch.
 
 ---
 
@@ -141,17 +145,15 @@ Rule tiles as rendered:
 Questions rendered: *Are the rules public? · How do rewards work? · Why is Instant priced differently?*
 Do not use “why trust a new firm.”
 
-**AMA answer to "will you pay?"**
+**AMA** — four Q&As in [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §6. No dollar figures on camera.
 
-> Fair. We’ve been operating since May. Judge the FAQ and how we run.
-> Evaluations refund the fee on the first reward.
-> Instant does not — that is why Instant $5k is $72, not $40. Rewards go out on Rise or
-> crypto, most under 24 hours, and certificates go in #payout-proof. I'm in Discord daily.
+> Don't believe us yet. We've been running since May, the rules are public, and I'm in the
+> Discord every day. Judge the operation, not the edit.
 
 **Walkthrough VO (30–45s)** — record: free-trial start → dashboard → in-app rules → checkout.
 
-> Here's the whole thing, nothing hidden. Start free, see the platform, and when you're
-> ready pick Instant $5k or 1-Step $5k. That is the founding pair.
+> Start the free trial — same rules engine, same TradeHub or Platform 5. Objectives track
+> live on the dashboard. When you're ready, pick the model that matches how you trade.
 
 `[ N ]` on the momentum card is **activity only** — traders joined, challenges started or
 passed. Never a payout figure this month.
@@ -169,14 +171,15 @@ passed. Never a payout figure this month.
 | 4.3 Montage end | `w4-montage-end.png` | 9:16 | Last frame |
 | 4.4 Last chance | `w4-lastchance.png` | 9:16 | Retargeting Story only |
 
-**Founding VO (30s)**
+**Intro-offer VO (30s)** — [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §8. The overlay card carries
+the price; the VO says "the code is in the bio."
 
-> Founding prices are VERO35. Instant $5k is $72. 1-Step $5k is $36, fee back on the first
-> reward. Try the platform free first. No time limit. 2-Step max drawdown is static; the
-> Instant trail is published. 80% split, 90% on demand. Founding stickers end [date].
+> There's an intro code running while we do this founders series. It's the only one — we
+> don't stack a second discount and call it a sale. Objectives published up front, no time
+> limit, static max loss on 2-Step, fee back on first reward on the evaluations. Start free.
 
-Only put a deadline on the ads if you will actually raise prices in week 5. If VERO35 is
-permanent, swap the last line for: *"VERO35 is the code. There isn't a second one."*
+Only imply an ending if intro pricing actually ends. Otherwise: *"The rules aren't changing.
+Neither is the trial."*
 
 `[DATE]` appears on `w4-offer-card`, `w4-pricing`, `w3-promise-1`. Fill before publishing.
 

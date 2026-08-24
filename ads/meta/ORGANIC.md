@@ -139,20 +139,26 @@ Simulated evaluation. Rewards not guaranteed. 18+.
 
 ---
 
-## Reels (use LAUNCH-PLAN scripts)
+## Reels — scripts in [VIDEO-SCRIPTS.md](VIDEO-SCRIPTS.md)
 
-1. Founders intro 30–45s ([VIDEO-SCRIPTS.md](VIDEO-SCRIPTS.md))  
-2. Why we built this 15–20s  
-3. Instant $5k in 20s  
-4. Static vs trailing (2-Step) 40–60s  
-5. Read the rules with me 20–30s  
-6. AMA cuts  
-7. Trial → buy walkthrough  
-8. Founding 30s  
-9. Community in motion (no payout compilation)  
-10. Last call 10–15s (Stories/ads only)
+**No prices spoken in any video.** Rules, free trial, Discord, "since May." Fees stay on the
+statics and the landing page, so a price change never invalidates a clip.
+
+| # | Reel | Length |
+|---|---|---|
+| 1 | Founders intro (hero) | 30–45s |
+| 2 | Why we built this | 15–20s |
+| 3 | Discord is open | 12–18s |
+| 4 | Static vs trailing — 2-Step | 40–60s |
+| 5 | Read the rules with me | 20–30s |
+| 6 | AMA cuts | 15–30s each |
+| 7 | Trial → platform walkthrough | 30–45s |
+| 8 | Intro offer — the ask | 30s |
+| 9 | Community in motion | 20–30s |
+| 10 | Last call (Stories/ads only) | 10–15s |
 
 Film phone-vertical, burned-in captions, real desk. Two shoot days (week 1 + week 3).
+First three seconds must be a problem or a rule — never a logo, never a price.
 
 ---
 

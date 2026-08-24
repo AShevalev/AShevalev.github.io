@@ -125,21 +125,15 @@ Two shoot sessions. Session A = Day 1. Session B = start of Week 3. Each session
 | 3 | Discord welcome + pinned (server already open) | Discord | No |
 | 4 | “Why we built this” 15–20s | TikTok, Reels, X | No |
 
-**Founders intro — not Atria’s “we’re new / we’re live today”**
+**Founders intro (30–45s)** — full VO in [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md)
 
-> Most prop firms make you feel trapped. Rules you only understand after you fail. Payouts that drag. Fine print that shows up when you win.  
-> I’ve seen that from the inside. Verodus publishes the rules before you pay. No time limit. 80% split, 90% on demand. Evaluation fee back on first reward — Instant excluded.  
-> We’ve been running since May. This is the founders intro, not a launch.  
-> Instant $5k is $72 with VERO35 — no profit target, 3% daily, 6% trailing max. No fee refund on Instant.  
-> 1-Step $5k is $36 — one phase, fee back on the first reward.  
-> 2-Step Pro is static max drawdown. Instant is not. We will not pretend they are the same.  
-> Try the platform free, read every rule, and talk to us in Discord.
+Video carries **no prices**. Rules, free trial, Discord, "since May." Fees live on the statics and the landing page.
+
+> Most prop firms make traders feel trapped… Every objective is published before you pay. No time limit. The rules you start under are the rules you keep. We've been running since May — this isn't a launch, it's the first time we've put our faces to it. Start the free trial and come argue with us in Discord.
 
 **Why we built this (15–20s)**
 
-> I got tired of trailing floors and rules that move after you win.  
-> 2-Step max loss is static from day one. Instant uses a trailing 6% — published, not hidden.  
-> We’ve been running since May. Come hold us to the FAQ. Free trial is on the site.
+> I got tired of floors that chase you… On 2-Step the max loss is static, fixed day one. Instant uses a trail, and we publish that too. Running since May.
 
 **Discord pin**
 
@@ -171,11 +165,9 @@ Two shoot sessions. Session A = Day 1. Session B = start of Week 3. Each session
 4. 2-Step Pro: 10/5 · 5/10 **static** · fee refund  
 5. Split: 80% standard · 90% on demand  
 
-**Static vs trailing VO**
+**Static vs trailing VO** — [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §4. Plan chip on screen throughout; no prices.
 
-> This is how 2-Step already works at Verodus — not a launch special.  
-> On Pro, max drawdown is static from the start. A $10k account: $1,000 room. It does not creep up when you are in profit.  
-> Instant is different — 6% trailing, never locks. If you want static, buy Lite or Pro, not Instant.
+> A trailing drawdown follows your equity high, so you can be green, take a normal pullback, and get stopped out in profit. On Verodus 2-Step your max loss is static — fixed from your starting balance. Instant trails, and it says so on the card.
 
 ### Week 3 — Trust & first cohort
 
@@ -186,17 +178,13 @@ Two shoot sessions. Session A = Day 1. Session B = start of Week 3. Each session
 | 3 | Founding-traders activity card (started/passed counts only) |
 | 4 | “Rules will not change on you” dated screenshot of the FAQ |
 
-**AMA answer to “will you pay?”**
+**AMA** — four Q&As in [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §6. No dollar figures on camera.
 
-> Fair. We’ve been operating since May. Judge the FAQ and how we run, not a trailer.  
-> Evals refund the fee on the first reward. Instant does not — that is why Instant $5k is priced at $72, not $40.  
-> Rewards go out on Rise or crypto, most under 24 hours, and certificates go in #payout-proof.  
-> I’m in this Discord every day.
+> Don't believe us yet. We've been running since May, the rules are public, and I'm in Discord every day. Judge the operation, not the edit.
 
 **Walkthrough VO**
 
-> Here’s the whole thing. Start free — same engine, same TradeHub or Platform 5.  
-> When you buy: Instant $5k at $72 or 1-Step $5k at $36 with VERO35. That is the intro pair.
+> Start the free trial — same rules engine, same TradeHub or Platform 5. Objectives track live on the dashboard. When you're ready, pick the model that matches how you trade; the rules are on the page before checkout.
 
 **Behind the scenes (not content):** on-chain or public certificate rail + `#payout-proof`. Invite first qualified traders to record the journey. No payout footage until it is real.
 
@@ -211,14 +199,11 @@ If homepage certificates are already real, you may post **one** organic certific
 | 3 | “Community in motion” 20–30s — Discord, AMA, challenges started. No payout compilation. |
 | 4 | Last-chance Story 10–15s, retarget only |
 
-**Founding 30s — say this**
+**Intro-offer 30s** — [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) §8. The overlay card carries the price; the VO does not.
 
-> VERO35 is the founders-intro price. Instant $5k is $72. 1-Step $5k is $36, fee back on first reward.  
-> Try free first. No time limit. 2-Step max DD is static. Instant trail is published.  
-> 80% split; 90% on demand.  
-> These stickers end [date] if we raise list. If we don’t, VERO35 stays and there is still no second code.
+> There's an intro code running while we do this founders series. It's in the bio, and it's the only one — we don't stack a second discount and call it a sale. What you're buying: objectives published up front, no time limit, static max loss on 2-Step, fee back on first reward on the evaluations. Start with the free trial.
 
-If you will not raise prices, last line becomes: *“VERO35 is the code. There isn’t a second one.”*
+Only imply an ending if intro pricing actually ends. Otherwise: *"The rules aren't changing. Neither is the trial."*
 
 ---
 

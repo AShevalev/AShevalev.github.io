@@ -1,217 +1,254 @@
-# Verodus video scripts — founders intro (not a launch)
+# Verodus video scripts — founders intro
 
-Verodus has been **operating since May**. This month is a **founders intro**: the people behind the firm on camera, plus a named founding-price window (VERO35). Do not talk like the shop just opened.
+Ten scripts. Founder-led, phone-shot, anti-hype. Verodus has been **operating since May**; this is the founders intro, not a launch.
 
-**Banned on camera**
+**No prices on camera.** No fees, no discount amounts, no account sizes, no "X% off". Video sells the *standard* and the *free trial*. Numbers live on the statics, the checkout, and the link in bio. This keeps every clip evergreen — a price change never invalidates a video.
 
-- “We’re new.” “We’re live today.” “Just launched.” “Launching soon.”
-- “From day one” / “be part of it from day one” (that is a pre-launch line).
-- “Why trust a new firm?”
-- “First traders ever” / “no one has been paid.”
-- Instant + “static drawdown” or Instant + “fee back.”
-- “Up to 90%” as the default split. “News and weekend holding fully allowed” (not true without add-ons).
-- “No minimum trading days” (Instant needs 5 valid days).
-- Any Instant size above $10k in paid or hero video.
+| On camera | Never on camera |
+|---|---|
+| Rules are published before you pay | Any fee, sticker, or discount % |
+| No time limit | Account sizes ($5k … $200k) |
+| 80% split, 90% on demand | "Up to 90%" as the default |
+| Static max drawdown on **2-Step** | Instant + static, or Instant + fee refund |
+| Fee back on first reward, **evaluations** | "We're new / live today / launching soon / from day one" |
+| Free trial, Discord, founders answer | Income promises, payout figures, "guaranteed" |
 
-**Say instead**
+Say **"since May"** in the first two lines of any founder-to-camera piece.
 
-- “We’ve been running since May. This is the founders intro.”
-- “Rules have been public. Now you can hear them from us.”
-- “Traders are already in Discord.”
-- Instant $5k **$72** (VERO35), no refund. 1-Step $5k **$36**, fee back on first reward.
-- 80% split, 90% on demand. 2-Step max DD is static. Instant trails 6%.
+Every video ends on the same legal line, burned in:
 
-Legal on every video: *Simulated evaluation. Rewards not guaranteed. 18+.*
+> Simulated evaluation. Rewards not guaranteed. 18+.
+
+Standing end card: `w1-manifesto-end.png` (logo + *Clear rules. Founder-run. No hype.*) then *Free trial — verodus.com*. Logo bug `w1-logo-bug.png` top-left throughout.
 
 ---
 
-## 1. Founders intro (hero, 30–45s) — replaces “launch manifesto”
+## 1 · Founders intro — hero (30–45s)
 
-**On-screen:** real desk, one take, captions. Open on face, end on `w1-manifesto-end.png`.
+Open on the face. No logo sting first.
 
-**VO (verbatim)**
+**VO**
 
-> Most prop firms make you feel trapped. Rules you only understand after you fail. Payouts that drag. Fine print that shows up when you win.
+> Most prop firms make traders feel trapped. Rules you only understand after you fail. Payouts that drag. Fine print that appears the moment you win.
 >
-> I’ve seen that from the inside. So we built Verodus the other way — rules published before you pay, no time limit, 80% split with 90% on demand, and the evaluation fee back on your first reward.
+> I've watched that from the inside. So we built Verodus to be the opposite of clever.
 >
-> We’ve been running since May. This is us on camera, not a launch.
+> Every objective is published before you pay. No time limit. And the rules you start under are the rules you keep.
 >
-> Instant $5k is $72 with VERO35 — no profit target, 3% daily, 6% trailing max. Instant has no fee refund. That’s why it’s priced there.
+> We've been running since May. This isn't a launch — it's the first time we've put our faces to it.
 >
-> 1-Step $5k is $36 — one phase, fee back on the first reward.
->
-> 2-Step Pro is static max drawdown. Instant is not. We will not pretend they are the same.
->
-> Don’t take our word for it. Try the platform free, read every rule, and talk to us in Discord. Link in bio.
+> Don't take my word for any of it. Start the free trial, read every rule yourself, and come argue with us in Discord. We're in there daily.
+
+**On-screen:** `TRAPPED?` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `SINCE MAY` → `TRY IT FREE`
 
 **Caption**
 
-We’ve been live since May. This is the founders intro.
+We've been running since May. This is the founders intro.
 
-Instant $5k $72 · 1-Step $5k $36 · code VERO35.
-Try free. Rules on the site. We’re in Discord.
+Rules published before you pay. No time limit. Founders in Discord daily.
+Start free — link in bio.
 
 Simulated evaluation. Rewards not guaranteed. 18+.
 
 ---
 
-## 2. Why we built this (15–20s)
+## 2 · Why we built this (15–20s)
 
-**VO (verbatim)**
+One candid take. Rawest clip of the month.
 
-> I got tired of trailing floors and rules that move after you win.
+**VO**
+
+> I got tired of floors that chase you. You do everything right, you're up, and the goalposts move.
 >
-> On Verodus 2-Step, max loss is static from day one. Instant uses a 6% trail — published, not hidden.
+> So on our 2-Step accounts the max loss is static — fixed from day one. Instant uses a trail, and we publish that too, because hiding it is the whole problem.
 >
-> We’ve been running since May. Come hold us to the FAQ. Free trial is on the site.
+> Running since May. Come hold us to the rulebook.
+
+**On-screen:** `THE FLOOR SHOULDN'T CHASE YOU` → `2-STEP: STATIC` → `INSTANT: PUBLISHED TRAIL`
 
 ---
 
-## 3. Discord (15s on-camera or VO over `w1-discord.png`)
+## 3 · Discord (12–18s)
 
-**VO (verbatim)**
+**VO**
 
-> Verodus Discord is open. Traders are already in there — #rules, #founders-chat, #support.
+> The Verodus Discord is already open, and traders are already in it.
 >
-> Founders answer daily. If you want the VERO35 code and to stay close while we do this founders intro, come in. Link in bio.
-
-**Pinned Discord welcome**
-
-> Welcome. Verodus has been operating since May. This channel is the founding community around the public intro.
+> Rules channel, support, founders in the chat — not a bot, not a ticket queue.
 >
-> How you pass, get funded, and request a reward is in #rules — same as the site. Founders are in here daily. Ask anything.
->
-> Free trial: verodus.com. Checkout code VERO35. We do not post fake payouts. Real certificates go in #payout-proof.
+> If you want the intro details before you commit to anything, come say hi. Link in bio.
+
+**On-screen:** `DISCORD IS OPEN` → `#rules · #founders-chat · #support` → `FOUNDERS ANSWER DAILY`
 
 ---
 
-## 4. Static vs trailing (40–60s) — 2-Step only
+## 4 · Static vs trailing — 2-Step (40–60s)
 
-Keep the existing explainer. Add one line at the top so it doesn’t sound like a new product drop:
+Motion build from `w2-static-diagram.png`. Label the plan on screen the entire time.
 
-> This is how 2-Step already works at Verodus — not a launch special.
+**VO**
 
-Then the current VO: Pro $10k = $1,000 static floor that does not trail. Instant is 6% trail, never locks. If you want static, buy Lite or Pro.
+> Here's the rule that quietly ends most challenges.
+>
+> A trailing drawdown follows your equity high. Every new high pulls your floor up behind you. So you can be green, take a normal pullback, and get stopped out in profit. Technically fair. Practically brutal.
+>
+> On Verodus 2-Step, your max loss is static. Fixed from your starting balance on day one. It does not move because you had a good week.
+>
+> Instant is different — that one trails, and it says so on the card. We're not going to sell you two products as if they were one.
+>
+> This is how it already works. Read it on the objectives page before you trust anyone with a fee.
+
+**On-screen:** persistent chip `2-STEP LITE & PRO` · `TRAILING: FLOOR FOLLOWS YOU` · `STATIC: FIXED DAY ONE` · `INSTANT TRAILS — PUBLISHED`
 
 ---
 
-## 5. Read the rules with me (20–30s)
+## 5 · Read the rules with me (20–30s)
 
-**VO (verbatim)**
+Screen-record the live objectives page. Chips: `w2-chip-1…3.png`.
 
-> Same page that’s been on the site. No time limit — here. Static drawdown on 2-Step — here. Fee refund on first reward, evaluations only — here.
+**VO**
+
+> Same page that's been on the site since May. Let's go.
 >
-> Read it yourself before you trust anyone with a fee.
+> No time limit — right here. Static max drawdown on 2-Step — right here. Fee back on your first reward, evaluations — right here.
+>
+> No PDF, no support ticket, no "message us for details."
+>
+> Read it yourself. That's the whole pitch.
 
 ---
 
-## 6. AMA / “will you pay?” (60–90s + cuts)
+## 6 · Founder AMA (60–90s master, cut to 15–30s)
 
-**Do not ask “why trust a new firm?”** Use: *Are the rules public? How do rewards work? Why is Instant priced differently?*
+Cut question cards between answers. Ask what traders actually ask.
 
-**VO (verbatim)**
+**Q — "Are the rules public?"**
 
-> Fair question. We’ve been operating since May. Judge the FAQ and how we run, not a trailer.
->
-> Evaluations refund the fee on the first reward. Instant does not — that’s why Instant $5k is $72, not $40.
->
-> Rewards go out on Rise or crypto, most under 24 hours. Certificates go in #payout-proof. I’m in Discord every day.
+> All of them, before you pay, on the objectives page. And the set you start under is the set you finish under. We don't do retroactive edits.
 
----
+**Q — "How do rewards work?"**
 
-## 7. Trial → buy walkthrough (30–45s)
+> You pick the cycle — weekly, every two weeks, or on demand. Standard split is 80%; on demand is 90%. Most requests process in under a day, and you get a certificate at withdrawal.
 
-**VO (verbatim)**
+**Q — "Why is Instant priced differently from the evaluations?"**
 
-> Here’s the whole thing. Start the free trial — same engine, same TradeHub or Platform 5.
->
-> When you’re ready, the two we want you on: Instant $5k at $72, or 1-Step $5k at $36 with VERO35. 1-Step gets the fee back on first reward. Instant does not.
+> Because the evaluations refund your fee on the first reward and Instant doesn't. Different product, different card, different number. If a firm charges Instant like an evaluation, ask who's paying for that.
 
----
+**Q — "Why should I believe you?"**
 
-## 8. Founding-price ask (30s)
+> Don't, yet. We've been running since May, the rules are public, and I'm in the Discord every day. Judge the operation, not the edit.
 
-This is a **price window**, not a company launch.
-
-**VO (verbatim)**
-
-> VERO35 is the founding-intro price. Instant $5k is $72. 1-Step $5k is $36, fee back on the first reward.
->
-> Try the platform free first. No time limit. 2-Step max drawdown is static. Instant trail is published. 80% split, 90% on demand.
->
-> These stickers end [date] if we raise list. If we don’t raise, VERO35 stays and there is still no second code. Link in bio.
+**On-screen:** `ASK US ANYTHING` on each card. No dollar figures.
 
 ---
 
-## 9. Community in motion (20–30s)
+## 7 · Trial → platform walkthrough (30–45s)
 
-**VO (verbatim)**
+Screen-record the product. Step chips: `w3-step-strip.png`.
 
-> Since May: published rules, traders on the platform, Discord open, founders in the chat.
+**VO**
+
+> Here's the whole thing, nothing hidden.
 >
-> Payouts are set up to be documented in public as they happen. Your move — try free, or take Instant $5k / 1-Step $5k with VERO35.
+> Start the free trial — same rules engine, same platforms, TradeHub or Platform 5.
+>
+> Your objectives track live on the dashboard: target, drawdown headroom, trading days. You always know exactly where you stand.
+>
+> When you're ready, pick the model that matches how you actually trade. The rules for each one are on the page before checkout.
+>
+> Trial first. Always.
+
+**On-screen:** `1 START FREE` → `2 DASHBOARD` → `3 RULES IN-APP` → `4 PICK YOUR MODEL`
 
 ---
 
-## Competitor lines, rewritten for Verodus
+## 8 · Intro offer — the ask (30s)
 
-These replace the Elevenex / Elanex / “Eleonich” scripts. They keep the *shape* (problem → us → proof → CTA) and drop launch language plus claims we cannot make.
+No numbers spoken. The overlay card carries the price.
 
-### A. Founder-to-camera (their “trapped traders” video)
+**VO**
 
-**Theirs:** trapped / seen it from the inside / launching soon / from day one.
-
-**Ours (30–40s)**
-
-> Most prop firms make traders feel trapped. Confusing rules, slow payouts, and a lack of transparency. I’ve seen how that works from the inside, managing accounts in CFDs, and I knew traders deserved better.
+> Quick one, because this is the part where most firms start shouting.
 >
-> So we built Verodus to be simple, fair, and actually trader-first. Rules you can read before you pay. No time limit. 80% split, 90% on demand. Evaluation fee back on your first reward — Instant excluded, and we say that out loud.
+> There's an intro code running while we do this founders series. It's in the bio, and it's the only one — we don't stack a second discount on top and call it a sale.
 >
-> 2-Step max drawdown is static. Instant is a 6% trail that never locks. We will not sell them as the same product.
+> What you're actually buying: objectives published up front, no time limit, static max loss on 2-Step, and your fee back on your first reward on the evaluations.
 >
-> We’ve been running since May. This is the founders intro, not a launch. Try the platform free, then Instant $5k at $72 or 1-Step at $36 with VERO35. We’re in Discord. Links in the bio.
->
-> Simulated evaluation. Rewards not guaranteed. 18+.
+> Start with the free trial. If the rules suit you, the code is there. If they don't, don't buy — that's a real sentence and we mean it.
 
-### B. Discord (their “Discord is open / discount when we go live”)
-
-**Theirs:** get in early, discount when we go live.
-
-**Ours (12–18s)**
-
-> Verodus Discord is open. Traders are already inside — rules, support, founders in the chat.
->
-> The code is VERO35. Instant $5k $72. 1-Step $5k $36. If you want to be close to the founders intro, come say hi. Link in bio.
-
-### C. Challenge promo (their “fairest $100k one-step, 19% off, no min days, news + weekend”)
-
-Do **not** copy $100k Instant, 19% off, no min days, or “news and weekend fully allowed.”
-
-**Ours (20–25s) — lead with 1-Step $5k**
-
-> A clean one-step, priced to print. Verodus 1-Step $5k is $36 with VERO35.
->
-> 10% target. 4% daily. 6% hybrid max. No time limit. Fee back on your first reward.
->
-> News and weekend holding follow the FAQ — not a hidden “fully allowed” line.
->
-> Try the platform free first. Link in bio. Simulated. 18+.
-
-**Alt — Instant $5k (only if the video is Instant, never mix refund copy)**
-
-> Instant $5k. No profit target. $72 with VERO35.
->
-> 3% daily, 6% trailing max that never locks, 5 valid days. No fee refund — that’s the card, not a surprise.
->
-> This is not a $100k Instant fire sale. That’s how Instant books go red.
->
-> Try free. Link in bio. Simulated. 18+.
+**On-screen:** `INTRO CODE IN BIO` → `ONE CODE. NO STACKING.` → overlay `w4-offer-card.png` → `START FREE`
 
 ---
 
-## Shoot notes
+## 9 · Community in motion (20–30s)
 
-Same two sessions. Session A: founders intro, why we built this, rules read-through. Session B: AMA, walkthrough, Discord/community clips.
+Montage: AMA clips, platform, Discord, objectives page. No payout figures.
 
-First line on the hero video must kill the launch read: **“We’ve been running since May. This is us on camera.”**
+**VO**
+
+> Since May: published rules, traders on the platform, a Discord that answers, and founders who put their names on it.
+>
+> No rented testimonials. No screenshots we can't stand behind.
+>
+> If that's the kind of firm you've been looking for — the free trial costs you nothing but an afternoon.
+
+**Frames:** `w4-montage-open.png` → footage → `w4-montage-end.png`
+
+---
+
+## 10 · Last call — retargeting Story (10–15s)
+
+Warm audiences only.
+
+**VO / text**
+
+> Intro series wraps this week. The code is in the bio, the rules are on the site, and the trial is still free.
+>
+> Nothing to lose but the afternoon.
+
+**On-screen:** `INTRO SERIES ENDS THIS WEEK` → `CODE IN BIO` → `START FREE`
+
+Only imply an ending if the intro pricing actually ends. Otherwise: `THE RULES AREN'T CHANGING. NEITHER IS THE TRIAL.`
+
+---
+
+## Competitor scripts, recast for Verodus
+
+Same three shapes, price-free, and stripped of claims we can't make.
+
+### A · "Trapped traders" founder piece (30–40s)
+
+> Most prop firms make traders feel trapped. Confusing rules, slow payouts, no transparency. I've seen how that works from the inside, managing accounts in CFDs — and traders deserve better than clever.
+>
+> So we built Verodus to be simple and readable. Objectives published before you pay. No time limit. Static max loss on 2-Step. Fee back on your first reward on the evaluations. Instant plays by a different card, and we say so instead of blurring it.
+>
+> We've been running since May. This is just the first time you're hearing it from us.
+>
+> Free trial's on the site. Discord's open. Links in bio.
+
+### B · Discord (12–18s)
+
+> The Verodus Discord is open and traders are already inside — rules, support, founders in the chat.
+>
+> Intro details and the code are in there and in the bio. If you want to watch how a firm actually behaves before you pay it anything, that's the place. Come say hi.
+
+### C · Challenge promo (20–25s) — **no "fairest", no % off, no size**
+
+> A one-step that reads like it was written for traders instead of against them.
+>
+> Clear profit target. Published daily and max drawdown. No time limit — you pass on your schedule. And your fee comes back on your first reward.
+>
+> News and weekend rules are on the objectives page exactly as they apply — not a vague "everything's allowed."
+>
+> Start with the free trial. Link in bio.
+
+Do not copy: "fairest in the industry", "19% off", "$100K", "no minimum trading days", "news and weekend fully allowed", "this won't last".
+
+---
+
+## Production
+
+Two sessions. **A:** 1, 2, 5 (+ pickups for 3). **B:** 6, 7, and footage for 9.
+Vertical 1080×1920, H.264, 30fps, burned-in captions, gold keyword highlights, logo bug top-left, legal line on the final frame.
+
+Hook rule: the first three seconds must contain a problem or a rule — never a logo and never a price.
