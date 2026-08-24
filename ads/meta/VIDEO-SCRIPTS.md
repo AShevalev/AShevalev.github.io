@@ -76,7 +76,7 @@ One candid take. Rawest clip of the series.
 
 **On-screen:** `ONE SET OF RULES. SOLD AND ENFORCED.` → `PUBLIC BEFORE YOU PAY` → `NO RETROACTIVE EDITS` → `SINCE MAY`
 
-56 spoken words, so this runs ~22s — it is not a 15s clip. Two notes: the VO no longer says "since May," so carry it on the end chip; and it makes no drawdown claim, which means it needs no plan label. That is why it travels further than the rest of the set.
+56 spoken words, so this runs ~22s — don't try to force it to 20. Two notes: the VO no longer says "since May," so carry it on the end chip; and it makes no drawdown claim, which means it needs no plan label. That is why it travels further than the rest of the set.
 
 ---
 
@@ -196,23 +196,25 @@ Only imply an ending if the intro pricing actually ends. Otherwise: `THE RULES A
 
 ---
 
-# Product explainers — 15s each
+# Product explainers — 20s each
 
 One per model. The "which one am I buying" set. Same rules: no fees, no sizes, no codes spoken. Each one names its own trade-off out loud — that is the whole differentiator.
 
-**15s = 35–40 spoken words.** Each script below is inside that. Do not add a sentence; if something has to go in, cut something out. No preamble — the first word is the point.
+**20s = 45–52 spoken words.** Each script below is inside that. Do not add a sentence; if something has to go in, cut something out. No preamble — the first word is the point.
 
 Shoot all three in one sitting, same shirt, same frame, so they cut together as a series.
 
-## 11 · Instant (15s · 34 words)
+## 11 · Instant (20s · 50 words)
 
 Never pair this with static-drawdown or fee-refund copy.
 
 > Instant skips the evaluation. No profit target — you trade from day one.
 >
-> The trade-off: the max loss trails, and Instant doesn't refund the fee. Evaluations do.
+> Here's the honest part: the max loss trails. It follows your equity high, so your floor comes up with you.
 >
-> Full card's on the objectives page. Trial's free.
+> And Instant doesn't refund the fee — the evaluations do. That's the trade.
+>
+> Full card's on the objectives page.
 
 **On-screen:** `NO PROFIT TARGET` → `TRAILING MAX LOSS` → `NO FEE REFUND` → `READ THE CARD`
 
@@ -225,15 +227,17 @@ Full card on the objectives page. Trial's free.
 
 Simulated evaluation. Rewards paid on the published objectives. 18+.
 
-## 12 · 1-Step (15s · 32 words)
+## 12 · 1-Step (20s · 49 words)
 
-> One phase. One set of published numbers — target, daily loss, max loss.
+> One phase. One set of published numbers — target, daily loss, max loss. All of it before you pay.
 >
-> No time limit, so you pass on your schedule.
+> No time limit, so you pass on your schedule, not a thirty-day countdown.
 >
-> And your fee comes back on your first reward. Trial first.
+> And your fee comes back on your first reward. That's the evaluation trade.
+>
+> Start with the free trial.
 
-**On-screen:** `ONE PHASE` → `NO TIME LIMIT` → `FEE BACK ON FIRST REWARD`
+**On-screen:** `ONE PHASE` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `FEE BACK ON FIRST REWARD`
 
 **Caption**
 
@@ -244,15 +248,15 @@ Start with the free trial.
 
 Simulated evaluation. Rewards paid on the published objectives. 18+.
 
-## 13 · 2-Step (15s · 38 words)
+## 13 · 2-Step (20s · 47 words)
 
 > Two phases. On 2-Step your max loss is static — fixed day one. It doesn't follow you up when you're winning.
 >
 > That's the difference between a floor and a leash.
 >
-> No time limit. Fee back on your first reward.
+> No time limit. Fee back on your first reward. Lite and Pro are both on the objectives page.
 
-**On-screen:** `STATIC MAX LOSS` → `FIXED DAY ONE` → `A FLOOR, NOT A LEASH`
+**On-screen:** `STATIC MAX LOSS` → `FIXED DAY ONE` → `A FLOOR, NOT A LEASH` → `LITE & PRO ON THE PAGE`
 
 **Caption**
 

@@ -141,7 +141,7 @@ Simulated evaluation. Rewards paid on the published objectives. 18+.
 
 ## Reels — timed cuts in [REELS.md](REELS.md)
 
-**Shoot these:** 7 × 20s and 6 × 45s, word-counted to pace, with hooks, on-screen text, and a
+**Shoot these:** 11 × 20s and 6 × 45s, word-counted to pace, with hooks, on-screen text, and a
 4-week posting schedule. [`VIDEO-SCRIPTS.md`](VIDEO-SCRIPTS.md) holds the longer-form AMA and
 walkthrough masters those cuts come from.
 
@@ -151,7 +151,7 @@ statics and the landing page, so a price change never invalidates a clip.
 | # | Reel | Length |
 |---|---|---|
 | 1 | Founders intro (hero) | 30–45s |
-| 2 | Why we built this | 15–20s |
+| 2 | Why we built this | 20–25s |
 | 3 | Discord is open | 12–18s |
 | 4 | Static vs trailing — 2-Step | 40–60s |
 | 5 | Read the rules with me | 20–30s |
@@ -160,8 +160,12 @@ statics and the landing page, so a price change never invalidates a clip.
 | 8 | Intro offer — the ask | 30s |
 | 9 | Community in motion | 20–30s |
 | 10 | Last call (Stories/ads only) | 10–15s |
+| 11 | **Instant** — product explainer | 20s |
+| 12 | **1-Step** — product explainer | 20s |
+| 13 | **2-Step** — product explainer | 20s |
 
-Film phone-vertical, burned-in captions, real desk. Two shoot days (week 1 + week 3).
+Film phone-vertical, burned-in captions, real desk. Three shoot days: week 1, week 3, and one
+sitting for the product trio (11–13) so they cut together as a series.
 First three seconds must be a problem or a rule — never a logo, never a price.
 
 ---
