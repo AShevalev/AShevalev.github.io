@@ -11,8 +11,7 @@ Joe M. Wong said he would send his own call summary. Alexander committed to send
 | Call confirmation (optional if Joe already sent notes) | `01-call-summary.md` |
 | Organisation chart + who does what | `02-organization-structure.md` and `org-chart.html` (print/PDF) |
 | How the agreements allocate software, data, domain, and money | `03-entity-agreement-map.md` |
-| Cover email | `05-draft-email-to-joe.md` |
-| Written answers to Joe’s questions | `07-responses-to-joe.md` |
+| Cover letter to Joe | `05-draft-email-to-joe.md` |
 | Agreements to attach | Software sublicense (31 May 2026); operational services (28 April 2026) |
 
 ## Keep internal
