@@ -120,3 +120,22 @@ What you can give him so he still “has a number”: a **ceiling**, not a floor
 If he wants the freeze to last past a successful trial into the 6–12 month volume phase, the price is no longer $900,000 flat. Either the window is short, or the price ratchets (for example +$X per $Y of run-rate above $70k/month). A freeze with no expiry is how you donate the upside he described.
 
 Do not put this number in the org-chart email. It is a separate term sheet after Kim and Chun agree.
+
+## Cash before the trial
+
+Yes. It is possible. It will not be the $900,000. That would be buying 60% blind, which Joe will not do, and which you should not discount just to get cash early.
+
+The instrument that fits is **money for the option and for Kim’s time**, not money for the shares:
+
+| What | When it is paid | If the trial fails |
+| --- | --- | --- |
+| **Option premium** (ask **$75,000–$150,000** cash). Credits dollar-for-dollar against the $900,000 if he later buys 60%. | On signing the option / no-shop. Before Kim starts TAMS work. | **You keep it.** That is the point. |
+| **Integration fee** (can be the same cheque). Pays for Kim’s 2–6 weeks and any TAMS environment work. | Same moment, or staged: half on kickoff, half when Kim writes that the API is accepted. | You keep what has been earned. Trial stays free **for his B2B partners** — that is what he meant by a free trial, not that Verodus works for nothing. |
+| **Refundable deposit** toward $900,000 | Looks like cash. It is not. | He claws it back. Useless as protection. |
+| **Full $900,000 for 60% now** | Only if he actually wants to own the companies before TAMS is live. | You have sold control with no proof the partnership works. Do not cut the price to make this happen. |
+
+A no-shop / exclusivity without cash is the same trap as a free option: he ties you up through integration and trial, then walks. Cash on signing is how you test whether the day-one number is real.
+
+Where the cheque lands: Verodus Capital Inc. (profit centre, Canadian tax). Do not route it as a personal “payout” to Alexander before Chun and Kim agree how the premium is shared. It is company money unless the option is written as a purchase of shares from named holders.
+
+Do not put a premium figure in the org-chart email.
