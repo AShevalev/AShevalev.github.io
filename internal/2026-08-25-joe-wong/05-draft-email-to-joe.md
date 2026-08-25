@@ -1,27 +1,19 @@
-Subject: Follow-up from yesterday
+Subject: Intercompany agreements and organisation chart
 
 Joe,
 
-Thank you for the time yesterday, and please thank your side as well. I said I would follow up in writing so you and legal have a clean picture, without making you sit through the call again.
+Please find attached the organisation chart and the two intercompany agreements now in force.
 
-We are aligned on the shape of Path 1. You take this to market as education, mentorship, and funding — a wealth-management ecosystem — not as a prop firm. TradeMap is the face and the contracting party on your side. TAMS is the product your partners see. Our role is the engine: evaluation, rules, payouts, and the book. Bookmap and order-flow sit in a later phase, once the retail path is stable. That is the right order.
+There is no parent and no subsidiary. Kim Chen owns 100% of Verodus Capital Inc. (British Columbia) and 100% of Verodus L.L.C.-FZ (Meydan Free Zone, Dubai). Chun Chan owns 100% of 1591011 B.C. Ltd. (British Columbia). Capital and LLC-FZ are affiliates. 1591011 B.C. Ltd. is owned separately. The companies deal with one another only under the attached contracts.
 
-There are three companies, and none of them is a parent or a subsidiary of another.
+Verodus L.L.C.-FZ is the registered owner of verodus.com. The domain and the hosting are in the UAE. LLC-FZ holds all raw data and client-identifying information collected through the software. 1591011 B.C. Ltd. owns the proprietary software, CRM, and related technology.
 
-Kim Chen owns 100% of Verodus Capital Inc. in British Columbia and 100% of Verodus L.L.C.-FZ in Dubai. Chun Chan owns 100% of 1591011 B.C. Ltd. in British Columbia. Capital and the Dubai company are affiliates. The software company is owned separately. They work together by contract.
+**Software Sublicense and Data Licensing Agreement (31 May 2026)** — 1591011 B.C. Ltd. and Verodus L.L.C.-FZ.  
+1591011 grants LLC-FZ a non-exclusive, non-transferable, revocable licence to use the software for LLC-FZ’s Meydan-authorised activities. LLC-FZ may not modify, reverse-engineer, or re-sublicense the software to anyone. Raw data stays with LLC-FZ, which may commercialise it. 1591011 receives only a perpetual licence to anonymised aggregated insights. There is no cash under this agreement. The term is 36 months. British Columbia law; BCICAC arbitration in Vancouver. Signed by Chun Chan for 1591011 and Kim Chen for LLC-FZ.
 
-In practical terms: Dubai holds the brand surface and the book. It is the registered owner of verodus.com, it holds the trader data, and it runs the CRM and dashboard. The domain and the hosting are in the UAE. Canada is where the money is received. Capital processes payments on Canadian merchant accounts, runs marketing and KYC, and has the licence to use the domain. A UAE processor exists; we do not use it today. Canadian tax is filed on Capital. If Dubai ever wants the 5% royalty we discussed, that is a discretionary switch with notice, not an automatic split. The software itself sits in 1591011 B.C. Ltd. and is licensed to the Dubai company. That licence is limited. Dubai cannot pass the system to a third party on its own, which is why the three companies have to move together if we are talking about a longer relationship.
+**Operational Services, Domain Usage and Evaluation Rights Agreement (28 April 2026)** — Verodus Capital Inc. and Verodus L.L.C.-FZ.  
+LLC-FZ licences Capital to use the domain, run platform evaluations, and use affiliate tools to drive traffic. Capital provides KYC and marketing directed to the domain, and processes payments on merchant accounts in Capital’s own name. Each party keeps isolated merchant accounts; there is no commingling. Capital has no access to LLC-FZ’s software beyond the affiliate-tool licence, and no control of LLC-FZ’s merchant accounts. There are no invoices between them unless LLC-FZ, at its discretion and on 90 days’ notice, charges a 5% royalty on Capital’s gross sales (CAD), paid quarterly. The term is 36 months. British Columbia law; BCICAC arbitration in Vancouver. Signed by Kim Chen for both companies.
 
-I am attaching the organisation chart and the two agreements that govern this: the operational and domain arrangement between Capital and Dubai, and the software sublicense between 1591011 and Dubai. Your counsel can decide which of our companies TradeMap should sign with. From our side, commercial and settlement naturally sit with Capital; the domain and data sit with Dubai; the code sits with 1591011.
-
-On the operating side, the picture is small and deliberate. Kim is the only person on IT. The stack is ours, built after we left a white-label that could not support the rules we needed. It is mostly Java, some Python, API and database. Market data is Altix. The TradingView treatment on the dashboard is layout only; there is no TradingView contract. What still needs a person is payout checks and support. Marketing is in-house. We are profitable, costs are tight, and the original capital is being covered. I would rather walk you through the live book on a call than pad this note with every rule set. The models can stay as they are for a trial and then be sized for Hong Kong with you.
-
-Kim estimated two to three weeks for TAMS once he has the API. Your one to one-and-a-half months to do it properly is fine with us. A short free trial with one or two partners — thirty days, not more than forty-five — is the right way to go live without collecting complaints. We can keep our name back and let TAMS lead, or the reverse, once those partners are in the room. Data collected on the platform stays with the Dubai company unless we write something different. If the trial works, we put that in a short side letter so nobody is guessing.
-
-You asked where we would land on a majority. I have taken that internally. If we are talking about 60% in cash of Capital, the Dubai company, and 1591011 together, we would offer that at $750,000. If we can agree this month, we can close at $660,000. That assumes the software comes with the operating companies and Kim stays. We are not looking to trade control for network, curriculum, or a listing story in place of cash. I am glad to hear how your investors see it.
-
-Two things from your side will let us move this week: the TAMS API and an introduction of your tech team to Kim, and a view from legal on which of our companies TradeMap should contract with. I can make Kim available as soon as the API note is over.
-
-I look forward to picking this up.
+The two agreements are independent of each other. I would be grateful if your counsel would review the chart and these contracts and come back on the contracting party they prefer.
 
 Alexander
