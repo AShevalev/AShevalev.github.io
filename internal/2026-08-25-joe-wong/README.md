@@ -6,7 +6,7 @@
 
 | Send | File |
 | --- | --- |
-| Cover letter | `05-draft-email-to-joe.md` |
+| Cover letter | `05-draft-email-to-joe.md` (paste into email) and `letter_to_joe_wong.pdf` |
 | Organisation chart | `verodus_organisation_chart.pdf` (one-page Letter landscape; source `org-chart.html`) and `02-organization-structure.md` |
 | Agreement map (optional annex) | `03-entity-agreement-map.md` |
 | Attachments | `2026-05-31_SoftwareLicenseAgreement.pdf`; `2026-04-28_VerodusOperationalServicesAgreement.pdf` |

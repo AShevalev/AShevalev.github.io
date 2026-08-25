@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Letter to Joe M. Wong — 25 August 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1b242e;
+      --muted: #5a6570;
+      --line: #cbbfae;
+      --paper: #f1ebe1;
+      --accent: #b24a24;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: white;
+      color: var(--ink);
+      font-family: "Source Serif 4", Palatino, Georgia, serif;
+    }
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 40px 56px;
+      background: white;
+    }
+    .confidential {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      margin-bottom: 18px;
+    }
+    .meta {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0 0 28px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .meta strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0 0 6px;
+      font-family: "Source Sans 3", sans-serif;
+      letter-spacing: 0.02em;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.55;
+      margin: 0 0 16px;
+    }
+    .salute, .close {
+      margin-bottom: 16px;
+    }
+    .sign {
+      margin: 0;
+      line-height: 1.4;
+    }
+    .attach {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .attach strong {
+      display: block;
+      color: var(--ink);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 10px;
+      margin-bottom: 6px;
+    }
+    .attach ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    @page {
+      size: Letter portrait;
+      margin: 0.7in 0.85in;
+    }
+    @media print {
+      body { background: white; }
+      .page { padding: 0; max-width: none; }
+      p { font-size: 12.5px; line-height: 1.5; margin-bottom: 12px; }
+      .meta { margin-bottom: 20px; padding-bottom: 12px; font-size: 12px; }
+      .attach { margin-top: 18px; padding-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <p class="confidential">Confidential</p>
+    <div class="meta">
+      <h1>Subject: Intercompany agreements and organisation chart</h1>
+      25 August 2026<br />
+      <strong>To</strong> Joe M. Wong<br />
+      <strong>From</strong> Alexander
+    </div>
+
+    <p class="salute">Joe,</p>
+
+    <p>Please find attached the organisation chart and the two intercompany agreements currently in force. I am sending these so your counsel can see how the companies are held and how they deal with one another.</p>
+
+    <p>The group is three companies. None of them is a parent or a subsidiary of another; they are affiliates that contract with each other. Kim Chen owns 100% of Verodus Capital Inc., in British Columbia, and 100% of Verodus L.L.C.-FZ, in the Meydan Free Zone, Dubai. Chun Chan owns 100% of 1591011 B.C. Ltd., in British Columbia, and is one of the investors in Verodus.</p>
+
+    <p>Verodus L.L.C.-FZ is the registered owner of verodus.com. The domain and the hosting are in the UAE. That company holds the user data and carries out KYC in its own name. 1591011 B.C. Ltd. owns the proprietary software.</p>
+
+    <p>The stack is Vercel on AWS, including AWS Lambda for serverless functions and the edge network, plus email, the website, a database, and Redis.</p>
+
+    <p>Receipts land in Verodus Capital’s merchant accounts. Canadian tax is filed on Capital.</p>
+
+    <p>On marketing, David was with us in-house from April until June. Wages for those two months were $8,000. He will return part-time next month. We also plan to take on an intern at approximately $3,000 a month for marketing and customer support.</p>
+
+    <p>If this endeavour requires it, the attached agreements can be varied. I would be grateful if your counsel would review the chart and the contracts and let us know which of our companies they would prefer to contract with.</p>
+
+    <p class="close">Kind regards,</p>
+    <p class="sign">Alexander</p>
+
+    <div class="attach">
+      <strong>Attachments</strong>
+      <ul>
+        <li>Organisation chart</li>
+        <li>Software licence agreement, 31 May 2026 (1591011 B.C. Ltd. and Verodus L.L.C.-FZ)</li>
+        <li>Operational services agreement, 28 April 2026 (Verodus Capital Inc. and Verodus L.L.C.-FZ)</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
