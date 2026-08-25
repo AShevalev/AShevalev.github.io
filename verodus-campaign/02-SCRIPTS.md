@@ -623,7 +623,9 @@ For a printed backdrop, a set-dressing reference, or a still to run on a large s
 
 **Office — recommended.** Depth behind the shoulder reads as a company that exists, which is the whole point of a founders series. A rented studio reads like a course seller, and that is the exact comparison this brand is trying to escape.
 
-> Photorealistic empty modern office interior as a backdrop for a vertical 9:16 video, eye level, 35mm full-frame look at f/2, background softly out of focus with real depth. Evening interior. On the left, a dark matte navy accent wall, near-black indigo (#07003B) shifting toward royal navy (#1B2B8E). On the right, a frosted glass partition with a warm champagne-gold LED strip glowing behind it. Beyond the glass, a deep, heavily blurred open-plan room with a few small warm practical lights and no discernible detail. Any monitors are switched off, dark, and angled away from camera — no visible screen content, no charts, no graphs, no numbers, no text, no logos, no people. Foreground centre and lower two-thirds empty: no desk, no chair, no clutter in frame. Soft key from the upper left, gentle falloff, clean shadow detail, no vignette. Calm, premium, editorial, restrained colour, cinematic grade, fine natural film grain.
+Shoot the **lounge or reception side** of an office, not the desk floor. It gives the same "this is a real company" depth with nothing on a screen to review, and it looks more considered than a row of workstations.
+
+> Photorealistic empty modern office lounge as a backdrop for a vertical 9:16 video, eye level, 35mm full-frame look at f/2, background softly out of focus with real depth. Evening interior, no workstations anywhere. On the left, a dark matte navy accent wall, near-black indigo (#07003B) shifting toward royal navy (#1B2B8E). On the right, a frosted glass partition with a warm champagne-gold LED strip glowing behind it, and a corridor receding into darkness beyond. Furniture limited to the corner of a low walnut credenza and a single soft armchair, both far out of focus at the edge of frame. Two small warm wall sconces for depth. Absolutely no monitors, no computers, no televisions, no screens of any kind, no charts, no graphs, no numbers, no text, no logos, no people. Foreground centre and lower two-thirds completely empty. Soft key from the upper left, gentle falloff, clean shadow detail, no vignette. Calm, premium, editorial, restrained colour, cinematic grade, fine natural film grain.
 
 **Studio.** More controllable, and the safer choice if the real office is small or messy.
 
@@ -635,7 +637,7 @@ Never a bookshelf, never a night-city skyline window, never a green screen with 
 
 ### Shooting in a real office
 
-Same rules as the generated version. Screens off or turned away — a real dashboard in the background is a bigger review risk than a fake one, because it may show an actual balance. Clear the lower third of the frame completely. Kill overhead fluorescents and light with one soft source plus whatever warm practicals are already in the room.
+Stand in the lounge, reception, or an empty meeting room — anywhere with no monitor in the shot. If a screen can't be avoided, switch it off and angle it away; a live dashboard behind you is a worse risk than a generated one, because it may show an actual balance. Clear the lower third of the frame completely. Kill overhead fluorescents and light with one soft source plus whatever warm lamps are already in the room.
 
 ### If you use a screen or a virtual background
 
