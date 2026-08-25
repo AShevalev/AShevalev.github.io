@@ -167,6 +167,19 @@ Demo accounts with fictitious funds. All trading is in a simulated environment o
 
 **Headline:** One code. No stacking. · **Description:** Use code VERO35
 
+### P-CLOSER — warm only, no deadline needed
+Everything we ask a trader to trust is published before the fee: target, daily loss, max loss, minimum days, split, reward cycle.
+
+The trial is free, so the rules cost nothing to read. On the evaluations, the fee comes back on your first reward. No time limit, so there's nothing to rush.
+
+1-Step $5,000 is $36 with VERO35. Trial first — if the rules don't fit, don't buy.
+
+Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
+
+**Headline:** Read the rules free · **Description:** Fee back on evals
+
+Use this instead of P-LASTCALL whenever pricing isn't actually changing.
+
 ### P-LASTCALL — warm only, conditional
 Intro pricing ends this week. Code VERO35: Instant $5,000 at $72, 1-Step $5,000 at $36.
 

@@ -32,7 +32,9 @@ End card `w1-manifesto-end.png` then *Free trial — verodus.com*. Logo bug `w1-
 
 Eligibility is set by content risk, not by how good the clip is.
 
-**Ads (9):** 1, 2, 4, 5, 7, 11, 12, 13, C · **Warm-only ad:** 8 · **Conditional:** 10 · **Organic only:** 3, 6, 9
+**Ads (11):** 1, 2, 4, 5, 7, 7B, 11, 12, 13, C, D · **Warm-only ad:** 8 · **Conditional:** 10 · **Organic only:** 3, 6, 9
+
+**Conversion set — the five to film first:** 1, 2, 7B (free trial), 12 (1-Step), D (risk reversal). 7B carries week 1, 12 is the SKU worth buying, D closes warm traffic.
 
 ## Hashtag sets
 
@@ -267,6 +269,35 @@ Screen-record the product. Step chips `w3-step-strip.png`.
 
 
 
+# 7B · Trial — to camera
+
+**20s · 45 words · Ad — week 1 conversion · CTA: Sign Up**
+
+The talking-head version of 7, for when there's no screen-record. Highest-intent ask in the pack because the ask is free: no card, no purchase page, and a compliant destination.
+
+**Hook:** "You shouldn't have to pay to see how a firm works."
+
+> You shouldn't have to pay to see how a firm works.
+>
+> Start the free trial. Same rules engine. Same platforms. Every objective is on the site before you pay.
+>
+> If the rules don't suit you, don't buy. We mean that.
+
+**On-screen:** `FREE TRIAL` → `SAME RULES ENGINE` → `NO CARD` → `THEN DECIDE`
+**Cover:** founder, open hand — `THEN DECIDE`
+
+**Caption** (Set B)
+
+> You shouldn't have to pay to find out how a firm works.
+>
+> Free trial — same rules engine, same platforms, no card. Read every objective, then decide.
+>
+> If the rules don't suit you, don't buy. We mean that.
+
+---
+
+
+
 # 8 · Intro offer
 
 **30s · Ad — warm audiences only · CTA: Learn More**
@@ -461,6 +492,39 @@ Never pair with static-drawdown or fee-refund copy.
 > News and weekend rules are on the objectives page as they actually apply. Not "everything is allowed."
 >
 > Trial first — link in bio.
+>
+> Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
+
+---
+
+
+
+# D · Risk reversal — warm closer
+
+**20–25s · 58 words · Ad — warm audiences · CTA: Learn More**
+
+The closing argument, with no shouting and no countdown. Every line removes a reason not to start; none of them is a price, a projection, or a deadline. Runs against trial signups and 50% video viewers — the warm alternative to 8 when there's no real deadline to name.
+
+**Hook:** "Read the rules for free. Decide after."
+
+> Everything Verodus asks a trader to trust is published before the fee: target, daily loss, max loss, minimum days, split, reward cycle.
+>
+> The trial is free, so the rules cost nothing to read. On the evaluations, the fee comes back on the first reward.
+>
+> No time limit, so there's nothing to rush.
+>
+> Trial first. If the rules don't fit, don't buy.
+
+**On-screen:** `PUBLISHED BEFORE THE FEE` → `TRIAL IS FREE` → `FEE BACK — EVALUATIONS` → `NO TIME LIMIT`
+**Cover:** founder, flat and unhurried — `READ THE RULES FREE`
+
+**Caption** (Set A)
+
+> Everything we ask a trader to trust is published before the fee: target, daily loss, max loss, minimum days, split, reward cycle.
+>
+> The trial is free, so the rules cost nothing to read. On the evaluations, the fee comes back on the first reward. No time limit, so there's nothing to rush.
+>
+> Trial first. If the rules don't fit, don't buy.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
