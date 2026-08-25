@@ -79,6 +79,18 @@ def main() -> int:
     # Insights are delivered during the term, not only on the last day.
     assert_contains(sla, "with each status report under Section 4.2", "SLA")
 
+    # Original signatures are embedded as images.
+    def image_count(path: Path) -> int:
+        import pymupdf
+
+        doc = pymupdf.open(path)
+        return sum(len(page.get_image_info()) for page in doc)
+
+    if image_count(OSA) != 2:
+        raise AssertionError(f"OSA expected 2 signature images, got {image_count(OSA)}")
+    if image_count(SLA) != 2:
+        raise AssertionError(f"SLA expected 2 signature images, got {image_count(SLA)}")
+
     print("all agreement checks passed")
     print(f"OSA pages: {len(PdfReader(str(OSA)).pages)}")
     print(f"SLA pages: {len(PdfReader(str(SLA)).pages)}")

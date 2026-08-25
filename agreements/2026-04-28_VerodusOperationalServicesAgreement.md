@@ -10,7 +10,7 @@ And
 **Verodus L.L.C.-FZ**  
 ("LLC-FZ" or "Client")
 
-Effective Date: April 28, 2026
+**Effective Date: April 28, 2026**
 
 ## RECITALS
 
@@ -94,8 +94,6 @@ Any commissions or profits generated through the affiliate software or traffic-d
 
 5.2 Targets shall be reviewed and reset (if necessary) on a rolling six-month basis.
 
-5.3 Subscription targets are operational planning figures only. They do not create a fee, invoice, payment obligation, or separate price for any right or service under this Agreement.
-
 ## 6. REPRESENTATIONS AND WARRANTIES
 
 6.1 Each party represents and warrants that:
@@ -156,7 +154,9 @@ The parties have executed this Agreement as of the Effective Date.
 
 **Verodus Capital Inc.**
 
-________________________________
+{{signature:kim_chen}}
+
+_____________________
 
 Kim Chen
 
@@ -164,7 +164,9 @@ Director
 
 **Verodus L.L.C.-FZ**
 
-________________________________
+{{signature:kim_chen}}
+
+_____________________
 
 Kim Chen
 

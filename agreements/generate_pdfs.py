@@ -1,16 +1,19 @@
-"""Render the revised Verodus agreements to letter-size PDFs."""
+"""Render the Verodus agreements in the original Word/Times layout."""
 
 from __future__ import annotations
 
 from pathlib import Path
 
-from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT
+from reportlab.lib.enums import TA_CENTER, TA_LEFT
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
     BaseDocTemplate,
     Frame,
+    Image,
     KeepTogether,
     PageTemplate,
     Paragraph,
@@ -18,31 +21,20 @@ from reportlab.platypus import (
 )
 
 ROOT = Path(__file__).resolve().parent
+SIG_DIR = ROOT / "signatures"
+
+pdfmetrics.registerFont(TTFont("TNR", "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf"))
+pdfmetrics.registerFont(TTFont("TNR-Bold", "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf"))
 
 SOURCES = [
-    ROOT / "2026-04-28_VerodusOperationalServicesAgreement.md",
-    ROOT / "2026-05-31_SoftwareLicenseAndDataLicensingAgreement.md",
+    (ROOT / "2026-04-28_VerodusOperationalServicesAgreement.md", 1.0 * inch),
+    (ROOT / "2026-05-31_SoftwareLicenseAndDataLicensingAgreement.md", 1.25 * inch),
 ]
 
-
-def italicize_quotes(text: str) -> str:
-    """Turn straight double-quoted phrases into italics for defined terms."""
-    out = []
-    i = 0
-    while i < len(text):
-        if text[i] == '"':
-            j = text.find('"', i + 1)
-            if j == -1:
-                out.append("&quot;")
-                i += 1
-                continue
-            inner = xml_escape(text[i + 1 : j])
-            out.append(f'&quot;<i>{inner}</i>&quot;')
-            i = j + 1
-        else:
-            out.append(xml_escape(text[i]))
-            i += 1
-    return "".join(out)
+SIG_SPECS = {
+    "chun_chan": (SIG_DIR / "chun_chan.png", 93, 17),
+    "kim_chen": (SIG_DIR / "kim_chen.png", 75, 44),
+}
 
 
 def xml_escape(text: str) -> str:
@@ -54,19 +46,18 @@ def xml_escape(text: str) -> str:
 
 
 def inline_md(text: str) -> str:
-    """Convert a limited markdown subset to ReportLab XML."""
     parts: list[str] = []
     i = 0
     while i < len(text):
         if text.startswith("**", i):
             j = text.find("**", i + 2)
             if j != -1:
-                parts.append(f"<b>{italicize_quotes(text[i + 2 : j])}</b>")
+                parts.append(f"<b>{xml_escape(text[i + 2 : j])}</b>")
                 i = j + 2
                 continue
         nxt = text.find("**", i)
         chunk = text[i:] if nxt == -1 else text[i:nxt]
-        parts.append(italicize_quotes(chunk))
+        parts.append(xml_escape(chunk))
         if nxt == -1:
             break
         i = nxt
@@ -89,6 +80,8 @@ def parse_blocks(markdown: str) -> list[tuple[str, str]]:
             blocks.append(("h1", raw[2:].strip()))
         elif raw.startswith("## "):
             blocks.append(("h2", raw[3:].strip()))
+        elif raw.startswith("{{signature:"):
+            blocks.append(("sig", raw[len("{{signature:") :].rstrip("}").strip()))
         else:
             blocks.append(("p", raw))
 
@@ -103,80 +96,82 @@ def parse_blocks(markdown: str) -> list[tuple[str, str]]:
 
 def make_styles() -> dict[str, ParagraphStyle]:
     base = getSampleStyleSheet()
+    body = dict(
+        parent=base["Normal"],
+        fontName="TNR",
+        fontSize=12,
+        leading=16,
+        spaceAfter=10,
+    )
     return {
         "h1": ParagraphStyle(
-            "AgreementTitle",
+            "Title14",
             parent=base["Title"],
-            fontName="Times-Bold",
-            fontSize=13,
+            fontName="TNR-Bold",
+            fontSize=14,
+            leading=18,
+            alignment=TA_CENTER,
+            spaceAfter=12,
+        ),
+        "h1_12": ParagraphStyle(
+            "Title12",
+            parent=base["Title"],
+            fontName="TNR-Bold",
+            fontSize=12,
             leading=16,
             alignment=TA_CENTER,
-            spaceAfter=10,
-            textColor="#111111",
+            spaceAfter=12,
         ),
         "h2": ParagraphStyle(
-            "AgreementHeading",
+            "Heading",
             parent=base["Heading2"],
-            fontName="Times-Bold",
-            fontSize=11,
-            leading=14,
+            fontName="TNR-Bold",
+            fontSize=12,
+            leading=16,
             alignment=TA_LEFT,
-            spaceBefore=12,
-            spaceAfter=6,
-            textColor="#111111",
+            spaceBefore=6,
+            spaceAfter=10,
         ),
-        "p": ParagraphStyle(
-            "AgreementBody",
-            parent=base["Normal"],
-            fontName="Times-Roman",
-            fontSize=10.5,
-            leading=14,
-            alignment=TA_JUSTIFY,
-            spaceAfter=7,
-        ),
-        "center": ParagraphStyle(
-            "AgreementCenter",
-            parent=base["Normal"],
-            fontName="Times-Roman",
-            fontSize=10.5,
-            leading=14,
-            alignment=TA_CENTER,
-            spaceAfter=7,
-        ),
-        "sig": ParagraphStyle(
-            "AgreementSig",
-            parent=base["Normal"],
-            fontName="Times-Roman",
-            fontSize=10.5,
-            leading=14,
-            alignment=TA_LEFT,
-            spaceAfter=3,
-        ),
-        "footer": ParagraphStyle(
-            "AgreementFooter",
-            parent=base["Normal"],
-            fontName="Times-Roman",
-            fontSize=9,
-            alignment=TA_CENTER,
-            textColor="#444444",
-        ),
+        "p": ParagraphStyle("Body", alignment=TA_LEFT, **body),
+        "center": ParagraphStyle("Center", alignment=TA_CENTER, **body),
+        "indent": ParagraphStyle("Indent", alignment=TA_LEFT, leftIndent=36, **body),
+        "sig": ParagraphStyle("Sig", alignment=TA_LEFT, spaceAfter=4, **{k: v for k, v in body.items() if k != "spaceAfter"}),
     }
 
 
-def add_page_number(canvas, doc) -> None:
-    canvas.saveState()
-    styles = make_styles()
-    page = Paragraph(f"— {doc.page} —", styles["footer"])
-    w, h = page.wrap(doc.width, 20)
-    page.drawOn(canvas, doc.leftMargin, 0.55 * inch)
-    canvas.restoreState()
+def signature_image(key: str) -> Image:
+    path, width, height = SIG_SPECS[key]
+    return Image(str(path), width=width, height=height, mask="auto")
 
 
-def build_flowables(markdown: str):
+def is_centered(text: str) -> bool:
+    stripped = text.strip()
+    if stripped in {"Between", "And"}:
+        return True
+    if stripped.startswith("(") and stripped.endswith(")"):
+        return True
+    if stripped.startswith("**") and stripped.endswith("**") and stripped.count("**") == 2:
+        inner = stripped[2:-2]
+        if inner.startswith("Effective Date:"):
+            return False
+        return True
+    return False
+
+
+def is_indented(text: str) -> bool:
+    stripped = text.strip()
+    return stripped.startswith(("(a)", "(b)", "(c)", "(d)", "i.", "ii.", "iii."))
+
+
+def build_flowables(markdown: str, title_size: int = 14):
     styles = make_styles()
+    title_style = styles["h1"] if title_size == 14 else styles["h1_12"]
     story = []
     witness: list = []
     in_witness = False
+
+    def dest() -> list:
+        return witness if in_witness else story
 
     def flush_witness() -> None:
         nonlocal witness
@@ -186,57 +181,57 @@ def build_flowables(markdown: str):
 
     for kind, text in parse_blocks(markdown):
         if kind == "h1":
-            story.append(Paragraph(inline_md(text.upper()), styles["h1"]))
+            dest().append(Paragraph(inline_md(text), title_style))
+            dest().append(Spacer(1, 8))
             continue
         if kind == "h2":
             if text.strip().upper().startswith("IN WITNESS"):
                 in_witness = True
-                witness.append(Paragraph(inline_md(text.upper()), styles["h2"]))
+                witness.append(Paragraph(inline_md(text), styles["h2"]))
             else:
                 flush_witness()
                 in_witness = False
-                story.append(Paragraph(inline_md(text.upper()), styles["h2"]))
+                dest().append(Paragraph(inline_md(text), styles["h2"]))
             continue
-        if in_witness:
-            if text.startswith("____"):
-                witness.append(Spacer(1, 14))
-            witness.append(Paragraph(inline_md(text), styles["sig"]))
-            if text.startswith("Date:") or text in {
-                "Director",
-                "Manager",
-                "Director / Authorized Signatory",
-            }:
-                witness.append(Spacer(1, 16))
+        if kind == "sig":
+            dest().append(Spacer(1, 4))
+            dest().append(signature_image(text))
+            dest().append(Spacer(1, 2))
             continue
-        if text in {"Between", "And"}:
-            story.append(Paragraph(inline_md(text), styles["center"]))
-        else:
-            story.append(Paragraph(inline_md(text), styles["p"]))
+        style = styles["p"]
+        if is_centered(text) and not in_witness:
+            style = styles["center"]
+        elif is_indented(text):
+            style = styles["indent"]
+        elif in_witness:
+            style = styles["sig"]
+        dest().append(Paragraph(inline_md(text), style))
     flush_witness()
     return story
 
 
-def render_pdf(md_path: Path, pdf_path: Path) -> None:
+def render_pdf(md_path: Path, pdf_path: Path, margin: float) -> None:
     markdown = md_path.read_text(encoding="utf-8")
+    title_size = 14 if "SOFTWARE" in markdown.splitlines()[0].upper() else 12
     doc = BaseDocTemplate(
         str(pdf_path),
         pagesize=letter,
-        leftMargin=1.0 * inch,
-        rightMargin=1.0 * inch,
-        topMargin=0.85 * inch,
-        bottomMargin=0.85 * inch,
+        leftMargin=margin,
+        rightMargin=margin,
+        topMargin=1.0 * inch,
+        bottomMargin=1.0 * inch,
         title=md_path.stem.replace("_", " "),
         author="",
     )
     frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="normal")
-    doc.addPageTemplates([PageTemplate(id="letter", frames=frame, onPage=add_page_number)])
-    doc.build(build_flowables(markdown))
+    doc.addPageTemplates([PageTemplate(id="letter", frames=frame)])
+    doc.build(build_flowables(markdown, title_size=title_size))
 
 
 def main() -> None:
-    for src in SOURCES:
+    for src, margin in SOURCES:
         dest = src.with_suffix(".pdf")
-        render_pdf(src, dest)
+        render_pdf(src, dest, margin)
         print(f"wrote {dest}")
 
 

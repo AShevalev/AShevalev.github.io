@@ -10,7 +10,7 @@ And
 **Verodus L.L.C.-FZ**  
 ("LLC-FZ" or "Licensee")
 
-Effective Date: May 31, 2026
+**Effective Date: May 31, 2026**
 
 ## RECITALS
 
@@ -28,7 +28,7 @@ C. LLC-FZ is the registered owner of the domain name verodus.com. LLC-FZ perform
 
 D. The parties desire to enter into a bilateral arrangement whereby 1591011 B.C. LTD. grants LLC-FZ a license to use the Software for data collection and analysis (including LLC-FZ's own KYC and classification activities), and LLC-FZ in return grants 1591011 B.C. LTD. a license to the Aggregated Insights generated through that use.
 
-E. The parties have determined that the reciprocal licenses and rights in this Agreement are the entire consideration. They are not assigning a separate price to the Software license, the data license, or any other individual right. No invoices will be issued by either party, there will be no billing process, and no monetary payment will be made under this Agreement.
+E. The parties expressly agree that no invoices will be issued by either party at any time, there will be no billing process, and no monetary payment whatsoever will be made under this Agreement. All compensation is fully satisfied through the reciprocal licenses and rights granted herein.
 
 NOW THEREFORE, in consideration of the mutual covenants, licenses, and promises set forth below, the parties agree as follows:
 
@@ -70,9 +70,9 @@ NOW THEREFORE, in consideration of the mutual covenants, licenses, and promises 
 
 4.2 LLC-FZ shall provide 1591011 B.C. LTD. with status reports on data collection and analysis progress every six (6) months, commencing six (6) months after the Effective Date.
 
-## 5. NO MONETARY CONSIDERATION; NO SEPARATE PRICING
+## 5. NO MONETARY CONSIDERATIONS
 
-5.1 The parties acknowledge and agree that the only consideration for the Software license and the data license is the reciprocal grant of rights set forth in Sections 2 and 3. The parties shall not assign a separate price, fee, or invoice amount to the Software license, the Aggregated Insights license, or any other individual right under this Agreement.
+5.1 The parties acknowledge and agree that the only consideration for the license and the data license is the reciprocal grant of rights set forth in Sections 2 and 3.
 
 5.2 No invoices, billing, statements, or monetary payments of any kind shall ever be exchanged between the parties under this Agreement.
 
@@ -134,7 +134,9 @@ The parties have executed this Agreement as of the Effective Date.
 
 **1591011 B.C. LTD.**
 
-________________________________
+{{signature:chun_chan}}
+
+_______________________
 
 Chun Chan
 
@@ -144,7 +146,9 @@ Date: May 31, 2026
 
 **Verodus L.L.C.-FZ**
 
-________________________________
+{{signature:kim_chen}}
+
+_______________________
 
 Kim Chen
 
