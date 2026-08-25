@@ -60,7 +60,7 @@ First **125 characters** show before "See more," so the point goes first. Headli
 ### P-WHY — best cold performer
 Some firms sell one rulebook and enforce another. Ours are published before you pay.
 
-No time limit. The rules you start under are the rules you keep. No retroactive edits.
+No time limit. The rules you start with are the rules you finish with. We don't change them after you've paid.
 
 Free trial's on the site — read every objective before you spend anything.
 
@@ -71,7 +71,7 @@ Demo accounts with fictitious funds. All trading is in a simulated environment o
 ### P-TRIAL
 You shouldn't have to pay to find out how a firm works.
 
-The Verodus trial is free — same rules engine, same platforms, same dashboard. Read every objective, then decide.
+The Verodus trial is free — the same rules, the same platforms, the same dashboard. Read every rule, then decide.
 
 Read the whole rulebook first. Then decide.
 
@@ -91,9 +91,9 @@ Demo accounts with fictitious funds. All trading is in a simulated environment o
 **Headline:** Clear rules. Founder-run. · **Description:** Start free
 
 ### P-FLOOR
-Most challenges don't die on the profit target. They die on the floor.
+Most challenges aren't lost on the profit target. They're lost on the loss limit.
 
-A trailing drawdown follows your equity high, so a normal pullback can close an account that's still green. On Verodus 2-Step, max loss is static — fixed from your starting balance on day one.
+A trailing limit moves up every time the account hits a new high, so one normal losing trade can close an account that's still in profit. On Verodus 2-Step, the max loss is static — set from your starting balance on day one, and it never moves.
 
 Instant is a different product; that one trails, and the card says so.
 
@@ -113,15 +113,15 @@ Demo accounts with fictitious funds. All trading is in a simulated environment o
 **Headline:** Read it yourself · **Description:** Published objectives
 
 ### P-TWOSTEP
-Been stopped out while you were still in profit? That's a trailing floor.
+Been stopped out while you were still in profit? That's a trailing loss limit.
 
-Verodus 2-Step uses a static max loss — fixed day one, and it doesn't follow you up when you're winning. Two published phases, no time limit, fee back on your first reward.
+Verodus 2-Step uses a static max loss — set on day one, and it doesn't move up when the account is winning. Two published phases, no time limit, fee back on your first reward.
 
 1-Step $5,000 is $36 with VERO35. Lite and Pro on the objectives page.
 
 Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
-**Headline:** A floor, not a leash · **Description:** Use code VERO35
+**Headline:** A fixed limit, not a moving one · **Description:** Use code VERO35
 
 ### P-INSTANT
 Instant skips the evaluation. No profit target — you trade from day one.
@@ -159,7 +159,7 @@ Demo accounts with fictitious funds. All trading is in a simulated environment o
 ### P-OFFER — warm only
 One intro code while we run this founders series. One — we don't stack a second discount and call it a sale.
 
-Instant $5,000 is $72. 1-Step $5,000 is $36 with the fee back on your first reward. 80% on the bi-weekly cycle; 90% on demand.
+Instant $5,000 is $72. 1-Step $5,000 is $36 with the fee back on your first reward. The base reward cycle is every two weeks at 80%; weekly (70%) and on-demand (90%) are paid add-ons.
 
 Start with the free trial. If the rules fit, the code's there.
 

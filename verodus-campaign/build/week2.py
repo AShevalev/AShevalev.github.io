@@ -18,8 +18,8 @@ def static_key():
   <div class="metal" style="font-size:132px">$10,000<br>= a fixed<br>$1,000 you<br>can lose</div>
   <div class="rule" style="width:320px"></div>
   <div class="h1" style="font-size:78px">It doesn’t move.</div>
-  <div class="sub" style="font-size:29px;max-width:86%">Instant is different — 6%
-      trailing max drawdown that never locks. Both are published before you pay.</div>
+  <div class="sub" style="font-size:29px;max-width:86%">Instant is different — a 6%
+      limit that trails and never locks. Both are published before you pay.</div>
 </div>"""
     return render("w2-static-key", page(*STORY, inner, legal=DISCLAIMER, seed=4), *STORY)
 
@@ -60,12 +60,12 @@ def static_diagram():
 
     left = panel(
         "Trailing", "#e0655f",
-        "The floor ratchets up every time you make a new high.",
+        "The limit moves up every time you make a new high.",
         equity(curve, "#f5f5f5") + equity(trail, "#e0655f") + marker(96, 53, "#e0655f"),
         "Stopped out in profit", "#e0655f")
     right = panel(
         "Static", GOLD,
-        "The floor is fixed from your starting balance on day one.",
+        "The limit is set from your starting balance and never moves.",
         equity(curve, "#f5f5f5") + equity(flat, GOLD),
         "Room stays yours", GOLD)
 
@@ -77,7 +77,7 @@ def static_diagram():
         <span class="gold">trailing</span></div>
   </div>
   <div style="display:flex;gap:28px;flex:1">{left}{right}</div>
-  <div class="sub" style="font-size:26px">Instant uses a 6% trail that never locks.
+  <div class="sub" style="font-size:26px">Instant's limit trails and never locks.
       If you want static, buy Lite or Pro.</div>
 </div>"""
     return render("w2-static-diagram", page(*STORY, inner, legal=DISCLAIMER, seed=8), *STORY)
@@ -85,8 +85,8 @@ def static_diagram():
 
 RULES = [
     ("a", "No time limit", "Trade at your own pace."),
-    ("b", "Static max loss", "Fixed from day one — 2-Step Lite &amp; Pro."),
-    ("c", "80% split", "90% on the on-demand cycle."),
+    ("b", "Static max loss", "Set on day one, never moves — 2-Step Lite &amp; Pro."),
+    ("c", "80% split", "Every two weeks. 90% on demand is an add-on."),
     ("d", "Fee back on first reward", "100% refund on evaluations. Instant excluded."),
     ("e", "Scale to $1,000,000", "Grow with measured performance."),
 ]
@@ -147,7 +147,7 @@ def plans():
     </div>
     {rows}
   </div>
-  <div class="sub" style="font-size:25px">80% split · 90% on demand · Sizes $5,000–$200,000
+  <div class="sub" style="font-size:25px">80% every 2 weeks · 90% on demand · Sizes $5,000–$200,000
       · 175+ countries</div>
 </div>"""
     return render("w2-plans", page(*SQ, inner, legal=DISCLAIMER, seed=19, legal_size=16), *SQ)

@@ -9,7 +9,7 @@ from render import render
 
 SQ, PORTRAIT, STORY = (1080, 1080), (1080, 1350), (1080, 1920)
 
-BENEFITS = ["Try free first", "No time limit", "80% split · 90% on demand",
+BENEFITS = ["Try free first", "No time limit", "80% every 2 weeks · 90% on demand",
             "Fee back on evaluations"]
 
 
@@ -77,7 +77,7 @@ def pricing():
 
   <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
     <div class="chip" style="font-size:23px;padding:14px 26px">Try free</div>
-    <div class="chip" style="font-size:23px;padding:14px 26px">80% split · 90% on demand</div>
+    <div class="chip" style="font-size:23px;padding:14px 26px">80% every 2 weeks · 90% on demand</div>
     <div class="chip" style="font-size:23px;padding:14px 26px">Sizes to $200,000</div>
   </div>
 

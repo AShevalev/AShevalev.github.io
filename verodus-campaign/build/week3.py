@@ -11,7 +11,7 @@ SQ, PORTRAIT, STORY = (1080, 1080), (1080, 1350), (1080, 1920)
 QUESTIONS = [
     ("q1", "Are you a scam?"),
     ("q2", "How do I know you’ll pay?"),
-    ("q3", "Why trust a new firm?"),
+    ("q3", "Why should I trust you?"),
 ]
 
 
@@ -93,11 +93,11 @@ def promise_1():
 <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:40px">
   <div class="chip" style="font-size:24px;padding:16px 30px;align-self:flex-start">
       As of [DATE]</div>
-  <div class="h1" style="font-size:96px">The rules you sign up under are
-      <span class="gold">the rules you keep.</span></div>
+  <div class="h1" style="font-size:96px">The rules you start with are
+      <span class="gold">the rules you finish with.</span></div>
   <div class="rule" style="width:320px"></div>
-  <div class="sub" style="font-size:34px">No retroactive changes.<br>
-      A promise from a new firm.</div>
+  <div class="sub" style="font-size:34px">No rule changes after you pay.<br>
+      Published, dated, public.</div>
 </div>"""
     return render("w3-promise-1", page(*PORTRAIT, inner, seed=39), *PORTRAIT)
 

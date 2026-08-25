@@ -74,10 +74,10 @@ def tryfree_3():
     inner = """
 <div style="flex:1;display:flex;flex-direction:column;justify-content:center;
             align-items:center;text-align:center;gap:46px">
-  <div class="h1" style="font-size:96px">New firm.<br><span class="gold">Nothing
-      to hide.</span></div>
-  <div class="sub" style="font-size:34px;max-width:78%">Test-drive Verodus free
-      before you pay a cent. Then VERO35 at checkout.</div>
+  <div class="h1" style="font-size:96px">Every rule.<br><span class="gold">Before
+      you pay.</span></div>
+  <div class="sub" style="font-size:34px;max-width:78%">Try Verodus free before you
+      pay anything. Then VERO35 at checkout.</div>
   <div class="pill" style="font-size:36px;padding:34px 60px">Start free · verodus.com</div>
 </div>"""
     return render("w1-tryfree-3", page(*PORTRAIT, inner, legal=DISCLAIMER, seed=15),

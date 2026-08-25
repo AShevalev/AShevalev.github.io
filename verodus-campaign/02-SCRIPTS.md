@@ -10,12 +10,15 @@ Founder-led, phone-shot, anti-hype. Each script carries its hook, VO, on-screen 
 
 **Hook rule:** first three seconds are a problem or a rule. Never a logo, a price, or "since May."
 
+**Plain language.** Traders in 175+ countries watch these, and most are not native English speakers. Short sentences, common words, one idea each. No industry shorthand a beginner would have to look up, no clever phrasing that needs a second listen. Product terms that must stay exact — static max loss, trailing, evaluation, reward cycle — get said plainly and then explained in the next breath. If a line only works because it sounds good, cut it.
+
 
 | On camera                                          | Never on camera                               |
 | -------------------------------------------------- | --------------------------------------------- |
 | Rules published before you pay                     | Any fee, size, or discount %                  |
 | No time limit                                      | "Up to 90%" as the default split              |
-| 80% on the bi-weekly cycle; 90% on demand (add-on) | Instant + static, or Instant + fee refund     |
+| 80% every two weeks; 90% on demand (paid add-on)   | Instant + static, or Instant + fee refund     |
+| "Bi-weekly" said as "every two weeks"              | Jargon a beginner would have to look up       |
 | Static max loss on **2-Step**                      | "We're new / launching / day one"             |
 | Fee back on first reward — **evaluations only**    | Income promises, payout figures, "guaranteed" |
 | Free trial, Discord, founders answer               | "CFD trading"                                 |
@@ -56,11 +59,11 @@ Open on the face. No logo sting first.
 
 **Hook:** "Most prop firms make traders feel trapped."
 
-> Most prop firms make traders feel trapped. Rules you only understand after you fail. Rewards that stall. Fine print that shows up the moment you win.
+> Most prop firms make traders feel trapped. Rules you only understand after you fail. Rewards that get delayed. Fine print that shows up the moment you win.
 >
-> So we built Verodus to be the opposite of clever. Every objective is published before you pay. No time limit. The rules you start under are the rules you keep.
+> So we built Verodus the simple way. Every rule is published before you pay. No time limit. The rules you start with are the rules you finish with.
 >
-> Don't take my word for it. Start the free trial, read every rule, and come ask us in Discord. We're in there daily.
+> Don't take my word for it. Start the free trial, read every rule, and ask us in Discord. We're in there every day.
 
 **On-screen:** `TRAPPED?` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `TRY IT FREE`
 **Cover:** founder mid-sentence, eyes to camera — `PUBLISHED BEFORE YOU PAY`
@@ -69,9 +72,9 @@ Open on the face. No logo sting first.
 
 > Rules you only understand after you fail — that's the industry default.
 >
-> Ours are published before you pay. No time limit. The rules you start under are the rules you keep.
+> Ours are published before you pay. No time limit. The rules you start with are the rules you finish with.
 >
-> Free trial's on the site. Founders are in Discord daily — come ask us.
+> Free trial's on the site. Founders are in Discord every day — come ask us.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
@@ -89,24 +92,24 @@ The strongest beat is the accusation in the middle. Land "it's the business mode
 
 **Hook:** "Most firms sell one rulebook and enforce another."
 
-> Most firms sell one rulebook and enforce another. The published objectives get a trader to pay. The clause nobody published decides whether they get paid.
+> Most firms sell one rulebook and enforce another. The rules they show you get you to pay. The rules they don't show you decide if you get paid.
 >
-> That's not a loophole. It's the business model.
+> That's not a loophole. That's the model.
 >
-> Every Verodus objective is public before the fee — target, daily loss, max loss, split, cycle. The set you start under is the set you finish under. No new clause the week a reward is due.
+> Every Verodus rule is public before the fee — profit target, daily loss, max loss, split, reward cycle. The rules you start with are the rules you finish with. No new rule the week your reward is due.
 >
 > Judge us on the rulebook.
 
-**On-screen:** `ONE RULEBOOK SOLD. ANOTHER ENFORCED.` → `NOT A LOOPHOLE — THE MODEL` → `PUBLIC BEFORE THE FEE` → `JUDGE THE RULEBOOK`
-**Cover:** founder mid-accusation, hands visible — `NOT A LOOPHOLE. THE MODEL.`
+**On-screen:** `ONE RULEBOOK SOLD. ANOTHER ENFORCED.` → `THE RULES THEY DON'T SHOW YOU` → `OURS ARE ALL PUBLIC` → `JUDGE THE RULEBOOK`
+**Cover:** founder mid-accusation, hands visible — `THE RULES THEY DON'T SHOW YOU`
 
 **Caption** (Set C)
 
-> Most firms sell one rulebook and enforce another. The published objectives get a trader to pay. The clause nobody published decides whether they get paid.
+> Most firms sell one rulebook and enforce another. The rules they show you get you to pay. The rules they don't show you decide if you get paid.
 >
-> That's not a loophole. It's the business model.
+> That's not a loophole. That's the model.
 >
-> Every Verodus objective is public before the fee — target, daily loss, max loss, split, cycle. The set you start under is the set you finish under. No new clause the week a reward is due.
+> Every Verodus rule is public before the fee — profit target, daily loss, max loss, split, reward cycle. The rules you start with are the rules you finish with. No new rule the week your reward is due.
 >
 > Judge us on the rulebook. It's on the site.
 >
@@ -153,24 +156,24 @@ Destination is off-platform and the hook is a discount code — weak paid intent
 
 Motion build from `w2-static-diagram.png` — no shoot required. Three beats, not a 40–60s essay: trailing panel → static panel → Instant. Plan chip on screen the whole time.
 
-**Hook:** "Most challenges don't die on the profit target. They die on the floor."
+**Hook:** "Most challenges aren't lost on the profit target. They're lost on the loss limit."
 
-> Most challenges don't die on the profit target. They die on the floor.
+> Most challenges aren't lost on the profit target. They're lost on the loss limit.
 >
-> A trailing drawdown follows your equity high, so a normal pullback can close a green account.
+> A trailing limit moves up every time the account hits a new high. So one normal losing trade can close an account that's still in profit.
 >
-> On Verodus 2-Step, max loss is static — fixed from your starting balance on day one.
+> On Verodus 2-Step, the max loss is static. It's set from your starting balance on day one and it never moves.
 >
 > Instant trails, and the card says so.
 
-**On-screen:** persistent `2-STEP LITE & PRO` · `TRAILING: FLOOR FOLLOWS YOU` → `STATIC: FIXED DAY ONE` → `INSTANT TRAILS — THE CARD SAYS SO`
-**Cover:** two-panel diagram, both floors visible — `ONE FLOOR CHASES YOU`
+**On-screen:** persistent `2-STEP LITE & PRO` · `TRAILING: THE LIMIT FOLLOWS YOU UP` → `STATIC: SET ON DAY ONE, NEVER MOVES` → `INSTANT TRAILS — THE CARD SAYS SO`
+**Cover:** two-panel diagram, both limits visible — `ONE LIMIT FOLLOWS YOU UP`
 
 **Caption** (Set A)
 
-> Most challenges don't die on the profit target. They die on the floor.
+> Most challenges aren't lost on the profit target. They're lost on the loss limit.
 >
-> Trailing drawdown follows your equity high, so a normal pullback can close a green account. On Verodus 2-Step, max loss is static — fixed from your starting balance on day one.
+> A trailing limit moves up every time the account hits a new high, so one normal losing trade can close an account that's still in profit. On Verodus 2-Step, the max loss is static — set from your starting balance on day one, and it never moves.
 >
 > Instant is a different product. That one trails, and the card says so.
 >
@@ -215,7 +218,7 @@ Long, carries tenure claims, and opens with "don't believe us yet." Cut-downs ca
 
 **Are the rules public?**
 
-> All of them. Before you pay. The set you start under is the set you finish under. No retroactive edits.
+> All of them. Before you pay. The rules you start with are the rules you finish with. We don't change them after you've paid.
 
 **How do rewards work?**
 
@@ -256,20 +259,20 @@ Screen-record the product. Step chips `w3-step-strip.png`.
 
 **Hook:** "You shouldn't have to pay to see how a firm works."
 
-> Start the free trial. Same rules engine. Same platforms. Every objective is on the site before you pay.
+> Start the free trial. The same rules. The same platforms. Every rule is on the site before you pay.
 >
-> Objectives track live on the dashboard: target, drawdown headroom, trading days. You always know where you stand.
+> Your dashboard tracks it live: profit target, how much loss you have left, trading days. You always know where you stand.
 >
 > When you're ready, pick the model that matches how you trade. Trial first. Always.
 
 **On-screen:** `1 START FREE` → `2 DASHBOARD` → `3 RULES IN-APP` → `4 PICK YOUR MODEL`
-**Cover:** dashboard with drawdown headroom visible — `THE WHOLE PLATFORM`
+**Cover:** dashboard with the remaining-loss figure visible — `THE WHOLE PLATFORM`
 
 **Caption** (Set B)
 
-> The whole platform, nothing edited out. Free trial, same rules engine, same platforms.
+> The whole platform, nothing edited out. Free trial, the same rules, the same platforms.
 >
-> Objectives track live on the dashboard — target, drawdown headroom, trading days. You always know where you stand.
+> Your dashboard tracks it live — profit target, how much loss you have left, trading days. You always know where you stand.
 >
 > Trial first. Always.
 
@@ -287,18 +290,18 @@ The talking-head version of 7, for when there's no screen-record. Highest-intent
 
 > You shouldn't have to pay to see how a firm works.
 >
-> Start the free trial. Same rules engine. Same platforms. Every objective is on the site before you pay.
+> Start the free trial. The same rules. The same platforms. Every rule is on the site before you pay.
 >
 > Read the whole rulebook first. Then decide.
 
-**On-screen:** `FREE TRIAL` → `SAME RULES ENGINE` → `NO CARD` → `THEN DECIDE`
+**On-screen:** `FREE TRIAL` → `THE SAME RULES` → `NO CARD` → `THEN DECIDE`
 **Cover:** founder, open hand — `THEN DECIDE`
 
 **Caption** (Set B)
 
 > You shouldn't have to pay to find out how a firm works.
 >
-> Free trial — same rules engine, same platforms, no card. Read every objective, then decide.
+> Free trial — the same rules, the same platforms, no card. Read every rule, then decide.
 >
 > No card. Nothing to cancel. Decide with the whole rulebook in front of you.
 
@@ -401,7 +404,7 @@ Never pair with static-drawdown or fee-refund copy.
 
 > Instant skips the evaluation. No profit target — you trade from day one.
 >
-> The honest part: max loss trails. It follows your equity high, so the floor comes up with you.
+> The honest part: the max loss trails. Every time the account hits a new high, the limit moves up with it.
 >
 > Instant doesn't refund the fee. Evaluations do. That's the trade.
 >
@@ -432,7 +435,7 @@ Never pair with static-drawdown or fee-refund copy.
 >
 > No time limit. You pass on your schedule, not a thirty-day clock.
 >
-> Fee back on your first reward. That's the evaluation trade.
+> Pass, and your fee comes back with your first reward.
 >
 > Start with the free trial.
 
@@ -453,22 +456,22 @@ Never pair with static-drawdown or fee-refund copy.
 
 **20s · 47 words · Ad · CTA: Learn More**
 
-**Hook:** "Stopped out while you were still in profit? That's a trailing floor."
+**Hook:** "Stopped out while you were still in profit? That's a trailing loss limit."
 
-> Two phases. On 2-Step, max loss is static — fixed from your starting balance on day one. It doesn't follow you up when you're winning.
+> Two phases. On 2-Step, the max loss is static — set from your starting balance on day one. It doesn't move up when the account is winning.
 >
-> That's a floor, not a leash.
+> It's a fixed limit, not a moving one.
 >
 > No time limit. Fee back on your first reward. Lite and Pro are on the objectives page.
 
-**On-screen:** `STATIC MAX LOSS` → `FIXED DAY ONE` → `A FLOOR, NOT A LEASH` → `LITE & PRO ON THE PAGE`
-**Cover:** founder saying "floor, not a leash" — `A FLOOR, NOT A LEASH`
+**On-screen:** `STATIC MAX LOSS` → `SET ON DAY ONE` → `A FIXED LIMIT, NOT A MOVING ONE` → `LITE & PRO ON THE PAGE`
+**Cover:** founder on "a fixed limit, not a moving one" — `A FIXED LIMIT`
 
 **Caption** (Set A)
 
-> Been stopped out while you were still in profit? That's a trailing floor.
+> Been stopped out while you were still in profit? That's a trailing loss limit.
 >
-> On 2-Step, max loss is static — fixed day one. It doesn't follow you up when you're winning. A floor, not a leash.
+> On 2-Step, the max loss is static — set on day one, and it doesn't move up when the account is winning. A fixed limit, not a moving one.
 >
 > Lite and Pro side by side on the objectives page.
 >
@@ -515,9 +518,9 @@ The closing argument, with no shouting and no countdown. Every line removes a re
 
 **Hook:** "Read the rules for free. Decide after."
 
-> Everything Verodus asks a trader to trust is published before the fee: target, daily loss, max loss, minimum days, split, reward cycle.
+> Everything you need to judge us is public before you pay: profit target, daily loss, max loss, minimum trading days, split, reward cycle.
 >
-> The trial is free, so the rules cost nothing to read. On the evaluations, the fee comes back on the first reward.
+> The trial is free, so reading the rules costs nothing. On the evaluations, your fee comes back with your first reward.
 >
 > No time limit, so there's nothing to rush.
 >
@@ -528,9 +531,9 @@ The closing argument, with no shouting and no countdown. Every line removes a re
 
 **Caption** (Set A)
 
-> Everything we ask a trader to trust is published before the fee: target, daily loss, max loss, minimum days, split, reward cycle.
+> Everything you need to judge us is public before you pay: profit target, daily loss, max loss, minimum trading days, split, reward cycle.
 >
-> The trial is free, so the rules cost nothing to read. On the evaluations, the fee comes back on the first reward. No time limit, so there's nothing to rush.
+> The trial is free, so reading the rules costs nothing. On the evaluations, your fee comes back with your first reward. No time limit, so there's nothing to rush.
 >
 > Trial first. Decide with the whole rulebook in front of you.
 >

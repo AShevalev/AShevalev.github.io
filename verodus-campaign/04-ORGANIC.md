@@ -84,7 +84,7 @@ Every caption that mentions price, rewards, or buying closes with:
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
 ### Free trial
-> Trade the platform free. Same rules engine. Same platforms. No card.
+> Trade the platform free. The same rules. The same platforms. No card.
 >
 > Then Instant $5k at $72 or 1-Step $5k at $36 with VERO35. One code — we don't stack a second one.
 >
@@ -95,14 +95,14 @@ Set B.
 ### Published objectives
 > Every objective published before you pay: targets, daily loss, max loss, minimum days, split, reward cycle.
 >
-> The set you start under is the set you finish under. No retroactive edits.
+> The rules you start with are the rules you finish with. We don't change them after you've paid.
 
 Set A.
 
 ### Static vs trailing
 > This card is **2-Step**, not Instant.
 >
-> 2-Step: static max loss, fixed day one. The floor doesn't chase your equity high.
+> 2-Step: static max loss, set on day one. The limit doesn't move up when the account hits a new high.
 > Instant: trailing max loss — published on the Instant card.
 >
 > If you want static, take Lite or Pro.
@@ -110,9 +110,9 @@ Set A.
 Set A.
 
 ### The split, honestly
-> Bi-weekly is the base cycle at 80%.
+> The base reward cycle is every two weeks, at 80%.
 >
-> Weekly and on demand are add-ons — 70% and 90%. We're not going to headline the 90% and let you find the rest at checkout.
+> Weekly and on demand are paid add-ons — 70% and 90%. We're not going to headline the 90% and let you find the rest at checkout.
 >
 > Most rewards process in under 24 hours, with a certificate at withdrawal.
 >
