@@ -607,4 +607,26 @@ Session A (1, 2, 5) and Session C (11–13) are the whole paid series. Session B
 | B | 6, 8, footage for 9 | Optional. Not required to run the paid series. |
 | No shoot | 4 (~20s motion), 7 (screen-record), 10 (cut from 8 plus a card), C | C is a second 1-Step — skip unless 12 isn't usable. |
 
-Vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light, real desk. Burned-in captions with gold keyword highlights, logo bug top-left, legal line held on the final frame for at least 3 seconds.
+Vertical 1080×1920, H.264, 30fps. Phone on a tripod, window light. Burned-in captions with gold keyword highlights, logo bug top-left, legal line held on the final frame for at least 3 seconds.
+
+## Set and background — standing, all five clips
+
+Framing: waist-up, eyeline on the upper third, minimal headroom. Stand **1.5–2m off the wall** so the background falls out of focus and you don't wear your own shadow. Same shirt, same mark on the floor, same lens for every clip — the five have to cut together as one series.
+
+**Nothing in the background may look like performance.** No monitor showing a chart, no P&L, no account balance, no ticker, no upward-trending line of any kind — not even decorative. An implied earnings claim in the set is treated the same as one in the copy, and it's the kind of thing that gets a financial-services ad rejected on a creative review the copy would have passed. A dark, plain wall is both safer and better-looking than a trading desk.
+
+Keep the **right third and the bottom 400px** visually quiet: that's where the burned-in captions and the disclaimer land.
+
+### Backdrop generation prompt
+
+For a printed backdrop, a wall treatment reference, or a still to run on a large screen behind you. 9:16.
+
+> Photorealistic empty interior backdrop for a vertical 9:16 video, eye-level, 35mm full-frame look at f/2 with shallow depth of field, the wall softly out of focus. A deep matte navy plaster wall, near-black indigo (#07003B) in the upper left deepening to a slightly brighter royal navy (#1B2B8E) toward the lower right. A single soft key light falls from the upper left, leaving a gentle gradient and clean shadow detail. One narrow warm champagne-gold rim of light grazes the right edge of the frame, subtle, like a hidden LED strip behind a partition. Faint vertical architectural texture — slim dark wood slats or a plaster seam — visible only in the upper left, out of focus. Centre and lower two-thirds completely empty and uncluttered. No furniture, no desk, no monitors, no screens, no charts, no graphs, no numbers, no text, no logos, no plants, no people. No vignette. Calm, premium, editorial, low contrast in the shadows, cinematic colour grade, fine natural film grain.
+
+Say the exclusions out loud in the prompt — image models add monitors and charts to anything described as a trading or finance set unless told not to.
+
+Two acceptable variants if you want a second look for the product clips, but **do not mix them inside a session**: the plaster wall above, or dark vertical wood slats lit the same way. Never a bookshelf, never a city window at night, never a green screen with a composited office.
+
+### If you use a screen or a virtual background
+
+Run a **static** still, never a moving loop — motion behind a talking head reads as a template ad. Drop it 1–2 stops below your key so it doesn't compete with the face. Phone-based background replacement chews the edges of hair and hands; on a phone shoot a real wall beats a composite every time.
