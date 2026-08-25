@@ -7,7 +7,7 @@ Current intercompany arrangements. Two agreements only.
 | Company | Jurisdiction | Shareholder | Role under the agreements |
 | --- | --- | --- | --- |
 | **1591011 B.C. Ltd.** | British Columbia | Chun Chan, 100% (investor in Verodus) | Owns the proprietary software. Kim Chen developed the software for this company. Licensor. |
-| **Verodus Capital Inc.** | British Columbia | Kim Chen, 100% | Marketing, KYC support, traffic to the domain, payment processing on its own merchant accounts. |
+| **Verodus Capital Inc.** | British Columbia | Kim Chen, 100% | Marketing, traffic to the domain, payment processing on its own merchant accounts. Does not provide KYC. |
 | **Verodus L.L.C.-FZ** | Meydan Free Zone, Dubai | Kim Chen, 100% | Registered owner of verodus.com. Hosting in the UAE. Owns raw data. Licensee of the software. |
 
 No parent. No subsidiary. Capital and LLC-FZ are affiliates. Chun Chan owns 1591011 B.C. Ltd. and is one of the investors in Verodus. Kim Chen developed the software for 1591011 B.C. Ltd.
@@ -32,7 +32,7 @@ No parent. No subsidiary. Capital and LLC-FZ are affiliates. Chun Chan owns 1591
 **Signatories:** Kim Chen, Director (Capital); Kim Chen, Manager (LLC-FZ).
 
 - LLC-FZ owns verodus.com and grants Capital a non-exclusive, non-transferable, revocable licence to use the domain, conduct platform evaluations, and use affiliate software for marketing and traffic. Capital may not sublicense or transfer those rights.
-- Capital provides KYC support and marketing directed exclusively to the domain. Commissions from affiliate / traffic activity are Capital’s to pay.
+- Capital provides marketing directed exclusively to the domain. Capital does not provide KYC. Commissions from affiliate / traffic activity are Capital’s to pay.
 - Capital processes pay-ins, rewards, refunds, and banking on merchant accounts in Capital’s name, for its own account — not as a service to LLC-FZ.
 - Each party operates isolated merchant accounts. No commingling. Capital has no control of LLC-FZ’s merchant accounts and no access to LLC-FZ’s software except the affiliate-tool licence.
 - No invoices by default. LLC-FZ may, at sole discretion and on 90 days’ written notice, charge Capital a 5% royalty on gross sales (CAD), quarterly, due by the 15th after quarter-end.

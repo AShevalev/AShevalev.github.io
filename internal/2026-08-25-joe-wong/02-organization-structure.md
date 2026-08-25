@@ -16,7 +16,7 @@ Printed visual: open `org-chart.html` and export to PDF.
 
 | Company | Jurisdiction | Shareholder | What it does |
 | --- | --- | --- | --- |
-| **Verodus Capital Inc.** | British Columbia, Canada | **Kim Chen — 100%** | Profit centre. Payment processing on Canadian merchant accounts. Marketing, traffic, KYC support. Licensed to use `verodus.com`. |
+| **Verodus Capital Inc.** | British Columbia, Canada | **Kim Chen — 100%** | Payment processing on Canadian merchant accounts. Marketing and traffic to the domain. Licensed to use `verodus.com`. Does not provide KYC. |
 | **Verodus L.L.C.-FZ** | Meydan Free Zone, Dubai, UAE | **Kim Chen — 100%** | Owns `verodus.com`. Domain and hosting are in the UAE. Owns raw data and client-identifying information. Runs the CRM and dashboard. |
 | **1591011 B.C. Ltd.** | British Columbia, Canada | **Chun Chan — 100%** (investor in Verodus) | Owns the proprietary software, CRM, and related technology. Kim Chen developed the software for 1591011 B.C. Ltd. Sublicenses the system to Verodus L.L.C.-FZ. |
 
@@ -42,4 +42,4 @@ Marketing sits with Capital. David was in-house from April until June; wages for
 ## Contracts among these three
 
 - Software sublicense (31 May 2026): 1591011 B.C. Ltd. ↔ Verodus L.L.C.-FZ. No cash.
-- Operational services, domain usage and evaluation rights (28 April 2026): Verodus Capital Inc. ↔ Verodus L.L.C.-FZ. No invoices by default. Dubai may charge a 5% royalty on Capital gross sales (CAD) at its discretion, 90 days’ notice.
+- Operational services, domain usage and evaluation rights (28 April 2026): Verodus Capital Inc. ↔ Verodus L.L.C.-FZ. Marketing and traffic; Capital does not provide KYC. No invoices by default. Dubai may charge a 5% royalty on Capital gross sales (CAD) at its discretion, 90 days’ notice.
