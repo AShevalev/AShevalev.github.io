@@ -8,7 +8,7 @@ The group is three companies. None of them is a parent or a subsidiary of anothe
 
 Verodus L.L.C.-FZ is the registered owner of verodus.com. The domain and the hosting are in the UAE. That company holds the user data and carries out KYC in its own name. 1591011 B.C. Ltd. owns the proprietary software. Kim developed that software for 1591011 B.C. Ltd.
 
-The platform runs on Vercel, which uses AWS infrastructure — including AWS Lambda for serverless functions — for its global edge network. Email and the website itself are small lines and sit well below the capacity we already have; the Vercel plan also covers other projects. The material infrastructure is the database and Redis. The database is comfortably under its current plan. Redis is pay-per-use, and that is the piece that will move first as we scale.
+The stack is Vercel on AWS, including AWS Lambda for serverless functions and the edge network, plus email, the website, a database, and Redis.
 
 Receipts land in Verodus Capital’s merchant accounts. Canadian tax is filed on Capital.
 
