@@ -92,3 +92,31 @@ If 1591011 is out, you are selling a brand-and-rails package that Chun can walk.
 - Do not put the number in the org-chart email. Send the chart and the two agreements first. The number is a separate conversation after Kim and Chun agree.
 
 Joe’s own sequence was: integrate → trial → 6–12 months of volume → then majority. A day-one 60% lock is **his** acceleration. Charge for it.
+
+## Day-one number vs a failed trial
+
+Joe asked to lock the maths in the **first** agreement so nobody re-trades after the book has matured. That is a **call option for him**, not a two-way sale.
+
+He wants it because:
+
+1. His own story is CSE / volume / NASDAQ colour. If that works, today’s $1.2 million is cheap. Locking $1 million / $600k (his example) or even $1.5 million / $900k (the ask) caps what he pays after TradeMap has already used the engine.
+2. Integration and a free 30–45 day trial cost him almost no cash. The number in the paper is how he keeps the upside if the trial works.
+3. On the same call he also said: integrate → trial → 6–12 months of volume → **then** majority. The day-one lock contradicts that sequence. He wants the sequence for risk and the lock for price.
+
+**He would not pay the locked number if the trial fails.** There is no commercial reason to. A failed trial means TAMS does not sit cleanly on the backend, partners do not convert, or the book is not what he thought. In that world he walks. The only way he still pays is if the contract is a **binding purchase** with delayed close and no walk right — which you must not sign.
+
+Factor the number into an agreement, but not as a sale.
+
+| Document | Put a 60% price in it? | If the trial fails |
+| --- | --- | --- |
+| Integration / TAMS API / TradeMap trial (30–45 days, free) | No. This is a technical and commercial pilot. | It ends. No equity moves. Data stays with LLC-FZ unless a side letter already gave it away — do not. |
+| Equity | **Call option only.** Joe may buy 60% of the three companies for **$900,000 cash**, exercisable only if named gates are met, in a short window (for example 90 days after a successful trial, or after a defined go-live). Not Hub, not IP. | Option **lapses**. Nobody pays. Nobody is forced to sell. |
+| Binding SPA with close “after the trial” | No. That is a delayed sale. He will demand a MAC / walk right anyway, and you will have given him the price with none of the volume. | He walks (if he has the right) or you have a fight about whether the trial “failed.” |
+
+Gates that should kill the option (examples for counsel, not for Joe’s email): TAMS integration not accepted by Kim in writing; trial not completed with at least N partner accounts; no commercial TradeMap agreement signed; material payout or processor failure; 1591011 or Kim not in the perimeter.
+
+What you can give him so he still “has a number”: a **ceiling**, not a floor. “If you elect to buy 60% in the window, the price is $900,000 cash.” You do not promise to sell if he never elects. You do not let him elect after the window. You do not let him elect at $900,000 after twelve months of *his* volume without a step-up (or the freeze is exactly the trap).
+
+If he wants the freeze to last past a successful trial into the 6–12 month volume phase, the price is no longer $900,000 flat. Either the window is short, or the price ratchets (for example +$X per $Y of run-rate above $70k/month). A freeze with no expiry is how you donate the upside he described.
+
+Do not put this number in the org-chart email. It is a separate term sheet after Kim and Chun agree.
