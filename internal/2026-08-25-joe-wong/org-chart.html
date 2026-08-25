@@ -187,9 +187,34 @@
       .meta { text-align: left; }
       .tree { height: 28px; }
     }
+    @page {
+      size: Letter landscape;
+      margin: 0.32in;
+    }
     @media print {
-      body { background: white; }
-      .page { padding: 8px; }
+      body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; font-size: 10px; }
+      .page { padding: 0; max-width: none; }
+      header { margin-bottom: 8px; padding-bottom: 6px; gap: 12px; }
+      .confidential { margin-bottom: 4px; padding: 2px 6px; }
+      .eyebrow { margin-bottom: 2px; }
+      h1 { font-size: 20px; }
+      .meta { font-size: 11px; }
+      p.lead { font-size: 12px; margin-bottom: 8px; }
+      h2 { font-size: 13px; margin: 8px 0 5px; }
+      .owners, .row-3, .flows { gap: 10px; }
+      .owner { padding: 6px 10px 8px; }
+      .owner h3 { font-size: 15px; }
+      .card { padding: 8px 10px 9px; border-top-width: 5px; }
+      .card h3 { font-size: 13px; }
+      .card ul { font-size: 11px; line-height: 1.35; }
+      .card .where { margin-bottom: 4px; }
+      .pct { margin-bottom: 5px; }
+      .flow { padding: 8px 10px; }
+      .flow h3 { font-size: 13px; margin-bottom: 4px; }
+      .flow p { font-size: 11px; line-height: 1.35; }
+      .tree { height: 36px; margin: 2px 0; }
+      .note { margin-top: 8px; padding: 6px 8px; font-size: 11px; }
+      footer { margin-top: 8px; padding-top: 6px; font-size: 10px; }
     }
   </style>
 </head>
@@ -261,7 +286,7 @@
         <ul>
           <li>Owns the proprietary software, CRM, and related technology</li>
           <li>Software developed for 1591011 B.C. Ltd. by Kim Chen</li>
-          <li>Sublicenses the system to Verodus L.L.C.-FZ (31 May 2026)</li>
+          <li>Licenses the system to Verodus L.L.C.-FZ (31 May 2026)</li>
         </ul>
       </article>
     </div>
