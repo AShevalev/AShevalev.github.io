@@ -24,7 +24,7 @@ Verodus Capital Inc. and Verodus L.L.C.-FZ are affiliates (same 100% shareholder
 
 ## People
 
-Marketing sits with Capital. David was in-house from April until June; wages for those two months were $8,000. An intern is expected at approximately $3,000 a month for marketing and customer support.
+Marketing sits with Capital. David was in-house from April until June; wages for those two months were $8,000. He returns part-time next month for marketing. An intern is expected at approximately $3,000 a month for marketing and customer support.
 
 ## Who holds what
 
