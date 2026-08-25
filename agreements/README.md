@@ -1,13 +1,13 @@
-# Revised Verodus agreements
+# Verodus agreements
 
-Working drafts as of 25 August 2026. They are not executed copies and are not legal advice.
+Working drafts with the original effective dates. They are not legal advice.
 
-| File | Parties |
-| --- | --- |
-| `2026-04-28_VerodusOperationalServicesAgreement.md` / `.pdf` | Verodus Capital Inc. and Verodus L.L.C.-FZ |
-| `2026-05-31_SoftwareLicenseAndDataLicensingAgreement.md` / `.pdf` | 1591011 B.C. LTD. and Verodus L.L.C.-FZ |
+| File | Parties | Effective date |
+| --- | --- | --- |
+| `2026-04-28_VerodusOperationalServicesAgreement.md` / `.pdf` | Verodus Capital Inc. and Verodus L.L.C.-FZ | April 28, 2026 |
+| `2026-05-31_SoftwareLicenseAndDataLicensingAgreement.md` / `.pdf` | 1591011 B.C. LTD. and Verodus L.L.C.-FZ | May 31, 2026 |
 
-`CHANGES.md` lists what moved from the April/May drafts.
+`CHANGES.md` lists what moved from the earlier drafts.
 
 Regenerate PDFs:
 

@@ -10,7 +10,7 @@ And
 **Verodus L.L.C.-FZ**  
 ("LLC-FZ" or "Licensee")
 
-Effective Date: May 31, 2026 | Revised: August 25, 2026
+Effective Date: May 31, 2026
 
 ## RECITALS
 
@@ -118,9 +118,9 @@ NOW THEREFORE, in consideration of the mutual covenants, licenses, and promises 
 
 ## 12. MISCELLANEOUS
 
-12.1 This Agreement does not create a partnership, joint venture, employment, or agency relationship. Each party remains an independent contractor. This Agreement is a standalone contract and does not amend any other agreement between the parties or their affiliates unless that other agreement expressly says so.
+12.1 This Agreement is bilateral and entirely independent of any other agreement between the parties or their affiliates.
 
-12.2 This Agreement constitutes the entire understanding between the parties on its subject matter and supersedes all prior drafts and discussions on that subject matter, including the draft Software Sublicense and Data Licensing Agreement dated 31 May 2026.
+12.2 This Agreement constitutes the entire understanding and supersedes all prior agreements.
 
 12.3 No amendment is valid unless in writing and signed by both parties.
 

@@ -201,7 +201,11 @@ def build_flowables(markdown: str):
             if text.startswith("____"):
                 witness.append(Spacer(1, 14))
             witness.append(Paragraph(inline_md(text), styles["sig"]))
-            if text.startswith("Date:"):
+            if text.startswith("Date:") or text in {
+                "Director",
+                "Manager",
+                "Director / Authorized Signatory",
+            }:
                 witness.append(Spacer(1, 16))
             continue
         if text in {"Between", "And"}:
@@ -222,7 +226,7 @@ def render_pdf(md_path: Path, pdf_path: Path) -> None:
         topMargin=0.85 * inch,
         bottomMargin=0.85 * inch,
         title=md_path.stem.replace("_", " "),
-        author="Revised draft — 25 August 2026",
+        author="",
     )
     frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="normal")
     doc.addPageTemplates([PageTemplate(id="letter", frames=frame, onPage=add_page_number)])

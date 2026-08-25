@@ -47,18 +47,29 @@ def main() -> int:
     assert_contains(sla, "LLC-FZ shall perform all KYC of Domain users itself", "SLA")
     assert_contains(sla, "1591011 B.C. LTD. is not LLC-FZ's KYC provider", "SLA")
 
-    # No per-leg pricing; reciprocal consideration remains.
+    # No per-leg invoices; reciprocal consideration remains.
     for label, text in (("OSA", osa), ("SLA", sla)):
-        assert_contains(text, "shall not assign a separate price", label)
         assert_contains(text, "no invoices", label)
         assert_absent(text, "transfer pricing regulations", label)
         assert_absent(text, "BCICAC", label)
         assert_contains(text, "VanIAC", label)
+        assert_absent(text, "Revised:", label)
+        assert_absent(text, "August 25, 2026", label)
+        assert_absent(text, "Software Sublicense", label)
 
-    # The optional 5% royalty is the only money term, and is not a price for each leg.
-    assert_contains(osa, "five percent (5%) of gross sales", "OSA")
-    assert_contains(osa, "It is not a price for any individual service or right", "OSA")
+    # Original 5% royalty wording; no extra gloss.
+    assert_contains(
+        osa,
+        "At LLC-FZ's sole discretion, and upon ninety (90) days written notice to Capital, LLC-FZ shall be entitled to charge Capital a royalty equal to five percent (5%) of gross sales (CAD), calculated and payable in quarterly installments based on the prior quarter's gross sales. The quarterly payment shall be made by Capital to LLC-FZ on or before the fifteenth (15th) day following the end of each applicable quarter period.",
+        "OSA",
+    )
+    assert_absent(osa, "It is not a price for any individual service or right", "OSA")
     assert_absent(sla, "five percent", "SLA")
+
+    # Original signature dating: OSA undated; SLA dated May 31, 2026.
+    assert_contains(sla, "Date: May 31, 2026", "SLA")
+    assert_absent(osa, "Date: ____________________", "OSA")
+    assert_absent(osa, "Date: May", "OSA")
 
     # Software grant is a licence from the owner, not a sublicence.
     assert_contains(sla, "GRANT OF LICENSE", "SLA")

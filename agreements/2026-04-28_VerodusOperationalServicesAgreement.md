@@ -10,7 +10,7 @@ And
 **Verodus L.L.C.-FZ**  
 ("LLC-FZ" or "Client")
 
-Effective Date: April 28, 2026 | Revised: August 25, 2026
+Effective Date: April 28, 2026
 
 ## RECITALS
 
@@ -26,7 +26,7 @@ E. LLC-FZ grants to Capital the right to use the Domain, the right to conduct pl
 
 F. In exchange, Capital is required to drive traffic to the Domain and provide the marketing services set out in this Agreement. Any commissions or profits generated from the use of the affiliate software or traffic-driving services shall be paid by Capital.
 
-G. The parties have determined that the reciprocal services and rights in this Agreement are the entire consideration. They are not assigning a separate price to each right or service. Subject to Section 4.2, there will be no invoices issued by either party, no billing process, and no monetary payments.
+G. Subject to Section 4.2 below, the parties expressly agree that there will be no invoices issued by either party at any time, no billing process, and no monetary payments whatsoever. All compensation is fully satisfied through the reciprocal services and rights granted in this Agreement.
 
 NOW THEREFORE, in consideration of the mutual covenants, licenses, services, and reciprocal rights set forth below, the parties agree as follows:
 
@@ -82,11 +82,11 @@ NOW THEREFORE, in consideration of the mutual covenants, licenses, services, and
 
 Any commissions or profits generated through the affiliate software or traffic-driving activities shall be the responsibility of and paid by Capital.
 
-## 4. NO MONETARY CONSIDERATION; NO SEPARATE PRICING
+## 4. NO MONETARY CONSIDERATION
 
-4.1 Except as provided in Section 4.2, there will be no invoices issued by either party, no billing process, and no monetary payments. All compensation is fully satisfied through the reciprocal services and rights granted in this Agreement. The parties shall not assign a separate price, fee, or invoice amount to the Domain license, the evaluation rights, the affiliate-software license, the Services, or Capital's independent activities.
+4.1 There will be no invoices issued by either party at any time, no billing process, and no monetary payments whatsoever. All compensation is fully satisfied through the reciprocal services and rights granted in this Agreement.
 
-4.2 At LLC-FZ's sole discretion, and upon ninety (90) days written notice to Capital, LLC-FZ shall be entitled to charge Capital a royalty equal to five percent (5%) of gross sales (CAD), calculated and payable in quarterly installments based on the prior quarter's gross sales. The quarterly payment shall be made by Capital to LLC-FZ on or before the fifteenth (15th) day following the end of each applicable quarter period. Section 4.2 is the only monetary exception under this Agreement. It is not a price for any individual service or right.
+4.2 At LLC-FZ's sole discretion, and upon ninety (90) days written notice to Capital, LLC-FZ shall be entitled to charge Capital a royalty equal to five percent (5%) of gross sales (CAD), calculated and payable in quarterly installments based on the prior quarter's gross sales. The quarterly payment shall be made by Capital to LLC-FZ on or before the fifteenth (15th) day following the end of each applicable quarter period.
 
 ## 5. SUBSCRIPTION TARGETS
 
@@ -138,19 +138,17 @@ Any commissions or profits generated through the affiliate software or traffic-d
 
 ## 12. MISCELLANEOUS
 
-12.1 This Agreement does not create a partnership, joint venture, employment, or agency relationship. Each party remains an independent contractor. This Agreement is a standalone contract and does not amend any merchant agreement with a third-party payment processor.
+12.1 This Agreement is bilateral and entirely independent of any other agreement between the parties or their affiliates, including any merchant agreements with third-party payment processors.
 
 12.2 Capital has no access or rights to the software of LLC-FZ (other than the limited license to use the affiliate software for traffic-driving purposes), no operational involvement in LLC-FZ's isolated merchant accounts, and no KYC role for LLC-FZ.
 
-12.3 The parties acknowledge that they may have overlapping directors, managers, or beneficial owners. Each party has determined to enter this Agreement on the reciprocal terms stated here, without a separate price for each right or service.
+12.3 This Agreement constitutes the entire understanding between the parties and supersedes all prior discussions.
 
-12.4 This Agreement constitutes the entire understanding between the parties on its subject matter and supersedes all prior drafts and discussions on that subject matter, including the draft Operational Services, Domain Usage and Evaluation Rights Agreement dated 28 April 2026.
+12.4 Any amendments must be in writing and signed by both parties.
 
-12.5 Any amendments must be in writing and signed by both parties.
+12.5 If any provision is held invalid, the remainder of this Agreement shall continue in full force and effect.
 
-12.6 If any provision is held invalid, the remainder of this Agreement shall continue in full force and effect.
-
-12.7 This Agreement may be executed in counterparts, including electronically.
+12.6 This Agreement may be executed in counterparts, including electronically.
 
 ## IN WITNESS WHEREOF
 
@@ -164,8 +162,6 @@ Kim Chen
 
 Director
 
-Date: ____________________
-
 **Verodus L.L.C.-FZ**
 
 ________________________________
@@ -173,5 +169,3 @@ ________________________________
 Kim Chen
 
 Manager
-
-Date: ____________________
