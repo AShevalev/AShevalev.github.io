@@ -34,11 +34,11 @@ Marketing sits with Capital. David was in-house from April until June; wages for
 | Who owns Verodus L.L.C.-FZ? | Kim Chen, 100%. |
 | Who owns 1591011 B.C. Ltd.? | Chun Chan, 100%. Chun Chan is one of the investors in Verodus. |
 | Who developed the software? | Kim Chen, for 1591011 B.C. Ltd. |
-| Who owns the domain? | Verodus L.L.C.-FZ (`verodus.com`). Domain and hosting are in the UAE. |
+| Who owns the domain? | Verodus L.L.C.-FZ (`verodus.com`). Domain and hosting are in the UAE. The platform runs on Vercel (AWS infrastructure, including Lambda, for the edge network). |
 | Who holds the data? | Verodus L.L.C.-FZ owns raw data, client-identifying information, and KYC records. Aggregated insights are licensed to 1591011 B.C. Ltd. |
 | Who performs KYC? | Verodus L.L.C.-FZ, in its own name. Capital and 1591011 do not provide KYC. |
 | Who owns the system? | 1591011 B.C. Ltd. Dubai’s right is a limited, revocable, non-transferable licence. Dubai cannot sublicense. |
-| Where does money land? | Verodus Capital Inc., on merchant accounts in Capital’s name. |
+| Where does money land? | Verodus Capital Inc., on merchant accounts in Capital’s name. Canadian tax is filed on Capital. |
 
 ## Contracts among these three
 
