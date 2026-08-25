@@ -19,5 +19,6 @@ Do not send `01-call-summary.md`.
 | --- | --- |
 | `06-internal-gaps-and-risks.md` | Internal |
 | `08-internal-valuation.md` | Internal. Do not send the number to Joe until Kim and Chun agree |
+| `09-acquisition-comps.html` / `verodus_prop_firm_acquisition_valuation.pdf` | Internal. Prop-firm M&A comps and why $1.2m / $900k holds |
 | `04-action-items.md` | Internal |
 | `01-call-summary.md` | Do not circulate |
