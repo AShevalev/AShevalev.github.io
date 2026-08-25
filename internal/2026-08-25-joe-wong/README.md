@@ -9,8 +9,8 @@ Joe M. Wong said he would send his own call summary. Alexander committed to send
 | Send | File |
 | --- | --- |
 | Call confirmation (optional if Joe already sent notes) | `01-call-summary.md` |
-| Organisation chart + who does what | `02-organization-structure.md` and `org-chart.html` (print/PDF). Operating perimeter is Capital + LLC-FZ + 1591011 only; Holding is out. |
-| How the remaining agreements allocate software, data, domain, and money | `03-entity-agreement-map.md` (Holding agreement is historical / out of perimeter) |
+| Organisation chart + who does what | `02-organization-structure.md` and `org-chart.html` (print/PDF) |
+| How the agreements allocate software, data, domain, and money | `03-entity-agreement-map.md` |
 | Cover email | `05-draft-email-to-joe.md` |
 | The three PDFs Joe already needs | Software sublicense (31 May 2026), software sublicense (28 Apr 2026), operational services (28 Apr 2026) |
 

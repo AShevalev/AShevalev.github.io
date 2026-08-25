@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Verodus organisation chart — three affiliates</title>
+  <title>Organisation chart — Verodus Capital, Verodus L.L.C.-FZ, 1591011 B.C. Ltd.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
@@ -55,7 +55,7 @@
       font-size: 13px;
       color: var(--muted);
       text-align: right;
-      max-width: 300px;
+      max-width: 280px;
     }
     .confidential {
       display: inline-block;
@@ -74,13 +74,16 @@
       margin: 0 0 22px;
     }
     h2 { font-size: 18px; margin: 28px 0 10px; }
+    .owners {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+    }
     .owner {
       background: var(--card);
       border: 1px solid var(--ink);
       text-align: center;
-      padding: 16px 18px 18px;
-      max-width: 560px;
-      margin: 0 auto;
+      padding: 14px 16px 16px;
     }
     .owner .tag, .card .tag {
       font-family: "Source Sans 3", sans-serif;
@@ -90,7 +93,7 @@
       font-weight: 700;
       margin: 0 0 6px;
     }
-    .owner h3 { margin: 0 0 6px; font-size: 20px; }
+    .owner h3 { margin: 0 0 4px; font-size: 20px; }
     .owner p {
       margin: 0;
       font-family: "Source Sans 3", sans-serif;
@@ -99,9 +102,8 @@
     }
     .tree {
       width: 100%;
-      height: 72px;
+      height: 64px;
       display: block;
-      margin: 0 auto;
     }
     .row-3 {
       display: grid;
@@ -114,12 +116,12 @@
       border-top-width: 7px;
       padding: 14px 14px 16px;
     }
-    .card.system { border-top-color: var(--system); }
     .card.canada { border-top-color: var(--canada); }
     .card.dubai { border-top-color: var(--dubai); }
-    .system .tag { color: var(--system); }
+    .card.system { border-top-color: var(--system); }
     .canada .tag { color: var(--canada); }
     .dubai .tag { color: var(--dubai); }
+    .system .tag { color: var(--system); }
     .card h3 { font-size: 17px; margin: 0 0 4px; line-height: 1.25; }
     .card .where {
       font-family: "Source Sans 3", sans-serif;
@@ -132,7 +134,7 @@
       font-family: "Source Sans 3", sans-serif;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       border: 1px solid var(--ink);
       padding: 1px 7px;
       margin-bottom: 8px;
@@ -144,7 +146,7 @@
       font-size: 13px;
       line-height: 1.45;
     }
-    .affiliate-note {
+    .note {
       margin-top: 12px;
       font-family: "Source Sans 3", sans-serif;
       font-size: 13px;
@@ -180,10 +182,10 @@
       padding-top: 12px;
     }
     @media (max-width: 800px) {
-      .row-3, .flows { grid-template-columns: 1fr; }
+      .owners, .row-3, .flows { grid-template-columns: 1fr; }
       header { flex-direction: column; align-items: flex-start; }
       .meta { text-align: left; }
-      .tree { height: 36px; }
+      .tree { height: 28px; }
     }
     @media print {
       body { background: white; }
@@ -196,70 +198,76 @@
     <header>
       <div>
         <p class="confidential">Confidential — current operating structure</p>
-        <p class="eyebrow">Sister affiliates · no group parent</p>
+        <p class="eyebrow">No parent · no subsidiary</p>
         <h1>Organisation chart</h1>
       </div>
-      <p class="meta">25 August 2026. Verodus Holding Inc. is a separate company and is not on this chart. Operating entities only.</p>
+      <p class="meta">25 August 2026. Shareholding is personal. The companies deal with each other by contract.</p>
     </header>
 
-    <p class="lead">Three companies. No parent and no subsidiaries. Each is an affiliate of the others. The individual signatory owns 100% of the shares of each company personally.</p>
+    <p class="lead">Three companies. None is a parent or subsidiary of another. Kim Chen owns 100% of Verodus Capital Inc. and 100% of Verodus L.L.C.-FZ. Chun Chan owns 100% of 1591011 B.C. Ltd.</p>
 
-    <div class="owner">
-      <p class="tag">Shareholder</p>
-      <h3>Individual signatory</h3>
-      <p>Owns 100% of the shares of each company below. Shares are held personally. There is no holding company, no parent, and no subsidiary.</p>
+    <div class="owners">
+      <div class="owner">
+        <p class="tag">Shareholder</p>
+        <h3>Kim Chen</h3>
+        <p>100% of Verodus Capital Inc.<br />100% of Verodus L.L.C.-FZ</p>
+      </div>
+      <div class="owner">
+        <p class="tag">Shareholder</p>
+        <h3>Chun Chan</h3>
+        <p>100% of 1591011 B.C. Ltd.</p>
+      </div>
     </div>
 
-    <svg class="tree" viewBox="0 0 1000 72" aria-hidden="true">
-      <line x1="500" y1="0" x2="500" y2="22" stroke="#1b242e" stroke-width="1.5" />
-      <line x1="166" y1="22" x2="834" y2="22" stroke="#1b242e" stroke-width="1.5" />
-      <line x1="166" y1="22" x2="166" y2="72" stroke="#1b242e" stroke-width="1.5" />
-      <line x1="500" y1="22" x2="500" y2="72" stroke="#1b242e" stroke-width="1.5" />
-      <line x1="834" y1="22" x2="834" y2="72" stroke="#1b242e" stroke-width="1.5" />
-      <text x="166" y="48" text-anchor="middle" font-size="11" font-family="Source Sans 3, sans-serif" fill="#5a6570">100%</text>
-      <text x="500" y="48" text-anchor="middle" font-size="11" font-family="Source Sans 3, sans-serif" fill="#5a6570">100%</text>
-      <text x="834" y="48" text-anchor="middle" font-size="11" font-family="Source Sans 3, sans-serif" fill="#5a6570">100%</text>
+    <svg class="tree" viewBox="0 0 1000 64" aria-hidden="true">
+      <line x1="333" y1="0" x2="333" y2="20" stroke="#1b242e" stroke-width="1.5" />
+      <line x1="166" y1="20" x2="500" y2="20" stroke="#1b242e" stroke-width="1.5" />
+      <line x1="166" y1="20" x2="166" y2="64" stroke="#1b242e" stroke-width="1.5" />
+      <line x1="500" y1="20" x2="500" y2="64" stroke="#1b242e" stroke-width="1.5" />
+      <line x1="834" y1="0" x2="834" y2="64" stroke="#1b242e" stroke-width="1.5" />
+      <text x="166" y="44" text-anchor="middle" font-size="11" font-family="Source Sans 3, sans-serif" fill="#5a6570">100%</text>
+      <text x="500" y="44" text-anchor="middle" font-size="11" font-family="Source Sans 3, sans-serif" fill="#5a6570">100%</text>
+      <text x="834" y="44" text-anchor="middle" font-size="11" font-family="Source Sans 3, sans-serif" fill="#5a6570">100%</text>
     </svg>
 
     <div class="row-3">
-      <article class="card system">
-        <p class="tag">Software · affiliate</p>
-        <h3>1591011 B.C. Ltd.</h3>
-        <p class="where">British Columbia, Canada</p>
-        <span class="pct">100% individual</span>
-        <ul>
-          <li>Owns the proprietary software, CRM, and related technology</li>
-          <li>Sublicenses the system to Verodus L.L.C.-FZ (31 May 2026)</li>
-          <li>Not a parent of the other two companies</li>
-        </ul>
-      </article>
       <article class="card canada">
-        <p class="tag">Profit centre · affiliate</p>
+        <p class="tag">Profit centre</p>
         <h3>Verodus Capital Inc.</h3>
         <p class="where">British Columbia, Canada</p>
-        <span class="pct">100% individual</span>
+        <span class="pct">Kim Chen · 100%</span>
         <ul>
           <li>Payment processing on Canadian merchant accounts</li>
           <li>Marketing, traffic to the domain, KYC support</li>
-          <li>Licensed to use verodus.com; not a parent or subsidiary</li>
+          <li>Licensed to use verodus.com</li>
         </ul>
       </article>
       <article class="card dubai">
-        <p class="tag">Domain and data · affiliate</p>
+        <p class="tag">Domain and data</p>
         <h3>Verodus L.L.C.-FZ</h3>
         <p class="where">Meydan Free Zone, Dubai, UAE</p>
-        <span class="pct">100% individual</span>
+        <span class="pct">Kim Chen · 100%</span>
         <ul>
-          <li>Owns verodus.com, raw data, and client-identifying information</li>
+          <li>Owns verodus.com</li>
+          <li>Owns raw data and client-identifying information</li>
           <li>Runs the CRM and dashboard</li>
-          <li>Not a parent or subsidiary of Capital or 1591011</li>
+        </ul>
+      </article>
+      <article class="card system">
+        <p class="tag">Software</p>
+        <h3>1591011 B.C. Ltd.</h3>
+        <p class="where">British Columbia, Canada</p>
+        <span class="pct">Chun Chan · 100%</span>
+        <ul>
+          <li>Owns the proprietary software, CRM, and related technology</li>
+          <li>Sublicenses the system to Verodus L.L.C.-FZ (31 May 2026)</li>
         </ul>
       </article>
     </div>
 
-    <p class="affiliate-note">Same shareholder. Three separate legal persons. They deal with each other by contract, not by corporate control. Verodus Holding Inc. is outside this structure.</p>
+    <p class="note">No company owns shares in another. Verodus Capital Inc. and Verodus L.L.C.-FZ are affiliates under Kim Chen. 1591011 B.C. Ltd. is owned separately by Chun Chan. Relations among the three are contractual.</p>
 
-    <h2>How the affiliates contract with each other</h2>
+    <h2>How the companies contract with each other</h2>
     <div class="flows">
       <section class="flow">
         <h3>Software</h3>
@@ -267,16 +275,16 @@
       </section>
       <section class="flow">
         <h3>Domain and operations</h3>
-        <p>LLC-FZ owns the domain and data. Capital has a licence to use the domain, drive traffic, and provide KYC. Merchant accounts stay isolated.</p>
+        <p>Verodus L.L.C.-FZ owns the domain and data. Verodus Capital Inc. has a licence to use the domain, drive traffic, and provide KYC. Merchant accounts stay isolated.</p>
       </section>
       <section class="flow">
         <h3>Money</h3>
-        <p>Capital is the profit centre and processes receipts. Dubai may charge a 5% royalty on Capital’s gross sales (CAD) at its discretion, 90 days’ notice.</p>
+        <p>Verodus Capital Inc. is the profit centre and processes receipts. Verodus L.L.C.-FZ may charge a 5% royalty on Capital’s gross sales (CAD) at its discretion, 90 days’ notice.</p>
       </section>
     </div>
 
     <footer>
-      Operating perimeter for a 60% discussion: these three companies only. Verodus Holding Inc. is a separate company and is not included. This chart is not an offer.
+      Personal shareholding as stated above. This chart is not an offer.
     </footer>
   </div>
 </body>
