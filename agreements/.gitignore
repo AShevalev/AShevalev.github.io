@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+signatures/*_color.png
+signatures/*_mask.png
+signatures/*_on_white*.png
+signatures/*_fitz.png
+signatures/*xref*
