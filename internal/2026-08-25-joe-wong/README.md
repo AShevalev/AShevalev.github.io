@@ -18,5 +18,6 @@ Do not send `01-call-summary.md`.
 | File | Why |
 | --- | --- |
 | `06-internal-gaps-and-risks.md` | Internal |
+| `08-internal-valuation.md` | Internal. Do not send the number to Joe until Kim and Chun agree |
 | `04-action-items.md` | Internal |
 | `01-call-summary.md` | Do not circulate |
