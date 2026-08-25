@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verodus organisation chart — 25 August 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1c2430;
+      --muted: #5c6570;
+      --line: #c9c1b4;
+      --paper: #f3efe6;
+      --card: #fffcf7;
+      --navy: #243044;
+      --dubai: #1e4d4a;
+      --canada: #3d4f6f;
+      --system: #6b3a2a;
+      --hold: #4a3f55;
+      --accent: #b4532a;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", "Iowan Old Style", Palatino, Georgia, serif;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 36px 32px 64px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+    }
+    .eyebrow {
+      font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 0 0 6px;
+    }
+    h1 {
+      font-size: 32px;
+      line-height: 1.15;
+      margin: 0;
+      font-weight: 700;
+    }
+    .meta {
+      font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: right;
+      max-width: 280px;
+    }
+    .confidential {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 18px;
+      margin: 32px 0 12px;
+    }
+    p.lead {
+      font-size: 16px;
+      max-width: 72ch;
+      margin: 0 0 24px;
+    }
+    .row {
+      display: grid;
+      gap: 14px;
+    }
+    .row-4 { grid-template-columns: repeat(4, 1fr); }
+    .row-1 { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+    .connectors {
+      text-align: center;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 8px 0;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top-width: 6px;
+      padding: 14px 14px 16px;
+      min-height: 100%;
+    }
+    .card.system { border-top-color: var(--system); }
+    .card.hold { border-top-color: var(--hold); }
+    .card.canada { border-top-color: var(--canada); }
+    .card.dubai { border-top-color: var(--dubai); }
+    .card.investors {
+      border-top-color: var(--ink);
+      text-align: center;
+    }
+    .tag {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+    .system .tag { color: var(--system); }
+    .hold .tag { color: var(--hold); }
+    .canada .tag { color: var(--canada); }
+    .dubai .tag { color: var(--dubai); }
+    .card h3 {
+      font-size: 16px;
+      margin: 0 0 4px;
+      line-height: 1.25;
+    }
+    .card .where {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .card ul {
+      margin: 0;
+      padding-left: 16px;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .flows {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .flow {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 16px 16px 18px;
+    }
+    .flow h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+    .flow p, .flow li {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .flow ul { margin: 0; padding-left: 16px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 13px;
+      background: var(--card);
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+    th {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    footer {
+      margin-top: 28px;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+    @media (max-width: 900px) {
+      .row-4, .flows { grid-template-columns: 1fr 1fr; }
+      header { flex-direction: column; align-items: flex-start; }
+      .meta { text-align: left; }
+    }
+    @media print {
+      body { background: white; }
+      .page { padding: 12px; }
+      .card, .flow { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <p class="confidential">Confidential — draft for counsel</p>
+        <p class="eyebrow">Verodus group · current state</p>
+        <h1>Organisation chart</h1>
+      </div>
+      <p class="meta">Prepared 25 August 2026 after the call with Joe M. Wong.<br />Share percentages are not in the signed agreements and are omitted until the cap table is annexed.</p>
+    </header>
+
+    <p class="lead">Four companies, three independent contracts. Dubai owns the domain and the raw trader data. A British Columbia company owns the proprietary software. Canada currently takes in the cash.</p>
+
+    <div class="row row-1">
+      <article class="card investors">
+        <p class="tag" style="color: var(--ink);">Holders</p>
+        <h3>Investors / beneficial owners</h3>
+        <p class="where">Cap table to be attached. On the call: Kim Chen described as Director/CEO of the operating setup; Chun Chan signs for the software company; “one of the investors” holds the BC white-label entity.</p>
+      </article>
+    </div>
+    <div class="connectors">↓ ownership to be confirmed by share register ↓</div>
+
+    <div class="row row-4">
+      <article class="card system">
+        <p class="tag">Software owner</p>
+        <h3>1591011 B.C. Ltd.</h3>
+        <p class="where">British Columbia · Chun Chan, Director</p>
+        <ul>
+          <li>Owns proprietary software, CRM, related tech</li>
+          <li>Limited, revocable sublicense to Dubai (31 May 2026)</li>
+          <li>Receives aggregated insights only; no cash under the sublicense</li>
+        </ul>
+      </article>
+      <article class="card hold">
+        <p class="tag">Third-party licences</p>
+        <h3>Verodus Holding Inc.</h3>
+        <p class="where">Canada · Kim Chen, Director</p>
+        <ul>
+          <li>Holds licences from third-party software vendors</li>
+          <li>Sublicenses those products to Dubai (28 Apr 2026)</li>
+          <li>Same no-cash / insights-back pattern</li>
+        </ul>
+      </article>
+      <article class="card canada">
+        <p class="tag">Profit centre today</p>
+        <h3>Verodus Capital Inc.</h3>
+        <p class="where">British Columbia · Kim Chen, Director</p>
+        <ul>
+          <li>Payment processing on Canadian rails (own merchant accounts)</li>
+          <li>Marketing, traffic to the domain, KYC support</li>
+          <li>UAE processor exists, not currently used</li>
+        </ul>
+      </article>
+      <article class="card dubai">
+        <p class="tag">Operating / data</p>
+        <h3>Verodus L.L.C.-FZ</h3>
+        <p class="where">Meydan Free Zone, Dubai · Kim Chen, Manager</p>
+        <ul>
+          <li>Owns verodus.com</li>
+          <li>Owns raw data and client-identifying information</li>
+          <li>Runs CRM / dashboard; cannot re-sublicense the software</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2>How value moves</h2>
+    <div class="flows">
+      <section class="flow">
+        <h3>Software</h3>
+        <p>1591011 and Holding each grant Dubai a non-exclusive, non-transferable, revocable sublicense. Dubai cannot re-sublicense to TradeMap, TAMS, or anyone else without a new grant from the owner.</p>
+      </section>
+      <section class="flow">
+        <h3>Data</h3>
+        <p>Raw book and PII stay with Dubai. Anonymised aggregates are licensed, perpetually, to 1591011 and Holding, who may commercialise those insights. Full delivery of aggregates is due within 36 months of each effective date.</p>
+      </section>
+      <section class="flow">
+        <h3>Money</h3>
+        <p>Capital processes receipts for its own account. No invoices by default. Dubai may switch on a 5% royalty of Capital gross sales (CAD) at its sole discretion, 90 days’ notice. Merchant accounts must stay isolated.</p>
+      </section>
+    </div>
+
+    <h2>Joe M. Wong counterparties (not Verodus)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role described on the call</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TradeMap</td>
+          <td>Education, mentorship, small-lump funding. Intended commercial party for the TAMS integration agreement.</td>
+        </tr>
+        <tr>
+          <td>TAMS</td>
+          <td>Technical front/system to line up with the Verodus backend.</td>
+        </tr>
+        <tr>
+          <td>MoneyMap</td>
+          <td>Wealth / fund management for real-money accounts after approval.</td>
+        </tr>
+        <tr>
+          <td>World Trader Hub (Hong Kong)</td>
+          <td>Public-facing organisation / non-profit positioning, network, and marketing.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      Sources: Software Sublicense (31 May 2026) 1591011 B.C. Ltd. ↔ Verodus L.L.C.-FZ; Software Sublicense (28 April 2026) Verodus Holding Inc. ↔ Verodus L.L.C.-FZ; Operational Services, Domain Usage and Evaluation Rights (28 April 2026) Verodus Capital Inc. ↔ Verodus L.L.C.-FZ; call of 25 August 2026. This chart is not a cap table and is not an offer.
+    </footer>
+  </div>
+</body>
+</html>
