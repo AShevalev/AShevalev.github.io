@@ -22,6 +22,10 @@ Printed visual: open `org-chart.html` and export to PDF.
 
 Verodus Capital Inc. and Verodus L.L.C.-FZ are affiliates (same 100% shareholder). 1591011 B.C. Ltd. is owned by Chun Chan, who is one of the investors in Verodus. Kim Chen developed the software for 1591011 B.C. Ltd. The three companies deal with each other by contract, not by corporate control.
 
+## People
+
+Marketing sits with Capital. David was in-house from April until June; wages for those two months were $8,000. An intern is expected at approximately $3,000 a month for marketing and customer support.
+
 ## Who holds what
 
 | Question | Answer |
