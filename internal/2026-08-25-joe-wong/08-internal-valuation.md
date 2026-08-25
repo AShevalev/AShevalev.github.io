@@ -129,12 +129,14 @@ The instrument that fits is **money for the option and for Kim’s time**, not m
 
 | What | When it is paid | If the trial fails |
 | --- | --- | --- |
-| **Option premium** (ask **$75,000–$150,000** cash). Credits dollar-for-dollar against the $900,000 if he later buys 60%. | On signing the option / no-shop. Before Kim starts TAMS work. | **You keep it.** That is the point. |
-| **Integration fee** (can be the same cheque). Pays for Kim’s 2–6 weeks and any TAMS environment work. | Same moment, or staged: half on kickoff, half when Kim writes that the API is accepted. | You keep what has been earned. Trial stays free **for his B2B partners** — that is what he meant by a free trial, not that Verodus works for nothing. |
+| **Option premium** (ask **$75,000–$150,000** cash). Credits dollar-for-dollar against the $900,000 if he later buys 60%. Separate from the integration fee. | On signing the option / no-shop. Before Kim starts TAMS work. | **You keep it.** That is the point. |
+| **Integration fee: ask $50,000 USD** (floor $35,000). Fixed SOW, not hourly. Half on kickoff, half when Kim writes that the TAMS API is accepted. Overrun if *their* API does not match: **$3,000/week** after week 5, cap another $15,000. | Kickoff, before production work. | You keep what has been earned. Trial stays free **for his B2B partners**. |
 | **Refundable deposit** toward $900,000 | Looks like cash. It is not. | He claws it back. Useless as protection. |
 | **Full $900,000 for 60% now** | Only if he actually wants to own the companies before TAMS is live. | You have sold control with no proof the partnership works. Do not cut the price to make this happen. |
 
 A no-shop / exclusivity without cash is the same trap as a free option: he ties you up through integration and trial, then walks. Cash on signing is how you test whether the day-one number is real.
+
+**Why $50,000 for integration.** Kim said 2–3 weeks if the TAMS API matches; Joe planned 1–1.5 months. Kim is the only IT person, so that is the whole production book, not a contractor on a bench. Replacement cost for a senior Java/API engineer at about $200/hour × 160–200 hours is $32,000–$40,000 before any premium for sole-source, staging, and not breaking live payouts. $50,000 is that job at a normal professional-services margin. $15,000–$25,000 is cost recovery only and tells him Verodus will carry the partnership. $80,000+ as integration-only (no option) looks like a toll and he will refuse. White-label SaaS “setup” fees of a few thousand dollars are irrelevant: those are plugging into a vendor’s product, not wiring a live custom backend to TAMS.
 
 Where the cheque lands: Verodus Capital Inc. (profit centre, Canadian tax). Do not route it as a personal “payout” to Alexander before Chun and Kim agree how the premium is shared. It is company money unless the option is written as a purchase of shares from named holders.
 
