@@ -6,11 +6,11 @@ Current intercompany arrangements. Two agreements only.
 
 | Company | Jurisdiction | Shareholder | Role under the agreements |
 | --- | --- | --- | --- |
-| **1591011 B.C. Ltd.** | British Columbia | Chun Chan, 100% | Owns and operates the proprietary software, CRM, and related technology. Licensor. |
+| **1591011 B.C. Ltd.** | British Columbia | Chun Chan, 100% (investor in Verodus) | Owns the proprietary software. Kim Chen developed the software for this company. Licensor. |
 | **Verodus Capital Inc.** | British Columbia | Kim Chen, 100% | Marketing, KYC support, traffic to the domain, payment processing on its own merchant accounts. |
 | **Verodus L.L.C.-FZ** | Meydan Free Zone, Dubai | Kim Chen, 100% | Registered owner of verodus.com. Hosting in the UAE. Owns raw data. Licensee of the software. |
 
-No parent. No subsidiary. Capital and LLC-FZ are affiliates. 1591011 is owned separately.
+No parent. No subsidiary. Capital and LLC-FZ are affiliates. Chun Chan owns 1591011 B.C. Ltd. and is one of the investors in Verodus. Kim Chen developed the software for 1591011 B.C. Ltd.
 
 ## Software Sublicense and Data Licensing Agreement — 31 May 2026
 

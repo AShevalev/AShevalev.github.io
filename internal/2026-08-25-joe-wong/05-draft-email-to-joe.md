@@ -4,9 +4,9 @@ Joe,
 
 Please find attached the organisation chart and the two intercompany agreements now in force.
 
-There is no parent and no subsidiary. Kim Chen owns 100% of Verodus Capital Inc. (British Columbia) and 100% of Verodus L.L.C.-FZ (Meydan Free Zone, Dubai). Chun Chan owns 100% of 1591011 B.C. Ltd. (British Columbia). Capital and LLC-FZ are affiliates. 1591011 B.C. Ltd. is owned separately. The companies deal with one another only under the attached contracts.
+There is no parent and no subsidiary. Kim Chen owns 100% of Verodus Capital Inc. (British Columbia) and 100% of Verodus L.L.C.-FZ (Meydan Free Zone, Dubai). Chun Chan owns 100% of 1591011 B.C. Ltd. (British Columbia) and is one of the investors in Verodus. Capital and LLC-FZ are affiliates. The companies deal with one another only under the attached contracts.
 
-Verodus L.L.C.-FZ is the registered owner of verodus.com. The domain and the hosting are in the UAE. LLC-FZ holds all raw data and client-identifying information collected through the software. 1591011 B.C. Ltd. owns the proprietary software, CRM, and related technology.
+Verodus L.L.C.-FZ is the registered owner of verodus.com. The domain and the hosting are in the UAE. LLC-FZ holds all raw data and client-identifying information collected through the software. 1591011 B.C. Ltd. owns the proprietary software, CRM, and related technology. Kim developed that software for 1591011 B.C. Ltd.
 
 **Software Sublicense and Data Licensing Agreement (31 May 2026)** — 1591011 B.C. Ltd. and Verodus L.L.C.-FZ.  
 1591011 grants LLC-FZ a non-exclusive, non-transferable, revocable licence to use the software for LLC-FZ’s Meydan-authorised activities. LLC-FZ may not modify, reverse-engineer, or re-sublicense the software to anyone. Raw data stays with LLC-FZ, which may commercialise it. 1591011 receives only a perpetual licence to anonymised aggregated insights. There is no cash under this agreement. The term is 36 months. British Columbia law; BCICAC arbitration in Vancouver. Signed by Chun Chan for 1591011 and Kim Chen for LLC-FZ.
