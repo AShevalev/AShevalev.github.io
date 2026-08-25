@@ -56,6 +56,9 @@ def main() -> int:
         assert_absent(text, "Revised:", label)
         assert_absent(text, "August 25, 2026", label)
         assert_absent(text, "Software Sublicense", label)
+        assert_absent(text, "merchant agreements", label)
+        assert_absent(text, "prior agreements", label)
+        assert_absent(text, "head licensor", label)
 
     # Original 5% royalty wording; no extra gloss.
     assert_contains(
@@ -64,6 +67,8 @@ def main() -> int:
         "OSA",
     )
     assert_absent(osa, "It is not a price for any individual service or right", "OSA")
+    assert_absent(osa, "only monetary exception", "OSA")
+    assert_absent(osa, "NO SEPARATE PRICING", "OSA")
     assert_absent(sla, "five percent", "SLA")
 
     # Original signature dating: OSA undated; SLA dated May 31, 2026.
@@ -73,7 +78,7 @@ def main() -> int:
 
     # Software grant is a licence from the owner, not a sublicence.
     assert_contains(sla, "GRANT OF LICENSE", "SLA")
-    assert_contains(sla, "This Agreement is a license from the owner", "SLA")
+    assert_contains(sla, "revocable limited license to install, access, and use the Software", "SLA")
     assert_absent(sla, "grants LLC-FZ a non-exclusive, non-transferable, revocable limited sublicense", "SLA")
 
     # Insights are delivered during the term, not only on the last day.

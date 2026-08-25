@@ -52,8 +52,6 @@ NOW THEREFORE, in consideration of the mutual covenants, licenses, and promises 
 
 2.2 The license does not include any right to modify, reverse-engineer, decompile, copy (except for internal backup), or sublicense the Software. LLC-FZ shall not sublicense the Software to any third party under any circumstance.
 
-2.3 1591011 B.C. LTD. is the owner of the Software. This Agreement is a license from the owner. It is not a sublicense from a third-party head licensor.
-
 ## 3. DATA COLLECTION, OWNERSHIP AND LICENSE BACK
 
 3.1 LLC-FZ shall collect, classify, analyze, and aggregate Data through the Software, including trading performance metrics across supported instruments. LLC-FZ shall perform all KYC of Domain users itself. LLC-FZ shall not be required to share KYC documents or identity-verification files with 1591011 B.C. LTD.
@@ -118,9 +116,9 @@ NOW THEREFORE, in consideration of the mutual covenants, licenses, and promises 
 
 ## 12. MISCELLANEOUS
 
-12.1 This Agreement is bilateral and entirely independent of any other agreement between the parties or their affiliates.
+12.1 This Agreement is bilateral.
 
-12.2 This Agreement constitutes the entire understanding and supersedes all prior agreements.
+12.2 This Agreement constitutes the entire understanding and supersedes all prior discussions.
 
 12.3 No amendment is valid unless in writing and signed by both parties.
 

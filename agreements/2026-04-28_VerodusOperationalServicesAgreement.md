@@ -136,7 +136,7 @@ Any commissions or profits generated through the affiliate software or traffic-d
 
 ## 12. MISCELLANEOUS
 
-12.1 This Agreement is bilateral and entirely independent of any other agreement between the parties or their affiliates, including any merchant agreements with third-party payment processors.
+12.1 This Agreement is bilateral.
 
 12.2 Capital has no access or rights to the software of LLC-FZ (other than the limited license to use the affiliate software for traffic-driving purposes), no operational involvement in LLC-FZ's isolated merchant accounts, and no KYC role for LLC-FZ.
 

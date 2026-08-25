@@ -1,6 +1,6 @@
 # What changed from the April/May drafts
 
-Effective dates and signature blocks match the originals. The original Chun Chan and Kim Chen signature images are used. There is no revised date, and the contracts do not name any other agreement.
+Effective dates and signature blocks match the originals. There is no revised date. The contracts do not name other agreements.
 
 ## Both agreements
 
