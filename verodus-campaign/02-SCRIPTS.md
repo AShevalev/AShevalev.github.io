@@ -617,15 +617,25 @@ Framing: waist-up, eyeline on the upper third, minimal headroom. Stand **1.5–2
 
 Keep the **right third and the bottom 400px** visually quiet: that's where the burned-in captions and the disclaimer land.
 
-### Backdrop generation prompt
+### Backdrop generation prompts
 
-For a printed backdrop, a wall treatment reference, or a still to run on a large screen behind you. 9:16.
+For a printed backdrop, a set-dressing reference, or a still to run on a large screen behind you. 9:16. Pick **one** and shoot all five clips against it.
 
-> Photorealistic empty interior backdrop for a vertical 9:16 video, eye-level, 35mm full-frame look at f/2 with shallow depth of field, the wall softly out of focus. A deep matte navy plaster wall, near-black indigo (#07003B) in the upper left deepening to a slightly brighter royal navy (#1B2B8E) toward the lower right. A single soft key light falls from the upper left, leaving a gentle gradient and clean shadow detail. One narrow warm champagne-gold rim of light grazes the right edge of the frame, subtle, like a hidden LED strip behind a partition. Faint vertical architectural texture — slim dark wood slats or a plaster seam — visible only in the upper left, out of focus. Centre and lower two-thirds completely empty and uncluttered. No furniture, no desk, no monitors, no screens, no charts, no graphs, no numbers, no text, no logos, no plants, no people. No vignette. Calm, premium, editorial, low contrast in the shadows, cinematic colour grade, fine natural film grain.
+**Office — recommended.** Depth behind the shoulder reads as a company that exists, which is the whole point of a founders series. A rented studio reads like a course seller, and that is the exact comparison this brand is trying to escape.
 
-Say the exclusions out loud in the prompt — image models add monitors and charts to anything described as a trading or finance set unless told not to.
+> Photorealistic empty modern office interior as a backdrop for a vertical 9:16 video, eye level, 35mm full-frame look at f/2, background softly out of focus with real depth. Evening interior. On the left, a dark matte navy accent wall, near-black indigo (#07003B) shifting toward royal navy (#1B2B8E). On the right, a frosted glass partition with a warm champagne-gold LED strip glowing behind it. Beyond the glass, a deep, heavily blurred open-plan room with a few small warm practical lights and no discernible detail. Any monitors are switched off, dark, and angled away from camera — no visible screen content, no charts, no graphs, no numbers, no text, no logos, no people. Foreground centre and lower two-thirds empty: no desk, no chair, no clutter in frame. Soft key from the upper left, gentle falloff, clean shadow detail, no vignette. Calm, premium, editorial, restrained colour, cinematic grade, fine natural film grain.
 
-Two acceptable variants if you want a second look for the product clips, but **do not mix them inside a session**: the plaster wall above, or dark vertical wood slats lit the same way. Never a bookshelf, never a city window at night, never a green screen with a composited office.
+**Studio.** More controllable, and the safer choice if the real office is small or messy.
+
+> Photorealistic empty dark film studio backdrop for a vertical 9:16 video, eye level, 35mm full-frame look at f/2, background softly out of focus. A charcoal acoustic-panel wall in a fine geometric pattern, tinted deep navy from #07003B to #1B2B8E, with one narrow warm champagne-gold rim light grazing the right edge and a soft large-source key from the upper left. Far background very dark and almost empty — only the suggestion of a light stand and the edge of a softbox, heavily blurred. No desk, no monitors, no screens, no charts, no graphs, no numbers, no text, no logos, no people, no visible cables. Centre and lower two-thirds clean and empty. No vignette. Premium, editorial, cinematic grade, low contrast in the shadows, fine natural film grain.
+
+Say the exclusions out loud in the prompt. Image models put monitors and rising charts into anything that reads as a finance or trading set unless told not to, and that is the one thing this backdrop cannot have.
+
+Never a bookshelf, never a night-city skyline window, never a green screen with a composited office behind it.
+
+### Shooting in a real office
+
+Same rules as the generated version. Screens off or turned away — a real dashboard in the background is a bigger review risk than a fake one, because it may show an actual balance. Clear the lower third of the frame completely. Kill overhead fluorescents and light with one soft source plus whatever warm practicals are already in the room.
 
 ### If you use a screen or a virtual background
 
