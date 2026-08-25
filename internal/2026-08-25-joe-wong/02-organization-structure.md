@@ -18,9 +18,9 @@ Printed visual: open `org-chart.html` and export to PDF.
 | --- | --- | --- | --- |
 | **Verodus Capital Inc.** | British Columbia, Canada | **Kim Chen — 100%** | Marketing and traffic to the domain. Payment processing on its own merchant accounts. Evaluations for its own reward decisions. Does not provide KYC. |
 | **Verodus L.L.C.-FZ** | Meydan Free Zone, Dubai, UAE | **Kim Chen — 100%** | Owns `verodus.com`. Domain and hosting are in the UAE. Owns raw data and KYC records. Performs all KYC of domain users. Runs the CRM and dashboard. |
-| **1591011 B.C. Ltd.** | British Columbia, Canada | **Chun Chan — 100%** (investor in Verodus) | Owns the proprietary software, CRM, and related technology. Kim Chen developed the software for 1591011 B.C. Ltd. Sublicenses the system to Verodus L.L.C.-FZ. |
+| **1591011 B.C. Ltd.** | British Columbia, Canada | **Chun Chan — 100%** (investor in Verodus) | Owns the proprietary software, CRM, and related technology. Licenses the system to Verodus L.L.C.-FZ. |
 
-Verodus Capital Inc. and Verodus L.L.C.-FZ are affiliates (same 100% shareholder). 1591011 B.C. Ltd. is owned by Chun Chan, who is one of the investors in Verodus. Kim Chen developed the software for 1591011 B.C. Ltd. The three companies deal with each other by contract, not by corporate control.
+Verodus Capital Inc. and Verodus L.L.C.-FZ are affiliates (same 100% shareholder). 1591011 B.C. Ltd. is owned by Chun Chan, who is one of the investors in Verodus. The three companies deal with each other by contract, not by corporate control.
 
 ## People
 
@@ -33,7 +33,6 @@ Marketing sits with Capital. David was in-house from April until June; wages for
 | Who owns Verodus Capital Inc.? | Kim Chen, 100%. |
 | Who owns Verodus L.L.C.-FZ? | Kim Chen, 100%. |
 | Who owns 1591011 B.C. Ltd.? | Chun Chan, 100%. Chun Chan is one of the investors in Verodus. |
-| Who developed the software? | Kim Chen, for 1591011 B.C. Ltd. |
 | Who owns the domain? | Verodus L.L.C.-FZ (`verodus.com`). Domain and hosting are in the UAE. Stack: Vercel on AWS (including Lambda), email, website, database, Redis. |
 | Who holds the data? | Verodus L.L.C.-FZ owns raw data, client-identifying information, and KYC records. Aggregated insights are licensed to 1591011 B.C. Ltd. |
 | Who performs KYC? | Verodus L.L.C.-FZ, in its own name. Capital and 1591011 do not provide KYC. |

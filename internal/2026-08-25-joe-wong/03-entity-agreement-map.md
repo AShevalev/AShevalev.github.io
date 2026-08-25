@@ -6,7 +6,7 @@ Source: the 28 April 2026 operational agreement and the 31 May 2026 software agr
 
 | Company | Jurisdiction | Shareholder | Role under the agreements |
 | --- | --- | --- | --- |
-| **1591011 B.C. Ltd.** | British Columbia | Chun Chan, 100% (investor in Verodus) | Owns the Software. Kim Chen developed it for this company. Licensor. Not LLC-FZ’s KYC provider. |
+| **1591011 B.C. Ltd.** | British Columbia | Chun Chan, 100% (investor in Verodus) | Owns the Software. Licensor. Not LLC-FZ’s KYC provider. |
 | **Verodus Capital Inc.** | British Columbia | Kim Chen, 100% | Marketing and traffic to the domain. Payment processing and evaluations for its own account. Does not provide KYC. |
 | **Verodus L.L.C.-FZ** | Meydan Free Zone, Dubai | Kim Chen, 100% | Registered owner of verodus.com. Hosting in the UAE. Owns raw data and KYC records. Performs all KYC of domain users. Licensee of the Software. |
 
