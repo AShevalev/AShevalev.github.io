@@ -10,6 +10,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfgen import canvas
 from reportlab.platypus import (
     BaseDocTemplate,
     Frame,
@@ -141,7 +142,9 @@ def make_styles() -> dict[str, ParagraphStyle]:
 
 def signature_image(key: str) -> Image:
     path, width, height = SIG_SPECS[key]
-    return Image(str(path), width=width, height=height, mask="auto")
+    image = Image(str(path), width=width, height=height, mask="auto")
+    image.hAlign = "LEFT"
+    return image
 
 
 def is_centered(text: str) -> bool:
@@ -210,6 +213,28 @@ def build_flowables(markdown: str, title_size: int = 14):
     return story
 
 
+class NumberedCanvas(canvas.Canvas):
+    """Draw original-style '-- 1 of 6 --' footers after the page count is known."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._saved_page_states: list[dict] = []
+
+    def showPage(self) -> None:
+        self._saved_page_states.append(dict(self.__dict__))
+        self._startPage()
+
+    def save(self) -> None:
+        page_count = len(self._saved_page_states)
+        for state in self._saved_page_states:
+            self.__dict__.update(state)
+            self.setFont("TNR", 12)
+            label = f"-- {self._pageNumber} of {page_count} --"
+            self.drawCentredString(letter[0] / 2.0, 0.55 * inch, label)
+            super().showPage()
+        super().save()
+
+
 def render_pdf(md_path: Path, pdf_path: Path, margin: float) -> None:
     markdown = md_path.read_text(encoding="utf-8")
     title_size = 14 if "SOFTWARE" in markdown.splitlines()[0].upper() else 12
@@ -219,13 +244,13 @@ def render_pdf(md_path: Path, pdf_path: Path, margin: float) -> None:
         leftMargin=margin,
         rightMargin=margin,
         topMargin=1.0 * inch,
-        bottomMargin=1.0 * inch,
+        bottomMargin=0.9 * inch,
         title=md_path.stem.replace("_", " "),
         author="",
     )
     frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="normal")
     doc.addPageTemplates([PageTemplate(id="letter", frames=frame)])
-    doc.build(build_flowables(markdown, title_size=title_size))
+    doc.build(build_flowables(markdown, title_size=title_size), canvasmaker=NumberedCanvas)
 
 
 def main() -> None:

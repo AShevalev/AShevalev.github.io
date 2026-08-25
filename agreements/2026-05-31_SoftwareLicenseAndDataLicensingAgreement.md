@@ -36,21 +36,25 @@ NOW THEREFORE, in consideration of the mutual covenants, licenses, and promises 
 
 1.1 "Aggregated Insights" means anonymized, amalgamated data and analytical outputs derived from the application of the Software, excluding any raw client-identifying information, KYC documents, and identity-verification files.
 
-1.2 "Data" means all trading performance metrics, client transaction data, and any other information collected or generated through the Software.
+1.2 "Confidential Information" means a party's non-public information disclosed in connection with this Agreement, including the Software, Data, KYC records, and Aggregated Insights before they are made public. Confidential Information does not include information that is public other than through a breach of this Agreement, already lawfully known to the receiving party, independently developed without use of the disclosing party's information, or lawfully received from a third party without a duty of confidentiality.
 
-1.3 "Domain" means the domain name verodus.com.
+1.3 "Data" means all trading performance metrics, client transaction data, and any other information collected or generated through the Software.
 
-1.4 "Effective Date" means the date first written above.
+1.4 "Domain" means the domain name verodus.com.
 
-1.5 "KYC" means identity verification, know-your-customer, anti-money-laundering, and counter-terrorist-financing onboarding checks of Domain users.
+1.5 "Effective Date" means the date first written above.
 
-1.6 "Software" means the pre-existing software, CRM systems, and related technology owned and operated by 1591011 B.C. LTD.
+1.6 "KYC" means identity verification, know-your-customer, anti-money-laundering, and counter-terrorist-financing onboarding checks of Domain users.
+
+1.7 "Software" means the pre-existing software, CRM systems, and related technology owned and operated by 1591011 B.C. LTD.
 
 ## 2. GRANT OF LICENSE
 
 2.1 1591011 B.C. LTD. hereby grants LLC-FZ a non-exclusive, non-transferable, revocable limited license to install, access, and use the Software in connection with LLC-FZ's Meydan-authorized business activities, including data collection, classification, analysis, and LLC-FZ's own KYC of Domain users.
 
 2.2 The license does not include any right to modify, reverse-engineer, decompile, copy (except for internal backup), or sublicense the Software. LLC-FZ shall not sublicense the Software to any third party under any circumstance.
+
+2.3 1591011 B.C. LTD. retains all right, title, and interest in and to the Software. LLC-FZ acquires only the license granted in this Section 2. Any improvement, configuration, or derivative of the Software remains the exclusive property of 1591011 B.C. LTD.
 
 ## 3. DATA COLLECTION, OWNERSHIP AND LICENSE BACK
 
@@ -60,7 +64,11 @@ NOW THEREFORE, in consideration of the mutual covenants, licenses, and promises 
 
 3.3 LLC-FZ hereby grants 1591011 B.C. LTD. a perpetual, irrevocable, royalty-free, worldwide, non-exclusive license to use, reproduce, modify, adapt, resell, sublicense to third parties, commercialize and otherwise exploit the Aggregated Insights in any manner whatsoever. That license does not include raw Data, client-identifying information, or KYC records.
 
-3.4 LLC-FZ is expressly permitted to sell, license, or otherwise commercialize the Data (raw or aggregated) to any third party at its sole discretion, provided it does not grant any third party a license to the Software itself.
+3.4 LLC-FZ is expressly permitted to sell, license, or otherwise commercialize raw Data to any third party at its sole discretion, subject to applicable law, provided it does not grant any third party a license to the Software itself. LLC-FZ may use Aggregated Insights in its own business. Section 3.3 is the grant under which 1591011 B.C. LTD. may commercialize Aggregated Insights. LLC-FZ shall not grant any third party an exclusive right in Aggregated Insights that conflicts with Section 3.3.
+
+3.5 1591011 B.C. LTD. may host and process Data solely as needed to operate the Software for LLC-FZ and to generate Aggregated Insights under Section 3.3. 1591011 B.C. LTD. shall not sell personal Data, shall not use personal Data for its own marketing, and shall not disclose personal Data except to subprocessors bound to confidentiality who need access to operate the Software, or as required by law.
+
+3.6 Each party shall apply reasonable technical and organizational measures to protect Data, KYC records, and the Software. 1591011 B.C. LTD. shall not include KYC records or raw client-identifying information in Aggregated Insights.
 
 ## 4. DELIVERY AND REPORTING
 
@@ -88,9 +96,15 @@ NOW THEREFORE, in consideration of the mutual covenants, licenses, and promises 
 
 6.2 LLC-FZ represents that it, and not 1591011 B.C. LTD., is responsible for KYC of Domain users and for privacy and anti-money-laundering laws applicable to that activity. 1591011 B.C. LTD. is not LLC-FZ's KYC provider.
 
+6.3 Except as expressly set out in this Agreement, 1591011 B.C. LTD. makes no representations or warranties regarding the Software, whether express, implied, or statutory.
+
 ## 7. CONFIDENTIALITY
 
-7.1 Each party shall keep the other party's non-public information strictly confidential and use it only for the purposes of this Agreement. KYC records and client-identifying information are LLC-FZ's confidential information. 1591011 B.C. LTD. shall not use them except as technically required to operate the Software for LLC-FZ, and shall not include them in Aggregated Insights. This obligation survives termination.
+7.1 Each party shall keep the other party's Confidential Information strictly confidential and use it only for the purposes of this Agreement. KYC records and client-identifying information are LLC-FZ's Confidential Information. 1591011 B.C. LTD. shall not use them except as technically required to operate the Software for LLC-FZ, and shall not include them in Aggregated Insights.
+
+7.2 A party may disclose Confidential Information to its employees, contractors, professional advisors, and subprocessors who have a need to know and are bound to confidentiality no less protective than this Section 7, or if required by law or a regulator, in which case the disclosing party shall, if legally permitted, give the other party prompt notice.
+
+7.3 The obligations in this Section 7 survive termination.
 
 ## 8. TERM AND TERMINATION
 
@@ -108,6 +122,8 @@ NOW THEREFORE, in consideration of the mutual covenants, licenses, and promises 
 
 10.1 Neither party shall be liable for indirect, consequential, punitive, or incidental damages, even if advised of their possibility.
 
+10.2 Section 10.1 does not limit a party's liability for fraud, wilful misconduct, or its indemnification obligations under Section 9.
+
 ## 11. GOVERNING LAW AND DISPUTE RESOLUTION
 
 11.1 This Agreement is governed by the laws of British Columbia, Canada, and the federal laws of Canada applicable therein.
@@ -118,13 +134,23 @@ NOW THEREFORE, in consideration of the mutual covenants, licenses, and promises 
 
 12.1 This Agreement is bilateral.
 
-12.2 This Agreement constitutes the entire understanding and supersedes all prior discussions.
+12.2 The parties are independent contractors. This Agreement does not create a partnership, joint venture, fiduciary relationship, or agency, and neither party may bind the other.
 
-12.3 No amendment is valid unless in writing and signed by both parties.
+12.3 Notices under this Agreement must be in writing and delivered by registered mail to the recipient's registered and records office. A notice is effective on delivery or, if delivery is refused, on the date of attempted delivery.
 
-12.4 If any provision is held invalid, the remainder of this Agreement shall continue to be binding.
+12.4 Neither party may assign this Agreement without the other party's prior written consent, except to an affiliate or to a successor in connection with a merger or a sale of substantially all of its assets. Any other purported assignment is void.
 
-12.5 This Agreement may be executed in counterparts, including electronically.
+12.5 Sections 3.3, 3.4, 3.5, 3.6, 7, 8.3, 9, 10, 11, and 12 survive termination.
+
+12.6 Failure to enforce a provision is not a waiver. A waiver must be in writing. If any provision is held invalid, the remainder of this Agreement shall continue to be binding. Headings are for convenience only.
+
+12.7 This Agreement does not confer rights on any person who is not a party.
+
+12.8 This Agreement constitutes the entire understanding and supersedes all prior discussions.
+
+12.9 No amendment is valid unless in writing and signed by both parties.
+
+12.10 This Agreement may be executed in counterparts, including electronically.
 
 ## IN WITNESS WHEREOF
 
