@@ -37,7 +37,34 @@ Eligibility is set by content risk, not by how good the clip is.
 
 **Ads (11):** 1, 2, 4, 5, 7, 7B, 11, 12, 13, C, D · **Warm-only ad:** 8 · **Conditional:** 10 · **Organic only:** 3, 6, 9
 
-**Conversion set — the five to film first:** 1, 2, 7B (free trial), 12 (1-Step), D (risk reversal). 7B carries week 1, 12 is the SKU worth buying, D closes warm traffic.
+C is a spare, not a slot: it repeats 12's argument, so it only ships if 12 gets rejected.
+
+**Conversion set — the five to film first:** 1, 2, 7B (free trial), 12 (1-Step), D (which evaluation).
+
+### One job per clip
+
+Every script in this pack could say "published before you pay, no time limit, fee back, trial's free." If they all do, they stop being five ads and become one ad shot five times — and they compete against each other in the same auction. Each clip owns one beat. The others may appear on screen or in the caption, but they don't get spoken.
+
+| Clip | Owns | Never spoken here |
+|---|---|---|
+| **1** Founders intro | The people. Names, faces, Discord, we answer in public | The rules argument — that's 2 |
+| **2** Why we built this | The rules don't change after you pay | Trial mechanics, plan names |
+| **7B** Trial | What the trial actually gives you | Fee refund, plan comparison |
+| **12** 1-Step | One phase, the numbers, fee back | Instant, 2-Step, static |
+| **D** Which evaluation | How the four models differ | The founder story |
+
+### The ask escalates
+
+Not every clip ends on the free trial. That's the week 1 ask, and repeating it in week 3 trains the audience to keep taking the free thing.
+
+| Week | Ask | Clips |
+|---|---|---|
+| 1 | Start the trial | 7B, 2 |
+| 2 | Read the rules | 2, 5, 4 |
+| 3 | Take an evaluation | 12, D |
+| 4 | Take an evaluation, code's in the bio | D, 8 |
+
+"Evaluation" means 1-Step, 2-Step Lite, or 2-Step Pro. Instant is a different product and never carries the fee-refund line.
 
 ## Hashtag sets
 
@@ -53,28 +80,30 @@ Eligibility is set by content risk, not by how good the clip is.
 
 # 1 · Founders intro — hero
 
-**30–45s · 80 words · Ad + organic · CTA: Sign Up**
+**30s · 70 words · Ad + organic · CTA: Sign Up**
 
 Open on the face. No logo sting first.
 
+This clip owns **the people**, not the rulebook. Script 2 makes the rules argument; if this one makes it too, they're the same ad. What only this clip can do is put a name and a face next to the product and offer to be questioned.
+
 **Hook:** "Most prop firms make traders feel trapped."
 
-> Most prop firms make traders feel trapped. Rules you only understand after you fail. Rewards that get delayed. Fine print that shows up the moment you win.
+> Most prop firms make traders feel trapped. Support is a ticket number. Nobody puts their name next to the rules.
 >
-> So we built Verodus the simple way. Every rule is published before you pay. No time limit. The rules you start with are the rules you finish with.
+> We're the founders. Our names are on this. We're in the Discord every day, and we answer the hard questions in public — including the ones about our own pricing.
 >
-> Don't take my word for it. Start the free trial, read every rule, and ask us in Discord. We're in there every day.
+> Come test us before you spend anything. Start the trial, then ask us whatever you want.
 
-**On-screen:** `TRAPPED?` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `TRY IT FREE`
-**Cover:** founder mid-sentence, eyes to camera — `PUBLISHED BEFORE YOU PAY`
+**On-screen:** `TRAPPED?` → `NOT A TICKET NUMBER` → `FOUNDERS ANSWER IN PUBLIC` → `ASK US FIRST`
+**Cover:** founder mid-sentence, eyes to camera — `ASK US FIRST`
 
 **Caption** (Set C)
 
-> Rules you only understand after you fail — that's the industry default.
+> Most prop firms make traders feel trapped. Support is a ticket number, and nobody puts their name next to the rules.
 >
-> Ours are published before you pay. No time limit. The rules you start with are the rules you finish with.
+> We're the founders. We're in the Discord every day and we answer the hard questions in public — including the ones about our own pricing.
 >
-> Free trial's on the site. Founders are in Discord every day — come ask us.
+> Start the trial, then ask us whatever you want.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
@@ -282,28 +311,28 @@ Screen-record the product. Step chips `w3-step-strip.png`.
 
 # 7B · Trial — to camera
 
-**20s · 45 words · Ad — week 1 conversion · CTA: Sign Up**
+**20s · 48 words · Ad — week 1 conversion · CTA: Sign Up**
 
-The talking-head version of 7, for when there's no screen-record. Highest-intent ask in the pack because the ask is free: no card, no purchase page, and a compliant destination.
+The talking-head version of 7, for when there's no screen-record. Owns **what the trial actually is** — not the rules argument, not the plan comparison. The ask is free, so the destination stays compliant.
 
 **Hook:** "You shouldn't have to pay to see how a firm works."
 
 > You shouldn't have to pay to see how a firm works.
 >
-> Start the free trial. The same rules. The same platforms. Every rule is on the site before you pay.
+> The trial is the real thing. The same platforms, the same rules, the same dashboard. No card, nothing to cancel, and you can take another one whenever you want.
 >
-> Read the whole rulebook first. Then decide.
+> Trade it for an afternoon. Then pick an evaluation, or don't.
 
-**On-screen:** `FREE TRIAL` → `THE SAME RULES` → `NO CARD` → `THEN DECIDE`
-**Cover:** founder, open hand — `THEN DECIDE`
+**On-screen:** `THE TRIAL IS THE REAL THING` → `SAME PLATFORMS` → `NO CARD` → `THEN PICK ONE`
+**Cover:** founder, open hand — `TRY IT FIRST`
 
 **Caption** (Set B)
 
 > You shouldn't have to pay to find out how a firm works.
 >
-> Free trial — the same rules, the same platforms, no card. Read every rule, then decide.
+> The trial is the real thing — the same platforms, the same rules, the same dashboard. No card, nothing to cancel, and you can take another one whenever you want.
 >
-> No card. Nothing to cancel. Decide with the whole rulebook in front of you.
+> Trade it for an afternoon, then pick an evaluation: 1-Step, 2-Step Lite or 2-Step Pro.
 
 ---
 
@@ -431,22 +460,22 @@ Never pair with static-drawdown or fee-refund copy.
 
 **Hook:** "No thirty-day clock. You pass on your schedule."
 
-> One phase. One set of numbers — target, daily loss, max loss — all published before you pay. Pass it and you're through.
+> One phase. Three numbers to clear: profit target, daily loss, max loss. That's the whole evaluation.
 >
-> No time limit. You pass on your schedule, not a thirty-day clock.
+> No time limit, so you clear it on your schedule — not a thirty-day clock.
 >
-> Pass, and your fee comes back with your first reward.
+> Get through, take your first reward, and your fee comes back.
 >
-> Start with the free trial.
+> That's the 1-Step. Take it when you're ready.
 
-**On-screen:** `ONE PHASE` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `FEE BACK ON FIRST REWARD`
-**Cover:** founder, flat delivery — `ONE PHASE`
+**On-screen:** `ONE PHASE` → `THREE NUMBERS` → `NO THIRTY-DAY CLOCK` → `FEE COMES BACK`
+**Cover:** founder, flat delivery — `THREE NUMBERS`
 
 **Caption** (Set B)
 
-> One phase. Target, daily loss, max loss — all published before you pay.
+> One phase. Three numbers to clear: profit target, daily loss, max loss. That's the whole evaluation.
 >
-> No time limit, so you pass on your schedule, not a thirty-day clock. Fee back on your first reward.
+> No time limit, so you clear it on your schedule. Get through, take your first reward, and your fee comes back.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
@@ -510,32 +539,36 @@ Never pair with static-drawdown or fee-refund copy.
 
 
 
-# D · Risk reversal — warm closer
+# D · Which evaluation? — warm closer
 
-**20–25s · 58 words · Ad — warm audiences · CTA: Learn More**
+**25–30s · 75 words · Ad — warm audiences · CTA: Learn More**
 
-The closing argument, with no shouting and no countdown. Every line removes a reason not to start; none of them is a price, a projection, or a deadline. Runs against trial signups and 50% video viewers — the warm alternative to 8 when there's no real deadline to name.
+Replaces the old risk-reversal cut, which was a compilation of beats 7B and 12 already owned. This one answers the most common pre-sale question in the DMs and on the "Which one?" highlight, and it's the clip that asks for an evaluation rather than another free trial. Runs against trial signups and 50% video viewers.
 
-**Hook:** "Read the rules for free. Decide after."
+The compliance load is heavier than any other script in the pack because it names all four models in one breath. Instant must carry **trailing** and **no fee refund**; static belongs to **2-Step**; the refund belongs to the **evaluations**. If a take blurs any of those, it's unusable — reshoot it.
 
-> Everything you need to judge us is public before you pay: profit target, daily loss, max loss, minimum trading days, split, reward cycle.
+**Hook:** "Four ways in. Here's how to pick."
+
+> Four ways in, and every number is published.
 >
-> The trial is free, so reading the rules costs nothing. On the evaluations, your fee comes back with your first reward.
+> Instant has no profit target — you trade from day one. The max loss trails, and the fee isn't refunded. That's the trade.
 >
-> No time limit, so there's nothing to rush.
+> The evaluations are the other three. One phase on the 1-Step, two on Lite and Pro. On 2-Step the max loss is static: set on day one, never moves. And on all three, your fee comes back with your first reward.
 >
-> Trial first. Decide with the whole rulebook in front of you.
+> No time limit on any of them. Read the four cards and take the one that fits how you trade.
 
-**On-screen:** `PUBLISHED BEFORE THE FEE` → `TRIAL IS FREE` → `FEE BACK — EVALUATIONS` → `NO TIME LIMIT`
-**Cover:** founder, flat and unhurried — `READ THE RULES FREE`
+**On-screen:** `FOUR WAYS IN` → `INSTANT: TRAILS · NO REFUND` → `2-STEP: STATIC · FEE BACK` → `TAKE THE ONE THAT FITS`
+**Cover:** founder counting on fingers — `WHICH ONE?`
 
 **Caption** (Set A)
 
-> Everything you need to judge us is public before you pay: profit target, daily loss, max loss, minimum trading days, split, reward cycle.
+> Four ways in, and every number is published.
 >
-> The trial is free, so reading the rules costs nothing. On the evaluations, your fee comes back with your first reward. No time limit, so there's nothing to rush.
+> Instant has no profit target — you trade from day one. The max loss trails, and the fee isn't refunded. That's the trade.
 >
-> Trial first. Decide with the whole rulebook in front of you.
+> The evaluations are the other three. One phase on the 1-Step, two on Lite and Pro. On 2-Step the max loss is static — set on day one, never moves. On all three, your fee comes back with your first reward.
+>
+> No time limit on any of them. The four cards are side by side on the objectives page.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 

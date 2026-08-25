@@ -31,8 +31,8 @@ Three ads per week, one hook each. Don't add a new ad until something has 2,000 
 |---|---|---|
 | 1 | `W1_WHY`, `W1_TRIAL`, `W1_HERO` | Sign Up |
 | 2 | `W2_FLOOR`, `W2_RULES`, `W2_TWOSTEP` | Learn More |
-| 3 | `W3_INSTANT`, `W3_ONESTEP`, `W3_PROMO` | Learn More |
-| 4 | `W4_OFFER`, `W4_ONESTEP`, `W4_LASTCALL` (only if pricing ends) | Learn More |
+| 3 | `W3_INSTANT`, `W3_ONESTEP`, `W3_WHICH` | Learn More |
+| 4 | `W4_OFFER`, `W4_ONESTEP`, `W4_WHICH` — or `W4_LASTCALL` only if pricing ends | Learn More |
 
 | Ad name | Video / creative | Primary text |
 |---|---|---|
@@ -44,10 +44,13 @@ Three ads per week, one hook each. Don't add a new ad until something has 2,000 
 | `W2_TWOSTEP` | Script 13 | **P-TWOSTEP** |
 | `W3_INSTANT` | Script 11 | **P-INSTANT** |
 | `W3_ONESTEP` | Script 12 | **P-ONESTEP** |
-| `W3_PROMO` | Script C | **P-PROMO** |
+| `W3_WHICH` | Script D | **P-WHICH** |
 | `W4_OFFER` | Script 8 + `w4-offer-card.png` | **P-OFFER** |
 | `W4_ONESTEP` | Script 12 + `w4-pricing.png` | **P-ONESTEP** |
+| `W4_WHICH` | Script D + `w2-plans.png` | **P-WHICH** |
 | `W4_LASTCALL` | Script 10 + `w4-lastchance.png` | **P-LASTCALL** |
+
+`W3_PROMO` / script C is cut from the run order — it's a second 1-Step ad competing with `W3_ONESTEP`. `P-PROMO` stays below as a swap if `P-ONESTEP` gets rejected.
 
 Statics can run as standalone ads in the same ad sets — see [creatives/README.md](creatives/README.md) for which are paid-eligible.
 
@@ -71,24 +74,26 @@ Demo accounts with fictitious funds. All trading is in a simulated environment o
 ### P-TRIAL
 You shouldn't have to pay to find out how a firm works.
 
-The Verodus trial is free — the same rules, the same platforms, the same dashboard. Read every rule, then decide.
+The Verodus trial is the real thing — the same platforms, the same rules, the same dashboard. No card, nothing to cancel, and you can take another one whenever you want.
 
-Read the whole rulebook first. Then decide.
+Trade it for an afternoon, then pick an evaluation: 1-Step, 2-Step Lite or 2-Step Pro.
 
 Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
-**Headline:** Free trial. No card. · **Description:** Then decide
+**Headline:** The trial is the real thing · **Description:** No card
 
 ### P-HERO
-Rules you only understand after you fail — that's the industry default.
+Most prop firms make traders feel trapped. Support is a ticket number, and nobody puts their name next to the rules.
 
-Verodus publishes every objective before you pay. No time limit. Founders answer in Discord daily.
+We're the founders. We're in the Discord every day and we answer the hard questions in public — including the ones about our own pricing.
 
-Start with the free trial.
+Start the trial, then ask us whatever you want.
 
 Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
-**Headline:** Clear rules. Founder-run. · **Description:** Start free
+**Headline:** Ask the founders directly · **Description:** Start free
+
+Deliberately makes no rules claim — that's `P-WHY`'s job. Running both with the same argument puts two of our own ads in the same auction.
 
 ### P-FLOOR
 Most challenges aren't lost on the profit target. They're lost on the loss limit.
@@ -167,18 +172,18 @@ Demo accounts with fictitious funds. All trading is in a simulated environment o
 
 **Headline:** One code. No stacking. · **Description:** Use code VERO35
 
-### P-CLOSER — warm only, no deadline needed
-Everything we ask a trader to trust is published before the fee: target, daily loss, max loss, minimum days, split, reward cycle.
+### P-WHICH — warm only, no deadline needed
+Four ways in, and every number is published.
 
-The trial is free, so the rules cost nothing to read. On the evaluations, the fee comes back on your first reward. No time limit, so there's nothing to rush.
+Instant has no profit target — you trade from day one. The max loss trails and the fee isn't refunded. The evaluations are the other three: one phase on the 1-Step, two on Lite and Pro, static max loss on 2-Step, and your fee back with your first reward.
 
-1-Step $5,000 is $36 with VERO35. Trial first — decide with the whole rulebook in front of you.
+1-Step $5,000 is $36 with VERO35. No time limit on any of them.
 
 Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
-**Headline:** Read the rules free · **Description:** Fee back on evals
+**Headline:** Which one fits how you trade? · **Description:** Four cards, published
 
-Use this instead of P-LASTCALL whenever pricing isn't actually changing.
+Use this instead of P-LASTCALL whenever pricing isn't actually changing. It asks for an evaluation, not another free trial — pair it with warm audiences only.
 
 ### P-LASTCALL — warm only, conditional
 Intro pricing ends this week. Code VERO35: Instant $5,000 at $72, 1-Step $5,000 at $36.
