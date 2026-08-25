@@ -73,7 +73,7 @@ You shouldn't have to pay to find out how a firm works.
 
 The Verodus trial is free — same rules engine, same platforms, same dashboard. Read every objective, then decide.
 
-If the rules don't suit you, don't buy. We mean that.
+Read the whole rulebook first. Then decide.
 
 Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
@@ -172,7 +172,7 @@ Everything we ask a trader to trust is published before the fee: target, daily l
 
 The trial is free, so the rules cost nothing to read. On the evaluations, the fee comes back on your first reward. No time limit, so there's nothing to rush.
 
-1-Step $5,000 is $36 with VERO35. Trial first — if the rules don't fit, don't buy.
+1-Step $5,000 is $36 with VERO35. Trial first — decide with the whole rulebook in front of you.
 
 Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 

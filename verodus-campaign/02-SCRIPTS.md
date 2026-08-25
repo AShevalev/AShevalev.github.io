@@ -83,24 +83,34 @@ Open on the face. No logo sting first.
 
 # 2 · Why we built this
 
-**20–25s · 50 words · Ad — top pick · CTA: Sign Up**
+**25–30s · 70 words · Ad — top pick · CTA: Sign Up**
 
 One candid take. Keep it raw — if this gets polished into a manifesto, it stops being the best cold ad. Makes no drawdown claim, so it needs no plan label — the most portable clip in the set.
 
-**Hook:** "Some firms sell one rulebook and enforce another."
+The strongest beat is the accusation in the middle. Land "it's the business model" flat, without heat: the line does the work, the delivery shouldn't.
 
-> I got tired of firms that sell one rulebook and enforce another. You pay. You pass. Then a clause appears that wasn't there on signup day.
+**Hook:** "Most firms sell one rulebook and enforce another."
+
+> Most firms sell one rulebook and enforce another. The published objectives get a trader to pay. The clause nobody published decides whether they get paid.
 >
-> So every Verodus objective is public before you put money down. The rules you start under are the rules you keep. No retroactive edits.
+> That's not a loophole. It's the business model.
+>
+> Every Verodus objective is public before the fee — target, daily loss, max loss, split, cycle. The set you start under is the set you finish under. No new clause the week a reward is due.
+>
+> Judge us on the rulebook.
 
-**On-screen:** `SOLD ONE RULEBOOK. ENFORCED ANOTHER.` → `PUBLIC BEFORE YOU PAY` → `NO RETROACTIVE EDITS`
-**Cover:** founder, hands visible, candid — `SOLD ONE RULEBOOK. ENFORCED ANOTHER.`
+**On-screen:** `ONE RULEBOOK SOLD. ANOTHER ENFORCED.` → `NOT A LOOPHOLE — THE MODEL` → `PUBLIC BEFORE THE FEE` → `JUDGE THE RULEBOOK`
+**Cover:** founder mid-accusation, hands visible — `NOT A LOOPHOLE. THE MODEL.`
 
 **Caption** (Set C)
 
-> Some firms sell one rulebook and enforce another. You pay, you pass, and a clause appears that wasn't there on signup day.
+> Most firms sell one rulebook and enforce another. The published objectives get a trader to pay. The clause nobody published decides whether they get paid.
 >
-> Every Verodus objective is public before you put money down. No retroactive edits.
+> That's not a loophole. It's the business model.
+>
+> Every Verodus objective is public before the fee — target, daily loss, max loss, split, cycle. The set you start under is the set you finish under. No new clause the week a reward is due.
+>
+> Judge us on the rulebook. It's on the site.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
@@ -281,7 +291,7 @@ The talking-head version of 7, for when there's no screen-record. Highest-intent
 >
 > Start the free trial. Same rules engine. Same platforms. Every objective is on the site before you pay.
 >
-> If the rules don't suit you, don't buy. We mean that.
+> Read the whole rulebook first. Then decide.
 
 **On-screen:** `FREE TRIAL` → `SAME RULES ENGINE` → `NO CARD` → `THEN DECIDE`
 **Cover:** founder, open hand — `THEN DECIDE`
@@ -292,7 +302,7 @@ The talking-head version of 7, for when there's no screen-record. Highest-intent
 >
 > Free trial — same rules engine, same platforms, no card. Read every objective, then decide.
 >
-> If the rules don't suit you, don't buy. We mean that.
+> No card. Nothing to cancel. Decide with the whole rulebook in front of you.
 
 ---
 
@@ -312,7 +322,7 @@ Overlay carries the price. VO does not.
 >
 > What you're buying: objectives published up front, no time limit, static max loss on 2-Step, and fee back on the first reward — evaluations only.
 >
-> Start with the free trial. If the rules fit, use the code. If they don't, don't buy.
+> Start with the free trial. If the rules fit, the code's in the bio.
 
 **On-screen:** `INTRO CODE IN BIO` → `ONE CODE. NO STACKING.` → `w4-offer-card.png` → `START FREE`
 **Cover:** `w4-offer-card.png` — `ONE CODE. NO STACKING.`
@@ -323,7 +333,7 @@ Overlay carries the price. VO does not.
 >
 > What you're buying: objectives published up front, no time limit, static max loss on 2-Step, fee back on the first reward on the evaluations.
 >
-> Start free. If the rules fit, the code's in bio. If they don't, don't buy.
+> Start free. If the rules fit, the code's in bio.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
@@ -513,7 +523,7 @@ The closing argument, with no shouting and no countdown. Every line removes a re
 >
 > No time limit, so there's nothing to rush.
 >
-> Trial first. If the rules don't fit, don't buy.
+> Trial first. Decide with the whole rulebook in front of you.
 
 **On-screen:** `PUBLISHED BEFORE THE FEE` → `TRIAL IS FREE` → `FEE BACK — EVALUATIONS` → `NO TIME LIMIT`
 **Cover:** founder, flat and unhurried — `READ THE RULES FREE`
@@ -524,7 +534,7 @@ The closing argument, with no shouting and no countdown. Every line removes a re
 >
 > The trial is free, so the rules cost nothing to read. On the evaluations, the fee comes back on the first reward. No time limit, so there's nothing to rush.
 >
-> Trial first. If the rules don't fit, don't buy.
+> Trial first. Decide with the whole rulebook in front of you.
 >
 > Demo accounts with fictitious funds. All trading is in a simulated environment only. 18+.
 
@@ -543,6 +553,7 @@ The closing argument, with no shouting and no countdown. Every line removes a re
 - "Nothing sits behind a paywall" / "None of the rules sit behind a paywall" — the rules are free; the evaluation is not. Say: every objective is on the site before you pay.
 - "Fairest in the industry", blanket news/weekend permissions, no minimum days, stacked fake sale
 - "Up to 90%" as the standard split
+- "Don't buy" / "if the rules don't fit, don't buy" — telling a prospect not to purchase is a dead end, not candour. Say: read the whole rulebook first, then decide.
 
 ---
 
