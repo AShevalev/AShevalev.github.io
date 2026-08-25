@@ -9,7 +9,7 @@ Effective dates and signature blocks match the originals. There is no revised da
 - Dispute resolution cites VanIAC, not BCICAC.
 - Independent-contractor status, notices, assignment, survival, waiver, and no third-party beneficiaries.
 - Confidentiality includes ordinary advisor/processor exceptions and reasonable security measures.
-- Layout: Times 12pt, centered parties, left-aligned body, original signature-block structure, “-- n of n --” footers.
+- Layout: Times 12pt, centered parties, left-aligned body, original signature-block structure. PDFs have “-- n of n --” footers. Word files keep the original signed layout; only body clauses are patched.
 
 ## Operational Services Agreement
 

@@ -28,6 +28,8 @@ def pdf_text(path: Path) -> str:
 
 
 def normalize(text: str) -> str:
+    text = text.replace("\u2018", "'").replace("\u2019", "'")
+    text = text.replace("\u201c", '"').replace("\u201d", '"')
     return re.sub(r"\s+", " ", text).strip()
 
 
@@ -135,9 +137,48 @@ def main() -> int:
     footer_ok(SLA)
 
     osa_docx = ROOT / "2026-04-28_VerodusOperationalServicesAgreement.docx"
-    sla_docx = ROOT / "2026-05-31_SoftwareLicenseAndDataLicensingAgreement.docx"
+    sla_docx = ROOT / "2026-05-31_SoftwareSublicenseAgreement.docx"
     if not osa_docx.exists() or not sla_docx.exists():
-        raise AssertionError("expected Word copies of both agreements")
+        raise AssertionError("expected Word copies of both original-named agreements")
+
+    from docx import Document as WordDocument
+
+    def word_text(path: Path) -> str:
+        doc = WordDocument(str(path))
+        return normalize(" ".join(p.text for p in doc.paragraphs))
+
+    def word_drawings(path: Path) -> int:
+        doc = WordDocument(str(path))
+        return sum(1 for p in doc.paragraphs if p._p.xpath('.//*[local-name()="drawing"]'))
+
+    osa_w = word_text(osa_docx)
+    sla_w = word_text(sla_docx)
+
+    # Word files keep original titles, dates, and signatures; body matches the PDFs.
+    assert_contains(osa_w, "OPERATIONAL SERVICES, DOMAIN USAGE AND EVALUATION RIGHTS AGREEMENT", "OSA docx")
+    assert_contains(sla_w, "SOFTWARE SUBLICENSE AND DATA LICENSING AGREEMENT", "SLA docx")
+    assert_contains(osa_w, "Effective Date: April 28, 2026", "OSA docx")
+    assert_contains(sla_w, "Date: May 31, 2026", "SLA docx")
+    assert_contains(osa_w, ROYALTY, "OSA docx")
+    assert_contains(osa_w, "Capital does not provide KYC services to LLC-FZ", "OSA docx")
+    assert_contains(osa_w, "LLC-FZ is the Domain-facing principal for user onboarding", "OSA docx")
+    assert_absent(osa_w, "KYC verification support for LLC-FZ", "OSA docx")
+    assert_absent(osa_w, "including KYC verification of users for LLC-FZ", "OSA docx")
+    assert_contains(sla_w, "GRANT OF LICENSE", "SLA docx")
+    assert_contains(sla_w, "LLC-FZ shall perform all KYC of Domain users itself", "SLA docx")
+    assert_absent(sla_w, "transfer pricing regulations", "SLA docx")
+    assert_absent(osa_w, "BCICAC", "OSA docx")
+    assert_absent(sla_w, "BCICAC", "SLA docx")
+    assert_contains(osa_w, "VanIAC", "OSA docx")
+    assert_contains(sla_w, "VanIAC", "SLA docx")
+    assert_absent(osa_w, "Revised:", "OSA docx")
+    assert_absent(sla_w, "Revised:", "SLA docx")
+    assert_absent(osa_w, "merchant agreements", "OSA docx")
+    assert_absent(sla_w, "prior agreements", "SLA docx")
+    if word_drawings(osa_docx) != 2:
+        raise AssertionError(f"OSA docx expected 2 signature drawings, got {word_drawings(osa_docx)}")
+    if word_drawings(sla_docx) != 2:
+        raise AssertionError(f"SLA docx expected 2 signature drawings, got {word_drawings(sla_docx)}")
 
     print("all agreement checks passed")
     print(f"OSA pages: {len(PdfReader(str(OSA)).pages)}")
