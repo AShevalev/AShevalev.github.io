@@ -125,7 +125,11 @@
       gap: 12px;
       margin: 0 0 3px;
     }
-    .edu-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .bottom {
+      display: block;
+    }
+    .bottom h2 { margin-top: 10px; }
+    .edu-name { font-size: 12.5px; font-weight: 700; color: var(--navy); }
     .edu-note { font-size: 12px; color: var(--ink); margin: 0 0 8px; padding-left: 0; }
     .skills {
       display: grid;
@@ -141,16 +145,27 @@
     }
     .skills dd { margin: 0; color: var(--ink); }
     .bottom {
-      display: grid;
-      grid-template-columns: 1.25fr 0.95fr;
-      gap: 18px;
-      align-items: start;
+      display: block;
     }
     .bottom h2 { margin-top: 10px; }
-    @page { size: Letter portrait; margin: 0.4in 0.5in 0.38in; }
+    @page {
+      size: Letter portrait;
+      margin: 0.45in 0.5in 0.42in;
+      @top-right {
+        content: "Alexander Vladimirovich  ·  Curriculum Vitae";
+        font-family: "Source Sans 3", sans-serif;
+        font-size: 9px;
+        color: #5c6774;
+        letter-spacing: 0.04em;
+      }
+    }
+    @page :first {
+      @top-right { content: none; }
+    }
     @media print {
       .page { padding: 0; max-width: none; }
       h1 { font-size: 28px; }
+      .job { break-inside: avoid; }
     }
   </style>
 </head>
@@ -168,7 +183,7 @@
     </header>
 
     <h2>Profile</h2>
-    <p class="profile">Finance professional and operator. BBA in Finance (Great Distinction), MBA in International Business, and CFA Program Level&nbsp;II. Five years as a trading professional at WWA Trading (Dubai forex day-trading education, liquidity and intraday execution) and a CIBC Wood Gundy internship. Now co-founder and COO of Verodus — operations, process design, and commercial execution, not software engineering.</p>
+    <p class="profile">Finance professional and operator. BBA in Finance (Great Distinction), MBA in International Business, and CFA Program Level&nbsp;II. Five years at WWA Trading as a trading professional who also taught bootcamps and ran live sessions; CIBC Wood Gundy internship; teaching assistant in research, decision making, and statistics. Now co-founder and COO of Verodus — operations, process design, and commercial execution, not software engineering.</p>
 
     <h2>Professional experience</h2>
 
@@ -193,8 +208,8 @@
       </div>
       <p class="org">WWA Trading <span>Dubai — forex day-trading education</span></p>
       <ul>
-        <li>WWA Trading is a Dubai e-learning firm (founded 2019–20) that teaches forex day trading: liquidity, why retail traders get induced, and execution in the London and New York sessions. Live pre-market analysis, bootcamps, 1:1 mentorship, and a member community aimed at prop-firm funding — not a broker, not a fund.</li>
-        <li>Spent five years there as a trading professional: market analysis, execution discipline, and performance review, inside that liquidity-and-intraday framework.</li>
+        <li>WWA Trading is a Dubai e-learning firm (founded 2019–20) that teaches forex day trading: liquidity, why retail traders get induced, and execution in the London and New York sessions. Offerings include live pre-market analysis, bootcamps, 1:1 mentorship, and a member community aimed at prop-firm funding — not a broker, not a fund.</li>
+        <li>Five years as a trading professional: market analysis, execution discipline, and performance review. Taught bootcamps and ran live sessions inside that liquidity-and-intraday framework.</li>
         <li>Applied a structured process — risk limits, liquidity awareness, setup criteria — and kept disciplined follow-through in fast-moving FX conditions.</li>
       </ul>
     </div>
@@ -207,8 +222,33 @@
       <p class="org">CIBC Wood Gundy <span>White Rock Branch, British Columbia</span></p>
       <ul>
         <li>Supported investment advisors with research, client-file preparation, and day-to-day branch operations in a regulated wealth-management environment.</li>
-        <li>Assisted with market commentary, account documentation, and administrative tasks.</li>
-        <li>Gained exposure to client-service standards, compliance, and product discussions. Summer internship concurrent with WWA Trading.</li>
+        <li>Assisted with market commentary, account documentation, and administrative tasks. Exposure to client-service standards, compliance, and product discussions.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="role">Teaching Assistant, Research and Decision Making</p>
+        <p class="dates">May 2020 – September 2020</p>
+      </div>
+      <p class="org">Langley, British Columbia</p>
+      <ul>
+        <li>Worked with faculty to design and deliver lessons; gave regular, individual feedback and alternative paths so students who were behind could retain the material.</li>
+        <li>Built and taught Excel financial simulations: VLOOKUP, INDEX/MATCH, pivot tables, macros, VBA, Solver, decision trees, regression, DDM, DCF, Black–Scholes, and sensitivity tests.</li>
+        <li>Monitored progress through assessments and collaborated on course materials that met the teaching objectives.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="role">Teaching Assistant, Statistics</p>
+        <p class="dates">January 2020 – April 2020</p>
+      </div>
+      <p class="org">Langley, British Columbia</p>
+      <ul>
+        <li>Worked with 26 students individually and in small groups to reinforce concepts, complete assignments, and use Excel. Proctored quizzes and examinations.</li>
+        <li>Assisted the professor’s statistics research project: reviewed data for trends and turned that into usable reports. Gave detailed assignment feedback.</li>
+        <li>Helped students on Zoom and Google Slides and organised extra teaching sessions so everyone had access to additional support.</li>
       </ul>
     </div>
 
@@ -235,7 +275,7 @@
           <dt>Wealth</dt>
           <dd>Research support, client files, compliance-aware administration</dd>
           <dt>Tools</dt>
-          <dd>Excel, Word, PowerPoint, Teams</dd>
+          <dd>Excel (VLOOKUP, INDEX/MATCH, pivots, Solver, VBA), Word, PowerPoint, Teams</dd>
         </dl>
       </div>
     </div>
