@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Verodus valuation and option premium — 25 August 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1b242e;
+      --muted: #5a6570;
+      --line: #cbbfae;
+      --accent: #b24a24;
+      --paper: #fffdf8;
+      --ok: #2f4a6d;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: white;
+      color: var(--ink);
+      font-family: "Source Serif 4", Palatino, Georgia, serif;
+    }
+    .page { max-width: 780px; margin: 0 auto; padding: 36px 28px 48px; }
+    .confidential {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      margin: 0 0 10px;
+    }
+    .eyebrow {
+      font-family: "Source Sans 3", sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 0 0 6px;
+    }
+    h1 { font-size: 26px; line-height: 1.15; margin: 0 0 8px; }
+    h2 { font-size: 16px; margin: 18px 0 7px; break-after: avoid; }
+    h3 { font-size: 13px; margin: 12px 0 5px; font-family: "Source Sans 3", sans-serif; break-after: avoid; }
+    .meta {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--ink);
+    }
+    p { font-size: 13px; line-height: 1.45; margin: 0 0 9px; }
+    ul, ol { margin: 0 0 10px; padding-left: 0; list-style: none; font-size: 13px; line-height: 1.45; }
+    li { margin-bottom: 4px; padding-left: 0.95em; text-indent: -0.7em; }
+    li::before { content: "• "; }
+    .lead { font-size: 14.5px; }
+    .callout {
+      background: var(--paper);
+      border: 1px solid var(--ink);
+      padding: 12px 14px;
+      margin: 12px 0 16px;
+    }
+    .callout.rec { border-width: 2px; }
+    .callout strong { font-size: 15px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10.4px;
+      margin: 0 0 11px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 4px 6px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f4eee4; font-weight: 700; }
+    td.n, th.n { text-align: right; white-space: nowrap; }
+    tr.hi td { background: #f7f1e6; font-weight: 700; }
+    .note {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 11px;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+    footer {
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0 0 12px;
+    }
+    .grid2 .box {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      background: var(--paper);
+    }
+    .grid2 h3 { margin-top: 0; }
+    .grid2 p { font-size: 12px; margin-bottom: 0; }
+    @page { size: Letter portrait; margin: 0.52in 0.58in 0.55in; }
+    @media print {
+      body { font-size: 11px; }
+      .page { padding: 0; max-width: none; }
+      h1 { font-size: 21px; }
+      h2 { font-size: 13.5px; margin-top: 14px; }
+      p, ul, ol { font-size: 11.2px; }
+      table { font-size: 9.1px; }
+      .callout, table, .grid2 { break-inside: avoid; }
+      h2, h3 { break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <p class="confidential">Internal — do not send to Joe</p>
+    <p class="eyebrow">Standing value · control ask · call-option premium</p>
+    <h1>Valuation of the three companies, and what is a reasonable option premium</h1>
+    <p class="meta">25 August 2026. Internal working paper for Alexander, Kim, and Chun. Not an offer, not a fairness opinion, not for Joe. Companion to the acquisition-comps note. Perimeter: Verodus Capital Inc., Verodus L.L.C.-FZ, and 1591011 B.C. Ltd. Software in. Kim stays. Chun signs. Do not mention a holding company.</p>
+
+    <div class="callout rec">
+      <p style="margin:0 0 6px"><strong>Standing value today: $1.2 million. Ask $900,000 cash for 60% (implied $1.5 million).</strong> Take $750,000. Floor $660,000. Joe’s $600,000 example is below the floor unless a volume ratchet is written in.</p>
+      <p style="margin:0 0 6px"><strong>Option premium that is actually reasonable: $75,000</strong> for a 6–9 month call at a $900,000 strike, plus a separate <strong>$50,000</strong> earned TAMS integration fee. Day-one cash = <strong>$125,000</strong>. Premium credits dollar-for-dollar against $900,000 if he closes; you keep it if he walks.</p>
+      <p style="margin:0">The earlier $75,000–$150,000 band was the right <em>shape</em> (it is option money, not a setup fee). The <em>centre</em> of what a first counterparty will pay, and what Black-Scholes-shaped maths supports on a 25% out-of-the-money 9-month call, is <strong>$75,000</strong>, not $150,000 stacked on top of integration. $150,000 is the price of a <em>twelve-month freeze into his volume with no ratchet</em>, or of 80% implied volatility. Do not open there.</p>
+    </div>
+
+    <h2>1. What this paper is for</h2>
+    <p class="lead">Two different instruments are being mixed in the same conversation. One is what the three companies are worth <em>today</em>, standing alone, ads-normalised, Kim still in the chair. The other is what Joe should pay <em>now</em> for the right to buy 60% later at a frozen price. Confusing them is how you either donate a free call or look like you are extracting cash from a maybe-partner.</p>
+    <p>This note rebuilds the $1.2 million from the live book with sensitivities, shows why $900,000 for 60% is a control-and-freeze ask rather than a pro-rata sale, then prices the freeze as a call option three ways: scenario expected value, private-market custom (exclusivity / option money / break fees), and a Black-Scholes cross-check. The recommended premium is the overlap of those three, cut for the fact that a large part of the upside is <em>his</em> volume thesis.</p>
+    <p>Cash still lands at Verodus Capital Inc. Not a personal cheque to Alexander. Do not put any of these figures in the org-chart email.</p>
+
+    <h2>2. The live book, as a contribution waterfall</h2>
+    <p>Source: 25 August call plus Alexander’s later run-rate. Receipts ~$70,000 a month. Payouts ~$11,000. Opex, wages and ops, ex-ads, CAD $20,000 ≈ USD $14,500. Ads paused since the end of June. About 3,000 traders, ~60 payouts in four months, &lt;2% ongoing winners. 1-Step is the revenue engine. VERO35 card is live on verodus.com.</p>
+    <table>
+      <thead>
+        <tr><th>Line (USD)</th><th class="n">% of receipts</th><th class="n">Monthly</th><th class="n">Annualised</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Challenge receipts</td><td class="n">100%</td><td class="n">$70,000</td><td class="n">$840,000</td></tr>
+        <tr><td>Trader payouts</td><td class="n">16%</td><td class="n">$11,000</td><td class="n">$132,000</td></tr>
+        <tr><td>Gross after rewards</td><td class="n">84%</td><td class="n">$59,000</td><td class="n">$708,000</td></tr>
+        <tr><td>Ads if restored at 20% of receipts</td><td class="n">20%</td><td class="n">$14,000</td><td class="n">$168,000</td></tr>
+        <tr><td>Gross after media</td><td class="n">64%</td><td class="n">$45,000</td><td class="n">$540,000</td></tr>
+        <tr><td>Opex, wages, ops (ex-ads)</td><td class="n">21%</td><td class="n">$14,500</td><td class="n">$174,000</td></tr>
+        <tr class="hi"><td>Normalised leftover (ads on)</td><td class="n">44%</td><td class="n">$30,500</td><td class="n">$366,000</td></tr>
+        <tr><td>Haircut: intern ~$3k + David part-time</td><td class="n">—</td><td class="n">~$3,000–5,000</td><td class="n">~$36,000–60,000</td></tr>
+        <tr class="hi"><td>Working pretax for valuation</td><td class="n">~39%</td><td class="n">~$25,000–27,500</td><td class="n"><strong>$300,000–$350,000</strong></td></tr>
+      </tbody>
+    </table>
+    <p>Two facts make this book look better than a generic challenge shop, and both have to stay in the valuation or the multiple is fiction:</p>
+    <ol>
+      <li><strong>Payout ratio is hard.</strong> Sixteen percent of receipts going out as rewards, with ~2% of traders ever paid, is a strict book. Track360 / FPFX industry anchors are ~7% of buyers ever paid and 5–14% pass. The 17 August industry-calibrated Monte Carlo leftover only $9,661 a month on these prices. Live operations match the strict book, not the street book. That is earned cash. It is also the main mean-reversion risk: if Hong Kong tickets or affiliates push ever-paid toward 7%, leftover compresses fast.</li>
+      <li><strong>The $44,500 ads-off leftover is not a valuation base.</strong> It exists because media has been off since June. Capitalising $534,000 of ads-off pretax at 4× would print ~$2.1 million of equity that disappears the week ads restart. Always value on the $300,000–$350,000 normalised band.</li>
+    </ol>
+    <p class="note">Formula used below: leftover = receipts × (1 − payout% − ads%) − $14,500 opex. Intern/David haircut applied after, in the $300k–$350k working number, not in every sensitivity cell.</p>
+
+    <h2>3. What would actually move leftover — sensitivity</h2>
+    <p>A four-month book has one good month of $70,000 baked into the story. The valuation has to survive the cases that are more likely than a straight-line $70,000 forever. Each cell is monthly leftover, then 100% equity at 3.5× and 4.0× the annualised leftover (no intern haircut, so these print a little high — treat them as direction, not a new ask).</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Case</th>
+          <th class="n">Receipts</th>
+          <th class="n">Payout</th>
+          <th class="n">Ads</th>
+          <th class="n">Leftover / mo</th>
+          <th class="n">3.5× equity</th>
+          <th class="n">4.0× equity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hi"><td>Base (normalised)</td><td class="n">$70k</td><td class="n">16%</td><td class="n">20%</td><td class="n">$30,500</td><td class="n">$1.28m</td><td class="n">$1.46m</td></tr>
+        <tr><td>Ads off (do not capitalise)</td><td class="n">$70k</td><td class="n">16%</td><td class="n">0%</td><td class="n">$44,500</td><td class="n">$1.87m</td><td class="n">$2.14m</td></tr>
+        <tr><td>Ads need 30% to hold $70k</td><td class="n">$70k</td><td class="n">16%</td><td class="n">30%</td><td class="n">$23,500</td><td class="n">$0.99m</td><td class="n">$1.13m</td></tr>
+        <tr><td>Pass rates drift; payouts 25%</td><td class="n">$70k</td><td class="n">25%</td><td class="n">20%</td><td class="n">$24,000</td><td class="n">$1.01m</td><td class="n">$1.15m</td></tr>
+        <tr><td>Toward industry ever-paid; payouts 35%</td><td class="n">$70k</td><td class="n">35%</td><td class="n">20%</td><td class="n">$17,000</td><td class="n">$0.71m</td><td class="n">$0.82m</td></tr>
+        <tr><td>Book breaks; payouts 50%</td><td class="n">$70k</td><td class="n">50%</td><td class="n">20%</td><td class="n">$6,500</td><td class="n">$0.27m</td><td class="n">$0.31m</td></tr>
+        <tr><td>Receipts decay with ads still off, then 20% media</td><td class="n">$50k</td><td class="n">16%</td><td class="n">20%</td><td class="n">$17,500</td><td class="n">$0.74m</td><td class="n">$0.84m</td></tr>
+        <tr><td>Organic lift, strict book holds</td><td class="n">$100k</td><td class="n">16%</td><td class="n">20%</td><td class="n">$49,500</td><td class="n">$2.08m</td><td class="n">$2.38m</td></tr>
+        <tr><td>Joe doubles receipts, payouts stay 16%</td><td class="n">$140k</td><td class="n">16%</td><td class="n">20%</td><td class="n">$75,500</td><td class="n">$3.17m</td><td class="n">$3.62m</td></tr>
+        <tr><td>Joe doubles receipts, payouts 25%</td><td class="n">$140k</td><td class="n">25%</td><td class="n">20%</td><td class="n">$62,900</td><td class="n">$2.64m</td><td class="n">$3.02m</td></tr>
+      </tbody>
+    </table>
+    <p>Read the table in three lines:</p>
+    <ul>
+      <li><strong>Standing value is fragile downward.</strong> Receipts at $50k, or payouts at 35%, drop 100% equity into the $0.7–0.8 million box. That is why the floor is $1.1 million implied / $660,000 for 60%, not $1.2 million as a promise. Four months is not a cycle.</li>
+      <li><strong>Standing value is fat if the strict book holds.</strong> Base 3.5–4.0× of $366k annualised leftover is $1.28–1.46 million before the intern haircut. After the haircut you are back at <strong>$1.05–1.4 million</strong>, mid <strong>$1.2 million</strong>.</li>
+      <li><strong>The freeze is where the real money is.</strong> If TradeMap doubles receipts and the 16% payout ratio survives, 60% of a 4× book is ~$2.17 million. He would still pay $900,000. That $1.27 million gap is the option’s payoff in the good case. It is also why a free lock is a gift, and why you do not put Joe’s volume into the $1.2 million standing number — that would sell him his own upside twice.</li>
+    </ul>
+
+    <h2>4. Three ways to $1.2 million, plus a four-year cheque</h2>
+    <h3>A. Earnings (primary)</h3>
+    <p>Owner-operated businesses under ~$5 million revenue trade on seller’s discretionary earnings, not on “fintech EBITDA.” BizBuySell’s 2024 insight report: average SDE multiple ~2.57× across all industries; typical band 2–4×. Sub-12-month history knocks a turn or more off. Verodus is a cash-generative evaluation shop with one IT person, three affiliates, and four months of operations. It is not a restaurant (1.7–3×) and not a contractual SaaS book.</p>
+    <table>
+      <thead>
+        <tr><th>Multiple on $300k–$350k working pretax</th><th class="n">100% equity</th><th>When it is fair</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2.5× distressed / owner-absent / ads-off decay</td><td class="n">$750k–$875k</td><td>Receipts fall, or 1591011 is out.</td></tr>
+        <tr class="hi"><td>3.5–4.0× base</td><td class="n">$1.05m–$1.40m</td><td>Profitable, own stack, KYC in Dubai, Canadian processor, Kim stays. Mid <strong>$1.2m</strong>.</td></tr>
+        <tr><td>5.0×+ scale prop</td><td class="n">$1.50m–$1.75m+</td><td>Not earned. Needs years, a second engineer, pass-rate that survives affiliates.</td></tr>
+        <tr><td>8–10× listing colour</td><td class="n">$2.4m–$3.5m</td><td>What people say after CSE / NASDAQ stories. Not what they pay for a $70k/month shop.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>B. Revenue</h3>
+    <p>$840,000 run-rate × 1.3–1.5× for a young, profitable, cheap-on-evals shop = <strong>$1.09–$1.26 million</strong>. Joe’s $1.0 million example is 1.19× — a round-down that ignores the 2% ever-paid ratio. The $1.5 million implied ask is 1.79× revenue: full for four months of history, cheap for a day-one majority freeze.</p>
+
+    <h3>C. Floor (cash-in and replacement)</h3>
+    <p>About $100,000 has been injected. The Java stack is owned. Domain, KYC, and Canadian merchant accounts are live. Replacement cost of a working book plus processor plus Dubai KYC is not zero and is not $3 million. <strong>$1.1 million</strong> is the lowest going-concern number. Below that you are in asset-sale territory unless a ratchet is written.</p>
+
+    <h3>D. Four-year discounted cheque (cross-check, not a DCF model)</h3>
+    <p>Take $330,000 working pretax as a cash earnings proxy. Discount at 25% (illiquidity + prop-firm mortality + key-person). Four years of earnings, then a 3.0–3.5× exit on the year-four run-rate. This is not a banker’s model. It is a sanity check that $1.2 million is not an accident of one multiple.</p>
+    <table>
+      <thead>
+        <tr><th>Path (Joe’s volume <em>not</em> included)</th><th class="n">PV of 4 years</th><th class="n">PV of exit</th><th class="n">Total</th></tr>
+      </thead>
+      <tbody>
+        <tr class="hi"><td>No growth, $330k each year, exit 3.0×</td><td class="n">$779k</td><td class="n">$405k</td><td class="n">$1.18m</td></tr>
+        <tr><td>No growth, exit 3.5×</td><td class="n">$779k</td><td class="n">$473k</td><td class="n">$1.25m</td></tr>
+        <tr><td>Organic +10%/year, exit 3.5× on year-4 $439k</td><td class="n">$880k</td><td class="n">$629k</td><td class="n">$1.51m</td></tr>
+      </tbody>
+    </table>
+    <p>No-growth lands on <strong>$1.2 million</strong>. Modest organic growth with no help from TradeMap lands on <strong>~$1.5 million</strong> — which is exactly the implied ask. So $1.5 million is “we keep the organic upside we would have had anyway, and we charge a control premium for handing you the keys before that upside shows up.” It is not “we capitalised your Hong Kong pipeline.”</p>
+
+    <h2>5. Why 60% is $900,000, not $720,000</h2>
+    <p>Sixty percent of $1.2 million is $720,000. That would be a fair split if Joe were buying a silent stake after a year of joint volume. He is not. He asked to lock the maths on day one so Verodus cannot re-trade after the book matures, and his default is majority (51%, “normally 60%”). That is a control purchase plus a call on future equity value.</p>
+    <table>
+      <thead>
+        <tr><th></th><th class="n">100%</th><th class="n">Cash for 60%</th><th>How to read it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Joe’s example</td><td class="n">$1.00m</td><td class="n">$600k</td><td>Round-down. Locks before his volume. Reject as a stand-alone close.</td></tr>
+        <tr><td>Floor</td><td class="n">$1.10m</td><td class="n">$660k</td><td>Lowest going-concern. Below this only with a written ratchet.</td></tr>
+        <tr><td>Pro-rata of standing value</td><td class="n">$1.20m</td><td class="n">$720k</td><td>Fair for a non-control, post-volume sale. Not for day-one majority.</td></tr>
+        <tr><td>Take</td><td class="n">$1.25m</td><td class="n">$750k</td><td>Settlement if he pushes. Still a freeze discount.</td></tr>
+        <tr class="hi"><td>Ask</td><td class="n">$1.50m</td><td class="n">$900k</td><td>Control + freeze. 25% over standing $1.2m; 1.8× revenue.</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><strong>Control premium.</strong> Majority stakes in private companies routinely price 20–40% above pro-rata. Twenty-five percent on $1.2 million is $1.5 million implied. Sixty percent of that is $900,000.</li>
+      <li><strong>Perimeter.</strong> The $900,000 is 60% of Capital <em>and</em> LLC-FZ <em>and</em> 1591011, same close. Without 1591011, Dubai’s licence is revocable and non-transferable. Without Kim contracted to stay, the Java stack has no IT.</li>
+      <li><strong>Cash, not Hub.</strong> Consideration is dollars. Not Hub equity, not education IP, not “we inject the network.” If he will only do $600,000 cash, the gap is a ratchet on <em>his</em> volume, not a gift.</li>
+    </ul>
+    <p>The $900,000 strike is already 25% above today’s pro-rata 60%. That matters for the option: at today’s $1.2 million, a call to buy 60% for $900,000 is <strong>out of the money</strong>. He only exercises if the book is worth more than $1.5 million when the window opens. That is the right shape. A strike of $600,000 would be in-the-money on day one, which is why his example is not a freeze, it is a discount.</p>
+
+    <h2>6. The instrument: a call, not a delayed sale</h2>
+    <p>Joe’s own sequence on the call was integrate → trial → 6–12 months of volume → then majority. A day-one number contradicts that sequence. He wants the sequence for risk and the lock for price. That is a European-style call on 60% of the perimeter:</p>
+    <ul>
+      <li><strong>Strike:</strong> $900,000 cash (ask). Not Hub. Not IP.</li>
+      <li><strong>Underlying:</strong> 60% of the three companies, Kim contracted to stay, Chun signing 1591011.</li>
+      <li><strong>Exercise:</strong> only if named gates are met, in a short window (for example 90 days after a successful trial, or a 6–9 month long-stop from signing).</li>
+      <li><strong>If trial fails:</strong> option lapses. Nobody pays. Nobody is forced to sell.</li>
+    </ul>
+    <p>Do not sign a binding SPA that closes “after the trial.” He will demand a MAC / walk right, and you will have given him the price with none of the volume. A refundable deposit toward $900,000 looks like cash and is not: he claws it back. A no-shop with no cash is a free option plus a lock-up of other buyers.</p>
+    <p>Give a <strong>ceiling</strong>, not a floor. “If you elect to buy 60% in the window, the price is $900,000 cash.” You do not promise to sell if he never elects. You do not let him elect after the window. If he wants the freeze to run into the 6–12 month volume phase with no expiry, either the strike ratchets (for example +$X per $Y of run-rate above $70,000 a month) or the premium steps up. A freeze with no expiry is how you donate the upside he described.</p>
+
+    <h2>7. What the freeze is worth — scenario expected value</h2>
+    <p>Payoff of the call ≈ max(0, 60% × future equity − $900,000). Future equity here is 4× annualised leftover, same method as standing value, so the comparison is clean. These are working cases, not a forecast. Probability column is an honest Verodus-side prior after one 56-minute call with no term sheet and no TAMS inspection. It is not Joe’s prior; he will put more weight on the right-hand columns.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Leftover / yr</th>
+          <th class="n">4× equity</th>
+          <th class="n">60%</th>
+          <th class="n">Payoff vs $900k</th>
+          <th class="n">P (ours)</th>
+          <th class="n">P × payoff</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Trial fails / he walks</td><td>n/a</td><td class="n">—</td><td class="n">—</td><td class="n">$0</td><td class="n">55%</td><td class="n">$0</td></tr>
+        <tr><td>Trial ok, leftover flat ~$330k</td><td>$330k</td><td class="n">$1.32m</td><td class="n">$792k</td><td class="n">$0 (OTM)</td><td class="n">15%</td><td class="n">$0</td></tr>
+        <tr><td>Modest lift +50%</td><td>$495k</td><td class="n">$1.98m</td><td class="n">$1.19m</td><td class="n">$288k</td><td class="n">15%</td><td class="n">$43k</td></tr>
+        <tr><td>Receipts double, 16% payouts</td><td>$906k</td><td class="n">$3.62m</td><td class="n">$2.17m</td><td class="n">$1.27m</td><td class="n">10%</td><td class="n">$127k</td></tr>
+        <tr><td>Home run (3× leftover)</td><td>$990k</td><td class="n">$3.96m</td><td class="n">$2.38m</td><td class="n">$1.48m</td><td class="n">5%</td><td class="n">$74k</td></tr>
+        <tr class="hi"><td>Expected payoff of a free freeze</td><td></td><td></td><td></td><td></td><td></td><td class="n">~$244k</td></tr>
+      </tbody>
+    </table>
+    <p>A more pessimistic book (70% walk, 10% flat, 10% modest, 7% double, 3% home run) still prints about <strong>$160,000</strong> of expected payoff. A Joe-optimistic book (30% walk, 20% modest, 30% double, 20% home run) prints about <strong>$700,000</strong>. The point is not the decimal. The point is: <strong>a free lock is worth six figures in expected value even on a sceptical prior</strong>, and several hundred thousand on his prior. Charging $75,000 for that is not aggressive. Charging $0 is.</p>
+    <p>Joe’s counter will be: the right-hand columns are <em>his</em> volume, so the expected value is a tax on his work. That argument is half right. It is why you do not charge the full $244,000. It is not why you charge nothing. Three pieces of the freeze are not his pipeline:</p>
+    <ol>
+      <li><strong>Exclusivity.</strong> Other buyers are frozen out for the tenor. That has a market price even if his volume is zero.</li>
+      <li><strong>Organic upside.</strong> The +10%/year path in section 4 already gets the book to $1.5 million without TradeMap. A $900,000 strike caps that too.</li>
+      <li><strong>Information and key-person time.</strong> He sees how the book is wired. Kim is the only IT person. Integration is a separate earned fee; the option still leaks operational detail.</li>
+    </ol>
+    <p>A clean split: charge market custom for exclusivity and organic freeze (~5–10% of strike), not 100% of the expected value of his pipeline. That lands at <strong>$45,000–$90,000</strong> before tenor adjustments. $75,000 sits in the middle.</p>
+
+    <h2>8. What the market actually charges for this shape of right</h2>
+    <p>There is no exchange price for a call on 60% of a four-month challenge shop. There is a lot of custom around the same economic object: money paid now for the right to buy later, or for the right to tie the seller up.</p>
+    <table>
+      <thead>
+        <tr><th>Market custom</th><th>Typical money</th><th>On a $900k strike / $1.5m implied</th><th>Use for Verodus</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Small-business purchase option / option money in an LOI with long diligence</td><td>5–10% of strike; sometimes 5–10% of purchase price</td><td>$45k–$90k</td><td><strong>Primary analogue.</strong> This is what “you may buy later at this price” costs when the asset is a private operating company.</td></tr>
+        <tr><td>Real-estate option</td><td>1–3% for 30–90 days; 5–10% for 6–12 months</td><td>$45k–$90k at 6–12 months</td><td>Tenor matters. A 90-day freeze is cheap; a 12-month freeze is not.</td></tr>
+        <tr><td>PE / M&amp;A no-shop, unpaid</td><td>$0 if 30–60 days</td><td>$0</td><td>Only if the freeze is short <em>and</em> there is no price lock. He asked for both. Unpaid no-shop is the wrong analogue.</td></tr>
+        <tr><td>Public-company break fee</td><td>2–4% of equity value</td><td>$30k–$60k on $1.5m</td><td>Floor for walking away, not a 9-month call. Too low if he can sit on the price through a volume ramp.</td></tr>
+        <tr><td>Private M&amp;A exclusivity fee (paid no-shop, 90+ days)</td><td>Often $25k–$100k on deals this size; 1–5% of equity</td><td>$15k–$75k</td><td>Good analogue for the exclusivity slice alone. Add option money on top if the strike is frozen.</td></tr>
+        <tr><td>Warrant / listed ATM option, years of tenor</td><td>20–40% of spot</td><td>$144k–$288k on $720k spot</td><td><strong>Do not apply.</strong> Listed vol, years of life, no control mechanics.</td></tr>
+      </tbody>
+    </table>
+    <p>Percent of strike, so the arithmetic is on the table:</p>
+    <table>
+      <thead>
+        <tr><th>% of $900,000 strike</th><th class="n">Premium</th><th>Read</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>3%</td><td class="n">$27,000</td><td>90-day exclusivity only. Not enough for a price freeze.</td></tr>
+        <tr><td>5%</td><td class="n">$45,000</td><td>Low end of private-company option money. Acceptable for a short window.</td></tr>
+        <tr class="hi"><td>8–10%</td><td class="n">$72,000–$90,000</td><td>Centre. 6–9 month call, credits to close. This is the reasonable ask.</td></tr>
+        <tr><td>12–15%</td><td class="n">$108,000–$135,000</td><td>12-month freeze into volume, or high-vol case. Stretch, not the open.</td></tr>
+        <tr><td>17%</td><td class="n">$150,000</td><td>Earlier top of the band. Defensible only with a long freeze and no ratchet. Heavy for a first term sheet.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>9. Black-Scholes as a cross-check, not a price</h2>
+    <p>Treat 60% of standing value as the spot (<strong>S = $720,000</strong>), strike <strong>K = $900,000</strong> (25% out of the money), no dividend, 5% continuous risk-free. Private-company volatility is not observed; 40–60% is a normal small-business band, 80% is a “this book can double or die” band — which, for a four-month prop firm, is not crazy. Figures below are European calls. They ignore control, gates, and the fact that a large part of vol is Joe’s own effort. Use them as a map of tenor versus money, not as a term-sheet formula.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Tenor</th>
+          <th class="n">40% vol</th><th class="n">50% vol</th><th class="n">60% vol</th><th class="n">80% vol</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>90 days</td><td class="n">~$12k</td><td class="n">~$22k</td><td class="n">~$34k</td><td class="n">~$60k</td></tr>
+        <tr class="hi"><td>9 months</td><td class="n">~$51k</td><td class="n">~$75k</td><td class="n">~$99k</td><td class="n">~$149k</td></tr>
+        <tr><td>12 months</td><td class="n">~$68k</td><td class="n">~$97k</td><td class="n">~$125k</td><td class="n">~$180k</td></tr>
+      </tbody>
+    </table>
+    <p>Three readings:</p>
+    <ul>
+      <li><strong>$75,000 is the 50% vol, 9-month cell.</strong> That is the honest centre: a young private book, freeze through integration and trial plus a short exercise window, not a year of his volume at a frozen price.</li>
+      <li><strong>$150,000 is the 80% vol, 9-month cell, or ~60–80% vol at 12 months.</strong> That is the earlier top of the band. It is what you charge if the freeze runs into the volume phase with no ratchet. It is not what you open with after one call.</li>
+      <li><strong>A 90-day freeze is a $20,000–$35,000 option</strong> at normal vol. If he will only lock a short window, do not still ask $75,000; drop the premium and drop the tenor together.</li>
+    </ul>
+    <p>Because a slice of the volatility is his distribution, do not take the 80% column and add a $50,000 integration fee on top. That is how $200,000 of day-one cash appears, and how a serious counterparty leaves. Charge integration as <em>work</em>. Charge the option at the 40–60% vol column for the tenor you actually grant. Keep the 80% column as the price of a long, unracheted freeze.</p>
+
+    <h2>10. Integration fee is not option premium</h2>
+    <p>Kim said 2–3 weeks if the TAMS API matches; Joe planned 1–1.5 months. Kim is the only IT person, so that is the whole production book. Replacement cost for a senior Java/API engineer at about $200/hour × 160–200 hours is $32,000–$40,000 before sole-source, staging, and not breaking live payouts. <strong>Ask $50,000 USD</strong> (floor $35,000). Half on kickoff, half when Kim writes that the TAMS API is accepted. Overrun if <em>their</em> API does not match: $3,000/week after week 5, cap another $15,000. Trial stays free <em>for his B2B partners</em>, not free work by Verodus.</p>
+    <p>$15,000–$25,000 is cost recovery and tells him Verodus will carry the partnership. $80,000+ as integration-only looks like a toll. White-label SaaS “setup” fees of a few thousand dollars are irrelevant: those are plugging into a vendor’s product, not wiring a live custom backend to TAMS.</p>
+    <p>The integration fee is earned whether or not he later buys 60%. It does <strong>not</strong> credit against the $900,000 unless you choose to as a concession. The option premium <strong>does</strong> credit, and you keep it if he walks. Mixing the two into one number is fine commercially (one wire is easier). Mixing them conceptually is how you underprice the freeze.</p>
+
+    <h2>11. What is reasonable — packages, not a single number</h2>
+    <div class="callout rec">
+      <p style="margin:0 0 6px"><strong>Preferred: $50,000 integration + $75,000 option premium = $125,000 cash before the trial.</strong> Freeze 6–9 months from signing, or 90 days after written acceptance of the trial, whichever first. Premium credits to the $900,000. Integration does not. If he closes, he pays $825,000 more. If he walks, you have $125,000 for the work and the lock-up.</p>
+      <p style="margin:0">If he will only send one wire: <strong>$100,000 non-refundable</strong>, covers integration and the option, 6-month freeze. Credit the full $100,000 at close as a concession (net $800,000 more) so he is not paying twice for the same cheque. This is slightly cheaper for you than the two-cheque package and much easier for him to say yes to.</p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Package</th>
+          <th class="n">Integration</th>
+          <th class="n">Premium</th>
+          <th class="n">Day-one cash</th>
+          <th>Freeze</th>
+          <th>Verdict</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hi"><td>A. Preferred two-cheque</td><td class="n">$50k</td><td class="n">$75k</td><td class="n">$125k</td><td>6–9 months, or 90 days post-trial</td><td><strong>Ask this.</strong> 8.3% of strike as premium; 14% if you count both cheques.</td></tr>
+        <tr><td>B. One cheque</td><td class="n">in the $100k</td><td class="n">$100k</td><td class="n">$100k</td><td>6 months</td><td>Best chance he pays. Credit all $100k at close.</td></tr>
+        <tr><td>C. Short freeze</td><td class="n">$50k</td><td class="n">$40k</td><td class="n">$90k</td><td>90 days from signing, then price reopens</td><td>Fair if he will not lock into volume. Matches 50–60% vol, 90-day BS.</td></tr>
+        <tr><td>D. Long freeze, no ratchet</td><td class="n">$50k</td><td class="n">$125k</td><td class="n">$175k</td><td>12 months into volume</td><td>Only if he refuses a ratchet. This is where $150k lives.</td></tr>
+        <tr><td>E. Floor</td><td class="n">$35k</td><td class="n">$35k</td><td class="n">$70k</td><td>90-day no-shop; $900k is a ceiling, not a 12-month lock</td><td>Last stop. Below this you are giving a free option.</td></tr>
+        <tr><td>F. Do not do</td><td class="n">$0</td><td class="n">$0</td><td class="n">$0</td><td>any locked $900k (or $600k)</td><td>Free call. Expected value six figures.</td></tr>
+        <tr><td>G. Do not open here</td><td class="n">$50k</td><td class="n">$150k</td><td class="n">$200k</td><td>6 months</td><td>22% of strike before any volume. Looks like a shakedown.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>What “reasonable” means on each side of the table</h3>
+    <div class="grid2">
+      <div class="box">
+        <h3>Reasonable for Verodus to insist</h3>
+        <p>Some cash on signing. A strike at or above $900,000 for a 6–9 month window, or a ratchet if the window runs into his volume. Kim’s time paid at $50,000, not absorbed. Premium kept if he walks. Cheque to Capital. Chun and Kim in the perimeter. No binding SPA with a walk right.</p>
+      </div>
+      <div class="box">
+        <h3>Reasonable for Joe to refuse</h3>
+        <p>$150,000 premium plus $50,000 integration after one call. A strike that still ratchets <em>up</em> after he has already paid 10% option money. Paying for a 12-month freeze and then also giving a volume top-up. Refundable “premium.” Personal indemnities. KYC moving off LLC-FZ.</p>
+      </div>
+    </div>
+    <p>If he counters at $50,000 all-in with a 12-month $600,000 lock, that is not a near-miss. It is a free-option structure with a discounted strike. Counter with package C (short freeze, $900,000 ceiling) or package B (one $100,000 cheque, 6 months, $900,000). Do not split the difference to $600,000.</p>
+
+    <h2>12. How the $900,000 and the premium fit in one close</h2>
+    <table>
+      <thead>
+        <tr><th>If he exercises at the ask</th><th class="n">Package A</th><th class="n">Package B</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Paid before trial</td><td class="n">$125,000</td><td class="n">$100,000</td></tr>
+        <tr><td>of which credits to strike</td><td class="n">$75,000</td><td class="n">$100,000</td></tr>
+        <tr><td>Cash at exercise</td><td class="n">$825,000</td><td class="n">$800,000</td></tr>
+        <tr class="hi"><td>Total cash for 60%</td><td class="n">$900,000 + $50k work</td><td class="n">$900,000 (work included)</td></tr>
+        <tr><td>If he never exercises, you keep</td><td class="n">$125,000</td><td class="n">$100,000</td></tr>
+      </tbody>
+    </table>
+    <p>On the take ($750,000 for 60%): keep the same premium. Do not cut option money because the strike came down; a cheaper strike is a <em>more</em> valuable call (it is closer to the money). If you settle at $750,000, a $75,000 premium is 10% of strike — still inside the reasonable band. If you are forced to the $660,000 floor, either drop tenor to 90 days or keep $75,000, because that call is in-the-money on day one ($660k vs $720k pro-rata) and you are selling a discount, not a freeze.</p>
+
+    <h2>13. Negotiation order, and what would change the numbers</h2>
+    <ol>
+      <li>Send the org chart and the two agreements. No numbers in that letter.</li>
+      <li>Kim and Chun agree the perimeter and that cash lands at Capital.</li>
+      <li>Term sheet, not an SPA: Package A or B, $900,000 strike, gates, 6–9 month long-stop, credit mechanics.</li>
+      <li>If he wants 12 months into volume: add a ratchet <em>or</em> step up to Package D. Do not give him both a long freeze and a cheap premium.</li>
+      <li>If he wants $600,000: missing $150,000–$300,000 is a ratchet on his volume, not a gift, and the option premium does not go to zero.</li>
+    </ol>
+    <p>Cut $1.2 million standing if management accounts show $70,000 is not holding, or if ever-paid drifts toward 7% without a price rise. Cut the $900,000 ask if 1591011 or Kim is out of the perimeter — then you are not selling this asset. Raise both if you get a year of $70,000+ with ads on and a second engineer; at that point 5× earnings starts to be a conversation and $900,000 for 60% becomes cheap for <em>him</em>.</p>
+    <p>Raise the premium if the freeze lengthens. Drop the premium if the freeze shortens. Do not drop the premium because he says the upside is his. Charge for exclusivity and organic cap; let the strike at $900,000 (already 25% above pro-rata) be his compensation for bringing volume.</p>
+
+    <div class="callout">
+      <p style="margin:0 0 6px"><strong>Carry into the huddle.</strong> Standing $1.2 million. Ask $900,000 cash for 60%. Take $750,000. Floor $660,000 with a ratchet. Option: $75,000 premium + $50,000 integration, or one $100,000 cheque. Freeze 6–9 months, then lapse. Credit premium to close; keep it if he walks. Not Hub. Not a binding SPA. Not a number in the first email.</p>
+      <p style="margin:0">The earlier $75,000–$150,000 premium range stays as a <em>band</em>. $75,000 is reasonable. $100,000 is reasonable if it is the only cheque. $150,000 is reasonable only for a 12-month unracheted freeze. $0 is not reasonable at any tenor once a price is locked.</p>
+    </div>
+
+    <footer>
+      Internal working paper, 25 August 2026. Not an offer, not a fairness opinion, not for Joe. Figures from the 25 August call, Alexander’s later run-rate, live verodus.com fees, BizBuySell 2024 SDE insight, and a Black-Scholes cross-check (S = $720,000, K = $900,000, r = 5%, q = 0). Scenario probabilities are a working prior, not a forecast. Acquisition comps: 09-acquisition-comps.html / verodus_prop_firm_acquisition_valuation.pdf. Headline numbers: 08-internal-valuation.md. Perimeter: Verodus Capital Inc., Verodus L.L.C.-FZ, 1591011 B.C. Ltd. Do not circulate to Joe.
+    </footer>
+  </div>
+</body>
+</html>
