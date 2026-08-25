@@ -19,9 +19,9 @@ verodus.com
 
 Link: `https://www.verodus.com/?utm_source=instagram&utm_medium=organic&utm_campaign=founders`
 
-Highlights: **Which one?** (the three product explainers) · Free trial · Rules · Discord · Rewards · FAQ
+Highlights: **Which one?** (script D, then the three product explainers) · Free trial · Rules · Discord · Rewards · FAQ
 
-The "Which one?" highlight answers the most common pre-sale DM without a human.
+The "Which one?" highlight answers the most common pre-sale DM without a human. Script D leads it from day one and doubles as the canned DM reply, even though it doesn't run as a paid ad until week 3 — the question arrives before the warm audience does.
 
 ---
 

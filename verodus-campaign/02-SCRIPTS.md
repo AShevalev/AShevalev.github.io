@@ -545,6 +545,8 @@ Never pair with static-drawdown or fee-refund copy.
 
 Replaces the old risk-reversal cut, which was a compilation of beats 7B and 12 already owned. This one answers the most common pre-sale question in the DMs and on the "Which one?" highlight, and it's the clip that asks for an evaluation rather than another free trial. Runs against trial signups and 50% video viewers.
 
+**Film it in the first session; hold it from paid until week 3.** Re-lighting a set later costs a whole sitting, so shoot it while the camera is up. But as a week 1–2 ad it fails twice over: there is no warm audience to run it against yet, and a third cell inside a $150 week starves the two ads that matter. It earns its place the moment the retargeting pool is big enough to ask for a purchase. From day one it still works as the lead clip in the "Which one?" highlight and as the canned DM reply — the question arrives long before the audience does.
+
 The compliance load is heavier than any other script in the pack because it names all four models in one breath. Instant must carry **trailing** and **no fee refund**; static belongs to **2-Step**; the refund belongs to the **evaluations**. If a take blurs any of those, it's unusable — reshoot it.
 
 **Hook:** "Four ways in. Here's how to pick."
