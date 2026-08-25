@@ -61,13 +61,14 @@ The 17 August 310-account model at these same prices leftover only **$9,661/mont
 
 ## How $1.2 million is built
 
-Three checks, same perimeter, Kim staying, software in:
+Four checks, same perimeter, Kim staying, software in:
 
 1. **Earnings.** $300k–$350k normalised pretax × **3.5–4.0×**. A four-month-old prop book does not get 8–10×. That is **$1.05 million – $1.4 million**. Mid: **$1.2 million**.
 2. **Revenue.** $840k run-rate × **1.3–1.5×** for a young, profitable, cheap-on-evals challenge shop. **$1.1 million – $1.26 million**.
-3. **Floor.** $100k cash in, profitable, own stack, domain, KYC, Canadian processor. Not a distressed sale. **$1.1 million** is the lowest number that still respects the book.
+3. **DCF.** Five-year unlevered FCFF, 25% WACC, 15% tax. Base (strict book): **$1.35 million**. Probability-weighted (ex-Joe): **$1.12 million**. Standing **$1.2 million** sits between them. Full paper: `11-dcf-valuation.html` / `verodus_dcf_valuation.pdf`. Re-run: `python3 11-dcf-model.py`.
+4. **Floor.** $100k cash in, profitable, own stack, domain, KYC, Canadian processor. Not a distressed sale. **$1.1 million** is the lowest number that still respects the book. 60% of the probability-weighted DCF is **$674,000**, which is why the $660,000 floor is not a round-down of Joe’s example.
 
-Joe’s $1 million is a round-down of (3). It ignores that the actual payout ratio is better than the industry model, and it is the number he wants **locked before** his own volume thesis.
+Joe’s $1 million is a round-down of the floor. It ignores that the actual payout ratio is better than the industry model, and it is the number he wants **locked before** his own volume thesis.
 
 **$1.5 million implied ($900k for 60%)** is the ask. It is 1.8× run-rate / ~4.5× normalised earnings. That is full for four months of history. It is not full for the option Joe is buying: he said he wants the maths frozen so Verodus cannot re-trade after volume. He pays for that freeze.
 
