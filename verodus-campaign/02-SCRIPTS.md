@@ -60,9 +60,7 @@ Open on the face. No logo sting first.
 >
 > So we built Verodus to be the opposite of clever. Every objective is published before you pay. No time limit. The rules you start under are the rules you keep.
 >
-> ```
 > Don't take my word for it. Start the free trial, read every rule, and come ask us in Discord. We're in there daily.
-> ```
 
 **On-screen:** `TRAPPED?` → `PUBLISHED BEFORE YOU PAY` → `NO TIME LIMIT` → `TRY IT FREE`
 **Cover:** founder mid-sentence, eyes to camera — `PUBLISHED BEFORE YOU PAY`
