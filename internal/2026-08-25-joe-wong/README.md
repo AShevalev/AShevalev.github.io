@@ -8,8 +8,9 @@
 | --- | --- |
 | Cover letter | `05-draft-email-to-joe.md` (paste into email) and `letter_to_joe_wong.pdf` |
 | Confirm structure (separate, after the chart) | `12-draft-email-confirm-structure.md` — no price in it |
-| Confirm the number (Verodus reading) | `13-draft-email-confirm-number.md` — cash lock now; later choice to buy or not; six or twelve months. Protective reading, not a restatement of the call |
-| Confirm the number (from the call) | `14-draft-email-confirm-number-from-call.md` — what he actually said: a majority number (normally 60%, not less than 51%), example $1m / $600k, lock the arithmetic now, majority only after trial and 6–12 months of volume, not cash only. No Verodus ask |
+| Confirm the number (send this) | `15-draft-email-clarify-and-probe.md` — restates the call, then asks cash vs mix, later completion vs later choice, and one-off vs monthly vs neither to hold the price. No Verodus ask |
+| Confirm the number (Verodus reading) | `13-draft-email-confirm-number.md` — do not send; asserts a cash option he did not state |
+| Confirm the number (from the call only) | `14-draft-email-confirm-number-from-call.md` — do not send alone; if he says yes, Hub is in and the freeze is free |
 | Organisation chart | `verodus_organisation_chart.pdf` (one-page Letter landscape; source `org-chart.html`) and `02-organization-structure.md` |
 | Agreement map (optional annex) | `03-entity-agreement-map.md` |
 | Attachments | `2026-05-31_SoftwareLicenseAgreement.pdf`; `2026-04-28_VerodusOperationalServicesAgreement.pdf` |
