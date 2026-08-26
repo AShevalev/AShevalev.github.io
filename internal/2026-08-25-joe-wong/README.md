@@ -8,7 +8,7 @@
 | --- | --- |
 | Cover letter | `05-draft-email-to-joe.md` (paste into email) and `letter_to_joe_wong.pdf` |
 | Confirm structure (separate, after the chart) | `12-draft-email-confirm-structure.md` — no price in it |
-| Confirm the number (send this) | `15-draft-email-clarify-and-probe.md` — restates the call, then asks cash vs mix, later completion vs later choice, and one-off vs monthly vs neither to hold the price. No Verodus ask |
+| Confirm the number (send this) | `15-draft-email-clarify-and-probe.md` — restates the call; cash and hold-open terms implied in the body; one explicit question: later completion vs later choice. No Verodus ask |
 | Confirm the number (Verodus reading) | `13-draft-email-confirm-number.md` — do not send; asserts a cash option he did not state |
 | Confirm the number (from the call only) | `14-draft-email-confirm-number-from-call.md` — do not send alone; if he says yes, Hub is in and the freeze is free |
 | Organisation chart | `verodus_organisation_chart.pdf` (one-page Letter landscape; source `org-chart.html`) and `02-organization-structure.md` |
