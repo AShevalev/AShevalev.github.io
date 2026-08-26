@@ -8,7 +8,7 @@ You asked us to come back with a number for a majority. You said that is normall
 
 I will bring an amount for a majority in that range. I need one point first: would a majority later complete at that price, or would you later choose whether to complete?
 
-I will go to the holders once I have that. If it is a choice, the amount and how it would be held come together.
+This note is only that number. I will go to the holders once I have your answer, then come back.
 
 Kind regards,  
 Alexander
