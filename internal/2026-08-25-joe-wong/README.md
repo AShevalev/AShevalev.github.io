@@ -8,6 +8,7 @@
 | --- | --- |
 | Cover letter | `05-draft-email-to-joe.md` (paste into email) and `letter_to_joe_wong.pdf` |
 | Confirm structure (separate, after the chart) | `12-draft-email-confirm-structure.md` — no price in it |
+| Confirm the number (separate) | `13-draft-email-confirm-number.md` — what figure he asked Verodus to produce; his $1m / $600k is labelled as an example; no Verodus ask |
 | Organisation chart | `verodus_organisation_chart.pdf` (one-page Letter landscape; source `org-chart.html`) and `02-organization-structure.md` |
 | Agreement map (optional annex) | `03-entity-agreement-map.md` |
 | Attachments | `2026-05-31_SoftwareLicenseAgreement.pdf`; `2026-04-28_VerodusOperationalServicesAgreement.pdf` |
