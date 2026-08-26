@@ -9,7 +9,7 @@
 | Cover letter | `05-draft-email-to-joe.md` (paste into email) and `letter_to_joe_wong.pdf` |
 | Confirm structure (separate, after the chart) | `12-draft-email-confirm-structure.md` — no price in it |
 | Confirm the number (send this) | `15-draft-email-clarify-and-probe.md` — sent. He answered the arithmetic, not the instrument |
-| Reply (send this) | `17-draft-reply-start-work.md` — do not advance a majority number; leave valuation until M&A; deposit + monthly to grow together, not a buyout. No dollar figures in this send |
+| Reply (do not send now) | `17-draft-reply-start-work.md` — overtaken by the second call |
 | Reply (instrument only) | `16-draft-reply-to-joe-valuation.md` — use only if you still want to force deferred purchase vs call before talking cash |
 | Confirm the number (Verodus reading) | `13-draft-email-confirm-number.md` — do not send; asserts a cash option he did not state |
 | Confirm the number (from the call only) | `14-draft-email-confirm-number-from-call.md` — do not send alone; if he says yes, Hub is in and the freeze is free |
@@ -17,12 +17,14 @@
 | Agreement map (optional annex) | `03-entity-agreement-map.md` |
 | Attachments | `2026-05-31_SoftwareLicenseAgreement.pdf`; `2026-04-28_VerodusOperationalServicesAgreement.pdf` |
 
-Do not send `01-call-summary.md`.
+Do not send `01-call-summary.md` or `18-second-call.md`.
 
 ## Keep internal
 
 | File | Why |
 | --- | --- |
+| `18-second-call.md` | Second call. Do not circulate. He wants $2m / $1.2m for 60%, 60/40 from signing, cash at month 12–18, no integration cheque |
+| `19-huddle-after-second-call.md` | What to refuse and what to come back with after Friday |
 | `06-internal-gaps-and-risks.md` | Internal |
 | `08-internal-valuation.md` | Internal. Do not send the number to Joe until Kim and Chun agree |
 | `09-acquisition-comps.html` / `verodus_prop_firm_acquisition_valuation.pdf` | Internal. Prop-firm M&A comps and why $1.2m / $900k holds |

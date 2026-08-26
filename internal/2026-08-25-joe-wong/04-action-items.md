@@ -31,7 +31,8 @@
 
 ## Do not treat as agreed
 
-- $1 million company value / $600k for 60% — Joe’s **example**, not an offer Alexander accepted.
+- $1 million company value / $600k for 60% — first-call **example**.
+- Second call: **$2 million / $1.2 million for 60%**, **60/40 from signing**, **lump $1.2 million at month 12–18**, **$15,000 integration**, **each side pays own labour**, Joe’s **standard contract**, a **shell taking the books** before close, **B2C shutdown**. None of these are agreed. See `18-second-call.md` and `19-huddle-after-second-call.md`.
 - CSE / NASDAQ timeline and $5m / $30m figures — Joe’s vision, not a Verodus plan.
 - Combined ownership of trial data — conflicts with current Dubai exclusive title to raw data.
 - Prop models, prices, and Hong Kong ticket sizes — to be designed later.
