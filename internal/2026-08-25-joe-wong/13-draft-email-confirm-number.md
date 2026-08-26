@@ -1,16 +1,16 @@
-Subject: Confirming the figure requested
+Subject: Confirmation of the 60% figure and the option period
 
 Joe,
 
-I am writing to confirm that I have understood the figure you asked us to provide, before I take the question to the other holders.
+Before I take this to the other holders, I should like to confirm two points.
 
-I understand you to have asked for a cash price for 60% of the three companies as they stand today. That price would reflect present value only. It would not be set after volume has come in, and it would not be set by reference to a later listing.
+The figure. I understand that you have asked us to propose a cash price for 60% of the three companies as they stand today. That price would be a present value. It would not be set after volume has arrived, and it would not be set by reference to a later listing. You used $1 million, and $600,000 for 60%, to illustrate the arithmetic. I have taken those amounts as an example, not as the price. The consideration would be cash. Other consideration would not stand in its place. The figure we lock would operate as both a floor and a ceiling.
 
-You illustrated this with a company value of $1 million, and $600,000 for 60%. I have taken those amounts as an example of the arithmetic, not as the price.
+The option. I understand that this would not be a purchase now, and that it would not be a sale that must complete later. You would have the option to acquire that 60% at the locked figure. If you do not exercise, neither side would be obliged to buy or to sell.
 
-If that is correct, we will return our own cash figure for the same 60%. The consideration would be cash. Other consideration would not replace it. That figure would then be written into the instrument for about a year as both a floor and a ceiling, with the option to proceed or not.
+I should be grateful if you would confirm whether I have this right, and whether you would elect to exercise at six months, at twelve months, or during a window between the two.
 
-I would be grateful if you would confirm whether this is the figure you asked us to produce. If it is, I will put it to the other holders and come back with a number. If you intended a different percentage, a value after volume, or a combination of cash and other consideration, I would rather correct that now.
+Once I have that confirmation, I will put the question to the other holders and return a number.
 
 Kind regards,  
 Alexander
