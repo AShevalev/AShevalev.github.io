@@ -12,9 +12,9 @@ Joe said he has a **standard-format contract** and wants terms and milestones in
 
 In one structure:
 
-1. Write a **company valuation of about $2 million** into an agreement now ($1.5–$2.5 million was the range; he settled on a **$2 million** hypothetical). **60% = $1.2 million.**
-2. **60% of profits and 60% of liabilities to his side from the day the agreement is signed.** Holders keep 40%. Cash for the shares does **not** move on that day.
-3. He **injects $1.2 million in one lump at milestone 3**, in **12–18 months** (Alexander said ~15 months). Target colour for that milestone: **~$5 million of sales.**
+1. Write a **company valuation of about $2 million** into an agreement now ($1.5–$2.5 million was the range; he settled on a **$2 million** hypothetical). **60% = $1.2 million.** After that 60%, he also spoke of **taking the whole company on** later.
+2. **60% of profits and 60% of liabilities to his side from the day the agreement is signed.** Holders keep 40%. Cash for the shares does **not** move on that day. He wants 60/40 so nobody is still calculating a separate commercial split.
+3. He **injects $1.2 million in one lump at milestone 3**, in **12–18 months** (Alexander said ~15 months). Target colour for that milestone: **~$5 million of sales.** A **six-month** KPI pack (users, challenges, headcount, budget) comes first. He also wants a short written term sheet soon so both sides can set how fast those targets are hit.
 4. All **three companies** in one agreement. Future acquisition of all three at the same time. A **BC / shell vehicle** to run the books before the injection, then buy 60%, reorganise, and be the listing vehicle.
 5. **Each side pays its own tech labour.** He did not agree to write a cheque for integration.
 6. B2B under **World Trader Hub / TradeMap**. Verodus B2C can continue for now. If B2B scales, B2C may be **shut or moved onto WTH**.
@@ -128,6 +128,7 @@ Until milestone 3 he wants **60% of profits**. The $1.2 million, if it comes, is
 ## Do not confirm as agreed
 
 - $2 million / $1.2 million as a binding number  
+- That 60% later becomes 100% on the same freeze  
 - 60/40 profits and liabilities from signing  
 - $15,000 integration (or “each side pays, no fee”)  
 - Joe’s standard contract  
