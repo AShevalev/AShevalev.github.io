@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Alexander Vladimirovich — Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1c2430;
+      --navy: #1e3a5f;
+      --muted: #5c6774;
+      --line: #d5c9b4;
+      --gold: #9a7b4f;
+      --paper: #faf8f4;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: white;
+      color: var(--ink);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+    }
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 16px 28px 18px;
+    }
+    header {
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+    .kicker {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0 0 2px;
+      color: var(--navy);
+      line-height: 1.05;
+    }
+    .titleline {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+    .contact {
+      font-size: 11.5px;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+    .contact a { color: var(--navy); text-decoration: none; }
+    h2 {
+      font-size: 11.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+      font-weight: 700;
+      margin: 8px 0 5px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--line);
+    }
+    .profile {
+      font-size: 11.8px;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .job { margin: 0 0 8px; }
+    .job-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .role {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0;
+    }
+    .org {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .org span { font-weight: 400; color: var(--muted); }
+    .dates {
+      font-size: 11.5px;
+      color: var(--muted);
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    ul {
+      margin: 4px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      font-size: 11.6px;
+      line-height: 1.36;
+      margin: 0 0 2px;
+      padding-left: 0.95em;
+      text-indent: -0.75em;
+    }
+    li::before {
+      content: "– ";
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .edu-row, .cred-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 3px;
+    }
+    .bottom {
+      display: block;
+    }
+    .bottom h2 { margin-top: 10px; }
+    .edu-name { font-size: 12.5px; font-weight: 700; color: var(--navy); }
+    .edu-note { font-size: 12px; color: var(--ink); margin: 0 0 8px; padding-left: 0; }
+    .skills {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 2px 8px;
+      font-size: 11.4px;
+      line-height: 1.32;
+    }
+    .skills dt {
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0;
+    }
+    .skills dd { margin: 0; color: var(--ink); }
+    .bottom {
+      display: block;
+    }
+    .bottom h2 { margin-top: 10px; }
+    @page {
+      size: Letter portrait;
+      margin: 0.45in 0.5in 0.42in;
+      @top-right {
+        content: "Alexander Vladimirovich  ·  Curriculum Vitae";
+        font-family: "Source Sans 3", sans-serif;
+        font-size: 9px;
+        color: #5c6774;
+        letter-spacing: 0.04em;
+      }
+    }
+    @page :first {
+      @top-right { content: none; }
+    }
+    @media print {
+      .page { padding: 0; max-width: none; }
+      h1 { font-size: 28px; }
+      .job { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <p class="kicker">Curriculum Vitae</p>
+      <h1>Alexander Vladimirovich</h1>
+      <p class="titleline">Co-Founder &amp; Chief Operating Officer, Verodus</p>
+      <p class="contact">
+        British Columbia, Canada
+        · <a href="mailto:alexander@verodus.com">alexander@verodus.com</a>
+        · <a href="https://www.verodus.com">verodus.com</a>
+      </p>
+    </header>
+
+    <h2>Profile</h2>
+    <p class="profile">Finance professional and operator. BBA in Finance (Great Distinction), MBA in International Business, and CFA Program Level&nbsp;II. Five years at WWA Trading as a trading professional who also taught bootcamps and ran live sessions; CIBC Wood Gundy internship; teaching assistant in research, decision making, and statistics. Now co-founder and COO of Verodus — operations, process design, and commercial execution, not software engineering.</p>
+
+    <h2>Professional experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="role">Co-Founder &amp; Chief Operating Officer</p>
+        <p class="dates">February 2026 – Present</p>
+      </div>
+      <p class="org">Verodus <span>British Columbia, Canada</span></p>
+      <ul>
+        <li>Co-founded Verodus, a technology-enabled trader evaluation platform that assesses discipline, consistency, and risk control in simulated markets and pays performance rewards against published rules.</li>
+        <li>As COO, own operations: evaluation process design, payout verification, trader support, and commercial priorities. Work with engineering on delivery — this seat is operations and commercial, not software development.</li>
+        <li>Set the evaluation rulebook: challenge families, drawdown, best-day constraints, and payout policy.</li>
+        <li>Lead partnership discussions on commercial structure and go-to-market; take material terms back to the other founders and investors before anything is agreed.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="role">Trading Professional</p>
+        <p class="dates">2020 – 2025</p>
+      </div>
+      <p class="org">WWA Trading <span>Dubai — forex day-trading education</span></p>
+      <ul>
+        <li>WWA Trading is a Dubai e-learning firm (founded 2019–20) that teaches forex day trading: liquidity, why retail traders get induced, and execution in the London and New York sessions. Offerings include live pre-market analysis, bootcamps, 1:1 mentorship, and a member community aimed at prop-firm funding — not a broker, not a fund.</li>
+        <li>Five years as a trading professional: market analysis, execution discipline, and performance review. Taught bootcamps and ran live sessions inside that liquidity-and-intraday framework.</li>
+        <li>Applied a structured process — risk limits, liquidity awareness, setup criteria — and kept disciplined follow-through in fast-moving FX conditions.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="role">Intern</p>
+        <p class="dates">May 2020 – August 2020</p>
+      </div>
+      <p class="org">CIBC Wood Gundy <span>White Rock Branch, British Columbia</span></p>
+      <ul>
+        <li>Supported investment advisors with research, client-file preparation, and day-to-day branch operations in a regulated wealth-management environment.</li>
+        <li>Assisted with market commentary, account documentation, and administrative tasks. Exposure to client-service standards, compliance, and product discussions.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="role">Teaching Assistant, Research and Decision Making</p>
+        <p class="dates">May 2020 – September 2020</p>
+      </div>
+      <p class="org">Langley, British Columbia</p>
+      <ul>
+        <li>Worked with faculty to design and deliver lessons; gave regular, individual feedback and alternative paths so students who were behind could retain the material.</li>
+        <li>Built and taught Excel financial simulations: VLOOKUP, INDEX/MATCH, pivot tables, macros, VBA, Solver, decision trees, regression, DDM, DCF, Black–Scholes, and sensitivity tests.</li>
+        <li>Monitored progress through assessments and collaborated on course materials that met the teaching objectives.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="role">Teaching Assistant, Statistics</p>
+        <p class="dates">January 2020 – April 2020</p>
+      </div>
+      <p class="org">Langley, British Columbia</p>
+      <ul>
+        <li>Worked with 26 students individually and in small groups to reinforce concepts, complete assignments, and use Excel. Proctored quizzes and examinations.</li>
+        <li>Assisted the professor’s statistics research project: reviewed data for trends and turned that into usable reports. Gave detailed assignment feedback.</li>
+        <li>Helped students on Zoom and Google Slides and organised extra teaching sessions so everyone had access to additional support.</li>
+      </ul>
+    </div>
+
+    <div class="bottom">
+      <div>
+        <h2>Education &amp; credentials</h2>
+        <div class="edu-row">
+          <p class="edu-name">Master of Business Administration, International Business</p>
+          <p class="dates">2020 – 2021</p>
+        </div>
+        <div class="edu-row">
+          <p class="edu-name">Bachelor of Business Administration, Finance</p>
+          <p class="dates">2017 – 2020</p>
+        </div>
+        <p class="edu-note">Great Distinction · Dean’s Honour List · CFA Program, Level II (CFA Institute; not a charterholder)</p>
+      </div>
+      <div>
+        <h2>Skills</h2>
+        <dl class="skills">
+          <dt>Markets</dt>
+          <dd>Analysis, trading process, risk, liquidity, performance review</dd>
+          <dt>Operations</dt>
+          <dd>Evaluation design, payouts, process, commercial discussions</dd>
+          <dt>Wealth</dt>
+          <dd>Research support, client files, compliance-aware administration</dd>
+          <dt>Tools</dt>
+          <dd>Excel (VLOOKUP, INDEX/MATCH, pivots, Solver, VBA), Word, PowerPoint, Teams</dd>
+        </dl>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Organisation chart — Verodus Capital, Verodus L.L.C.-FZ, 1591011 B.C. Ltd.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1b242e;
+      --muted: #5a6570;
+      --line: #cbbfae;
+      --paper: #f1ebe1;
+      --card: #fffdf8;
+      --system: #6e3d2c;
+      --canada: #2f4a6d;
+      --dubai: #1b4f4a;
+      --accent: #b24a24;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Palatino, Georgia, serif;
+    }
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 36px 28px 56px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-end;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 14px;
+      margin-bottom: 22px;
+    }
+    .eyebrow {
+      font-family: "Source Sans 3", sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 0 0 6px;
+    }
+    h1 { font-size: 30px; line-height: 1.15; margin: 0; }
+    .meta {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: right;
+      max-width: 280px;
+    }
+    .confidential {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      margin-bottom: 8px;
+    }
+    p.lead {
+      font-size: 16px;
+      max-width: 74ch;
+      margin: 0 0 22px;
+    }
+    h2 { font-size: 18px; margin: 28px 0 10px; }
+    .owners {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+    }
+    .owner {
+      background: var(--card);
+      border: 1px solid var(--ink);
+      text-align: center;
+      padding: 14px 16px 16px;
+    }
+    .owner .tag, .card .tag {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+    .owner h3 { margin: 0 0 4px; font-size: 20px; }
+    .owner p {
+      margin: 0;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .tree {
+      width: 100%;
+      height: 88px;
+      display: block;
+    }
+    .row-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top-width: 7px;
+      padding: 14px 14px 16px;
+    }
+    .card.canada { border-top-color: var(--canada); }
+    .card.dubai { border-top-color: var(--dubai); }
+    .card.system { border-top-color: var(--system); }
+    .canada .tag { color: var(--canada); }
+    .dubai .tag { color: var(--dubai); }
+    .system .tag { color: var(--system); }
+    .card h3 { font-size: 17px; margin: 0 0 4px; line-height: 1.25; }
+    .card .where {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .pct {
+      display: inline-block;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border: 1px solid var(--ink);
+      padding: 2px 9px;
+      margin-bottom: 8px;
+    }
+    .card ul {
+      margin: 0;
+      padding-left: 16px;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .note {
+      margin-top: 12px;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 13px;
+      text-align: center;
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      padding: 10px 12px;
+      background: rgba(255,253,248,0.6);
+    }
+    .flows {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+    .flow {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 14px 16px 16px;
+    }
+    .flow h3 { margin: 0 0 8px; font-size: 15px; }
+    .flow p {
+      margin: 0;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    footer {
+      margin-top: 26px;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+    @media (max-width: 800px) {
+      .owners, .row-3, .flows { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: flex-start; }
+      .meta { text-align: left; }
+      .tree { height: 28px; }
+    }
+    @page {
+      size: Letter landscape;
+      margin: 0.32in;
+    }
+    @media print {
+      body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; font-size: 10px; }
+      .page { padding: 0; max-width: none; }
+      header { margin-bottom: 8px; padding-bottom: 6px; gap: 12px; }
+      .confidential { margin-bottom: 4px; padding: 2px 6px; }
+      .eyebrow { margin-bottom: 2px; }
+      h1 { font-size: 20px; }
+      .meta { font-size: 11px; }
+      p.lead { font-size: 12px; margin-bottom: 8px; }
+      h2 { font-size: 13px; margin: 8px 0 5px; }
+      .owners, .row-3, .flows { gap: 10px; }
+      .owner { padding: 6px 10px 8px; }
+      .owner h3 { font-size: 15px; }
+      .card { padding: 8px 10px 9px; border-top-width: 5px; }
+      .card h3 { font-size: 13px; }
+      .card ul { font-size: 11px; line-height: 1.35; }
+      .card .where { margin-bottom: 4px; }
+      .pct { margin-bottom: 5px; font-size: 13px; padding: 2px 8px; }
+      .flow { padding: 8px 10px; }
+      .flow h3 { font-size: 13px; margin-bottom: 4px; }
+      .flow p { font-size: 11px; line-height: 1.35; }
+      .tree { height: 64px; margin: 4px 0 2px; }
+      .note { margin-top: 8px; padding: 6px 8px; font-size: 11px; }
+      footer { margin-top: 8px; padding-top: 6px; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <p class="confidential">Confidential — current operating structure</p>
+        <p class="eyebrow">No parent · no subsidiary</p>
+        <h1>Organisation chart</h1>
+      </div>
+      <p class="meta">25 August 2026. Shareholding is personal. The companies deal with each other by contract.</p>
+    </header>
+
+    <p class="lead">Three companies. None is a parent or subsidiary of another. Kim Chen owns 100% of Verodus Capital Inc. and 100% of Verodus L.L.C.-FZ. Chun Chan owns 100% of 1591011 B.C. Ltd. and is one of the investors in Verodus.</p>
+
+    <div class="owners">
+      <div class="owner">
+        <p class="tag">Shareholder</p>
+        <h3>Kim Chen</h3>
+        <p>100% of Verodus Capital Inc.<br />100% of Verodus L.L.C.-FZ</p>
+      </div>
+      <div class="owner">
+        <p class="tag">Shareholder</p>
+        <h3>Chun Chan</h3>
+        <p>100% of 1591011 B.C. Ltd.<br />Investor in Verodus</p>
+      </div>
+    </div>
+
+    <svg class="tree" viewBox="0 0 1000 88" aria-hidden="true">
+      <line x1="333" y1="0" x2="333" y2="22" stroke="#1b242e" stroke-width="1.8" />
+      <line x1="166" y1="22" x2="500" y2="22" stroke="#1b242e" stroke-width="1.8" />
+      <line x1="166" y1="22" x2="166" y2="88" stroke="#1b242e" stroke-width="1.8" />
+      <line x1="500" y1="22" x2="500" y2="88" stroke="#1b242e" stroke-width="1.8" />
+      <line x1="834" y1="0" x2="834" y2="88" stroke="#1b242e" stroke-width="1.8" />
+      <rect x="108" y="38" width="116" height="36" rx="4" fill="#fffdf8" />
+      <rect x="442" y="38" width="116" height="36" rx="4" fill="#fffdf8" />
+      <rect x="776" y="38" width="116" height="36" rx="4" fill="#fffdf8" />
+      <text x="166" y="65" text-anchor="middle" font-size="28" font-weight="700" font-family="Source Sans 3, Helvetica, Arial, sans-serif" fill="#1b242e">100%</text>
+      <text x="500" y="65" text-anchor="middle" font-size="28" font-weight="700" font-family="Source Sans 3, Helvetica, Arial, sans-serif" fill="#1b242e">100%</text>
+      <text x="834" y="65" text-anchor="middle" font-size="28" font-weight="700" font-family="Source Sans 3, Helvetica, Arial, sans-serif" fill="#1b242e">100%</text>
+    </svg>
+
+    <div class="row-3">
+      <article class="card canada">
+        <p class="tag">Profit centre</p>
+        <h3>Verodus Capital Inc.</h3>
+        <p class="where">British Columbia, Canada</p>
+        <span class="pct">Kim Chen · 100%</span>
+        <ul>
+          <li>Payment processing on merchant accounts in Capital’s name</li>
+          <li>Marketing and traffic to the domain. Does not provide KYC</li>
+          <li>Licensed to use verodus.com; evaluations for Capital’s own reward decisions</li>
+        </ul>
+      </article>
+      <article class="card dubai">
+        <p class="tag">Domain and data</p>
+        <h3>Verodus L.L.C.-FZ</h3>
+        <p class="where">Meydan Free Zone, Dubai, UAE</p>
+        <span class="pct">Kim Chen · 100%</span>
+        <ul>
+          <li>Owns verodus.com. Domain and hosting are in the UAE. Stack: Vercel on AWS (including Lambda), email, website, database, Redis</li>
+          <li>Owns raw data and KYC records; performs all KYC of domain users</li>
+          <li>Runs the CRM and dashboard</li>
+        </ul>
+      </article>
+      <article class="card system">
+        <p class="tag">Software</p>
+        <h3>1591011 B.C. Ltd.</h3>
+        <p class="where">British Columbia, Canada</p>
+        <span class="pct">Chun Chan · 100%</span>
+        <ul>
+          <li>Owns the proprietary software, CRM, and related technology</li>
+          <li>Licenses the system to Verodus L.L.C.-FZ (31 May 2026)</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="note">No company owns shares in another. Verodus Capital Inc. and Verodus L.L.C.-FZ are affiliates under Kim Chen. 1591011 B.C. Ltd. is owned by Chun Chan, who is one of the investors in Verodus. Relations among the three companies are contractual.</p>
+
+    <h2>How the companies contract with each other</h2>
+    <div class="flows">
+      <section class="flow">
+        <h3>Software</h3>
+        <p>1591011 B.C. Ltd. grants Verodus L.L.C.-FZ a limited, revocable, non-transferable licence. Title stays with 1591011. Dubai cannot sublicense. No cash. KYC is LLC-FZ’s.</p>
+      </section>
+      <section class="flow">
+        <h3>Domain and operations</h3>
+        <p>Verodus L.L.C.-FZ owns the domain, data, and KYC. Verodus Capital Inc. has a licence to use the domain and drive traffic. Capital does not provide KYC. Merchant accounts stay isolated.</p>
+      </section>
+      <section class="flow">
+        <h3>Money</h3>
+        <p>Verodus Capital Inc. is the profit centre and processes receipts. Verodus L.L.C.-FZ may charge a 5% royalty on Capital’s gross sales (CAD) at its discretion, 90 days’ notice.</p>
+      </section>
+    </div>
+
+    <footer>
+      Personal shareholding as stated above. This chart is not an offer.
+    </footer>
+  </div>
+</body>
+</html>

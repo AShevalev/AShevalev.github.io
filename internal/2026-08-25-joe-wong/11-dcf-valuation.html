@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Verodus complete DCF valuation — 25 August 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1b242e;
+      --muted: #5a6570;
+      --line: #cbbfae;
+      --accent: #b24a24;
+      --paper: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: white;
+      color: var(--ink);
+      font-family: "Source Serif 4", Palatino, Georgia, serif;
+    }
+    .page { max-width: 780px; margin: 0 auto; padding: 36px 28px 48px; }
+    .confidential {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      margin: 0 0 10px;
+    }
+    .eyebrow {
+      font-family: "Source Sans 3", sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 0 0 6px;
+    }
+    h1 { font-size: 24px; line-height: 1.15; margin: 0 0 8px; }
+    h2 { font-size: 15.5px; margin: 16px 0 7px; break-after: avoid; }
+    h3 { font-size: 12.5px; margin: 11px 0 5px; font-family: "Source Sans 3", sans-serif; break-after: avoid; }
+    .meta {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--ink);
+    }
+    p { font-size: 12.5px; line-height: 1.42; margin: 0 0 8px; }
+    ul, ol { margin: 0 0 9px; padding-left: 0; list-style: none; font-size: 12.5px; line-height: 1.42; }
+    li { margin-bottom: 3px; padding-left: 0.95em; text-indent: -0.7em; }
+    li::before { content: "• "; }
+    .callout {
+      background: var(--paper);
+      border: 1px solid var(--ink);
+      padding: 11px 13px;
+      margin: 10px 0 14px;
+    }
+    .callout.rec { border-width: 2px; }
+    .callout strong { font-size: 14.5px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 9.6px;
+      margin: 0 0 10px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 3px 5px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f4eee4; font-weight: 700; }
+    td.n, th.n { text-align: right; white-space: nowrap; }
+    tr.hi td { background: #f7f1e6; font-weight: 700; }
+    .note {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 10.5px;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+    footer {
+      margin-top: 14px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 9.5px;
+      color: var(--muted);
+    }
+    code { font-size: 11px; }
+    @page { size: Letter portrait; margin: 0.5in 0.55in 0.52in; }
+    @media print {
+      .page { padding: 0; max-width: none; }
+      h1 { font-size: 20px; }
+      h2 { font-size: 13px; margin-top: 12px; }
+      p, ul, ol { font-size: 11px; }
+      table { font-size: 8.6px; }
+      .callout, table { break-inside: avoid; }
+      h2, h3 { break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <p class="confidential">Internal — do not send to Joe</p>
+    <p class="eyebrow">Unlevered DCF · five years · 25 August 2026</p>
+    <h1>Complete valuation of the three companies, with discounted cash flow</h1>
+    <p class="meta">Valuation date 25 August 2026. Cash-free, debt-free going concern. Perimeter: Verodus Capital Inc., Verodus L.L.C.-FZ, and 1591011 B.C. Ltd. Software in. Kim stays. Chun signs. Model: <code>11-dcf-model.py</code>. Not a fairness opinion, not an offer, not for Joe. Do not mention a holding company.</p>
+
+    <div class="callout rec">
+      <p style="margin:0 0 6px"><strong>DCF standing value: $1.2 million.</strong> Base case (strict book holds): <strong>$1.35 million</strong>. Probability-weighted across four non-Joe paths: <strong>$1.12 million</strong>. $1.2 million sits between them and still matches the 3.5–4.0× SDE check.</p>
+      <p style="margin:0 0 6px"><strong>Ask unchanged: $900,000 cash for 60%</strong> (implied $1.5 million). Take $750,000. Floor $660,000 — the floor is now the 60% slice of the probability-weighted DCF ($674,000). Joe’s $600,000 example is below the DCF floor.</p>
+      <p style="margin:0">TradeMap volume is a <em>separate</em> case: <strong>$2.65 million</strong> 100% / <strong>$1.59 million</strong> for 60%. That is why a one-year freeze at $900,000 is an option, not a sale, and why it is not free.</p>
+    </div>
+
+    <h2>1. What this DCF is, and what it is not</h2>
+    <p>This is an unlevered free-cash-flow (FCFF) model of the three affiliates as they stand, with ads restored, Kim in the chair, and no TradeMap volume in the base. Five explicit years from 25 August 2026, then a terminal value. Discount rate 25%. Mid-year convention on the explicit period; terminal discounted from the end of year 5. Terminal value is a 50/50 blend of a 3.5× exit on year-5 pretax leftover and a Gordon growth model on year-6 FCFF at 2.5% perpetual growth.</p>
+    <p>It is not a banker’s CIM. Four months of operating history is not a cycle. The discount rate does the work that a longer book would have done. Joe’s CSE / NASDAQ colour is not in any standing case. A DCF that capitalises his pipeline as if it were already contracted would be a marketing document.</p>
+    <p>No interest-bearing debt is modelled. Processor reserves are treated as working capital (2% of incremental receipts). Hosting sits inside opex. Maintenance capex is $10,000 in year 0, inflated at 3%. David at $1,500/month is an assumption for part-time cost; intern at $3,000/month is from the live run-rate. Tax is 15% blended — see §4.</p>
+
+    <h2>2. Year-0 normalised cash engine</h2>
+    <p>Source: 25 August call plus Alexander’s later run-rate. Receipts ~$70,000 a month. Payouts ~$11,000. Opex ex-ads CAD $20,000 ≈ USD $14,500. Ads off since end of June; the DCF turns them back on at 20% of receipts. Do not value ads-off leftover of $44,500/month.</p>
+    <table>
+      <thead>
+        <tr><th>Line (USD, next-twelve-months run-rate)</th><th class="n">Monthly</th><th class="n">Annual</th><th class="n">% receipts</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Challenge receipts</td><td class="n">$70,000</td><td class="n">$840,000</td><td class="n">100.0%</td></tr>
+        <tr><td>Trader payouts (live)</td><td class="n">$11,000</td><td class="n">$132,000</td><td class="n">15.7%</td></tr>
+        <tr><td>Ads restored at 20%</td><td class="n">$14,000</td><td class="n">$168,000</td><td class="n">20.0%</td></tr>
+        <tr><td>Opex, wages, ops (ex-ads)</td><td class="n">$14,500</td><td class="n">$174,000</td><td class="n">20.7%</td></tr>
+        <tr><td>Intern</td><td class="n">$3,000</td><td class="n">$36,000</td><td class="n">4.3%</td></tr>
+        <tr><td>David part-time (assumption)</td><td class="n">$1,500</td><td class="n">$18,000</td><td class="n">2.1%</td></tr>
+        <tr class="hi"><td>Pretax leftover (SDE proxy)</td><td class="n">$26,000</td><td class="n">$312,000</td><td class="n">37.1%</td></tr>
+        <tr><td>Tax at 15%</td><td class="n">$3,900</td><td class="n">$46,800</td><td class="n">5.6%</td></tr>
+        <tr><td>NOPAT</td><td class="n">$22,100</td><td class="n">$265,200</td><td class="n">31.6%</td></tr>
+        <tr><td>Maintenance capex</td><td class="n">$833</td><td class="n">$10,000</td><td class="n">1.2%</td></tr>
+        <tr class="hi"><td>Steady-state FCFF (flat book)</td><td class="n">$21,267</td><td class="n">$255,200</td><td class="n">30.4%</td></tr>
+      </tbody>
+    </table>
+    <p>Perpetuity check, no growth: $255,200 ÷ (25% − 2.5%) = <strong>$1.13 million</strong>. That is the DCF if leftover never grows and never breaks. It is already inside the $1.1–$1.2 million band. Growth in the base case is what lifts the number to $1.35 million. Mean reversion is what drops the probability-weighted number to $1.12 million.</p>
+
+    <h2>3. Discount rate — why 25%</h2>
+    <p>There is no traded beta on a four-month challenge shop. The rate is a build-up, not a CAPM theatre. Unlevered because the model is cash-free / debt-free.</p>
+    <table>
+      <thead>
+        <tr><th>Component</th><th class="n">Rate</th><th>Why it is here</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>CAD risk-free (long bond proxy)</td><td class="n">3.5%</td><td>Canadian profit centre.</td></tr>
+        <tr><td>Equity risk premium × unlevered beta 1.50</td><td class="n">7.5%</td><td>ERP 5%. Beta above the market: discretionary consumer, payout-ratio risk.</td></tr>
+        <tr><td>Micro-cap / size</td><td class="n">6.0%</td><td>Sub-$2m private book. Standard small-stock add-on.</td></tr>
+        <tr><td>Company-specific</td><td class="n">8.0%</td><td>Split below.</td></tr>
+        <tr class="hi"><td>WACC / cost of capital</td><td class="n">25.0%</td><td>Used on every standing case.</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr><th>Inside the 8% company-specific</th><th class="n">Add-on</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Four months of history, not a cycle</td><td class="n">3.0%</td></tr>
+        <tr><td>Prop-firm mortality (80–100 operators died 2024–25)</td><td class="n">2.5%</td></tr>
+        <tr><td>Key person: Kim is the only IT</td><td class="n">1.5%</td></tr>
+        <tr><td>Processor, geo-fence, simulated-payout enforcement overhang</td><td class="n">1.0%</td></tr>
+      </tbody>
+    </table>
+    <p>At 20% the base DCF is $1.63 million. At 30% it is $1.16 million. 25% is the centre. A 12–15% “fintech WACC” would print a $2 million-plus toy. That rate is for a contracted SaaS book with three years of audited statements, not this asset.</p>
+
+    <h2>4. Tax</h2>
+    <p>Canada is the profit centre today (~95% of receipts through Verodus Capital Inc.). If Capital is a CCPC with small-business deduction, combined federal + BC is about <strong>11%</strong> on the first ~$500k of active business income. If it is not a CCPC, general combined is about <strong>27%</strong>. Dubai free-zone 0% is not the current cash path and is not modelled as a tax-free holdco.</p>
+    <p>Base case uses <strong>15%</strong> blended (SBD with some leakage). At 11% the base DCF is $1.41 million. At 27% it is $1.19 million. The standing $1.2 million still holds at the high tax rate. Confirm with the accountant before a term sheet; do not tell Joe the tax rate.</p>
+
+    <h2>5. Base case — year-by-year DCF</h2>
+    <p>Year 1 receipts stay at $840,000 (ads back on, $70k/month holds). Then +8%, +6%, +5%, +4%. Payout ratio stays at the live 15.7%. Ads 20%. Loaded opex inflates 3%. No TradeMap. FCFF = NOPAT − capex − ΔNWC. ΔNWC is 2% of incremental receipts (zero in year 1).</p>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th class="n">Y1</th><th class="n">Y2</th><th class="n">Y3</th><th class="n">Y4</th><th class="n">Y5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Receipts</td><td class="n">$840,000</td><td class="n">$907,200</td><td class="n">$961,632</td><td class="n">$1,009,714</td><td class="n">$1,050,102</td></tr>
+        <tr><td>Payouts (15.7%)</td><td class="n">$132,000</td><td class="n">$142,560</td><td class="n">$151,114</td><td class="n">$158,669</td><td class="n">$165,016</td></tr>
+        <tr><td>Ads (20%)</td><td class="n">$168,000</td><td class="n">$181,440</td><td class="n">$192,326</td><td class="n">$201,943</td><td class="n">$210,020</td></tr>
+        <tr><td>Opex loaded</td><td class="n">$234,840</td><td class="n">$241,885</td><td class="n">$249,142</td><td class="n">$256,616</td><td class="n">$264,314</td></tr>
+        <tr class="hi"><td>Pretax leftover</td><td class="n">$305,160</td><td class="n">$341,315</td><td class="n">$369,050</td><td class="n">$392,486</td><td class="n">$410,751</td></tr>
+        <tr><td>Tax 15%</td><td class="n">$45,774</td><td class="n">$51,197</td><td class="n">$55,358</td><td class="n">$58,873</td><td class="n">$61,613</td></tr>
+        <tr><td>NOPAT</td><td class="n">$259,386</td><td class="n">$290,118</td><td class="n">$313,693</td><td class="n">$333,613</td><td class="n">$349,138</td></tr>
+        <tr><td>Capex</td><td class="n">$10,300</td><td class="n">$10,609</td><td class="n">$10,927</td><td class="n">$11,255</td><td class="n">$11,593</td></tr>
+        <tr><td>ΔNWC</td><td class="n">$0</td><td class="n">$1,344</td><td class="n">$1,089</td><td class="n">$962</td><td class="n">$808</td></tr>
+        <tr class="hi"><td>FCFF</td><td class="n">$249,086</td><td class="n">$278,165</td><td class="n">$301,677</td><td class="n">$321,396</td><td class="n">$336,738</td></tr>
+        <tr><td>Discount factor (mid-year, 25%)</td><td class="n">0.8944</td><td class="n">0.7155</td><td class="n">0.5724</td><td class="n">0.4579</td><td class="n">0.3664</td></tr>
+        <tr><td>PV of FCFF</td><td class="n">$222,790</td><td class="n">$199,034</td><td class="n">$172,690</td><td class="n">$147,182</td><td class="n">$123,370</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr><th>Base case bridge to equity value</th><th class="n">Amount</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sum PV of five years of FCFF</td><td class="n">$865,066</td></tr>
+        <tr><td>Year-5 pretax leftover</td><td class="n">$410,751</td></tr>
+        <tr><td>Exit TV: 3.5× year-5 pretax</td><td class="n">$1,437,629</td></tr>
+        <tr><td>Gordon TV: FCFF<sub>5</sub> × 1.025 ÷ (0.25 − 0.025)</td><td class="n">$1,534,029</td></tr>
+        <tr><td>PV of exit TV (end-year 5, DF 0.3277)</td><td class="n">$471,082</td></tr>
+        <tr><td>PV of Gordon TV</td><td class="n">$502,670</td></tr>
+        <tr><td>Equity if exit multiple only</td><td class="n">$1.34 million</td></tr>
+        <tr><td>Equity if Gordon only</td><td class="n">$1.37 million</td></tr>
+        <tr class="hi"><td>Base DCF (50/50 blend)</td><td class="n">$1.35 million</td></tr>
+        <tr><td>60% of base DCF, pro-rata</td><td class="n">$811,000</td></tr>
+      </tbody>
+    </table>
+    <p>Gordon on this path implies 3.73× year-5 pretax, which is inside a private SDE band, not a 8–10× fantasy. The two terminal methods agree within 3%. That is why the blend is $1.35 million rather than a wide range.</p>
+
+    <h2>6. Four standing scenarios, plus Joe as a freeze case</h2>
+    <p>Weights are a working prior after one call and four months of books. They are not a forecast. Joe’s path has weight zero in the standing value.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Case</th>
+          <th class="n">Weight</th>
+          <th class="n">Y5 receipts</th>
+          <th class="n">Y5 payout %</th>
+          <th class="n">Y5 pretax</th>
+          <th class="n">DCF blend</th>
+          <th class="n">60%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hi"><td>Base — strict book, modest organic</td><td class="n">45%</td><td class="n">$1.05m</td><td class="n">15.7%</td><td class="n">$411k</td><td class="n">$1.35m</td><td class="n">$811k</td></tr>
+        <tr><td>Conservative — payouts 15.7% → 28%</td><td class="n">25%</td><td class="n">$964k</td><td class="n">28.0%</td><td class="n">$237k</td><td class="n">$0.97m</td><td class="n">$583k</td></tr>
+        <tr><td>Downside — Y1 receipts $630k, payouts → 32%</td><td class="n">15%</td><td class="n">$592k</td><td class="n">32.0%</td><td class="n">$20k</td><td class="n">$0.25m</td><td class="n">$147k</td></tr>
+        <tr><td>Upside organic — no Joe, payouts → 20%</td><td class="n">15%</td><td class="n">$1.29m</td><td class="n">20.0%</td><td class="n">$507k</td><td class="n">$1.57m</td><td class="n">$941k</td></tr>
+        <tr class="hi"><td>Probability-weighted (ex-Joe)</td><td class="n">100%</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">$1.12m</td><td class="n">$674k</td></tr>
+        <tr><td>Joe volume (illustrative, not standing)</td><td class="n">0%</td><td class="n">$2.10m</td><td class="n">22.0%</td><td class="n">$954k</td><td class="n">$2.65m</td><td class="n">$1.59m</td></tr>
+      </tbody>
+    </table>
+    <p>How to read this against the huddle card:</p>
+    <ul>
+      <li><strong>$1.2 million standing</strong> is the rounded centre of $1.12m expected and $1.35m base. It is also 3.85× year-0 pretax of $312,000.</li>
+      <li><strong>$1.5 million ask</strong> is the organic-upside DCF ($1.57m) with a control premium, still well below the Joe path ($2.65m).</li>
+      <li><strong>$660,000 floor for 60%</strong> is 60% of the probability-weighted DCF ($674,000), rounded down a hair. Below that you are selling below expected cash flows.</li>
+      <li><strong>Joe’s $600,000</strong> is 60% of $1.0 million. That is below every DCF except the downside case. It is a number you lock only with a volume ratchet.</li>
+    </ul>
+
+    <h2>7. The freeze, in DCF terms</h2>
+    <p>If he exercises at $900,000 after the book has followed the Joe path, he is buying 60% of a $2.65 million DCF — $1.59 million of value — for $900,000. Payoff ≈ <strong>$690,000</strong> in that case, plus whatever multiple expansion listing talk adds, which this model does not. If the book only does the organic-upside path, 60% is $941,000, and a $900,000 strike is barely in the money. If the book stays on the base path, 60% is $811,000 and the strike is out of the money — which is the right shape for a ceiling: he only exercises if the pie grew.</p>
+    <p>That is the DCF reason a one-year lock is not free. Price it with the option-premium paper: $75,000 for 6–9 months, $100,000 as a single cheque, $125,000–$150,000 only if the freeze runs 12 months into volume with no ratchet.</p>
+
+    <h2>8. Sensitivities on the base case</h2>
+    <table>
+      <thead>
+        <tr><th>Discount rate</th><th class="n">20%</th><th class="n">22.5%</th><th class="n">25%</th><th class="n">27.5%</th><th class="n">30%</th></tr>
+      </thead>
+      <tbody>
+        <tr class="hi"><td>Base DCF blend</td><td class="n">$1.63m</td><td class="n">$1.48m</td><td class="n">$1.35m</td><td class="n">$1.25m</td><td class="n">$1.16m</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr><th>Tax rate</th><th class="n">11% CCPC</th><th class="n">15% base</th><th class="n">27% general</th></tr>
+      </thead>
+      <tbody>
+        <tr class="hi"><td>Base DCF blend</td><td class="n">$1.41m</td><td class="n">$1.35m</td><td class="n">$1.19m</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr><th>Exit multiple on Y5 pretax (blend still 50% Gordon)</th><th class="n">2.5×</th><th class="n">3.0×</th><th class="n">3.5×</th><th class="n">4.0×</th><th class="n">4.5×</th></tr>
+      </thead>
+      <tbody>
+        <tr class="hi"><td>Base DCF blend</td><td class="n">$1.28m</td><td class="n">$1.32m</td><td class="n">$1.35m</td><td class="n">$1.39m</td><td class="n">$1.42m</td></tr>
+      </tbody>
+    </table>
+    <p>Exit multiple barely moves the needle because Gordon is half the terminal and the explicit period is already 64% of base value ($865k of $1.35m). This DCF is an earnings-power model, not a multiple story. That is the point of doing one.</p>
+
+    <h2>9. Football field — DCF against the other methods</h2>
+    <table>
+      <thead>
+        <tr><th>Method</th><th class="n">100% equity</th><th class="n">60% cash</th><th>Use</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Joe’s example</td><td class="n">$1.00m</td><td class="n">$600k</td><td>Reject as a stand-alone close.</td></tr>
+        <tr><td>No-growth perpetuity FCFF / (r−g)</td><td class="n">$1.13m</td><td class="n">$680k</td><td>Floor of a DCF that never grows.</td></tr>
+        <tr class="hi"><td>DCF probability-weighted</td><td class="n">$1.12m</td><td class="n">$674k</td><td>Expected cash flows. Sets the $660k floor.</td></tr>
+        <tr><td>SDE 3.5× on $312k pretax</td><td class="n">$1.09m</td><td class="n">$655k</td><td>Low end of private-company band.</td></tr>
+        <tr><td>Revenue 1.4× on $840k</td><td class="n">$1.18m</td><td class="n">$706k</td><td>Young profitable eval shop.</td></tr>
+        <tr class="hi"><td>Standing (huddle card)</td><td class="n">$1.20m</td><td class="n">$720k</td><td>Between expected DCF and base DCF.</td></tr>
+        <tr><td>SDE 4.0× on $312k</td><td class="n">$1.25m</td><td class="n">$749k</td><td>Take, if he pushes.</td></tr>
+        <tr class="hi"><td>DCF base (strict book)</td><td class="n">$1.35m</td><td class="n">$811k</td><td>If the live payout ratio holds.</td></tr>
+        <tr><td>DCF organic upside, no Joe</td><td class="n">$1.57m</td><td class="n">$941k</td><td>Ask lives here as a control ceiling.</td></tr>
+        <tr class="hi"><td>Ask (control + freeze)</td><td class="n">$1.50m</td><td class="n">$900k</td><td>Day-one majority lock. Out of the money on standing.</td></tr>
+        <tr><td>DCF Joe volume</td><td class="n">$2.65m</td><td class="n">$1.59m</td><td>Not standing. This is the option payoff case.</td></tr>
+        <tr><td>8–10× pretax / listing colour</td><td class="n">$2.5m–$3.1m</td><td class="n">—</td><td>Do not use.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>10. What would change the DCF</h2>
+    <ul>
+      <li>Management accounts showing $70,000 is not holding once ads restart — cut year-1 receipts, the model falls toward the downside case.</li>
+      <li>Ever-paid drifting toward 7% without a price rise — use the conservative or downside path as the new base.</li>
+      <li>1591011 or Kim out of the perimeter — this DCF is not that asset. Licence risk is not in the 8%; it is a different company.</li>
+      <li>Accountant confirms 27% and no SBD — standing still ~$1.2m on the base path; expected value dips. Do not cut the ask solely for tax.</li>
+      <li>A year of $70k+ with ads on and a second engineer — drop 3 points of company-specific risk, and 5× year-5 leftover starts to be a conversation.</li>
+    </ul>
+
+    <div class="callout">
+      <p style="margin:0 0 6px"><strong>Carry into the huddle.</strong> Complete DCF supports the same card you already had. Standing $1.2 million. Ask $900,000 cash for 60%. Take $750,000. Floor $660,000. The DCF’s job was to test whether those numbers survive a five-year cash-flow model instead of a multiple. They do.</p>
+      <p style="margin:0">Do not send this paper, the model, or any DCF table to Joe. Do not put $1.2 million or $900,000 in the org-chart email. Cash for a freeze still lands at Verodus Capital Inc. before TAMS work starts.</p>
+    </div>
+
+    <footer>
+      Internal working paper, 25 August 2026. Unlevered FCFF, mid-year convention, 25% WACC, 15% tax, 3% opex inflation, $10k maintenance capex, 2% NWC on incremental receipts, 50/50 3.5× SDE exit and Gordon g=2.5%. Re-run: python3 11-dcf-model.py. Figures from the 25 August call, Alexander’s later run-rate, live verodus.com fees. Companions: 08-internal-valuation.md, 09-acquisition-comps, 10-valuation-and-option-premium. Perimeter: Verodus Capital Inc., Verodus L.L.C.-FZ, 1591011 B.C. Ltd. Not for Joe.
+    </footer>
+  </div>
+</body>
+</html>

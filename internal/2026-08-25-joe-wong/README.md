@@ -1,0 +1,36 @@
+# Verodus briefing
+
+**Confidential.** Do not publish to GitHub Pages.
+
+## Send to Joe
+
+| Send | File |
+| --- | --- |
+| Cover letter | `05-draft-email-to-joe.md` (paste into email) and `letter_to_joe_wong.pdf` |
+| Confirm structure (separate, after the chart) | `12-draft-email-confirm-structure.md` — no price in it |
+| Confirm the number (send this) | `15-draft-email-clarify-and-probe.md` — sent. He answered the arithmetic, not the instrument |
+| Reply (do not send now) | `17-draft-reply-start-work.md` — overtaken by the second call |
+| Reply (instrument only) | `16-draft-reply-to-joe-valuation.md` — use only if you still want to force deferred purchase vs call before talking cash |
+| Confirm the number (Verodus reading) | `13-draft-email-confirm-number.md` — do not send; asserts a cash option he did not state |
+| Confirm the number (from the call only) | `14-draft-email-confirm-number-from-call.md` — do not send alone; if he says yes, Hub is in and the freeze is free |
+| Organisation chart | `verodus_organisation_chart.pdf` (one-page Letter landscape; source `org-chart.html`) and `02-organization-structure.md` |
+| Agreement map (optional annex) | `03-entity-agreement-map.md` |
+| Attachments | `2026-05-31_SoftwareLicenseAgreement.pdf`; `2026-04-28_VerodusOperationalServicesAgreement.pdf` |
+
+Do not send `01-call-summary.md` or `18-second-call.md`.
+
+## Keep internal
+
+| File | Why |
+| --- | --- |
+| `18-second-call.md` | Second call. Do not circulate. He wants $2m / $1.2m for 60%, 60/40 from signing, cash at month 12–18, no integration cheque |
+| `19-huddle-after-second-call.md` | What to refuse and what to come back with after Friday |
+| `20-analyze-second-offer.md` | Internal. Headline $1.2m is usable; 60/40 from signing is not. Package A vs Package B |
+| `21-recommended-counter.md` | Internal. Counter Joe can recognise: $1.2m strike, 60/40 on new B2B only, $25k deposit, $600k to holders / $600k in at close. Not Friday |
+| `06-internal-gaps-and-risks.md` | Internal |
+| `08-internal-valuation.md` | Internal. Do not send the number to Joe until Kim and Chun agree |
+| `09-acquisition-comps.html` / `verodus_prop_firm_acquisition_valuation.pdf` | Internal. Prop-firm M&A comps and why $1.2m / $900k holds |
+| `10-valuation-and-option-premium.html` / `verodus_valuation_and_option_premium.pdf` | Internal. Deeper valuation, sensitivities, and what option premium is reasonable ($75k centre, not $150k plus integration) |
+| `11-dcf-valuation.html` / `verodus_dcf_valuation.pdf` | Internal. Complete unlevered DCF. Base $1.35m, expected $1.12m, standing still $1.2m. Model: `11-dcf-model.py` |
+| `04-action-items.md` | Internal |
+| `01-call-summary.md` | Do not circulate |
