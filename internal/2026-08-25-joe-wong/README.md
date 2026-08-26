@@ -25,6 +25,7 @@ Do not send `01-call-summary.md` or `18-second-call.md`.
 | --- | --- |
 | `18-second-call.md` | Second call. Do not circulate. He wants $2m / $1.2m for 60%, 60/40 from signing, cash at month 12–18, no integration cheque |
 | `19-huddle-after-second-call.md` | What to refuse and what to come back with after Friday |
+| `20-analyze-second-offer.md` | Internal. Headline $1.2m is usable; 60/40 from signing is not. Package A (paid partnership, no freeze) vs Package B (call at $1.2m) |
 | `06-internal-gaps-and-risks.md` | Internal |
 | `08-internal-valuation.md` | Internal. Do not send the number to Joe until Kim and Chun agree |
 | `09-acquisition-comps.html` / `verodus_prop_firm_acquisition_valuation.pdf` | Internal. Prop-firm M&A comps and why $1.2m / $900k holds |
