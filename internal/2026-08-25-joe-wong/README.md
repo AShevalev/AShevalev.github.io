@@ -8,7 +8,7 @@
 | --- | --- |
 | Cover letter | `05-draft-email-to-joe.md` (paste into email) and `letter_to_joe_wong.pdf` |
 | Confirm structure (separate, after the chart) | `12-draft-email-confirm-structure.md` — no price in it |
-| Confirm the number (separate) | `13-draft-email-confirm-number.md` — standing cash price for 60%; $1m / $600k labelled as an example; asks whether he would elect at six months, twelve months, or in a window between; does not grant a free lock; no Verodus ask |
+| Confirm the number (separate) | `13-draft-email-confirm-number.md` — lock a standing cash price for 60% now; he chooses later to buy at that price or not; asks six months, twelve months, or a window between; does not grant a free lock; no Verodus ask |
 | Organisation chart | `verodus_organisation_chart.pdf` (one-page Letter landscape; source `org-chart.html`) and `02-organization-structure.md` |
 | Agreement map (optional annex) | `03-entity-agreement-map.md` |
 | Attachments | `2026-05-31_SoftwareLicenseAgreement.pdf`; `2026-04-28_VerodusOperationalServicesAgreement.pdf` |
