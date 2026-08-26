@@ -8,7 +8,7 @@
 | --- | --- |
 | Cover letter | `05-draft-email-to-joe.md` (paste into email) and `letter_to_joe_wong.pdf` |
 | Confirm structure (separate, after the chart) | `12-draft-email-confirm-structure.md` — no price in it |
-| Confirm the number (send this) | `15-draft-email-clarify-and-probe.md` — amount for a majority in the 51–60% range; one question: later completion vs later choice, with hold terms implied. No Verodus ask |
+| Confirm the number (send this) | `15-draft-email-clarify-and-probe.md` — amount for a majority in the 51–60% range; number not put to holders until complete-vs-choice is answered; if a choice, amount and hold terms come together. No Verodus ask |
 | Confirm the number (Verodus reading) | `13-draft-email-confirm-number.md` — do not send; asserts a cash option he did not state |
 | Confirm the number (from the call only) | `14-draft-email-confirm-number-from-call.md` — do not send alone; if he says yes, Hub is in and the freeze is free |
 | Organisation chart | `verodus_organisation_chart.pdf` (one-page Letter landscape; source `org-chart.html`) and `02-organization-structure.md` |
